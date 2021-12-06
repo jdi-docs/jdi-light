@@ -56,13 +56,7 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns Assert class | Assert
-**isDisabled()** | Verify state | boolean
-**hasClassName(String className)** | Checks class| void
-**checked()** | Assert that Checkbox selected | Assert
-**uncheck()** | Assert that Checkbox not selected | Assert
-**check()** | select Checkbox | void
-**uncheck()** | unselect Checkbox | void
+**isSelected()** | Checks whether checkbox is selected | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
@@ -160,11 +154,18 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns Assert class | ChipAssert
-**click(int index)** | Clicks on chip | void
-**getChipLabel(int index)** | Gets label| UIElement
-**getChipRoot(int index)** | Gets root| UIElement
-**getChipIcon(int index)** | Gets Icon|UIElement
+**is()** | Returns object for work with assertions | ChipAssert
+**has()** | Returns object for work with assertions | ChipAssert
+**label()** | Returns chip's label | Label
+**deleteIcon()** | Returns chip's delete icon | Icon
+**avatar()** | Returns chip's avatar | Avatar
+**icon()** | Returns chip's icon | Icon
+**isOutlined()** | Checks whether chip is outlined | boolean
+**isClickable()** | Checks whether chip is clickable | boolean
+**isDeletable()** | Checks whether chip is deletable | boolean
+**isLink()** | Checks whether chip is link | boolean
+**getHref()** | Returns chip's href attribute | String
+**delete()** | Deletes chip | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ChipTests.java" target="_blank">Here you can find Chips tests</a>
 
@@ -218,11 +219,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns Assert class | TooltipAssert
-**has()** | Returns Assert class | TooltipAssert
-**isVisible()** | Checks element is displayed| boolean
-**isInteractive()** | Checks element is interactive| boolean
-**getValue()** | Gets value| String
+**is()** | Returns object for work with assertions | TooltipAssert
+**has()** | Returns object for work with assertions | TooltipAssert
+**isVisible()** | Checks whether element is displayed | boolean
+**isInteractive()** | Checks whether element is interactive | boolean
+**getValue()** | Gets tooltip text | String
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
 
@@ -268,13 +269,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**is()** | Returns object for work with assertions | ContainerAssert
 **fixed()** | Check whether container is fixed | boolean
 **fluid()** | Check whether container is fluid | boolean
-**getMaxWidth()** | Get max width of container | String
-**is()** | Assert method | ContainerAssert
-**fixed()** | Assert that container is fixed | ContainerAssert
-**fluid()** | Assert that container is fluid | ContainerAssert
-**maxWidth(String)** | Assert that container's max width is specified width | ContainerAssert
+**getMaxWidth()** | Returns max width of container | String
 
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank"> Here you can find Container tests </a>
@@ -329,9 +327,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**icon()** | Returns icon containing in the element | Icon
-**has()** | Returns assert class | AvatarAssert
-**is()** | Returns assert class | AvatarAssert
+**is()** | Returns object for work with assertions | AvatarAssert
+**has()** | Returns object for work with assertions | AvatarAssert
+**hasIcon()** | Checks whether the avatar has icon | boolean
+**hasBadge()** | Checks whether the avatar has badge | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
 
@@ -384,16 +383,6 @@ Here is an example with provided Material-UI v4.12.3 code:
 <h2>Portal</h2>
 ```
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**click()** | Clicks on box | void
-**click(int x, int y)** | Clicks on point in box | void
-**is()** | Returns Assert class | Assert
-**displayed()** | Assert state | Assert
-**hidden()** | Assert state | Assert
-
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a>
 
 <br></br>
@@ -437,7 +426,7 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns DividerAssert class | DividerAssert
+**is()** | Returns object for work with assertions | DividerAssert
 **isInset()** | Assert inset divider | boolean
 **isVertical()** | Assert vertical divider| boolean
 
@@ -507,11 +496,18 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Clicks on box | void
-**is()** | Returns Assert class | Assert
-**displayed()** | Assert state | Assert
-**hidden()** | Assert state | Assert
-**classValue()** | Assert state | Assert
+**is()** | Returns object for work with assertions | CardAssert
+**has()** | Returns object for work with assertions | CardAssert
+**getHeader()** | Returns the header | UIElement
+**getHeaderAvatar()** | Returns the header avatar | UIElement
+**getHeaderTitle()** | Returns the header title | UIElement
+**getHeaderSubheader()** | Returns the header subheader | UIElement
+**getHeaderContent()** | Returns the header content | UIElement
+**getHeaderAction()** | Returns the header action | UIElement
+**getHeaderActionButtons()** | Returns the header action button | UIElement
+**getContent()** | Returns the content | UIElement
+**getActionButtonByNumber(int)** | Returns the action number by specified index | UIElement
+**getActionButtons()** | Returns the action buttons | WebList
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
 
@@ -603,13 +599,14 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | RadioAssert
-**select(String/int/Enum)** | Select radiobutton by value/index  | void
+**labels()** | Returns list of labels | List<Label>
+**values()** | Returns list of values | List<String>
+**get(String)** | Returns radio button by value | UIElement
+**select(String)** | Select radiobutton by value  | void
 **selected()** | Get selected radiobutton value | String
-**values()** | Returns list of values | List\<String>
-**labels()** | Returns list of labels | List\<Label>
-**listEnabled()** | Returns list of enabled values | List\<String>
-**listDisabled()** | Returns list of disabled values | List\<String>
-**get(String/int)** | Returns radio button by value/index | UIElement
+**selected(String/index)** | Check whether specified radio button is selected | boolean
+**listEnabled()** | Returns list of enabled values | List<String>
+**listDisabled()** | Returns list of disabled values | List<String>
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonsTests.java" target="_blank">Here you can find Radio tests</a>
 
@@ -665,12 +662,13 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Clicks on element | void
-**click(int x, int y)** | Clicks on point in element | void
-**is()** | Returns Assert class | Assert
-**has()** | Returns Assert class | Assert
-**displayed()** | Assert state | Assert
-**hidden()** | Assert state | Assert
+**getNavigationButton()** | Returns the navigation button | UIElement
+**getTitle()** | Returns app bar title | UIElement
+**getActionItems()** | Returns action items | WebList
+**getOverflowMenuButton()** | Returns menu button | UIElement
+**isElevated()** | Checks whether app bar is elevated | void
+**isNotElevated()** | Checks whether app bar is not elevated | void
+**is()** | Returns object for work with assertions | TextAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a>
 
@@ -710,15 +708,6 @@ Here is an example with provided Material-UI v4.12.3 code:
   <span class="MuiTouchRipple-root"></span>
 </button>
 ```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Verify state | boolean
-**click()** | Clicks on box | void
-**displayed()** | Verify state | void
-**text()** | Verify text | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
 
@@ -792,10 +781,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()** | Verify state | boolean
-**hasClass()** | Verify state | boolean
-**classValue()** | Verify state | boolean
-**check()** | Checkbox selected | void
+**is()** | Returns object for work with assertions | TransitionAssert
+**isCollapseTransitionEntered(String)** | Checks whether collapse transition is entered | boolean
+**isCollapseTransitionHidden(String)** | Checks whether collapse transition is hidden | boolean
+**isCommonTransitionEntered(String)** | Checks whether common transition is entered | boolean
+**isCommonTransitionExited(String)** | Checks whether common transition is hidden | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
 
@@ -867,17 +857,6 @@ Here is an example with provided Material-UI v4.12.3 code:
 </div>
 ```
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Verify state | boolean
-**displayed()** | Verify state | boolean
-**hasClass()** | Verify state | boolean
-**text()** | Verify text | boolean
-**click()** | Clicks on box | void
-**hover()** | Hovers on box | void
-
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a>
 
 <br></br>
@@ -933,12 +912,7 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **colored()** | Check whether element is colored (not black) | boolean
 **getColor()** | Get color of icon | String
-**is()** | Assert method | IconAssert
-**colored()** | Assert whether icon is colored (not black) | IconAssert
-**notColored()** | Assert whether icon is not colored (black) | IconAssert
-**color(String)** | Assert that icon's color is certain color | IconAssert
-**height(int)** | Assert that icon has specified height | IconAssert
-**width(int)** | Assert that icon has specified width | IconAssert
+**is()** | Returns object for work with assertions | IconAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconsTests.java" target="_blank">Here you can find Icons tests</a>
 
@@ -994,7 +968,7 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/components/floating-action-button/" target="_blank"> Floating Action Button overview </a>
 
-__Floating Fction Button__ - element that appears in front of all screen content, typically as a circular shape with an icon in its center. 
+__Floating Action Button__ - element that appears in front of all screen content, typically as a circular shape with an icon in its center. 
 
 ![Floating action button](../../images/material-ui/Fab.png)
 
@@ -1028,17 +1002,6 @@ Here is an example with provided Material-UI v4.12.3 code:
   </button>
 </div>
 ```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Verify state | boolean
-**displayed()** | Verify state | boolean
-**enabled()** | Verify state | boolean
-**disabled()** | Verify state | boolean
-**text()** | Verify text | boolean
-**click()** | Clicks on box | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FloatingActionButtonTests.java" target="_blank">Here you can find Floating Action Button tests</a>
 
@@ -1089,14 +1052,6 @@ Here is an example with provided Material-UI v4.12.3 code:
   </div>
 </div>
 ```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Verify state | boolean
-**displayed()** | Verify state | boolean
-**text()** | Verify text | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a>
 
@@ -1163,32 +1118,11 @@ Here is an example with provided Material-UI v4.12.3 code:
   <div class="MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled">
     <span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span>
   </div>
-  <div class="MuiStep-root MuiStep-horizontal">
-    <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal Mui-disabled" tabindex="-1" type="button" disabled="">
-      <span class="MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled"><span class="MuiStepLabel-iconContainer">
-        <svg class="MuiSvgIcon-root MuiStepIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-      </span>
-        <span class="MuiStepLabel-labelContainer">
-          <span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #2</span>
-        </span>
-      </span>
-    </button>
-  </div>
+  <div class="MuiStep-root MuiStep-horizontal">...</div>
   <div class="MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled">
     <span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span>
   </div>
-  <div class="MuiStep-root MuiStep-horizontal">
-    <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal Mui-disabled" tabindex="-1" type="button" disabled="">
-      <span class="MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled">
-        <span class="MuiStepLabel-iconContainer">
-          <svg class="MuiSvgIcon-root MuiStepIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-        </span>
-        <span class="MuiStepLabel-labelContainer">
-          <span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #3</span>
-        </span>
-      </span>
-    </button>
-  </div>
+  <div class="MuiStep-root MuiStep-horizontal">...</div>
 </div>
 ```
 
@@ -1196,9 +1130,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**stepCompleted()** | Check that specified step is completed | boolean
-**stepEnabled()** | Check that specified step is enabled | boolean
-**is()** | Verify state | boolean
+**stepCompleted(int)** | Check whether specified step is completed | boolean
+**stepEnabled(int)** | Check whether specified step is enabled | boolean
+**is()** | Returns object for work with assertions | StepperAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 
@@ -1262,12 +1196,16 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **value()** | Get current value | int
 **setValue(int)** | Set new value | void
+**isDisabled()** | Checks whether slider is disabled | boolean
 **orientation()** | Get orientation value | String
 **slideVerticalTo(int)** | Set new value using drag-and-drop action for vertical slider | void
 **slideHorizontalTo(int)** | Set new value using drag-and-drop action for horizontal slider | void
 **moveRight()** | Move right to one unit using arrow key on keyboard | void
 **moveLeft()** | Move left to one unit using arrow key on keyboard | void
-**is()** | Verify state | boolean
+**thumb()** | Returns slider thumb | UIElement
+**track()** | Returns slider track | UIElement
+**getInteger(String, WebElement, int)** | Returns integer value of specified element | int
+**is()** | Returns object for work with assertions | SliderAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a>
 
@@ -1331,10 +1269,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Assert method | Tabs Assert
-**enabled()** | Check if tab is enabled | boolean
-**disabled()** | Check if tab is disabled | boolean
-**selected()** | Check if tab is selected | boolean
+**is()** | Returns object for work with assertions | TabsAssert
+**enabled(int)** | Check whether tab is enabled | boolean
+**disabled(int)** | Check whether tab is disabled | boolean
+**selected(int)** | Check whether tab is selected | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a>
 
@@ -1395,9 +1333,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**elements()** | Returns all rows | List<String>
-**get()** | Returns values of the specified row | String
-**is()** | Verify state | TableAssert
+**elements(int)** | Returns rows whose number is greater than or equal to the specified number | List<String>
+**get(String)** | Returns values of the specified row | String
+**is()** | Returns object for work with assertions | TableAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a>
 
@@ -1768,7 +1706,7 @@ Available methods in Java JDI Light:
 **expand()** | Expands element | void
 **cancel()** | Closes element without saving changes | void
 **confirm()** | Closes element with saving changes | void
-**input()** | Sets text in element's input field | void
+**input(String)** | Sets text in element's input field | void
 **title()** | Returns element's title | String
 **isExpanded()** | Shows that element is expanded | boolean
 **getText()** | Returns text from input field | String
@@ -2281,7 +2219,7 @@ Bottom navigation bars allow movement between primary destinations in an app.
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Assert method | BottomNavigation Assert
-**selected** | Check if item is selected | boolean
+**selected** | Check whether item is selected | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a>
 

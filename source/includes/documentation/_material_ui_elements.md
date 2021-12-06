@@ -36,6 +36,8 @@ Checkbox is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
 
+__Checkbox__ - element that allows the user to select one or more items from a set. It can be used to turn an option on or off.
+
 ![Checkbox](../../images/material-ui/Checkbox.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
@@ -44,16 +46,11 @@ Here is an example with provided Material-UI v4.12.3 code:
 <span class="MuiButtonBase-root MuiIconButton-root jss40 MuiCheckbox-root MuiCheckbox-colorSecondary jss41 Mui-checked MuiIconButton-colorSecondary" aria-disabled="false">
   <span class="MuiIconButton-label">
     <input class="jss43" type="checkbox" data-indeterminate="false" aria-label="primary checkbox" value="" checked="">
-    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z">
-      </path>
-    </svg>
+    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
   </span>
   <span class="MuiTouchRipple-root"></span>
 </span>
 ```
-
-__Checkbox__ - element that allows the user to select one or more items from a set. It can be used to turn an option on or off.
 
 Available methods in Java JDI Light:
 
@@ -109,6 +106,8 @@ Chip is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.displaydata.Chip_
 
+__Chips__ - compact elements that represent an input, attribute, or action. Chips allow users to enter information, make selections, filter content, or trigger actions.
+
 ![Chip](../../images/material-ui/Chip.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
@@ -120,35 +119,27 @@ Here is an example with provided Material-UI v4.12.3 code:
     <li>
       <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">Angular</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
     <li>
       <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">jQuery</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
     <li>
       <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">Polymer</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
     <li>
       <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable" tabindex="0" role="button">
-        <svg class="MuiSvgIcon-root MuiChip-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiChip-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
         <span class="MuiChip-label">React</span>
         <span class="MuiTouchRipple-root"></span>
       </div>
@@ -156,9 +147,7 @@ Here is an example with provided Material-UI v4.12.3 code:
     <li>
       <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">Vue.js</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
@@ -166,8 +155,6 @@ Here is an example with provided Material-UI v4.12.3 code:
   <p id="lastChipArrayClickInfo">You clicked on: jQuery</p>
 </div>
 ```
-
-__Chips__ - compact elements that represent an input, attribute, or action. Chips allow users to enter information, make selections, filter content, or trigger actions.
 
 Available methods in Java JDI Light:
 
@@ -211,22 +198,21 @@ Tooltip is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.displaydata.Tooltip_
 
+__Tooltips__ - elements that display informative text when users hover over, focus on, or tap an element.
+
 ![Tooltip](../../images/material-ui/Tooltip.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<button class="MuiButtonBase-root MuiFab-root jss8 MuiFab-secondary" tabindex="0" type="button" title="Add" aria-label="add">
+<button class="MuiButtonBase-root MuiFab-root jss8 MuiFab-secondary" 
+        tabindex="0" type="button" title="Add" aria-label="add">
   <span class="MuiFab-label">
-    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-    </svg>
+    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
   </span>
   <span class="MuiTouchRipple-root"></span>
 </button>
 ```
-
-__Tooltips__ - elements that display informative text when users hover over, focus on, or tap an element.
 
 Available methods in Java JDI Light:
 
@@ -264,6 +250,8 @@ Container is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.layout.Container_
 
+__Container__ - the most basic layout element. It centers your content horizontally.
+
 ![Container](../../images/material-ui/Container.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
@@ -275,8 +263,6 @@ Here is an example with provided Material-UI v4.12.3 code:
   </div>
 </div>
 ```
-
-__Container__ - the most basic layout element. It centers your content horizontally.
 
 Available methods in Java JDI Light:
 
@@ -318,6 +304,8 @@ Avatar is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.displaydata.Avatar_
 
+__Avatars__ - graphical representations of users.
+
 ![Avatar](../../images/material-ui/Avatar.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
@@ -336,8 +324,6 @@ Here is an example with provided Material-UI v4.12.3 code:
   </span>
 </span>
 ```
-
-__Avatars__ - graphical representations of users.
 
 Available methods in Java JDI Light:
 
@@ -386,6 +372,8 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/ru/components/click-away-listener/" target="_blank"> Click Away Listener overview </a>
 
+__Click Away Listener__ - element that detects if a click event happened outside an element. It listens for clicks that occur somewhere in the document.
+
 ![ClickAwayListener](../../images/material-ui/ClickAwayListener.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
@@ -397,7 +385,6 @@ Here is an example with provided Material-UI v4.12.3 code:
 </div>
 <h2>Portal</h2>
 ```
-__Click Away Listener__ - element that detects if a click event happened outside an element. It listens for clicks that occur somewhere in the document.
 
 Available methods in Java JDI Light:
 
@@ -432,6 +419,8 @@ Divider is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.displaydata.Divider_
 
+__Divider__ - a thin line that groups content in lists and layouts.
+
 ![InsetDivider](../../images/material-ui/InsetDivider.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
@@ -445,8 +434,6 @@ Here is an example with provided Material-UI v4.12.3 code:
   <li class="MuiListItem-root MuiListItem-gutters">...</li>
 </ul>
 ```
-
-__Divider__ - a thin line that groups content in lists and layouts.
 
 Available methods in Java JDI Light:
 
@@ -480,12 +467,15 @@ Card is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.surfaces.Card_
 
+__Card__ - element that contains content and actions about a single subject.
+
 ![Сard](../../images/material-ui/Card.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="MuiPaper-root MuiCard-root jss54 MuiPaper-elevation1 MuiPaper-rounded" id="simpleCard">
+<div class="MuiPaper-root MuiCard-root jss54 MuiPaper-elevation1 
+    MuiPaper-rounded" id="simpleCard">
   <div class="MuiCardContent-root">
     <p class="MuiTypography-root jss56 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom">
       Word of the Day
@@ -514,8 +504,6 @@ Here is an example with provided Material-UI v4.12.3 code:
   </div>
 </div>
 ```
-
-__Card__ - element that contains content and actions about a single subject.
 
 Available methods in Java JDI Light:
 
@@ -557,6 +545,8 @@ Radio is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.inputs.RadioButtons_
 
+__Radio buttons__ - elements that allow the user to select one option from a set.
+
 ![Radio](../../images/material-ui/Radio.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
@@ -567,14 +557,7 @@ Here is an example with provided Material-UI v4.12.3 code:
       <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary" aria-disabled="false">
         <span class="MuiIconButton-label">
           <input class="jss66" name="position" type="radio" value="first">
-          <div class="jss67">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
-            </svg>
-            <svg class="MuiSvgIcon-root jss68" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"></path>
-            </svg>
-          </div>
+          <div class="jss67">...</div>
         </span>
         <span class="MuiTouchRipple-root"></span>
       </span>
@@ -585,14 +568,7 @@ Here is an example with provided Material-UI v4.12.3 code:
       <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary jss64 Mui-checked MuiIconButton-colorPrimary" aria-disabled="false">
         <span class="MuiIconButton-label">
           <input class="jss66" name="position" type="radio" value="second">
-          <div class="jss67 jss69">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
-            </svg>
-            <svg class="MuiSvgIcon-root jss68" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"></path>
-            </svg>
-          </div>
+          <div class="jss67 jss69">...</div>
         </span>
         <span class="MuiTouchRipple-root"></span>
       </span>
@@ -603,14 +579,7 @@ Here is an example with provided Material-UI v4.12.3 code:
       <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary" aria-disabled="false">
         <span class="MuiIconButton-label">
           <input class="jss66" name="position" type="radio" value="third">
-          <div class="jss67">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
-            </svg>
-            <svg class="MuiSvgIcon-root jss68" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"></path>
-            </svg>
-          </div>
+          <div class="jss67">...</div>
         </span>
         <span class="MuiTouchRipple-root"></span>
       </span>
@@ -621,14 +590,7 @@ Here is an example with provided Material-UI v4.12.3 code:
       <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary jss65 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled" tabindex="-1" aria-disabled="true">
         <span class="MuiIconButton-label">
           <input class="jss66" disabled="" name="position" type="radio" value="disabled">
-          <div class="jss67">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
-            </svg>
-            <svg class="MuiSvgIcon-root jss68" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"></path>
-            </svg>
-          </div>
+          <div class="jss67">...</div>
         </span>
       </span>
       <span class="MuiTypography-root MuiFormControlLabel-label Mui-disabled MuiTypography-body1">Disabled</span>
@@ -637,8 +599,6 @@ Here is an example with provided Material-UI v4.12.3 code:
   <p id="lastClickContent">You clicked Second</p>
 </fieldset>
 ```
-
-__Radio buttons__ - elements that allow the user to select one option from a set.
 
 Available methods in Java JDI Light:
 
@@ -660,6 +620,7 @@ Available methods in Java JDI Light:
 ### 4.10 App Bar
 
 ```java 
+    // @FindBy(xpath = "(//header[contains(@class, 'MuiAppBar-root')])[1]")
     @JAppBar(
             root = "(//header[contains(@class, 'MuiAppBar-root')])[1]",
             actionItems = {"//*[text()='News']/following-sibling::button"}
@@ -668,39 +629,41 @@ Available methods in Java JDI Light:
 
     @Test
     public void simpleAppBarTest() {
-        simpleAppBarPage.open();
-        simpleAppBarPage.shouldBeOpened();
-
         simpleAppBar.isDisplayed();
         simpleAppBar.getNavigationButton().isDisplayed();
         simpleAppBar.getNavigationButton().click();
         simpleAppBar.getTitle().has().text("News");
         simpleAppBar.getActionItems().get(1).isDisplayed();
         simpleAppBar.getActionItems().get(1).click();
-
-        appBarMenu.getNavigationButton().isDisplayed();
-        appBarMenu.getNavigationButton().click();
-        appBarMenu.getTitle().has().text("Photos");
-        appBarMenu.getOverflowMenuButton().isDisplayed();
-        appBarMenu.getOverflowMenuButton().click();
-        appBarMenuItems.get(1).has().text("Profile");
-        appBarMenuItems.get(1).click();
-        userIconSwitch.check();
-        timer.wait(() -> appBarMenu.getOverflowMenuButton().isNotDisplayed());
-
-        prominentMenu.getNavigationButton().isDisplayed();
-        prominentMenu.getNavigationButton().click();
-        prominentMenu.getTitle().has().text("Material-UI");
-        prominentMenu.getActionItems().get(1).click();
-        prominentMenu.getOverflowMenuButton().click();
     }
 ```
 
-##### <a href="https://material-ui.com/components/app-bar/" target="_blank"> https://material-ui.com/components/app-bar/ </a>
+##### <a href="https://material-ui.com/components/app-bar/" target="_blank"> App Bar overview </a>
+
+App Bar is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.surfaces.AppBar_
+
+__App Bar__ - element that displays information and actions relating to the current screen.
 
 ![AppBar](../../images/material-ui/AppBar.png)
 
-The App Bar displays information and actions relating to the current screen.
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4">
+  <div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters">
+    <button class="MuiButtonBase-root MuiIconButton-root jss132 MuiIconButton-colorInherit MuiIconButton-edgeStart" tabindex="0" type="button" aria-label="menu">...</button>
+    <h6 class="MuiTypography-root jss133 MuiTypography-h6">News</h6>
+    <button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button">
+      <span class="MuiButton-label">Login</span>
+      <span class="MuiTouchRipple-root"></span>
+    </button>
+  </div>
+</header>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -711,29 +674,46 @@ The App Bar displays information and actions relating to the current screen.
 **displayed()** | Assert state | Assert
 **hidden()** | Assert state | Assert
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a>
+
+<br></br>
 
 ### 4.11 Box
 
-```java     
-    @UI("//button[contains(@class,'MuiButton-outlined')]")
-    public static Button outlinedBox;
+```java    
+    // @FindBy(xpath = "//button[contains(@class,'MuiButton-contained')]")
+    @UI("//button[contains(@class,'MuiButton-contained')]")
+    public static Button containedBox;
+    
+    // @FindBy(xpath = "//p")
+    @UI("p")
+    public static Text lastClickContent;
 
     @Test
-    public void outlinedBoxTest() {
-        outlinedBox.is().displayed();
-        outlinedBox.click();
-        outlinedBox.is().text("SECOND BUTTON");
-        lastClickContent.is().text("You clicked Second button");
+    public void containedBoxTest() {
+        containedBox.is().displayed();
+        containedBox.click();
+        containedBox.is().text("FIRST BUTTON");
+        lastClickContent.is().text("You clicked First button");
     }
 ```
 
-##### <a href="https://material-ui.com/components/box/" target="_blank"> https://material-ui.com/components/box/ </a>
+##### <a href="https://material-ui.com/components/box/" target="_blank"> Box overview </a>
 
-The Box component serves as a wrapper component for most of the CSS utility needs.
-Java example code for the Button box:
+__Box__ - component that serves as a wrapper component for most of the CSS utility needs.
 
 ![Box](../../images/material-ui/Box.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" type="button">
+  <span class="MuiButton-label">First button</span>
+  <span class="MuiTouchRipple-root"></span>
+</button>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -742,38 +722,75 @@ Java example code for the Button box:
 **displayed()** | Verify state | void
 **text()** | Verify text | void
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
+
+<br></br>
 
 ### 4.12 Transitions
 
 ```java     
+    @FindBy(xpath = "//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
     @UI("//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
-    public static List<UIElement> collapseFadeTransitions;
+    public static List<Transition> collapseFadeTransitions;
 
+    @FindBy(xpath = "//span[contains(@class, 'MuiSwitch-switchBase')]")
     @UI("//span[contains(@class, 'MuiSwitch-switchBase')]")
     public static List<Checkbox> checkboxes;
     
     @Test
     public void collapseDisplayTest() {
         Timer timer = new Timer(2000L);
-        collapseFadeTransitions.get(1).has().classValue(not(containsString("MuiCollapse-entered")));
-        collapseFadeTransitions.get(2).has().classValue(not(containsString("MuiCollapse-entered")));
+
+        collapseFadeTransitions.get(1).is().transitionExited(COLLAPSE);
+        collapseFadeTransitions.get(2).is().transitionExited(COLLAPSE);
+
         checkboxes.get(1).check();
-        timer.wait(() -> collapseFadeTransitions.get(1).hasClass(containsString("MuiCollapse-entered").toString()));
-        collapseFadeTransitions.get(1).has().classValue(containsString("MuiCollapse-entered"));
-        collapseFadeTransitions.get(2).has().classValue(containsString("MuiCollapse-entered"));
+
+        timer.wait(() -> collapseFadeTransitions.get(1).is().transitionEntered(COLLAPSE));
+        collapseFadeTransitions.get(2).is().transitionEntered(COLLAPSE);
+
         checkboxes.get(1).uncheck();
-        timer.wait(() -> collapseFadeTransitions.get(1).hasClass(containsString("MuiCollapse-hidden").toString()));
-        collapseFadeTransitions.get(1).has().classValue(not(containsString("MuiCollapse-entered")));
-        collapseFadeTransitions.get(2).has().classValue(not(containsString("MuiCollapse-entered")));
+
+        timer.wait(() -> collapseFadeTransitions.get(1).is().collapseTransitionHidden(COLLAPSE));
+        collapseFadeTransitions.get(1).is().transitionExited(COLLAPSE);
+        collapseFadeTransitions.get(2).is().transitionExited(COLLAPSE);
     }
 ```
 
-##### <a href="https://material-ui.com/components/transitions/" target="_blank"> https://material-ui.com/components/transitions/ </a>
+##### <a href="https://material-ui.com/components/transitions/" target="_blank"> Transitions overview </a>
 
-Transition helps make a UI expressive and easy to use.
+Transitions is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.utils.Transition_
+
+__Transitions__ - element that can be used to introduce some basic motion to your applications. 
+
+It helps make a UI expressive and easy to use.
 
 ![Transitions](../../images/material-ui/Transitions.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<span class="MuiButtonBase-root MuiIconButton-root jss152 MuiSwitch-switchBase MuiSwitch-colorSecondary" aria-disabled="false">
+  <span class="MuiIconButton-label">
+    <input class="jss155 MuiSwitch-input" type="checkbox" value="">
+    <span class="MuiSwitch-thumb"></span>
+  </span>
+  <span class="MuiTouchRipple-root"></span>
+</span>
+<div class="MuiCollapse-container MuiCollapse-hidden" style="min-height: 0px;">
+  <div class="MuiCollapse-wrapper">
+    <div class="MuiCollapse-wrapperInner">
+      <div class="MuiPaper-root jss149 MuiPaper-elevation4 MuiPaper-rounded">
+        <svg class="jss150">...</svg>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -782,7 +799,9 @@ Transition helps make a UI expressive and easy to use.
 **classValue()** | Verify state | boolean
 **check()** | Checkbox selected | void
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
+
+<br></br>
 
 ### 4.13 Material Icons
 

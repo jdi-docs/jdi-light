@@ -1343,14 +1343,9 @@ Available methods in Java JDI Light:
 ### 4.20 Table
 
 ```java 
+    // @FindBy(id = "basicTable")
     @UI("#basicTable")
     public static Table basicTable;
-    
-    @UI(".MuiDataGrid-selectedRowCount")
-    public static Text selectedRowCounter;
-    
-    @UI("//div[contains(@class, 'MuiTablePagination-toolbar')]/div/button")
-    public static List<Button> scrollButtons;
     
     @Test
     public void basicTableTest() {
@@ -1358,43 +1353,60 @@ Available methods in Java JDI Light:
         assertThat(basicTable.count(), equalTo(13));
         basicTable.getCell(1, 1).has().text("305");
     }
-
-    @Test
-    public void dataTableTest() {
-        getDataTableCell(1, 3).click();
-        getDataTableCell(3, 3).has().text("Arya");
-        getDataTableCell(1, 1).click();
-        selectedRowCounter.has().text(containsString("9"));
-        getDataTableCell(3, 1).click();
-        getDataTableCell(5, 1).click();
-        selectedRowCounter.has().text(containsString("7"));
-        getDataTableCell(2, 1).click();
-        selectedRowCounter.has().text(containsString("6"));
-        scrollButtons.get(1).is().displayed();
-        scrollButtons.get(1).is().disabled();
-        scrollButtons.get(2).is().displayed();
-        scrollButtons.get(2).click();
-        getDataTableCell(2, 3).has().text("Harvey");
-    }
 ```
 
-##### <a href="https://material-ui.com/components/Tables/" target="_blank"> https://material-ui.com/components/Tables/ </a>
+##### <a href="https://material-ui.com/components/Tables/" target="_blank"> Table overview </a>
 
-Tables display sets of data. They can be fully customized.
+Table is located in the following class:
+
+- __Java__: _com.epam.jdi.light.elements.complex.table.Table_
+
+__Table__ - element that displays sets of data.
 
 ![Tables](../../images/material-ui/Tables.png)
 
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<table class="MuiTable-root jss247" aria-label="simple table" id="basicTable">
+  <thead class="MuiTableHead-root">
+  <tr class="MuiTableRow-root MuiTableRow-head">
+    <th class="MuiTableCell-root MuiTableCell-head" scope="col">Dessert (100g serving)</th>
+    <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Calories</th>
+    <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Fat&nbsp;(g)</th>
+    <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Carbs&nbsp;(g)</th>
+    <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Protein&nbsp;(g)</th>
+  </tr>
+  </thead>
+  <tbody class="MuiTableBody-root">
+  <tr class="MuiTableRow-root">
+    <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Cupcake</th>
+    <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">305</td>
+    <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">3.7</td>
+    <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">67</td>
+    <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">4.3</td>
+  </tr>
+  ...
+  </tbody>
+</table>
+```
+
+Available methods in Java JDI Light:
+
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Clicks on button | void
-**has()** | Returns Assert class | Assert
-**text()** | Assert text | Assert
+**elements()** | Returns all rows | List<String>
+**get()** | Returns values of the specified row | String
+**is()** | Verify state | TableAssert
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a>
+
+<br></br>
 
 ### 4.21 Typography
 
 ```java 
+    // @FindBy(css = ".MuiGrid-root[3] .MuiTypography-root")
     @UI(".MuiGrid-root[3] .MuiTypography-root")
     public static List<Typography> typographyTexts;
     
@@ -1413,101 +1425,117 @@ Tables display sets of data. They can be fully customized.
 
         jdiAssert(actualTexts, equalTo(expectedText));
     }
-
-    @Test
-    public void typographyStylesTest() {
-        typographyTexts.get(1).has().style(HEAD_1);
-
-        List<TypographyStyles> expectedStyles = Arrays.asList(
-                HEAD_1, HEAD_2, HEAD_3, HEAD_4, HEAD_5, HEAD_6,
-                SUBTITLE_1, SUBTITLE_2, BODY_1, BODY_2,
-                BUTTON, CAPTION, OVERLINE);
-
-        List<TypographyStyles> actualStyles = typographyTexts.stream()
-                .map(Typography::getStyle)
-                .collect(Collectors.toList());
-
-        jdiAssert(actualStyles, equalTo(expectedStyles));
-    }
 ```
 
-##### <a href="https://mui.com/components/typography/" target="_blank"> https://mui.com/components/typography/ </a>
+##### <a href="https://mui.com/components/typography/" target="_blank"> Typography overview </a>
+
+__Typography__ - element that is used to present your design and content as clearly and efficiently as possible.
+
+Typography is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Typography_
 
 ![Typography](../../images/material-ui/Typography.png)
 
-Use typography to present your design and content as clearly and efficiently as possible.
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10">
+  <div class="MuiContainer-root MuiContainer-maxWidthXl">
+    <div class="MuiBox-root jss271">
+      <div class="jss272">
+        <h2 class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom">Head 1</h2>
+        <h2 class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom">Head 2</h2>
+        <h3 class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom">Head 3</h3>
+        <h4 class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom">Head 4</h4>
+        <h5 class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom">Head 5</h5>
+        <h6 class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom">Head 6</h6>
+        <h6 class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom">Subtitle 1</h6>
+        <h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom">Subtitle 2</h6>
+        <p class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom">Body 1</p>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom">Body 2</p>
+        <span class="MuiTypography-root MuiTypography-button MuiTypography-gutterBottom MuiTypography-displayBlock">Button text</span>
+        <span class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom MuiTypography-displayBlock">Caption text</span>
+        <span class="MuiTypography-root MuiTypography-overline MuiTypography-gutterBottom MuiTypography-displayBlock">Overline text</span>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | TypographyAssert
 **getStyle()** | Returns style of component | TypographyStyles
-**getText()** | Returns text of component | String
-
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a>
+
+<br></br>
 
 ### 4.22 Badge
 
 ```java 
-    @UI("//span[@class='MuiBadge-root']")
-    public static List<Badge> badge;
-  
-    @UI("//span[contains(@class,'MuiBadge-badge')]")
-    public static List<Text> badgeCounter;
+    // @FindBy(css = "#primaryColorBadge .MuiBadge-badge")
+    @UI("#primaryColorBadge .MuiBadge-badge")
+    public static Badge primaryColorBadge;
     
     @Test
     public void simpleBadgeTest() {
-        badge.get(1).is().displayed();
-        badge.get(1).is().displayedSvg();
-        badgeCounter.get(1).is().text("4");
-        badgeCounter.get(1).has().classValue(containsString("MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary"));
-        badge.get(2).is().displayed();
-        badge.get(2).is().displayedSvg();
-        badgeCounter.get(2).is().text("4");
-        badgeCounter.get(2).has().classValue(containsString("MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorError"));
+        primaryColorBadge.is().displayed();
+        primaryColorBadge.has().counterValue("4");
+        primaryColorBadge.has().primaryColor();
+        primaryColorBadge.has().position("TopRightRectangle");
     }
 ```
 
-##### <a href="https://material-ui.com/ru/components/badges/" target="_blank"> https://material-ui.com/ru/components/badges/ </a>
+##### <a href="https://material-ui.com/ru/components/badges/" target="_blank"> Badge overview </a>
 
-Badge generates a small badge to the top-right of its child(ren).
+Badge is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Badge_
+
+__Badge__ - element that generates a small badge to the top-right of its children.
 
 ![Badge](../../images/material-ui/Badge.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<span class="MuiBadge-root" id="primaryColorBadge">
+  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+  <span class="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary">
+    4
+  </span>
+</span>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | BadgeAssert
 **has()** | Returns object for work with assertions | BadgeAssert
-**getIcon()** | Returns element's component | UIElement
-**getCounterValue()** | Returns component's value| String
-**hasDot()** | Shows that element has component 'dot'| boolean
-**hasIconStatus(String)** | Shows that element has required color status| boolean
+**getPosition()** | Returns element's position | String
+**getCounterValue()** | Returns component's value | String
+**isDot()** | Shows that element is a dot | boolean
+**isInvisible()** | Shows that element is invisible | boolean
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
+
+<br></br>
 
 ### 4.23 Snackbars
 
 ```java 
+    // @FindBy(xpath = "//span[text()='Open simple snackbar']/parent::button")
     @UI("//span[text()='Open simple snackbar']/parent::button")
     public static Button simpleSnackbarButton;
 
+    // @FindBy(css = "[direction='up']")
     @UI("[direction='up']")
     public static Snackbar simpleSnackbar;
-
-    @UI("//span[text()='Open success snackbar']/parent::button")
-    public static Button successSnackbarButton;
-
-    @UI("//div[@direction]/div[@class='MuiAlert-message']/parent::div")
-    public static Snackbar successSnackbar;
-
-    @UI("//div[@class='MuiAlert-message']/parent::div")
-    public static List<Snackbar> customizedSnackbar;
-
-    @UI("//h2[text()='Message Length']/preceding::button/span[@class='MuiButton-label' and not(text()='Open simple snackbar') and not(text()='Open success snackbar')]")
-    public static List<Button> positionedSnackbarButtons;
-
-    @UI("//div[contains(@class,'MuiSnackbar-root')]")
-    public static Snackbar positionedSnackbar;
     
     @Test
     public void simpleSnackbarTest() {
@@ -1523,28 +1551,41 @@ Badge generates a small badge to the top-right of its child(ren).
         simpleSnackbar.close();
         simpleSnackbar.is().notVisible();
     }
-
-    @Test
-    public void customizedSnackbarTest() {
-        successSnackbar.is().notVisible();
-        successSnackbarButton.click();
-        successSnackbar.is().displayed();
-        successSnackbar.has().text("This is a success message!");
-        successSnackbar.close();
-        successSnackbar.is().notVisible();
-
-        customizedSnackbar.get(1).has().text("This is an error message!").and().messageType("error");
-        customizedSnackbar.get(2).has().text("This is a warning message!").and().messageType("warning");
-        customizedSnackbar.get(3).has().text("This is an information message!").and().messageType("info");
-        customizedSnackbar.get(4).has().text("This is a success message!").and().messageType("success");
-    }
 ```
 
-##### <a href="https://material-ui.com/components/snackbars/" target="_blank"> https://material-ui.com/components/snackbars/ </a>
+##### <a href="https://material-ui.com/components/snackbars/" target="_blank"> Snackbars overview </a>
 
-Snackbars provide brief messages about app processes. The component is also known as a toast.
+Snackbar is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.feedback.Snackbar_
+
+__Snackbars__ - elements that provide brief messages about app processes. The component is also known as a toast.
 
 ![Snackbars](../../images/material-ui/Snackbars.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<button class="MuiButtonBase-root MuiButton-root MuiButton-text" tabindex="0" type="button">
+  <span class="MuiButton-label">Open simple snackbar</span>
+  <span class="MuiTouchRipple-root"></span>
+</button>
+
+<div class="MuiPaper-root MuiSnackbarContent-root MuiPaper-elevation6" role="alert" direction="up" style="opacity: 1; transform: none; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">
+  <div class="MuiSnackbarContent-message">Note archived</div>
+  <div class="MuiSnackbarContent-action">
+    <button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-textSizeSmall MuiButton-sizeSmall" tabindex="0" type="button">
+      <span class="MuiButton-label">UNDO</span>
+      <span class="MuiTouchRipple-root"></span>
+    </button>
+    <button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall" tabindex="0" type="button" aria-label="close">
+      <span class="MuiIconButton-label">...<span class="MuiTouchRipple-root"></span>
+    </button>
+  </div>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1555,225 +1596,343 @@ Snackbars provide brief messages about app processes. The component is also know
 **messageType(String)** | Shows that element's message has required type| boolean
 **position(String)** | Shows that element has required position| boolean
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a>
+
+<br></br>
 
 ### 4.24 Backdrop
 
 ```java 
-  @UI(".MuiButton-root")
-  public static Button showBackdropButton;
+    // @FindBy(className = "MuiButton-root")
+    @UI(".MuiButton-root")
+    public static MaterialButton showBackdropButton;
 
-  @UI(".MuiBackdrop-root")
-  public static UIElement backdrop;
+    // @FindBy(className = "MuiBackdrop-root")
+    @UI(".MuiBackdrop-root")
+    public static Backdrop backdrop;
 
-  @Test
-  public void defaultBackdropTest() {
-      showBackdropButton.click();
-      timer.wait(() -> backdrop.is().visible());
-      backdrop.click();
-      timer.wait(() -> backdrop.is().hidden());
-  }
+    @Test
+    public void defaultBackdropTest() {
+        showBackdropButton.click();
+        timer.wait(() -> backdrop.is().visible());
+        backdrop.core().click();
+        timer.wait(() -> backdrop.is().hidden());
+    }
 ```
 
-##### <a href="https://material-ui.com/components/backdrop/" target="_blank"> https://material-ui.com/components/backdrop/ </a>
+##### <a href="https://material-ui.com/components/backdrop/" target="_blank"> Backdrop overview </a>
 
-The backdrop component is used to provide emphasis on a particular element or parts of it.
+Backdrop is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.feedback.Backdrop_
+
+__Backdrop__ - element that is used to provide emphasis on a particular element or parts of it.
+
 ![Backdrop](../../images/material-ui/Backdrop.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="MuiBackdrop-root jss284" aria-hidden="true" style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">
+  <div class="MuiCircularProgress-root MuiCircularProgress-indeterminate" role="progressbar" style="width: 40px; height: 40px;">
+    <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+      <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6"></circle>
+    </svg>
+  </div>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | BackdropAssert
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/BackdropTests.java" target="_blank">Here you can find Backdrop tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/BackdropTests.java" target="_blank">Here you can find Backdrop tests</a>
+
+<br></br>
 
 ### 4.25 Dialog
 
 ```java 
+    // @FindBy(xpath = ""//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]"")
     @UI("//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]")
     public static Button simpleDialogButton;
     
+    // @FindBy(xpath = "//h2[contains(@class,'MuiTypography-h6') and not (text()='Phone Ringtone')]")
+    @UI("//h2[contains(@class,'MuiTypography-h6') and not (text()='Phone Ringtone')]")
+    public static Text dialogTitle;
+    
+    // @FindBy(xpath = "//div[@id='simple-dialog-title']/following::div[@class='MuiListItemText-root'][1]")
     @UI("//div[@id='simple-dialog-title']/following::div[@class='MuiListItemText-root'][1]")
     public static Button simpleDialogListButton;
     
+    // @FindBy(id = "simpleDialogSelection")
     @UI("#simpleDialogSelection")
     public static Text simpleDialogField;
   
-    @UI("//h2[contains(@class,'MuiTypography-h6') and not (text()='Phone Ringtone')]")
-    public static Text dialogTitle;
-  
-    @UI("//div[@id='scroll-dialog-title']/following::div[contains(@class,'MuiDialogContent-dividers')]")
-    public static TextArea dialogScrollableContent;
-  
-    @Test
-    public void simpleDialogTest() {
-          simpleDialogButton.click();
-          dialogTitle.is().text("Set backup account");
-          simpleDialogListButton.click();
-          simpleDialogField.is().text("Selected: username@gmail.com");
-      }
-    
-    @Test
-    public void scrollableDialogTest() {
-          scrollPaperDialogButton.click();
-          dialogTitle.is().text("Subscribe");
-          dialogScrollableContent.core().jsExecute("scrollTo(0, document.body.scrollHeight)");
-          dialogContent.is().text(containsString(dialogScrollableTextContent));
-          subscribeButton.click();
-          scrollableDialogField.is().text("Last clicked button: Subscribe");
-          scrollPaperDialogButton.click();
-          scrollableDialogCancelButton.click();
-          scrollableDialogField.is().text("Last clicked button: Cancel");
+    @Test(dataProviderClass = DialogDataProvider.class, 
+            dataProvider = "simpleDialogDataProvider")
+    public void simpleDialogTest(String dialogTitleText, String dialogResultFieldText) {
+        simpleDialogButton.click();
+        dialogTitle.is().text(dialogTitleText);
+        simpleDialogListButton.click();
+        simpleDialogField.is().text(dialogResultFieldText);
     }
 ```
 
-##### <a href="https://material-ui.com/components/dialogs/" target="_blank"> https://material-ui.com/components/dialogs/ </a>
+##### <a href="https://material-ui.com/components/dialogs/" target="_blank"> Dialog overview </a>
 
-Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+Dialog is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
+
+__Dialog__ - element that informs users about a task and can contain critical information, require decisions, or involve multiple tasks.
+
 ![Dialog](../../images/material-ui/Dialog.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions | BackdropAssert
-**snackbarButton(String)** | Returns element's button | UIElement
-**text()** | Returns component's text| String
-**close()** | Closes element| void
-**messageType(String)** | Shows that element's message has required type| boolean
-**position(String)** | Shows that element has required position| boolean
+Here is an example with provided Material-UI v4.12.3 code:
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a>
+```html
+<div class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded" role="dialog" aria-labelledby="simple-dialog-title">
+  <div class="MuiDialogTitle-root" id="simple-dialog-title">
+    <h2 class="MuiTypography-root MuiTypography-h6">Set backup account</h2>
+  </div>
+  <ul class="MuiList-root MuiList-padding">
+    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">...</div>
+    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">...</div>
+    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">...</div>
+  </ul>
+</div>
+```
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a>
+
+<br></br>
 
 ### 4.26 Date / Time pickers
 
 ```java 
-    @UI("//*[@id = 'date-picker-dialog-label']/parent::div")
-    public static DateTimePicker dialogPicker;
-  
+    // @FindBy(xpath = "//*[@id = 'date-picker-inline-label']/parent::div")
+    @UI("//*[@id = 'date-picker-inline-label']/parent::div")
+    public static DateTimePicker inlineDatePicker;
+    
     @Test
-    public void datePickerDialogTest() {
-        dialogPicker.has().title("Date picker dialog");
-        dialogPicker.expand();
-        dialogPicker.selectDate("12");
-        dialogPicker.confirm();
-        dialogPicker.has().text(containsString("/12/"));
+    public void datePickerInlineTest() {
+        inlineDatePicker.has().title("Date picker inline");
 
-        dialogPicker.expand();
-        dialogPicker.selectDate("11");
-        dialogPicker.cancel();
-        dialogPicker.has().text("08/12/2014");
-
-        dialogPicker.input("10/10/2021");
-        dialogPicker.has().text("10/10/2021");
+        inlineDatePicker.input("10/10/2022");
+        inlineDatePicker.has().text("10/10/2022");
+        inlineDatePicker.selectDate("22");
+        inlineDatePicker.has().text(containsString("/22/"));
     }
 ```
 
-##### <a href="https://material-ui.com/components/pickers/" target="_blank"> https://material-ui.com/components/pickers/ </a>
+##### <a href="https://material-ui.com/components/pickers/" target="_blank"> Date / Time pickers overview </a>
 
-Date pickers and Time pickers provide a simple way to select a single value from a pre-determined set.
+DateTimePicker is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.DateTimePicker_
+
+__Date / Time Picker__ - element that provides a simple way to select a single value from a pre-determined set.
+
 ![DateTimePickers](../../images/material-ui/DateTimePickers.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd">
+  <input aria-invalid="false" id="date-picker-inline" type="text" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd" value="08/18/2014">
+  <div class="MuiInputAdornment-root MuiInputAdornment-positionEnd">
+    <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="change date">...</button>
+  </div>
+</div>
+
+<div class="MuiPickersBasePicker-container">
+  <div class="MuiPickersBasePicker-pickerView">
+    <div>
+      <div class="MuiPickersCalendarHeader-switchHeader">...</div>
+      <div class="MuiPickersCalendarHeader-daysHeader">...</div>
+    </div>
+    <div class="MuiPickersSlideTransition-transitionContainer MuiPickersCalendar-transitionContainer">...</div>
+  </div>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions| DateTimePickerAssert
-**selectDate(String)** | Selects required date| void
-**expand()** | Expands element| void
-**cancel()** | Closes element without saving changes| void
-**confirm()** | Closes element with saving changes| void
-**input(String)** | Sets text in element's input field| void
-**title()** | Returns element's title| String
-**isExpanded()** | Shows that element is expanded| boolean
-**getText()** | Returns text from input field| String
+**is()** | Returns object for work with assertions | DateTimePickerAssert
+**selectDate(String)** | Selects required date | void
+**expand()** | Expands element | void
+**cancel()** | Closes element without saving changes | void
+**confirm()** | Closes element with saving changes | void
+**input()** | Sets text in element's input field | void
+**title()** | Returns element's title | String
+**isExpanded()** | Shows that element is expanded | boolean
+**getText()** | Returns text from input field | String
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a>
+
+<br></br>
 
 ### 4.27 Select
 
 ```java 
-    @UI("//div[@id='simple-select']")
-    public static Button simpleSelectExpand;
-    
-    @UI("//input")
-    public static List<TextField> simpleSelectField;
-    
-    @UI("//ul")
-    public static Select selectList;
-    
-    @UI("//div[@id='disabled-select']")
-    public static Button disabledSelectExpand;
+    // @FindBy(xpath = "//*[@id='demo-simple-select']/following-sibling::div")
+    @JDropdown(root = "//*[@id='demo-simple-select']/following-sibling::div")
+    public static Select simpleSelect;
   
     @Test
     public void simpleSelectTest() {
-        simpleSelectExpand.click();
-        selectList.selectItemByText("Henry");
-        simpleSelectField.get(1).is().attr("value", "Henry");
-    }
-    
-    @Test
-    public void disabledSelectTest() {
-        disabledSelectExpand.is().classValue(containsString("Mui-disabled"));
-        disabledSelectExpand.has().attr("aria-disabled", "true");
-        disabledSelectExpand.has().attr("aria-labelledby", "disabled-select");
+        String value = "Hansen";
+        simpleSelect.expand();
+        simpleSelect.is().expanded();
+        simpleSelect.close();
+        simpleSelect.is().collapsed();
+        simpleSelect.select(value);
+        simpleSelect.has().selected(value);
     }
 ```
 
-##### <a href="https://material-ui.com/components/selects/" target="_blank"> https://material-ui.com/components/selects/ </a>
+##### <a href="https://material-ui.com/components/selects/" target="_blank"> Select overview </a>
 
-Select components are used for collecting user provided information from a list of options.
+Select is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.Select_
+
+__Select__ - element that is used for collecting user provided information from a list of options.
+
 ![Select](../../images/material-ui/Select.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="MuiFormControl-root jss304">
+  <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated" data-shrink="false" id="demo-simple-select">
+    Simple Select
+  </label>
+  <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl">
+    <div class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input" tabindex="0" role="button" aria-haspopup="listbox" aria-labelledby="simple-select" id="simple-select">
+      <span>​</span>
+    </div>
+    <input aria-hidden="true" tabindex="-1" class="MuiSelect-nativeInput" value="">
+    <svg class="MuiSvgIcon-root MuiSelect-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+  </div>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions| SelectAssert
-**close()** | Closes element| void
-**select(String)** | Selects required value in element| void
-**selected()** | Returns value of selected element| String
-**getText()** | Returns value of selected element| String
-**text()** | Returns value of selected element| String
+**is()** | Returns object for work with assertions | SelectAssert
+**list()** | Returns list of options | SelectAssert
+**close()** | Closes element | void
+**select(String)** | Selects required value in element | void
+**selected()** | Returns value of selected element | String
+**getText()** | Returns value of selected element | String
+**text()** | Returns value of selected element | String
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a>
+
+<br></br>
 
 ### 4.28 Switch
 
 ```java 
-    @UI("//span[contains(@class,'MuiSwitch-switchBase')]")
-    public static List<Checkbox> switches;
+    // @FindBy(xpath = "//fieldset//span[@class='MuiSwitch-root']")
+    @UI("//fieldset//span[@class='MuiSwitch-root']")
+    public static List<Switch> formGroupSwitches;
+
+    // @FindBy(xpath = "//p[contains(@class,'MuiFormHelperText-root')]")
+    @UI("//p[contains(@class,'MuiFormHelperText-root')]")
+    public static Text formGroupTextForm;
   
-    @Test
-    public void basicSwitchesTest() {
-        switches.get(1).is().classValue(containsString("MuiSwitch-colorSecondary"));
-        switches.get(1).is().classValue(containsString("Mui-checked"));
-        switches.get(1).uncheck();
-        switches.get(1).is().classValue(not(containsString("Mui-checked")));
-        
-        switches.get(3).is().classValue(containsString("MuiSwitch-colorSecondary"));
-        switches.get(3).is().classValue(not(containsString("Mui-checked")));
-        switches.get(3).check();
-        switches.get(3).is().classValue(containsString("Mui-checked"));
+    @Test(dataProvider = "switchesWithFormGroupTestsDataProvider")
+    public void switchesWithFormGroupTest(int index, String fullName) {
+        formGroupTextForm.is().text("Be careful");
+        switchWithLabelTestLogic(formGroupSwitches.get(index),fullName);
+    }
+    
+    private void switchWithLabelTestLogic(Switch muiSwitch, String labelText) {
+        String firstName = Arrays.stream(labelText.split(" "))
+                .collect(Collectors.toList())
+                .get(0)
+                .toLowerCase();
+        basicSwitchTestLogic(muiSwitch);
+        muiSwitch.has().label();
+        muiSwitch.has().labelText(labelText);
+        if (muiSwitch.isTurnedOn()) {
+            muiSwitch.turnOff();
+        }
+        muiSwitch.turnOn();
+        formGroupTextForm.is().text(String.format("Be careful with %s", firstName));
     }
 ```
 
-##### <a href="https://material-ui.com/components/switches/" target="_blank"> https://material-ui.com/components/switches/ </a>
+##### <a href="https://material-ui.com/components/switches/" target="_blank"> Switch overview </a>
 
-Switches toggle the state of a single setting on or off.
+Switch is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.Switch_
+
+__Switch__ - element that toggles the state of a single setting on or off.
+
 ![Switch](../../images/material-ui/Switch.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<fieldset class="MuiFormControl-root">
+  <legend class="MuiFormLabel-root">Assign responsibility</legend>
+  <div class="MuiFormGroup-root">
+    <label class="MuiFormControlLabel-root">
+      <span class="MuiSwitch-root">
+        <span class="MuiButtonBase-root MuiIconButton-root jss326 MuiSwitch-switchBase MuiSwitch-colorSecondary jss327 Mui-checked" aria-disabled="false">
+          <span class="MuiIconButton-label">
+            <input class="jss329 MuiSwitch-input" name="gilad" type="checkbox" value="" checked="">
+            <span class="MuiSwitch-thumb"></span>
+          </span>
+          <span class="MuiTouchRipple-root"></span>
+        </span>
+        <span class="MuiSwitch-track"></span>
+      </span>
+      <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Gilad Gray</span>
+    </label>
+    <label class="MuiFormControlLabel-root">
+      <span class="MuiSwitch-root">...</span>
+      <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Jason Killian</span>
+    </label>
+    <label class="MuiFormControlLabel-root">
+      <span class="MuiSwitch-root">...</span>
+    <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Antoine Llorca</span></label></div>
+  <p class="MuiFormHelperText-root">Be careful </p>
+</fieldset>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions| SwitchAssert
-**has()** | Returns object for work with assertions| SwitchAssert
-**isTurnedOn()** | Shows that element turned on| boolean
-**isTurnedOff()** | Shows that element turned off| boolean
-**turnOn()** | Turns element on| void
-**turnOff()** | Turns element off| void
-**isDisabled()** | Shows that element is disabled| boolean
-**isEnabled()** | Shows that element is enabled| boolean
-**label()** | Returns element's label| Label
-**labelText()** | Returns label's text| String
+**is()** | Returns object for work with assertions | SwitchAssert
+**has()** | Returns object for work with assertions | SwitchAssert
+**isTurnedOn()** | Shows that element turned on | boolean
+**isTurnedOff()** | Shows that element turned off | boolean
+**turnOn()** | Turns element on | void
+**turnOff()** | Turns element off | void
+**label()** | Returns element's label | Label
+**labelText()** | Returns label's text | String
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a>
+
+<br></br>
 
 ### 4.29 Button
 
 ```java 
+    // @FindBy(xpath = "//h2[text()='Contained buttons']/parent::div/div[1]/*")
     @UI("//h2[text()='Contained buttons']/parent::div/div[1]/*")
     public static List<Button> containedButtons;
 
@@ -1782,27 +1941,49 @@ Switches toggle the state of a single setting on or off.
         containedButtons.get(1).click();
         containedButtons.get(1).is().text("DEFAULT");
         containedButtons.get(6).is().text("Last click: Default");
-      
-        containedButtons.get(4).is().text("DISABLED");
-        containedButtons.get(4).is().attr("disabled");
-        containedButtons.get(4).is().disabled();
-      
-        containedButtons.get(5).click();
-        containedButtons.get(5).is().text("LINK");
-        containedButtons.get(6).is().text("Last click: Link");
-        containedButtons.get(5).is().notVisible();
+
+        containedButtons.get(2).click();
+        containedButtons.get(2).is().text("PRIMARY");
+        containedButtons.get(6).is().text("Last click: Primary");
+
+        containedButtons.get(3).click();
+        containedButtons.get(3).is().text("SECONDARY");
+        containedButtons.get(6).is().text("Last click: Secondary");
     }
 ```
 
-##### <a href="https://material-ui.com/components/buttons/" target="_blank"> https://material-ui.com/components/buttons/ </a>
+##### <a href="https://material-ui.com/components/buttons/" target="_blank"> Button overview </a>
 
-Buttons allow users to take actions, and make choices, with a single tap.
+Button is located in the following class:
+
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.Button_
+
+__Button__ - element that allows users to take actions and make choices with a single tap.
 
 ![Buttons](../../images/material-ui/Buttons.png)
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a>
+Here is an example with provided Material-UI v4.12.3 code:
 
-<br></br><br></br>
+```html
+<h2>Contained buttons</h2>
+<div class="jss331">
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-contained" tabindex="0" type="button">
+    <span class="MuiButton-label">Default</span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+</div>
+```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | TextAssert
+**getValue()** | Returns button text | String
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a>
+
+<br></br>
 
 ### 4.30 ButtonGroup
 

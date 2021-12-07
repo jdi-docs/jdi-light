@@ -3,6 +3,7 @@
 ### 4.1 Checkbox
 
 ```java 
+    // @FindBy(xpath = "//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")
     @UI("//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")
     public static List<Checkbox> basicCheckboxes;
 
@@ -301,6 +302,7 @@ Available methods in Java JDI Light:
 ### 4.5 Avatar
 
 ```java 
+    // @FindBy(xpath = "//span[@class = 'MuiBadge-root']")
     @UI("//span[@class = 'MuiBadge-root']")
     public static List<Avatar> avatarsWithPhoto;
 
@@ -1470,7 +1472,6 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | BadgeAssert
-**has()** | Returns object for work with assertions | BadgeAssert
 **getPosition()** | Returns element's position | String
 **getCounterValue()** | Returns component's value | String
 **isDot()** | Shows that element is a dot | boolean
@@ -3618,7 +3619,6 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 |**is()** |Returns object for work with assertions| TextFieldAssert
-|**has()**|Returns object for work with assertions|TextFieldAssert
 |**setValue(String text)**|Input text| void
 |**Clear()**|Clear data in Text Field| void
 |**Click()**|Click on Text Field| void

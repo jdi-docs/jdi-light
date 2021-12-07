@@ -91,7 +91,6 @@ Basically, you have methods that can return you elements containing in banner (b
 |Method | Description | Return Type
         --- | --- | ---
 **is()** | Returns Assert class | BannerAssert
-**has()** | Returns Assert class | BannerAssert
 **getSwitch()** | Returns switch containing in the element | Switch
 **checkbox()** | Returns checkbox containing in the element | Checkbox
 **button()** | Returns button containing in the element | Button
@@ -156,7 +155,7 @@ App bar component extends abstract class Basic Bar. It is pivotal to any graphic
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()/has()** | Returns Assert class | AppBarAssert
+**is()** | Returns Assert class | AppBarAssert
 **checkbox()** | Returns checkbox containing in the element | Checkbox
 **hasClickableTabs()** | Returns true if element has clickable tabs | boolean
 **hasHiddenHeader()** | Returns true if element's header is hidden | boolean
@@ -196,7 +195,7 @@ System bar component extends abstract class Basic Bar. It can be used for displa
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()/has()** | Returns Assert class | SystemBarAssert
+**is()** | Returns Assert class | SystemBarAssert
 **getBackgroundColor()** | Returns element's background color | String
 **getPosition()** | Returns element's position | String
 **getTime()** | Returns text from element's 'time' field | String
@@ -237,7 +236,7 @@ Toolbar component extends abstract class Basic Bar. It is pivotal to any gui, as
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()/has()** | Returns Assert class | ToolBarAssert
+**is()** | Returns Assert class | ToolBarAssert
 **closeButton()** | Returns 'Close' button containing in the element | Button
 **deleteButton()** | Returns 'Delete' button containing in the element | Button
 **exportButton()** | Returns 'Export' button containing in the element | Button
@@ -1347,7 +1346,7 @@ Slide group component is used to display pseudo paginated information. It uses I
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | SlideGroupAssert
+**is()** | Returns Assert class | SlideGroupAssert
 **slidesPosition()** | Returns position of visible slides | String
 **slideIsSelected()** | Shows that slide is selected | boolean
 **clickOnSlideByIndex()** | Click on slide under specified index | void
@@ -1843,7 +1842,7 @@ Icon component provides a large set of graphial signs to provide context for var
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | IconAssert
+**is()** | Returns Assert class | IconAssert
 **hasType()** | Returns type of icon (mdi, svg, etc.) | String
 **hasColor()** | Returns color of icon in rgba | String
 **hasHeight()** | Returns height of icon | String
@@ -1888,7 +1887,7 @@ Carousel component is used to display large numbers of visual content on a rotat
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | CarouselAssert
+**is()** | Returns Assert class | CarouselAssert
 **clickOnNextButton()** | Click on 'next' button | void
 **clickOnPreviousButton()** | Click on 'previous' button | void
 **goToSlide()** | Click on selected delimiter | void
@@ -1925,7 +1924,7 @@ Navigation drawer component is what users will utilize to navigate through the a
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | NavigationDrawerAssert
+**is()** | Returns Assert class | NavigationDrawerAssert
 **hasNumberOfOptions()** | Returns navigation drawer's number of options | int
 **optionIsSelected()** | Shows that option is selected | boolean
 **isExpanded()** | Shows that navigation drawer is expanded | boolean
@@ -1978,7 +1977,7 @@ Tooltip component is useful for conveying information when a user hovers over an
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | TooltipAssert
+**is()** | Returns Assert class | TooltipAssert
 
 For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
 
@@ -2009,7 +2008,7 @@ Progress circular component is used to convey data circularly to users. It also 
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | ProgressSpinnerAssert 
+**is()** | Returns Assert class | ProgressSpinnerAssert 
 **hasColor()** | Returns color of the element in rgba | String
 **hasHeight()** | Returns height of the element | String
 **hasWidth()** | Returns width of the element | String
@@ -2043,7 +2042,7 @@ Progress linear component is used to convey data circularly to users. They can a
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | ProgressBarAssert
+**is()** | Returns Assert class | ProgressBarAssert
 **hasBarColor()** | Returns color of the bar in rgba | String
 **isDeterminate()** | Shows that bar is determinate | boolean
 **isIndeterminate()** | Shows that bar is indeterminate | boolean
@@ -2087,7 +2086,7 @@ Menu component shows a menu at the position of the element that was used to acti
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | MenuAssert
+**is()** | Returns Assert class | MenuAssert
 **hasPosition()** | Returns position of menu | String
 **hasNumberOfOptions()** | Returns number of options in menu | int
 **hasOptionsTitles()** | Returns list of titles of options in menu | List<String>
@@ -2134,7 +2133,7 @@ Image component is packed with features to support wide variety of media files. 
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | ImageAssert
+**is()** | Returns Assert class | ImageAssert
 **hasSourcePath()** | Returns image's source path | String
 **hasHeight()** | Returns image's height | String
 **hasWidth()** | Returns image's width | String

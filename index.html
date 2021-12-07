@@ -33867,13 +33867,12 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-container-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank"> Here you can find Container tests </a></h5>
 <p><br></br></p>
-<h3 id='4-5-avatar'>4.5 Avatar</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//span[@class = 'MuiBadge-root']")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class = 'MuiBadge-root']"</span><span class="o">)</span>
+<h3 id='4-5-avatar'>4.5 Avatar</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class = 'MuiBadge-root']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithPhoto</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarsWithPhotoTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="n">Avatar</span> <span class="n">avatar</span> <span class="o">:</span> <span class="n">avatarsWithPhoto</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Avatar</span> <span class="n">avatar</span> <span class="o">:</span> <span class="n">avatarsWithPhoto</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
             <span class="n">avatar</span><span class="o">.</span><span class="na">image</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
             <span class="n">avatar</span><span class="o">.</span><span class="na">badge</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
@@ -33922,19 +33921,9 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>AvatarAssert</td>
 </tr>
 <tr>
-<td><strong>has()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>AvatarAssert</td>
-</tr>
-<tr>
-<td><strong>hasIcon()</strong></td>
-<td>Checks whether the avatar has icon</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>hasBadge()</strong></td>
-<td>Checks whether the avatar has badge</td>
-<td>boolean</td>
+<td><strong>icon()</strong></td>
+<td>Returns avatar&#39;s icon</td>
+<td>Icon</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h5>

@@ -301,13 +301,12 @@ Available methods in Java JDI Light:
 ### 4.5 Avatar
 
 ```java 
-    // @FindBy(xpath = "//span[@class = 'MuiBadge-root']")
     @UI("//span[@class = 'MuiBadge-root']")
     public static List<Avatar> avatarsWithPhoto;
 
     @Test
     public void avatarsWithPhotoTests() {
-        for (Avatar avatar : avatarsWithPhoto) {
+        for(Avatar avatar : avatarsWithPhoto) {
             avatar.is().displayed();
             avatar.image().is().displayed();
             avatar.badge().is().displayed();
@@ -347,9 +346,7 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | AvatarAssert
-**has()** | Returns object for work with assertions | AvatarAssert
-**hasIcon()** | Checks whether the avatar has icon | boolean
-**hasBadge()** | Checks whether the avatar has badge | boolean
+**icon()** | Returns avatar's icon | Icon
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
 

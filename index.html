@@ -33469,31 +33469,44 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownOptionsTests.java" target="_blank">Bootstrap Test Examples</a></p>
-<h2 id='4-material-ui-elements'>4. Material UI elements</h2><h3 id='4-1-checkbox'>4.1 Checkbox</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">basicCheckbox</span><span class="o">;</span>
+<h2 id='4-material-ui-elements'>4. Material UI elements</h2><h3 id='4-1-checkbox'>4.1 Checkbox</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">basicCheckboxes</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicCheckboxTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">checkboxTestLogic</span><span class="o">(</span>
-                    <span class="n">basicCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">),</span>
-                    <span class="n">i</span> <span class="o">!=</span> <span class="mi">2</span> <span class="o">?</span> <span class="s">"MuiCheckbox-colorSecondary"</span> <span class="o">:</span>
-                            <span class="s">"MuiCheckbox-colorPrimary"</span><span class="o">);</span>
-        <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicCheckboxTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicCheckboxes</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="k">this</span><span class="o">::</span><span class="n">basicCheckboxTestLogic</span><span class="o">);</span>
     <span class="o">}</span>
 
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkboxTestLogic</span><span class="o">(</span><span class="n">Checkbox</span> <span class="n">checkbox</span><span class="o">,</span> <span class="n">String</span> <span class="n">className</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">isEnabled</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">checkbox</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
-            <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
-            <span class="n">checkbox</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
-            <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">deselected</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">basicCheckboxTestLogic</span><span class="o">(</span><span class="n">Checkbox</span> <span class="n">checkbox</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">isDisabled</span><span class="o">())</span> <span class="o">{</span>
             <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">isChecked</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">isUnchecked</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
+                <span class="n">checkbox</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+                <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+                <span class="n">checkbox</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+                <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
+            <span class="o">}</span>
         <span class="o">}</span>
-        <span class="n">checkbox</span><span class="o">.</span><span class="na">hasClass</span><span class="o">(</span><span class="n">className</span><span class="o">);</span>
-    <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">hasPrimaryColor</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">checkbox</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">primaryColor</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">hasSecondaryColor</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">checkbox</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">secondaryColor</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">isIndeterminate</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">indeterminate</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>    
 </code></pre><h5 id='checkbox-overview'><a href="https://material-ui.com/components/checkboxes/" target="_blank"> Checkbox overview </a></h5>
 <p>Checkbox is located in the following class:</p>
 
@@ -33524,9 +33537,44 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>isSelected()</strong></td>
-<td>Checks whether checkbox is selected</td>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>CheckboxAssert</td>
+</tr>
+<tr>
+<td><strong>isChecked()</strong></td>
+<td>Checks whether checkbox is checked</td>
 <td>boolean</td>
+</tr>
+<tr>
+<td><strong>isUnchecked()</strong></td>
+<td>Checks whether checkbox is unchecked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>check()</strong></td>
+<td>Checks checkbox</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck()</strong></td>
+<td>Unchecks checkbox</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>label()</strong></td>
+<td>Returns checkboxes label</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>isIndeterminate()</strong></td>
+<td>Checks whether checkbox is indeterminate</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getLabelPosition()</strong></td>
+<td>Returns checkbox label&#39;s position (top, bottom start, end)</td>
+<td>String</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-checkbox-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h5>

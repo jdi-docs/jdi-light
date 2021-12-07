@@ -3,31 +3,44 @@
 ### 4.1 Checkbox
 
 ```java 
-    // @FindBy(xpath = "//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")
     @UI("//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")
-    public List<Checkbox> basicCheckbox;
+    public static List<Checkbox> basicCheckboxes;
 
     @Test
-    public void basicCheckboxTest() {
-        for (int i = 1; i < 3; i++) {
-            checkboxTestLogic(
-                    basicCheckbox.get(i),
-                    i != 2 ? "MuiCheckbox-colorSecondary" :
-                            "MuiCheckbox-colorPrimary");
-        }
+    public void basicCheckboxTests() {
+        basicCheckboxes.forEach(this::basicCheckboxTestLogic);
     }
     
-    private void checkboxTestLogic(Checkbox checkbox, String className) {
-        if (checkbox.isEnabled()) {
-            checkbox.check();
-            checkbox.is().selected();
-            checkbox.uncheck();
-            checkbox.is().deselected();
-        } else {
+    private void basicCheckboxTestLogic(Checkbox checkbox) {
+        if (checkbox.isDisabled()) {
             checkbox.is().disabled();
+            if (checkbox.isChecked()) {
+                checkbox.is().checked();
+            } else {
+                checkbox.is().unchecked();
+            }
+        } else {
+            checkbox.is().enabled();
+            if (checkbox.isUnchecked()) {
+                checkbox.is().unchecked();
+                checkbox.check();
+                checkbox.is().checked();
+            } else {
+                checkbox.is().checked();
+                checkbox.uncheck();
+                checkbox.is().unchecked();
+            }
         }
-        checkbox.hasClass(className);
-    }
+        if (checkbox.hasPrimaryColor()) {
+            checkbox.has().primaryColor();
+        }
+        if (checkbox.hasSecondaryColor()) {
+            checkbox.has().secondaryColor();
+        }
+        if (checkbox.isIndeterminate()) {
+            checkbox.is().indeterminate();
+        }
+    }    
 ```
 
 ##### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> Checkbox overview </a>
@@ -51,12 +64,18 @@ Here is an example with provided Material-UI v4.12.3 code:
   <span class="MuiTouchRipple-root"></span>
 </span>
 ```
-
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**isSelected()** | Checks whether checkbox is selected | boolean
+**is()** | Returns object for work with assertions | CheckboxAssert
+**isChecked()** | Checks whether checkbox is checked | boolean
+**isUnchecked()** | Checks whether checkbox is unchecked | boolean
+**check()** | Checks checkbox | void
+**uncheck()** | Unchecks checkbox | void
+**label()** | Returns checkboxes label | Label
+**isIndeterminate()** | Checks whether checkbox is indeterminate | boolean
+**getLabelPosition()** | Returns checkbox label's position (top, bottom start, end) | String
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 

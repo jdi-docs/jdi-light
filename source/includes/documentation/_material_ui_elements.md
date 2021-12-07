@@ -442,9 +442,11 @@ Available methods in Java JDI Light:
     public static Card simpleCard;
 
     @Test
-    public void simpleCardTestContent() {
-        simpleCard.getContent().is().text(containsString("Word of the Day"));
-        simpleCard.getContent().is().text(containsString("be•nev•o•lent"));
+    public void simpleCardTest() {
+        simpleCard.is().displayed();
+        simpleCard.has().title("be•nev•o•lent");
+        simpleCard.primaryText().has().text(containsString("a benevolent smile"));
+        simpleCard.learnMoreButton().click();
     }
 ```
 
@@ -497,17 +499,9 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | CardAssert
-**has()** | Returns object for work with assertions | CardAssert
-**getHeader()** | Returns the header | UIElement
-**getHeaderAvatar()** | Returns the header avatar | UIElement
-**getHeaderTitle()** | Returns the header title | UIElement
-**getHeaderSubheader()** | Returns the header subheader | UIElement
-**getHeaderContent()** | Returns the header content | UIElement
-**getHeaderAction()** | Returns the header action | UIElement
-**getHeaderActionButtons()** | Returns the header action button | UIElement
-**getContent()** | Returns the content | UIElement
-**getActionButtonByNumber(int)** | Returns the action number by specified index | UIElement
-**getActionButtons()** | Returns the action buttons | WebList
+**actions()** | Returns element's action | UIElement
+**title()** | Returns element's title | UIElement
+**subtitle()** | Returns element's subtitle | UIElement
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
 
@@ -3612,7 +3606,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.53 UseMediaQuery
+### 4.49 UseMediaQuery
 
 ```java 
     //    @FindBy(xpath = "//span[contains(.,'min-width')]")

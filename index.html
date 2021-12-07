@@ -33469,7 +33469,8 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownOptionsTests.java" target="_blank">Bootstrap Test Examples</a></p>
-<h2 id='4-material-ui-elements'>4. Material UI elements</h2><h3 id='4-1-checkbox'>4.1 Checkbox</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]"</span><span class="o">)</span>
+<h2 id='4-material-ui-elements'>4. Material UI elements</h2><h3 id='4-1-checkbox'>4.1 Checkbox</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">basicCheckboxes</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
@@ -33867,7 +33868,8 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-container-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank"> Here you can find Container tests </a></h5>
 <p><br></br></p>
-<h3 id='4-5-avatar'>4.5 Avatar</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class = 'MuiBadge-root']"</span><span class="o">)</span>
+<h3 id='4-5-avatar'>4.5 Avatar</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//span[@class = 'MuiBadge-root']")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class = 'MuiBadge-root']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithPhoto</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
@@ -35196,11 +35198,6 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </thead><tbody>
 <tr>
 <td><strong>is()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>BadgeAssert</td>
-</tr>
-<tr>
-<td><strong>has()</strong></td>
 <td>Returns object for work with assertions</td>
 <td>BadgeAssert</td>
 </tr>
@@ -37737,11 +37734,6 @@ It supports standard, outlined and filled styling.</p>
 <td>TextFieldAssert</td>
 </tr>
 <tr>
-<td><strong>has()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>TextFieldAssert</td>
-</tr>
-<tr>
 <td><strong>setValue(String text)</strong></td>
 <td>Input text</td>
 <td>void</td>
@@ -37925,11 +37917,6 @@ the way you want.</p>
 <td>BannerAssert</td>
 </tr>
 <tr>
-<td><strong>has()</strong></td>
-<td>Returns Assert class</td>
-<td>BannerAssert</td>
-</tr>
-<tr>
 <td><strong>getSwitch()</strong></td>
 <td>Returns switch containing in the element</td>
 <td>Switch</td>
@@ -38064,7 +38051,7 @@ the way you want.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()/has()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>AppBarAssert</td>
 </tr>
@@ -38155,7 +38142,7 @@ the way you want.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()/has()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>SystemBarAssert</td>
 </tr>
@@ -38243,7 +38230,7 @@ the way you want.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()/has()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>ToolBarAssert</td>
 </tr>
@@ -40173,7 +40160,7 @@ The v-list-item-group component utilizes v-item-group at its core to provide a c
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()/is()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>SlideGroupAssert</td>
 </tr>
@@ -41077,7 +41064,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()/is()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>IconAssert</td>
 </tr>
@@ -41145,7 +41132,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()/is()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>CarouselAssert</td>
 </tr>
@@ -41213,7 +41200,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()/is()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>NavigationDrawerAssert</td>
 </tr>
@@ -41305,7 +41292,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()/is()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>TooltipAssert</td>
 </tr>
@@ -41341,7 +41328,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()/is()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>ProgressSpinnerAssert</td>
 </tr>
@@ -41398,7 +41385,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()/is()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>ProgressBarAssert</td>
 </tr>
@@ -41481,7 +41468,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()/is()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>MenuAssert</td>
 </tr>
@@ -41559,7 +41546,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()/is()</strong></td>
+<td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>ImageAssert</td>
 </tr>

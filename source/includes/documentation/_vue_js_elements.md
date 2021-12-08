@@ -34,29 +34,25 @@ and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light
 ```java
     @Test
     public void avatarsWithSizeTests() {
-        for(Avatar avatar: avatarsWithSize) {
-        avatar.is().displayed();
-        }
-        avatarsWithSize.get(1).is().text("36");
-        avatarsWithSize.get(2).is().text("48");
-        avatarsWithSize.get(3).is().text("62");
-        avatarsWithSize.get(1).has().size("36");
-        avatarsWithSize.get(2).has().size("48");
-        avatarsWithSize.get(3).has().size("62");
+      avatarsWithSize.forEach(avatar -> avatar.is().displayed());
+      avatarsWithSize.get(1).has().text("36");
+      avatarsWithSize.get(2).has().text("48");
+      avatarsWithSize.get(3).has().text("62");
+      avatarsWithSize.get(1).has().size(36);
+      avatarsWithSize.get(2).has().size(48);
+      avatarsWithSize.get(3).has().size(62);
     }
 ```
 
 ![Avatars example](../../images/vuetify/avatars.png)
 
+__Avatars__ - graphical representations of users.
+
+Avatar element implements the following interfaces: HasIcon, HasImage and IsText. Therefore, you have access to default methods of these interfaces.
+
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns Assert class | AvatarAssert
-**has()** | Returns Assert class | AvatarAssert
-**getPhoto()** | Returns element's photo | UIElement
-**getIcon()** | Returns element's icon | UIElement
-**hasPhoto()** | Shows that element has photo | boolean
-**hasIcon()** | Shows that element has icon | boolean
-**hasSize()** | Returns element's size | String
 
 For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
 and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).

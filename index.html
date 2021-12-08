@@ -37816,18 +37816,20 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts
 </ul>
 <pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarsWithSizeTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">Avatar</span> <span class="nl">avatar:</span> <span class="n">avatarsWithSize</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"36"</span><span class="o">);</span>
-        <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"48"</span><span class="o">);</span>
-        <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"62"</span><span class="o">);</span>
-        <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="s">"36"</span><span class="o">);</span>
-        <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="s">"48"</span><span class="o">);</span>
-        <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="s">"62"</span><span class="o">);</span>
+      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">avatar</span> <span class="o">-&gt;</span> <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">());</span>
+      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"36"</span><span class="o">);</span>
+      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"48"</span><span class="o">);</span>
+      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"62"</span><span class="o">);</span>
+      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">36</span><span class="o">);</span>
+      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">48</span><span class="o">);</span>
+      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">62</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
 <p><img src="images/vuetify/avatars.png" alt="Avatars example" /></p>
+
+<p><strong>Avatars</strong> - graphical representations of users.</p>
+
+<p>Avatar element implements the following interfaces: HasIcon, HasImage and IsText. Therefore, you have access to default methods of these interfaces.</p>
 
 <table><thead>
 <tr>
@@ -37840,36 +37842,6 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts
 <td><strong>is()</strong></td>
 <td>Returns Assert class</td>
 <td>AvatarAssert</td>
-</tr>
-<tr>
-<td><strong>has()</strong></td>
-<td>Returns Assert class</td>
-<td>AvatarAssert</td>
-</tr>
-<tr>
-<td><strong>getPhoto()</strong></td>
-<td>Returns element&#39;s photo</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>getIcon()</strong></td>
-<td>Returns element&#39;s icon</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>hasPhoto()</strong></td>
-<td>Shows that element has photo</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>hasIcon()</strong></td>
-<td>Shows that element has icon</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>hasSize()</strong></td>
-<td>Returns element&#39;s size</td>
-<td>String</td>
 </tr>
 </tbody></table>
 

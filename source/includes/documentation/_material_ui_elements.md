@@ -2142,8 +2142,7 @@ Here is an example with provided MaterialUI v4.12.3 code:
 ### 4.32 GridList
 
 ```java 
-
-     //    @FindBy(css = ".MuiGridList-root.jss5")
+     // @FindBy(css = ".MuiGridList-root.jss5")
      @UI(".MuiGridList-root.jss5")
      public static GridList singleLineGridList;
     
@@ -2156,7 +2155,7 @@ Here is an example with provided MaterialUI v4.12.3 code:
     }
 ```
 
-##### <a href="https://material-ui.com/components/grid/" target="_blank"> GridList overview </a>
+##### <a href="https://v4.mui.com/components/image-list" target="_blank"> GridList overview </a>
 
 GridList is located in the following class:
 

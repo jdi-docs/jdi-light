@@ -716,7 +716,7 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/components/box/" target="_blank"> Box overview </a>
 
-__Box__ - component that serves as a wrapper component for most of the CSS utility needs.
+__Box__ - element that serves as a wrapper component for most of the CSS utility needs.
 
 ![Box](../../images/material-ui/Box.png)
 

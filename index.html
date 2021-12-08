@@ -953,7 +953,7 @@
 								            <a href="#4-48-text-field" class="toc-h2 h3 toc-link" data-title="4.48 Text Field">4.48 Text Field</a>
                           </li>
                           <li>
-								            <a href="#4-53-usemediaquery" class="toc-h2 h3 toc-link" data-title="4.53 UseMediaQuery">4.53 UseMediaQuery</a>
+								            <a href="#4-49-usemediaquery" class="toc-h2 h3 toc-link" data-title="4.49 UseMediaQuery">4.49 UseMediaQuery</a>
                           </li>
                       </ul>
                   </li>
@@ -34027,9 +34027,11 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Card</span> <span class="n">simpleCard</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleCardTestContent</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">simpleCard</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Word of the Day"</span><span class="o">));</span>
-        <span class="n">simpleCard</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"be•nev•o•lent"</span><span class="o">));</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleCardTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">simpleCard</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">simpleCard</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="s">"be•nev•o•lent"</span><span class="o">);</span>
+        <span class="n">simpleCard</span><span class="o">.</span><span class="na">primaryText</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"a benevolent smile"</span><span class="o">));</span>
+        <span class="n">simpleCard</span><span class="o">.</span><span class="na">learnMoreButton</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre><h5 id='card-overview'><a href="https://material-ui.com/components/cards/" target="_blank"> Card overview </a></h5>
 <p>Card is located in the following class:</p>
@@ -34088,59 +34090,19 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>CardAssert</td>
 </tr>
 <tr>
-<td><strong>has()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>CardAssert</td>
-</tr>
-<tr>
-<td><strong>getHeader()</strong></td>
-<td>Returns the header</td>
+<td><strong>actions()</strong></td>
+<td>Returns element&#39;s action</td>
 <td>UIElement</td>
 </tr>
 <tr>
-<td><strong>getHeaderAvatar()</strong></td>
-<td>Returns the header avatar</td>
+<td><strong>title()</strong></td>
+<td>Returns element&#39;s title</td>
 <td>UIElement</td>
 </tr>
 <tr>
-<td><strong>getHeaderTitle()</strong></td>
-<td>Returns the header title</td>
+<td><strong>subtitle()</strong></td>
+<td>Returns element&#39;s subtitle</td>
 <td>UIElement</td>
-</tr>
-<tr>
-<td><strong>getHeaderSubheader()</strong></td>
-<td>Returns the header subheader</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>getHeaderContent()</strong></td>
-<td>Returns the header content</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>getHeaderAction()</strong></td>
-<td>Returns the header action</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>getHeaderActionButtons()</strong></td>
-<td>Returns the header action button</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>getContent()</strong></td>
-<td>Returns the content</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>getActionButtonByNumber(int)</strong></td>
-<td>Returns the action number by specified index</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>getActionButtons()</strong></td>
-<td>Returns the action buttons</td>
-<td>WebList</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-card-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a></h5>
@@ -37751,7 +37713,7 @@ It supports standard, outlined and filled styling.</p>
 </tbody></table>
 <h5 id='here-you-can-find-text-fields-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TextFieldTests.java">Here you can find Text Fields tests</a></h5>
 <p><br></br></p>
-<h3 id='4-53-usemediaquery'>4.53 UseMediaQuery</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(xpath = "//span[contains(.,'min-width')]")</span>
+<h3 id='4-49-usemediaquery'>4.49 UseMediaQuery</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(xpath = "//span[contains(.,'min-width')]")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[contains(.,'min-width')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">useMediaQueryText</span><span class="o">;</span>
 

@@ -2,7 +2,7 @@
 
 ### 4.1 Checkbox
 
-```java 
+```java
     // @FindBy(xpath = "//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")
     @UI("//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")
     public static List<Checkbox> basicCheckboxes;
@@ -84,7 +84,7 @@ Available methods in Java JDI Light:
 
 ### 4.2 Chips
 
-```java 
+```java
     // @FindBy(xpath = "//h2[text()='Chip array']/following-sibling::div//div[contains(@class, 'MuiChip-root')]")
     @UI("//h2[text()='Chip array']/following-sibling::div//div[contains(@class, 'MuiChip-root')]")
     public static List<Chip> arrayChips;
@@ -193,7 +193,7 @@ Available methods in Java JDI Light:
 
 ### 4.3 Tooltip
 
-```java 
+```java
     // @FindBy(xpath = "//button[contains(@title, 'Add')][1]")
     @UI("//button[contains(@title, 'Add')][1]")
     public static MaterialButton addButtonWithTooltip;
@@ -251,7 +251,7 @@ Available methods in Java JDI Light:
 
 ### 4.4 Container
 
-```java 
+```java
     // @FindBy(css = ".MuiContainer-root.MuiContainer-maxWidthSm")
     @UI(".MuiContainer-root.MuiContainer-maxWidthSm")
     public static Container container;
@@ -279,7 +279,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
 <div class="MuiContainer-root MuiContainer-maxWidthSm">
-  <div class="MuiTypography-root MuiTypography-body1" style="background-color: rgb(207, 232, 252); height: 100vh;">
+  <div class="MuiTypography-root MuiTypography-body1" style="background-color: rgb(207, 232, 252); height: 50vh;">
     Example text
   </div>
 </div>
@@ -301,7 +301,7 @@ Available methods in Java JDI Light:
 
 ### 4.5 Avatar
 
-```java 
+```java
     // @FindBy(xpath = "//span[@class = 'MuiBadge-root']")
     @UI("//span[@class = 'MuiBadge-root']")
     public static List<Avatar> avatarsWithPhoto;
@@ -357,7 +357,7 @@ Available methods in Java JDI Light:
 
 ### 4.6 Click Away Listener
 
-```java     
+```java
     // @FindBy(xpath = "//h2[text()='Portal']/preceding::button")
     @UI("//h2[text()='Portal']/preceding::button")
     public static Button exampleButton;
@@ -408,7 +408,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ### 4.7 Divider
 
-```java 
+```java
     // @FindBy(css = "li.MuiDivider-root")
     @UI("li.MuiDivider-root")
     public static List<Divider> insetDivider;
@@ -455,7 +455,7 @@ Available methods in Java JDI Light:
 
 ### 4.8 Card
 
-```java    
+```java
     // @FindBy(id = "simpleCard")
     @UI("#simpleCard")
     public static Card simpleCard;
@@ -534,7 +534,7 @@ Available methods in Java JDI Light:
 
 ### 4.9 Radio
 
-```java 
+```java
     // @FindBy(css = "#simpleRadio .MuiRadio-root")
     @UI("#simpleRadio .MuiRadio-root")
     public static RadioButtons simpleRadioButtons;
@@ -634,7 +634,7 @@ Available methods in Java JDI Light:
 
 ### 4.10 App Bar
 
-```java 
+```java
     // @FindBy(xpath = "(//header[contains(@class, 'MuiAppBar-root')])[1]")
     @JAppBar(
             root = "(//header[contains(@class, 'MuiAppBar-root')])[1]",
@@ -696,7 +696,7 @@ Available methods in Java JDI Light:
 
 ### 4.11 Box
 
-```java    
+```java
     // @FindBy(xpath = "//button[contains(@class,'MuiButton-contained')]")
     @UI("//button[contains(@class,'MuiButton-contained')]")
     public static Button containedBox;
@@ -735,7 +735,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ### 4.12 Transitions
 
-```java     
+```java
     @FindBy(xpath = "//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
     @UI("//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
     public static List<Transition> collapseFadeTransitions;
@@ -813,7 +813,7 @@ Available methods in Java JDI Light:
 
 ### 4.13 Material Icons
 
-```java     
+```java
     // @FindBy(xpath = "//h2[text()='Access Alarm']/following::*[name()='svg']")
     @UI("//h2[text()='Access Alarm']/following::*[name()='svg']")
     public static List<Icon> iconsList;
@@ -883,7 +883,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ### 4.14 Icons
 
-```java     
+```java
     // FindBy(xpath = "//div[contains(@class, 'MuiGrid-grid-xs-8')]/*[local-name()='svg']")
     @UI(".MuiGrid-grid-xs-8 > svg")
     public static List<Icon> simpleIcons;
@@ -940,7 +940,7 @@ Available methods in Java JDI Light:
 
 ### 4.15 Floating Action Button
 
-```java     
+```java
     // @FindBy(xpath = "//div[@id='basicActionBtns']/button")
     @UI("//div[@id='basicActionBtns']/button")
     public static List<Button> buttonsBasic;
@@ -1029,7 +1029,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ### 4.16 Hidden
 
-```java    
+```java
     // @FindBy(className = "MuiTypography-subtitle1")
     @UI(".MuiTypography-subtitle1")
     public static Text currentWidth;
@@ -1079,7 +1079,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ### 4.17 Stepper
 
-```java 
+```java
     // @FindBy(css = "#nonLinearStepper .MuiStep-root")
     @UI("#nonLinearStepper .MuiStep-root")
     public static Stepper nonlinearStepper;
@@ -1160,7 +1160,7 @@ Available methods in Java JDI Light:
 
 ### 4.18 Slider
 
-```java 
+```java
     // @FindBy(xpath = "//*[@id="continuous-slider"]/following-sibling::div//span[contains(@class, "MuiSlider-root")]")
     @UI("//*[@id="continuous-slider"]/following-sibling::div//span[contains(@class, "MuiSlider-root")]")
     public static Slider continuousSlider;
@@ -1233,7 +1233,7 @@ Available methods in Java JDI Light:
 
 ### 4.19 Tabs
 
-```java 
+```java
     // @FindBy(css = "h2+div[1] .MuiTab-root")
     @UI("h2+div[1] .MuiTab-root")
     public static Tabs simpleTabs;
@@ -1300,7 +1300,7 @@ Available methods in Java JDI Light:
 
 ### 4.20 Table
 
-```java 
+```java
     // @FindBy(id = "basicTable")
     @UI("#basicTable")
     public static Table basicTable;
@@ -1363,7 +1363,7 @@ Available methods in Java JDI Light:
 
 ### 4.21 Typography
 
-```java 
+```java
     // @FindBy(css = ".MuiGrid-root[3] .MuiTypography-root")
     @UI(".MuiGrid-root[3] .MuiTypography-root")
     public static List<Typography> typographyTexts;
@@ -1434,7 +1434,7 @@ Available methods in Java JDI Light:
 
 ### 4.22 Badge
 
-```java 
+```java
     // @FindBy(css = "#primaryColorBadge .MuiBadge-badge")
     @UI("#primaryColorBadge .MuiBadge-badge")
     public static Badge primaryColorBadge;
@@ -1485,7 +1485,7 @@ Available methods in Java JDI Light:
 
 ### 4.23 Snackbars
 
-```java 
+```java
     // @FindBy(xpath = "//span[text()='Open simple snackbar']/parent::button")
     @UI("//span[text()='Open simple snackbar']/parent::button")
     public static Button simpleSnackbarButton;
@@ -1559,7 +1559,7 @@ Available methods in Java JDI Light:
 
 ### 4.24 Backdrop
 
-```java 
+```java
     // @FindBy(className = "MuiButton-root")
     @UI(".MuiButton-root")
     public static MaterialButton showBackdropButton;
@@ -1611,7 +1611,7 @@ Available methods in Java JDI Light:
 
 ### 4.25 Dialog
 
-```java 
+```java
     // @FindBy(xpath = ""//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]"")
     @UI("//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]")
     public static Button simpleDialogButton;
@@ -1669,7 +1669,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ### 4.26 Date / Time pickers
 
-```java 
+```java
     // @FindBy(xpath = "//*[@id = 'date-picker-inline-label']/parent::div")
     @UI("//*[@id = 'date-picker-inline-label']/parent::div")
     public static DateTimePicker inlineDatePicker;
@@ -1736,7 +1736,7 @@ Available methods in Java JDI Light:
 
 ### 4.27 Select
 
-```java 
+```java
     // @FindBy(xpath = "//*[@id='demo-simple-select']/following-sibling::div")
     @JDropdown(root = "//*[@id='demo-simple-select']/following-sibling::div")
     public static Select simpleSelect;
@@ -1798,7 +1798,7 @@ Available methods in Java JDI Light:
 
 ### 4.28 Switch
 
-```java 
+```java
     // @FindBy(xpath = "//fieldset//span[@class='MuiSwitch-root']")
     @UI("//fieldset//span[@class='MuiSwitch-root']")
     public static List<Switch> formGroupSwitches;
@@ -1888,7 +1888,7 @@ Available methods in Java JDI Light:
 
 ### 4.29 Button
 
-```java 
+```java
     // @FindBy(xpath = "//h2[text()='Contained buttons']/parent::div/div[1]/*")
     @UI("//h2[text()='Contained buttons']/parent::div/div[1]/*")
     public static List<Button> containedButtons;

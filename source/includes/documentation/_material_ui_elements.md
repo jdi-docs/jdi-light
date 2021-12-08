@@ -327,6 +327,7 @@ __Avatars__ - graphical representations of users.
 ![Avatar](../../images/material-ui/Avatar.png)
 
 Here is an example with provided Material-UI v4.12.3 code:
+
 ```html
 <span class="MuiBadge-root">
   <div class="MuiAvatar-root MuiAvatar-circle">

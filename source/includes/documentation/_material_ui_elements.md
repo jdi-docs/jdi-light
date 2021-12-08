@@ -552,7 +552,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://mui.com/components/radio-buttons/" target="_blank"> Radio overview </a>
+##### <a href="https://material-ui.com/components/radio-buttons/" target="_blank"> Radio overview </a>
 
 Radio is located in the following class:
 
@@ -1385,7 +1385,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://mui.com/components/typography/" target="_blank"> Typography overview </a>
+##### <a href="https://material-ui.com/components/typography/" target="_blank"> Typography overview </a>
 
 __Typography__ - element that is used to present your design and content as clearly and efficiently as possible.
 
@@ -1989,7 +1989,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://jdi-testing.github.io/jdi-light/material/button_groups" target="_blank">ButtonGroup overview</a>
+##### <a href="https://material-ui.com/components/button-group/" target="_blank">ButtonGroup overview</a>
 
 ButtonGroup is located in the following class:
 
@@ -2155,7 +2155,7 @@ Here is an example with provided MaterialUI v4.12.3 code:
     }
 ```
 
-##### <a href="https://v4.mui.com/components/image-list" target="_blank"> GridList overview </a>
+##### <a href="https://v3.mui.com/demos/grid-list/" target="_blank"> GridList overview </a>
 
 GridList is located in the following class:
 
@@ -3189,7 +3189,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://mui.com/components/lists/" target="_blank"> Lists overview </a>
+##### <a href="https://material-ui.com/components/lists/" target="_blank"> Lists overview </a>
 
 Lists is located in the following class:
 
@@ -3349,7 +3349,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://mui.com/components/transfer-list/" target="_blank"> Transfer List overview</a>
+##### <a href="https://material-ui.com/components/transfer-list/" target="_blank"> Transfer List overview</a>
 
 Types of Transfer List are located in the following class:
 
@@ -3549,7 +3549,7 @@ Available methods for Simple and Enhanced Transfer List in Java JDI Light:
     }
 ```
 
-##### <a href="https://v4.mui.com/components/text-fields/" target="_blank"> Text Fields overview</a>
+##### <a href="https://material-ui.com/components/text-fields/" target="_blank"> Text Fields overview</a>
 
 Text Field is located in the following class:
 

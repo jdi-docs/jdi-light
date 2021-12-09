@@ -1853,27 +1853,44 @@ For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/j
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Carousel.java_
 
 ```java
-
     @Test
-    public void customTransitionCarouselTests() {
-      customTransitionCarousel.is().displayed();
-      customTransitionCarousel.has().numberOfDelimiters(4);
-      customTransitionCarousel.has().delimiterIcons("mdi-circle");
-      customTransitionCarousel.has().visibleNextButton();
-      customTransitionCarousel.has().visiblePreviousButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("squirrel");
-      customTransitionCarousel.clickOnNextButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("sky");
-      customTransitionCarousel.clickOnPreviousButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("squirrel");
-      customTransitionCarousel.goToSlide(4);
-      customTransitionCarousel.has().currentSlideBackgroundImage("planet");
-      customTransitionCarousel.clickOnNextButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("squirrel");
-      customTransitionCarousel.clickOnPreviousButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("planet");
-      customTransitionCarousel.goToSlide(3);
-      customTransitionCarousel.has().currentSlideBackgroundImage("bird");
+    public void customizedArrowsCarouselTests() {
+      customizedArrowsCarousel.is().displayed();
+      customizedArrowsCarousel.nextButton().is().notVisible();
+      customizedArrowsCarousel.previousButton().is().notVisible();
+      customizedArrowsCarousel.hover();
+      customizedArrowsCarousel.nextButton().is().visible();
+      customizedArrowsCarousel.previousButton().is().visible();
+      customizedArrowsCarousel.previousButton().has().text("PREVIOUS SLIDE");
+      customizedArrowsCarousel.previousButton().has().color(GREEN.value());
+      customizedArrowsCarousel.nextButton().has().text("NEXT SLIDE");
+      customizedArrowsCarousel.nextButton().has().color(BLUE.value());
+      customizedArrowsCarousel.delimiters().have().size(5);
+      customizedArrowsCarousel.getDelimitersIcons().forEach(icon -> icon.has().type("mdi-circle"));
+      customizedArrowsCarousel.goToSlide(1);
+      customizedArrowsCarousel.has().currentSlideColor(INDIGO.value());
+      customizedArrowsCarousel.has().currentSlideText("First Slide");
+      customizedArrowsCarousel.goToSlide(2);
+      customizedArrowsCarousel.has().currentSlideText("Second Slide");
+      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
+      customizedArrowsCarousel.nextButton().click();
+      customizedArrowsCarousel.has().currentSlideText("Third Slide");
+      customizedArrowsCarousel.has().currentSlideColor(PINK_DARKEN_2.value());
+      customizedArrowsCarousel.previousButton().click();
+      customizedArrowsCarousel.has().currentSlideText("Second Slide");
+      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
+      customizedArrowsCarousel.goToSlide(5);
+      customizedArrowsCarousel.has().currentSlideText("Fifth Slide");
+      customizedArrowsCarousel.has().currentSlideColor(DEEP_PURPLE_ACCENT_4.value());
+      customizedArrowsCarousel.goToSlide(4);
+      customizedArrowsCarousel.has().currentSlideText("Fourth Slide");
+      customizedArrowsCarousel.has().currentSlideColor(RED_LIGHTEN_1.value());
+      customizedArrowsCarousel.goToSlide(1);
+      customizedArrowsCarousel.has().currentSlideColor(INDIGO.value());
+      customizedArrowsCarousel.has().currentSlideText("First Slide");
+      customizedArrowsCarousel.waitUntilSlideChange("Second Slide", ORANGE_DARKEN_1.value());
+      customizedArrowsCarousel.has().currentSlideText("Second Slide");
+      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
     }
 ```
 
@@ -1884,12 +1901,19 @@ Carousel component is used to display large numbers of visual content on a rotat
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns Assert class | CarouselAssert
-**clickOnNextButton()** | Click on 'next' button | void
-**clickOnPreviousButton()** | Click on 'previous' button | void
-**goToSlide()** | Click on selected delimiter | void
-**currentSlideBackgroundImage()** | Returns source link to current slide's image | String
-**currentSlideText()** | Returns current slide's text | String
-**currentSlideColor()** | Returns current slide's background color in rgba | String
+**delimiters()** | Returns group of delimiter buttons containing in the element | ButtonGroup
+**nextButton()** | Returns 'next' button containing in the element | Button
+**previousButton()** | Returns 'previous' button containing in the element | Button
+**plusButton()** | Returns 'plus' button containing in the element | Button
+**minusButton()** | Returns 'minus' button containing in the element | Button
+**getSwitch()** | Returns switch containing in the element | Switch
+**getDelimitersIcons()** | Returns list of icons of delimiters | List<Icons>
+**currentSlideImage()** | Returns image of current slide | Image
+**getCurrentSlideColor()** | Returns color of current slide (in RGBA format) | String
+**getCurrentSlideText()** | Returns text of current slide | String
+**slideCounter()** | Returns slide counter | Text
+**goToSlide()** | Clicks on selected delimiter | void
+**waitUntilSlideChange()** | Waits until slide is changed to targeted | void
 
 For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java).
 

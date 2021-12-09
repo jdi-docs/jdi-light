@@ -1854,25 +1854,43 @@ For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/j
 
 ```java
     @Test
-    public void customTransitionCarouselTests() {
-      customTransitionCarousel.is().displayed();
-      customTransitionCarousel.delimiters().have().size(4);
-      customTransitionCarousel.getDelimitersIcons().forEach(icon -> icon.has().type("mdi-circle"));
-      customTransitionCarousel.nextButton().is().displayed();
-      customTransitionCarousel.previousButton().is().displayed();
-      customTransitionCarousel.currentSlideImage().has().sourcePath(squirrelImagePath);
-      customTransitionCarousel.nextButton().click();
-      customTransitionCarousel.currentSlideImage().has().sourcePath(skyImagePath);
-      customTransitionCarousel.previousButton().click();
-      customTransitionCarousel.currentSlideImage().has().sourcePath(squirrelImagePath);
-      customTransitionCarousel.goToSlide(4);
-      customTransitionCarousel.currentSlideImage().has().sourcePath(planetImagePath);
-      customTransitionCarousel.nextButton().click();
-      customTransitionCarousel.currentSlideImage().has().sourcePath(squirrelImagePath);
-      customTransitionCarousel.previousButton().click();
-      customTransitionCarousel.currentSlideImage().has().sourcePath(planetImagePath);
-      customTransitionCarousel.goToSlide(3);
-      customTransitionCarousel.currentSlideImage().has().sourcePath(birdImagePath);
+    public void customizedArrowsCarouselTests() {
+      customizedArrowsCarousel.is().displayed();
+      customizedArrowsCarousel.nextButton().is().notVisible();
+      customizedArrowsCarousel.previousButton().is().notVisible();
+      customizedArrowsCarousel.hover();
+      customizedArrowsCarousel.nextButton().is().visible();
+      customizedArrowsCarousel.previousButton().is().visible();
+      customizedArrowsCarousel.previousButton().has().text("PREVIOUS SLIDE");
+      customizedArrowsCarousel.previousButton().has().color(GREEN.value());
+      customizedArrowsCarousel.nextButton().has().text("NEXT SLIDE");
+      customizedArrowsCarousel.nextButton().has().color(BLUE.value());
+      customizedArrowsCarousel.delimiters().have().size(5);
+      customizedArrowsCarousel.getDelimitersIcons().forEach(icon -> icon.has().type("mdi-circle"));
+      customizedArrowsCarousel.goToSlide(1);
+      customizedArrowsCarousel.has().currentSlideColor(INDIGO.value());
+      customizedArrowsCarousel.has().currentSlideText("First Slide");
+      customizedArrowsCarousel.goToSlide(2);
+      customizedArrowsCarousel.has().currentSlideText("Second Slide");
+      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
+      customizedArrowsCarousel.nextButton().click();
+      customizedArrowsCarousel.has().currentSlideText("Third Slide");
+      customizedArrowsCarousel.has().currentSlideColor(PINK_DARKEN_2.value());
+      customizedArrowsCarousel.previousButton().click();
+      customizedArrowsCarousel.has().currentSlideText("Second Slide");
+      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
+      customizedArrowsCarousel.goToSlide(5);
+      customizedArrowsCarousel.has().currentSlideText("Fifth Slide");
+      customizedArrowsCarousel.has().currentSlideColor(DEEP_PURPLE_ACCENT_4.value());
+      customizedArrowsCarousel.goToSlide(4);
+      customizedArrowsCarousel.has().currentSlideText("Fourth Slide");
+      customizedArrowsCarousel.has().currentSlideColor(RED_LIGHTEN_1.value());
+      customizedArrowsCarousel.goToSlide(1);
+      customizedArrowsCarousel.has().currentSlideColor(INDIGO.value());
+      customizedArrowsCarousel.has().currentSlideText("First Slide");
+      customizedArrowsCarousel.waitUntilSlideChange("Second Slide", ORANGE_DARKEN_1.value());
+      customizedArrowsCarousel.has().currentSlideText("Second Slide");
+      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
     }
 ```
 

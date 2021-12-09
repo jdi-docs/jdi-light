@@ -1908,7 +1908,7 @@ Carousel component is used to display large numbers of visual content on a rotat
 **minusButton()** | Returns 'minus' button containing in the element | Button
 **getSwitch()** | Returns switch containing in the element | Switch
 **getDelimitersIcons()** | Returns list of icons of delimiters | List<Icons>
-**currentSlideImage()** | Returns image of current slide | void
+**currentSlideImage()** | Returns image of current slide | Image
 **getCurrentSlideColor()** | Returns color of current slide (in RGBA format) | String
 **getCurrentSlideText()** | Returns text of current slide | String
 **slideCounter()** | Returns slide counter | Text

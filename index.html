@@ -41026,27 +41026,44 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <ul>
 <li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.complex.Carousel.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customTransitionCarouselTests</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">numberOfDelimiters</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">delimiterIcons</span><span class="o">(</span><span class="s">"mdi-circle"</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">visibleNextButton</span><span class="o">();</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">visiblePreviousButton</span><span class="o">();</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"squirrel"</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">clickOnNextButton</span><span class="o">();</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"sky"</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">clickOnPreviousButton</span><span class="o">();</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"squirrel"</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"planet"</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">clickOnNextButton</span><span class="o">();</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"squirrel"</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">clickOnPreviousButton</span><span class="o">();</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"planet"</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"bird"</span><span class="o">);</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customizedArrowsCarouselTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"PREVIOUS SLIDE"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">GREEN</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"NEXT SLIDE"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">BLUE</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">delimiters</span><span class="o">().</span><span class="na">have</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">getDelimitersIcons</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">icon</span> <span class="o">-&gt;</span> <span class="n">icon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">type</span><span class="o">(</span><span class="s">"mdi-circle"</span><span class="o">));</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">INDIGO</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"First Slide"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Second Slide"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">ORANGE_DARKEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Third Slide"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">PINK_DARKEN_2</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Second Slide"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">ORANGE_DARKEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Fifth Slide"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">DEEP_PURPLE_ACCENT_4</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Fourth Slide"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">RED_LIGHTEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">INDIGO</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"First Slide"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">waitUntilSlideChange</span><span class="o">(</span><span class="s">"Second Slide"</span><span class="o">,</span> <span class="n">ORANGE_DARKEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Second Slide"</span><span class="o">);</span>
+      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">ORANGE_DARKEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
     <span class="o">}</span>
 </code></pre>
 <p>Carousel component is used to display large numbers of visual content on a rotating timer.</p>
@@ -41066,34 +41083,69 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <td>CarouselAssert</td>
 </tr>
 <tr>
-<td><strong>clickOnNextButton()</strong></td>
-<td>Click on &#39;next&#39; button</td>
-<td>void</td>
+<td><strong>delimiters()</strong></td>
+<td>Returns group of delimiter buttons containing in the element</td>
+<td>ButtonGroup</td>
 </tr>
 <tr>
-<td><strong>clickOnPreviousButton()</strong></td>
-<td>Click on &#39;previous&#39; button</td>
-<td>void</td>
+<td><strong>nextButton()</strong></td>
+<td>Returns &#39;next&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>previousButton()</strong></td>
+<td>Returns &#39;previous&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>plusButton()</strong></td>
+<td>Returns &#39;plus&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>minusButton()</strong></td>
+<td>Returns &#39;minus&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>getSwitch()</strong></td>
+<td>Returns switch containing in the element</td>
+<td>Switch</td>
+</tr>
+<tr>
+<td><strong>getDelimitersIcons()</strong></td>
+<td>Returns list of icons of delimiters</td>
+<td>List<Icons></td>
+</tr>
+<tr>
+<td><strong>currentSlideImage()</strong></td>
+<td>Returns image of current slide</td>
+<td>Image</td>
+</tr>
+<tr>
+<td><strong>getCurrentSlideColor()</strong></td>
+<td>Returns color of current slide (in RGBA format)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getCurrentSlideText()</strong></td>
+<td>Returns text of current slide</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>slideCounter()</strong></td>
+<td>Returns slide counter</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><strong>goToSlide()</strong></td>
-<td>Click on selected delimiter</td>
+<td>Clicks on selected delimiter</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>currentSlideBackgroundImage()</strong></td>
-<td>Returns source link to current slide&#39;s image</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>currentSlideText()</strong></td>
-<td>Returns current slide&#39;s text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>currentSlideColor()</strong></td>
-<td>Returns current slide&#39;s background color in rgba</td>
-<td>String</td>
+<td><strong>waitUntilSlideChange()</strong></td>
+<td>Waits until slide is changed to targeted</td>
+<td>void</td>
 </tr>
 </tbody></table>
 

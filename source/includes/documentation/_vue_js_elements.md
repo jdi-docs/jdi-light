@@ -1857,27 +1857,26 @@ For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/j
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Carousel.java_
 
 ```java
-
     @Test
     public void customTransitionCarouselTests() {
       customTransitionCarousel.is().displayed();
-      customTransitionCarousel.has().numberOfDelimiters(4);
-      customTransitionCarousel.has().delimiterIcons("mdi-circle");
-      customTransitionCarousel.has().visibleNextButton();
-      customTransitionCarousel.has().visiblePreviousButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("squirrel");
-      customTransitionCarousel.clickOnNextButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("sky");
-      customTransitionCarousel.clickOnPreviousButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("squirrel");
+      customTransitionCarousel.delimiters().have().size(4);
+      customTransitionCarousel.getDelimitersIcons().forEach(icon -> icon.has().type("mdi-circle"));
+      customTransitionCarousel.nextButton().is().displayed();
+      customTransitionCarousel.previousButton().is().displayed();
+      customTransitionCarousel.currentSlideImage().has().sourcePath(squirrelImagePath);
+      customTransitionCarousel.nextButton().click();
+      customTransitionCarousel.currentSlideImage().has().sourcePath(skyImagePath);
+      customTransitionCarousel.previousButton().click();
+      customTransitionCarousel.currentSlideImage().has().sourcePath(squirrelImagePath);
       customTransitionCarousel.goToSlide(4);
-      customTransitionCarousel.has().currentSlideBackgroundImage("planet");
-      customTransitionCarousel.clickOnNextButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("squirrel");
-      customTransitionCarousel.clickOnPreviousButton();
-      customTransitionCarousel.has().currentSlideBackgroundImage("planet");
+      customTransitionCarousel.currentSlideImage().has().sourcePath(planetImagePath);
+      customTransitionCarousel.nextButton().click();
+      customTransitionCarousel.currentSlideImage().has().sourcePath(squirrelImagePath);
+      customTransitionCarousel.previousButton().click();
+      customTransitionCarousel.currentSlideImage().has().sourcePath(planetImagePath);
       customTransitionCarousel.goToSlide(3);
-      customTransitionCarousel.has().currentSlideBackgroundImage("bird");
+      customTransitionCarousel.currentSlideImage().has().sourcePath(birdImagePath);
     }
 ```
 
@@ -1888,12 +1887,19 @@ Carousel component is used to display large numbers of visual content on a rotat
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns Assert class | CarouselAssert
-**clickOnNextButton()** | Click on 'next' button | void
-**clickOnPreviousButton()** | Click on 'previous' button | void
-**goToSlide()** | Click on selected delimiter | void
-**currentSlideBackgroundImage()** | Returns source link to current slide's image | String
-**currentSlideText()** | Returns current slide's text | String
-**currentSlideColor()** | Returns current slide's background color in rgba | String
+**delimiters()** | Returns group of delimiter buttons containing in the element | ButtonGroup
+**nextButton()** | Returns 'next' button containing in the element | Button
+**previousButton()** | Returns 'previous' button containing in the element | Button
+**plusButton()** | Returns 'plus' button containing in the element | Button
+**minusButton()** | Returns 'minus' button containing in the element | Button
+**getSwitch()** | Returns switch containing in the element | Switch
+**getDelimitersIcons()** | Returns list of icons of delimiters | List<Icons>
+**currentSlideImage()** | Returns image of current slide | void
+**getCurrentSlideColor()** | Returns color of current slide (in RGBA format) | String
+**getCurrentSlideText()** | Returns text of current slide | String
+**slideCounter()** | Returns slide counter | Text
+**goToSlide()** | Clicks on selected delimiter | void
+**waitUntilSlideChange()** | Waits until slide is changed to targeted | void
 
 For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java).
 

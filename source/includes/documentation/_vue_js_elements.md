@@ -1924,7 +1924,6 @@ For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testi
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.NavigationDrawer.java_
 
 ```java
-
     @Test
     public void bottomDrawerNavigationDrawerTests() {
       bottomDrawerNavigationAppBar.has().textInTitle("My files");
@@ -1946,7 +1945,6 @@ For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testi
       bottomDrawerNavigationDrawer.getListItemByIndex(3).is().notActive();
       bottomDrawerNavigationDrawer.getListItemByIndex(4).is().notActive();
     }
-
 ```
 
 Navigation drawer component is what users will utilize to navigate through the application. Navigation drawer is primarily used to house links to the pages in your application.

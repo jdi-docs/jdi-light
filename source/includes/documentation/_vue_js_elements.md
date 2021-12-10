@@ -1924,18 +1924,27 @@ For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testi
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.NavigationDrawer.java_
 
 ```java
-
     @Test
-    public void coloredDrawerNavigationDrawerTests() {
-      coloredDrawerNavigationDrawer.is().displayed();
-      coloredDrawerNavigationDrawer.has().backgroundColor(DEEP_PURPLE_ACCENT_4.value());
-      coloredDrawerNavigationDrawer.has().numberOfOptions(3);
-      coloredDrawerNavigationDrawer.has().optionClickable(1);
-      coloredDrawerNavigationDrawer.has().optionClickable(2);
-      coloredDrawerNavigationDrawer.has().optionClickable(3);
-      coloredDrawerNavigationDrawer.has().button();
+    public void bottomDrawerNavigationDrawerTests() {
+      bottomDrawerNavigationAppBar.has().textInTitle("My files");
+      bottomDrawerNavigationDrawer.is().closed();
+      bottomDrawerNavigationAppBar.clickOnMenuButton();
+      bottomDrawerNavigationDrawer.is().opened();
+      bottomDrawerNavigationDrawer.has().numberOfListItems(4);
+      bottomDrawerNavigationDrawer.getListItemByIndex(1).click();
+      bottomDrawerNavigationDrawer.is().closed();
+      bottomDrawerNavigationAppBar.clickOnMenuButton();
+      bottomDrawerNavigationDrawer.getListItemByIndex(1).is().active();
+      bottomDrawerNavigationDrawer.getListItemByIndex(2).is().notActive();
+      bottomDrawerNavigationDrawer.getListItemByIndex(3).is().notActive();
+      bottomDrawerNavigationDrawer.getListItemByIndex(4).is().notActive();
+      bottomDrawerNavigationDrawer.getListItemByIndex(2).click();
+      bottomDrawerNavigationAppBar.clickOnMenuButton();
+      bottomDrawerNavigationDrawer.getListItemByIndex(2).is().active();
+      bottomDrawerNavigationDrawer.getListItemByIndex(1).is().notActive();
+      bottomDrawerNavigationDrawer.getListItemByIndex(3).is().notActive();
+      bottomDrawerNavigationDrawer.getListItemByIndex(4).is().notActive();
     }
-
 ```
 
 Navigation drawer component is what users will utilize to navigate through the application. Navigation drawer is primarily used to house links to the pages in your application.
@@ -1945,14 +1954,19 @@ Navigation drawer component is what users will utilize to navigate through the a
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns Assert class | NavigationDrawerAssert
-**hasNumberOfOptions()** | Returns navigation drawer's number of options | int
-**optionIsSelected()** | Shows that option is selected | boolean
-**isExpanded()** | Shows that navigation drawer is expanded | boolean
-**isCollapsed()** | Shows that navigation drawer is collapsed | boolean
-**isOpened()** | Shows that navigation drawer is opened | boolean
-**hasBackgroundImage()** | Shows that navigation drawer's has background image | boolean
-**hasBackgroundColor()** | Returns navigation drawer's background color in rgba | String
-**selectOptionByIndex()** | Selects chosen option | void
+**listItems()** | Returns list of all element's list items | List<ListItem>
+**getListItemByIndex()** | Returns element's list item by its index | ListItem
+**getNumberOfListItems()** | Returns number of element's list items | int
+**isExpanded()** | Checks whether element is expanded | boolean
+**isCollapsed()** | Checks whether element is collapsed | boolean
+**isClosed()** | Checks whether element is closed | boolean
+**isOpened()** | Checks whether element is opened | boolean
+**isOnTheRightSide()** | Checks whether element is on the right of the container | boolean
+**isOpened()** | Checks whether element is opened | boolean
+**backgroundImage()** | Returns element's background image | Image
+**getBackgroundColor()** | Returns element's background color (in RGBA format) | String
+**button()** | Returns button containing in the element | Button
+**collapse()** | Collapses element | void
 
 For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java).
 

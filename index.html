@@ -41156,18 +41156,27 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <ul>
 <li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.complex.NavigationDrawer.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">coloredDrawerNavigationDrawerTests</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">coloredDrawerNavigationDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">coloredDrawerNavigationDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">backgroundColor</span><span class="o">(</span><span class="n">DEEP_PURPLE_ACCENT_4</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">coloredDrawerNavigationDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">numberOfOptions</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-      <span class="n">coloredDrawerNavigationDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">optionClickable</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-      <span class="n">coloredDrawerNavigationDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">optionClickable</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-      <span class="n">coloredDrawerNavigationDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">optionClickable</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-      <span class="n">coloredDrawerNavigationDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">button</span><span class="o">();</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">bottomDrawerNavigationDrawerTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">bottomDrawerNavigationAppBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">textInTitle</span><span class="o">(</span><span class="s">"My files"</span><span class="o">);</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">closed</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationAppBar</span><span class="o">.</span><span class="na">clickOnMenuButton</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">opened</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">numberOfListItems</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">closed</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationAppBar</span><span class="o">.</span><span class="na">clickOnMenuButton</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">active</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notActive</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notActive</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notActive</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationAppBar</span><span class="o">.</span><span class="na">clickOnMenuButton</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">active</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notActive</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notActive</span><span class="o">();</span>
+      <span class="n">bottomDrawerNavigationDrawer</span><span class="o">.</span><span class="na">getListItemByIndex</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notActive</span><span class="o">();</span>
     <span class="o">}</span>
-
 </code></pre>
 <p>Navigation drawer component is what users will utilize to navigate through the application. Navigation drawer is primarily used to house links to the pages in your application.</p>
 
@@ -41186,43 +41195,68 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <td>NavigationDrawerAssert</td>
 </tr>
 <tr>
-<td><strong>hasNumberOfOptions()</strong></td>
-<td>Returns navigation drawer&#39;s number of options</td>
+<td><strong>listItems()</strong></td>
+<td>Returns list of all element&#39;s list items</td>
+<td>List<ListItem></td>
+</tr>
+<tr>
+<td><strong>getListItemByIndex()</strong></td>
+<td>Returns element&#39;s list item by its index</td>
+<td>ListItem</td>
+</tr>
+<tr>
+<td><strong>getNumberOfListItems()</strong></td>
+<td>Returns number of element&#39;s list items</td>
 <td>int</td>
 </tr>
 <tr>
-<td><strong>optionIsSelected()</strong></td>
-<td>Shows that option is selected</td>
-<td>boolean</td>
-</tr>
-<tr>
 <td><strong>isExpanded()</strong></td>
-<td>Shows that navigation drawer is expanded</td>
+<td>Checks whether element is expanded</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>isCollapsed()</strong></td>
-<td>Shows that navigation drawer is collapsed</td>
+<td>Checks whether element is collapsed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isClosed()</strong></td>
+<td>Checks whether element is closed</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>isOpened()</strong></td>
-<td>Shows that navigation drawer is opened</td>
+<td>Checks whether element is opened</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>hasBackgroundImage()</strong></td>
-<td>Shows that navigation drawer&#39;s has background image</td>
+<td><strong>isOnTheRightSide()</strong></td>
+<td>Checks whether element is on the right of the container</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>hasBackgroundColor()</strong></td>
-<td>Returns navigation drawer&#39;s background color in rgba</td>
+<td><strong>isOpened()</strong></td>
+<td>Checks whether element is opened</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>backgroundImage()</strong></td>
+<td>Returns element&#39;s background image</td>
+<td>Image</td>
+</tr>
+<tr>
+<td><strong>getBackgroundColor()</strong></td>
+<td>Returns element&#39;s background color (in RGBA format)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>selectOptionByIndex()</strong></td>
-<td>Selects chosen option</td>
+<td><strong>button()</strong></td>
+<td>Returns button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>collapse()</strong></td>
+<td>Collapses element</td>
 <td>void</td>
 </tr>
 </tbody></table>

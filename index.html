@@ -35860,39 +35860,56 @@ related buttons.</p>
 </tbody></table>
 <h5 id='here-you-can-find-button-group-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a></h5>
 <p><br></br></p>
-<h3 id='4-31-grid'>4.31 Grid</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(css = ".MuiContainer-root")</span>
+<h3 id='4-31-grid'>4.31 Grid</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(className = "MuiContainer-root")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Grid</span> <span class="n">rootGrid</span><span class="o">;</span>
 
-    <span class="c1">//    @FindBy(xpath = "//h2[text()='Complex grid']/preceding::div[contains(@class,'MuiGrid-spacing')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Complex grid']/preceding::div[contains(@class,'MuiGrid-spacing')]"</span><span class="o">)</span>
+    <span class="c1">// @FindBy(id = "basicGrid")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basicGrid"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Grid</span> <span class="n">basicGrid</span><span class="o">;</span>
 
-    <span class="c1">//    @FindBy(xpath = "//h2[text()='Complex grid']/following::div[contains(@class,'MuiPaper-rounded')]/div[contains(@class,'MuiGrid-spacing')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Complex grid']/following::div[contains(@class,'MuiPaper-rounded')]/div[contains(@class,'MuiGrid-spacing')]"</span><span class="o">)</span>
+    <span class="c1">// @FindBy(id = "complexGrid")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#complexGrid"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Grid</span> <span class="n">complexGrid</span><span class="o">;</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gridTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">rootGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">rootGrid</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="s">"class"</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="s">"MuiContainer-maxWidthXl"</span><span class="o">);</span>
-        <span class="n">basicGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">complexGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"basicGridItems"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicGridItemsTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">itemIndex</span><span class="o">,</span> <span class="n">String</span> <span class="n">itemWidth</span><span class="o">,</span> <span class="n">String</span> <span class="n">itemClass</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">rootGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="s">"MuiContainer-maxWidthXl"</span><span class="o">);</span>
+        <span class="n">basicGrid</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">basicGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">items</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+
+        <span class="n">basicGrid</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">itemIndex</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="n">itemClass</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"max-width"</span><span class="o">,</span> <span class="n">itemWidth</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='grind-overview'><a href="https://material-ui.com/components/grid/" target="_blank"> Grind overview </a></h5>
+
+    <span class="nd">@DataProvider</span>
+    <span class="kd">public</span> <span class="n">Object</span><span class="o">[][]</span> <span class="nf">basicGridItems</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[][]{</span>
+                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="s">"100%"</span><span class="o">,</span> <span class="s">"MuiGrid-grid-xs-12"</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="s">"50%"</span><span class="o">,</span> <span class="s">"MuiGrid-grid-xs-6"</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="s">"50%"</span><span class="o">,</span> <span class="s">"MuiGrid-grid-xs-6"</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="s">"25%"</span><span class="o">,</span> <span class="s">"MuiGrid-grid-xs-3"</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="s">"25%"</span><span class="o">,</span> <span class="s">"MuiGrid-grid-xs-3"</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="s">"25%"</span><span class="o">,</span> <span class="s">"MuiGrid-grid-xs-3"</span><span class="o">},</span>
+                <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="s">"25%"</span><span class="o">,</span> <span class="s">"MuiGrid-grid-xs-3"</span><span class="o">},</span>
+        <span class="o">};</span>
+    <span class="o">}</span>
+</code></pre><h5 id='grid-overview'><a href="https://material-ui.com/components/grid/" target="_blank"> Grid overview </a></h5>
 <p>Grid is located in the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.Grid</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.layout.Grid</em></li>
 </ul>
 
-<p><strong>The grid</strong> creates visual consistency between layouts while allowing flexibility across a wide variety of designs..</p>
+<p><strong>The grid</strong> adapts to screen size and orientation, creates visual consistency between layouts while allowing flexibility across a wide variety of designs.</p>
 
 <p><img src="images/material-ui/Grids.png" alt="Grid" /></p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"</span> <span class="na">id=</span><span class="s">"basicGrid"</span><span class="nt">&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"</span> <span class="na">id=</span><span class="s">"basicGrid"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root jss6 MuiPaper-elevation1 MuiPaper-rounded"</span><span class="nt">&gt;</span>xs=12<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
@@ -35931,7 +35948,28 @@ related buttons.</p>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre><h5 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h5>
+</code></pre>
+<p>Available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>GridAssert</td>
+</tr>
+<tr>
+<td><strong>items()</strong></td>
+<td>Returns list of items in grid</td>
+<td>WebList</td>
+</tr>
+</tbody></table>
+<h5 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h5>
 <p><br></br></p>
 <h3 id='4-32-gridlist'>4.32 GridList</h3><pre class="highlight java tab-java"><code>     <span class="c1">// @FindBy(css = ".MuiGridList-root.jss5")</span>
      <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiGridList-root.jss5"</span><span class="o">)</span>

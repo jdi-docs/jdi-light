@@ -1035,7 +1035,10 @@
 										              <a href="#5-12-8-combobox" class="toc-h3 h4 toc-link" data-title="5.12.8 Combobox">5.12.8 Combobox</a>
 										              </li>
 										              <li>
-										              <a href="#5-12-8-selects" class="toc-h3 h4 toc-link" data-title="5.12.8 Selects">5.12.8 Selects</a>
+										              <a href="#5-12-9-selects" class="toc-h3 h4 toc-link" data-title="5.12.9 Selects">5.12.9 Selects</a>
+										              </li>
+										              <li>
+										              <a href="#5-12-10-file-inputs" class="toc-h3 h4 toc-link" data-title="5.12.10 File inputs">5.12.10 File inputs</a>
 										              </li>
 									            </ul>
                           </li>
@@ -39764,7 +39767,7 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTest.java">JDI Vuetify Combobox tests</a>.</p>
-<h4 id='5-12-8-selects'>5.12.8 Selects</h4>
+<h4 id='5-12-9-selects'>5.12.9 Selects</h4>
 <p><a href="https://vuetifyjs.com/en/components/selects/">Vuetify documentation page</a></p>
 
 <ul>
@@ -39825,6 +39828,180 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectTests.java">JDI Vuetify Select tests</a>.</p>
+<h4 id='5-12-10-file-inputs'>5.12.10 File inputs</h4>
+<p><a href="https://vuetifyjs.com/en/components/file-inputs/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.FileInput.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">acceptFileInput</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">acceptFileInput</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="n">acceptFileInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">file</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">chipsFileInputTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">multiply</span><span class="o">();</span>
+    <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">uploadFiles</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">toString</span><span class="o">(),</span> <span class="n">pathPNG</span><span class="o">.</span><span class="na">toString</span><span class="o">()));</span>
+    <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">files</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">(),</span> <span class="n">pathPNG</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">()));</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">validationFileInputTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">validationFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">accept</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"image/png, image/jpeg, image/bmp"</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/fileInput.png" alt="File input example" /></p>
+
+<p>The File input component is a specialized input that provides a clean interface for
+selecting files, showing detailed selection information and upload progress.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>isMultiply()</strong></td>
+<td>Shows that element can take multiply files</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>textInputField()</strong></td>
+<td>Returns text input area</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>message()</strong></td>
+<td>Returns message</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>counter()</strong></td>
+<td>Returns counter</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>prefix()</strong></td>
+<td>Return prefix</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>suffix()</strong></td>
+<td>Returns suffix</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>prependOuterIcons()</strong></td>
+<td>Returns list of prepend outer icons</td>
+<td>List&lt;Icon&gt;</td>
+</tr>
+<tr>
+<td><strong>prependInnerIcons()</strong></td>
+<td>Returns list of prepend inner icons</td>
+<td>List&lt;Icon&gt;</td>
+</tr>
+<tr>
+<td><strong>appendInnerIcons()</strong></td>
+<td>Returns list of append inner icons</td>
+<td>List&lt;Icon&gt;</td>
+</tr>
+<tr>
+<td><strong>appendOuterIcons()</strong></td>
+<td>Returns list of append outer icons</td>
+<td>List&lt;Icon&gt;</td>
+</tr>
+<tr>
+<td><strong>getPrependOuterIcon()</strong></td>
+<td>Returns first prepend outer icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>getPrependInnerIcon()</strong></td>
+<td>Returns first prepend inner icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>getAppendInnerIcon()</strong></td>
+<td>Returns first append inner icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>getAppendOuterIcon()</strong></td>
+<td>Returns first append outer icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getLines()</strong></td>
+<td>Returns lines dividing text using &#39;\n&#39;</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>label()</strong></td>
+<td>Returns label</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Returns label text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>Returns placeholder text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>setText(String text)</strong></td>
+<td>Set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String text)</strong></td>
+<td>Set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(String text)</strong></td>
+<td>Add text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setLines(String... lines)</strong></td>
+<td>Add lines as one string with &#39;\n&#39; delimiter</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setLines(List<String> lines)</strong></td>
+<td>Add lines as one string with &#39;\n&#39; delimiter</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>addNewLine(String line)</strong></td>
+<td>Add text on a new line</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>Clear text area</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>focus()</strong></td>
+<td>Set mouse to text area</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputTest.java">JDI Vuetify File inputs tests</a>.</p>
 <h3 id='5-13-groups'>5.13 Groups</h3><h4 id='5-13-1-button-groups'>5.13.1 Button Groups</h4><pre class="highlight java tab-java"><code><span class="nd">@JDIButtonGroup</span><span class="o">(</span>
         <span class="n">root</span> <span class="o">=</span> <span class="s">"#RoundedButtonGroup .v-item-group"</span><span class="o">,</span> <span class="n">buttons</span> <span class="o">=</span> <span class="s">"//*[@type = 'button']"</span>
 <span class="o">)</span> <span class="c1">// buttons search strategy is custom</span>

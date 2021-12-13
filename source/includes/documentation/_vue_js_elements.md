@@ -1051,7 +1051,7 @@ The combobox component allows the user to enter values that do not exist within 
 
 For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTest.java).
 
-#### 5.12.8 Selects
+#### 5.12.9 Selects
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/selects/)
 
@@ -1083,6 +1083,70 @@ Select components are used for collecting user provided information from a list 
 **is()** | Assert action | DropdownAssert()
 
 For examples of usage see: [JDI Vuetify Select tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectTests.java).
+
+#### 5.12.10 File inputs
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/file-inputs/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.FileInput.java_
+
+```java
+@Test
+public void acceptFileInput() {
+    acceptFileInput.uploadFile(pathTXT.toString());
+    acceptFileInput.has().file(pathTXT.getFileName().toString());
+}
+
+@Test
+public void chipsFileInputTest() {
+    chipsFileInput.is().multiply();
+    chipsFileInput.uploadFiles(asList(pathTXT.toString(), pathPNG.toString()));
+    chipsFileInput.has().files(asList(pathTXT.getFileName().toString(), pathPNG.getFileName().toString()));
+}
+
+@Test
+public void validationFileInputTest() {
+    validationFileInput.is().accept(containsString("image/png, image/jpeg, image/bmp"));
+}
+```
+
+![File input example](../../images/vuetify/fileInput.png)
+
+The File input component is a specialized input that provides a clean interface for
+selecting files, showing detailed selection information and upload progress.
+
+|Method | Description | Return Type
+--- | --- | ---
+**isMultiply()** | Shows that element can take multiply files | boolean
+**textInputField()** | Returns text input area | UIElement
+**message()** |  Returns message | UIElement
+**counter()** |  Returns counter | UIElement
+**prefix()** |  Return prefix | UIElement
+**suffix()** |  Returns suffix | UIElement
+**prependOuterIcons()** | Returns list of prepend outer icons | List\<Icon>
+**prependInnerIcons()** | Returns list of prepend inner icons | List\<Icon>
+**appendInnerIcons()** | Returns list of append inner icons | List\<Icon>
+**appendOuterIcons()** | Returns list of append outer icons | List\<Icon>
+**getPrependOuterIcon()** | Returns first prepend outer icon | Icon
+**getPrependInnerIcon()** | Returns first prepend inner icon | Icon
+**getAppendInnerIcon()** | Returns first append inner icon | Icon
+**getAppendOuterIcon()** | Returns first append outer icon | Icon
+**getText()** | Returns text | String
+**getLines()** | Returns lines dividing text using '\\n'  | List\<String>
+**label()** |  Returns label | Label
+**labelText()** | Returns label text | String
+**placeholder()** | Returns placeholder text| String
+**setText(String text)** | Set text| void
+**input(String text)** | Set text| void
+**sendKeys(String text)** | Add text| void
+**setLines(String... lines)** | Add lines as one string with '\n' delimiter| void
+**setLines(List<String> lines)** | Add lines as one string with '\n' delimiter| void
+**addNewLine(String line)** | Add text on a new line| void
+**clear()** | Clear text area| void
+**focus()** | Set mouse to text area| void
+
+For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputTest.java).
+
 
 ### 5.13 Groups 
 

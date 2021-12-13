@@ -2052,42 +2052,59 @@ Available methods in Java JDI Light:
 
 ### 4.31 Grid
 
-```java 
-    //    @FindBy(css = ".MuiContainer-root")
+```java
+    // @FindBy(className = "MuiContainer-root")
     @UI(".MuiContainer-root")
     public static Grid rootGrid;
 
-    //    @FindBy(xpath = "//h2[text()='Complex grid']/preceding::div[contains(@class,'MuiGrid-spacing')]")
-    @UI("//h2[text()='Complex grid']/preceding::div[contains(@class,'MuiGrid-spacing')]")
+    // @FindBy(id = "basicGrid")
+    @UI("#basicGrid")
     public static Grid basicGrid;
 
-    //    @FindBy(xpath = "//h2[text()='Complex grid']/following::div[contains(@class,'MuiPaper-rounded')]/div[contains(@class,'MuiGrid-spacing')]")
-    @UI("//h2[text()='Complex grid']/following::div[contains(@class,'MuiPaper-rounded')]/div[contains(@class,'MuiGrid-spacing')]")
+    // @FindBy(id = "complexGrid")
+    @UI("#complexGrid")
     public static Grid complexGrid;
-  
-    @Test
-    public void gridTest() {
-        rootGrid.is().displayed();
-        rootGrid.attr("class").contains("MuiContainer-maxWidthXl");
-        basicGrid.is().displayed();
-        complexGrid.is().displayed();
+
+    @Test(dataProvider = "basicGridItems")
+    public void basicGridItemsTest(int itemIndex, String itemWidth, String itemClass) {
+        rootGrid.is().displayed()
+                .and().has().cssClass("MuiContainer-maxWidthXl");
+        basicGrid.show();
+        basicGrid.is().displayed()
+                .and().has().items(7);
+        
+        basicGrid.items().get(itemIndex)
+                .has().cssClass(itemClass)
+                .and().css("max-width", itemWidth);
+    }
+
+    @DataProvider
+    public Object[][] basicGridItems() {
+        return new Object[][]{
+                {1, "100%", "MuiGrid-grid-xs-12"},
+                {2, "50%", "MuiGrid-grid-xs-6"},
+                {3, "50%", "MuiGrid-grid-xs-6"},
+                {4, "25%", "MuiGrid-grid-xs-3"},
+                {5, "25%", "MuiGrid-grid-xs-3"},
+                {6, "25%", "MuiGrid-grid-xs-3"},
+                {7, "25%", "MuiGrid-grid-xs-3"},
+        };
     }
 ```
 
-##### <a href="https://material-ui.com/components/grid/" target="_blank"> Grind overview </a>
+##### <a href="https://material-ui.com/components/grid/" target="_blank"> Grid overview </a>
 
 Grid is located in the following class:
 
-- __Java__: _com.epam.jdi.light.elements.complex.table.Grid_
+- __Java__: _com.epam.jdi.light.material.elements.layout.Grid_
 
-__The grid__ creates visual consistency between layouts while allowing flexibility across a wide variety of designs..
+__The grid__ adapts to screen size and orientation, creates visual consistency between layouts while allowing flexibility across a wide variety of designs.
 
 ![Grid](../../images/material-ui/Grids.png)
 
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-
 <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3" id="basicGrid">
   <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
     <div class="MuiPaper-root jss6 MuiPaper-elevation1 MuiPaper-rounded">xs=12</div>
@@ -2128,6 +2145,13 @@ Here is an example with provided MaterialUI v4.12.3 code:
   </div>
 </div>
 ```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | GridAssert
+**items()** | Returns list of items in grid | WebList
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
 

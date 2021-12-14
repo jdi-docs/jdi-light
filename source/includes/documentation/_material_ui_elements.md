@@ -820,34 +820,16 @@ Available methods in Java JDI Light:
     @UI("#miconLastHover")
     public static Text lastHover;
 
-    @Test
-    public void defaultMaterialIconTest() {
+    @Test(dataProvider = "defaultMaterialIconTestDataProvider")
+    public void defaultMaterialIconTest(int elNum, String elType) {
+
         lastClick.is().text("Last click:");
         lastHover.is().text("Last hover:");
 
-        iconsList.get(1).hover();
-        lastClick.is().text("Last click:");
-        lastHover.is().text("Last hover: default");
-
-        iconsList.get(1).click();
-        lastClick.is().text("Last click: default");
-        lastHover.is().text("Last hover: default");
-
-        iconsList.get(2).hover();
-        lastClick.is().text("Last click: default");
-        lastHover.is().text("Last hover: large");
-
-        iconsList.get(2).click();
-        lastClick.is().text("Last click: large");
-        lastHover.is().text("Last hover: large");
-
-        iconsList.get(3).hover();
-        lastClick.is().text("Last click: large");
-        lastHover.is().text("Last hover: secondary");
-
-        iconsList.get(3).click();
-        lastClick.is().text("Last click: secondary");
-        lastHover.is().text("Last hover: secondary");
+        iconsList.get(elNum).click();
+        lastClick.is().text("Last click: " + elType);
+        iconsList.get(elNum).hover();
+        lastHover.is().text("Last hover: " + elType);
     }
 ```
 

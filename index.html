@@ -34461,34 +34461,16 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#miconLastHover"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">lastHover</span><span class="o">;</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultMaterialIconTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"defaultMaterialIconTestDataProvider"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultMaterialIconTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">elNum</span><span class="o">,</span> <span class="n">String</span> <span class="n">elType</span><span class="o">)</span> <span class="o">{</span>
+
         <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click:"</span><span class="o">);</span>
         <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover:"</span><span class="o">);</span>
 
-        <span class="n">iconsList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click:"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: default"</span><span class="o">);</span>
-
-        <span class="n">iconsList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: default"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: default"</span><span class="o">);</span>
-
-        <span class="n">iconsList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: default"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: large"</span><span class="o">);</span>
-
-        <span class="n">iconsList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: large"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: large"</span><span class="o">);</span>
-
-        <span class="n">iconsList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: large"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: secondary"</span><span class="o">);</span>
-
-        <span class="n">iconsList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: secondary"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: secondary"</span><span class="o">);</span>
+        <span class="n">iconsList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">elNum</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: "</span> <span class="o">+</span> <span class="n">elType</span><span class="o">);</span>
+        <span class="n">iconsList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">elNum</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: "</span> <span class="o">+</span> <span class="n">elType</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h5 id='material-icons-overview'><a href="https://material-ui.com/components/material-icons/" target="_blank"> Material Icons overview </a></h5>
 <p><strong>Material Icons</strong> - set of icons provided by npm package, @material-ui/icons, that includes the 1,100+ official Material icons converted to SvgIcon components.</p>

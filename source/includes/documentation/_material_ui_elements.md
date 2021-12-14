@@ -2413,19 +2413,51 @@ Available methods in Java JDI Light:
 ### 4.34 Breadcrumbs
 
 ```java 
-    //       @FindBy(css = ".MuiBox-root>div>:nth-child(3)")
-    @UI(".MuiBox-root>div>:nth-child(3)")
+    //       @FindBy(css = ".MuiBreadcrumbs-root")
+    @JDIBreadcrumbs(root = ".MuiBreadcrumbs-root")
+    public static Breadcrumbs routerBreadcrumbs;
+    
+```
+
+You can specify locators for the root, items and separators
+explicitly through a `JDIBreadcrumbs` annotation:
+
+```java    
+    @JDIBreadcrumbs(
+          root = ".MuiBreadcrumbs-root[1]",
+          items = ".MuiBreadcrumbs-li .MuiTypography-root",
+          separators = ".MuiBreadcrumbs-separator"
+    )
     public static Breadcrumbs simpleBreadcrumbs;
+ ```
+
+```java   
+    @Test
+    public void routerIntegrationBreadcrumbsTest() {
+        routerBreadcrumbs.has().values("Home", "Inbox");
+        mailBoxList.get("Important").click();
+        routerBreadcrumbs.has().values("Home", "Inbox", "Important");
+        mailBoxList.get("Trash").click();
+        routerBreadcrumbs.has().values("Home", "Trash");
+        mailBoxList.get("Spam").click();
+        routerBreadcrumbs.has().values("Home", "Spam");
+        mailBoxList.get("Inbox").click();
+        routerBreadcrumbs.has().values("Home", "Inbox");
+    }
     
     @Test
     public void simpleBreadcrumbsTest() {
-        simpleBreadcrumbs.get(1).is().text("Material-UI");
-        simpleBreadcrumbs.get(1).click();
-        timer.wait(() -> materialElement.is().visible());
-        simpleBreadcrumbs.get(2).is().text("Core");
-        simpleBreadcrumbs.get(2).click();
-        timer.wait(() -> materialElement.is().notVisible());
-        timer.wait(() -> coreElement.is().visible());
+        simpleBreadcrumbs.has().values("Material-UI", "Core", "Breadcrumb");
+
+        simpleBreadcrumbs.get("Material-UI").has().attr("href", containsString("#materialUI"));
+        simpleBreadcrumbs.get("Material-UI").click();
+        jdiAssert(simpleBreadcrumbsPage.driver().getCurrentUrl(), endsWith("#materialUI"));
+
+        simpleBreadcrumbs.get("Core").has().attr("href", endsWith("#core"));
+        simpleBreadcrumbs.get("Core").click();
+        jdiAssert(simpleBreadcrumbsPage.driver().getCurrentUrl(), endsWith("#core"));
+
+        simpleBreadcrumbs.separators().foreach(separator -> separator.has().text("/"));
     }
 ```
 
@@ -2465,12 +2497,8 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Clicks on element| void
-**isDisplayed()** | Shows that element is displayed| boolean
-**getText()** | Returns element's text | String
 **list()** | Returns element's list | WebList
-**getIcons()** | Returns element's icon list | WebList
-**getSeparators()** | Returns element's separator list | WebList
+**separators()** | Returns element's separator list | WebList
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/SimpleBreadcrumbsTests.java" target="_blank">Here</a> and <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/RouterBreadcrumbsTests.java" target="_blank">here you can find Breadcrumbs tests</a>
 

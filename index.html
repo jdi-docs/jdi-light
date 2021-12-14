@@ -36271,19 +36271,45 @@ content that are anchored to the left or right edge of the screen.</p>
 </tbody></table>
 <h5 id='here-you-can-find-drawer-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a></h5>
 <p><br></br></p>
-<h3 id='4-34-breadcrumbs'>4.34 Breadcrumbs</h3><pre class="highlight java tab-java"><code>    <span class="c1">//       @FindBy(css = ".MuiBox-root&gt;div&gt;:nth-child(3)")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiBox-root&gt;div&gt;:nth-child(3)"</span><span class="o">)</span>
+<h3 id='4-34-breadcrumbs'>4.34 Breadcrumbs</h3><pre class="highlight java tab-java"><code>    <span class="c1">//       @FindBy(css = ".MuiBreadcrumbs-root")</span>
+    <span class="nd">@JDIBreadcrumbs</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">".MuiBreadcrumbs-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Breadcrumbs</span> <span class="n">routerBreadcrumbs</span><span class="o">;</span>
+
+</code></pre>
+<p>You can specify locators for the root, items and separators
+explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@JDIBreadcrumbs</span><span class="o">(</span>
+          <span class="n">root</span> <span class="o">=</span> <span class="s">".MuiBreadcrumbs-root[1]"</span><span class="o">,</span>
+          <span class="n">items</span> <span class="o">=</span> <span class="s">".MuiBreadcrumbs-li .MuiTypography-root"</span><span class="o">,</span>
+          <span class="n">separators</span> <span class="o">=</span> <span class="s">".MuiBreadcrumbs-separator"</span>
+    <span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Breadcrumbs</span> <span class="n">simpleBreadcrumbs</span><span class="o">;</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">routerIntegrationBreadcrumbsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Inbox"</span><span class="o">);</span>
+        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Important"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Inbox"</span><span class="o">,</span> <span class="s">"Important"</span><span class="o">);</span>
+        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Trash"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Trash"</span><span class="o">);</span>
+        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Spam"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Spam"</span><span class="o">);</span>
+        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Inbox"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Inbox"</span><span class="o">);</span>
+    <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleBreadcrumbsTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Material-UI"</span><span class="o">);</span>
-        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">materialElement</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">());</span>
-        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Core"</span><span class="o">);</span>
-        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">materialElement</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">());</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">coreElement</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">());</span>
+        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Material-UI"</span><span class="o">,</span> <span class="s">"Core"</span><span class="o">,</span> <span class="s">"Breadcrumb"</span><span class="o">);</span>
+
+        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Material-UI"</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"href"</span><span class="o">,</span> <span class="n">containsString</span><span class="o">(</span><span class="s">"#materialUI"</span><span class="o">));</span>
+        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Material-UI"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">simpleBreadcrumbsPage</span><span class="o">.</span><span class="na">driver</span><span class="o">().</span><span class="na">getCurrentUrl</span><span class="o">(),</span> <span class="n">endsWith</span><span class="o">(</span><span class="s">"#materialUI"</span><span class="o">));</span>
+
+        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Core"</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"href"</span><span class="o">,</span> <span class="n">endsWith</span><span class="o">(</span><span class="s">"#core"</span><span class="o">));</span>
+        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Core"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">simpleBreadcrumbsPage</span><span class="o">.</span><span class="na">driver</span><span class="o">().</span><span class="na">getCurrentUrl</span><span class="o">(),</span> <span class="n">endsWith</span><span class="o">(</span><span class="s">"#core"</span><span class="o">));</span>
+
+        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">separators</span><span class="o">().</span><span class="na">foreach</span><span class="o">(</span><span class="n">separator</span> <span class="o">-&gt;</span> <span class="n">separator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"/"</span><span class="o">));</span>
     <span class="o">}</span>
 </code></pre><h5 id='breadcrumbs-overview'><a href="https://material-ui.com/components/Breadcrumbs/" target="_blank"> Breadcrumbs overview </a></h5>
 <p>Breadcrumbs is located in the following class:</p>
@@ -36325,32 +36351,12 @@ content that are anchored to the left or right edge of the screen.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>click()</strong></td>
-<td>Clicks on element</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>isDisplayed()</strong></td>
-<td>Shows that element is displayed</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>getText()</strong></td>
-<td>Returns element&#39;s text</td>
-<td>String</td>
-</tr>
-<tr>
 <td><strong>list()</strong></td>
 <td>Returns element&#39;s list</td>
 <td>WebList</td>
 </tr>
 <tr>
-<td><strong>getIcons()</strong></td>
-<td>Returns element&#39;s icon list</td>
-<td>WebList</td>
-</tr>
-<tr>
-<td><strong>getSeparators()</strong></td>
+<td><strong>separators()</strong></td>
 <td>Returns element&#39;s separator list</td>
 <td>WebList</td>
 </tr>

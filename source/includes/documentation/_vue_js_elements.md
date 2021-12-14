@@ -2654,7 +2654,109 @@ The `v-parallax` component creates a 3D effect that makes an image appear to scr
 
 For examples of usage see: [JDI vuetify page tests for Parallax](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java).
 
+### 5.36 TreeView
 
+[Vuetify documentation page](https://vuetifyjs.com/en/components/treeview/)
+
+__Java__:
+- _com.epam.jdi.light.vuetify.elements.complex.TreeView.java_
+
+You can specify locators for the TreeView by using `JDITreeView` annotation:
+
+|Locator in `JDITreeView` | Description
+--- | --- 
+`core` | used to set the _core_ of the TreeView
+`coreNodes` | used to set _nodes_ in the _core_ of TreeView
+`nodeNodes` | used to set _nodes_ in the _node_ of TreeView
+`root` | used set element with data in TreeView node
+`toggle` | used to set _toggle_ in the _root_ of TreeView
+`checkbox` | used to set _checkbox_ in the _root_ of TreeView
+`content` | used to set _content_ in the _root_ of TreeView
+`full` | used to set class that used as a sign of _full_ checked checkbox
+`part` | used to set class that used as a sign of _partly_ checked checkbox
+`not` | used to set class that used as a sign of _not_ checked checkbox
+
+It is **necessary** to specify **the core** of an element.
+
+```java
+    @JDITreeView(core = "#ActivatableTreeview.v-treeview")
+    public static TreeView activatableTreeView;
+
+    @Test
+    public void colorTreeViewTest() {
+        colorTreeView.has().structure(expectedBaseTreeStructure);
+        colorTreeView.walk(treeView -> {
+            if (!treeView.isLeaf() && !treeView.isPseudoCore()) {
+                TreeView child = treeView.first();
+                child.has().color(BLACK_TRANSPARENT_087);
+                child.activate();
+                child.has().color(ORANGE_DARKEN_1);
+                treeView.close();
+                treeView.is().collapsed();
+                treeView.expand();
+                treeView.is().expanded();
+                child = treeView.first();
+                child.deactivate();
+                child.has().color(BLACK_TRANSPARENT_087);
+            }
+        });
+    }
+```
+
+![TreeView example](../../images/vuetify/treeView.png)
+
+The TreeView component is useful for displaying large amounts of nested data.
+
+The implementation of TreeView has tree structure, e.g.
+
+* Pseudo core
+  * Applications
+    * Calendar: app
+    * Chrome: app
+    * Webstorm: app
+  * Documents
+  * Downloads
+  * Videos
+
+|Method | Description | Return Type
+--- | --- | ---
+**isPseudoCore()** | Shows that element is core TreeView without data | boolean
+**isLeaf()** | Shows that element doesn't have children | boolean
+**isActive()** | Shows that element is activate | boolean
+**isHoverable()** | Shows that element is hoverable | boolean
+**isShaped()** | Shows that element is shaped | boolean
+**isRounded()** | Shows that element is rounded | boolean
+**isFullyMarked()** | Shows that element checkbox is fully marked | boolean
+**isPartlyMarked()** | Shows that element checkbox is partly marked | boolean
+**isNotMarked()** | Shows that element checkbox is not marked | boolean
+**isSelected()** | Shows that element checkbox is fully selected | boolean
+**isExpanded()** | Shows that element is expanded | boolean
+**pseudoCore()** | Returns core TreeView element | TreeView
+**root()** | Returns root TreeView that contains data | UIElement
+**expander()** | Returns expander(toggle) in TreeView root | UIElement
+**checkbox()** | Returns checkbox in TreeView root | UIElement
+**value()** | Returns value in TreeView root | UIElement
+**getValue()/getText()** | Returns value text in TreeView root | String
+**size()** | Returns size of children | int
+**list()** | Returns children | WebList
+**nodes()** | Returns children | List\<TreeView>
+**values()** | Returns children values | List\<String>
+**expand()** | Expand element | void
+**close()** | Close element | void
+**click()** | Click on element | void
+**activate()** | Activate element by click if element is not activated | void
+**deactivate()** | Deactivate element by click if element is activated | void
+**select()** | Click on element checkbox | void
+**check()** | Check checkbox by click if checkbox is not checked | void
+**uncheck()** | Uncheck checkbox by click if checkbox is not checked | boolean
+**select(TEnum value/String text/int index)** | Select element | void
+**selected(TEnum value/String text/int index)** | Shows if children TreeView is selected | boolean
+**selected()** | Returns selected children values in one string | String
+**checked()** | Returns selected children values | List\<String>
+**walk(Consumer<? super TreeView> visitor)** | Uses for tree traversal through all elements | void
+**structure()** | Returns structure of the TreeView | Map\<String, List\<String>>
+
+For examples of usage see: [JDI Vuetify TreeView tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TreeViewTests.java).
 
 
 

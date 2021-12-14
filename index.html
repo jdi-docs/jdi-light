@@ -1163,6 +1163,9 @@
                           <li>
 								            <a href="#5-35-parallax" class="toc-h2 h3 toc-link" data-title="5.35 Parallax">5.35 Parallax</a>
                           </li>
+                          <li>
+								            <a href="#5-36-treeview" class="toc-h2 h3 toc-link" data-title="5.36 TreeView">5.36 TreeView</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -42618,6 +42621,291 @@ Mix and match various pre-defined options or create your own unique implementati
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java">JDI vuetify page tests for Parallax</a>.</p>
+<h3 id='5-36-treeview'>5.36 TreeView</h3>
+<p><a href="https://vuetifyjs.com/en/components/treeview/">Vuetify documentation page</a></p>
+
+<p><strong>Java</strong>:
+- <em>com.epam.jdi.light.vuetify.elements.complex.TreeView.java</em></p>
+
+<p>You can specify locators for the TreeView by using <code>JDITreeView</code> annotation:</p>
+
+<table><thead>
+<tr>
+<th>Locator in <code>JDITreeView</code></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>core</code></td>
+<td>used to set the <em>core</em> of the TreeView</td>
+</tr>
+<tr>
+<td><code>coreNodes</code></td>
+<td>used to set <em>nodes</em> in the <em>core</em> of TreeView</td>
+</tr>
+<tr>
+<td><code>nodeNodes</code></td>
+<td>used to set <em>nodes</em> in the <em>node</em> of TreeView</td>
+</tr>
+<tr>
+<td><code>root</code></td>
+<td>used set element with data in TreeView node</td>
+</tr>
+<tr>
+<td><code>toggle</code></td>
+<td>used to set <em>toggle</em> in the <em>root</em> of TreeView</td>
+</tr>
+<tr>
+<td><code>checkbox</code></td>
+<td>used to set <em>checkbox</em> in the <em>root</em> of TreeView</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>used to set <em>content</em> in the <em>root</em> of TreeView</td>
+</tr>
+<tr>
+<td><code>full</code></td>
+<td>used to set class that used as a sign of <em>full</em> checked checkbox</td>
+</tr>
+<tr>
+<td><code>part</code></td>
+<td>used to set class that used as a sign of <em>partly</em> checked checkbox</td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>used to set class that used as a sign of <em>not</em> checked checkbox</td>
+</tr>
+</tbody></table>
+
+<p>It is <strong>necessary</strong> to specify <strong>the core</strong> of an element.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@JDITreeView</span><span class="o">(</span><span class="n">core</span> <span class="o">=</span> <span class="s">"#ActivatableTreeview.v-treeview"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TreeView</span> <span class="n">activatableTreeView</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorTreeViewTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">colorTreeView</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">structure</span><span class="o">(</span><span class="n">expectedBaseTreeStructure</span><span class="o">);</span>
+        <span class="n">colorTreeView</span><span class="o">.</span><span class="na">walk</span><span class="o">(</span><span class="n">treeView</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">treeView</span><span class="o">.</span><span class="na">isLeaf</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">treeView</span><span class="o">.</span><span class="na">isPseudoCore</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">TreeView</span> <span class="n">child</span> <span class="o">=</span> <span class="n">treeView</span><span class="o">.</span><span class="na">first</span><span class="o">();</span>
+                <span class="n">child</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">BLACK_TRANSPARENT_087</span><span class="o">);</span>
+                <span class="n">child</span><span class="o">.</span><span class="na">activate</span><span class="o">();</span>
+                <span class="n">child</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">ORANGE_DARKEN_1</span><span class="o">);</span>
+                <span class="n">treeView</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="n">treeView</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
+                <span class="n">treeView</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+                <span class="n">treeView</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
+                <span class="n">child</span> <span class="o">=</span> <span class="n">treeView</span><span class="o">.</span><span class="na">first</span><span class="o">();</span>
+                <span class="n">child</span><span class="o">.</span><span class="na">deactivate</span><span class="o">();</span>
+                <span class="n">child</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">BLACK_TRANSPARENT_087</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/treeView.png" alt="TreeView example" /></p>
+
+<p>The TreeView component is useful for displaying large amounts of nested data.</p>
+
+<p>The implementation of TreeView has tree structure, e.g.</p>
+
+<ul>
+<li>Pseudo core
+
+<ul>
+<li>Applications</li>
+<li>Calendar: app</li>
+<li>Chrome: app</li>
+<li>Webstorm: app</li>
+<li>Documents</li>
+<li>Downloads</li>
+<li>Videos</li>
+</ul></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>isPseudoCore()</strong></td>
+<td>Shows that element is core TreeView without data</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLeaf()</strong></td>
+<td>Shows that element doesn&#39;t have children</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isActive()</strong></td>
+<td>Shows that element is activate</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isHoverable()</strong></td>
+<td>Shows that element is hoverable</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isShaped()</strong></td>
+<td>Shows that element is shaped</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isRounded()</strong></td>
+<td>Shows that element is rounded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isFullyMarked()</strong></td>
+<td>Shows that element checkbox is fully marked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isPartlyMarked()</strong></td>
+<td>Shows that element checkbox is partly marked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotMarked()</strong></td>
+<td>Shows that element checkbox is not marked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isSelected()</strong></td>
+<td>Shows that element checkbox is fully selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isExpanded()</strong></td>
+<td>Shows that element is expanded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>pseudoCore()</strong></td>
+<td>Returns core TreeView element</td>
+<td>TreeView</td>
+</tr>
+<tr>
+<td><strong>root()</strong></td>
+<td>Returns root TreeView that contains data</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>expander()</strong></td>
+<td>Returns expander(toggle) in TreeView root</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>checkbox()</strong></td>
+<td>Returns checkbox in TreeView root</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Returns value in TreeView root</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>getValue()/getText()</strong></td>
+<td>Returns value text in TreeView root</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>size()</strong></td>
+<td>Returns size of children</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>list()</strong></td>
+<td>Returns children</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>nodes()</strong></td>
+<td>Returns children</td>
+<td>List&lt;TreeView&gt;</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Returns children values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expand element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>close()</strong></td>
+<td>Close element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>click()</strong></td>
+<td>Click on element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>activate()</strong></td>
+<td>Activate element by click if element is not activated</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>deactivate()</strong></td>
+<td>Deactivate element by click if element is activated</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select()</strong></td>
+<td>Click on element checkbox</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>check()</strong></td>
+<td>Check checkbox by click if checkbox is not checked</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck()</strong></td>
+<td>Uncheck checkbox by click if checkbox is not checked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>select(TEnum value/String text/int index)</strong></td>
+<td>Select element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected(TEnum value/String text/int index)</strong></td>
+<td>Shows if children TreeView is selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Returns selected children values in one string</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>checked()</strong></td>
+<td>Returns selected children values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>walk(Consumer&lt;? super TreeView&gt; visitor)</strong></td>
+<td>Uses for tree traversal through all elements</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>structure()</strong></td>
+<td>Returns structure of the TreeView</td>
+<td>Map&lt;String, List&lt;String&gt;&gt;</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TreeViewTests.java">JDI Vuetify TreeView tests</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-locator-aliases-as-parameters'>Using locator aliases as parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

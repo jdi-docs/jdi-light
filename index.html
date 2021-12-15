@@ -34331,20 +34331,23 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-appbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a></h5>
 <p><br></br></p>
-<h3 id='4-11-box'>4.11 Box</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//button[contains(@class,'MuiButton-contained')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@class,'MuiButton-contained')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">containedBox</span><span class="o">;</span>
+<h3 id='4-11-box'>4.11 Box</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(className = "MuiButton-contained")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiButton-contained"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">buttonContainedBox</span><span class="o">;</span>
 
-    <span class="c1">// @FindBy(xpath = "//p")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"p"</span><span class="o">)</span>
+    <span class="c1">// @FindBy(id = "lastClickContent")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#lastClickContent"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">lastClickContent</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">containedBoxTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">containedBox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">containedBox</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">containedBox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"FIRST BUTTON"</span><span class="o">);</span>
-        <span class="n">lastClickContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You clicked First button"</span><span class="o">);</span>
+        <span class="n">buttonContainedBox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"FIRST BUTTON"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="s">"MuiButton-containedPrimary"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="n">Colors</span><span class="o">.</span><span class="na">PRIMARY</span><span class="o">.</span><span class="na">rgba</span><span class="o">());</span>
+
+        <span class="n">buttonContainedBox</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">lastClickContent</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You clicked First button"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h5 id='box-overview'><a href="https://material-ui.com/components/box/" target="_blank"> Box overview </a></h5>
 <p><strong>Box</strong> - element that serves as a wrapper component for most of the CSS utility needs.</p>

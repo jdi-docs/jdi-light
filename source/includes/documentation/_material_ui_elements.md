@@ -691,20 +691,23 @@ Available methods in Java JDI Light:
 ### 4.11 Box
 
 ```java
-    // @FindBy(xpath = "//button[contains(@class,'MuiButton-contained')]")
-    @UI("//button[contains(@class,'MuiButton-contained')]")
-    public static Button containedBox;
+    // @FindBy(className = "MuiButton-contained")
+    @UI(".MuiButton-contained")
+    public static Button buttonContainedBox;
     
-    // @FindBy(xpath = "//p")
-    @UI("p")
+    // @FindBy(id = "lastClickContent")
+    @UI("#lastClickContent")
     public static Text lastClickContent;
 
     @Test
     public void containedBoxTest() {
-        containedBox.is().displayed();
-        containedBox.click();
-        containedBox.is().text("FIRST BUTTON");
-        lastClickContent.is().text("You clicked First button");
+        buttonContainedBox.is().displayed()
+                .and().has().text("FIRST BUTTON")
+                .and().cssClass("MuiButton-containedPrimary")
+                .and().has().css("background-color", Colors.PRIMARY.rgba());
+        
+        buttonContainedBox.click();
+        lastClickContent.has().text("You clicked First button");
     }
 ```
 

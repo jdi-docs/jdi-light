@@ -35319,29 +35319,28 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-backdrop-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/BackdropTests.java" target="_blank">Here you can find Backdrop tests</a></h5>
 <p><br></br></p>
-<h3 id='4-25-dialog'>4.25 Dialog</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = ""//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]"")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]"</span><span class="o">)</span>
+<h3 id='4-25-dialog'>4.25 Dialog</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//span[text()='Open simple dialog']/parent::button")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[text()='Open simple dialog']/parent::button"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleDialogButton</span><span class="o">;</span>
-
-    <span class="c1">// @FindBy(xpath = "//h2[contains(@class,'MuiTypography-h6') and not (text()='Phone Ringtone')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[contains(@class,'MuiTypography-h6') and not (text()='Phone Ringtone')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">dialogTitle</span><span class="o">;</span>
-
-    <span class="c1">// @FindBy(xpath = "//div[@id='simple-dialog-title']/following::div[@class='MuiListItemText-root'][1]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='simple-dialog-title']/following::div[@class='MuiListItemText-root'][1]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleDialogListButton</span><span class="o">;</span>
 
     <span class="c1">// @FindBy(id = "simpleDialogSelection")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#simpleDialogSelection"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">simpleDialogField</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">simpleDialogSelectedText</span><span class="o">;</span>
 
-    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">DialogDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> 
-            <span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"simpleDialogDataProvider"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleDialogTest</span><span class="o">(</span><span class="n">String</span> <span class="n">dialogTitleText</span><span class="o">,</span> <span class="n">String</span> <span class="n">dialogResultFieldText</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// @FindBy(xpath = "//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Dialog</span> <span class="n">simpleDialog</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">DialogDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"simpleDialogDataProvider"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleDialogTest</span><span class="o">(</span><span class="n">String</span> <span class="n">titleText</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">simpleDialogButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">dialogTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">dialogTitleText</span><span class="o">);</span>
-        <span class="n">simpleDialogListButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">simpleDialogField</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">dialogResultFieldText</span><span class="o">);</span>
+        <span class="n">simpleDialog</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">simpleDialog</span><span class="o">.</span><span class="na">title</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">titleText</span><span class="o">);</span>
+        <span class="n">simpleDialog</span><span class="o">.</span><span class="na">listItems</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">simpleDialog</span><span class="o">.</span><span class="na">listitem</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+        <span class="n">simpleDialog</span><span class="o">.</span><span class="na">listitem</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleDialog</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+        <span class="n">simpleDialogSelectedText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"Selected: "</span> <span class="o">+</span> <span class="n">text</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">" "</span><span class="o">,</span> <span class="s">""</span><span class="o">)));</span>
     <span class="o">}</span>
 </code></pre><h5 id='dialog-overview'><a href="https://material-ui.com/components/dialogs/" target="_blank"> Dialog overview </a></h5>
 <p>Dialog is located in the following class:</p>
@@ -35365,7 +35364,83 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre><h5 id='here-you-can-find-dialog-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a></h5>
+</code></pre>
+<p>Available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>DialogAssert</td>
+</tr>
+<tr>
+<td><strong>title()</strong></td>
+<td>Returns element&#39;s title</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>listItems()</strong></td>
+<td>Returns list of element&#39;s items</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>ListItem(int)</strong></td>
+<td>Returns element&#39;s list item by its index</td>
+<td>ListItem</td>
+</tr>
+<tr>
+<td><strong>textContent()</strong></td>
+<td>Returns element&#39;s text content</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>actions()</strong></td>
+<td>Returns element&#39;s action buttons</td>
+<td>ButtonGroup</td>
+</tr>
+<tr>
+<td><strong>radioButtons()</strong></td>
+<td>Returns element&#39;s radio buttons</td>
+<td>RadioButtons</td>
+</tr>
+<tr>
+<td><strong>input()</strong></td>
+<td>Returns element&#39;s input field</td>
+<td>TextField</td>
+</tr>
+<tr>
+<td><strong>hasScrollableContent()</strong></td>
+<td>Shows that element has scrollable content</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><strong>hasScrollableBody()</strong></td>
+<td>Shows that element has scrollable body</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><strong>close()</strong></td>
+<td>Closes element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>confirm()</strong></td>
+<td>Confirms and closes element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>scrollDialogBodyTo(int)</strong></td>
+<td>Scrolls element to targeted position</td>
+<td>void</td>
+</tr>
+</tbody></table>
+<h5 id='here-you-can-find-dialog-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a></h5>
 <p><br></br></p>
 <h3 id='4-26-date-time-pickers'>4.26 Date / Time pickers</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//*[@id = 'date-picker-inline-label']/parent::div")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id = 'date-picker-inline-label']/parent::div"</span><span class="o">)</span>

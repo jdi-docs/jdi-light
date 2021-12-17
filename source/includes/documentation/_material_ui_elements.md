@@ -1591,29 +1591,28 @@ Available methods in Java JDI Light:
 ### 4.25 Dialog
 
 ```java
-    // @FindBy(xpath = ""//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]"")
-    @UI("//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]")
+    // @FindBy(xpath = "//span[text()='Open simple dialog']/parent::button")
+    @UI("//span[text()='Open simple dialog']/parent::button")
     public static Button simpleDialogButton;
-    
-    // @FindBy(xpath = "//h2[contains(@class,'MuiTypography-h6') and not (text()='Phone Ringtone')]")
-    @UI("//h2[contains(@class,'MuiTypography-h6') and not (text()='Phone Ringtone')]")
-    public static Text dialogTitle;
-    
-    // @FindBy(xpath = "//div[@id='simple-dialog-title']/following::div[@class='MuiListItemText-root'][1]")
-    @UI("//div[@id='simple-dialog-title']/following::div[@class='MuiListItemText-root'][1]")
-    public static Button simpleDialogListButton;
-    
+
     // @FindBy(id = "simpleDialogSelection")
     @UI("#simpleDialogSelection")
-    public static Text simpleDialogField;
-  
-    @Test(dataProviderClass = DialogDataProvider.class, 
-            dataProvider = "simpleDialogDataProvider")
-    public void simpleDialogTest(String dialogTitleText, String dialogResultFieldText) {
+    public static Text simpleDialogSelectedText;
+
+    // @FindBy(xpath = "//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]")
+    @UI("//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]")
+    public static Dialog simpleDialog;
+
+    @Test(dataProviderClass = DialogDataProvider.class, dataProvider = "simpleDialogDataProvider")
+    public void simpleDialogTest(String titleText, int index, String text) {
         simpleDialogButton.click();
-        dialogTitle.is().text(dialogTitleText);
-        simpleDialogListButton.click();
-        simpleDialogField.is().text(dialogResultFieldText);
+        simpleDialog.is().displayed();
+        simpleDialog.title().has().text(titleText);
+        simpleDialog.listItems().has().size(3);
+        simpleDialog.listitem(index).has().text(text);
+        simpleDialog.listitem(index).click();
+        simpleDialog.is().hidden();
+        simpleDialogSelectedText.has().text(equalToIgnoringCase("Selected: " + text.replaceAll(" ", "")));
     }
 ```
 
@@ -1641,6 +1640,25 @@ Here is an example with provided Material-UI v4.12.3 code:
   </ul>
 </div>
 ```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | DialogAssert
+**title()** | Returns element's title | Text
+**listItems()** | Returns list of element's items | WebList
+**ListItem(int)** | Returns element's list item by its index | ListItem
+**textContent()** | Returns element's text content | Text
+**actions()** | Returns element's action buttons | ButtonGroup
+**radioButtons()** | Returns element's radio buttons | RadioButtons
+**input()** | Returns element's input field | TextField
+**hasScrollableContent()** | Shows that element has scrollable content | Boolean
+**hasScrollableBody()** | Shows that element has scrollable body | Boolean
+**close()** | Closes element | void
+**confirm()** | Confirms and closes element | void
+**scrollDialogBodyTo(int)** | Scrolls element to targeted position | void
+
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a>
 

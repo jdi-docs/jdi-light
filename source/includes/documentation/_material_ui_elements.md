@@ -1591,28 +1591,25 @@ Available methods in Java JDI Light:
 ### 4.25 Dialog
 
 ```java
-    // @FindBy(xpath = "//span[text()='Open simple dialog']/parent::button")
-    @UI("//span[text()='Open simple dialog']/parent::button")
-    public static Button simpleDialogButton;
-
-    // @FindBy(id = "simpleDialogSelection")
-    @UI("#simpleDialogSelection")
-    public static Text simpleDialogSelectedText;
-
-    // @FindBy(xpath = "//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]")
-    @UI("//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]")
-    public static Dialog simpleDialog;
+    //Button containing dialog @FindBy(xpath = "//span[text()='Open simple dialog']/parent::button")
+    //Dialog @FindBy(xpath = "//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]")
+    //Text reflecting last action @FindBy(id = "simpleDialogSelection")
+    @JDIButtonWithDialog(root = "//span[text()='Open simple dialog']/parent::button",
+              dialog = "//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]",
+              actionText = "#simpleDialogSelection")
+    public static ButtonWithDialog simpleDialogButton;
 
     @Test(dataProviderClass = DialogDataProvider.class, dataProvider = "simpleDialogDataProvider")
     public void simpleDialogTest(String titleText, int index, String text) {
         simpleDialogButton.click();
-        simpleDialog.is().displayed();
-        simpleDialog.title().has().text(titleText);
-        simpleDialog.listItems().has().size(3);
-        simpleDialog.listitem(index).has().text(text);
-        simpleDialog.listitem(index).click();
-        simpleDialog.is().hidden();
-        simpleDialogSelectedText.has().text(equalToIgnoringCase("Selected: " + text.replaceAll(" ", "")));
+        simpleDialogButton.dialog().is().displayed();
+        simpleDialogButton.dialog().title().has().text(titleText);
+        simpleDialogButton.dialog().list().has().size(3);
+        simpleDialogButton.dialog().list().items().get(index).has().text(text);
+        simpleDialogButton.dialog().list().items().get(index).click();
+        simpleDialogButton.dialog().is().hidden();
+        simpleDialogButton.actionText().has()
+        .text(equalToIgnoringCase("Selected: " + text.replaceAll(" ", "")));
     }
 ```
 
@@ -1647,8 +1644,7 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **is()** | Returns object for work with assertions | DialogAssert
 **title()** | Returns element's title | Text
-**listItems()** | Returns list of element's items | WebList
-**ListItem(int)** | Returns element's list item by its index | ListItem
+**list()** | Returns list of element's items | List
 **textContent()** | Returns element's text content | Text
 **actions()** | Returns element's action buttons | ButtonGroup
 **radioButtons()** | Returns element's radio buttons | RadioButtons

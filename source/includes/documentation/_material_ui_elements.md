@@ -3197,52 +3197,63 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.46 Lists
+### 4.46.1 Lists
 
 ```java 
-    //    @FindBy(xpath = "//*[contains(text(),'List item 1')]")
-    @UI("//*[contains(text(),'List item 1')]")
-    public Lists firstListItem;
+    @UI("#selectedList")
+    public static List selectedListUpperHalf;
 
-    //    @FindBy(xpath = "//*[contains(text(),'List item 2')]")
-    @UI("//*[contains(text(),'List item 2')]")
-    public Lists secondListItem;
+    @UI("#selectedListLowerHalf")
+    public static List selectedListLowerHalf;
     
-    //    @FindBy(xpath = "//*[contains(text(),'Line item 1')]")
-    @UI("//*[contains(text(),'Line item 1')]")
-    public Lists lineItemFirst;
+    @UI("#iconWithTextList")
+    public static List iconWithTextList;
 
-    //    @FindBy(xpath = "//*[contains(text(),'Line item 1')]/../../div[contains(@class, 'MuiListItemIcon-root')]/span")
-    @XPath("//*[contains(text(),'Line item 1')]/../../div[contains(@class, 'MuiListItemIcon-root')]/span")
-    public Lists checkboxLineItemFirst;
+    @UI("#avatarWithTextList")
+    public static List avatarWithTextList;
+    
+    @UI("#listWithSwitch")
+    public static List listWithSwitch;
     
     @Test
-    public void simpleList() {
-        ListPage.firstListItem.is().enabled();
-        ListPage.firstListItem.is().text(hasToString("List item 1"));
-        ListPage.secondListItem.is().enabled();
-        ListPage.secondListItem.is().text(hasToString("List item 2"));
+    public void selectedListTests() {
+        selectedListUpperHalf.selectItemByText("Inbox");
+        selectedListUpperHalf.getItemByText("Inbox").is().selected();
+        selectedListLowerHalf.selectItemByText("Spam");
+        selectedListUpperHalf.getItemByText("Inbox").is().notSelected();
+        selectedListLowerHalf.getItemByText("Spam").is().selected();
     }
     
     @Test
-    public void checkboxList() {
-        ListPage.lineItemFirst.is().enabled();
-        ListPage.lineItemFirst.is().text(hasToString("Line item 1"));
-        ListPage.checkboxLineItemFirst.is().checked();
-
-        ListPage.checkboxLineItemFirst.uncheck();
-        ListPage.checkboxLineItemFirst.is().unchecked();
-
-        ListPage.checkboxLineItemFirst.check();
-        ListPage.checkboxLineItemFirst.is().checked();
+    public void iconWithTextTests() {
+        iconWithTextList.is().notEmpty();
+        iconWithTextList.items().get(0).icon().is().notColored();
     }
+
+    @Test
+    public void avatarWithTextTests() {
+        secondaryTextCheckbox.check();
+        avatarWithTextList.items().get(0).has().secondaryText("Secondary text");
+    }
+    
+    @Test
+    public void listWithSwitchTests() {
+        Set<String> expectedItems = Stream.of("Wi-Fi", "Bluetooth")
+                .collect(Collectors.toCollection(HashSet::new));
+        listWithSwitch.has().itemsWithTexts(expectedItems);
+
+        listWithSwitch.items().get(0).secondaryActionSwitch().is().turnedOn();
+        listWithSwitch.items().get(0).secondaryActionSwitch().turnOff();
+        listWithSwitch.items().get(0).secondaryActionSwitch().is().turnedOff();
+    }
+
 ```
 
 ##### <a href="https://material-ui.com/components/lists/" target="_blank"> Lists overview </a>
 
-Lists is located in the following class:
+List is located in the following class:
 
-- __Java__: _com.epam.jdi.light.material.elements.displaydata.Lists_
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.List_
 
 __Lists__ are a continuous group of text or images. They are composed of items containing primary and supplemental actions,
 which are represented by icons and text.
@@ -3353,17 +3364,44 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return type
 | --- | --- | --- 
-**is()** | Returns object for work with assertions | ListsAssert
-**togle()** | Toggle | void
-**check()** | Check | void
-**uncheck()** | Uncheck | void
-**isChecked()** | Returns answer is checked | boolean
-**isUnchecked()** | Returns answer is unchecked | boolean
-**isDisabled()** | Returns answer is disabled | boolean
-**isEnabled()** | Returns answer is enabled | boolean
-**getText()** | Returns text | String
+**is()/has()** | Returns object for work with assertions | ListAssert
+**items()** | Returns a Java list of list items | List\<ListItem>
+**getItemByText(String)** | Returns first list item with specified text | ListItem
+**selectItemByText(String)** | Clicks first list item with specified text | void
+**nestedLists()** | Returns a Java list of Material UI lists nested directly within the list | List\<List>
+**size()** | Returns list size | int
+**isEmpty()** | Checks if a list does not contain any elements | boolean
+**isDense()** | Checks if a list is dense | boolean
+**subheaders()** | Returns list sub-headers as Java list of UIElements | List\<UIElement>
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListTests.java" target="_blank">Here you can find List tests</a>
+
+### 4.46.2 List Items
+
+List Item is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.ListItem
+
+**List Items** represent elements collected in a Material UI List. 
+
+List item has a "primary area" which may contain an icon/avatar/checkbox, primary and secondary text. It can also support a primary action invoked by clicking on this area, like selecting the item.
+
+List item also might have a "secondary area" containing a switch or button used to invoke a distinct secondary action.
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return type
+| --- | --- | --- 
+**is()/has()** | Returns object for work with assertions | ListItemAssert
+**getText()** | Returns primary text of list item as string | String
+**getPrimaryText()** | Returns properly marked primary text of list item as Text | Text
+**getSecondaryText()** | Returns secondary text of list item | Text
+**icon()** | Returns icon of list item | Icon
+**avatar()** | Returns avatar of list item | Avatar
+**checkbox()** | Returns checkbox of list item | Checkbox
+**isSelected()** | Checks if a list item is selected | boolean
+**secondaryActionButton()** | Returns secondary action button of list item | Button
+**secondaryActionSwitch()** | Returns secondary action switch of list item | Switch
 
 <br></br>
 

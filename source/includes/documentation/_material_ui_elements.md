@@ -3252,7 +3252,7 @@ List is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.displaydata.List_
 
-__Lists__ are a continuous group of text or images. They are composed of items containing primary and supplemental actions,
+__Lists__ are continuous groups of text or images. They are composed of items containing primary and supplemental actions,
 which are represented by icons and text.
 
 ![simpleList](../../images/material-ui/simpleList.png)
@@ -3463,12 +3463,12 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/components/transfer-list/" target="_blank"> Transfer List overview</a>
 
-Abstract TransferList and its child classes are located in the following classes:
+Abstract TransferList and its descendants are located in the following classes:
 
 - __Java__:
->_com.epam.jdi.light.material.elements.inputs.transferlist.TransferList_
->_com.epam.jdi.light.material.elements.inputs.transferlist.SimpleTransferList_
->_com.epam.jdi.light.material.elements.inputs.transferlist.EnhancedTransferList_
+_com.epam.jdi.light.material.elements.inputs.transferlist.TransferList_
+_com.epam.jdi.light.material.elements.inputs.transferlist.SimpleTransferList_
+_com.epam.jdi.light.material.elements.inputs.transferlist.EnhancedTransferList_
 
 A **transfer list** (or "shuttle") enables the user to move one or more list items between lists.
 

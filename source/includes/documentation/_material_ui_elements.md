@@ -3404,44 +3404,74 @@ Available methods in Java JDI Light:
 ### 4.47 Transfer List
 
 ```java 
-    //    @FindBy(id = "#root")
-    @JDITransferList(root = "#root", allItemsLeftCheckbox = "(//span[./input[@aria-label='all items selected']])[1]",
-        allItemsRightCheckbox = "(//span[./input[@aria-label='all items selected']])[2]")
+
+    // @FindBy(css = ".MuiGrid-root.MuiGrid-justify-xs-center")
+    @UI(".MuiGrid-root.MuiGrid-justify-xs-center")
+    public static SimpleTransferList simpleTransferList;
+    
+    // @FindBy(css = ".MuiGrid-justify-xs-center")
+    @UI(".MuiGrid-justify-xs-center")
     public static EnhancedTransferList enhancedTransferList;
-
+    
     @Test
-    public void enhancedTransferListTest() {
+    public void simpleTransferListTests() {
+        simpleTransferListPage.open();
+        simpleTransferListPage.checkOpened();
+
+        simpleTransferList.leftList().is().notEmpty();
+        simpleTransferList.moveAllItemsRight(); // transfer with high-level method
+        simpleTransferList.leftList().is().empty();
+        simpleTransferList.moveAllItemsLeftButton().click(); // transfer by clicking button directly
+        simpleTransferList.rightList().is().empty();
+
+        String textOfItemToTransfer = "List item 5";
+
+        simpleTransferList.leftList().checkItemByText(textOfItemToTransfer);
+        simpleTransferList.leftList().getItemByText(textOfItemToTransfer).is().checked();
+        simpleTransferList.moveCheckedItemsRight();
+        simpleTransferList.rightList().has().itemWithText(textOfItemToTransfer);
+        
+    @Test
+    public void enhancedTransferListTests() {
         enhancedTransferListPage.open();
-        enhancedTransferListPage.enhancedTransferList.is().isMoveRightButtonDisable();
-        enhancedTransferListPage.enhancedTransferList.is().isMoveLeftButtonDisable();
+        enhancedTransferListPage.checkOpened();
 
-        enhancedTransferListPage.enhancedTransferList.check("List item 1");
-        enhancedTransferListPage.enhancedTransferList.is().checked("List item 1");
-        enhancedTransferListPage.enhancedTransferList.is().isMoveRightButtonEnable();
+        enhancedTransferList.leftListHeader().has().text("Choices");
+        enhancedTransferList.has().allLeftListItemsUnchecked();
+        enhancedTransferList.leftListSubheader().has().text("0/4 selected");
+        enhancedTransferList.checkAllLeftItems();
+        enhancedTransferList.has().allLeftListItemsChecked();
+        enhancedTransferList.leftListSubheader().has().text("4/4 selected");
 
-        enhancedTransferListPage.enhancedTransferList.uncheck("List item 1");
-        enhancedTransferListPage.enhancedTransferList.is().unchecked("List item 1");
+        enhancedTransferList.rightListHeader().has().text("Chosen");
+        enhancedTransferList.rightListSubheader().has().text("0/4 selected");
+        enhancedTransferList.moveCheckedItemsRight();
 
-        enhancedTransferListPage.enhancedTransferList.moveAllElementsRight();
-        enhancedTransferListPage.enhancedTransferList.is().itemsMovedRight("List item 1", "List item 2",
-            "List item 3", "List item 4", "List item 5", "List item 6", "List item 7", "List item 8");
+        Set<String> allItemTextsSet = new HashSet<>(Arrays.asList("List item 1", "List item 2", "List item 3",
+                "List item 4", "List item 5", "List item 6", "List item 7", "List item 8"));
 
-        enhancedTransferListPage.enhancedTransferList.moveAllElementsLeft();
-        enhancedTransferListPage.enhancedTransferList.is().itemsMovedLeft("List item 1", "List item 2",
-            "List item 3", "List item 4", "List item 5", "List item 6", "List item 7", "List item 8");
+        enhancedTransferList.rightList().has().itemsWithTexts(allItemTextsSet);
+        enhancedTransferList.rightListSubheader().has().text("0/8 selected");
+        enhancedTransferList.checkAllRightItems();
+        enhancedTransferList.uncheckAllRightItems();
+        enhancedTransferList.has().allRightListItemsUnchecked();
+        enhancedTransferList.rightList().checkItemByText("List item 7");
+        enhancedTransferList.moveCheckedItemsLeft();
     }
 ```
 
 ##### <a href="https://material-ui.com/components/transfer-list/" target="_blank"> Transfer List overview</a>
 
-Types of Transfer List are located in the following class:
+Abstract TransferList and its child classes are located in the following classes:
 
 - __Java__:
 >_com.epam.jdi.light.material.elements.inputs.transferlist.TransferList_
 >_com.epam.jdi.light.material.elements.inputs.transferlist.SimpleTransferList_
->_com.epam.jdi.light.material.elements.inputs.transferlist.EnchancedTransferList_
+>_com.epam.jdi.light.material.elements.inputs.transferlist.EnhancedTransferList_
 
-**A transfer list** (or "shuttle") enables the user to move one or more list items between lists.
+A **transfer list** (or "shuttle") enables the user to move one or more list items between lists.
+
+Inner lists of a transfer list have the same methods as a regular List. 
 
 ![Enhanced Transfer Lists](../../images/material-ui/EnhancedTransferList.png)
 
@@ -3565,27 +3595,42 @@ Here is an example with provided MaterialUI v4.12.3 code:
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions | TransferListAssert
-**isMoveRightButtonDisable()** | Assert > button is disabled | TransferListAssert
-**isMoveLeftButtonDisable()** | Assert < button is disabled | TransferListAssert
-**check()** | Click on checkbox to check | void
-**uncheck()** | Click on checkbox to uncheck | void
-**isMoveRightButtonEnable()** | Assert > button is enabled | TransferListAssert
-**isMoveLeftButtonEnable()** | Assert < button is enabled | TransferListAssert
-**moveItemsRight()** | Click on > button | void
-**moveItemsLeft()** | Click on < button | void
-**itemsMovedRight()** | Assert items are existed on Right List | TransferListAssert
-**itemsMovedLeft()** | Assert items are existed on Right List | TransferListAssert
-**checked()** | Assert items is selected | TransferListAssert
-
-Available methods for Simple and Enhanced Transfer List in Java JDI Light:
+- **Transfer List**
 
 |Method | Description | Return Type
 --- | --- | ---
-**moveAllElementsRight()** | Click on >> button | void
-**moveAllElementsLeft()** | Click on << button | void
+**is()/has()** | Returns object for work with assertions | TransferListAssert
+**leftList()** | Returns left inner list | TransferInnerList
+**rightList()** | Returns right inner list | TransferInnerList
+**moveCheckedItemsRightButton()** | Returns "move all checked items to right inner list" button | Button
+**moveCheckedItemsLeftButton()** | Returns "move all checked items to left inner list" button | Button
+**moveCheckedItemsRight()** | Clicks "move all checked items to right inner list" button | void
+**moveCheckedItemsLeft()** | Clicks "move all checked items to left inner list" button | void
+
+- additional methods of **Simple Transfer List**
+
+|Method | Description | Return Type
+--- | --- | ---
+**moveAllItemsRightButton()** | Returns "move all items to right inner list" button | Button
+**moveAllItemsLeftButton()** | Returns "move all items to left inner list" button | Button
+**moveAllItemsRight()** | Clicks "move all items to right inner list" button | void
+**moveAllItemsLeft()** | Clicks "move all items to left inner list" button | void
+
+- additional methods of **Enhanced Transfer List**
+
+|Method | Description | Return Type
+--- | --- | ---
+**leftSelectAllCheckbox()** | Returns "check/uncheck all items in the left inner list" checkbox | Checkbox
+**rightSelectAllCheckbox()** | Returns "check/uncheck all items in the right inner list" checkbox | Checkbox
+**checkAllLeftItems()** | Checks all left inner list items | void
+**uncheckAllLeftItems()** | Unchecks all left inner list items | void
+**checkAllRightItems()** | Checks all right inner list items | void
+**uncheckAllRightItems()** | Unchecks all right inner list items | void
+**leftListHeader()** | Returns left inner list header | Text
+**rightListHeader()** | Returns right inner list header | Text
+**leftListSubheader()** | Returns left inner list sub-header | Text
+**rightListSubheader()** | Returns right inner list sub-header | Text
+
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Transfer List tests</a>
 

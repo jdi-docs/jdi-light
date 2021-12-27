@@ -3196,6 +3196,7 @@ Available methods in Java JDI Light:
 ### 4.46.1 Lists
 
 ```java 
+    // @FindBy(id = "selectedList")
     @UI("#selectedList")
     public static List selectedListUpperHalf;
 
@@ -3376,7 +3377,7 @@ Available methods in Java JDI Light:
 
 List Item is located in the following class:
 
-- __Java__: _com.epam.jdi.light.material.elements.displaydata.ListItem
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.ListItem_
 
 **List Items** represent elements collected in a Material UI List. 
 

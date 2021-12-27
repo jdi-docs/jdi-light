@@ -37521,43 +37521,73 @@ which are represented by icons and text.</p>
 </tbody></table>
 
 <p><br></br></p>
-<h3 id='4-47-transfer-list'>4.47 Transfer List</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(id = "#root")</span>
-    <span class="nd">@JDITransferList</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#root"</span><span class="o">,</span> <span class="n">allItemsLeftCheckbox</span> <span class="o">=</span> <span class="s">"(//span[./input[@aria-label='all items selected']])[1]"</span><span class="o">,</span>
-        <span class="n">allItemsRightCheckbox</span> <span class="o">=</span> <span class="s">"(//span[./input[@aria-label='all items selected']])[2]"</span><span class="o">)</span>
+<h3 id='4-47-transfer-list'>4.47 Transfer List</h3><pre class="highlight java tab-java"><code>
+    <span class="c1">// @FindBy(css = ".MuiGrid-root.MuiGrid-justify-xs-center")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiGrid-root.MuiGrid-justify-xs-center"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SimpleTransferList</span> <span class="n">simpleTransferList</span><span class="o">;</span>
+
+    <span class="c1">// @FindBy(css = ".MuiGrid-justify-xs-center")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiGrid-justify-xs-center"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">EnhancedTransferList</span> <span class="n">enhancedTransferList</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enhancedTransferListTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleTransferListTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">simpleTransferListPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+        <span class="n">simpleTransferListPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
+
+        <span class="n">simpleTransferList</span><span class="o">.</span><span class="na">leftList</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notEmpty</span><span class="o">();</span>
+        <span class="n">simpleTransferList</span><span class="o">.</span><span class="na">moveAllItemsRight</span><span class="o">();</span> <span class="c1">// transfer with high-level method</span>
+        <span class="n">simpleTransferList</span><span class="o">.</span><span class="na">leftList</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">empty</span><span class="o">();</span>
+        <span class="n">simpleTransferList</span><span class="o">.</span><span class="na">moveAllItemsLeftButton</span><span class="o">().</span><span class="na">click</span><span class="o">();</span> <span class="c1">// transfer by clicking button directly</span>
+        <span class="n">simpleTransferList</span><span class="o">.</span><span class="na">rightList</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">empty</span><span class="o">();</span>
+
+        <span class="n">String</span> <span class="n">textOfItemToTransfer</span> <span class="o">=</span> <span class="s">"List item 5"</span><span class="o">;</span>
+
+        <span class="n">simpleTransferList</span><span class="o">.</span><span class="na">leftList</span><span class="o">().</span><span class="na">checkItemByText</span><span class="o">(</span><span class="n">textOfItemToTransfer</span><span class="o">);</span>
+        <span class="n">simpleTransferList</span><span class="o">.</span><span class="na">leftList</span><span class="o">().</span><span class="na">getItemByText</span><span class="o">(</span><span class="n">textOfItemToTransfer</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+        <span class="n">simpleTransferList</span><span class="o">.</span><span class="na">moveCheckedItemsRight</span><span class="o">();</span>
+        <span class="n">simpleTransferList</span><span class="o">.</span><span class="na">rightList</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">itemWithText</span><span class="o">(</span><span class="n">textOfItemToTransfer</span><span class="o">);</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enhancedTransferListTests</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">isMoveRightButtonDisable</span><span class="o">();</span>
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">isMoveLeftButtonDisable</span><span class="o">();</span>
+        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
 
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">);</span>
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">);</span>
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">isMoveRightButtonEnable</span><span class="o">();</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">leftListHeader</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Choices"</span><span class="o">);</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">allLeftListItemsUnchecked</span><span class="o">();</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">leftListSubheader</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"0/4 selected"</span><span class="o">);</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">checkAllLeftItems</span><span class="o">();</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">allLeftListItemsChecked</span><span class="o">();</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">leftListSubheader</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4/4 selected"</span><span class="o">);</span>
 
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">uncheck</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">);</span>
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">);</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">rightListHeader</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Chosen"</span><span class="o">);</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">rightListSubheader</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"0/4 selected"</span><span class="o">);</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">moveCheckedItemsRight</span><span class="o">();</span>
 
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">moveAllElementsRight</span><span class="o">();</span>
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">itemsMovedRight</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">,</span> <span class="s">"List item 2"</span><span class="o">,</span>
-            <span class="s">"List item 3"</span><span class="o">,</span> <span class="s">"List item 4"</span><span class="o">,</span> <span class="s">"List item 5"</span><span class="o">,</span> <span class="s">"List item 6"</span><span class="o">,</span> <span class="s">"List item 7"</span><span class="o">,</span> <span class="s">"List item 8"</span><span class="o">);</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">allItemTextsSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">,</span> <span class="s">"List item 2"</span><span class="o">,</span> <span class="s">"List item 3"</span><span class="o">,</span>
+                <span class="s">"List item 4"</span><span class="o">,</span> <span class="s">"List item 5"</span><span class="o">,</span> <span class="s">"List item 6"</span><span class="o">,</span> <span class="s">"List item 7"</span><span class="o">,</span> <span class="s">"List item 8"</span><span class="o">));</span>
 
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">moveAllElementsLeft</span><span class="o">();</span>
-        <span class="n">enhancedTransferListPage</span><span class="o">.</span><span class="na">enhancedTransferList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">itemsMovedLeft</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">,</span> <span class="s">"List item 2"</span><span class="o">,</span>
-            <span class="s">"List item 3"</span><span class="o">,</span> <span class="s">"List item 4"</span><span class="o">,</span> <span class="s">"List item 5"</span><span class="o">,</span> <span class="s">"List item 6"</span><span class="o">,</span> <span class="s">"List item 7"</span><span class="o">,</span> <span class="s">"List item 8"</span><span class="o">);</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">rightList</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">itemsWithTexts</span><span class="o">(</span><span class="n">allItemTextsSet</span><span class="o">);</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">rightListSubheader</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"0/8 selected"</span><span class="o">);</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">checkAllRightItems</span><span class="o">();</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">uncheckAllRightItems</span><span class="o">();</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">allRightListItemsUnchecked</span><span class="o">();</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">rightList</span><span class="o">().</span><span class="na">checkItemByText</span><span class="o">(</span><span class="s">"List item 7"</span><span class="o">);</span>
+        <span class="n">enhancedTransferList</span><span class="o">.</span><span class="na">moveCheckedItemsLeft</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre><h5 id='transfer-list-overview'><a href="https://material-ui.com/components/transfer-list/" target="_blank"> Transfer List overview</a></h5>
-<p>Types of Transfer List are located in the following class:</p>
+<p>Abstract TransferList and its child classes are located in the following classes:</p>
 
 <ul>
 <li><strong>Java</strong>:
 &gt;<em>com.epam.jdi.light.material.elements.inputs.transferlist.TransferList</em>
 &gt;<em>com.epam.jdi.light.material.elements.inputs.transferlist.SimpleTransferList</em>
-&gt;<em>com.epam.jdi.light.material.elements.inputs.transferlist.EnchancedTransferList</em></li>
+&gt;<em>com.epam.jdi.light.material.elements.inputs.transferlist.EnhancedTransferList</em></li>
 </ul>
 
-<p><strong>A transfer list</strong> (or &quot;shuttle&quot;) enables the user to move one or more list items between lists.</p>
+<p>A <strong>transfer list</strong> (or &quot;shuttle&quot;) enables the user to move one or more list items between lists.</p>
+
+<p>Inner lists of a transfer list have the same methods as a regular List. </p>
 
 <p><img src="images/material-ui/EnhancedTransferList.png" alt="Enhanced Transfer Lists" /></p>
 
@@ -37678,6 +37708,10 @@ which are represented by icons and text.</p>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
 
+<ul>
+<li><strong>Transfer List</strong></li>
+</ul>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -37686,68 +37720,45 @@ which are represented by icons and text.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
+<td><strong>is()/has()</strong></td>
 <td>Returns object for work with assertions</td>
 <td>TransferListAssert</td>
 </tr>
 <tr>
-<td><strong>isMoveRightButtonDisable()</strong></td>
-<td>Assert &gt; button is disabled</td>
-<td>TransferListAssert</td>
+<td><strong>leftList()</strong></td>
+<td>Returns left inner list</td>
+<td>TransferInnerList</td>
 </tr>
 <tr>
-<td><strong>isMoveLeftButtonDisable()</strong></td>
-<td>Assert &lt; button is disabled</td>
-<td>TransferListAssert</td>
+<td><strong>rightList()</strong></td>
+<td>Returns right inner list</td>
+<td>TransferInnerList</td>
 </tr>
 <tr>
-<td><strong>check()</strong></td>
-<td>Click on checkbox to check</td>
+<td><strong>moveCheckedItemsRightButton()</strong></td>
+<td>Returns &quot;move all checked items to right inner list&quot; button</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>moveCheckedItemsLeftButton()</strong></td>
+<td>Returns &quot;move all checked items to left inner list&quot; button</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>moveCheckedItemsRight()</strong></td>
+<td>Clicks &quot;move all checked items to right inner list&quot; button</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>uncheck()</strong></td>
-<td>Click on checkbox to uncheck</td>
+<td><strong>moveCheckedItemsLeft()</strong></td>
+<td>Clicks &quot;move all checked items to left inner list&quot; button</td>
 <td>void</td>
-</tr>
-<tr>
-<td><strong>isMoveRightButtonEnable()</strong></td>
-<td>Assert &gt; button is enabled</td>
-<td>TransferListAssert</td>
-</tr>
-<tr>
-<td><strong>isMoveLeftButtonEnable()</strong></td>
-<td>Assert &lt; button is enabled</td>
-<td>TransferListAssert</td>
-</tr>
-<tr>
-<td><strong>moveItemsRight()</strong></td>
-<td>Click on &gt; button</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>moveItemsLeft()</strong></td>
-<td>Click on &lt; button</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>itemsMovedRight()</strong></td>
-<td>Assert items are existed on Right List</td>
-<td>TransferListAssert</td>
-</tr>
-<tr>
-<td><strong>itemsMovedLeft()</strong></td>
-<td>Assert items are existed on Right List</td>
-<td>TransferListAssert</td>
-</tr>
-<tr>
-<td><strong>checked()</strong></td>
-<td>Assert items is selected</td>
-<td>TransferListAssert</td>
 </tr>
 </tbody></table>
 
-<p>Available methods for Simple and Enhanced Transfer List in Java JDI Light:</p>
+<ul>
+<li>additional methods of <strong>Simple Transfer List</strong></li>
+</ul>
 
 <table><thead>
 <tr>
@@ -37757,14 +37768,87 @@ which are represented by icons and text.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>moveAllElementsRight()</strong></td>
-<td>Click on &gt;&gt; button</td>
+<td><strong>moveAllItemsRightButton()</strong></td>
+<td>Returns &quot;move all items to right inner list&quot; button</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>moveAllItemsLeftButton()</strong></td>
+<td>Returns &quot;move all items to left inner list&quot; button</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>moveAllItemsRight()</strong></td>
+<td>Clicks &quot;move all items to right inner list&quot; button</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>moveAllElementsLeft()</strong></td>
-<td>Click on &lt;&lt; button</td>
+<td><strong>moveAllItemsLeft()</strong></td>
+<td>Clicks &quot;move all items to left inner list&quot; button</td>
 <td>void</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>additional methods of <strong>Enhanced Transfer List</strong></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>leftSelectAllCheckbox()</strong></td>
+<td>Returns &quot;check/uncheck all items in the left inner list&quot; checkbox</td>
+<td>Checkbox</td>
+</tr>
+<tr>
+<td><strong>rightSelectAllCheckbox()</strong></td>
+<td>Returns &quot;check/uncheck all items in the right inner list&quot; checkbox</td>
+<td>Checkbox</td>
+</tr>
+<tr>
+<td><strong>checkAllLeftItems()</strong></td>
+<td>Checks all left inner list items</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheckAllLeftItems()</strong></td>
+<td>Unchecks all left inner list items</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>checkAllRightItems()</strong></td>
+<td>Checks all right inner list items</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheckAllRightItems()</strong></td>
+<td>Unchecks all right inner list items</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>leftListHeader()</strong></td>
+<td>Returns left inner list header</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>rightListHeader()</strong></td>
+<td>Returns right inner list header</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>leftListSubheader()</strong></td>
+<td>Returns left inner list sub-header</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>rightListSubheader()</strong></td>
+<td>Returns right inner list sub-header</td>
+<td>Text</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-transfer-list-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Transfer List tests</a></h5>

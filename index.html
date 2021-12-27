@@ -944,7 +944,10 @@
 								            <a href="#4-45-menus" class="toc-h2 h3 toc-link" data-title="4.45 Menus">4.45 Menus</a>
                           </li>
                           <li>
-								            <a href="#4-46-lists" class="toc-h2 h3 toc-link" data-title="4.46 Lists">4.46 Lists</a>
+								            <a href="#4-46-1-lists" class="toc-h2 h3 toc-link" data-title="4.46.1 Lists">4.46.1 Lists</a>
+                          </li>
+                          <li>
+								            <a href="#4-46-2-list-items" class="toc-h2 h3 toc-link" data-title="4.46.2 List Items">4.46.2 List Items</a>
                           </li>
                           <li>
 								            <a href="#4-47-transfer-list" class="toc-h2 h3 toc-link" data-title="4.47 Transfer List">4.47 Transfer List</a>
@@ -37234,47 +37237,58 @@ animation works with CSS, not JavaScript.</p>
 </tbody></table>
 <h5 id='here-you-can-find-menu-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a></h5>
 <p><br></br></p>
-<h3 id='4-46-lists'>4.46 Lists</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(xpath = "//*[contains(text(),'List item 1')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'List item 1')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">firstListItem</span><span class="o">;</span>
+<h3 id='4-46-1-lists'>4.46.1 Lists</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#selectedList"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span> <span class="n">selectedListUpperHalf</span><span class="o">;</span>
 
-    <span class="c1">//    @FindBy(xpath = "//*[contains(text(),'List item 2')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'List item 2')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">secondListItem</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#selectedListLowerHalf"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span> <span class="n">selectedListLowerHalf</span><span class="o">;</span>
 
-    <span class="c1">//    @FindBy(xpath = "//*[contains(text(),'Line item 1')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'Line item 1')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">lineItemFirst</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#iconWithTextList"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span> <span class="n">iconWithTextList</span><span class="o">;</span>
 
-    <span class="c1">//    @FindBy(xpath = "//*[contains(text(),'Line item 1')]/../../div[contains(@class, 'MuiListItemIcon-root')]/span")</span>
-    <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//*[contains(text(),'Line item 1')]/../../div[contains(@class, 'MuiListItemIcon-root')]/span"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">checkboxLineItemFirst</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#avatarWithTextList"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span> <span class="n">avatarWithTextList</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#listWithSwitch"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span> <span class="n">listWithSwitch</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleList</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">firstListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">firstListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">));</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">secondListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">secondListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"List item 2"</span><span class="o">));</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectedListTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">selectedListUpperHalf</span><span class="o">.</span><span class="na">selectItemByText</span><span class="o">(</span><span class="s">"Inbox"</span><span class="o">);</span>
+        <span class="n">selectedListUpperHalf</span><span class="o">.</span><span class="na">getItemByText</span><span class="o">(</span><span class="s">"Inbox"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
+        <span class="n">selectedListLowerHalf</span><span class="o">.</span><span class="na">selectItemByText</span><span class="o">(</span><span class="s">"Spam"</span><span class="o">);</span>
+        <span class="n">selectedListUpperHalf</span><span class="o">.</span><span class="na">getItemByText</span><span class="o">(</span><span class="s">"Inbox"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notSelected</span><span class="o">();</span>
+        <span class="n">selectedListLowerHalf</span><span class="o">.</span><span class="na">getItemByText</span><span class="o">(</span><span class="s">"Spam"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkboxList</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">lineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">lineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"Line item 1"</span><span class="o">));</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
-
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
-
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">iconWithTextTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">iconWithTextList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notEmpty</span><span class="o">();</span>
+        <span class="n">iconWithTextList</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">icon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notColored</span><span class="o">();</span>
     <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarWithTextTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">secondaryTextCheckbox</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+        <span class="n">avatarWithTextList</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">secondaryText</span><span class="o">(</span><span class="s">"Secondary text"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">listWithSwitchTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">expectedItems</span> <span class="o">=</span> <span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"Wi-Fi"</span><span class="o">,</span> <span class="s">"Bluetooth"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toCollection</span><span class="o">(</span><span class="nl">HashSet:</span><span class="o">:</span><span class="k">new</span><span class="o">));</span>
+        <span class="n">listWithSwitch</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">itemsWithTexts</span><span class="o">(</span><span class="n">expectedItems</span><span class="o">);</span>
+
+        <span class="n">listWithSwitch</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">secondaryActionSwitch</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">turnedOn</span><span class="o">();</span>
+        <span class="n">listWithSwitch</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">secondaryActionSwitch</span><span class="o">().</span><span class="na">turnOff</span><span class="o">();</span>
+        <span class="n">listWithSwitch</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">secondaryActionSwitch</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">turnedOff</span><span class="o">();</span>
+    <span class="o">}</span>
+
 </code></pre><h5 id='lists-overview'><a href="https://material-ui.com/components/lists/" target="_blank"> Lists overview </a></h5>
-<p>Lists is located in the following class:</p>
+<p>List is located in the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.Lists</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.List</em></li>
 </ul>
 
 <p><strong>Lists</strong> are a continuous group of text or images. They are composed of items containing primary and supplemental actions,
@@ -37387,52 +37401,125 @@ which are represented by icons and text.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
+<td><strong>is()/has()</strong></td>
 <td>Returns object for work with assertions</td>
-<td>ListsAssert</td>
+<td>ListAssert</td>
 </tr>
 <tr>
-<td><strong>togle()</strong></td>
-<td>Toggle</td>
+<td><strong>items()</strong></td>
+<td>Returns a Java list of list items</td>
+<td>List&lt;ListItem&gt;</td>
+</tr>
+<tr>
+<td><strong>getItemByText(String)</strong></td>
+<td>Returns first list item with specified text</td>
+<td>ListItem</td>
+</tr>
+<tr>
+<td><strong>selectItemByText(String)</strong></td>
+<td>Clicks first list item with specified text</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>check()</strong></td>
-<td>Check</td>
-<td>void</td>
+<td><strong>nestedLists()</strong></td>
+<td>Returns a Java list of Material UI lists nested directly within the list</td>
+<td>List&lt;List&gt;</td>
 </tr>
 <tr>
-<td><strong>uncheck()</strong></td>
-<td>Uncheck</td>
-<td>void</td>
+<td><strong>size()</strong></td>
+<td>Returns list size</td>
+<td>int</td>
 </tr>
 <tr>
-<td><strong>isChecked()</strong></td>
-<td>Returns answer is checked</td>
+<td><strong>isEmpty()</strong></td>
+<td>Checks if a list does not contain any elements</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isUnchecked()</strong></td>
-<td>Returns answer is unchecked</td>
+<td><strong>isDense()</strong></td>
+<td>Checks if a list is dense</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isDisabled()</strong></td>
-<td>Returns answer is disabled</td>
-<td>boolean</td>
+<td><strong>subheaders()</strong></td>
+<td>Returns list sub-headers as Java list of UIElements</td>
+<td>List&lt;UIElement&gt;</td>
 </tr>
+</tbody></table>
+<h5 id='here-you-can-find-list-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListTests.java" target="_blank">Here you can find List tests</a></h5><h3 id='4-46-2-list-items'>4.46.2 List Items</h3>
+<p>List Item is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: _com.epam.jdi.light.material.elements.displaydata.ListItem</li>
+</ul>
+
+<p><strong>List Items</strong> represent elements collected in a Material UI List. </p>
+
+<p>List item has a &quot;primary area&quot; which may contain an icon/avatar/checkbox, primary and secondary text. It can also support a primary action invoked by clicking on this area, like selecting the item.</p>
+
+<p>List item also might have a &quot;secondary area&quot; containing a switch or button used to invoke a distinct secondary action.</p>
+
+<p>Available methods in Java JDI Light:</p>
+
+<table><thead>
 <tr>
-<td><strong>isEnabled()</strong></td>
-<td>Returns answer is enabled</td>
-<td>boolean</td>
+<th>Method</th>
+<th>Description</th>
+<th>Return type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()/has()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>ListItemAssert</td>
 </tr>
 <tr>
 <td><strong>getText()</strong></td>
-<td>Returns text</td>
+<td>Returns primary text of list item as string</td>
 <td>String</td>
 </tr>
+<tr>
+<td><strong>getPrimaryText()</strong></td>
+<td>Returns properly marked primary text of list item as Text</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>getSecondaryText()</strong></td>
+<td>Returns secondary text of list item</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><strong>icon()</strong></td>
+<td>Returns icon of list item</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>avatar()</strong></td>
+<td>Returns avatar of list item</td>
+<td>Avatar</td>
+</tr>
+<tr>
+<td><strong>checkbox()</strong></td>
+<td>Returns checkbox of list item</td>
+<td>Checkbox</td>
+</tr>
+<tr>
+<td><strong>isSelected()</strong></td>
+<td>Checks if a list item is selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>secondaryActionButton()</strong></td>
+<td>Returns secondary action button of list item</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>secondaryActionSwitch()</strong></td>
+<td>Returns secondary action switch of list item</td>
+<td>Switch</td>
+</tr>
 </tbody></table>
-<h5 id='here-you-can-find-lists-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a></h5>
+
 <p><br></br></p>
 <h3 id='4-47-transfer-list'>4.47 Transfer List</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(id = "#root")</span>
     <span class="nd">@JDITransferList</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#root"</span><span class="o">,</span> <span class="n">allItemsLeftCheckbox</span> <span class="o">=</span> <span class="s">"(//span[./input[@aria-label='all items selected']])[1]"</span><span class="o">,</span>

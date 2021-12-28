@@ -36178,32 +36178,40 @@ related buttons.</p>
 </tbody></table>
 <h5 id='here-you-can-find-gridlist-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridListTests.java" target="_blank">Here you can find GridList tests</a></h5>
 <p><br></br></p>
-<h3 id='4-33-drawer'>4.33 Drawer</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(css = "[type=button]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[type=button]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">temporaryDrawerButtons</span><span class="o">;</span>
+<h3 id='4-33-drawer'>4.33 Drawer</h3><pre class="highlight java tab-java"><code>    <span class="c1">//root - @FindBy(xpath = "//span[text() = 'left']/parent::button")</span>
+    <span class="c1">//drawer - @FindBy(css = ".MuiDrawer-paperAnchorLeft")</span>
+    <span class="nd">@JDIButtonWithDrawer</span><span class="o">(</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="s">"//span[text() = 'left']/parent::button"</span><span class="o">,</span>
+            <span class="n">drawer</span> <span class="o">=</span> <span class="s">".MuiDrawer-paperAnchorLeft"</span>
+    <span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonWithDrawer</span> <span class="n">leftDrawerButton</span><span class="o">;</span>
 
-    <span class="c1">//    @FindBy(css = "div .MuiDrawer-paper")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"div .MuiDrawer-paper"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Drawer</span> <span class="n">temporaryDrawer</span><span class="o">;</span>
+    <span class="c1">//@FindBy(css = ".MuiDrawer-paper")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiDrawer-paper"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Drawer</span> <span class="n">clippedDrawer</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">temporaryDrawerTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">leftTemporaryDrawerTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="s">"left"</span><span class="o">);</span>
+        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="mi">250</span><span class="o">);</span>
+        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notExist</span><span class="o">();</span>
+    <span class="o">}</span>
 
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">temporaryDrawerButtons</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">temporaryDrawerButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-            <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
-            <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="n">position</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]);</span>
-            <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">elements</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">element</span> <span class="o">-&gt;</span> <span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">element</span><span class="o">.</span><span class="na">text</span><span class="o">()));</span>
-
-            <span class="n">jdiAssert</span><span class="o">(</span><span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">containsAll</span><span class="o">(</span><span class="n">expectedDrawerTexts</span><span class="o">)</span> <span class="o">?</span> <span class="s">"elements text is visible"</span>
-                    <span class="o">:</span> <span class="s">"elements text isn't visible"</span><span class="o">,</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="s">"elements text is visible"</span><span class="o">));</span>
-            <span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-
-            <span class="k">for</span> <span class="o">(</span><span class="n">UIElement</span> <span class="n">element</span> <span class="o">:</span> <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">elements</span><span class="o">())</span> <span class="o">{</span>
-                <span class="n">element</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="s">".MuiSvgIcon-root"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
-            <span class="o">}</span>
-            <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-        <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clippedDrawerTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="s">"left"</span><span class="o">);</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="mi">240</span><span class="o">);</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">numberOfListItems</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">topList</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">topList</span><span class="o">().</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Starred"</span><span class="o">);</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">topList</span><span class="o">().</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">icon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">bottomList</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">bottomList</span><span class="o">().</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Spam"</span><span class="o">);</span>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">bottomList</span><span class="o">().</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">icon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre><h5 id='drawer-overview'><a href="https://material-ui.com/components/drawers/" target="_blank"> Drawer overview</a></h5>
 <p>Drawer is located in the following class:</p>
@@ -36287,44 +36295,44 @@ content that are anchored to the left or right edge of the screen.</p>
 <td>DrawerAssert</td>
 </tr>
 <tr>
-<td><strong>open()</strong></td>
-<td>Opens drawer</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>close()</strong></td>
-<td>Closes drawer</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>containerTitle()</strong></td>
-<td>Returns drawer&#39;s container title</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>containerText()</strong></td>
-<td>Returns drawer&#39;s container text</td>
+<td><strong>listItems()</strong></td>
+<td>Returns List of element&#39;s list items</td>
 <td>List</td>
 </tr>
 <tr>
-<td><strong>elementText(int)</strong></td>
-<td>Returns drawer element&#39;s text</td>
+<td><strong>lists()</strong></td>
+<td>Returns List of element&#39;s Material UI Lists</td>
+<td>List</td>
+</tr>
+<tr>
+<td><strong>topList()</strong></td>
+<td>Returns Material UI List at the top of the element</td>
+<td>List</td>
+</tr>
+<tr>
+<td><strong>bottomList()</strong></td>
+<td>Returns Material UI List at the bottom of the element</td>
+<td>List</td>
+</tr>
+<tr>
+<td><strong>getWidth()</strong></td>
+<td>Returns element&#39;s width</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>elementText(int)</strong></td>
-<td>Returns drawer element&#39;s text</td>
+<td><strong>getPosition()</strong></td>
+<td>Returns element&#39;s position</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>elementHasIcon()</strong></td>
-<td>Shows that drawer&#39;s element has icon</td>
+<td><strong>isHidden()</strong></td>
+<td>Shows that element is hidden</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>hasPosition(String)</strong></td>
-<td>Shows that drawer has position</td>
-<td>boolean</td>
+<td><strong>close()</strong></td>
+<td>Closes element</td>
+<td>void</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-drawer-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a></h5>

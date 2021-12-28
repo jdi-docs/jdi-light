@@ -2293,32 +2293,40 @@ Available methods in Java JDI Light:
 ### 4.33 Drawer
 
 ```java  
-    //    @FindBy(css = "[type=button]")
-    @UI("[type=button]")
-    public static List<Button> temporaryDrawerButtons;
-
-    //    @FindBy(css = "div .MuiDrawer-paper")
-    @UI("div .MuiDrawer-paper")
-    public static Drawer temporaryDrawer;
+    //root - @FindBy(xpath = "//span[text() = 'left']/parent::button")
+    //drawer - @FindBy(css = ".MuiDrawer-paperAnchorLeft")
+    @JDIButtonWithDrawer(
+            root = "//span[text() = 'left']/parent::button",
+            drawer = ".MuiDrawer-paperAnchorLeft"
+    )
+    public static ButtonWithDrawer leftDrawerButton;
+    
+    //@FindBy(css = ".MuiDrawer-paper")
+    @UI(".MuiDrawer-paper")
+    public static Drawer clippedDrawer;
 
     @Test
-    public void temporaryDrawerTest() {
-
-        for (int i = 1; i <= temporaryDrawerButtons.size(); i++) {
-            temporaryDrawerButtons.get(i).click();
-            temporaryDrawer.is().visible();
-            temporaryDrawer.has().position(position[i - 1]);
-            temporaryDrawer.elements().forEach(element -> actualDrawerTexts.add(element.text()));
-
-            jdiAssert(actualDrawerTexts.containsAll(expectedDrawerTexts) ? "elements text is visible"
-                    : "elements text isn't visible", Matchers.is("elements text is visible"));
-            actualDrawerTexts.clear();
-
-            for (UIElement element : temporaryDrawer.elements()) {
-                element.find(".MuiSvgIcon-root").is().visible();
-            }
-            temporaryDrawer.close();
-        }
+    public void leftTemporaryDrawerTest() {
+        leftDrawerButton.click();
+        leftDrawerButton.drawer().is().displayed();
+        leftDrawerButton.drawer().has().position("left");
+        leftDrawerButton.drawer().has().width(250);
+        leftDrawerButton.drawer().close();
+        leftDrawerButton.drawer().is().notExist();
+    }
+    
+    @Test
+    public void clippedDrawerTest() {
+        clippedDrawer.is().displayed();
+        clippedDrawer.has().position("left");
+        clippedDrawer.has().width(240);
+        clippedDrawer.has().numberOfListItems(7);
+        clippedDrawer.topList().has().size(4);
+        clippedDrawer.topList().items().get(1).has().text("Starred");
+        clippedDrawer.topList().items().get(0).icon().is().displayed();
+        clippedDrawer.bottomList().has().size(3);
+        clippedDrawer.bottomList().items().get(2).has().text("Spam");
+        clippedDrawer.bottomList().items().get(1).icon().is().displayed();
     }
 ```
 
@@ -2395,15 +2403,15 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions| DrawerAssert
-**open()** | Opens drawer| void
-**close()** | Closes drawer| void
-**containerTitle()** | Returns drawer's container title| String
-**containerText()** | Returns drawer's container text| List
-**elementText(int)** | Returns drawer element's text| String
-**elementText(int)** | Returns drawer element's text| String
-**elementHasIcon()** | Shows that drawer's element has icon| boolean
-**hasPosition(String)** | Shows that drawer has position| boolean
+**is()** | Returns object for work with assertions | DrawerAssert
+**listItems()** | Returns List of element's list items | List
+**lists()** | Returns List of element's Material UI Lists | List
+**topList()** | Returns Material UI List at the top of the element | List
+**bottomList()** | Returns Material UI List at the bottom of the element | List
+**getWidth()** | Returns element's width | String
+**getPosition()** | Returns element's position | String
+**isHidden()** | Shows that element is hidden | boolean
+**close()** | Closes element | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a>
 

@@ -2758,5 +2758,84 @@ The implementation of TreeView has tree structure, e.g.
 
 For examples of usage see: [JDI Vuetify TreeView tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TreeViewTests.java).
 
+### 5.37 Button
 
+```java
+// @FindBy(xpath = "//h2[text()='Depressed Buttons']/following-sibling::button")
+@UI("//h2[text()='Depressed Buttons']/following-sibling::button")
+public static List<VuetifyButton> depressedNormalButton;
+
+// @FindBy(id = "depr-buttons-state")
+@UI("#depr-buttons-state")
+public static Text depressedButtonState;
+
+@Test(dataProvider = "depressedButtons",
+        dataProviderClass = ButtonsDataProvider.class)
+public void depressedButtonsTests(int index, boolean enabled, String color, String name) {
+    VuetifyButton button = depressedNormalButton.get(index);
+    button.show();
+    button.is().displayed();
+    button.has().css("background-color", color);
+    
+    if (enabled) {
+        button.is().enabled();
+        button.click();
+        depressedButtonState.has().text("Depressed button clicked: " + name);
+    } else {
+        button.is().disabled();
+    }
+    depressedButtonState.has().text("Depressed button clicked: " + name);
+}
+```
+
+[Button Vuetify documentation page](https://vuetifyjs.com/en/components/buttons/)
+
+Button is located in the following class:
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.VuetifyButton.java_
+
+__Button__ - the `v-btn` component that replaces the standard html button 
+with a material design theme and a multitude of options. Any color helper 
+class can be used to alter the background or text color.
+
+![Button example](../../images/vuetify/buttons.png)
+
+Here is an example with provided Vuetify v2.6.2 code:
+```html
+<h2>Depressed Buttons</h2>
+<button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default">
+  <span class="v-btn__content">Normal</span>
+</button>
+<button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default primary">
+  <span class="v-btn__content">Primary</span>
+</button>
+<button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default error">
+  <span class="v-btn__content">Error</span>
+</button>
+<button type="button" disabled="disabled" class="ma-2 v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default">
+  <span class="v-btn__content">Disabled</span>
+</button>
+<div class="v-input v-input--is-label-active v-input--is-dirty v-input--is-readonly theme--light v-text-field v-text-field--is-booted">
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-text-field__slot">
+        <input id="depr-buttons-state" readonly="readonly" type="text">
+      </div>
+    </div>
+    <div class="v-text-field__details">...</div>
+</div>
+```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | VuetifyButtonAssert
+**VuetifyButton(UIElement)** | Constructor | VuetifyButton
+**icon()** | Get button icon | Icon
+**loader()** | Get button loader | UIElement
+**isLoading()** | Check that the button is loading | boolean
+
+[Here you can find Buttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/VuetifyButtonsTests.java).
+
+<br></br>
 

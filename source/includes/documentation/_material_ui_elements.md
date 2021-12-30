@@ -2650,6 +2650,7 @@ Accordion is located in the following class:
 __Java__: '_com.epam.jdi.light.material.elements.surfaces.Accordion_'
 <br></br>
 It extends Dropdown class and is annotated similarly. Example:
+
 ```java 
     @JDropdown(
             root = ".MuiAccordion-root[1]",

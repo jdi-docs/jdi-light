@@ -2632,43 +2632,43 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions| TextAssert
+**is()** | Returns object for work with assertions| PaperAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/PaperTests.java" target="_blank">Here you can find Paper tests</a>
 
 <br></br>
 
 ### 4.37 Accordion
+The accordion component allows the user to show and hide sections of related content on a page.
+##### <a href="https://mui.com/components/accordion/" target="_blank"> Accordions overview on MaterialUI website</a>
+__Accordions__ contain creation flows and allow lightweight editing of an element.
 
+![Accordion](../../images/material-ui/Accordion.png)
+
+Accordion is located in the following class:
+
+__Java__: '_com.epam.jdi.light.material.elements.surfaces.Accordion_'
+<br></br>
+It extends Dropdown class and is annotated similarly. Example:
 ```java 
-    //    @FindBy(id = "#panel1a-header")
     @JDropdown(
             root = ".MuiAccordion-root[1]",
             value = ".MuiButtonBase-root.MuiAccordionSummary-root",
             list = ".MuiAccordionDetails-root",
             expand = ".MuiIconButton-label")
-    public static Accordion enabledAccordion;
+    public static Accordion generalSettingsAccordion;
 
     @Test
-    public void defaultAccordionTest() {
-        assertTrue(enabledAccordion.isEnabled());
-        enabledAccordion.expand();
-        assertTrue(enabledAccordion.list().isDisplayed());
-        enabledAccordion.close();
-        timer.wait(() -> enabledAccordion.is().collapsed());
-        timer.wait(() -> assertFalse(enabledAccordion.list().isDisplayed()));
+    public void accordionExpandTest() {
+        generalSettingsAccordion.is().enabled();
+        generalSettingsAccordion.list().is().hidden();
+        generalSettingsAccordion.expand();
+        generalSettingsAccordion.list().is().displayed();
+        generalSettingsAccordion.close();
+        generalSettingsAccordion.is().collapsed();
+        generalSettingsAccordion.list().is().hidden();
     }
 ```
-
-##### <a href="https://material-ui.com/components/Accordion/" target="_blank"> Accordions overview </a>
-
-Accordion is located in the following class:
-
-- __Java__: _com.epam.jdi.light.material.elements.surfaces.Accordion_'
-
-__Accordions__ contain creation flows and allow lightweight editing of an element.
-
-![Accordion](../../images/material-ui/Accordion.png)
 
 Here is an example with provided MaterialUI v4.12.3 code:
 
@@ -2704,7 +2704,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**isDisabled()** | Shows that element is disabled| boolean
+**isEnabled()** | Shows that element is not disabled| boolean
+**is()** | Returns object for work with assertions| DropdownAssert
+
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a>
 

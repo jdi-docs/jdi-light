@@ -2800,6 +2800,7 @@ class can be used to alter the background or text color.
 ![Button example](../../images/vuetify/buttons.png)
 
 Here is an example with provided Vuetify v2.6.2 code:
+
 ```html
 <h2>Depressed Buttons</h2>
 <button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default">

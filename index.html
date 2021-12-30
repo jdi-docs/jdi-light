@@ -36558,38 +36558,42 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 <tr>
 <td><strong>is()</strong></td>
 <td>Returns object for work with assertions</td>
-<td>TextAssert</td>
+<td>PaperAssert</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-paper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/PaperTests.java" target="_blank">Here you can find Paper tests</a></h5>
 <p><br></br></p>
-<h3 id='4-37-accordion'>4.37 Accordion</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(id = "#panel1a-header")</span>
-    <span class="nd">@JDropdown</span><span class="o">(</span>
-            <span class="n">root</span> <span class="o">=</span> <span class="s">".MuiAccordion-root[1]"</span><span class="o">,</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s">".MuiButtonBase-root.MuiAccordionSummary-root"</span><span class="o">,</span>
-            <span class="n">list</span> <span class="o">=</span> <span class="s">".MuiAccordionDetails-root"</span><span class="o">,</span>
-            <span class="n">expand</span> <span class="o">=</span> <span class="s">".MuiIconButton-label"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Accordion</span> <span class="n">enabledAccordion</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultAccordionTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertTrue</span><span class="o">(</span><span class="n">enabledAccordion</span><span class="o">.</span><span class="na">isEnabled</span><span class="o">());</span>
-        <span class="n">enabledAccordion</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
-        <span class="n">assertTrue</span><span class="o">(</span><span class="n">enabledAccordion</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">isDisplayed</span><span class="o">());</span>
-        <span class="n">enabledAccordion</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">enabledAccordion</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">());</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">assertFalse</span><span class="o">(</span><span class="n">enabledAccordion</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">isDisplayed</span><span class="o">()));</span>
-    <span class="o">}</span>
-</code></pre><h5 id='accordions-overview'><a href="https://material-ui.com/components/Accordion/" target="_blank"> Accordions overview </a></h5>
-<p>Accordion is located in the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.surfaces.Accordion</em>&#39;</li>
-</ul>
-
+<h3 id='4-37-accordion'>4.37 Accordion</h3>
+<p>The accordion component allows the user to show and hide sections of related content on a page.</p>
+<h5 id='accordions-overview-on-materialui-website'><a href="https://mui.com/components/accordion/" target="_blank"> Accordions overview on MaterialUI website</a></h5>
 <p><strong>Accordions</strong> contain creation flows and allow lightweight editing of an element.</p>
 
 <p><img src="images/material-ui/Accordion.png" alt="Accordion" /></p>
+
+<p>Accordion is located in the following class:</p>
+
+<p><strong>Java</strong>: &#39;<em>com.epam.jdi.light.material.elements.surfaces.Accordion</em>&#39;
+<br></br>
+It extends Dropdown class and is annotated similarly. Example:
+```java 
+    @JDropdown(
+            root = &quot;.MuiAccordion-root[1]&quot;,
+            value = &quot;.MuiButtonBase-root.MuiAccordionSummary-root&quot;,
+            list = &quot;.MuiAccordionDetails-root&quot;,
+            expand = &quot;.MuiIconButton-label&quot;)
+    public static Accordion generalSettingsAccordion;</p>
+
+<p>@Test
+    public void accordionExpandTest() {
+        generalSettingsAccordion.is().enabled();
+        generalSettingsAccordion.list().is().hidden();
+        generalSettingsAccordion.expand();
+        generalSettingsAccordion.list().is().displayed();
+        generalSettingsAccordion.close();
+        generalSettingsAccordion.is().collapsed();
+        generalSettingsAccordion.list().is().hidden();
+    }
+```</p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiAccordion-root MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"</span><span class="nt">&gt;</span>
@@ -36628,9 +36632,14 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>isDisabled()</strong></td>
-<td>Shows that element is disabled</td>
+<td><strong>isEnabled()</strong></td>
+<td>Shows that element is not disabled</td>
 <td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>DropdownAssert</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-accordion-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a></h5>

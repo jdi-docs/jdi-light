@@ -36574,27 +36574,25 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 
 <p><strong>Java</strong>: &#39;<em>com.epam.jdi.light.material.elements.surfaces.Accordion</em>&#39;
 <br></br>
-It extends Dropdown class and is annotated similarly. Example:
-```java 
-    @JDropdown(
-            root = &quot;.MuiAccordion-root[1]&quot;,
-            value = &quot;.MuiButtonBase-root.MuiAccordionSummary-root&quot;,
-            list = &quot;.MuiAccordionDetails-root&quot;,
-            expand = &quot;.MuiIconButton-label&quot;)
-    public static Accordion generalSettingsAccordion;</p>
+It extends Dropdown class and is annotated similarly. Example:</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@JDropdown</span><span class="o">(</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="s">".MuiAccordion-root[1]"</span><span class="o">,</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s">".MuiButtonBase-root.MuiAccordionSummary-root"</span><span class="o">,</span>
+            <span class="n">list</span> <span class="o">=</span> <span class="s">".MuiAccordionDetails-root"</span><span class="o">,</span>
+            <span class="n">expand</span> <span class="o">=</span> <span class="s">".MuiIconButton-label"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Accordion</span> <span class="n">generalSettingsAccordion</span><span class="o">;</span>
 
-<p>@Test
-    public void accordionExpandTest() {
-        generalSettingsAccordion.is().enabled();
-        generalSettingsAccordion.list().is().hidden();
-        generalSettingsAccordion.expand();
-        generalSettingsAccordion.list().is().displayed();
-        generalSettingsAccordion.close();
-        generalSettingsAccordion.is().collapsed();
-        generalSettingsAccordion.list().is().hidden();
-    }
-```</p>
-
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accordionExpandTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
+        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiAccordion-root MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiAccordionSummary-root"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span>

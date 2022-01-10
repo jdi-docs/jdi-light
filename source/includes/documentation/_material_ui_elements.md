@@ -2652,6 +2652,7 @@ __Java__: '_com.epam.jdi.light.material.elements.surfaces.Accordion_'
 It extends Dropdown class and is annotated similarly. Example:
 
 ```java 
+    // @FindBy(id = "#panel1a-header")
     @JDropdown(
             root = ".MuiAccordion-root[1]",
             value = ".MuiButtonBase-root.MuiAccordionSummary-root",

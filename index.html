@@ -1172,6 +1172,9 @@
                           <li>
 								            <a href="#5-37-button" class="toc-h2 h3 toc-link" data-title="5.37 Button">5.37 Button</a>
                           </li>
+                          <li>
+								            <a href="#5-38-chip" class="toc-h2 h3 toc-link" data-title="5.38 Chip">5.38 Chip</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -43269,6 +43272,154 @@ class can be used to alter the background or text color.</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/VuetifyButtonsTests.java">Here you can find Buttons tests</a>.</p>
 
 <p><br></br></p>
+<h3 id='5-38-chip'>5.38 Chip</h3>
+<p><a href="https://vuetifyjs.com/en/components/chips/">Chip Vuetify documentation page</a></p>
+
+<p>Chip is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Chip.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#ClosableChip &gt; .v-chip"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Chip</span><span class="o">&gt;</span> <span class="n">closableChips</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#FilterChip &gt; .v-chip"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Chip</span><span class="o">&gt;</span> <span class="n">filterChips</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//label[text()[contains(., 'Active')]]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Label</span> <span class="n">filterSwitchLabel</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closableChipTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">Chip</span> <span class="n">closableChip</span> <span class="o">=</span> <span class="n">closableChips</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+      <span class="n">closableChip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">closableChip</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+      <span class="n">closableChip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+      <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">filterChipTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Chip</span> <span class="n">filterChip</span> <span class="o">=</span> <span class="n">filterChips</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">filterChip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notActive</span><span class="o">();</span>
+
+        <span class="n">filterSwitchLabel</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">filterChip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">active</span><span class="o">();</span>
+        <span class="n">filterChip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">filterIconDisplayed</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p><strong>Chip</strong> - The <code>v-chip</code> component is used to convey small pieces of information. 
+Using the close property, the chip becomes interactive, allowing user interaction. 
+This component is used by the <code>v-chip-group</code> for advanced selection options.</p>
+
+<p><img src="images/vuetify/chip.png" alt="Chip example" /></p>
+
+<p>Available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>ChipAssert</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Gets chip text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getBoldTextFromCompositeLabel()</strong></td>
+<td>Gets bold text from the chip&#39;s composite label</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getRegularTextFromCompositeLabel()</strong></td>
+<td>Gets regular text from the chip&#39;s composite label</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getFullTextFromCompositeLabel()</strong></td>
+<td>Gets full text from the chip&#39;s composite label</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>click()</strong></td>
+<td>Clicks the chip</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>close()</strong></td>
+<td>Clicks the chip&#39;s close button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDraggable()</strong></td>
+<td>Checks if the chip is draggable</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isActive()</strong></td>
+<td>Checks if the chip is active</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isFilterIconDisplayed()</strong></td>
+<td>Checks if the chip&#39;s filter icon is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLabel()</strong></td>
+<td>Checks if the chip is marked as label chip</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasIcon()</strong></td>
+<td>Checks if the chip has an icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasImage()</strong></td>
+<td>Checks if the chip has an image</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasVisibleBorder()</strong></td>
+<td>Checks if the chip has a visible border</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>height()</strong></td>
+<td>Gets chip height</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>fontSize()</strong></td>
+<td>Gets chip font size</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>fontColor()</strong></td>
+<td>Gets chip font color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Gets chip background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>borderColor()</strong></td>
+<td>Gets chip border color</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java">JDI Vuetify Chip tests</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-locator-aliases-as-parameters'>Using locator aliases as parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

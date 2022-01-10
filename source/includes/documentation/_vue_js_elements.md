@@ -1194,52 +1194,64 @@ For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-
 #### 5.13.2 Chip Groups
 [Vuetify documentation page](https://vuetifyjs.com/en/components/chip-groups/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ChipGroups.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ChipGroup.java_
 
 ```java
+    @UI("#ColumnChipGroup .v-chip-group")
+    public static ChipGroup columnChipGroup;
     
-    @UI("#FilterResultsChipGroup .v-chip")
-    public static List<ChipGroups> filterResultsChipGroup;
- ```
+    @UI("#MultipleChipGroup .v-chip-group")
+    public static ChipGroup multipleChipGroup;
+    
+    @UI("#FilterResultsChipGroup .v-chip-group")
+    public static ChipGroup filterResultsChipGroup;
 
-![Chip groups example](../../images/vuetify/chip-groups.png)
-
-```java
-    @Test(dataProvider = "chooseAmenitiesAndNeighborhoodsDataProvider", 
-                                dataProviderClass = ChipGroupsDataProviders.class)
-    public void filterResultsChipGroupTest(List<String> chooseAmenitiesAndNeighborhoods) {
-        new Timer(TIMEOUTS.page.get() * 1000L).getResult(() -> filterResultsChipGroup.size() != 0);
-          for (int i = 1; i <= chooseAmenitiesAndNeighborhoods.size(); i++) {
-            filterResultsChipGroup.get(i).click();
-            filterResultsChipGroup.get(i).is().containsText(chooseAmenitiesAndNeighborhoods.get(i - 1));
-              if (chipIsSelected(filterResultsChipGroup.get(i))) {
-                  filterResultsChipGroup.get(1).has().filter();
-              } else { 
-                  filterResultsChipGroup.get(i).has().notFilter();
-              }
-          }
+    @Test
+    public void columnChipGroupTests() {
+      columnChipGroup.is().notEmpty();
+      columnChipGroup.has().size(9);
+    }
+    
+    @Test
+    public void multipleChipGroupTests() {
+      if (multipleChipGroup.slideGroup().nextButtonIsActive()) { multipleChipGroup.slideGroup().clickOnNextButton(); }
+      multipleChipGroup.select("Art", "Tech");
+      multipleChipGroup.has().selectedChip("Art");
+      multipleChipGroup.has().selectedChip("Tech");
+    }
+    
+    @Test
+    public void filterResultsChipGroupTests() {
+      filterResultsChipGroup.chips().get(2).click();
+      filterResultsChipGroup.chips().get(2).has().filterIconDisplayed();
     }
  ```
 
 __Chip groups__ - a group of compact elements that represent an input, attribute, or action.
 Chips can contains an icon, text, actions etc. Chip groups make it easy for users to select 
-filtering options for more complex implementations.
-
-See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ChipGroupsPage.java)
-
-The v-chip-group supercharges the v-chip component by providing groupable functionality. 
+filtering options for more complex implementations. 
+The `v-chip-group` supercharges the `v-chip` component by providing groupable functionality.
 It is used for creating groups of selections using chips.
+
+![Chip groups example](../../images/vuetify/chip-groups.png)
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()/has()** | Returns Assert class | ChipGroupsAssert
-**click()** | Clicks on chip | void
-**chipIsSelected(ChipGroups chip)** | Returns true if chip is selected | boolean
-**hasFilter** | Shows that selected chip has filter | boolean
-**hasNoFilter** | Shows that selected chip has no filter | boolean
-**getText()** | Returns text | String
+**is()/has()** | Returns Assert class | ChipGroupAssert
+**slideGroup()** | Returns chip group's slide group | SlideGroup
+**chips()** | Returns Java list of Chips contained in the chip group | List\<Chip>
+**size()** | Returns size of chip group | int
+**isEmpty()** | Checks if chip group is empty | boolean
+**getChipByText(String)** | Gets the first chip in a group with specified text | Chip
+**select(String)** | Selects the first chip in a group with specified text | void
+**select(String...)** | Selects chips with specified texts | void
+**deselect(String)** | Deselects the first chip in a group with specified text | void
+**deselect(String...)** | Deselects chips with specified texts | void
+**close(String)** | Closes the first chip in a group with specified text | void
+**close(String...)** | Closes chips with specified texts | void
+**hasSelectedChip(String)** | Checks if there's a chip with specified text in the chip group | boolean
 
-For examples of usage see: [Chip Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ChipGroupsTests.java)
+For examples of usage see: [Chip Group tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ChipGroupTests.java)
 
 
 #### 5.13.3 Item Groups

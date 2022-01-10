@@ -2791,6 +2791,7 @@ public void depressedButtonsTests(int index, boolean enabled, String color, Stri
 [Button Vuetify documentation page](https://vuetifyjs.com/en/components/buttons/)
 
 Button is located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.VuetifyButton.java_
 
 __Button__ - the `v-btn` component that replaces the standard html button 
@@ -2831,7 +2832,7 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | VuetifyButtonAssert
-**VuetifyButton(UIElement)** | Constructor | VuetifyButton
+**VuetifyButton(UIElement)** | Parameterized UIElement constructor | VuetifyButton
 **icon()** | Get button icon | Icon
 **loader()** | Get button loader | UIElement
 **isLoading()** | Check that the button is loading | boolean

@@ -36578,7 +36578,8 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 <p><strong>Java</strong>: &#39;<em>com.epam.jdi.light.material.elements.surfaces.Accordion</em>&#39;
 <br></br>
 It extends Dropdown class and is annotated similarly. Example:</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@JDropdown</span><span class="o">(</span>
+<pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(id = "#panel1a-header")</span>
+    <span class="nd">@JDropdown</span><span class="o">(</span>
             <span class="n">root</span> <span class="o">=</span> <span class="s">".MuiAccordion-root[1]"</span><span class="o">,</span>
             <span class="n">value</span> <span class="o">=</span> <span class="s">".MuiButtonBase-root.MuiAccordionSummary-root"</span><span class="o">,</span>
             <span class="n">list</span> <span class="o">=</span> <span class="s">".MuiAccordionDetails-root"</span><span class="o">,</span>

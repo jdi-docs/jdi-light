@@ -1617,7 +1617,7 @@ Available methods in Java JDI Light:
 
 Dialog is located in the following class:
 
-- __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
+- __Java__: _com.epam.jdi.light.material.elements.feedback.Dialog_
 
 __Dialog__ - element that informs users about a task and can contain critical information, require decisions, or involve multiple tasks.
 

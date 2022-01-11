@@ -3116,46 +3116,34 @@ Available methods in Java JDI Light:
 ### 4.45 Menus
 
 ```java 
-    //  @FindBy(css = "span.MuiButton-label")
     @UI("span.MuiButton-label")
     public static Menu menu;
-    
-    //  @FindBy(css = ".MuiMenu-list")
-    @UI(".MuiMenu-list")
-    public static Menu menuList;
-    
-    //  @FindBy(css = "li.MuiListItem-button:first-child")
-    @UI("li.MuiListItem-button:first-child")
-    public static Menu menuListFirstButton;
-    
-        //  @FindBy(css = "li.MuiListItem-button:first-child")
-    @UI("li.MuiListItem-button:first-child")
-    public static Menu menuContextListFirstButton;
-  
-    //  @FindBy(css = "li.MuiListItem-button:last-child")
-    @UI("li.MuiListItem-button:last-child")
-    public static Menu menuContextListLastButton;
-  
-    //  @FindBy(css = "li.MuiListItem-button:last-child")
+
+    @UI("ul.MuiList-root.MuiMenu-list.MuiList-padding")
+    public static List simpleMenuList;
+
     @UI("//*/p[starts-with(@class, 'MuiTypography')]")
     public static Menu contextMenu;
-    
+
+    @UI("ul.MuiList-root.MuiMenu-list.MuiList-padding")
+    public static List contextMenuList;
+
     @Test
     public void simpleMenuTest() {
         menu.has().text("OPEN MENU");
         menu.click();
-        menuList.is().displayed();
-        menuListFirstButton.has().text("Profile");
-        menuListFirstButton.click();
+        simpleMenuList.is().displayed();
+        menu.has().properMenuItems(simpleMenuList, SIMPLE_AND_SELECTED_MENU_ITEMS);
+        simpleMenuList.selectItemByText("Profile");
         menu.is().displayed();
     }
-    
+
     @Test
     public void contextMenuTest() {
         contextMenuPage.open();
         contextMenu.rightClick();
-        menuContextListLastButton.has().text("Email");
-        menuContextListLastButton.click();
+        menu.has().properMenuItems(contextMenuList, CONTEXT_MENU_ITEMS);
+        contextMenuList.selectItemByText("Print");
         contextMenu.isDisplayed();
     }
 ```
@@ -3197,9 +3185,10 @@ Available methods in Java JDI Light:
 **is()** | Returns object for work with assertions | MenuAssert
 **click()** | click | void
 **rightClick()** | right-click | void
-**scrollToElement()** | scroll to element | void
+**scrollToMenuItem(List listLocator, String menuItem)** | scroll to menu item | void
 **isDisplayed()** | return answer is displayed | boolean
 **getText()** | return text | String
+**getMenuItems(List listLocator)** | return list of menu items | List<String>
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
 

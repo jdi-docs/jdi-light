@@ -2724,7 +2724,7 @@ Check that the environment variable is set:
     <dependency>
         <groupId>com.epam.jdi</groupId>
         <artifactId>jdi-light-eyes</artifactId>
-        <version>RELEASE</version>
+        <version>1.3.23</version>
     </dependency>
 ```
 

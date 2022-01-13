@@ -89,7 +89,7 @@ Basically, you have methods that can return you elements containing in banner (b
 **is()** | Returns Assert class | BannerAssert
 **getSwitch()** | Returns switch containing in the element | Switch
 **checkbox()** | Returns checkbox containing in the element | Checkbox
-**button()** | Returns button containing in the element | Button
+**button()** | Returns button containing in the element | VuetifyButton
 **buttons()** | Returns button group containing in the element | ButtonGroup
 **icon()** | Returns icon containing in the element | Icon
 **textContent()** | Returns text content of the element | Text
@@ -109,14 +109,11 @@ Basic bar is an abstract class that contains methods that are common for its spe
 
 |Method | Description | Return Type
 --- | --- | ---
-**menuButton()** | Returns 'Menu' button containing in the element | Button
-**verticalDotsButton()** | Returns 'Vertical Dots' button containing in the element | Button
-**searchButton()** | Returns 'Search' button containing in the element | Button
-**heartButton()** | Returns 'Heart' button containing in the element | Button
-**hasTitle()** | Returns true if element has title | boolean
-**hasHiddenTitle()** | Returns true if element's title is hidden | boolean
-**titleText()** | Returns text of element's title | String
-
+**menuButton()** | Returns 'Menu' button containing in the element | VuetifyButton
+**title()** | Returns element's title | Text
+**verticalDotsButton()** | Returns 'Vertical Dots' button containing in the element | VuetifyButton
+**searchButton()** | Returns 'Search' button containing in the element | VuetifyButton
+**heartButton()** | Returns 'Heart' button containing in the element | VuetifyButton
 
 #### 5.4.2 App Bars
 
@@ -153,6 +150,7 @@ App bar component extends abstract class Basic Bar. It is pivotal to any graphic
 --- | --- | ---
 **is()** | Returns Assert class | AppBarAssert
 **checkbox()** | Returns checkbox containing in the element | Checkbox
+**menu()** | Returns menu containing in the element | Menu
 **hasClickableTabs()** | Returns true if element has clickable tabs | boolean
 **hasHiddenHeader()** | Returns true if element's header is hidden | boolean
 **hasVisibleHeader()** | Returns true if element's header is visible | boolean
@@ -233,13 +231,14 @@ Toolbar component extends abstract class Basic Bar. It is pivotal to any gui, as
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns Assert class | ToolBarAssert
-**closeButton()** | Returns 'Close' button containing in the element | Button
-**deleteButton()** | Returns 'Delete' button containing in the element | Button
-**exportButton()** | Returns 'Export' button containing in the element | Button
-**gpsButton()** | Returns 'GPS' button containing in the element | Button
-**appsButton()** | Returns 'Apps' button containing in the element | Button
+**closeButton()** | Returns 'Close' button containing in the element | VuetifyButton
+**deleteButton()** | Returns 'Delete' button containing in the element | VuetifyButton
+**exportButton()** | Returns 'Export' button containing in the element | VuetifyButton
+**gpsButton()** | Returns 'GPS' button containing in the element | VuetifyButton
+**appsButton()** | Returns 'Apps' button containing in the element | VuetifyButton
 **searchIcon()** | Returns 'Search' icon containing in the element | Icon
 **input()** | Returns input field containing in the element | Input
+**select()** | Returns select containing in the element | Select
 **backgroundImage()** | Returns element's background image | Image
 **getHeaderHeight()** | Returns element's header's height | String
 **getHeaderColor()** | Returns element's header's height | String
@@ -1185,9 +1184,10 @@ See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-d
 
 |Method | Description | Return Type
 --- | --- | ---
-**getButtonByIndex(int)** | Returns button with required index | Button
-**getButtonByText()** | Returns button with required text | Button
-**getAllButtons()** | Returns all buttons | List
+**getButtonByIndex(int)** | Returns button with required index | VuetifyButton
+**getButtonByText()** | Returns button with required text | VuetifyButton
+**getAllButtons()** | Returns all buttons | List<VuetifyButton>
+**list()** | Returns all buttons as WebList | WebList
 
 For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java).
 
@@ -1978,10 +1978,10 @@ Carousel component is used to display large numbers of visual content on a rotat
 --- | --- | ---
 **is()** | Returns Assert class | CarouselAssert
 **delimiters()** | Returns group of delimiter buttons containing in the element | ButtonGroup
-**nextButton()** | Returns 'next' button containing in the element | Button
-**previousButton()** | Returns 'previous' button containing in the element | Button
-**plusButton()** | Returns 'plus' button containing in the element | Button
-**minusButton()** | Returns 'minus' button containing in the element | Button
+**nextButton()** | Returns 'next' button containing in the element | VuetifyButton
+**previousButton()** | Returns 'previous' button containing in the element | VuetifyButton
+**plusButton()** | Returns 'plus' button containing in the element | VuetifyButton
+**minusButton()** | Returns 'minus' button containing in the element | VuetifyButton
 **getSwitch()** | Returns switch containing in the element | Switch
 **getDelimitersIcons()** | Returns list of icons of delimiters | List<Icons>
 **currentSlideImage()** | Returns image of current slide | Image
@@ -2041,7 +2041,7 @@ Navigation drawer component is what users will utilize to navigate through the a
 **isOpened()** | Checks whether element is opened | boolean
 **backgroundImage()** | Returns element's background image | Image
 **getBackgroundColor()** | Returns element's background color (in RGBA format) | String
-**button()** | Returns button containing in the element | Button
+**button()** | Returns button containing in the element | VuetifyButton
 **collapse()** | Collapses element | void
 
 For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java).
@@ -2770,7 +2770,7 @@ The implementation of TreeView has tree structure, e.g.
 
 For examples of usage see: [JDI Vuetify TreeView tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TreeViewTests.java).
 
-### 5.37 Button
+### 5.37 Button (VuetifyButton)
 
 ```java
 // @FindBy(xpath = "//h2[text()='Depressed Buttons']/following-sibling::button")
@@ -2844,10 +2844,16 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | VuetifyButtonAssert
+**has()** | Returns object for work with assertions | VuetifyButtonAssert
+**waitFor()** | Returns object for work with assertions | VuetifyButtonAssert
+**shouldBe()** | Returns object for work with assertions | VuetifyButtonAssert
+**verify()** | Returns object for work with assertions | VuetifyButtonAssert
+**assertThat()** | Returns object for work with assertions | VuetifyButtonAssert
 **VuetifyButton(UIElement)** | Parameterized UIElement constructor | VuetifyButton
-**icon()** | Get button icon | Icon
-**loader()** | Get button loader | UIElement
-**isLoading()** | Check that the button is loading | boolean
+**icon()** | Returns button's icon | Icon
+**loader()** | Returns button's loader | UIElement
+**isLoading()** | Checks that the button is loading | boolean
+**getColor()** | Returns button's background color (in RGBA) | String
 
 [Here you can find Buttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/VuetifyButtonsTests.java).
 

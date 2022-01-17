@@ -518,7 +518,7 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | CardAssert
-**actions()** | Returns element's action | UIElement
+**actions()** | Returns element's part with action buttons | UIElement
 **title()** | Returns element's title | UIElement
 **subtitle()** | Returns element's subtitle | UIElement
 
@@ -2575,32 +2575,15 @@ Available methods in Java JDI Light:
 ### 4.36 Paper
 
 ```java 
-    //   @FindBy(css = ".MuiPaper-root")
-    @UI(".MuiPaper-root")
-    public static List<Paper> paper;
+    //   @FindBy(id = "paperElevation3")
+    @UI("#paperElevation3")
+    public static Paper elevationThreePaper;
 
     @Test
-    public void defaultPaperTest() {
-
-        paper.get(1).is().text(WITH_ZERO_ELEVATION);
-        paper.get(1).click();
-        paper.get(6).is().text(String.format(YOU_CLICKED, WITH_ZERO_ELEVATION));
-
-        paper.get(2).is().text(WITH_DEFAULT_ELEVATION);
-        paper.get(2).click();
-        paper.get(6).is().text(String.format(YOU_CLICKED, WITH_DEFAULT_ELEVATION));
-
-        paper.get(3).is().text(WITH_ELEVATION_EQUALS_THREE);
-        paper.get(3).click();
-        paper.get(6).is().text(String.format(YOU_CLICKED, WITH_ELEVATION_EQUALS_THREE));
-
-        paper.get(4).is().text(OUTLINED_PAPER);
-        paper.get(4).click();
-        paper.get(6).is().text(String.format(YOU_CLICKED, OUTLINED_PAPER));
-
-        paper.get(5).is().text(OUTLINED_SQUARE_PAPER);
-        paper.get(5).click();
-        paper.get(6).is().text(String.format(YOU_CLICKED, OUTLINED_SQUARE_PAPER));
+    public void elevationThreePaperTest() {
+        elevationThreePaper.is().displayed();
+        elevationThreePaper.has().elevation(3);
+        elevationThreePaper.is().rounded();
     }
 ```
 
@@ -2639,20 +2622,12 @@ Available methods in Java JDI Light:
 <br></br>
 
 ### 4.37 Accordion
-The accordion component allows the user to show and hide sections of related content on a page.
-##### <a href="https://mui.com/components/accordion/" target="_blank"> Accordions overview on MaterialUI website</a>
-__Accordions__ contain creation flows and allow lightweight editing of an element.
 
-![Accordion](../../images/material-ui/Accordion.png)
-
-Accordion is located in the following class:
-
-__Java__: '_com.epam.jdi.light.material.elements.surfaces.Accordion_'
-<br></br>
-It extends Dropdown class and is annotated similarly. Example:
-
-```java 
-    // @FindBy(id = "#panel1a-header")
+```java
+    // UIElement @FindBy(css = ".MuiAccordion-root[1]")
+    // UIElement @FindBy(css = ".MuiButtonBase-root.MuiAccordionSummary-root")
+    // List<UIElement> @FindBy(className = "MuiAccordionDetails-root")
+    // Button @FindBy(className = "MuiIconButton-label")
     @JDropdown(
             root = ".MuiAccordion-root[1]",
             value = ".MuiButtonBase-root.MuiAccordionSummary-root",
@@ -2671,6 +2646,18 @@ It extends Dropdown class and is annotated similarly. Example:
         generalSettingsAccordion.list().is().hidden();
     }
 ```
+
+##### <a href="https://mui.com/components/accordion/" target="_blank"> Accordion overview</a>
+
+Accordion is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.surfaces.Accordion_
+
+__The Accordion__ component allows the user to show and hide sections of related content on a page.
+
+Accordions contain creation flows and allow lightweight editing of an element.
+
+![Accordion](../../images/material-ui/Accordion.png)
 
 Here is an example with provided MaterialUI v4.12.3 code:
 
@@ -2706,9 +2693,8 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**isEnabled()** | Shows that element is not disabled| boolean
-**is()** | Returns object for work with assertions| DropdownAssert
-
+**is()** | Returns object for work with assertions | DropdownAssert
+**isEnabled()** | Checks whether element is enabled | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a>
 

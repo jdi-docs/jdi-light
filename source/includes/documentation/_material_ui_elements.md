@@ -302,8 +302,8 @@ Available methods in Java JDI Light:
 ### 4.5 Avatar
 
 ```java
-    // @FindBy(xpath = "//span[@class = 'MuiBadge-root']")
-    @UI("//span[@class = 'MuiBadge-root']")
+    // @FindBy(className = "MuiBadge-root")
+    @UI(".MuiBadge-root")
     public static List<Avatar> avatarsWithPhoto;
 
     @Test
@@ -449,7 +449,8 @@ Available methods in Java JDI Light:
 **isInset()** | Assert inset divider | boolean
 **isVertical()** | Assert vertical divider| boolean
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/InsetDividerTests.java" target="_blank">Here you can find Divider tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/InsetDividerTests.java" target="_blank">Here you can find Inset Divider tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/VerticalDividerTests.java" target="_blank">Here you can find Vertical Divider tests</a>
 
 <br></br>
 
@@ -834,6 +835,15 @@ Available methods in Java JDI Light:
         iconsList.get(elNum).hover();
         lastHover.is().text("Last hover: " + elType);
     }
+
+    @DataProvider(name = "defaultMaterialIconTestDataProvider")
+    public static Object[][] defaultMaterialIconTestData() {
+        return new Object[][]{
+                {1, "default"},
+                {2, "large"},
+                {3, "secondary"},
+        };
+    }
 ```
 
 ##### <a href="https://material-ui.com/components/material-icons/" target="_blank"> Material Icons overview </a>
@@ -909,9 +919,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**is()** | Returns object for work with assertions | IconAssert
 **colored()** | Check whether element is colored (not black) | boolean
 **getColor()** | Get color of icon | String
-**is()** | Returns object for work with assertions | IconAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconsTests.java" target="_blank">Here you can find Icons tests</a>
 
@@ -1346,31 +1356,30 @@ Available methods in Java JDI Light:
     // @FindBy(css = ".MuiGrid-root[3] .MuiTypography-root")
     @UI(".MuiGrid-root[3] .MuiTypography-root")
     public static List<Typography> typographyTexts;
-    
-    @Test
-    public void typographyTextsTest() {
-        typographyTexts.get(1).has().text("Head 1");
 
-        List<String> expectedText = Arrays.asList(
-                "Head 1", "Head 2", "Head 3", "Head 4", "Head 5", "Head 6",
-                "Subtitle 1", "Subtitle 2", "Body 1", "Body 2",
-                "BUTTON TEXT", "Caption text", "OVERLINE TEXT");
+    @Test(dataProvider = "typographyTestData")
+    public static void typographyTest(int number, String text, TypographyStyles style) {
+        typographyTexts.get(number).has().text(text).and().style(style);
+    }
 
-        List<String> actualTexts = typographyTexts.stream()
-                .map(IsText::getText)
-                .collect(Collectors.toList());
-
-        jdiAssert(actualTexts, equalTo(expectedText));
+    @DataProvider
+    public Object[][] typographyTestData() {
+        return new Object[][]{
+                {1, "Head 1", HEAD_1}, {2, "Head 2", HEAD_2}, {3, "Head 3", HEAD_3}, {4, "Head 4", HEAD_4},
+                {5, "Head 5", HEAD_5}, {6, "Head 6", HEAD_6}, {7, "Subtitle 1", SUBTITLE_1},
+                {8, "Subtitle 2", SUBTITLE_2}, {9, "Body 1", BODY_1}, {10, "Body 2", BODY_2},
+                {11, "BUTTON TEXT", BUTTON}, {12, "Caption text", CAPTION}, {13, "OVERLINE TEXT", OVERLINE}
+        };
     }
 ```
 
 ##### <a href="https://material-ui.com/components/typography/" target="_blank"> Typography overview </a>
 
-__Typography__ - element that is used to present your design and content as clearly and efficiently as possible.
-
 Typography is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.displaydata.Typography_
+
+__Typography__ - element that is used to present your design and content as clearly and efficiently as possible.
 
 ![Typography](../../images/material-ui/Typography.png)
 
@@ -1420,10 +1429,10 @@ Available methods in Java JDI Light:
     
     @Test
     public void simpleBadgeTest() {
-        primaryColorBadge.is().displayed();
-        primaryColorBadge.has().counterValue("4");
-        primaryColorBadge.has().primaryColor();
-        primaryColorBadge.has().position("TopRightRectangle");
+        primaryColorBadge.is().displayed()
+            .and().has().text("4")
+            .and().primaryColor()
+            .and().position("TopRightRectangle");
     }
 ```
 
@@ -1454,9 +1463,8 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **is()** | Returns object for work with assertions | BadgeAssert
 **getPosition()** | Returns element's position | String
-**getCounterValue()** | Returns component's value | String
 **isDot()** | Shows that element is a dot | boolean
-**isInvisible()** | Shows that element is invisible | boolean
+**isNotVisible()** | Checks whether element is not visible | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
@@ -3211,57 +3219,27 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.46.1 Lists
+### 4.46 Lists
 
-```java 
-    // @FindBy(id = "selectedList")
-    @UI("#selectedList")
-    public static List selectedListUpperHalf;
+```java
+    // @FindBy(id = "simpleList")
+    @UI("#simpleList")
+    public static List simpleList;
 
-    @UI("#selectedListLowerHalf")
-    public static List selectedListLowerHalf;
-    
-    @UI("#iconWithTextList")
-    public static List iconWithTextList;
-
-    @UI("#avatarWithTextList")
-    public static List avatarWithTextList;
-    
-    @UI("#listWithSwitch")
-    public static List listWithSwitch;
-    
-    @Test
-    public void selectedListTests() {
-        selectedListUpperHalf.selectItemByText("Inbox");
-        selectedListUpperHalf.getItemByText("Inbox").is().selected();
-        selectedListLowerHalf.selectItemByText("Spam");
-        selectedListUpperHalf.getItemByText("Inbox").is().notSelected();
-        selectedListLowerHalf.getItemByText("Spam").is().selected();
-    }
-    
-    @Test
-    public void iconWithTextTests() {
-        iconWithTextList.is().notEmpty();
-        iconWithTextList.items().get(0).icon().is().notColored();
-    }
+    // @FindBy(id = "lastClickInfo")
+    @UI("#lastClickInfo")
+    public static Text simpleListLastClickInfo;
 
     @Test
-    public void avatarWithTextTests() {
-        secondaryTextCheckbox.check();
-        avatarWithTextList.items().get(0).has().secondaryText("Secondary text");
-    }
-    
-    @Test
-    public void listWithSwitchTests() {
-        Set<String> expectedItems = Stream.of("Wi-Fi", "Bluetooth")
-                .collect(Collectors.toCollection(HashSet::new));
-        listWithSwitch.has().itemsWithTexts(expectedItems);
+    public void simpleListTests() {
+        simpleList.items().get(0).click();
+        String firstItemText = simpleList.items().get(0).getText();
+        simpleListLastClickInfo.has().text(format("You clicked on: %s", firstItemText));
 
-        listWithSwitch.items().get(0).secondaryActionSwitch().is().turnedOn();
-        listWithSwitch.items().get(0).secondaryActionSwitch().turnOff();
-        listWithSwitch.items().get(0).secondaryActionSwitch().is().turnedOff();
+        simpleList.items().get(1).click();
+        String secondItemText = simpleList.items().get(1).getText();
+        simpleListLastClickInfo.has().text(format("You clicked on: %s", secondItemText));
     }
-
 ```
 
 ##### <a href="https://material-ui.com/components/lists/" target="_blank"> Lists overview </a>
@@ -3274,112 +3252,33 @@ __Lists__ are continuous groups of text or images. They are composed of items co
 which are represented by icons and text.
 
 ![simpleList](../../images/material-ui/simpleList.png)
-![checkboxList](../../images/material-ui/checkboxList.png)
 
 Here are examples with provided MaterialUI v4.12.3 code:
 
 ```html
-<nav class="MuiList-root MuiList-padding" aria-label="List items">
+<nav class="MuiList-root MuiList-padding" aria-label="List items" id="simpleList">
   <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
     <div class="MuiListItemText-root">
       <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">List item 1</span>
     </div>
     <span class="MuiTouchRipple-root"></span>
-  </div><a class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
-  <div class="MuiListItemText-root">
-    <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">List item 2</span>
   </div>
-  <span class="MuiTouchRipple-root"></span>
-</a>
+  <a class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
+    <div class="MuiListItemText-root">
+      <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">List item 2</span>
+    </div>
+    <span class="MuiTouchRipple-root"></span>
+  </a>
 </nav>
-```
-```html
-<ul class="MuiList-root jss100 MuiList-padding">
-  <li class="MuiListItem-container">
-    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button MuiListItem-secondaryAction" tabindex="0" aria-disabled="false">
-      <div class="MuiListItemIcon-root">
-        <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary jss107 Mui-checked MuiIconButton-colorSecondary MuiIconButton-edgeStart" aria-disabled="false">
-          <span class="MuiIconButton-label">
-            <input class="jss109" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="checkbox-list-label-0" value="" checked="">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-          </span>
-        </span>
-      </div>
-      <div class="MuiListItemText-root MuiListItemText-dense" id="checkbox-list-label-0">
-        <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">Line item 1</span>
-      </div>
-      <span class="MuiTouchRipple-root"></span>
-    </div>
-    <div class="MuiListItemSecondaryAction-root">
-      <button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd" tabindex="0" type="button" aria-label="comments">...</button>
-    </div>
-  </li>
-  <li class="MuiListItem-container">
-    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button MuiListItem-secondaryAction" tabindex="0" aria-disabled="false">
-      <div class="MuiListItemIcon-root">
-        <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary MuiIconButton-edgeStart" aria-disabled="false">
-          <span class="MuiIconButton-label">
-            <input class="jss109" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="checkbox-list-label-1" value="">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-          </span>
-        </span>
-      </div>
-      <div class="MuiListItemText-root MuiListItemText-dense" id="checkbox-list-label-1">
-        <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">Line item 2
-        </span>
-      </div>
-      <span class="MuiTouchRipple-root"></span>
-    </div>
-    <div class="MuiListItemSecondaryAction-root">
-      <button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd" tabindex="0" type="button" aria-label="comments">...</button>
-    </div>
-  </li>
-  <li class="MuiListItem-container">
-    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button MuiListItem-secondaryAction" tabindex="0" aria-disabled="false">
-      <div class="MuiListItemIcon-root">
-        <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary MuiIconButton-edgeStart" aria-disabled="false">
-          <span class="MuiIconButton-label">
-            <input class="jss109" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="checkbox-list-label-2" value="">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-          </span>
-        </span>
-      </div>
-      <div class="MuiListItemText-root MuiListItemText-dense" id="checkbox-list-label-2">
-        <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">Line item 3</span>
-      </div>
-      <span class="MuiTouchRipple-root"></span>
-    </div>
-    <div class="MuiListItemSecondaryAction-root">
-      <button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd" tabindex="0" type="button" aria-label="comments">...</button>
-    </div>
-  </li>
-  <li class="MuiListItem-container">
-    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button MuiListItem-secondaryAction" tabindex="0" aria-disabled="false">
-      <div class="MuiListItemIcon-root">
-        <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary MuiIconButton-edgeStart" aria-disabled="false">
-          <span class="MuiIconButton-label">
-            <input class="jss109" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="checkbox-list-label-3" value="">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-          </span>
-        </span>
-      </div>
-      <div class="MuiListItemText-root MuiListItemText-dense" id="checkbox-list-label-3">
-        <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">Line item 4</span>
-      </div>
-      <span class="MuiTouchRipple-root"></span>
-    </div>
-    <div class="MuiListItemSecondaryAction-root">
-      <button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd" tabindex="0" type="button" aria-label="comments">...</button>
-    </div>
-  </li>
-</ul>
+<p id="lastClickInfo">You clicked on: </p>
 ```
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return type
 | --- | --- | --- 
-**is()/has()** | Returns object for work with assertions | ListAssert
+**is()** | Returns object for work with assertions | ListAssert
+**List(UIElement)** | Constructor | List
 **items()** | Returns a Java list of list items | List\<ListItem>
 **getItemByText(String)** | Returns first list item with specified text | ListItem
 **selectItemByText(String)** | Clicks first list item with specified text | void
@@ -3391,7 +3290,7 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListTests.java" target="_blank">Here you can find List tests</a>
 
-### 4.46.2 List Items
+#### 4.46.1 List Items
 
 List Item is located in the following class:
 
@@ -3407,7 +3306,7 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return type
 | --- | --- | --- 
-**is()/has()** | Returns object for work with assertions | ListItemAssert
+**is()** | Returns object for work with assertions | ListItemAssert
 **getText()** | Returns primary text of list item as string | String
 **getPrimaryText()** | Returns properly marked primary text of list item as Text | Text
 **getSecondaryText()** | Returns secondary text of list item | Text

@@ -2737,7 +2737,7 @@ Available methods in Java JDI Light:
 
 Portal is located in the following class:
 
-- __Java__: _com.epam.jdi.light.material.elements.utils.Portal_'
+- __Java__: _com.epam.jdi.light.material.elements.utils.Portal_
 
 __The Portal__ component renders its children into a new "subtree" outside of current DOM hierarchy.
 
@@ -2795,7 +2795,7 @@ Available methods in Java JDI Light:
 
 TextArea is located in the following class:
 
-- __Java__: _com.epam.jdi.light.ui.html.elements.common.TextArea_'
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.TextArea_
 
 __The Textarea__ component for React which grows with content.
 
@@ -2843,7 +2843,7 @@ Available methods in Java JDI Light you can find in html `TextArea` class.
 
 Popover is located in the following class:
 
-- __Java__: _com.epam.jdi.light.material.elements.utils.Popover_'
+- __Java__: _com.epam.jdi.light.material.elements.utils.Popover_
 
 __The Popover__ can be used to display some content on top of another.
 
@@ -3772,7 +3772,7 @@ Available methods in Java JDI Light:
 |**Click()**|Click on Text Field| void
 |**GetText()**|Get current Text from Text Field| String
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TextFieldTests.java">Here you can find Text Fields tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TextFieldTests.java"  target="_blank">Here you can find Text Fields tests</a>
 
 <br></br>
 
@@ -3804,7 +3804,7 @@ components based on whether the query matches or not.
 <span>(min-width:600px) matches: true</span>
 ```
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/UseMediaQueryTests.java">Here you can find useMediaQuery tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/UseMediaQueryTests.java"  target="_blank">Here you can find useMediaQuery tests</a>
 
 <br></br><br></br>
 

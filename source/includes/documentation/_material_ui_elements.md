@@ -1599,7 +1599,7 @@ Available methods in Java JDI Light:
               actionText = "#simpleDialogSelection")
     public static ButtonWithDialog simpleDialogButton;
 
-    @Test(dataProviderClass = DialogDataProvider.class, dataProvider = "simpleDialogDataProvider")
+    @Test(dataProvider = "simpleDialogDataProvider")
     public void simpleDialogTest(String titleText, int index, String text) {
         simpleDialogButton.click();
         simpleDialogButton.dialog().is().displayed();
@@ -1609,7 +1609,16 @@ Available methods in Java JDI Light:
         simpleDialogButton.dialog().list().items().get(index).click();
         simpleDialogButton.dialog().is().hidden();
         simpleDialogButton.actionText().has()
-        .text(equalToIgnoringCase("Selected: " + text.replaceAll(" ", "")));
+                .text(equalToIgnoringCase("Selected: " + text.replaceAll(" ", "")));
+    }
+
+    @DataProvider(name = "simpleDialogDataProvider")
+    public Object[][] simpleDialogData() {
+        return new Object[][]{
+                {"Set backup account", 0, "username@gmail.com"},
+                {"Set backup account", 1, "user02@gmail.com"},
+                {"Set backup account", 2, "Add account"}
+        };
     }
 ```
 
@@ -1654,7 +1663,6 @@ Available methods in Java JDI Light:
 **close()** | Closes element | void
 **confirm()** | Confirms and closes element | void
 **scrollDialogBodyTo(int)** | Scrolls element to targeted position | void
-
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a>
 
@@ -2982,25 +2990,27 @@ Available methods in Java JDI Light:
 
 ### 4.43 Progress
 
-```java 
-    //    @FindBy(xpath = "//div[@class='jss65']/div[1]")
-    @JDIProgressBar(root ="#circularIndeterminateProgress")
-    public static ProgressBar circularIndeterminate;
+```java
+    //    @FindBy(xpath = "(//div[@aria-valuenow='100']/following-sibling::div)[1]")
+    @JProgress(root = "(//div[@aria-valuenow='100']/following-sibling::div)[1]")
+    public static CircularProgress circularDeterminateProgress;
 
     @Test
-    public void circularProgressTest() {
-        circularIndeterminate.is().indeterminate();
+    public void circularDeterminateTest() {
+        circularDeterminateProgress.is().displayed().and().determinate()
+                .and().has().primaryColor();
         int valueNow = circularDeterminateProgress.getValueNow();
-        timer.wait(() -> circularDeterminateProgress.is().value(valueNow + 10));
-        circularDeterminateProgress.is().determinate();
+        timer.wait(() -> circularDeterminateProgress.has().value(valueNow + 10));
     }
 ```
 
 ##### <a href="https://material-ui.com/components/progress/" target="_blank"> Progress overview </a>
 
-ProgressBar is located in the following class:
+Abstract Progress and its descendants are located in the following classes:
 
-- __Java__: _com.epam.jdi.light.material.elements.feedback.ProgressBar_
+- __Java__: _com.epam.jdi.light.material.elements.feedback.progress.Progress_
+_com.epam.jdi.light.material.elements.feedback.progress.CircularProgress_
+- _com.epam.jdi.light.material.elements.feedback.progress.LinearProgress_
 
 __Progress__ indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The
 animation works with CSS, not JavaScript.
@@ -3010,24 +3020,45 @@ animation works with CSS, not JavaScript.
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate" role="progressbar" id="circularIndeterminateProgress" style="width: 40px; height: 40px;">
-  <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">...</svg>
+<div class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-determinate" role="progressbar" aria-valuenow="30" style="width: 40px; height: 40px; transform: rotate(-90deg);">
+  <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
+    <circle class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6" style="stroke-dasharray: 126.92; stroke-dashoffset: 88.844px;"></circle>
+  </svg>
 </div>
 ```
 
 Available methods in Java JDI Light:
 
+- __Progress__
+
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions| ProgressAssert
-**has()** | Returns object for work with assertions| ProgressAssert
-**getValueNow()** | Returns current element's value| int
-**getMaxValue()** | Returns element's max value| int
-**getMinValue()** | Returns element's min value| int
-**isIndeterminate()** | Shows that element is indeterminate| boolean
-**isDeterminate()** | Shows that element is determinate| boolean
-**isColorCorrect(String)** | Shows that element has required color| Boolean
-**bufferColors(String, String)** | Shows that element has required colors| Boolean
+**is()** | Returns object for work with assertions | ProgressAssert
+**label()** | Returns progress label | Label
+**getValueNow()** | Returns current element's value | int
+**maxValue()** | Returns element's max limit | int
+**minValue()** | Returns element's min limit | int
+**getColor()** | Returns element's color | String
+**isDisplayed()** | Checks whether the element is displayed | boolean
+**isIndeterminate()** | Shows that element is indeterminate | boolean
+**isDeterminate()** | Shows that element is determinate | boolean
+
+- additional methods of __Circular Progress__
+
+|Method | Description | Return Type
+--- | --- | ---
+**circle()** | Returns progress circle | UIElement
+
+- additional methods of __Linear Progress__
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | LinearProgressAssert
+**bar1()** | Returns progress first bar | UIElement
+**bar2()** | Returns progress second bar | UIElement
+**firstBarColor()** | Returns first bar color | String
+**secondBarColor()** | Returns second bar color | String
+**isBuffer()** | Checks whether the progress is buffer | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
 

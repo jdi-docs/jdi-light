@@ -2719,7 +2719,7 @@ Available methods in Java JDI Light:
 ### 4.38 Portal
 
 ```java 
-    //    @FindBy(css = ".MuiBox-root")
+    // @FindBy(css = ".MuiBox-root")
     @UI(".MuiBox-root")
     public static Portal portal;
     
@@ -2754,11 +2754,13 @@ __The Portal__ component renders its children into a new "subtree" outside of cu
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div>
-  <button type="button">Unmount children</button>
-  <div class="jss52">It looks like I will render here.</div>
-  <div class="jss52">
-    <span>But I actually render here!</span>
+<div class="MuiBox-root jss183">
+  <div><h1>Portal</h1>
+    <div>
+      <button type="button">Unmount children</button>
+      <div class="jss184">It looks like I will render here.</div>
+      <div class="jss184"><span>But I actually render here!</span></div>
+    </div>
   </div>
 </div>
 ```
@@ -2928,6 +2930,21 @@ Here is an example with provided MaterialUI v4.12.3 code:
     </div>
   </div>
 </div>
+<div role="presentation" aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" style="position: fixed; z-index: 1300; inset: 0px;">
+  <div aria-hidden="true" style="z-index: -1; position: fixed; inset: 0px; background-color: rgba(0, 0, 0, 0.5); -webkit-tap-highlight-color: transparent;"></div>
+  <div tabindex="0" data-test="sentinelStart"></div>
+  <div class="jss178" tabindex="-1" style="top: 46%; left: 51%; transform: translate(-46%, -51%);">
+    <h2 id="simple-modal-title2">Text in a modal</h2>
+    <p id="simple-modal-description2">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+    <div>
+      <h1>Modal windows</h1>
+      <div>
+        <button type="button">Open Modal</button>
+      </div>
+    </div>
+  </div>
+  <div tabindex="0" data-test="sentinelEnd"></div>
+</div>
 ```
 
 Available methods in Java JDI Light:
@@ -2946,21 +2963,31 @@ Available methods in Java JDI Light:
 ### 4.42 Popper
 
 ```java 
-    //    @FindBy(css = "[role='tooltip']")
-    @UI("[role='tooltip']")
-    public static Popper popper;
+    // @FindBy(css = "[type=button]")
+    @UI("[type=button]")
+    public static List<TooltipButton> popperButton;
     
-    @Test
-    public void positionedPoppersTest() {
+    @Test(dataProvider = "positionedPopperDataProvider")
+    public void positionedPoppersTest(int number, String buttonText, Position position) {
         Timer timer = new Timer(2000L);
-        for (int i = 1; i <= 4; i++) {
-            popper.popperButton(POPPER_BUTTONS_TEXTS[i - 1]).click();
-            popper.assertThat().popperDisplayed();
-            popper.assertThat().popperTextCorrect(POPPER_CONTENT_TEXT);
-            popper.assertThat().popperPosition(POPPER_POSITIONS[i - 1]);
-            popper.popperButton(POPPER_BUTTONS_TEXTS[i - 1]).click();
-            timer.wait(() -> popper.assertThat().notVisible());
-        }
+
+        popperButton.get(number).has().text(buttonText);
+        popperButton.get(number).click();
+        popperButton.get(number).popper().assertThat().displayed();
+        popperButton.get(number).popper().assertThat().text("The content of the Popper.");
+        popperButton.get(number).popper().assertThat().position(position);
+        popperButton.get(number).click();
+        timer.wait(() -> popperButton.get(number).popper().assertThat().notVisible());
+    }
+    
+    @DataProvider
+    public Object[][] positionedPopperDataProvider() {
+        return new Object[][]{
+                {1, "TOP", Position.TOP}, 
+                {2, "LEFT", Position.LEFT}, 
+                {3, "RIGHT", Position.RIGHT}, 
+                {4, "BOTTOM", Position.BOTTOM}
+        };
     }
 ```
 
@@ -2989,8 +3016,7 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions| PopperAssert
-**position()** | Returns element's position| String
-**popperButton(String)** | Returns required element's button| UIElement
+**position()** | Returns popper's position| String
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a>
 
@@ -3016,9 +3042,10 @@ Available methods in Java JDI Light:
 
 Abstract Progress and its descendants are located in the following classes:
 
-- __Java__: _com.epam.jdi.light.material.elements.feedback.progress.Progress_
-_com.epam.jdi.light.material.elements.feedback.progress.CircularProgress_
-- _com.epam.jdi.light.material.elements.feedback.progress.LinearProgress_
+- __Java__: 
+  - _com.epam.jdi.light.material.elements.feedback.progress.Progress_
+  - _com.epam.jdi.light.material.elements.feedback.progress.CircularProgress_
+  - _com.epam.jdi.light.material.elements.feedback.progress.LinearProgress_
 
 __Progress__ indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The
 animation works with CSS, not JavaScript.

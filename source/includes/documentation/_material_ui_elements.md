@@ -197,14 +197,18 @@ Available methods in Java JDI Light:
     // @FindBy(xpath = "//h2[text()='Simple tooltips']/following-sibling::div[1]/button")
     @UI("//h2[text()='Simple tooltips']/following-sibling::div[1]/button")
     public static List<TooltipButton> simpleTooltipsButton;
-    
+
     @Test(dataProvider = "simpleTooltipsTestData")
     public void simpleTooltipsTest(int number, String text) {
-        simpleTooltipsButton.get(number).hover();
-        simpleTooltipsButton.get(number).tooltip().is().visible();
-        simpleTooltipsButton.get(number).tooltip().has().text(text);
+        checkTooltip(simpleTooltipsButton.get(number), text);
     }
-    
+
+    private static void checkTooltip(TooltipButton tooltipButton, String expectedText) {
+        tooltipButton.hover();
+        tooltipButton.tooltip().is().visible();
+        tooltipButton.tooltip().has().text(containsString(expectedText));
+    }
+  
     @DataProvider
     public Object[][] simpleTooltipsTestData() {
         return new Object[][]{
@@ -733,16 +737,18 @@ __Box__ - element that serves as a wrapper component for most of the CSS utility
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" type="button">
-  <span class="MuiButton-label">First button</span>
-  <span class="MuiTouchRipple-root"></span>
-</button>
+<div class="MuiBox-root jss292">
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" type="button">
+    <span class="MuiButton-label">First button</span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+</div>
 ```
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
 
 <br></br>
-
+ 
 ### 4.12 Transitions
 
 ```java
@@ -942,14 +948,6 @@ Available methods in Java JDI Light:
 ### 4.15 Floating Action Button
 
 ```java
-    // @FindBy(xpath = "//div[@id='basicActionBtns']/button")
-    @UI("//div[@id='basicActionBtns']/button")
-    public static List<Button> buttonsBasic;
-    
-    // @FindBy(id = "basicActionBtnsLastClick")
-    @UI("#basicActionBtnsLastClick")
-    public static Text labelLastClick;
-    
     // @FindBy(xpath = "//button[@aria-label='add']")
     @UI("//button[@aria-label='add']")
     public static Button buttonAdd;
@@ -966,23 +964,28 @@ Available methods in Java JDI Light:
     @UI("//button[@aria-label='like']")
     public static Button buttonLike;
 
+    // @FindBy(id = "basicActionBtnsLastClick")
+    @UI("#basicActionBtnsLastClick")
+    public static Text labelLastClick;
+    
     @Test
     public void basicButtonsTest() {
-        buttonsBasic.forEach(el -> el.is().displayed());
-        labelLastClick.has().text("Last click:");
-
+        buttonAdd.is().displayed();
         buttonAdd.is().enabled();
         buttonAdd.click();
         labelLastClick.has().text("Last click: Add");
-
+        
+        buttonEdit.is().displayed();
         buttonEdit.is().enabled();
         buttonEdit.click();
         labelLastClick.has().text("Last click: Edit");
 
+        buttonNavigate.is().displayed();
         buttonNavigate.is().enabled();
         buttonNavigate.click();
         labelLastClick.is().text("Last click: Navigate");
 
+        buttonLike.is().displayed();
         buttonLike.is().disabled();
     }
 ```
@@ -1092,21 +1095,35 @@ Here is an example with provided Material-UI v4.12.3 code:
     // @FindBy(xpath = "//p[@id='activeNonLinearStep']/..//button[3]")
     @UI("//p[@id='activeNonLinearStep']/..//button[3]")
     public static MaterialButton nonlinearStepperCompleteStepButton;
-        
+
     @Test
     public void nonlinearStepperForwardTest() {
         nonlinearStepper.show();
         nonlinearStepper.is().displayed().and().has().steps(Arrays.asList(steps));
+        nonlinearStepper.is().stepEnabled(1).and().stepIncomplete(1);
+        nonlinearStepper.is().stepDisabled(2).and().stepIncomplete(2);
+        nonlinearStepper.is().stepDisabled(3).and().stepIncomplete(3);
 
         nonlinearStepperNextButton.click();
+        nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
+        nonlinearStepper.is().stepEnabled(2).and().stepIncomplete(2);
+        nonlinearStepper.is().stepDisabled(3).and().stepIncomplete(3);
+
         nonlinearStepperNextButton.click();
-        nonlinearStepper.list().get(2).click();
-        nonlinearStepperCompleteStepButton.click();
-        
         nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
         nonlinearStepper.is().stepEnabled(2).and().stepCompleted(2);
         nonlinearStepper.is().stepEnabled(3).and().stepIncomplete(3);
-    }
+
+        nonlinearStepper.list().get(2).click();
+        nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
+        nonlinearStepper.is().stepEnabled(2).and().stepIncomplete(2);
+        nonlinearStepper.is().stepDisabled(3).and().stepIncomplete(3);
+
+        nonlinearStepperCompleteStepButton.click();
+        nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
+        nonlinearStepper.is().stepEnabled(2).and().stepCompleted(2);
+        nonlinearStepper.is().stepEnabled(3).and().stepIncomplete(3);
+  }
 ```
 
 ##### <a href="https://material-ui.com/components/steppers/" target="_blank"> Stepper overview </a>
@@ -1153,6 +1170,12 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **stepCompleted(int)** | Check whether specified step is completed | boolean
 **stepEnabled(int)** | Check whether specified step is enabled | boolean
+**dots()** | Returns list of stepper's dots | WebList
+**progressBar()** | Returns stepper's progress bar | UIElement
+**next()** | Returns stepper's 'next' button | UIElement
+**back()** | Returns stepper's 'back' button | UIElement
+**isVertical()** | Checks that stepper is vertical | boolean
+**isHorizontal()** | Checks that stepper is horizontal | boolean
 **is()** | Returns object for work with assertions | StepperAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
@@ -1163,22 +1186,33 @@ Available methods in Java JDI Light:
 
 ```java
     // @FindBy(xpath = "//*[@id="continuous-slider"]/following-sibling::div//span[contains(@class, "MuiSlider-root")]")
-    @UI("//*[@id="continuous-slider"]/following-sibling::div//span[contains(@class, "MuiSlider-root")]")
+    @UI("//*[@id='continuous-slider']/following-sibling::div//span[contains(@class, 'MuiSlider-root')]")
     public static Slider continuousSlider;
-    
+
     @Test
     public void continuousSliderTest() {
-        continuousSlider.is().enabled();
-        continuousSlider.is().orientation("horizontal");
-        continuousSlider.is().value(30);
-        continuousSlider.setValue(15);
-        continuousSlider.is().value(15);
-        continuousSlider.moveLeft();
-        continuousSlider.is().value(14);
-        continuousSlider.moveRight();
-        continuousSlider.is().value(15);
-        continuousSlider.slideHorizontalTo(10);
-        continuousSlider.is().value(10);
+        checkCondition(disabledContinuousSlider, DISABLED, HORIZONTAL, 30);
+
+        checkCondition(continuousSlider, ENABLED, HORIZONTAL, 30);
+        testSliderBasicLogic(continuousSlider, 15, 14, 15);
+        continuousSlider.slideHorizontalTo(20);
+        continuousSlider.has().value(20);
+    }
+
+    private void checkCondition(Slider slider, String accessibility, String orientation, int startedValue) {
+        switch (accessibility) {
+            case "disabled":
+                slider.is().disabled();
+                break;
+            case "enabled":
+                slider.is().enabled();
+                break;
+            default:
+                System.out.println("Condition not found");
+                break;
+        }
+
+        slider.has().orientation(orientation).and().value(startedValue);
     }
 ```
 
@@ -1215,14 +1249,17 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**value()** | Get current value | int
+**sliderLabel()** | Get slider label | UIElement
+**slider()** | Get slider | UIElement
+**labelIsVisible()** | Get slider | UIElement
+**value()** | Check that slider's label is visible | int
 **setValue(int)** | Set new value | void
 **isDisabled()** | Checks whether slider is disabled | boolean
 **orientation()** | Get orientation value | String
 **slideVerticalTo(int)** | Set new value using drag-and-drop action for vertical slider | void
 **slideHorizontalTo(int)** | Set new value using drag-and-drop action for horizontal slider | void
-**moveRight()** | Move right to one unit using arrow key on keyboard | void
-**moveLeft()** | Move left to one unit using arrow key on keyboard | void
+**increaseValue()** | Increase slider value | void
+**decreaseValue()** | Decrease slider value | void
 **thumb()** | Returns slider thumb | UIElement
 **track()** | Returns slider track | UIElement
 **getInteger(String, WebElement, int)** | Returns integer value of specified element | int
@@ -1742,6 +1779,7 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | DateTimePickerAssert
+**timer()** | Returns list for of hours| WebList
 **selectDate(String)** | Selects required date | void
 **expand()** | Expands element | void
 **cancel()** | Closes element without saving changes | void
@@ -1765,6 +1803,7 @@ Available methods in Java JDI Light:
     @Test
     public void simpleSelectTest() {
         String value = "Hansen";
+        
         simpleSelect.expand();
         simpleSelect.is().expanded();
         simpleSelect.close();
@@ -2080,17 +2119,9 @@ Available methods in Java JDI Light:
 ### 4.31 Grid
 
 ```java
-    // @FindBy(className = "MuiContainer-root")
-    @UI(".MuiContainer-root")
-    public static Grid rootGrid;
-
     // @FindBy(id = "basicGrid")
     @UI("#basicGrid")
     public static Grid basicGrid;
-
-    // @FindBy(id = "complexGrid")
-    @UI("#complexGrid")
-    public static Grid complexGrid;
 
     @Test(dataProvider = "basicGridItems")
     public void basicGridItemsTest(int itemIndex, String itemWidth, String itemClass) {
@@ -2210,10 +2241,9 @@ __The Grid List__ - list of Material UI Grid elements.
 
 ![GridList](../../images/material-ui/GridList.png)
 
-Here is an example with provided MaterialUI v4.12.3 code:
+Here is an example with provided MaterialUI v3.9.4 code:
 
 ```html
-
 <div class="jss26">
   <ul class="MuiGridList-root jss27" style="margin: -2px;">
     <li class="MuiGridListTile-root" style="width: 40%; height: 184px; padding: 2px;">
@@ -2372,7 +2402,6 @@ content that are anchored to the left or right edge of the screen.
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-
 <div class="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiPaper-elevation16" tabindex="-1"
      style="transform: none; transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;">
   <div class="jss34" role="presentation">
@@ -2546,10 +2575,12 @@ Available methods in Java JDI Light:
     @UI(".MuiBottomNavigationAction-root")
     public static BottomNavigation bottomNavigationItems;
 
-    @Test
-    public void defaultBottomNavigationTest(){
-        bottomNavigationItems.select(2);
-        bottomNavigationItems.has().selected(2);
+    @Test(dataProvider = "bottomNavigationButtons")
+    public void defaultBottomNavigationTest(int index, String buttonText, String positionText) {
+        bottomNavigationItems.select(index);
+        bottomNavigationItems.has().selected(index);
+        currentPosition.has().text(containsString(positionText));
+        bottomNavigationItemsText.get(index).has().text(buttonText);
     }
 ```
 
@@ -2566,7 +2597,6 @@ __Bottom navigation__ bars allow movement between primary destinations in an app
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-
 <div class="MuiBottomNavigation-root jss44">
   <button class="MuiButtonBase-root MuiBottomNavigationAction-root Mui-selected" tabindex="0" type="button">
     <span class="MuiBottomNavigationAction-wrapper">
@@ -3124,18 +3154,28 @@ Available methods in Java JDI Light:
     
     @Test
     public void defaultLinkTest() {
-        link.is().underlineHover();
-        link.is().colorPrimary();
+        link.is().displayed().and().enabled()
+                .and().has().text("Link");
+
+        link.has().cssClass("MuiLink-underlineHover");
+        link.hover();
+        link.is().underlined();
+
+        inheritColorLink.hover();
+        link.is().notUnderlined();
+
         link.click();
-        link.is().text(hasToString("Link"));
     }
 
     @Test
     public void colorInheritLinkTest() {
-        inheritColorLink.is().underlineHover();
-        inheritColorLink.is().colorInherit();
+        inheritColorLink.is().displayed().and().enabled()
+                .and().has().text(containsString("inherit"));
+
+        inheritColorLink.has().cssClass("MuiTypography-colorInherit");
+        inheritColorLink.has().color("rgba(0, 0, 0, 0.87)");
+
         inheritColorLink.click();
-        inheritColorLink.is().text(hasToString("color=\"inherit\""));
     }
 ```
 
@@ -3161,17 +3201,8 @@ Available methods in Java JDI Light:
 |Method | Description | Return type
 | --- | --- | --- 
 **is()** | Returns object for work with assertions | LinkAssert
-**click()** | Click | void
-**isColorPrimary()** | Returns is color primary | boolean
-**isColorSecondary()** | Returns is color Secondary | boolean
-**isColorTextPrimary()** | Returns is color text Primary | boolean
-**isColorTextSecondary** | Returns is color text Secondary | boolean
-**isColorError()** | Returns is color Error | boolean
-**isUnderlineAlways()** | Returns is UnderlineAlways | boolean
-**isTypographyBody()** | Returns is TypographyBody | boolean
-**isColorInherit()** | Returns is color Inherit | boolean
-**isUnderlineHover()** | Returns is UnderlineHover | boolean
-**getLinkText()** | Returns text | String
+**isUnderlined()** | Checks that link is underlined | boolean
+**isNotUnderlined()** | Checks that link is not underlined| boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/LinkTests.java" target="_blank">Here you can find Link tests</a>
 
@@ -3180,15 +3211,19 @@ Available methods in Java JDI Light:
 ### 4.45 Menus
 
 ```java 
+    //  @FindBy(css = "span.MuiButton-label")
     @UI("span.MuiButton-label")
     public static Menu menu;
 
+    //  @FindBy(css = "ul.MuiList-root.MuiMenu-list.MuiList-padding")
     @UI("ul.MuiList-root.MuiMenu-list.MuiList-padding")
     public static List simpleMenuList;
 
+    //  @FindBy(xpath = "//*/p[starts-with(@class, 'MuiTypography')]")
     @UI("//*/p[starts-with(@class, 'MuiTypography')]")
     public static Menu contextMenu;
 
+    //  @FindBy(css = "ul.MuiList-root.MuiMenu-list.MuiList-padding")
     @UI("ul.MuiList-root.MuiMenu-list.MuiList-padding")
     public static List contextMenuList;
 
@@ -3249,10 +3284,10 @@ Available methods in Java JDI Light:
 **is()** | Returns object for work with assertions | MenuAssert
 **click()** | click | void
 **rightClick()** | right-click | void
-**scrollToMenuItem(List listLocator, String menuItem)** | scroll to menu item | void
+**scrollToMenuItem(List, String)** | scroll to menu item | void
 **isDisplayed()** | return answer is displayed | boolean
 **getText()** | return text | String
-**getMenuItems(List listLocator)** | return list of menu items | List<String>
+**getMenuItems(List)** | return list of menu items | List<String>
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
 
@@ -3359,60 +3394,33 @@ Available methods in Java JDI Light:
 
 ### 4.47 Transfer List
 
-```java 
-
-    // @FindBy(css = ".MuiGrid-root.MuiGrid-justify-xs-center")
-    @UI(".MuiGrid-root.MuiGrid-justify-xs-center")
-    public static SimpleTransferList simpleTransferList;
-    
+```java
     // @FindBy(css = ".MuiGrid-justify-xs-center")
-    @UI(".MuiGrid-justify-xs-center")
+    // @UI(".MuiGrid-justify-xs-center")
+    @JDITransferList(root = "#root", allItemsLeftCheckbox = "(//span[./input[@aria-label='all items selected']])[1]",
+      allItemsRightCheckbox = "(//span[./input[@aria-label='all items selected']])[2]")
     public static EnhancedTransferList enhancedTransferList;
     
     @Test
-    public void simpleTransferListTests() {
-        simpleTransferListPage.open();
-        simpleTransferListPage.checkOpened();
-
-        simpleTransferList.leftList().is().notEmpty();
-        simpleTransferList.moveAllItemsRight(); // transfer with high-level method
-        simpleTransferList.leftList().is().empty();
-        simpleTransferList.moveAllItemsLeftButton().click(); // transfer by clicking button directly
-        simpleTransferList.rightList().is().empty();
-
-        String textOfItemToTransfer = "List item 5";
-
-        simpleTransferList.leftList().checkItemByText(textOfItemToTransfer);
-        simpleTransferList.leftList().getItemByText(textOfItemToTransfer).is().checked();
-        simpleTransferList.moveCheckedItemsRight();
-        simpleTransferList.rightList().has().itemWithText(textOfItemToTransfer);
-        
-    @Test
-    public void enhancedTransferListTests() {
+    public void enhancedTransferListTest() {
         enhancedTransferListPage.open();
-        enhancedTransferListPage.checkOpened();
+        enhancedTransferList.assertThat().isMoveRightButtonDisable().and().isMoveLeftButtonDisable();
 
-        enhancedTransferList.leftListHeader().has().text("Choices");
-        enhancedTransferList.has().allLeftListItemsUnchecked();
-        enhancedTransferList.leftListSubheader().has().text("0/4 selected");
-        enhancedTransferList.checkAllLeftItems();
-        enhancedTransferList.has().allLeftListItemsChecked();
-        enhancedTransferList.leftListSubheader().has().text("4/4 selected");
+        enhancedTransferList.check(items.get(0));
+        enhancedTransferList.is().checked(items.get(0));
+        enhancedTransferList.is().isMoveRightButtonEnable();
 
-        enhancedTransferList.rightListHeader().has().text("Chosen");
-        enhancedTransferList.rightListSubheader().has().text("0/4 selected");
-        enhancedTransferList.moveCheckedItemsRight();
+        enhancedTransferList.uncheck(items.get(0));
+        enhancedTransferList.is().unchecked(items.get(0));
 
-        Set<String> allItemTextsSet = new HashSet<>(Arrays.asList("List item 1", "List item 2", "List item 3",
-                "List item 4", "List item 5", "List item 6", "List item 7", "List item 8"));
+        checkMoveElementsFunction(enhancedTransferList, items.toArray(new String[0]));
+    }
 
-        enhancedTransferList.rightList().has().itemsWithTexts(allItemTextsSet);
-        enhancedTransferList.rightListSubheader().has().text("0/8 selected");
-        enhancedTransferList.checkAllRightItems();
-        enhancedTransferList.uncheckAllRightItems();
-        enhancedTransferList.has().allRightListItemsUnchecked();
-        enhancedTransferList.rightList().checkItemByText("List item 7");
-        enhancedTransferList.moveCheckedItemsLeft();
+    private static void checkMoveElementsFunction(TransferList transferList, String... checkingItems) {
+        transferList.moveAllElementsRight();
+        transferList.has().itemsMovedRight(checkingItems);
+        transferList.moveAllElementsLeft();
+        transferList.has().itemsMovedLeft(checkingItems);
     }
 ```
 
@@ -3555,38 +3563,30 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()/has()** | Returns object for work with assertions | TransferListAssert
-**leftList()** | Returns left inner list | TransferInnerList
-**rightList()** | Returns right inner list | TransferInnerList
-**moveCheckedItemsRightButton()** | Returns "move all checked items to right inner list" button | Button
-**moveCheckedItemsLeftButton()** | Returns "move all checked items to left inner list" button | Button
-**moveCheckedItemsRight()** | Clicks "move all checked items to right inner list" button | void
-**moveCheckedItemsLeft()** | Clicks "move all checked items to left inner list" button | void
+**is()** | Returns object for work with assertions | TransferListAssert
+**check(String)** | Checks required item | void
+**isChecked(String)** | Shows that required item is checked | boolean
+**uncheck(String)** | Unchecks required item | void
+**isUnchecked(String)** | Shows that required item is unchecked | boolean
+**isMoveRightButtonEnable()** | Shows that list's move right button is enable | boolean
+**isMoveRightButtonDisable()** | Shows that list's move right button is disable | boolean
+**isMoveLeftButtonEnable()** | Shows that list's move left button is enable | boolean
+**isMoveLeftButtonDisable()** | Shows that list's move left button is disable | boolean
+**isMoveLeftButtonDisable()** | Shows that list's move left button is disable | boolean
 
 - additional methods of **Simple Transfer List**
 
 |Method | Description | Return Type
 --- | --- | ---
-**moveAllItemsRightButton()** | Returns "move all items to right inner list" button | Button
-**moveAllItemsLeftButton()** | Returns "move all items to left inner list" button | Button
-**moveAllItemsRight()** | Clicks "move all items to right inner list" button | void
-**moveAllItemsLeft()** | Clicks "move all items to left inner list" button | void
+**moveAllElementsRight()** | Clicks "move all items to right inner list" button | void
+**moveAllElementsLeft()** | Clicks "move all items to left inner list" button | void
 
 - additional methods of **Enhanced Transfer List**
 
 |Method | Description | Return Type
 --- | --- | ---
-**leftSelectAllCheckbox()** | Returns "check/uncheck all items in the left inner list" checkbox | Checkbox
-**rightSelectAllCheckbox()** | Returns "check/uncheck all items in the right inner list" checkbox | Checkbox
-**checkAllLeftItems()** | Checks all left inner list items | void
-**uncheckAllLeftItems()** | Unchecks all left inner list items | void
-**checkAllRightItems()** | Checks all right inner list items | void
-**uncheckAllRightItems()** | Unchecks all right inner list items | void
-**leftListHeader()** | Returns left inner list header | Text
-**rightListHeader()** | Returns right inner list header | Text
-**leftListSubheader()** | Returns left inner list sub-header | Text
-**rightListSubheader()** | Returns right inner list sub-header | Text
-
+**moveAllElementsRight()** | Clicks "move all items to right inner list" button | void
+**moveAllElementsLeft()** | Clicks "move all items to left inner list" button | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Transfer List tests</a>
 

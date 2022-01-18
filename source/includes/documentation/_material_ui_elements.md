@@ -3305,7 +3305,6 @@ Available methods in Java JDI Light:
 |Method | Description | Return type
 | --- | --- | --- 
 **is()** | Returns object for work with assertions | ListAssert
-**List(UIElement)** | Constructor | List
 **items()** | Returns a Java list of list items | List\<ListItem>
 **getItemByText(String)** | Returns first list item with specified text | ListItem
 **selectItemByText(String)** | Clicks first list item with specified text | void

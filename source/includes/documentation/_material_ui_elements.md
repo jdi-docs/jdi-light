@@ -194,16 +194,22 @@ Available methods in Java JDI Light:
 ### 4.3 Tooltip
 
 ```java
-    // @FindBy(xpath = "//button[contains(@title, 'Add')][1]")
-    @UI("//button[contains(@title, 'Add')][1]")
-    public static MaterialButton addButtonWithTooltip;
+    // @FindBy(xpath = "//h2[text()='Simple tooltips']/following-sibling::div[1]/button")
+    @UI("//h2[text()='Simple tooltips']/following-sibling::div[1]/button")
+    public static List<TooltipButton> simpleTooltipsButton;
     
-    @Test
-    public void addButtonWithTooltipTest() {
-        addButtonWithTooltip.is().visible();
-        addButtonWithTooltip.hover();
-        addButtonWithTooltip.tooltip().is().visible();
-        addButtonWithTooltip.tooltip().has().text("Add");
+    @Test(dataProvider = "simpleTooltipsTestData")
+    public void simpleTooltipsTest(int number, String text) {
+        simpleTooltipsButton.get(number).hover();
+        simpleTooltipsButton.get(number).tooltip().is().visible();
+        simpleTooltipsButton.get(number).tooltip().has().text(text);
+    }
+    
+    @DataProvider
+    public Object[][] simpleTooltipsTestData() {
+        return new Object[][]{
+                {1, "Delete"}, {2, "Add"}, {3, "Add"}
+        };
     }
     
     public interface HasTooltip extends ICoreElement {
@@ -226,13 +232,20 @@ __Tooltips__ - elements that display informative text when users hover over, foc
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<button class="MuiButtonBase-root MuiFab-root jss8 MuiFab-secondary" 
-        tabindex="0" type="button" title="Add" aria-label="add">
-  <span class="MuiFab-label">
-    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
-  </span>
-  <span class="MuiTouchRipple-root"></span>
-</button>
+<div>
+  <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="delete" id="deleteBtn" title="Delete">
+    <span class="MuiIconButton-label">...</span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+  <button class="MuiButtonBase-root MuiFab-root jss208 MuiFab-primary" tabindex="0" type="button" title="Add" aria-label="add">
+    <span class="MuiFab-label">...</span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+  <button class="MuiButtonBase-root MuiFab-root jss209 MuiFab-secondary" tabindex="0" type="button" title="Add" aria-label="add">
+    <span class="MuiFab-label">...</span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+</div>
 ```
 
 Available methods in Java JDI Light:
@@ -240,7 +253,6 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | TooltipAssert
-**has()** | Returns object for work with assertions | TooltipAssert
 **isVisible()** | Checks whether element is displayed | boolean
 **isInteractive()** | Checks whether element is interactive | boolean
 **getValue()** | Gets tooltip text | String

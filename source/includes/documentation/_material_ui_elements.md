@@ -1345,8 +1345,8 @@ Available methods in Java JDI Light:
     
     @Test
     public void basicTableTest() {
-        basicTable.has().columns(headElements);
-        assertThat(basicTable.count(), equalTo(13));
+        basicTable.has().columns(EXPECTED_TABLE_HEADERS)
+                        .and().size(13);
         basicTable.getCell(1, 1).has().text("305");
     }
 ```
@@ -1391,9 +1391,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**is()** | Returns object for work with assertions | TableAssert
 **elements(int)** | Returns rows whose number is greater than or equal to the specified number | List<String>
 **get(String)** | Returns values of the specified row | String
-**is()** | Returns object for work with assertions | TableAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a>
 

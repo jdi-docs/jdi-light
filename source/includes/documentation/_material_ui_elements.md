@@ -762,19 +762,17 @@ Here is an example with provided Material-UI v4.12.3 code:
     
     @Test
     public void collapseDisplayTest() {
-        Timer timer = new Timer(2000L);
-
         collapseFadeTransitions.get(1).is().transitionExited(COLLAPSE);
         collapseFadeTransitions.get(2).is().transitionExited(COLLAPSE);
 
         checkboxes.get(1).check();
 
-        timer.wait(() -> collapseFadeTransitions.get(1).is().transitionEntered(COLLAPSE));
+        collapseFadeTransitions.get(1).is().transitionEntered(COLLAPSE);
         collapseFadeTransitions.get(2).is().transitionEntered(COLLAPSE);
 
         checkboxes.get(1).uncheck();
 
-        timer.wait(() -> collapseFadeTransitions.get(1).is().collapseTransitionHidden(COLLAPSE));
+        collapseFadeTransitions.get(1).is().collapseTransitionHidden(COLLAPSE);
         collapseFadeTransitions.get(1).is().transitionExited(COLLAPSE);
         collapseFadeTransitions.get(2).is().transitionExited(COLLAPSE);
     }
@@ -1607,9 +1605,9 @@ Available methods in Java JDI Light:
     @Test
     public void defaultBackdropTest() {
         showBackdropButton.click();
-        timer.wait(() -> backdrop.is().visible());
+        backdrop.is().visible();
         backdrop.core().click();
-        timer.wait(() -> backdrop.is().hidden());
+        backdrop.is().hidden();
     }
 ```
 
@@ -3004,22 +3002,21 @@ Available methods in Java JDI Light:
 
 ### 4.42 Popper
 
-```java 
+```java
     // @FindBy(css = "[type=button]")
     @UI("[type=button]")
     public static List<TooltipButton> popperButton;
     
     @Test(dataProvider = "positionedPopperDataProvider")
     public void positionedPoppersTest(int number, String buttonText, Position position) {
-        Timer timer = new Timer(2000L);
-
+        
         popperButton.get(number).has().text(buttonText);
         popperButton.get(number).click();
         popperButton.get(number).popper().assertThat().displayed();
         popperButton.get(number).popper().assertThat().text("The content of the Popper.");
         popperButton.get(number).popper().assertThat().position(position);
         popperButton.get(number).click();
-        timer.wait(() -> popperButton.get(number).popper().assertThat().notVisible());
+        popperButton.get(number).popper().assertThat().notVisible();
     }
     
     @DataProvider
@@ -3715,14 +3712,14 @@ Available methods in Java JDI Light:
 
 ### 4.49 UseMediaQuery
 
-```java 
+```java
     //    @FindBy(xpath = "//span[contains(.,'min-width')]")
     @UI("//span[contains(.,'min-width')]")
     public static Text useMediaQueryText;
     
     @Test
     public void useMediaQueryTestWithDifferentScreenWidth() {
-        new Timer(2000L).wait(() -> useMediaQueryText.has().value(containsString("true")));
+        useMediaQueryText.has().value(containsString("true"));
         useMediaQueryPage.driver().manage().window().setSize(new Dimension(500, 1000));
         useMediaQueryText.has().value(containsString("false"));
         useMediaQueryPage.driver().manage().window().setSize(new Dimension(700, 1000));

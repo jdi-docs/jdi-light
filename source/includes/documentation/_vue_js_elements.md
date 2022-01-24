@@ -2527,6 +2527,54 @@ The v-date-picker can be used as a standalone month picker component.
 
 For examples of usage see: [JDI Vuetify DatePickersMonth tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DatePickersMonthTests.java).
 
+#### 5.31.4 Color pickers
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/color-pickers/)
+
+- __Java__: _com/epam/jdi/light/vuetify/elements/complex/ColorPicker.java_
+
+```java
+@UI("#CanvasColorPicker > div:first-child")
+public static ColorPicker noCanvasColorPicker;
+
+@UI("#CanvasColorPicker > div:nth-child(2)")
+public static ColorPicker fullCanvasColorPicker;
+```
+
+```java
+@Test(dataProviderClass = ColorPickersDataProviders.class, dataProvider = "colorsDataProvider")
+public void fullCanvasColorPickerTest(String initialRGBAStringColor,
+  String stringColorValue,
+  String stringTransparentColorValue) {
+  fullCanvasColorPicker.has().color(initialRGBAStringColor);
+  String initialHueSliderStyle = fullCanvasColorPicker.hueSlider().getValue();
+  String initialAlphaSliderStyle = fullCanvasColorPicker.alphaSlider().getValue();
+  fullCanvasColorPicker.setColor(stringColorValue);
+  fullCanvasColorPicker.has().color(stringColorValue);
+  fullCanvasColorPicker.assertThat().hueSliderValueHaveChanged(initialHueSliderStyle);
+  fullCanvasColorPicker.setColor(stringTransparentColorValue);
+  fullCanvasColorPicker.has().color(stringTransparentColorValue);
+  fullCanvasColorPicker.assertThat().alphaSliderValueHaveChanged(initialAlphaSliderStyle);
+  }
+```
+
+The v-color-picker allows you to select a color using a variety of input methods.
+
+![DatePickers example](../../images/vuetify/color_picker.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**setColor(String value)** | Sets the color through the RGBA model input fields | void
+**getCanvasStyle()** | Gets the style from the Color picker canvas | String
+**getCanvasDotStyle()** | Gets the style from the Color picker canvas dot | String
+**getInputModel()** | Returns the current color model of the input fields | String
+**getColor(UIElement element)** | Returns the currently set color of the Color picker | Color
+**getColorsFromSwatches()** | Returns list of colors from Color picker swatches | ArrayList\<Color\>
+**getElementStyle(UIElement element)** | Gets the style from the Color picker element | String
+**has()/is()** | Returns Assert class | ColorPickerAssert
+                                                                                                                          
+For examples of usage see: [JDI Vuetify ColorPickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ColorPickerTests.java).
+
 ### 5.32 Lazy
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/lazy/)

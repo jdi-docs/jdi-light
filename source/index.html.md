@@ -21,6 +21,13 @@ includes:
   - theory
   - faq
   - documentation
+  - documentation/base_information
+  - documentation/html5_elements
+  - documentation/angular_elements
+  - documentation/bootstrap_elements
+  - documentation/material_ui_elements
+  - documentation/vue_js_elements
+  - documentation/jdi_features
 
 search: true
 ---
@@ -28,14 +35,24 @@ search: true
 # JDI Light Framework
 JDI Light is a powerful Test Automation Framework that helps to make your tests fast, sustainable and provides obvious and predictable test run results.
 
-JDI Light powered by Selenium and has simple integration with Selenium based projects
+JDI Light is powered by Selenium and has simple integration with Selenium-based projects.
+
 ![Allure Log](images/intro/allure-report-log.png)
 
 # Highlights
-- Has simple integration with any Selenium based project, which allows to increase overall project stability, add user action logs and enrich standard WebElement capabilities with new features in just minutes (TBD add Guide)
-- Extends the Page Objects pattern with powerful UI Elements: Buttons, TextFields, Forms, Tables etc... ( TBD add good links to examples)
+- Has simple integration with any Selenium-based project, allowing to increase overall project stability, add user action logs and enrich standard WebElement capabilities with new features in just minutes.
+- Complements the Page Object pattern with powerful pre-made UI Elements: Buttons, TextFields, Forms, Tables and many others.
 - Enables you to write stable and predictable tests that fail only because of business logic or layout changes. No more waits, thread sleeps and other flaky stuff.
-- Increase your overall test execution speed, especially for complex cases, like searching big tables, dropdowns with hundreds elements or entering text comprised of thousands of lines.
-- Get detailed logs and well-readable reports of all user actions with no additional effort.
-- All UI elements have assertions/matchers powered by Hamcrest and a wait with expected condition during timeout.
-- Easy integration with all modern Automation tools: CI (Jenkins, TC etc.), Logging (Log4j or any other slf4j based logs), Reporting (Allure or Report Portal); Browser/Device farms (Selenium Grid, Browser Stack, Selenoid etc.), Test Runners (TestNG, JUnit) etc.
+- Increases your overall test execution speed, especially for complex cases like searching huge tables, selecting dropdown items out of a hundred or entering text containing thousands of lines.
+- Provides detailed logs and well-readable reports of all user actions with no additional effort.
+- All UI Elements have assertions/matchers powered by Hamcrest and a wait with expected condition during timeout.
+- Easy integration with all modern automation tools: **CI** (_Jenkins_, _TC_ etc.), **logging** (_Log4j_ or any other _slf4j_-based logs), **reporting** (_Allure_ or _Report Portal_); **browser/device farms** (_Selenium Grid_, _BrowserStack_, _Selenoid_ etc.), **test runners** (_TestNG_, _JUnit_) etc.
+
+# Navigation
+[Introduction](https://jdi-docs.github.io/jdi-light/?java#introduction) provides examples of common test automation tasks solved with JDI Light.
+
+[Tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) walks you through adding JDI Light to your project, implementing test scenarios and using UI Elements. You also get to see how much JDI Light reduces the needed effort, compared to pure Selenium.
+
+[Theory](https://jdi-docs.github.io/jdi-light/?java#theory) addresses the key principles behind JDI Light framework and the tools it offers to put these principles into practice.
+
+[Documentation](https://jdi-docs.github.io/jdi-light/?java#documentation) contains technical description of JDI Light features/settings and UI Element sets.

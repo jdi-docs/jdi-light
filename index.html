@@ -38078,13 +38078,7 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">singleBannerTests</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">singleBanner</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">singleBanner</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">properTitle</span><span class="o">(</span><span class="s">"My Document"</span><span class="o">);</span>
-        <span class="n">singleBanner</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">properText</span><span class="o">(</span><span class="s">"We can't save your edits"</span><span class="o">);</span>
-        <span class="n">singleBanner</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">button</span><span class="o">();</span>
-        <span class="n">singleBanner</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">checker</span><span class="o">();</span>
-        <span class="n">singleBanner</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checkerUnchecked</span><span class="o">();</span>
-        <span class="n">singleBanner</span><span class="o">.</span><span class="na">getChecker</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">singleBanner</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checkerChecked</span><span class="o">();</span>
+        <span class="n">singleBanner</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"We can't save your edits"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
 <p><img src="images/vuetify/banners.png" alt="Banners example" /></p>
@@ -38107,21 +38101,6 @@ the way you want.</p>
 <td>BannerAssert</td>
 </tr>
 <tr>
-<td><strong>getSwitch()</strong></td>
-<td>Returns switch containing in the element</td>
-<td>Switch</td>
-</tr>
-<tr>
-<td><strong>checkbox()</strong></td>
-<td>Returns checkbox containing in the element</td>
-<td>Checkbox</td>
-</tr>
-<tr>
-<td><strong>button()</strong></td>
-<td>Returns button containing in the element</td>
-<td>VuetifyButton</td>
-</tr>
-<tr>
 <td><strong>buttons()</strong></td>
 <td>Returns button group containing in the element</td>
 <td>ButtonGroup</td>
@@ -38132,24 +38111,9 @@ the way you want.</p>
 <td>Icon</td>
 </tr>
 <tr>
-<td><strong>textContent()</strong></td>
+<td><strong>getText()</strong></td>
 <td>Returns text content of the element</td>
 <td>Text</td>
-</tr>
-<tr>
-<td><strong>getTitle()</strong></td>
-<td>Returns element&#39;s title&#39;s text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>getAlertText()</strong></td>
-<td>Returns element&#39;s alert&#39;s text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>dismissAlert()</strong></td>
-<td>Dismisses alert</td>
-<td>void</td>
 </tr>
 </tbody></table>
 

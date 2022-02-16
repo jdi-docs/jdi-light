@@ -67,13 +67,7 @@ and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-ligh
     @Test
     public void singleBannerTests() {
         singleBanner.is().displayed();
-        singleBanner.has().properTitle("My Document");
-        singleBanner.has().properText("We can't save your edits");
-        singleBanner.has().button();
-        singleBanner.has().checker();
-        singleBanner.is().checkerUnchecked();
-        singleBanner.getChecker().click();
-        singleBanner.is().checkerChecked();
+        singleBanner.has().text("We can't save your edits");
     }
 ```
 
@@ -87,15 +81,9 @@ Basically, you have methods that can return you elements containing in banner (b
 |Method | Description | Return Type
         --- | --- | ---
 **is()** | Returns Assert class | BannerAssert
-**getSwitch()** | Returns switch containing in the element | Switch
-**checkbox()** | Returns checkbox containing in the element | Checkbox
-**button()** | Returns button containing in the element | VuetifyButton
 **buttons()** | Returns button group containing in the element | ButtonGroup
 **icon()** | Returns icon containing in the element | Icon
-**textContent()** | Returns text content of the element | Text
-**getTitle()** | Returns element's title's text | String
-**getAlertText()** | Returns element's alert's text | String
-**dismissAlert()** | Dismisses alert | void
+**getText()** | Returns text content of the element | Text
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 

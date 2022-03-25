@@ -960,6 +960,9 @@
                           <li>
 								            <a href="#4-49-usemediaquery" class="toc-h2 h3 toc-link" data-title="4.49 UseMediaQuery">4.49 UseMediaQuery</a>
                           </li>
+                          <li>
+								            <a href="#4-49-alert" class="toc-h2 h3 toc-link" data-title="4.49 Alert">4.49 Alert</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -37993,6 +37996,70 @@ components based on whether the query matches or not.</p>
 <p><img src="images/material-ui/useMediaQuery.png" alt="useMediaQuery" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;span&gt;</span>(min-width:600px) matches: true<span class="nt">&lt;/span&gt;</span>
 </code></pre><h5 id='here-you-can-find-usemediaquery-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/UseMediaQueryTests.java"  target="_blank">Here you can find useMediaQuery tests</a></h5>
+<p><br></br></p>
+<h3 id='4-49-alert'>4.49 Alert</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//div[contains(@class, 'MuiTypography-root')]/ancestor::*[contains(@class, 'MuiAlert-root')]")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class, 'MuiTypography-root')]/ancestor::*[contains(@class, 'MuiAlert-root')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Alert</span><span class="o">&gt;</span> <span class="n">alertsWithDescription</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"alertsWithDescriptionTestData"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">AlertDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">alertsWithDescriptionTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">alertIndex</span><span class="o">,</span> <span class="n">String</span> <span class="n">titleText</span><span class="o">,</span> <span class="n">String</span> <span class="n">messageText</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Alert</span> <span class="n">alert</span> <span class="o">=</span> <span class="n">alertsWithDescription</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">alertIndex</span><span class="o">);</span>
+        <span class="n">alert</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">alert</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">alert</span><span class="o">.</span><span class="na">icon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">alert</span><span class="o">.</span><span class="na">title</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">titleText</span><span class="o">);</span>
+        <span class="n">alert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="n">messageText</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre><h5 id='alert-overview'><a href="https://mui.com/components/alert/" target="_blank"> Alert overview</a></h5>
+<p>Alert is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.feedback</em></li>
+</ul>
+
+<p>An <strong>Alert</strong> displays a short, important message in a way that attracts the user&#39;s attention without interrupting the user&#39;s task.</p>
+
+<p><img src="images/material-ui/Alert.png" alt="Alert" /></p>
+
+<p>Here are examples with provided MaterialUI v4.12.3 code:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardError MuiAlert-standard css-17y7f73"</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiAlert-icon css-1l54tgj"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1cw4hi4"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">data-testid=</span><span class="s">"ErrorOutlineIcon"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+    <span class="nt">&lt;/svg&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiAlert-message css-1w0ym84"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom MuiAlertTitle-root css-1jvvlz4"</span><span class="nt">&gt;</span>Error<span class="nt">&lt;/div&gt;</span>
+    This is an error alert — <span class="nt">&lt;strong&gt;</span>check it out!<span class="nt">&lt;/strong&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<p>Available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>Icon()</strong></td>
+<td>Returns alert&#39;s icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>Title()</strong></td>
+<td>Returns alert&#39;s title</td>
+<td>Text</td>
+</tr>
+</tbody></table>
+<h5 id='here-you-can-find-alert-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/AlertTests.java"  target="_blank">Here you can find Alert tests</a></h5>
 <p><br></br><br></br></p>
 <h2 id='5-vue-js-elements'>5. Vue.js elements</h2><h3 id='5-1-alerts'>5.1 Alerts</h3>
 <p><a href="https://vuetifyjs.com/en/components/alerts/">Vuetify documentation page</a></p>

@@ -5374,7 +5374,7 @@ Here is a list of available methods in Java:
 **size(Matcher<Integer> condition)** | Asserts whether table size satisfies some matcher condition | BaseTableAssert
 **size(int size)** | Asserts whether table has a particular size | BaseTableAssert
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/table/MatTableTests.java" target="_blank">MatTable java tests examples</a>
 
 #### 2.2.19 Tree
 

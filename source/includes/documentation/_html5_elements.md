@@ -3302,9 +3302,9 @@ Here is the list of available methods/asserts in Java:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
 
-#### 1.2.9 ComboBox
+#### 1.2.9 DataList
 
-**ComboBox** – A graphical control element that allows user to choose a single
+**datalist** – A graphical control element that allows user to choose a single
 value from a list or enter it by himself (is inherited from the [Datalist](#datalist))
 
 ![ComboBox](../../images/icecreamdatalist.png)
@@ -3323,22 +3323,22 @@ ComboBox is provided by JDI Light in:
 
     @Test
     public void inputTest() {
-        iceCreamIs.input("New text");
-        iceCreamIs.is().text("New text");
-        iceCreamIs.clear();
-        iceCreamIs.is().text("");
+        iceCream.input("New text");
+        iceCream.is().text("New text");
+        iceCream.clear();
+        iceCream.is().text("");
     }
 
     @Test
     public void placeholderTest() {
-        iceCreamIs.placeholder().equals("Ice cream");
+        iceCream.placeholder().equals("Ice cream");
     }
 
     @Test
     public void selectTest() {
-        iceCreamIs.select("Chocolate");
-        iceCreamIs.select(Strawberry);
-        iceCreamIs.select(5);
+        iceCream.select("Chocolate");
+        iceCream.select(Strawberry);
+        iceCream.select(5);
     }
 
     @Test
@@ -3349,13 +3349,13 @@ ComboBox is provided by JDI Light in:
 
     @Test
     public void isValidationTest() {
-        iceCreamIs.listEnabled();
-        iceCreamIs.assertThat().equals(asList("Chocolate", "Strawberry"));
-        iceCreamIs.is().enabled();
-        iceCreamIs.is().selected("Coconut");
-        iceCreamIs.is().selected(is("Coconut"));
-        iceCreamIs.select(Vanilla);
-        iceCreamIs.is().text(containsString("Van"));
+        iceCream.listEnabled();
+        iceCream.assertThat().equals(asList("Chocolate", "Strawberry"));
+        iceCream.is().enabled();
+        iceCream.is().selected("Coconut");
+        iceCream.is().selected(is("Coconut"));
+        iceCream.select(Vanilla);
+        iceCream.is().text(containsString("Van"));
     }
 ```
 ```csharp 

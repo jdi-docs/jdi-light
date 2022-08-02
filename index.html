@@ -564,7 +564,7 @@
 										              <a href="#1-2-8-multiselector" class="toc-h3 h4 toc-link" data-title="1.2.8 MultiSelector">1.2.8 MultiSelector</a>
 										              </li>
 										              <li>
-										              <a href="#1-2-9-combobox" class="toc-h3 h4 toc-link" data-title="1.2.9 ComboBox">1.2.9 ComboBox</a>
+										              <a href="#1-2-9-datalist" class="toc-h3 h4 toc-link" data-title="1.2.9 DataList">1.2.9 DataList</a>
 										              </li>
 									            </ul>
                           </li>
@@ -8516,8 +8516,8 @@ MultiSelector is represented by the following class:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs" target="_blank">Test examples in C#</a></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#multidropdown-2">BDD Steps example</a><br></p>
-<h4 id='1-2-9-combobox'>1.2.9 ComboBox</h4>
-<p><strong>ComboBox</strong> – A graphical control element that allows user to choose a single
+<h4 id='1-2-9-datalist'>1.2.9 DataList</h4>
+<p><strong>datalist</strong> – A graphical control element that allows user to choose a single
 value from a list or enter it by himself (is inherited from the <a href="#datalist">Datalist</a>)</p>
 
 <p><img src="images/icecreamdatalist.png" alt="ComboBox" /></p>
@@ -8536,22 +8536,22 @@ value from a list or enter it by himself (is inherited from the <a href="#datali
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"New text"</span><span class="o">);</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"New text"</span><span class="o">);</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"New text"</span><span class="o">);</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"New text"</span><span class="o">);</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">placeholderTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">placeholder</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"Ice cream"</span><span class="o">);</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">placeholder</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"Ice cream"</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Chocolate"</span><span class="o">);</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Strawberry</span><span class="o">);</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Chocolate"</span><span class="o">);</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Strawberry</span><span class="o">);</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
@@ -8562,13 +8562,13 @@ value from a list or enter it by himself (is inherited from the <a href="#datali
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">listEnabled</span><span class="o">();</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="s">"Chocolate"</span><span class="o">,</span> <span class="s">"Strawberry"</span><span class="o">));</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Coconut"</span><span class="o">);</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Coconut"</span><span class="o">));</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Vanilla</span><span class="o">);</span>
-        <span class="n">iceCreamIs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Van"</span><span class="o">));</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">listEnabled</span><span class="o">();</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="s">"Chocolate"</span><span class="o">,</span> <span class="s">"Strawberry"</span><span class="o">));</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Coconut"</span><span class="o">);</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Coconut"</span><span class="o">));</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Vanilla</span><span class="o">);</span>
+        <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Van"</span><span class="o">));</span>
     <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandComboBox</span><span class="p">()</span> 
@@ -33521,15 +33521,10 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
                 <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
             <span class="o">}</span>
         <span class="o">}</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">hasPrimaryColor</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">checkbox</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">primaryColor</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">hasSecondaryColor</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">checkbox</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">secondaryColor</span><span class="o">();</span>
-        <span class="o">}</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">checkbox</span><span class="o">.</span><span class="na">isIndeterminate</span><span class="o">())</span> <span class="o">{</span>
             <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">indeterminate</span><span class="o">();</span>
         <span class="o">}</span>
+        <span class="n">checkbox</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"color"</span><span class="o">,</span> <span class="s">"rgba(0, 0, 0, 0)"</span><span class="o">);</span>
     <span class="o">}</span>    
 </code></pre><h5 id='checkbox-overview'><a href="https://material-ui.com/components/checkboxes/" target="_blank"> Checkbox overview </a></h5>
 <p>Checkbox is located in the following class:</p>
@@ -33576,6 +33571,11 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>boolean</td>
 </tr>
 <tr>
+<td><strong>isEnabled()</strong></td>
+<td>Checks whether checkbox is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
 <td><strong>check()</strong></td>
 <td>Checks checkbox</td>
 <td>void</td>
@@ -33596,9 +33596,9 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>getLabelPosition()</strong></td>
+<td><strong>labelPosition()</strong></td>
 <td>Returns checkbox label&#39;s position (top, bottom start, end)</td>
-<td>String</td>
+<td>Position</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-checkbox-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h5>

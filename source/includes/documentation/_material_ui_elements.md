@@ -32,15 +32,10 @@
                 checkbox.is().unchecked();
             }
         }
-        if (checkbox.hasPrimaryColor()) {
-            checkbox.has().primaryColor();
-        }
-        if (checkbox.hasSecondaryColor()) {
-            checkbox.has().secondaryColor();
-        }
         if (checkbox.isIndeterminate()) {
             checkbox.is().indeterminate();
         }
+        checkbox.has().css("color", "rgba(0, 0, 0, 0)");
     }    
 ```
 
@@ -72,11 +67,12 @@ Available methods in Java JDI Light:
 **is()** | Returns object for work with assertions | CheckboxAssert
 **isChecked()** | Checks whether checkbox is checked | boolean
 **isUnchecked()** | Checks whether checkbox is unchecked | boolean
+**isEnabled()** | Checks whether checkbox is enabled | boolean
 **check()** | Checks checkbox | void
 **uncheck()** | Unchecks checkbox | void
 **label()** | Returns checkboxes label | Label
 **isIndeterminate()** | Checks whether checkbox is indeterminate | boolean
-**getLabelPosition()** | Returns checkbox label's position (top, bottom start, end) | String
+**labelPosition()** | Returns checkbox label's position (top, bottom start, end) | Position
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 

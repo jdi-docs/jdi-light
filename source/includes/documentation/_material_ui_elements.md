@@ -224,7 +224,7 @@ Available methods in Java JDI Light:
     
     public interface HasTooltip extends ICoreElement {
         default Tooltip tooltip() {
-            return new Tooltip(core());
+            return new Tooltip();
         }
     }
 ```
@@ -242,20 +242,14 @@ __Tooltips__ - elements that display informative text when users hover over, foc
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div>
-  <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="delete" id="deleteBtn" title="Delete">
-    <span class="MuiIconButton-label">...</span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-  <button class="MuiButtonBase-root MuiFab-root jss208 MuiFab-primary" tabindex="0" type="button" title="Add" aria-label="add">
-    <span class="MuiFab-label">...</span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-  <button class="MuiButtonBase-root MuiFab-root jss209 MuiFab-secondary" tabindex="0" type="button" title="Add" aria-label="add">
-    <span class="MuiFab-label">...</span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-</div>
+<button class="MuiButtonBase-root MuiFab-root jss183 MuiFab-primary" tabindex="0" type="button" aria-label="add" title="Add">
+   <span class="MuiFab-label">
+      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+      </svg>
+   </span>
+  <span class="MuiTouchRipple-root"></span>
+</button>
 ```
 
 Available methods in Java JDI Light:
@@ -301,7 +295,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
 <div class="MuiContainer-root MuiContainer-maxWidthSm">
-  <div class="MuiTypography-root MuiTypography-body1" style="background-color: rgb(207, 232, 252); height: 50vh;">
+  <div class="MuiTypography-root MuiTypography-body1" style="background-color: rgb(207, 232, 252); height: 20vh;">
     Example text
   </div>
 </div>
@@ -312,9 +306,9 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | ContainerAssert
-**fixed()** | Check whether container is fixed | boolean
-**fluid()** | Check whether container is fluid | boolean
-**getMaxWidth()** | Returns max width of container | String
+**isFixed()** | Check whether container is fixed | boolean
+**isFluid()** | Check whether container is fluid | boolean
+**maxWidth()** | Returns max width of container | int
 
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank"> Here you can find Container tests </a>

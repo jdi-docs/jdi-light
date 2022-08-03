@@ -33786,7 +33786,7 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 
     <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">HasTooltip</span> <span class="kd">extends</span> <span class="n">ICoreElement</span> <span class="o">{</span>
         <span class="k">default</span> <span class="n">Tooltip</span> <span class="nf">tooltip</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="nf">Tooltip</span><span class="o">(</span><span class="n">core</span><span class="o">());</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Tooltip</span><span class="o">();</span>
         <span class="o">}</span>
     <span class="o">}</span>
 </code></pre><h5 id='tooltip-overview'><a href="https://material-ui.com/components/tooltips/" target="_blank"> Tooltip overview </a></h5>
@@ -33801,20 +33801,14 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Tooltip.png" alt="Tooltip" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"delete"</span> <span class="na">id=</span><span class="s">"deleteBtn"</span> <span class="na">title=</span><span class="s">"Delete"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiFab-root jss208 MuiFab-primary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">title=</span><span class="s">"Add"</span> <span class="na">aria-label=</span><span class="s">"add"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiFab-label"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiFab-root jss209 MuiFab-secondary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">title=</span><span class="s">"Add"</span> <span class="na">aria-label=</span><span class="s">"add"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiFab-label"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiFab-root jss183 MuiFab-primary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"add"</span> <span class="na">title=</span><span class="s">"Add"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiFab-label"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+      <span class="nt">&lt;/svg&gt;</span>
+   <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
 
@@ -33872,7 +33866,7 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiContainer-root MuiContainer-maxWidthSm"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1"</span> <span class="na">style=</span><span class="s">"background-color: rgb(207, 232, 252); height: 50vh;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1"</span> <span class="na">style=</span><span class="s">"background-color: rgb(207, 232, 252); height: 20vh;"</span><span class="nt">&gt;</span>
     Example text
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
@@ -33892,19 +33886,19 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>ContainerAssert</td>
 </tr>
 <tr>
-<td><strong>fixed()</strong></td>
+<td><strong>isFixed()</strong></td>
 <td>Check whether container is fixed</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>fluid()</strong></td>
+<td><strong>isFluid()</strong></td>
 <td>Check whether container is fluid</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>getMaxWidth()</strong></td>
+<td><strong>maxWidth()</strong></td>
 <td>Returns max width of container</td>
-<td>String</td>
+<td>int</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-container-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank"> Here you can find Container tests </a></h5>

@@ -52,18 +52,21 @@ __Checkbox__ - element that allows the user to select one or more items from a s
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<span class="MuiButtonBase-root MuiIconButton-root jss40 MuiCheckbox-root MuiCheckbox-colorSecondary jss41 Mui-checked MuiIconButton-colorSecondary" aria-disabled="false">
-  <span class="MuiIconButton-label">
-    <input class="jss43" type="checkbox" data-indeterminate="false" aria-label="primary checkbox" value="" checked="">
-    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
-  </span>
-  <span class="MuiTouchRipple-root"></span>
+<span class="MuiButtonBase-root MuiIconButton-root jss165 MuiCheckbox-root MuiCheckbox-colorSecondary jss166 Mui-checked MuiIconButton-colorSecondary" aria-disabled="false">
+   <span class="MuiIconButton-label">
+      <input class="jss168" type="checkbox" data-indeterminate="false" aria-label="primary checkbox" value="" checked="">
+      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+         <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+      </svg>
+   </span>
+   <span class="MuiTouchRipple-root"></span>
 </span>
 ```
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**icon** | Returns checkbox icon | Icon
 **is()** | Returns object for work with assertions | CheckboxAssert
 **isChecked()** | Checks whether checkbox is checked | boolean
 **isUnchecked()** | Checks whether checkbox is unchecked | boolean
@@ -125,39 +128,48 @@ Here is an example with provided Material-UI v4.12.3 code:
 ```html
 <h2>Chip array</h2>
 <div>
-  <ul class="MuiPaper-root jss4 MuiPaper-elevation1 MuiPaper-rounded">
+  <ul class="MuiPaper-root jss13 MuiPaper-elevation1 MuiPaper-rounded">
     <li>
-      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
+      <div class="MuiButtonBase-root MuiChip-root jss14 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">Angular</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
+        </svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
     <li>
-      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
+      <div class="MuiButtonBase-root MuiChip-root jss14 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">jQuery</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
+        </svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
     <li>
-      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
+      <div class="MuiButtonBase-root MuiChip-root jss14 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">Polymer</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
+        </svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
     <li>
-      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable" tabindex="0" role="button">
-        <svg class="MuiSvgIcon-root MuiChip-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
-        <span class="MuiChip-label">React</span>
-        <span class="MuiTouchRipple-root"></span>
+      <div class="MuiButtonBase-root MuiChip-root jss14 MuiChip-clickable" tabindex="0" role="button">
+        <svg class="MuiSvgIcon-root MuiChip-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
+        </svg>
+        <span class="MuiChip-label">React</span><span class="MuiTouchRipple-root"></span>
       </div>
     </li>
     <li>
-      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
+      <div class="MuiButtonBase-root MuiChip-root jss14 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">Vue.js</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"></svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
+        </svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
@@ -170,17 +182,15 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**deleteIcon** | Returns chip's delete icon | Icon
+**avatar** | Returns chip's avatar | Avatar
+**icon** | Returns chip's icon | Icon
 **is()** | Returns object for work with assertions | ChipAssert
-**has()** | Returns object for work with assertions | ChipAssert
 **label()** | Returns chip's label | Label
-**deleteIcon()** | Returns chip's delete icon | Icon
-**avatar()** | Returns chip's avatar | Avatar
-**icon()** | Returns chip's icon | Icon
-**isOutlined()** | Checks whether chip is outlined | boolean
 **isClickable()** | Checks whether chip is clickable | boolean
 **isDeletable()** | Checks whether chip is deletable | boolean
 **isLink()** | Checks whether chip is link | boolean
-**getHref()** | Returns chip's href attribute | String
+**href()** | Returns chip's href attribute | String
 **delete()** | Deletes chip | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ChipTests.java" target="_blank">Here you can find Chips tests</a>

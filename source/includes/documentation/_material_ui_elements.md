@@ -39,7 +39,7 @@
     }    
 ```
 
-##### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> Checkbox overview </a>
+##### <a href="https://v4.mui.com/components/checkboxes/" target="_blank"> Checkbox overview </a>
 
 Checkbox is located in the following class:
 
@@ -64,7 +64,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 ```
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
+| Field / Method | Description | Return Type
 --- | --- | ---
 **icon** | Returns checkbox icon | Icon
 **is()** | Returns object for work with assertions | CheckboxAssert
@@ -113,7 +113,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/chips/" target="_blank"> Chips overview </a>
+##### <a href="https://v4.mui.com/components/chips/" target="_blank"> Chips overview </a>
 
 Chip is located in the following class:
 
@@ -180,7 +180,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
+| Field / Method  | Description | Return Type
 --- | --- | ---
 **deleteIcon** | Returns chip's delete icon | Icon
 **avatar** | Returns chip's avatar | Avatar
@@ -229,7 +229,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/tooltips/" target="_blank"> Tooltip overview </a>
+##### <a href="https://v4.mui.com/components/tooltips/" target="_blank"> Tooltip overview </a>
 
 Tooltip is located in the following class:
 
@@ -281,7 +281,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/container/" target="_blank"> Container overview </a>
+##### <a href="https://v4.mui.com/components/container/" target="_blank"> Container overview </a>
 
 Container is located in the following class:
 
@@ -318,8 +318,8 @@ Available methods in Java JDI Light:
 ### 4.5 Avatar
 
 ```java
-    // @FindBy(className = "MuiBadge-root")
-    @UI(".MuiBadge-root")
+    // @FindBy(className = "MuiAvatar-root")
+    @UI(".MuiAvatar-root")
     public static List<Avatar> avatarsWithPhoto;
 
     @Test
@@ -327,12 +327,11 @@ Available methods in Java JDI Light:
         for(Avatar avatar : avatarsWithPhoto) {
             avatar.is().displayed();
             avatar.image().is().displayed();
-            avatar.badge().is().displayed();
         }
     }
 ```
 
-##### <a href="https://material-ui.com/ru/components/avatars/" target="_blank"> Avatars overview </a>
+##### <a href="https://v4.mui.com/components/avatars/" target="_blank"> Avatars overview </a>
 
 Avatar is located in the following class:
 
@@ -346,17 +345,9 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
 <span class="MuiBadge-root">
-  <div class="MuiAvatar-root MuiAvatar-circle">
-    <img alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" class="MuiAvatar-img"></div>
-  <span class="MuiBadge-badge jss37 MuiBadge-anchorOriginBottomRightCircle MuiBadge-dot"></span>
-</span>
-
-<span class="MuiBadge-root">
-  <div class="MuiAvatar-root MuiAvatar-circle">
-    <img alt="Travis Howard" src="https://mui.com/static/images/avatar/1.jpg" class="MuiAvatar-img"></div>
-  <span class="MuiBadge-badge MuiBadge-anchorOriginBottomRightCircle">
-    <div class="MuiAvatar-root jss39 MuiAvatar-circle MuiAvatar-colorDefault">R</div>
-  </span>
+   <div class="MuiAvatar-root MuiAvatar-circular">
+     <img alt="Remy Sharp" src="https://v4.mui.com/static/images/avatar/1.jpg" class="MuiAvatar-img"></div>
+   <span class="MuiBadge-badge jss347 MuiBadge-anchorOriginBottomRightCircular MuiBadge-dot"></span>
 </span>
 ```
 
@@ -366,6 +357,7 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **is()** | Returns object for work with assertions | AvatarAssert
 **icon()** | Returns avatar's icon | Icon
+**variant()** | Returns avatar's variant type | VariantType
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
 

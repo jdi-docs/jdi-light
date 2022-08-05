@@ -461,22 +461,28 @@ Available methods in Java JDI Light:
 ```java
     // @FindBy(id = "simpleCard")
     @UI("#simpleCard")
-    public static Card simpleCard;
+    public static SimpleCard simpleCard;
 
     @Test
     public void simpleCardTest() {
         simpleCard.is().displayed();
-        simpleCard.has().title("be•nev•o•lent");
+        simpleCard.has().title(Matchers.equalTo("be•nev•o•lent"));
         simpleCard.primaryText().has().text(containsString("a benevolent smile"));
         simpleCard.learnMoreButton().click();
     }
 ```
 
-##### <a href="https://material-ui.com/components/cards/" target="_blank"> Card overview </a>
+##### <a href="https://v4.mui.com/components/cards/" target="_blank"> Card overview </a>
 
 Card is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.surfaces.Card_
+
+SimpleCard subclass is located in the following class:
+- __Java__: _io.github.com.custom.elements.cards.SimpleCard_
+
+ComplexInteractionCard subclass is located in the following class:
+- __Java__: _io.github.com.custom.elements.cards.ComplexInteractionCard_
 
 __Card__ - element that contains content and actions about a single subject.
 
@@ -485,22 +491,22 @@ __Card__ - element that contains content and actions about a single subject.
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="MuiPaper-root MuiCard-root jss54 MuiPaper-elevation1 
+<div class="MuiPaper-root MuiCard-root jss160 MuiPaper-elevation1 
     MuiPaper-rounded" id="simpleCard">
   <div class="MuiCardContent-root">
-    <p class="MuiTypography-root jss56 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom">
+    <p class="MuiTypography-root jss162 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom">
       Word of the Day
     </p>
     <h2 class="MuiTypography-root MuiTypography-h5">
       be
-      <span class="jss55">•</span>
+      <span class="jss161">•</span>
       nev
-      <span class="jss55">•</span>
+      <span class="jss161">•</span>
       o
-      <span class="jss55">•</span>
+      <span class="jss161">•</span>
       lent
     </h2>
-    <p class="MuiTypography-root jss57 MuiTypography-body1 MuiTypography-colorTextSecondary">
+    <p class="MuiTypography-root jss163 MuiTypography-body1 MuiTypography-colorTextSecondary">
       adjective
     </p>
     <p class="MuiTypography-root MuiTypography-body2">
@@ -516,14 +522,31 @@ Here is an example with provided Material-UI v4.12.3 code:
 </div>
 ```
 
-Available methods in Java JDI Light:
+Available methods in Java JDI Light for Card:
 
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | CardAssert
 **actions()** | Returns element's part with action buttons | UIElement
 **title()** | Returns element's title | UIElement
-**subtitle()** | Returns element's subtitle | UIElement
+**subHeader()** | Returns element's sub header | UIElement
+
+Available methods in Java JDI Light for SimpleCard:
+
+|Method | Description | Return Type
+--- | --- | ---
+**primaryText()** | Returns element's primary body | UIElement
+**learnMoreButton()** | Returns element's 'Learn More' button | Button
+
+Available methods in Java JDI Light for ComplexInteractionCard:
+
+|Method | Description | Return Type
+--- | --- | ---
+**textUnderImage()** | Returns element's text under image | Text
+**addToFavoritesButton()** | Returns element's 'Add to Favorites' button | Button
+**addToFavoritesSvgIcon()** | Returns element's 'Add to Favorites' icon | Icon
+**shareButton()** | Returns element's 'Share' button | Button
+**expandButton()** | Returns element's 'Expand' button | Button
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
 
@@ -549,7 +572,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/radio-buttons/" target="_blank"> Radio overview </a>
+##### <a href="https://v4.mui.com/components/radio-buttons/" target="_blank"> Radio overview </a>
 
 Radio is located in the following class:
 
@@ -562,52 +585,44 @@ __Radio buttons__ - elements that allow the user to select one option from a set
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<fieldset class="MuiFormControl-root" id="simpleRadio">
-  <div class="MuiFormGroup-root MuiFormGroup-row" role="radiogroup" aria-label="position">
+<fieldset class="MuiFormControl-root">
+  <div class="MuiFormGroup-root" role="radiogroup" aria-label="gender">
     <label class="MuiFormControlLabel-root">
-      <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary" aria-disabled="false">
-        <span class="MuiIconButton-label">
-          <input class="jss66" name="position" type="radio" value="first">
-          <div class="jss67">...</div>
-        </span>
-        <span class="MuiTouchRipple-root"></span>
-      </span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                <span class="MuiIconButton-label">
+                    <input class="jss218" name="position" type="radio" value="female" checked="" />
+                </span>
+                <span class="MuiTouchRipple-root"></span>
+            </span>
       <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">First</span>
     </label>
-    
     <label class="MuiFormControlLabel-root">
-      <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary jss64 Mui-checked MuiIconButton-colorPrimary" aria-disabled="false">
-        <span class="MuiIconButton-label">
-          <input class="jss66" name="position" type="radio" value="second">
-          <div class="jss67 jss69">...</div>
-        </span>
-        <span class="MuiTouchRipple-root"></span>
-      </span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary jss216 Mui-checked MuiIconButton-colorSecondary" aria-disabled="false">
+                <span class="MuiIconButton-label">
+                    <input class="jss218" name="position" type="radio" value="male" />
+                </span>
+                <span class="MuiTouchRipple-root"></span>
+            </span>
       <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Second</span>
     </label>
-    
     <label class="MuiFormControlLabel-root">
-      <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary" aria-disabled="false">
-        <span class="MuiIconButton-label">
-          <input class="jss66" name="position" type="radio" value="third">
-          <div class="jss67">...</div>
-        </span>
-        <span class="MuiTouchRipple-root"></span>
-      </span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                <span class="MuiIconButton-label">
+                    <input class="jss218" name="position" type="radio" value="other" />
+                </span>
+                <span class="MuiTouchRipple-root"></span>
+            </span>
       <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Third</span>
     </label>
-    
     <label class="MuiFormControlLabel-root Mui-disabled">
-      <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary jss65 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled" tabindex="-1" aria-disabled="true">
-        <span class="MuiIconButton-label">
-          <input class="jss66" disabled="" name="position" type="radio" value="disabled">
-          <div class="jss67">...</div>
-        </span>
-      </span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary jss217 Mui-disabled MuiIconButton-colorSecondary Mui-disabled Mui-disabled" tabindex="-1" aria-disabled="true">
+                <span class="MuiIconButton-label">
+                    <input class="jss218" disabled="" name="position" type="radio" value="disabled" />
+                </span>
+            </span>
       <span class="MuiTypography-root MuiFormControlLabel-label Mui-disabled MuiTypography-body1">Disabled</span>
     </label>
   </div>
-  <p id="lastClickContent">You clicked Second</p>
 </fieldset>
 ```
 
@@ -616,12 +631,13 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | RadioAssert
+**label(String)** | Get label of radiobutton by value | UIElement
 **labels()** | Returns list of labels | List<Label>
 **values()** | Returns list of values | List<String>
 **get(String)** | Returns radio button by value | UIElement
 **select(String)** | Select radiobutton by value  | void
 **selected()** | Get selected radiobutton value | String
-**selected(String/index)** | Check whether specified radio button is selected | boolean
+**selected(String/int)** | Check whether specified radio button is selected | boolean
 **listEnabled()** | Returns list of enabled values | List<String>
 **listDisabled()** | Returns list of disabled values | List<String>
 

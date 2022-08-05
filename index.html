@@ -33959,8 +33959,8 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h5>
 <p><br></br></p>
-<h3 id='4-6-click-away-listener'>4.6 Click Away Listener</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//h2[text()='Portal']/preceding::button")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Portal']/preceding::button"</span><span class="o">)</span>
+<h3 id='4-6-click-away-listener'>4.6 Click Away Listener</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//button[text()='Open menu dropdown']")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[text()='Open menu dropdown']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">exampleButton</span><span class="o">;</span>
 
     <span class="c1">// @FindBy(xpath = "//div[text()='Click me, I will stay visible until you click outside.']")</span>
@@ -33969,44 +33969,38 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exampleClickAwayListenerTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">textFieldTest</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">textFieldTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">buttonId</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
+        <span class="n">exampleButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
+        <span class="n">exampleButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
+        <span class="n">exampleButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickAroundTextPopup</span><span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">width</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">text</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">width</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickAroundButton</span><span class="o">(</span><span class="n">exampleButton</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">width</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span> <span class="n">buttonId</span><span class="o">);</span>
+        <span class="n">exampleButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">exampleButton</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">(</span><span class="n">exampleButton</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">width</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='click-away-listener-overview'><a href="https://material-ui.com/ru/components/click-away-listener/" target="_blank"> Click Away Listener overview </a></h5>
+</code></pre><h5 id='click-away-listener-overview'><a href="https://v4.mui.com/components/click-away-listener/" target="_blank"> Click Away Listener overview </a></h5>
 <p><strong>Click Away Listener</strong> - element that detects if a click event happened outside an element. It listens for clicks that occur somewhere in the document.</p>
 
 <p><img src="images/material-ui/ClickAwayListener.png" alt="ClickAwayListener" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss42"</span><span class="nt">&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss366"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Open menu dropdown<span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss43"</span><span class="nt">&gt;</span>Click me, I will stay visible until you click outside.<span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;h2&gt;</span>Portal<span class="nt">&lt;/h2&gt;</span>
 </code></pre><h5 id='here-you-can-find-clickawaylistener-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a></h5>
 <p><br></br></p>
-<h3 id='4-7-divider'>4.7 Divider</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(css = "li.MuiDivider-root")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"li.MuiDivider-root"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Divider</span><span class="o">&gt;</span> <span class="n">insetDivider</span><span class="o">;</span>
+<h3 id='4-7-divider'>4.7 Divider</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(css = "hr.MuiDivider-root")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"hr.MuiDivider-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Divider</span> <span class="n">insetDivider</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insetDividerTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">insetDivider</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">inset</span><span class="o">());</span>
+        <span class="n">insetDivider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">inset</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='divider-overview'><a href="https://material-ui.com/components/dividers/" target="_blank"> Divider overview </a></h5>
+</code></pre><h5 id='divider-overview'><a href="https://v4.mui.com/components/dividers/" target="_blank"> Divider overview </a></h5>
 <p>Divider is located in the following class:</p>
 
 <ul>

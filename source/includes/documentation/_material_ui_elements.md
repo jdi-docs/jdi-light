@@ -366,8 +366,8 @@ Available methods in Java JDI Light:
 ### 4.6 Click Away Listener
 
 ```java
-    // @FindBy(xpath = "//h2[text()='Portal']/preceding::button")
-    @UI("//h2[text()='Portal']/preceding::button")
+    // @FindBy(xpath = "//button[text()='Open menu dropdown']")
+    @UI("//button[text()='Open menu dropdown']")
     public static Button exampleButton;
 
     // @FindBy(xpath = "//div[text()='Click me, I will stay visible until you click outside.']")
@@ -376,25 +376,21 @@ Available methods in Java JDI Light:
 
     @Test
     public void exampleClickAwayListenerTest() {
-        textFieldTest(1);
-    }
-
-    private void textFieldTest(int buttonId) {
-        clickAwayListenerPage.clickButton(buttonId);
+        exampleButton.click();
         text.is().displayed();
-        clickAwayListenerPage.clickButton(buttonId);
+        exampleButton.click();
         text.is().hidden();
-        clickAwayListenerPage.clickButton(buttonId);
+        exampleButton.click();
         text.is().displayed();
-        clickAwayListenerPage.clickAroundTextPopup(text.getSize().width + 1, -1);
+        text.core().click(text.getSize().width + 1, -1);
         text.is().hidden();
-        clickAwayListenerPage.clickButton(buttonId);
-        clickAwayListenerPage.clickAroundButton(exampleButton.getSize().width + 1,0, buttonId);
+        exampleButton.click();
+        exampleButton.core().click(exampleButton.getSize().width + 1, 0);
         text.is().hidden();
     }
 ```
 
-##### <a href="https://material-ui.com/ru/components/click-away-listener/" target="_blank"> Click Away Listener overview </a>
+##### <a href="https://v4.mui.com/components/click-away-listener/" target="_blank"> Click Away Listener overview </a>
 
 __Click Away Listener__ - element that detects if a click event happened outside an element. It listens for clicks that occur somewhere in the document.
 
@@ -403,11 +399,9 @@ __Click Away Listener__ - element that detects if a click event happened outside
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="jss42">
+<div class="jss366">
   <button type="button">Open menu dropdown</button>
-  <div class="jss43">Click me, I will stay visible until you click outside.</div>
 </div>
-<h2>Portal</h2>
 ```
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a>
@@ -417,17 +411,17 @@ Here is an example with provided Material-UI v4.12.3 code:
 ### 4.7 Divider
 
 ```java
-    // @FindBy(css = "li.MuiDivider-root")
-    @UI("li.MuiDivider-root")
-    public static List<Divider> insetDivider;
-    
+    // @FindBy(css = "hr.MuiDivider-root")
+    @UI("hr.MuiDivider-root")
+    public static Divider insetDivider;
+
     @Test
     public void insetDividerTest() {
-        insetDivider.forEach(d -> d.is().inset());
+        insetDivider.is().inset();
     }
 ```
 
-##### <a href="https://material-ui.com/components/dividers/" target="_blank"> Divider overview </a>
+##### <a href="https://v4.mui.com/components/dividers/" target="_blank"> Divider overview </a>
 
 Divider is located in the following class:
 

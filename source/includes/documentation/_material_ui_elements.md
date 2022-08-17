@@ -603,25 +603,19 @@ Available methods in Java JDI Light:
 ### 4.9 App Bar
 
 ```java
-    // @FindBy(xpath = "(//header[contains(@class, 'MuiAppBar-root')])[1]")
-    @JAppBar(
-            root = "(//header[contains(@class, 'MuiAppBar-root')])[1]",
-            actionItems = {"//*[text()='News']/following-sibling::button"}
-    )
+    // @FindBy(css = ".MuiAppBar-root[1]")
+    @UI(".MuiAppBar-root[1]")
     public static AppBar simpleAppBar;
 
     @Test
     public void simpleAppBarTest() {
-        simpleAppBar.isDisplayed();
-        simpleAppBar.getNavigationButton().isDisplayed();
-        simpleAppBar.getNavigationButton().click();
-        simpleAppBar.getTitle().has().text("News");
-        simpleAppBar.getActionItems().get(1).isDisplayed();
-        simpleAppBar.getActionItems().get(1).click();
+        simpleAppBar.is().displayed();
+        simpleAppBar.title().has().text("News");
+        simpleAppBar.buttonGroup().is().displayed().and().has().buttons(2);
     }
 ```
 
-##### <a href="https://material-ui.com/components/app-bar/" target="_blank"> App Bar overview </a>
+##### <a href="https://v4.mui.com/components/app-bar/" target="_blank"> App Bar overview </a>
 
 App Bar is located in the following class:
 
@@ -636,8 +630,15 @@ Here is an example with provided Material-UI v4.12.3 code:
 ```html
 <header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4">
   <div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters">
-    <button class="MuiButtonBase-root MuiIconButton-root jss132 MuiIconButton-colorInherit MuiIconButton-edgeStart" tabindex="0" type="button" aria-label="menu">...</button>
-    <h6 class="MuiTypography-root jss133 MuiTypography-h6">News</h6>
+    <button class="MuiButtonBase-root MuiIconButton-root jss172 MuiIconButton-colorInherit MuiIconButton-edgeStart" tabindex="0" type="button" aria-label="menu">
+         <span class="MuiIconButton-label">
+            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+               <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+            </svg>
+         </span>
+      <span class="MuiTouchRipple-root"></span>
+    </button>
+    <h6 class="MuiTypography-root jss173 MuiTypography-h6">News</h6>
     <button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button">
       <span class="MuiButton-label">Login</span>
       <span class="MuiTouchRipple-root"></span>
@@ -650,12 +651,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getNavigationButton()** | Returns the navigation button | UIElement
-**getTitle()** | Returns app bar title | UIElement
-**getActionItems()** | Returns action items | WebList
-**getOverflowMenuButton()** | Returns menu button | UIElement
-**isElevated()** | Checks whether app bar is elevated | void
-**isNotElevated()** | Checks whether app bar is not elevated | void
+**buttonGroup()** | Returns the app bar buttons | ButtonGroup
+**title()** | Returns app bar title | Text
+**searchField()** | Returns app bar search field | TextField
 **is()** | Returns object for work with assertions | TextAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a>
@@ -709,33 +707,29 @@ Here is an example with provided Material-UI v4.12.3 code:
 ### 4.11 Transitions
 
 ```java
-    @FindBy(xpath = "//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
-    @UI("//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
-    public static List<Transition> collapseFadeTransitions;
+    // @FindBy(xpath = "//h2[text()='Collapse']/following::div[contains(@class,'MuiCollapse-root')]")
+    @UI("//h2[text()='Collapse']/following::div[contains(@class,'MuiCollapse-root')]")
+    public static List<Transition> collapseTransitions;
 
-    @FindBy(xpath = "//span[contains(@class, 'MuiSwitch-switchBase')]")
-    @UI("//span[contains(@class, 'MuiSwitch-switchBase')]")
-    public static List<Checkbox> checkboxes;
+    // @FindBy(css = "span.MuiSwitch-root")
+    @UI("span.MuiSwitch-root")
+    public static List<Switch> switches;
     
     @Test
     public void collapseDisplayTest() {
-        collapseFadeTransitions.get(1).is().transitionExited(COLLAPSE);
-        collapseFadeTransitions.get(2).is().transitionExited(COLLAPSE);
-
-        checkboxes.get(1).check();
-
-        collapseFadeTransitions.get(1).is().transitionEntered(COLLAPSE);
-        collapseFadeTransitions.get(2).is().transitionEntered(COLLAPSE);
-
-        checkboxes.get(1).uncheck();
-
-        collapseFadeTransitions.get(1).is().collapseTransitionHidden(COLLAPSE);
-        collapseFadeTransitions.get(1).is().transitionExited(COLLAPSE);
-        collapseFadeTransitions.get(2).is().transitionExited(COLLAPSE);
+        switches.get(1).check();
+      
+        collapseTransitions.get(1).is().displayed();
+        collapseTransitions.get(2).is().displayed();
+      
+        switches.get(1).uncheck();
+      
+        collapseTransitions.get(1).is().hidden();
+        collapseTransitions.get(2).is().displayed();
     }
 ```
 
-##### <a href="https://material-ui.com/components/transitions/" target="_blank"> Transitions overview </a>
+##### <a href="https://v4.mui.com/components/transitions/" target="_blank"> Transitions overview </a>
 
 Transitions is located in the following class:
 
@@ -750,18 +744,38 @@ It helps make a UI expressive and easy to use.
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<span class="MuiButtonBase-root MuiIconButton-root jss152 MuiSwitch-switchBase MuiSwitch-colorSecondary" aria-disabled="false">
-  <span class="MuiIconButton-label">
-    <input class="jss155 MuiSwitch-input" type="checkbox" value="">
-    <span class="MuiSwitch-thumb"></span>
-  </span>
-  <span class="MuiTouchRipple-root"></span>
-</span>
-<div class="MuiCollapse-container MuiCollapse-hidden" style="min-height: 0px;">
-  <div class="MuiCollapse-wrapper">
-    <div class="MuiCollapse-wrapperInner">
-      <div class="MuiPaper-root jss149 MuiPaper-elevation4 MuiPaper-rounded">
-        <svg class="jss150">...</svg>
+<div class="jss257">
+  <label class="MuiFormControlLabel-root">
+    <span class="MuiSwitch-root">
+      <span class="MuiButtonBase-root MuiIconButton-root jss262 MuiSwitch-switchBase MuiSwitch-colorSecondary" aria-disabled="false">
+        <span class="MuiIconButton-label">
+          <input class="jss265 MuiSwitch-input" type="checkbox" value="">
+          <span class="MuiSwitch-thumb"></span></span>
+        <span class="MuiTouchRipple-root"></span></span>
+      <span class="MuiSwitch-track"></span></span>
+    <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Show</span>
+  </label>
+  <div class="jss258">
+    <div class="MuiCollapse-root MuiCollapse-hidden" style="min-height: 0px; height: 0px; transition-duration: 300ms;">
+      <div class="MuiCollapse-wrapper">
+        <div class="MuiCollapse-wrapperInner">
+          <div class="MuiPaper-root jss259 MuiPaper-elevation4 MuiPaper-rounded">
+            <svg class="jss260">
+              <polygon points="0,100 50,00, 100,100" class="jss261"></polygon>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="MuiCollapse-root" style="min-height: 40px; height: 40px; transition-duration: 300ms;">
+      <div class="MuiCollapse-wrapper">
+        <div class="MuiCollapse-wrapperInner">
+          <div class="MuiPaper-root jss259 MuiPaper-elevation4 MuiPaper-rounded">
+            <svg class="jss260">
+              <polygon points="0,100 50,00, 100,100" class="jss261"></polygon>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -773,10 +787,10 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | TransitionAssert
-**isCollapseTransitionEntered(String)** | Checks whether collapse transition is entered | boolean
-**isCollapseTransitionHidden(String)** | Checks whether collapse transition is hidden | boolean
-**isCommonTransitionEntered(String)** | Checks whether common transition is entered | boolean
-**isCommonTransitionExited(String)** | Checks whether common transition is hidden | boolean
+**isEntered()** | Checks whether transition is entered | boolean
+**isHidden()** | Checks whether transition is hidden | boolean
+**isExited()** | Checks whether transition is exited | boolean
+**isDisplayed()** | Checks whether transition is displayed | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
 

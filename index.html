@@ -34288,23 +34288,17 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-radio-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonsTests.java" target="_blank">Here you can find Radio tests</a></h5>
 <p><br></br></p>
-<h3 id='4-9-app-bar'>4.9 App Bar</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "(//header[contains(@class, 'MuiAppBar-root')])[1]")</span>
-    <span class="nd">@JAppBar</span><span class="o">(</span>
-            <span class="n">root</span> <span class="o">=</span> <span class="s">"(//header[contains(@class, 'MuiAppBar-root')])[1]"</span><span class="o">,</span>
-            <span class="n">actionItems</span> <span class="o">=</span> <span class="o">{</span><span class="s">"//*[text()='News']/following-sibling::button"</span><span class="o">}</span>
-    <span class="o">)</span>
+<h3 id='4-9-app-bar'>4.9 App Bar</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(css = ".MuiAppBar-root[1]")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiAppBar-root[1]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">AppBar</span> <span class="n">simpleAppBar</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleAppBarTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">simpleAppBar</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
-        <span class="n">simpleAppBar</span><span class="o">.</span><span class="na">getNavigationButton</span><span class="o">().</span><span class="na">isDisplayed</span><span class="o">();</span>
-        <span class="n">simpleAppBar</span><span class="o">.</span><span class="na">getNavigationButton</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">simpleAppBar</span><span class="o">.</span><span class="na">getTitle</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"News"</span><span class="o">);</span>
-        <span class="n">simpleAppBar</span><span class="o">.</span><span class="na">getActionItems</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">isDisplayed</span><span class="o">();</span>
-        <span class="n">simpleAppBar</span><span class="o">.</span><span class="na">getActionItems</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleAppBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">simpleAppBar</span><span class="o">.</span><span class="na">title</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"News"</span><span class="o">);</span>
+        <span class="n">simpleAppBar</span><span class="o">.</span><span class="na">buttonGroup</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">buttons</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='app-bar-overview'><a href="https://material-ui.com/components/app-bar/" target="_blank"> App Bar overview </a></h5>
+</code></pre><h5 id='app-bar-overview'><a href="https://v4.mui.com/components/app-bar/" target="_blank"> App Bar overview </a></h5>
 <p>App Bar is located in the following class:</p>
 
 <ul>
@@ -34318,8 +34312,15 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root jss132 MuiIconButton-colorInherit MuiIconButton-edgeStart"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"menu"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root jss133 MuiTypography-h6"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/h6&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root jss172 MuiIconButton-colorInherit MuiIconButton-edgeStart"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+            <span class="nt">&lt;/svg&gt;</span>
+         <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root jss173 MuiTypography-h6"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/h6&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Login<span class="nt">&lt;/span&gt;</span>
       <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
@@ -34337,34 +34338,19 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>getNavigationButton()</strong></td>
-<td>Returns the navigation button</td>
-<td>UIElement</td>
+<td><strong>buttonGroup()</strong></td>
+<td>Returns the app bar buttons</td>
+<td>ButtonGroup</td>
 </tr>
 <tr>
-<td><strong>getTitle()</strong></td>
+<td><strong>title()</strong></td>
 <td>Returns app bar title</td>
-<td>UIElement</td>
+<td>Text</td>
 </tr>
 <tr>
-<td><strong>getActionItems()</strong></td>
-<td>Returns action items</td>
-<td>WebList</td>
-</tr>
-<tr>
-<td><strong>getOverflowMenuButton()</strong></td>
-<td>Returns menu button</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>isElevated()</strong></td>
-<td>Checks whether app bar is elevated</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>isNotElevated()</strong></td>
-<td>Checks whether app bar is not elevated</td>
-<td>void</td>
+<td><strong>searchField()</strong></td>
+<td>Returns app bar search field</td>
+<td>TextField</td>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
@@ -34406,31 +34392,27 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <span class="nt">&lt;/div&gt;</span>
 </code></pre><h5 id='here-you-can-find-box-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a></h5>
 <p><br></br></p>
-<h3 id='4-11-transitions'>4.11 Transitions</h3><pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">xpath</span> <span class="o">=</span> <span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Transition</span><span class="o">&gt;</span> <span class="n">collapseFadeTransitions</span><span class="o">;</span>
+<h3 id='4-11-transitions'>4.11 Transitions</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//h2[text()='Collapse']/following::div[contains(@class,'MuiCollapse-root')]")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Collapse']/following::div[contains(@class,'MuiCollapse-root')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Transition</span><span class="o">&gt;</span> <span class="n">collapseTransitions</span><span class="o">;</span>
 
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">xpath</span> <span class="o">=</span> <span class="s">"//span[contains(@class, 'MuiSwitch-switchBase')]"</span><span class="o">)</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[contains(@class, 'MuiSwitch-switchBase')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">checkboxes</span><span class="o">;</span>
+    <span class="c1">// @FindBy(css = "span.MuiSwitch-root")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"span.MuiSwitch-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Switch</span><span class="o">&gt;</span> <span class="n">switches</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">collapseDisplayTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">transitionExited</span><span class="o">(</span><span class="n">COLLAPSE</span><span class="o">);</span>
-        <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">transitionExited</span><span class="o">(</span><span class="n">COLLAPSE</span><span class="o">);</span>
+        <span class="n">switches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">check</span><span class="o">();</span>
 
-        <span class="n">checkboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">check</span><span class="o">();</span>
+        <span class="n">collapseTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">collapseTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
 
-        <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">transitionEntered</span><span class="o">(</span><span class="n">COLLAPSE</span><span class="o">);</span>
-        <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">transitionEntered</span><span class="o">(</span><span class="n">COLLAPSE</span><span class="o">);</span>
+        <span class="n">switches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
 
-        <span class="n">checkboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
-
-        <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">collapseTransitionHidden</span><span class="o">(</span><span class="n">COLLAPSE</span><span class="o">);</span>
-        <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">transitionExited</span><span class="o">(</span><span class="n">COLLAPSE</span><span class="o">);</span>
-        <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">transitionExited</span><span class="o">(</span><span class="n">COLLAPSE</span><span class="o">);</span>
+        <span class="n">collapseTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+        <span class="n">collapseTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='transitions-overview'><a href="https://material-ui.com/components/transitions/" target="_blank"> Transitions overview </a></h5>
+</code></pre><h5 id='transitions-overview'><a href="https://v4.mui.com/components/transitions/" target="_blank"> Transitions overview </a></h5>
 <p>Transitions is located in the following class:</p>
 
 <ul>
@@ -34444,18 +34426,38 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Transitions.png" alt="Transitions" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root jss152 MuiSwitch-switchBase MuiSwitch-colorSecondary"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"jss155 MuiSwitch-input"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-thumb"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-container MuiCollapse-hidden"</span> <span class="na">style=</span><span class="s">"min-height: 0px;"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-wrapper"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-wrapperInner"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root jss149 MuiPaper-elevation4 MuiPaper-rounded"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"jss150"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss257"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormControlLabel-root"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-root"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root jss262 MuiSwitch-switchBase MuiSwitch-colorSecondary"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"jss265 MuiSwitch-input"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-thumb"</span><span class="nt">&gt;&lt;/span&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-track"</span><span class="nt">&gt;&lt;/span&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"</span><span class="nt">&gt;</span>Show<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss258"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-root MuiCollapse-hidden"</span> <span class="na">style=</span><span class="s">"min-height: 0px; height: 0px; transition-duration: 300ms;"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-wrapper"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-wrapperInner"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root jss259 MuiPaper-elevation4 MuiPaper-rounded"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"jss260"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;polygon</span> <span class="na">points=</span><span class="s">"0,100 50,00, 100,100"</span> <span class="na">class=</span><span class="s">"jss261"</span><span class="nt">&gt;&lt;/polygon&gt;</span>
+            <span class="nt">&lt;/svg&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-root"</span> <span class="na">style=</span><span class="s">"min-height: 40px; height: 40px; transition-duration: 300ms;"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-wrapper"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-wrapperInner"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root jss259 MuiPaper-elevation4 MuiPaper-rounded"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"jss260"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;polygon</span> <span class="na">points=</span><span class="s">"0,100 50,00, 100,100"</span> <span class="na">class=</span><span class="s">"jss261"</span><span class="nt">&gt;&lt;/polygon&gt;</span>
+            <span class="nt">&lt;/svg&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
       <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
@@ -34476,23 +34478,23 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>TransitionAssert</td>
 </tr>
 <tr>
-<td><strong>isCollapseTransitionEntered(String)</strong></td>
-<td>Checks whether collapse transition is entered</td>
+<td><strong>isEntered()</strong></td>
+<td>Checks whether transition is entered</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isCollapseTransitionHidden(String)</strong></td>
-<td>Checks whether collapse transition is hidden</td>
+<td><strong>isHidden()</strong></td>
+<td>Checks whether transition is hidden</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isCommonTransitionEntered(String)</strong></td>
-<td>Checks whether common transition is entered</td>
+<td><strong>isExited()</strong></td>
+<td>Checks whether transition is exited</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isCommonTransitionExited(String)</strong></td>
-<td>Checks whether common transition is hidden</td>
+<td><strong>isDisplayed()</strong></td>
+<td>Checks whether transition is displayed</td>
 <td>boolean</td>
 </tr>
 </tbody></table>

@@ -833,7 +833,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/material-icons/" target="_blank"> Material Icons overview </a>
+##### <a href="https://v4.mui.com/components/material-icons/" target="_blank"> Material Icons overview </a>
 
 __Material Icons__ - set of icons provided by npm package, @material-ui/icons, that includes the 1,100+ official Material icons converted to SvgIcon components.
 
@@ -842,15 +842,9 @@ __Material Icons__ - set of icons provided by npm package, @material-ui/icons, t
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div>
-  <h1>Material Icons</h1>
-  <h2>Access Alarm</h2>
-  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" id="defaultAccessAlarm">...</svg>
-  <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="0 0 24 24" aria-hidden="true" id="largeAccessAlarm">...</svg>
-  <svg class="MuiSvgIcon-root MuiSvgIcon-colorSecondary" focusable="false" viewBox="0 0 24 24" aria-hidden="true" id="secondaryAccessAlarm">...</svg>
-  <p id="miconLastClick">Last click: default</p>
-  <p id="miconLastHover">Last hover: large</p>
-</div>
+<svg class="MuiSvgIcon-root jss225" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1" title="AccessAlarm" data-ga-event-category="material-icons" data-ga-event-action="click" data-ga-event-label="AccessAlarm">
+  <path d="M22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM12.5 8H11v6l4.75 2.85.75-1.23-4-2.37V8zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path>
+</svg>
 ```
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a>
@@ -871,19 +865,18 @@ Here is an example with provided Material-UI v4.12.3 code:
     // @FindBy(id = "simpleLastHover")
     @UI("#simpleLastHover")
     public static Text simpleLastHover;
-    
-    @Test(dataProviderClass = IconsDataProvider.class, 
-            dataProvider = "simpleIconsTestDataProvider")
-    public void simpleIconsTest(int elementIndexForHover, String resultHoverFieldText,
-                                int elementIndexForClick, String resultClickFieldText) {
-        simpleIcons.get(elementIndexForHover).hover();
-        simpleLastHover.has().text(resultHoverFieldText);
-        simpleIcons.get(elementIndexForClick).click();
-        simpleLastClick.has().text(resultClickFieldText);
+
+    @Test
+    public void simpleIconsTest() {
+        simpleIcons.get(1).is().displayed();
+        simpleIcons.get(1).hover();
+        simpleLastHover.has().text("Last hover: DeleteIcon");
+        simpleIcons.get(2).click();
+        simpleLastClick.has().text("Last click: DeleteForeverIcon");
     }
 ```
 
-##### <a href="https://material-ui.com/components/icons/" target="_blank"> Icons overview </a>
+##### <a href="https://v4.mui.com/components/icons/" target="_blank"> Icons overview </a>
 
 Icon is located in the following class:
 
@@ -897,9 +890,15 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
 <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8">
-  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
+  </svg>
+  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"></path>
+  </svg>
 </div>
+<p id="simpleLastClick">Last click: DeleteOutlinedIcon</p>
+<p id="simpleLastHover">Last hover: DeleteForeverIcon</p>
 ```
 
 Available methods in Java JDI Light:
@@ -907,8 +906,6 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | IconAssert
-**colored()** | Check whether element is colored (not black) | boolean
-**getColor()** | Get color of icon | String
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconsTests.java" target="_blank">Here you can find Icons tests</a>
 

@@ -34532,21 +34532,15 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
                 <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="s">"secondary"</span><span class="o">},</span>
         <span class="o">};</span>
     <span class="o">}</span>
-</code></pre><h5 id='material-icons-overview'><a href="https://material-ui.com/components/material-icons/" target="_blank"> Material Icons overview </a></h5>
+</code></pre><h5 id='material-icons-overview'><a href="https://v4.mui.com/components/material-icons/" target="_blank"> Material Icons overview </a></h5>
 <p><strong>Material Icons</strong> - set of icons provided by npm package, @material-ui/icons, that includes the 1,100+ official Material icons converted to SvgIcon components.</p>
 
 <p><img src="images/material-ui/MaterialIcons.png" alt="Material Icons" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div&gt;</span>
-  <span class="nt">&lt;h1&gt;</span>Material Icons<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Access Alarm<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"defaultAccessAlarm"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"largeAccessAlarm"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiSvgIcon-colorSecondary"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"secondaryAccessAlarm"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"miconLastClick"</span><span class="nt">&gt;</span>Last click: default<span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"miconLastHover"</span><span class="nt">&gt;</span>Last hover: large<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root jss225"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">title=</span><span class="s">"AccessAlarm"</span> <span class="na">data-ga-event-category=</span><span class="s">"material-icons"</span> <span class="na">data-ga-event-action=</span><span class="s">"click"</span> <span class="na">data-ga-event-label=</span><span class="s">"AccessAlarm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM12.5 8H11v6l4.75 2.85.75-1.23-4-2.37V8zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
 </code></pre><h5 id='here-you-can-find-material-icons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a></h5>
 <p><br></br></p>
 <h3 id='4-13-icons'>4.13 Icons</h3><pre class="highlight java tab-java"><code>    <span class="c1">// FindBy(xpath = "//div[contains(@class, 'MuiGrid-grid-xs-8')]/*[local-name()='svg']")</span>
@@ -34561,16 +34555,15 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#simpleLastHover"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">simpleLastHover</span><span class="o">;</span>
 
-    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">IconsDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> 
-            <span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"simpleIconsTestDataProvider"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleIconsTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">elementIndexForHover</span><span class="o">,</span> <span class="n">String</span> <span class="n">resultHoverFieldText</span><span class="o">,</span>
-                                <span class="kt">int</span> <span class="n">elementIndexForClick</span><span class="o">,</span> <span class="n">String</span> <span class="n">resultClickFieldText</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">elementIndexForHover</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">simpleLastHover</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">resultHoverFieldText</span><span class="o">);</span>
-        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">elementIndexForClick</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">simpleLastClick</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">resultClickFieldText</span><span class="o">);</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleIconsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">simpleLastHover</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: DeleteIcon"</span><span class="o">);</span>
+        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleLastClick</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: DeleteForeverIcon"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='icons-overview'><a href="https://material-ui.com/components/icons/" target="_blank"> Icons overview </a></h5>
+</code></pre><h5 id='icons-overview'><a href="https://v4.mui.com/components/icons/" target="_blank"> Icons overview </a></h5>
 <p>Icon is located in the following class:</p>
 
 <ul>
@@ -34583,9 +34576,15 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
+  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+  <span class="nt">&lt;/svg&gt;</span>
+  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+  <span class="nt">&lt;/svg&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"simpleLastClick"</span><span class="nt">&gt;</span>Last click: DeleteOutlinedIcon<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"simpleLastHover"</span><span class="nt">&gt;</span>Last hover: DeleteForeverIcon<span class="nt">&lt;/p&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
 
@@ -34600,16 +34599,6 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td><strong>is()</strong></td>
 <td>Returns object for work with assertions</td>
 <td>IconAssert</td>
-</tr>
-<tr>
-<td><strong>colored()</strong></td>
-<td>Check whether element is colored (not black)</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>getColor()</strong></td>
-<td>Get color of icon</td>
-<td>String</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-icons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconsTests.java" target="_blank">Here you can find Icons tests</a></h5>

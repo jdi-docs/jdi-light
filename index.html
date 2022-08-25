@@ -34572,72 +34572,37 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[@aria-label='add']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">buttonAdd</span><span class="o">;</span>
 
-    <span class="c1">// @FindBy(xpath = "//button[@aria-label='edit']")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[@aria-label='edit']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">buttonEdit</span><span class="o">;</span>
-
-    <span class="c1">// @FindBy(xpath = "//button[contains(@class,'MuiFab-extended')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@class,'MuiFab-extended')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">buttonNavigate</span><span class="o">;</span>
-
     <span class="c1">// @FindBy(xpath = "//button[@aria-label='like']")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[@aria-label='like']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">buttonLike</span><span class="o">;</span>
 
-    <span class="c1">// @FindBy(id = "basicActionBtnsLastClick")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basicActionBtnsLastClick"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">labelLastClick</span><span class="o">;</span>
-
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicButtonsTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">buttonAdd</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">buttonAdd</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">buttonAdd</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">labelLastClick</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Add"</span><span class="o">);</span>
+        <span class="n">buttonAdd</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
 
-        <span class="n">buttonEdit</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">buttonEdit</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">buttonEdit</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">labelLastClick</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Edit"</span><span class="o">);</span>
-
-        <span class="n">buttonNavigate</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">buttonNavigate</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">buttonNavigate</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">labelLastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Navigate"</span><span class="o">);</span>
-
-        <span class="n">buttonLike</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">buttonLike</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+        <span class="n">buttonLike</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='floating-action-button-overview'><a href="https://material-ui.com/components/floating-action-button/" target="_blank"> Floating Action Button overview </a></h5>
+</code></pre><h5 id='floating-action-button-overview'><a href="https://v4.mui.com/components/floating-action-button/" target="_blank"> Floating Action Button overview </a></h5>
 <p><strong>Floating Action Button</strong> - element that appears in front of all screen content, typically as a circular shape with an icon in its center. </p>
 
 <p><img src="images/material-ui/Fab.png" alt="Floating action button" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss182"</span> <span class="na">id=</span><span class="s">"basicActionBtns"</span><span class="nt">&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss150"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiFab-root MuiFab-primary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"add"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiFab-label"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-    <span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiFab-root MuiFab-secondary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"edit"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiFab-label"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-    <span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiFab-root MuiFab-extended"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiFab-label"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root jss183"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-      Navigate
-    <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiFab-label"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+         <span class="nt">&lt;/svg&gt;</span>
+      <span class="nt">&lt;/span&gt;</span>
     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiFab-root Mui-disabled Mui-disabled"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled=</span><span class="s">""</span> <span class="na">aria-label=</span><span class="s">"like"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiFab-label"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-    <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiFab-label"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+         <span class="nt">&lt;/svg&gt;</span>
+      <span class="nt">&lt;/span&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre><h5 id='here-you-can-find-floating-action-button-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FloatingActionButtonTests.java" target="_blank">Here you can find Floating Action Button tests</a></h5>
@@ -34661,21 +34626,31 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
         <span class="o">}</span>
         <span class="n">currentWidth</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Current width: "</span> <span class="o">+</span> <span class="n">expectedWidth</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='hidden-overview'><a href="https://material-ui.com/components/hidden/" target="_blank"> Hidden overview </a></h5>
+
+    <span class="nd">@DataProvider</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Screen Width"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Object</span><span class="o">[][]</span> <span class="nf">screenWidthDividers</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[][]{</span>
+            <span class="o">{</span><span class="mi">599</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="s">"xs"</span><span class="o">},</span>
+            <span class="o">{</span><span class="mi">600</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="s">"sm"</span><span class="o">},</span>
+            <span class="o">{</span><span class="mi">959</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="s">"sm"</span><span class="o">},</span>
+            <span class="o">{</span><span class="mi">960</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"md"</span><span class="o">},</span>
+            <span class="o">{</span><span class="mi">1279</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"md"</span><span class="o">},</span>
+            <span class="o">{</span><span class="mi">1280</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="s">"lg"</span><span class="o">},</span>
+            <span class="o">{</span><span class="mi">1919</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="s">"lg"</span><span class="o">},</span>
+            <span class="o">{</span><span class="mi">1920</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="s">"xl"</span><span class="o">}};</span>
+    <span class="o">}</span>
+</code></pre><h5 id='hidden-overview'><a href="https://v4.mui.com/components/hidden/" target="_blank"> Hidden overview </a></h5>
 <p><strong>Hidden</strong> - element that allows you to quickly and responsively toggle the visibility value of components and much more.</p>
 
 <p><img src="images/material-ui/Hidden.png" alt="Hidden" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss193"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h1&gt;</span>Hidden<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-subtitle1"</span><span class="nt">&gt;</span>
-    Current width: sm
-  <span class="nt">&lt;/h6&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss194"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root jss195 MuiPaper-elevation1 MuiPaper-rounded"</span><span class="nt">&gt;</span>
-      xsDown
-    <span class="nt">&lt;/div&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss145"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-subtitle1"</span><span class="nt">&gt;</span>Current width: lg<span class="nt">&lt;/h6&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss146"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root jss147 MuiPaper-elevation1 MuiPaper-rounded"</span><span class="nt">&gt;</span>xsDown<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root jss147 MuiPaper-elevation1 MuiPaper-rounded"</span><span class="nt">&gt;</span>smDown<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root jss147 MuiPaper-elevation1 MuiPaper-rounded"</span><span class="nt">&gt;</span>mdDown<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre><h5 id='here-you-can-find-hidden-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a></h5>

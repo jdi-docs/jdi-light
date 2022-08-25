@@ -660,51 +660,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.10 Box
-
-```java
-    // @FindBy(className = "MuiButton-contained")
-    @UI(".MuiButton-contained")
-    public static Button buttonContainedBox;
-    
-    // @FindBy(id = "lastClickContent")
-    @UI("#lastClickContent")
-    public static Text lastClickContent;
-
-    @Test
-    public void containedBoxTest() {
-        buttonContainedBox.is().displayed()
-                .and().has().text("FIRST BUTTON")
-                .and().cssClass("MuiButton-containedPrimary")
-                .and().has().css("background-color", Colors.PRIMARY.rgba());
-        
-        buttonContainedBox.click();
-        lastClickContent.has().text("You clicked First button");
-    }
-```
-
-##### <a href="https://material-ui.com/components/box/" target="_blank"> Box overview </a>
-
-__Box__ - element that serves as a wrapper component for most of the CSS utility needs.
-
-![Box](../../images/material-ui/Box.png)
-
-Here is an example with provided Material-UI v4.12.3 code:
-
-```html
-<div class="MuiBox-root jss292">
-  <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" type="button">
-    <span class="MuiButton-label">First button</span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-</div>
-```
-
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
-
-<br></br>
- 
-### 4.11 Transitions
+### 4.10 Transitions
 
 ```java
     // @FindBy(xpath = "//h2[text()='Collapse']/following::div[contains(@class,'MuiCollapse-root')]")
@@ -796,7 +752,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.12 Material Icons
+### 4.11 Material Icons
 
 ```java
     // @FindBy(xpath = "//h2[text()='Access Alarm']/following::*[name()='svg']")
@@ -851,7 +807,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 <br></br>
 
-### 4.13 Icons
+### 4.12 Icons
 
 ```java
     // FindBy(xpath = "//div[contains(@class, 'MuiGrid-grid-xs-8')]/*[local-name()='svg']")
@@ -911,7 +867,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.14 Floating Action Button
+### 4.13 Floating Action Button
 
 ```java
     // @FindBy(xpath = "//button[@aria-label='add']")
@@ -997,7 +953,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 <br></br>
 
-### 4.15 Hidden
+### 4.14 Hidden
 
 ```java
     // @FindBy(className = "MuiTypography-subtitle1")
@@ -1047,7 +1003,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 <br></br>
 
-### 4.16 Stepper
+### 4.15 Stepper
 
 ```java
     // @FindBy(css = "#nonLinearStepper .MuiStep-root")
@@ -1148,7 +1104,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.17 Slider
+### 4.16 Slider
 
 ```java
     // @FindBy(xpath = "//*[@id="continuous-slider"]/following-sibling::div//span[contains(@class, "MuiSlider-root")]")
@@ -1235,7 +1191,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.18 Tabs
+### 4.17 Tabs
 
 ```java
     // @FindBy(css = "h2+div[1] .MuiTab-root")
@@ -1302,7 +1258,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.19 Table
+### 4.18 Table
 
 ```java
     // @FindBy(id = "basicTable")
@@ -1365,7 +1321,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.20 Typography
+### 4.19 Typography
 
 ```java
     // @FindBy(css = ".MuiGrid-root[3] .MuiTypography-root")
@@ -1435,7 +1391,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.21 Badge
+### 4.20 Badge
 
 ```java
     // @FindBy(css = "#primaryColorBadge .MuiBadge-badge")
@@ -1485,7 +1441,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.22 Snackbars
+### 4.21 Snackbars
 
 ```java
     // @FindBy(xpath = "//span[text()='Open simple snackbar']/parent::button")
@@ -1559,7 +1515,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.23 Backdrop
+### 4.22 Backdrop
 
 ```java
     // @FindBy(className = "MuiButton-root")
@@ -1611,7 +1567,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.24 Dialog
+### 4.23 Dialog
 
 ```java
     //Button containing dialog @FindBy(xpath = "//span[text()='Open simple dialog']/parent::button")
@@ -1691,7 +1647,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.25 Date / Time pickers
+### 4.24 Date / Time pickers
 
 ```java
     // @FindBy(xpath = "//*[@id = 'date-picker-inline-label']/parent::div")
@@ -1759,7 +1715,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.26 Select
+### 4.25 Select
 
 ```java
     // @FindBy(xpath = "//*[@id='demo-simple-select']/following-sibling::div")
@@ -1822,7 +1778,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.27 Switch
+### 4.26 Switch
 
 ```java
     // @FindBy(xpath = "//fieldset//span[@class='MuiSwitch-root']")
@@ -1912,7 +1868,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.28 Button
+### 4.27 Button
 
 ```java
     // @FindBy(xpath = "//h2[text()='Contained buttons']/parent::div/div[1]/*")
@@ -1968,7 +1924,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.29 ButtonGroup
+### 4.28 ButtonGroup
 
 ```java
     //      @FindBy(xpath = "//div[@aria-label = 'outlined primary button group']")
@@ -2082,7 +2038,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.30 Grid
+### 4.29 Grid
 
 ```java
     // @FindBy(id = "basicGrid")
@@ -2181,7 +2137,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.31 GridList
+### 4.30 GridList
 
 ```java 
      // @FindBy(css = ".MuiGridList-root.jss5")
@@ -2314,7 +2270,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.32 Drawer
+### 4.31 Drawer
 
 ```java  
     //root - @FindBy(xpath = "//span[text() = 'left']/parent::button")
@@ -2440,7 +2396,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.33 Breadcrumbs
+### 4.32 Breadcrumbs
 
 ```java 
     //       @FindBy(css = ".MuiBreadcrumbs-root")
@@ -2534,7 +2490,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.34 Bottom Navigation
+### 4.33 Bottom Navigation
 
 ```java
     //    @FindBy(css = ".MuiBottomNavigationAction-root")
@@ -2596,7 +2552,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.35 Paper
+### 4.34 Paper
 
 ```java 
     //   @FindBy(id = "paperElevation3")
@@ -2645,7 +2601,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.36 Accordion
+### 4.35 Accordion
 
 ```java
     // UIElement @FindBy(css = ".MuiAccordion-root[1]")
@@ -2724,7 +2680,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.37 Portal
+### 4.36 Portal
 
 ```java 
     // @FindBy(css = ".MuiBox-root")
@@ -2785,7 +2741,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.38 Textarea Autosize
+### 4.37 Textarea Autosize
 
 ```java 
     //    @FindBy(xpath = "//textarea[@aria-label = 'empty textarea']")
@@ -2832,7 +2788,7 @@ Available methods in Java JDI Light you can find in html `TextArea` class.
 
 <br></br>
 
-### 4.39 Popover
+### 4.38 Popover
 
 ```java 
     //    @FindBy(css = ".MuiPopover-root .MuiPaper-root")
@@ -2886,7 +2842,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.40 Modal
+### 4.39 Modal
 
 ```java 
     //    @FindBy(xpath = "//*[@role='presentation' and not(@aria-hidden='true')]")
@@ -2968,7 +2924,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.41 Popper
+### 4.40 Popper
 
 ```java
     // @FindBy(css = "[type=button]")
@@ -3029,7 +2985,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.42 Progress
+### 4.41 Progress
 
 ```java
     //    @FindBy(xpath = "(//div[@aria-valuenow='100']/following-sibling::div)[1]")
@@ -3106,7 +3062,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.43 Link
+### 4.42 Link
 
 ```java 
     //    @FindBy(xpath = "//a[text()='Link']")
@@ -3173,7 +3129,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.44 Menus
+### 4.43 Menus
 
 ```java 
     //  @FindBy(css = "span.MuiButton-label")
@@ -3258,7 +3214,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.45 Lists
+### 4.44 Lists
 
 ```java
     // @FindBy(id = "simpleList")
@@ -3328,7 +3284,7 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListTests.java" target="_blank">Here you can find List tests</a>
 
-#### 4.46.1 List Items
+#### 4.44.1 List Items
 
 List Item is located in the following class:
 
@@ -3357,7 +3313,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.46 Transfer List
+### 4.45 Transfer List
 
 ```java
     // @FindBy(css = ".MuiGrid-justify-xs-center")
@@ -3557,7 +3513,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.47 Text Field
+### 4.46 Text Field
 
 ```java 
     //    @FindBy(xpath = "//form[@id='formProps']/div[2]/div[contains(@class, 'MuiTextField-root')]")
@@ -3678,7 +3634,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.48 UseMediaQuery
+### 4.47 UseMediaQuery
 
 ```java
     //    @FindBy(xpath = "//span[contains(.,'min-width')]")
@@ -3710,7 +3666,7 @@ components based on whether the query matches or not.
 
 <br></br>
 
-### 4.49 Alert
+### 4.48 Alert
 
 ```java
     // @FindBy(xpath = "//div[contains(@class, 'MuiTypography-root')]/ancestor::*[contains(@class, 'MuiAlert-root')]")

@@ -874,45 +874,19 @@ Available methods in Java JDI Light:
     @UI("//button[@aria-label='add']")
     public static Button buttonAdd;
     
-    // @FindBy(xpath = "//button[@aria-label='edit']")
-    @UI("//button[@aria-label='edit']")
-    public static Button buttonEdit;
-
-    // @FindBy(xpath = "//button[contains(@class,'MuiFab-extended')]")
-    @UI("//button[contains(@class,'MuiFab-extended')]")
-    public static Button buttonNavigate;
-    
     // @FindBy(xpath = "//button[@aria-label='like']")
     @UI("//button[@aria-label='like']")
     public static Button buttonLike;
-
-    // @FindBy(id = "basicActionBtnsLastClick")
-    @UI("#basicActionBtnsLastClick")
-    public static Text labelLastClick;
     
     @Test
     public void basicButtonsTest() {
-        buttonAdd.is().displayed();
-        buttonAdd.is().enabled();
-        buttonAdd.click();
-        labelLastClick.has().text("Last click: Add");
-        
-        buttonEdit.is().displayed();
-        buttonEdit.is().enabled();
-        buttonEdit.click();
-        labelLastClick.has().text("Last click: Edit");
+        buttonAdd.is().displayed().and().is().enabled();
 
-        buttonNavigate.is().displayed();
-        buttonNavigate.is().enabled();
-        buttonNavigate.click();
-        labelLastClick.is().text("Last click: Navigate");
-
-        buttonLike.is().displayed();
-        buttonLike.is().disabled();
+        buttonLike.is().displayed().and().is().disabled();
     }
 ```
 
-##### <a href="https://material-ui.com/components/floating-action-button/" target="_blank"> Floating Action Button overview </a>
+##### <a href="https://v4.mui.com/components/floating-action-button/" target="_blank"> Floating Action Button overview </a>
 
 __Floating Action Button__ - element that appears in front of all screen content, typically as a circular shape with an icon in its center. 
 
@@ -921,30 +895,21 @@ __Floating Action Button__ - element that appears in front of all screen content
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="jss182" id="basicActionBtns">
+<div class="jss150">
   <button class="MuiButtonBase-root MuiFab-root MuiFab-primary" tabindex="0" type="button" aria-label="add">
-    <span class="MuiFab-label">
-      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-    </span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-  <button class="MuiButtonBase-root MuiFab-root MuiFab-secondary" tabindex="0" type="button" aria-label="edit">
-    <span class="MuiFab-label">
-      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-    </span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-  <button class="MuiButtonBase-root MuiFab-root MuiFab-extended" tabindex="0" type="button">
-    <span class="MuiFab-label">
-      <svg class="MuiSvgIcon-root jss183" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-      Navigate
-    </span>
+      <span class="MuiFab-label">
+         <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+         </svg>
+      </span>
     <span class="MuiTouchRipple-root"></span>
   </button>
   <button class="MuiButtonBase-root MuiFab-root Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" aria-label="like">
-    <span class="MuiFab-label">
-      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-    </span>
+      <span class="MuiFab-label">
+         <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+         </svg>
+      </span>
   </button>
 </div>
 ```
@@ -975,9 +940,22 @@ Here is an example with provided Material-UI v4.12.3 code:
         }
         currentWidth.has().text("Current width: " + expectedWidth);
     }
+
+    @DataProvider(name = "Screen Width")
+    public Object[][] screenWidthDividers() {
+        return new Object[][]{
+            {599, 0, "xs"},
+            {600, 1, "sm"},
+            {959, 1, "sm"},
+            {960, 2, "md"},
+            {1279, 2, "md"},
+            {1280, 3, "lg"},
+            {1919, 3, "lg"},
+            {1920, 4, "xl"}};
+    }
 ```
 
-##### <a href="https://material-ui.com/components/hidden/" target="_blank"> Hidden overview </a>
+##### <a href="https://v4.mui.com/components/hidden/" target="_blank"> Hidden overview </a>
 
 __Hidden__ - element that allows you to quickly and responsively toggle the visibility value of components and much more.
 
@@ -986,15 +964,12 @@ __Hidden__ - element that allows you to quickly and responsively toggle the visi
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="jss193">
-  <h1>Hidden</h1>
-  <h6 class="MuiTypography-root MuiTypography-subtitle1">
-    Current width: sm
-  </h6>
-  <div class="jss194">
-    <div class="MuiPaper-root jss195 MuiPaper-elevation1 MuiPaper-rounded">
-      xsDown
-    </div>
+<div class="jss145">
+  <h6 class="MuiTypography-root MuiTypography-subtitle1">Current width: lg</h6>
+  <div class="jss146">
+    <div class="MuiPaper-root jss147 MuiPaper-elevation1 MuiPaper-rounded">xsDown</div>
+    <div class="MuiPaper-root jss147 MuiPaper-elevation1 MuiPaper-rounded">smDown</div>
+    <div class="MuiPaper-root jss147 MuiPaper-elevation1 MuiPaper-rounded">mdDown</div>
   </div>
 </div>
 ```

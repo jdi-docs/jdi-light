@@ -34655,47 +34655,34 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <span class="nt">&lt;/div&gt;</span>
 </code></pre><h5 id='here-you-can-find-hidden-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a></h5>
 <p><br></br></p>
-<h3 id='4-15-stepper'>4.15 Stepper</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(css = "#nonLinearStepper .MuiStep-root")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#nonLinearStepper .MuiStep-root"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Stepper</span> <span class="n">nonlinearStepper</span><span class="o">;</span>
-
-    <span class="c1">// @FindBy(xpath = "//p[@id='activeNonLinearStep']/..//button[2]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//p[@id='activeNonLinearStep']/..//button[2]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialButton</span> <span class="n">nonlinearStepperNextButton</span><span class="o">;</span>
-
-    <span class="c1">// @FindBy(xpath = "//p[@id='activeNonLinearStep']/..//button[3]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//p[@id='activeNonLinearStep']/..//button[3]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialButton</span> <span class="n">nonlinearStepperCompleteStepButton</span><span class="o">;</span>
+<h3 id='4-15-stepper'>4.15 Stepper</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(class = "MuiStep-root")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiStep-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">DesktopStepper</span> <span class="n">nonlinearStepper</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">nonlinearStepperForwardTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">stepsLabels</span> <span class="o">=</span> <span class="o">{</span><span class="s">"Step #1"</span><span class="o">,</span> <span class="s">"Step #2"</span><span class="o">,</span> <span class="s">"Step #3"</span><span class="o">};</span>
+
         <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">steps</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">steps</span><span class="o">));</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepDisabled</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepDisabled</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">steps</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">);</span>
 
-        <span class="n">nonlinearStepperNextButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepCompleted</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepDisabled</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">0</span><span class="o">]).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">incomplete</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">1</span><span class="o">]).</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">incomplete</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">2</span><span class="o">]).</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">incomplete</span><span class="o">();</span>
 
-        <span class="n">nonlinearStepperNextButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepCompleted</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepCompleted</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">buttonGroup</span><span class="o">().</span><span class="na">button</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">buttonGroup</span><span class="o">().</span><span class="na">button</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">buttonGroup</span><span class="o">().</span><span class="na">button</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">0</span><span class="o">]).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">completed</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">1</span><span class="o">]).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">completed</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">2</span><span class="o">]).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">incomplete</span><span class="o">();</span>
 
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepCompleted</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepDisabled</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-
-        <span class="n">nonlinearStepperCompleteStepButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepCompleted</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepCompleted</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">1</span><span class="o">]).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">0</span><span class="o">]).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">completed</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">1</span><span class="o">]).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">completed</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">step</span><span class="o">(</span><span class="n">stepsLabels</span><span class="o">[</span><span class="mi">2</span><span class="o">]).</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">incomplete</span><span class="o">();</span>
   <span class="o">}</span>
-</code></pre><h5 id='stepper-overview'><a href="https://material-ui.com/components/steppers/" target="_blank"> Stepper overview </a></h5>
+</code></pre><h5 id='stepper-overview'><a href="https://v4.mui.com/components/steppers/" target="_blank"> Stepper overview </a></h5>
 <p>Stepper is located in the following class:</p>
 
 <ul>
@@ -34707,31 +34694,62 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Stepper.png" alt="Stepper" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"</span> <span class="na">id=</span><span class="s">"nonLinearStepper"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStep-root MuiStep-horizontal"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-root MuiStepLabel-horizontal"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-iconContainer"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-        <span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-labelContainer"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Step #1<span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root MuiStepButton-touchRipple"</span><span class="nt">&gt;&lt;/span&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss220"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStep-root MuiStep-horizontal"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-root MuiStepLabel-horizontal"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-iconContainer"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">"12"</span> <span class="na">cy=</span><span class="s">"12"</span> <span class="na">r=</span><span class="s">"12"</span><span class="nt">&gt;&lt;/circle&gt;</span>
+                     <span class="nt">&lt;text</span> <span class="na">class=</span><span class="s">"MuiStepIcon-text"</span> <span class="na">x=</span><span class="s">"12"</span> <span class="na">y=</span><span class="s">"16"</span> <span class="na">text-anchor=</span><span class="s">"middle"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/text&gt;</span>
+                  <span class="nt">&lt;/svg&gt;</span>
+               <span class="nt">&lt;/span&gt;</span>
+               <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-labelContainer"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Step #1<span class="nt">&lt;/span&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root MuiStepButton-touchRipple"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStepConnector-root MuiStepConnector-horizontal"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepConnector-line MuiStepConnector-lineHorizontal"</span><span class="nt">&gt;&lt;/span&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStep-root MuiStep-horizontal"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-root MuiStepLabel-horizontal"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-iconContainer"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiStepIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">"12"</span> <span class="na">cy=</span><span class="s">"12"</span> <span class="na">r=</span><span class="s">"12"</span><span class="nt">&gt;&lt;/circle&gt;</span>
+                     <span class="nt">&lt;text</span> <span class="na">class=</span><span class="s">"MuiStepIcon-text"</span> <span class="na">x=</span><span class="s">"12"</span> <span class="na">y=</span><span class="s">"16"</span> <span class="na">text-anchor=</span><span class="s">"middle"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/text&gt;</span>
+                  <span class="nt">&lt;/svg&gt;</span>
+               <span class="nt">&lt;/span&gt;</span>
+               <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-labelContainer"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Step #2<span class="nt">&lt;/span&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root MuiStepButton-touchRipple"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStepConnector-root MuiStepConnector-horizontal"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepConnector-line MuiStepConnector-lineHorizontal"</span><span class="nt">&gt;&lt;/span&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStep-root MuiStep-horizontal"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-root MuiStepLabel-horizontal"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-iconContainer"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiStepIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">"12"</span> <span class="na">cy=</span><span class="s">"12"</span> <span class="na">r=</span><span class="s">"12"</span><span class="nt">&gt;&lt;/circle&gt;</span>
+                     <span class="nt">&lt;text</span> <span class="na">class=</span><span class="s">"MuiStepIcon-text"</span> <span class="na">x=</span><span class="s">"12"</span> <span class="na">y=</span><span class="s">"16"</span> <span class="na">text-anchor=</span><span class="s">"middle"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/text&gt;</span>
+                  <span class="nt">&lt;/svg&gt;</span>
+               <span class="nt">&lt;/span&gt;</span>
+               <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepLabel-labelContainer"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Step #3<span class="nt">&lt;/span&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root MuiStepButton-touchRipple"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepConnector-line MuiStepConnector-lineHorizontal"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root jss223 MuiTypography-body1"</span><span class="nt">&gt;</span>You are on Step #1<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;div&gt;&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-text jss221 Mui-disabled Mui-disabled"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Back<span class="nt">&lt;/span&gt;&lt;/button&gt;&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-contained jss221 MuiButton-containedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Complete Step<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStep-root MuiStep-horizontal"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiStepConnector-line MuiStepConnector-lineHorizontal"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiStep-root MuiStep-horizontal"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
-<p>Available methods in Java JDI Light:</p>
+<p>Available methods in Java JDI Light for DesktopStepper:</p>
 
 <table><thead>
 <tr>
@@ -34741,83 +34759,118 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>stepCompleted(int)</strong></td>
-<td>Check whether specified step is completed</td>
+<td><strong>currentIndex()</strong></td>
+<td>Get current step index</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>maxIndex()</strong></td>
+<td>Get max steps number</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>buttonGroup()</strong></td>
+<td>Get element&#39;s buttons</td>
+<td>ButtonGroup</td>
+</tr>
+<tr>
+<td><strong>step(int)</strong></td>
+<td>Get step by index</td>
+<td>Step</td>
+</tr>
+<tr>
+<td><strong>step(String)</strong></td>
+<td>Get step by label</td>
+<td>Step</td>
+</tr>
+<tr>
+<td><strong>steps()</strong></td>
+<td>Get all steps</td>
+<td>List<Step></td>
+</tr>
+<tr>
+<td><strong>hasStep(int)</strong></td>
+<td>Check that step with given index exists</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>stepEnabled(int)</strong></td>
-<td>Check whether specified step is enabled</td>
+<td><strong>hasStep(String)</strong></td>
+<td>Check that step with given label exists</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>dots()</strong></td>
-<td>Returns list of stepper&#39;s dots</td>
-<td>WebList</td>
-</tr>
-<tr>
-<td><strong>progressBar()</strong></td>
-<td>Returns stepper&#39;s progress bar</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>next()</strong></td>
-<td>Returns stepper&#39;s &#39;next&#39; button</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>back()</strong></td>
-<td>Returns stepper&#39;s &#39;back&#39; button</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>isVertical()</strong></td>
-<td>Checks that stepper is vertical</td>
+<td><strong>hasAllStepsCompleted()</strong></td>
+<td>Check that all steps are completed</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isHorizontal()</strong></td>
-<td>Checks that stepper is horizontal</td>
+<td><strong>hasAllStepsIncomplete()</strong></td>
+<td>Check that all steps are incomplete</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasStepCompleted(int)</strong></td>
+<td>Check that step with given index is completed</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
 <td>Returns object for work with assertions</td>
-<td>StepperAssert</td>
+<td>DesktopStepperAssert</td>
+</tr>
+</tbody></table>
+
+<p>Available methods in Java JDI Light for MobileStepper:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>currentIndex()</strong></td>
+<td>Get current step index</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>maxIndex()</strong></td>
+<td>Get max steps number</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>backButton()</strong></td>
+<td>Get &#39;Back&#39; button</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>nextButton()</strong></td>
+<td>Get &#39;Next&#39; button</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>MobileStepperAssert</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-stepper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a></h5>
 <p><br></br></p>
-<h3 id='4-16-slider'>4.16 Slider</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//*[@id="continuous-slider"]/following-sibling::div//span[contains(@class, "MuiSlider-root")]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id='continuous-slider']/following-sibling::div//span[contains(@class, 'MuiSlider-root')]"</span><span class="o">)</span>
+<h3 id='4-16-slider'>4.16 Slider</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(id = "continuousSlider")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#continuousSlider"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Slider</span> <span class="n">continuousSlider</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">continuousSliderTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">checkCondition</span><span class="o">(</span><span class="n">disabledContinuousSlider</span><span class="o">,</span> <span class="n">DISABLED</span><span class="o">,</span> <span class="n">HORIZONTAL</span><span class="o">,</span> <span class="mi">30</span><span class="o">);</span>
-
-        <span class="n">checkCondition</span><span class="o">(</span><span class="n">continuousSlider</span><span class="o">,</span> <span class="n">ENABLED</span><span class="o">,</span> <span class="n">HORIZONTAL</span><span class="o">,</span> <span class="mi">30</span><span class="o">);</span>
-        <span class="n">testSliderBasicLogic</span><span class="o">(</span><span class="n">continuousSlider</span><span class="o">,</span> <span class="mi">15</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="mi">15</span><span class="o">);</span>
-        <span class="n">continuousSlider</span><span class="o">.</span><span class="na">slideHorizontalTo</span><span class="o">(</span><span class="mi">20</span><span class="o">);</span>
-        <span class="n">continuousSlider</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">20</span><span class="o">);</span>
+        <span class="n">continuousSlider</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">continuousSlider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">()</span>
+              <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"30"</span><span class="o">);</span>
+        <span class="n">continuousSlider</span><span class="o">.</span><span class="na">track</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+        <span class="n">continuousSlider</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"71"</span><span class="o">);</span>
+        <span class="n">continuousSlider</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"71"</span><span class="o">);</span>
     <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkCondition</span><span class="o">(</span><span class="n">Slider</span> <span class="n">slider</span><span class="o">,</span> <span class="n">String</span> <span class="n">accessibility</span><span class="o">,</span> <span class="n">String</span> <span class="n">orientation</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startedValue</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">switch</span> <span class="o">(</span><span class="n">accessibility</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">case</span> <span class="s">"disabled"</span><span class="o">:</span>
-                <span class="n">slider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="k">case</span> <span class="s">"enabled"</span><span class="o">:</span>
-                <span class="n">slider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="k">default</span><span class="o">:</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Condition not found"</span><span class="o">);</span>
-                <span class="k">break</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="n">slider</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">orientation</span><span class="o">(</span><span class="n">orientation</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">startedValue</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><h5 id='slider-overview'><a href="https://material-ui.com/components/slider/" target="_blank"> Slider overview </a></h5>
+</code></pre><h5 id='slider-overview'><a href="https://v4.mui.com/components/slider/" target="_blank"> Slider overview </a></h5>
 <p>Slider is located in the following class:</p>
 
 <ul>
@@ -34831,17 +34884,13 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Slider.png" alt="Slider" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"</span> <span class="na">id=</span><span class="s">"continuous-slider"</span><span class="nt">&gt;</span>Default Slider<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSlider-root MuiSlider-colorPrimary"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSlider-rail"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSlider-track"</span> <span class="na">style=</span><span class="s">"left: 0%; width: 60%;"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"30"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSlider-thumb MuiSlider-thumbColorPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"slider"</span> <span class="na">data-index=</span><span class="s">"0"</span> <span class="na">aria-labelledby=</span><span class="s">"continuous-slider"</span> <span class="na">aria-orientation=</span><span class="s">"horizontal"</span> <span class="na">aria-valuemax=</span><span class="s">"100"</span> <span class="na">aria-valuemin=</span><span class="s">"0"</span> <span class="na">aria-valuenow=</span><span class="s">"30"</span> <span class="na">style=</span><span class="s">"left: 30%;"</span><span class="nt">&gt;&lt;/span&gt;</span>
-    <span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1"</span> <span class="na">id=</span><span class="s">"continuousValue"</span><span class="nt">&gt;</span>Selected value: 30<span class="nt">&lt;/p&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSlider-root MuiSlider-colorPrimary"</span> <span class="na">id=</span><span class="s">"continuousSlider"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSlider-rail"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSlider-track"</span> <span class="na">style=</span><span class="s">"left: 0%; width: 40%;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"40"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSlider-thumb MuiSlider-thumbColorPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"slider"</span> <span class="na">data-index=</span><span class="s">"0"</span> <span class="na">aria-labelledby=</span><span class="s">"continuous-slider"</span> <span class="na">aria-orientation=</span><span class="s">"horizontal"</span> <span class="na">aria-valuemax=</span><span class="s">"100"</span> <span class="na">aria-valuemin=</span><span class="s">"0"</span> <span class="na">aria-valuenow=</span><span class="s">"40"</span> <span class="na">style=</span><span class="s">"left: 40%;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
@@ -34854,24 +34903,9 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>sliderLabel()</strong></td>
-<td>Get slider label</td>
+<td><strong>thumb()</strong></td>
+<td>Returns slider thumb</td>
 <td>UIElement</td>
-</tr>
-<tr>
-<td><strong>slider()</strong></td>
-<td>Get slider</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>labelIsVisible()</strong></td>
-<td>Get slider</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Check that slider&#39;s label is visible</td>
-<td>int</td>
 </tr>
 <tr>
 <td><strong>setValue(int)</strong></td>
@@ -34879,49 +34913,24 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>void</td>
 </tr>
 <tr>
-<td><strong>isDisabled()</strong></td>
-<td>Checks whether slider is disabled</td>
-<td>boolean</td>
+<td><strong>setValue(double)</strong></td>
+<td>Set new value</td>
+<td>void</td>
 </tr>
 <tr>
-<td><strong>orientation()</strong></td>
-<td>Get orientation value</td>
+<td><strong>setValue(String)</strong></td>
+<td>Set new value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Get thumb value</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>slideVerticalTo(int)</strong></td>
-<td>Set new value using drag-and-drop action for vertical slider</td>
+<td><strong>dragAndDropThumbTo(String)</strong></td>
+<td>Perform drag and drop to given value</td>
 <td>void</td>
-</tr>
-<tr>
-<td><strong>slideHorizontalTo(int)</strong></td>
-<td>Set new value using drag-and-drop action for horizontal slider</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>increaseValue()</strong></td>
-<td>Increase slider value</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>decreaseValue()</strong></td>
-<td>Decrease slider value</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>thumb()</strong></td>
-<td>Returns slider thumb</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>track()</strong></td>
-<td>Returns slider track</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>getInteger(String, WebElement, int)</strong></td>
-<td>Returns integer value of specified element</td>
-<td>int</td>
 </tr>
 <tr>
 <td><strong>is()</strong></td>

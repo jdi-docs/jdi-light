@@ -1172,22 +1172,22 @@ Available methods in Java JDI Light:
 ### 4.17 Tabs
 
 ```java
-    // @FindBy(css = "h2+div[1] .MuiTab-root")
-    @UI("h2+div[1] .MuiTab-root")
+    // @FindBy(class = "MuiTab-root")
+    @UI(".MuiTab-root")
     public static Tabs simpleTabs;
     
     @Test
     public void simpleTabTest() {
-        simpleTabs.has().values(equalTo(asList("ITEM ONE", "ITEM TWO", "ITEM THREE", "ITEM FOUR", "ITEM FIVE")));
+        simpleTabs.has().values(equalTo(asList("ITEM ONE", "ITEM TWO", "ITEM THREE")));
         simpleTabs.has().selected(1);
         simpleTabs.select(2);
         simpleTabs.has().selected(2);
-        simpleTabs.has().disabled(4);
-        simpleTabs.has().size(5);
+        simpleTabs.has().disabled(3);
+        simpleTabs.has().size(3);
     }
 ```
 
-##### <a href="https://material-ui.com/components/Tabs/" target="_blank"> Tabs overview </a>
+##### <a href="https://v4.mui.com/components/tabs/" target="_blank"> Tabs overview </a>
 
 Tabs is located in the following class:
 
@@ -1202,23 +1202,13 @@ Here is an example with provided Material-UI v4.12.3 code:
 ```html
 <div aria-label="simple tabs example" class="MuiTabs-flexContainer" role="tablist">
   <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected" tabindex="0" type="button" role="tab" aria-selected="true" id="simple-tab-0" aria-controls="simple-tabpanel-0">
-    <span class="MuiTab-wrapper">Item One</span>
-    <span class="MuiTouchRipple-root"></span>
+    <span class="MuiTab-wrapper">Item One</span><span class="MuiTouchRipple-root"></span>
   </button>
   <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit" tabindex="-1" type="button" role="tab" aria-selected="false" id="simple-tab-1" aria-controls="simple-tabpanel-1">
-    <span class="MuiTab-wrapper">Item Two</span>
-    <span class="MuiTouchRipple-root"></span>
+    <span class="MuiTab-wrapper">Item Two</span><span class="MuiTouchRipple-root"></span>
   </button>
-  <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit" tabindex="-1" type="button" role="tab" aria-selected="false" id="simple-tab-2" aria-controls="simple-tabpanel-2">
-    <span class="MuiTab-wrapper">Item Three</span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-  <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" role="tab" aria-selected="false" id="simple-tab-3" aria-controls="simple-tabpanel-3">
-    <span class="MuiTab-wrapper">Item Four</span>
-  </button>
-  <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit" tabindex="-1" type="button" role="tab" aria-selected="false" id="simple-tab-4" aria-controls="simple-tabpanel-4">
-    <span class="MuiTab-wrapper">Item Five</span>
-    <span class="MuiTouchRipple-root"></span>
+  <button class="MuiButtonBase-root MuiTab-root Mui-disabled MuiTab-textColorInherit" tabindex="-1" type="button" role="tab" aria-selected="false" id="simple-tab-2" aria-controls="simple-tabpanel-2">
+    <span class="MuiTab-wrapper">Item Three</span><span class="MuiTouchRipple-root"></span>
   </button>
 </div>
 ```
@@ -1228,6 +1218,8 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | TabsAssert
+**leftScroll()** | Returns left scroll button | Button
+**rightScroll()** | Returns right scroll button | Button
 **enabled(int)** | Check whether tab is enabled | boolean
 **disabled(int)** | Check whether tab is disabled | boolean
 **selected(int)** | Check whether tab is selected | boolean
@@ -1240,18 +1232,31 @@ Available methods in Java JDI Light:
 
 ```java
     // @FindBy(id = "basicTable")
-    @UI("#basicTable")
+    @JTable(
+            root = "#basicTable", 
+            row = "//tbody/tr[%s]/*",
+            cell = "//tbody/tr[{1}]/td[{0}]",
+            headers = ".MuiTableCell-head"
+    )
     public static Table basicTable;
+
+    private static final List<String> EXPECTED_TABLE_HEADERS = ImmutableList.of("Dessert (100g serving)", "Calories", "Fat (g)", "Carbs (g)", "Protein (g)");
     
     @Test
     public void basicTableTest() {
         basicTable.has().columns(EXPECTED_TABLE_HEADERS)
                         .and().size(13);
         basicTable.getCell(1, 1).has().text("305");
+
+        basicTable.show();
+        basicTable.headerUI().is().size(EXPECTED_TABLE_HEADERS.size());
+        basicTable.has().columns(EXPECTED_TABLE_HEADERS);
+        basicTable.getCell(1, 1).has().text("159");
+        basicTable.getCell(4, 5).has().text("3.9");
     }
 ```
 
-##### <a href="https://material-ui.com/components/Tables/" target="_blank"> Table overview </a>
+##### <a href="https://v4.mui.com/components/tables/" target="_blank"> Table overview </a>
 
 Table is located in the following class:
 
@@ -1264,27 +1269,55 @@ __Table__ - element that displays sets of data.
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<table class="MuiTable-root jss247" aria-label="simple table" id="basicTable">
-  <thead class="MuiTableHead-root">
-  <tr class="MuiTableRow-root MuiTableRow-head">
-    <th class="MuiTableCell-root MuiTableCell-head" scope="col">Dessert (100g serving)</th>
-    <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Calories</th>
-    <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Fat&nbsp;(g)</th>
-    <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Carbs&nbsp;(g)</th>
-    <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Protein&nbsp;(g)</th>
-  </tr>
-  </thead>
-  <tbody class="MuiTableBody-root">
-  <tr class="MuiTableRow-root">
-    <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Cupcake</th>
-    <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">305</td>
-    <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">3.7</td>
-    <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">67</td>
-    <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">4.3</td>
-  </tr>
-  ...
-  </tbody>
+<table class="MuiTable-root jss589" aria-label="simple table" id="basicTable">
+    <thead class="MuiTableHead-root">
+        <tr class="MuiTableRow-root MuiTableRow-head">
+            <th class="MuiTableCell-root MuiTableCell-head" scope="col">Dessert (100g serving)</th>
+            <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Calories</th>
+            <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Fat&nbsp;(g)</th>
+            <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Carbs&nbsp;(g)</th>
+            <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight" scope="col">Protein&nbsp;(g)</th>
+        </tr>
+    </thead>
+    <tbody class="MuiTableBody-root">
+        <tr class="MuiTableRow-root">
+            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Frozen yoghurt</th>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">159</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">6</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">24</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">4</td>
+        </tr>
+        <tr class="MuiTableRow-root">
+            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Ice cream sandwich</th>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">237</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">9</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">37</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">4.3</td>
+        </tr>
+        <tr class="MuiTableRow-root">
+            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Eclair</th>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">262</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">16</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">24</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">6</td>
+        </tr>
+        <tr class="MuiTableRow-root">
+            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Cupcake</th>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">305</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">3.7</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">67</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">4.3</td>
+        </tr>
+        <tr class="MuiTableRow-root">
+            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Gingerbread</th>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">356</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">16</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">49</td>
+            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">3.9</td>
+        </tr>
+    </tbody>
 </table>
+
 ```
 
 Available methods in Java JDI Light:

@@ -981,49 +981,36 @@ Here is an example with provided Material-UI v4.12.3 code:
 ### 4.15 Stepper
 
 ```java
-    // @FindBy(css = "#nonLinearStepper .MuiStep-root")
-    @UI("#nonLinearStepper .MuiStep-root")
-    public static Stepper nonlinearStepper;
-
-    // @FindBy(xpath = "//p[@id='activeNonLinearStep']/..//button[2]")
-    @UI("//p[@id='activeNonLinearStep']/..//button[2]")
-    public static MaterialButton nonlinearStepperNextButton;
-
-    // @FindBy(xpath = "//p[@id='activeNonLinearStep']/..//button[3]")
-    @UI("//p[@id='activeNonLinearStep']/..//button[3]")
-    public static MaterialButton nonlinearStepperCompleteStepButton;
+    // @FindBy(class = "MuiStep-root")
+    @UI(".MuiStep-root")
+    public static DesktopStepper nonlinearStepper;
 
     @Test
     public void nonlinearStepperForwardTest() {
+        String[] stepsLabels = {"Step #1", "Step #2", "Step #3"};
+        
         nonlinearStepper.show();
-        nonlinearStepper.is().displayed().and().has().steps(Arrays.asList(steps));
-        nonlinearStepper.is().stepEnabled(1).and().stepIncomplete(1);
-        nonlinearStepper.is().stepDisabled(2).and().stepIncomplete(2);
-        nonlinearStepper.is().stepDisabled(3).and().stepIncomplete(3);
-
-        nonlinearStepperNextButton.click();
-        nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
-        nonlinearStepper.is().stepEnabled(2).and().stepIncomplete(2);
-        nonlinearStepper.is().stepDisabled(3).and().stepIncomplete(3);
-
-        nonlinearStepperNextButton.click();
-        nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
-        nonlinearStepper.is().stepEnabled(2).and().stepCompleted(2);
-        nonlinearStepper.is().stepEnabled(3).and().stepIncomplete(3);
-
-        nonlinearStepper.list().get(2).click();
-        nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
-        nonlinearStepper.is().stepEnabled(2).and().stepIncomplete(2);
-        nonlinearStepper.is().stepDisabled(3).and().stepIncomplete(3);
-
-        nonlinearStepperCompleteStepButton.click();
-        nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
-        nonlinearStepper.is().stepEnabled(2).and().stepCompleted(2);
-        nonlinearStepper.is().stepEnabled(3).and().stepIncomplete(3);
+        nonlinearStepper.is().displayed().and().has().steps(stepsLabels);
+        
+        nonlinearStepper.step(stepsLabels[0]).is().enabled().and().incomplete();
+        nonlinearStepper.step(stepsLabels[1]).is().disabled().and().incomplete();
+        nonlinearStepper.step(stepsLabels[2]).is().disabled().and().incomplete();
+        
+        nonlinearStepper.buttonGroup().button(3).click();
+        nonlinearStepper.buttonGroup().button(3).click();
+        nonlinearStepper.buttonGroup().button(2).click();
+        nonlinearStepper.step(stepsLabels[0]).is().enabled().and().completed();
+        nonlinearStepper.step(stepsLabels[1]).is().enabled().and().completed();
+        nonlinearStepper.step(stepsLabels[2]).is().enabled().and().incomplete();
+        
+        nonlinearStepper.step(stepsLabels[1]).click();
+        nonlinearStepper.step(stepsLabels[0]).is().enabled().and().completed();
+        nonlinearStepper.step(stepsLabels[1]).is().enabled().and().completed();
+        nonlinearStepper.step(stepsLabels[2]).is().disabled().and().incomplete();
   }
 ```
 
-##### <a href="https://material-ui.com/components/steppers/" target="_blank"> Stepper overview </a>
+##### <a href="https://v4.mui.com/components/steppers/" target="_blank"> Stepper overview </a>
 
 Stepper is located in the following class:
 
@@ -1036,44 +1023,88 @@ __Stepper__ - element that allows you to convey progress through numbered steps.
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0" id="nonLinearStepper">
-  <div class="MuiStep-root MuiStep-horizontal">
-    <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal" tabindex="0" type="button">
-      <span class="MuiStepLabel-root MuiStepLabel-horizontal">
-        <span class="MuiStepLabel-iconContainer">
-          <svg class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-        </span>
-        <span class="MuiStepLabel-labelContainer">
-          <span class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock">Step #1</span>
-        </span>
-      </span>
-      <span class="MuiTouchRipple-root MuiStepButton-touchRipple"></span>
-    </button>
+<div class="jss220">
+  <div class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0">
+    <div class="MuiStep-root MuiStep-horizontal">
+      <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal" tabindex="0" type="button">
+            <span class="MuiStepLabel-root MuiStepLabel-horizontal">
+               <span class="MuiStepLabel-iconContainer">
+                  <svg class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                     <circle cx="12" cy="12" r="12"></circle>
+                     <text class="MuiStepIcon-text" x="12" y="16" text-anchor="middle">1</text>
+                  </svg>
+               </span>
+               <span class="MuiStepLabel-labelContainer"><span class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock">Step #1</span></span>
+            </span>
+        <span class="MuiTouchRipple-root MuiStepButton-touchRipple"></span>
+      </button>
+    </div>
+    <div class="MuiStepConnector-root MuiStepConnector-horizontal"><span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span></div>
+    <div class="MuiStep-root MuiStep-horizontal">
+      <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal" tabindex="0" type="button">
+            <span class="MuiStepLabel-root MuiStepLabel-horizontal">
+               <span class="MuiStepLabel-iconContainer">
+                  <svg class="MuiSvgIcon-root MuiStepIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                     <circle cx="12" cy="12" r="12"></circle>
+                     <text class="MuiStepIcon-text" x="12" y="16" text-anchor="middle">2</text>
+                  </svg>
+               </span>
+               <span class="MuiStepLabel-labelContainer"><span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #2</span></span>
+            </span>
+        <span class="MuiTouchRipple-root MuiStepButton-touchRipple"></span>
+      </button>
+    </div>
+    <div class="MuiStepConnector-root MuiStepConnector-horizontal"><span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span></div>
+    <div class="MuiStep-root MuiStep-horizontal">
+      <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal" tabindex="0" type="button">
+            <span class="MuiStepLabel-root MuiStepLabel-horizontal">
+               <span class="MuiStepLabel-iconContainer">
+                  <svg class="MuiSvgIcon-root MuiStepIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                     <circle cx="12" cy="12" r="12"></circle>
+                     <text class="MuiStepIcon-text" x="12" y="16" text-anchor="middle">3</text>
+                  </svg>
+               </span>
+               <span class="MuiStepLabel-labelContainer"><span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #3</span></span>
+            </span>
+        <span class="MuiTouchRipple-root MuiStepButton-touchRipple"></span>
+      </button>
+    </div>
   </div>
-  <div class="MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled">
-    <span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span>
+  <div>
+    <div>
+      <p class="MuiTypography-root jss223 MuiTypography-body1">You are on Step #1</p>
+      <div><button class="MuiButtonBase-root MuiButton-root MuiButton-text jss221 Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled=""><span class="MuiButton-label">Back</span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss221 MuiButton-containedPrimary" tabindex="0" type="button"><span class="MuiButton-label">Next</span><span class="MuiTouchRipple-root"></span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary" tabindex="0" type="button"><span class="MuiButton-label">Complete Step</span><span class="MuiTouchRipple-root"></span></button></div>
+    </div>
   </div>
-  <div class="MuiStep-root MuiStep-horizontal">...</div>
-  <div class="MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled">
-    <span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span>
-  </div>
-  <div class="MuiStep-root MuiStep-horizontal">...</div>
 </div>
 ```
 
-Available methods in Java JDI Light:
+Available methods in Java JDI Light for DesktopStepper:
 
 |Method | Description | Return Type
 --- | --- | ---
-**stepCompleted(int)** | Check whether specified step is completed | boolean
-**stepEnabled(int)** | Check whether specified step is enabled | boolean
-**dots()** | Returns list of stepper's dots | WebList
-**progressBar()** | Returns stepper's progress bar | UIElement
-**next()** | Returns stepper's 'next' button | UIElement
-**back()** | Returns stepper's 'back' button | UIElement
-**isVertical()** | Checks that stepper is vertical | boolean
-**isHorizontal()** | Checks that stepper is horizontal | boolean
-**is()** | Returns object for work with assertions | StepperAssert
+**currentIndex()** | Get current step index | int
+**maxIndex()** | Get max steps number | int
+**buttonGroup()** | Get element's buttons | ButtonGroup
+**step(int)** | Get step by index | Step
+**step(String)** | Get step by label | Step
+**steps()** | Get all steps | List<Step>
+**hasStep(int)** | Check that step with given index exists | boolean 
+**hasStep(String)** | Check that step with given label exists | boolean 
+**hasAllStepsCompleted()** | Check that all steps are completed | boolean 
+**hasAllStepsIncomplete()** | Check that all steps are incomplete | boolean 
+**hasStepCompleted(int)** | Check that step with given index is completed | boolean 
+**is()** | Returns object for work with assertions | DesktopStepperAssert
+
+Available methods in Java JDI Light for MobileStepper:
+
+|Method | Description | Return Type
+--- | --- | ---
+**currentIndex()** | Get current step index | int
+**maxIndex()** | Get max steps number | int
+**backButton()** | Get 'Back' button | Button
+**nextButton()** | Get 'Next' button | Button
+**is()** | Returns object for work with assertions | MobileStepperAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 
@@ -1082,38 +1113,22 @@ Available methods in Java JDI Light:
 ### 4.16 Slider
 
 ```java
-    // @FindBy(xpath = "//*[@id="continuous-slider"]/following-sibling::div//span[contains(@class, "MuiSlider-root")]")
-    @UI("//*[@id='continuous-slider']/following-sibling::div//span[contains(@class, 'MuiSlider-root')]")
+    // @FindBy(id = "continuousSlider")
+    @UI("#continuousSlider")
     public static Slider continuousSlider;
 
     @Test
     public void continuousSliderTest() {
-        checkCondition(disabledContinuousSlider, DISABLED, HORIZONTAL, 30);
-
-        checkCondition(continuousSlider, ENABLED, HORIZONTAL, 30);
-        testSliderBasicLogic(continuousSlider, 15, 14, 15);
-        continuousSlider.slideHorizontalTo(20);
-        continuousSlider.has().value(20);
-    }
-
-    private void checkCondition(Slider slider, String accessibility, String orientation, int startedValue) {
-        switch (accessibility) {
-            case "disabled":
-                slider.is().disabled();
-                break;
-            case "enabled":
-                slider.is().enabled();
-                break;
-            default:
-                System.out.println("Condition not found");
-                break;
-        }
-
-        slider.has().orientation(orientation).and().value(startedValue);
+        continuousSlider.show();
+        continuousSlider.is().enabled()
+              .and().value("30");
+        continuousSlider.track().is().visible();
+        continuousSlider.setValue("71");
+        continuousSlider.has().value("71");
     }
 ```
 
-##### <a href="https://material-ui.com/components/slider/" target="_blank"> Slider overview </a>
+##### <a href="https://v4.mui.com/components/slider/" target="_blank"> Slider overview </a>
 
 Slider is located in the following class:
 
@@ -1128,17 +1143,13 @@ It is ideal for adjusting settings such as volume, brightness, or applying image
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<p class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom" id="continuous-slider">Default Slider</p>
-<div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2">
-  <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true">
-    <span class="MuiSlider-root MuiSlider-colorPrimary">
-      <span class="MuiSlider-rail"></span>
-      <span class="MuiSlider-track" style="left: 0%; width: 60%;"></span>
-      <input type="hidden" value="30">
-      <span class="MuiSlider-thumb MuiSlider-thumbColorPrimary" tabindex="0" role="slider" data-index="0" aria-labelledby="continuous-slider" aria-orientation="horizontal" aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" style="left: 30%;"></span>
-    </span>
-  </div>
-  <p class="MuiTypography-root MuiTypography-body1" id="continuousValue">Selected value: 30</p>
+<div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true">
+  <span class="MuiSlider-root MuiSlider-colorPrimary" id="continuousSlider">
+    <span class="MuiSlider-rail"></span>
+    <span class="MuiSlider-track" style="left: 0%; width: 40%;"></span>
+    <input type="hidden" value="40">
+    <span class="MuiSlider-thumb MuiSlider-thumbColorPrimary" tabindex="0" role="slider" data-index="0" aria-labelledby="continuous-slider" aria-orientation="horizontal" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" style="left: 40%;"></span>
+  </span>
 </div>
 ```
 
@@ -1146,20 +1157,12 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**sliderLabel()** | Get slider label | UIElement
-**slider()** | Get slider | UIElement
-**labelIsVisible()** | Get slider | UIElement
-**value()** | Check that slider's label is visible | int
-**setValue(int)** | Set new value | void
-**isDisabled()** | Checks whether slider is disabled | boolean
-**orientation()** | Get orientation value | String
-**slideVerticalTo(int)** | Set new value using drag-and-drop action for vertical slider | void
-**slideHorizontalTo(int)** | Set new value using drag-and-drop action for horizontal slider | void
-**increaseValue()** | Increase slider value | void
-**decreaseValue()** | Decrease slider value | void
 **thumb()** | Returns slider thumb | UIElement
-**track()** | Returns slider track | UIElement
-**getInteger(String, WebElement, int)** | Returns integer value of specified element | int
+**setValue(int)** | Set new value | void
+**setValue(double)** | Set new value | void
+**setValue(String)** | Set new value | void
+**value()** | Get thumb value | String
+**dragAndDropThumbTo(String)** | Perform drag and drop to given value | void
 **is()** | Returns object for work with assertions | SliderAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a>

@@ -34940,20 +34940,20 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-slider-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a></h5>
 <p><br></br></p>
-<h3 id='4-17-tabs'>4.17 Tabs</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(css = "h2+div[1] .MuiTab-root")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"h2+div[1] .MuiTab-root"</span><span class="o">)</span>
+<h3 id='4-17-tabs'>4.17 Tabs</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(class = "MuiTab-root")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiTab-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Tabs</span> <span class="n">simpleTabs</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleTabTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">equalTo</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="s">"ITEM ONE"</span><span class="o">,</span> <span class="s">"ITEM TWO"</span><span class="o">,</span> <span class="s">"ITEM THREE"</span><span class="o">,</span> <span class="s">"ITEM FOUR"</span><span class="o">,</span> <span class="s">"ITEM FIVE"</span><span class="o">)));</span>
+        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">equalTo</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="s">"ITEM ONE"</span><span class="o">,</span> <span class="s">"ITEM TWO"</span><span class="o">,</span> <span class="s">"ITEM THREE"</span><span class="o">)));</span>
         <span class="n">simpleTabs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
         <span class="n">simpleTabs</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
         <span class="n">simpleTabs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabled</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabled</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='tabs-overview'><a href="https://material-ui.com/components/Tabs/" target="_blank"> Tabs overview </a></h5>
+</code></pre><h5 id='tabs-overview'><a href="https://v4.mui.com/components/tabs/" target="_blank"> Tabs overview </a></h5>
 <p>Tabs is located in the following class:</p>
 
 <ul>
@@ -34967,23 +34967,13 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">aria-label=</span><span class="s">"simple tabs example"</span> <span class="na">class=</span><span class="s">"MuiTabs-flexContainer"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">aria-selected=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"simple-tab-0"</span> <span class="na">aria-controls=</span><span class="s">"simple-tabpanel-0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTab-wrapper"</span><span class="nt">&gt;</span>Item One<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTab-wrapper"</span><span class="nt">&gt;</span>Item One<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">aria-selected=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"simple-tab-1"</span> <span class="na">aria-controls=</span><span class="s">"simple-tabpanel-1"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTab-wrapper"</span><span class="nt">&gt;</span>Item Two<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTab-wrapper"</span><span class="nt">&gt;</span>Item Two<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">aria-selected=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"simple-tab-2"</span> <span class="na">aria-controls=</span><span class="s">"simple-tabpanel-2"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTab-wrapper"</span><span class="nt">&gt;</span>Item Three<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled Mui-disabled"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">aria-selected=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"simple-tab-3"</span> <span class="na">aria-controls=</span><span class="s">"simple-tabpanel-3"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTab-wrapper"</span><span class="nt">&gt;</span>Item Four<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">aria-selected=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"simple-tab-4"</span> <span class="na">aria-controls=</span><span class="s">"simple-tabpanel-4"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTab-wrapper"</span><span class="nt">&gt;</span>Item Five<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiTab-root Mui-disabled MuiTab-textColorInherit"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">aria-selected=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"simple-tab-2"</span> <span class="na">aria-controls=</span><span class="s">"simple-tabpanel-2"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTab-wrapper"</span><span class="nt">&gt;</span>Item Three<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
@@ -35000,6 +34990,16 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td><strong>is()</strong></td>
 <td>Returns object for work with assertions</td>
 <td>TabsAssert</td>
+</tr>
+<tr>
+<td><strong>leftScroll()</strong></td>
+<td>Returns left scroll button</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>rightScroll()</strong></td>
+<td>Returns right scroll button</td>
+<td>Button</td>
 </tr>
 <tr>
 <td><strong>enabled(int)</strong></td>
@@ -35020,16 +35020,29 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <h5 id='here-you-can-find-tabs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a></h5>
 <p><br></br></p>
 <h3 id='4-18-table'>4.18 Table</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(id = "basicTable")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basicTable"</span><span class="o">)</span>
+    <span class="nd">@JTable</span><span class="o">(</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="s">"#basicTable"</span><span class="o">,</span> 
+            <span class="n">row</span> <span class="o">=</span> <span class="s">"//tbody/tr[%s]/*"</span><span class="o">,</span>
+            <span class="n">cell</span> <span class="o">=</span> <span class="s">"//tbody/tr[{1}]/td[{0}]"</span><span class="o">,</span>
+            <span class="n">headers</span> <span class="o">=</span> <span class="s">".MuiTableCell-head"</span>
+    <span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Table</span> <span class="n">basicTable</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">EXPECTED_TABLE_HEADERS</span> <span class="o">=</span> <span class="n">ImmutableList</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"Dessert (100g serving)"</span><span class="o">,</span> <span class="s">"Calories"</span><span class="o">,</span> <span class="s">"Fat (g)"</span><span class="o">,</span> <span class="s">"Carbs (g)"</span><span class="o">,</span> <span class="s">"Protein (g)"</span><span class="o">);</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicTableTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">basicTable</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">columns</span><span class="o">(</span><span class="n">EXPECTED_TABLE_HEADERS</span><span class="o">)</span>
                         <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">13</span><span class="o">);</span>
         <span class="n">basicTable</span><span class="o">.</span><span class="na">getCell</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"305"</span><span class="o">);</span>
+
+        <span class="n">basicTable</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">basicTable</span><span class="o">.</span><span class="na">headerUI</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="n">EXPECTED_TABLE_HEADERS</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+        <span class="n">basicTable</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">columns</span><span class="o">(</span><span class="n">EXPECTED_TABLE_HEADERS</span><span class="o">);</span>
+        <span class="n">basicTable</span><span class="o">.</span><span class="na">getCell</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"159"</span><span class="o">);</span>
+        <span class="n">basicTable</span><span class="o">.</span><span class="na">getCell</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"3.9"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='table-overview'><a href="https://material-ui.com/components/Tables/" target="_blank"> Table overview </a></h5>
+</code></pre><h5 id='table-overview'><a href="https://v4.mui.com/components/tables/" target="_blank"> Table overview </a></h5>
 <p>Table is located in the following class:</p>
 
 <ul>
@@ -35041,27 +35054,55 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Tables.png" alt="Tables" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"MuiTable-root jss247"</span> <span class="na">aria-label=</span><span class="s">"simple table"</span> <span class="na">id=</span><span class="s">"basicTable"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;thead</span> <span class="na">class=</span><span class="s">"MuiTableHead-root"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"MuiTableRow-root MuiTableRow-head"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Dessert (100g serving)<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Calories<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Fat<span class="ni">&amp;nbsp;</span>(g)<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Carbs<span class="ni">&amp;nbsp;</span>(g)<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Protein<span class="ni">&amp;nbsp;</span>(g)<span class="nt">&lt;/th&gt;</span>
-  <span class="nt">&lt;/tr&gt;</span>
-  <span class="nt">&lt;/thead&gt;</span>
-  <span class="nt">&lt;tbody</span> <span class="na">class=</span><span class="s">"MuiTableBody-root"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"MuiTableRow-root"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body"</span> <span class="na">role=</span><span class="s">"cell"</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Cupcake<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>305<span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>3.7<span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>67<span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>4.3<span class="nt">&lt;/td&gt;</span>
-  <span class="nt">&lt;/tr&gt;</span>
-  ...
-  <span class="nt">&lt;/tbody&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"MuiTable-root jss589"</span> <span class="na">aria-label=</span><span class="s">"simple table"</span> <span class="na">id=</span><span class="s">"basicTable"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead</span> <span class="na">class=</span><span class="s">"MuiTableHead-root"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"MuiTableRow-root MuiTableRow-head"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Dessert (100g serving)<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Calories<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Fat<span class="ni">&amp;nbsp;</span>(g)<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Carbs<span class="ni">&amp;nbsp;</span>(g)<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Protein<span class="ni">&amp;nbsp;</span>(g)<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody</span> <span class="na">class=</span><span class="s">"MuiTableBody-root"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"MuiTableRow-root"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body"</span> <span class="na">role=</span><span class="s">"cell"</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Frozen yoghurt<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>159<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>6<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>24<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"MuiTableRow-root"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body"</span> <span class="na">role=</span><span class="s">"cell"</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Ice cream sandwich<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>237<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>9<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>37<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>4.3<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"MuiTableRow-root"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body"</span> <span class="na">role=</span><span class="s">"cell"</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Eclair<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>262<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>16<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>24<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>6<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"MuiTableRow-root"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body"</span> <span class="na">role=</span><span class="s">"cell"</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Cupcake<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>305<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>3.7<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>67<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>4.3<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"MuiTableRow-root"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body"</span> <span class="na">role=</span><span class="s">"cell"</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Gingerbread<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>356<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>16<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>49<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"</span><span class="nt">&gt;</span>3.9<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/tbody&gt;</span>
 <span class="nt">&lt;/table&gt;</span>
+
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
 

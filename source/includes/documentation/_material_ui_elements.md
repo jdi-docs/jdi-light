@@ -1121,8 +1121,6 @@ Available methods in Java JDI Light for MobileStepper:
     public void continuousSliderTest() {
         continuousSlider.show();
         continuousSlider.is().enabled()
-              .and().has().orientation(HORIZONTAL)
-              .and().type(CONTINUOUS)
               .and().value("30");
         continuousSlider.track().is().visible();
         continuousSlider.setValue("71");

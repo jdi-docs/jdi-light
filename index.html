@@ -35019,7 +35019,10 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-tabs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a></h5>
 <p><br></br></p>
-<h3 id='4-18-table'>4.18 Table</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(id = "basicTable")</span>
+<h3 id='4-18-table'>4.18 Table</h3><pre class="highlight java tab-java"><code>    <span class="c1">// Root @FindBy(id = "basicTable")</span>
+    <span class="c1">// Row @FindBy(xpath = "//tbody/tr[%s]/*")</span>
+    <span class="c1">// Cell @FindBy(xpath = "//tbody/tr[{1}]/td[{0}]")</span>
+    <span class="c1">// Headers @FindBy(class = "MuiTableCell-head")</span>
     <span class="nd">@JTable</span><span class="o">(</span>
             <span class="n">root</span> <span class="o">=</span> <span class="s">"#basicTable"</span><span class="o">,</span> 
             <span class="n">row</span> <span class="o">=</span> <span class="s">"//tbody/tr[%s]/*"</span><span class="o">,</span>
@@ -35307,18 +35310,19 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+
         <span class="n">simpleSnackbarButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Note archived"</span><span class="o">);</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">snackbarButton</span><span class="o">(</span><span class="n">UNDO</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Note archived"</span><span class="o">);</span>
+
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">snackbarButton</span><span class="o">(</span><span class="s">"UNDO"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+
         <span class="n">simpleSnackbarButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
         <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
         <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='snackbars-overview'><a href="https://material-ui.com/components/snackbars/" target="_blank"> Snackbars overview </a></h5>
+</code></pre><h5 id='snackbars-overview'><a href="https://v4.mui.com/components/snackbars/" target="_blank"> Snackbars overview </a></h5>
 <p>Snackbar is located in the following class:</p>
 
 <ul>
@@ -35343,7 +35347,12 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
       <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
     <span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"close"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;</span>...<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+        <span class="nt">&lt;/svg&gt;</span>
+      <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
     <span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
@@ -35365,7 +35374,7 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <tr>
 <td><strong>snackbarButton(String)</strong></td>
 <td>Returns element&#39;s button</td>
-<td>UIElement</td>
+<td>Button</td>
 </tr>
 <tr>
 <td><strong>text()</strong></td>
@@ -35378,14 +35387,14 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>void</td>
 </tr>
 <tr>
-<td><strong>messageType(String)</strong></td>
-<td>Shows that element&#39;s message has required type</td>
-<td>boolean</td>
+<td><strong>messageType()</strong></td>
+<td>Returns message type of the element</td>
+<td>MessageType</td>
 </tr>
 <tr>
-<td><strong>position(String)</strong></td>
-<td>Shows that element has required position</td>
-<td>boolean</td>
+<td><strong>position()</strong></td>
+<td>Returns position of the element</td>
+<td>Position</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-snackbars-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a></h5>
@@ -35405,7 +35414,7 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
         <span class="n">backdrop</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
         <span class="n">backdrop</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='backdrop-overview'><a href="https://material-ui.com/components/backdrop/" target="_blank"> Backdrop overview </a></h5>
+</code></pre><h5 id='backdrop-overview'><a href="https://v4.mui.com/components/backdrop/" target="_blank"> Backdrop overview </a></h5>
 <p>Backdrop is located in the following class:</p>
 
 <ul>
@@ -35417,8 +35426,13 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Backdrop.png" alt="Backdrop" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiBackdrop-root jss284"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">style=</span><span class="s">"opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCircularProgress-root MuiCircularProgress-indeterminate"</span> <span class="na">role=</span><span class="s">"progressbar"</span> <span class="na">style=</span><span class="s">"width: 40px; height: 40px;"</span><span class="nt">&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Show backdrop<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiBackdrop-root jss63"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">style=</span><span class="s">"opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCircularProgress-root MuiCircularProgress-indeterminate"</span> <span class="na">style=</span><span class="s">"width: 40px; height: 40px;"</span> <span class="na">role=</span><span class="s">"progressbar"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiCircularProgress-svg"</span> <span class="na">viewBox=</span><span class="s">"22 22 44 44"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;circle</span> <span class="na">class=</span><span class="s">"MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"</span> <span class="na">cx=</span><span class="s">"44"</span> <span class="na">cy=</span><span class="s">"44"</span> <span class="na">r=</span><span class="s">"20.2"</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">stroke-width=</span><span class="s">"3.6"</span><span class="nt">&gt;&lt;/circle&gt;</span>
     <span class="nt">&lt;/svg&gt;</span>
@@ -35445,9 +35459,9 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <h3 id='4-23-dialog'>4.23 Dialog</h3><pre class="highlight java tab-java"><code>    <span class="c1">//Button containing dialog @FindBy(xpath = "//span[text()='Open simple dialog']/parent::button")</span>
     <span class="c1">//Dialog @FindBy(xpath = "//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]")</span>
     <span class="c1">//Text reflecting last action @FindBy(id = "simpleDialogSelection")</span>
-    <span class="nd">@JDIButtonWithDialog</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"//span[text()='Open simple dialog']/parent::button"</span><span class="o">,</span>
-              <span class="n">dialog</span> <span class="o">=</span> <span class="s">"//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]"</span><span class="o">,</span>
-              <span class="n">actionText</span> <span class="o">=</span> <span class="s">"#simpleDialogSelection"</span><span class="o">)</span>
+    <span class="nd">@JButtonWithDialog</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"//span[text()='Open simple dialog']/parent::button"</span><span class="o">,</span>
+        <span class="n">dialog</span> <span class="o">=</span> <span class="s">"//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]"</span><span class="o">,</span> 
+        <span class="n">actionText</span> <span class="o">=</span> <span class="s">"#simpleDialogSelection"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonWithDialog</span> <span class="n">simpleDialogButton</span><span class="o">;</span>
 
     <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"simpleDialogDataProvider"</span><span class="o">)</span>
@@ -35471,7 +35485,7 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
                 <span class="o">{</span><span class="s">"Set backup account"</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"Add account"</span><span class="o">}</span>
         <span class="o">};</span>
     <span class="o">}</span>
-</code></pre><h5 id='dialog-overview'><a href="https://material-ui.com/components/dialogs/" target="_blank"> Dialog overview </a></h5>
+</code></pre><h5 id='dialog-overview'><a href="https://v4.mui.com/components/dialogs/" target="_blank"> Dialog overview </a></h5>
 <p>Dialog is located in the following class:</p>
 
 <ul>
@@ -35483,18 +35497,85 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Dialog.png" alt="Dialog" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"simple-dialog-title"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiDialogTitle-root"</span> <span class="na">id=</span><span class="s">"simple-dialog-title"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h6"</span><span class="nt">&gt;</span>Set backup account<span class="nt">&lt;/h2&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-subtitle1"</span> <span class="na">id=</span><span class="s">"simpleDialogSelection"</span><span class="nt">&gt;</span>Selected: user02@gmail.com<span class="nt">&lt;/h6&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Open simple dialog<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiDialog-container MuiDialog-scrollPaper"</span> <span class="na">role=</span><span class="s">"none presentation"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">style=</span><span class="s">"opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"simple-dialog-title"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiDialogTitle-root"</span> <span class="na">id=</span><span class="s">"simple-dialog-title"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h6"</span><span class="nt">&gt;</span>Set backup account<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"MuiList-root MuiList-padding"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemAvatar-root"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiAvatar-root MuiAvatar-circular jss93 MuiAvatar-colorDefault"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+            <span class="nt">&lt;/svg&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>username@gmail.com<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemAvatar-root"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiAvatar-root MuiAvatar-circular jss93 MuiAvatar-colorDefault"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+            <span class="nt">&lt;/svg&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>user02@gmail.com<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemAvatar-root"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+            <span class="nt">&lt;/svg&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Add account<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"MuiList-root MuiList-padding"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
+
 </code></pre>
-<p>Available methods in Java JDI Light:</p>
+<p>Available methods in Java JDI Light for ButtonWithDialog:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>dialog()</strong></td>
+<td>Returns dialog as element</td>
+<td>Dialog</td>
+</tr>
+<tr>
+<td><strong>actionText()</strong></td>
+<td>Returns action text</td>
+<td>Text</td>
+</tr>
+</tbody></table>
+
+<p>Available methods in Java JDI Light for Dialog:</p>
 
 <table><thead>
 <tr>
@@ -35524,7 +35605,7 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>Text</td>
 </tr>
 <tr>
-<td><strong>actions()</strong></td>
+<td><strong>actionButtons()</strong></td>
 <td>Returns element&#39;s action buttons</td>
 <td>ButtonGroup</td>
 </tr>
@@ -35534,33 +35615,48 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>RadioButtons</td>
 </tr>
 <tr>
-<td><strong>input()</strong></td>
-<td>Returns element&#39;s input field</td>
+<td><strong>textField()</strong></td>
+<td>Return element&#39;s text field</td>
 <td>TextField</td>
 </tr>
 <tr>
 <td><strong>hasScrollableContent()</strong></td>
 <td>Shows that element has scrollable content</td>
-<td>Boolean</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>scrollContentTo(int)</strong></td>
+<td>Scrolls dialog content to targeted position</td>
+<td>void</td>
 </tr>
 <tr>
 <td><strong>hasScrollableBody()</strong></td>
 <td>Shows that element has scrollable body</td>
-<td>Boolean</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>scrollDialogBodyTo(int)</strong></td>
+<td>Scrolls dialog body to targeted position</td>
+<td>void</td>
 </tr>
 <tr>
 <td><strong>close()</strong></td>
-<td>Closes element</td>
+<td>Closes element by pressing &#39;close&#39; if exists</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clickBuutton(String)</strong></td>
+<td>Clicks button by its name</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>confirm()</strong></td>
-<td>Confirms and closes element</td>
+<td>Confirms and closes element by pressing &#39;ok&#39; if exists</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>scrollDialogBodyTo(int)</strong></td>
-<td>Scrolls element to targeted position</td>
+<td><strong>cancel()</strong></td>
+<td>Closes element by pressing &#39;cancel&#39; if exists</td>
 <td>void</td>
 </tr>
 </tbody></table>

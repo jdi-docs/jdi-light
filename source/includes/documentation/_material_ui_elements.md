@@ -1335,23 +1335,32 @@ Available methods in Java JDI Light:
 ### 4.19 Typography
 
 ```java
-    // @FindBy(css = ".MuiGrid-root[3] .MuiTypography-root")
-    @UI(".MuiGrid-root[3] .MuiTypography-root")
+    // @FindBy(css = ".MuiBox-root .MuiTypography-root")
+    @UI(".MuiBox-root .MuiTypography-root")
     public static List<Typography> typographyTexts;
 
     @Test(dataProvider = "typographyTestData")
-    public static void typographyTest(int number, String text, TypographyStyles style) {
+    public static void typographyTest(int number, String text, String style) {
         typographyTexts.get(number).has().text(text).and().style(style);
     }
 
     @DataProvider
     public Object[][] typographyTestData() {
-        return new Object[][]{
-                {1, "Head 1", HEAD_1}, {2, "Head 2", HEAD_2}, {3, "Head 3", HEAD_3}, {4, "Head 4", HEAD_4},
-                {5, "Head 5", HEAD_5}, {6, "Head 6", HEAD_6}, {7, "Subtitle 1", SUBTITLE_1},
-                {8, "Subtitle 2", SUBTITLE_2}, {9, "Body 1", BODY_1}, {10, "Body 2", BODY_2},
-                {11, "BUTTON TEXT", BUTTON}, {12, "Caption text", CAPTION}, {13, "OVERLINE TEXT", OVERLINE}
-        };
+        return new Object[][] {
+              {1, "Head 1", "h1"},
+              {2, "Head 2", "h2"},
+              {3, "Head 3", "h3"},
+              {4, "Head 4", "h4"},
+              {5, "Head 5", "h5"},
+              {6, "Head 6", "h6"},
+              {7, "Subtitle 1", "subtitle1"},
+              {8, "Subtitle 2", "subtitle2"},
+              {9, "Body 1", "body1"},
+              {10, "Body 2", "body2"},
+              {11, "BUTTON TEXT", "button"},
+              {12, "Caption text", "caption"},
+              {13, "OVERLINE TEXT", "overline"}
+      };
     }
 ```
 
@@ -1371,20 +1380,20 @@ Here is an example with provided Material-UI v4.12.3 code:
 <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10">
   <div class="MuiContainer-root MuiContainer-maxWidthXl">
     <div class="MuiBox-root jss271">
-      <div class="jss272">
-        <h2 class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom">Head 1</h2>
-        <h2 class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom">Head 2</h2>
-        <h3 class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom">Head 3</h3>
-        <h4 class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom">Head 4</h4>
-        <h5 class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom">Head 5</h5>
-        <h6 class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom">Head 6</h6>
-        <h6 class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom">Subtitle 1</h6>
-        <h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom">Subtitle 2</h6>
-        <p class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom">Body 1</p>
-        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom">Body 2</p>
-        <span class="MuiTypography-root MuiTypography-button MuiTypography-gutterBottom MuiTypography-displayBlock">Button text</span>
-        <span class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom MuiTypography-displayBlock">Caption text</span>
-        <span class="MuiTypography-root MuiTypography-overline MuiTypography-gutterBottom MuiTypography-displayBlock">Overline text</span>
+      <div class="jss642">
+        <h2 class="MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom">h1. Heading</h2>
+        <h2 class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom">h2. Heading</h2>
+        <h3 class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom">h3. Heading</h3>
+        <h4 class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom">h4. Heading</h4>
+        <h5 class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom">h5. Heading</h5>
+        <h6 class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom">h6. Heading</h6>
+        <h6 class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom">subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur</h6>
+        <h6 class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom">subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur</h6>
+        <p class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom">body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.</p>
+        <p class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom">body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.</p>
+        <span class="MuiTypography-root MuiTypography-button MuiTypography-gutterBottom MuiTypography-displayBlock">button text</span>
+        <span class="MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom MuiTypography-displayBlock">caption text</span>
+        <span class="MuiTypography-root MuiTypography-overline MuiTypography-gutterBottom MuiTypography-displayBlock">overline text</span>
       </div>
     </div>
   </div>
@@ -1411,14 +1420,14 @@ Available methods in Java JDI Light:
     
     @Test
     public void simpleBadgeTest() {
+        primaryColorBadge.icon().is().displayed();
         primaryColorBadge.is().displayed()
-            .and().has().text("4")
-            .and().primaryColor()
-            .and().position("TopRightRectangle");
+            .and().has().text(Matchers.equalTo("4"))
+            .and().has().position("topRight");
     }
 ```
 
-##### <a href="https://material-ui.com/ru/components/badges/" target="_blank"> Badge overview </a>
+##### <a href="https://v4.mui.com/components/badges/" target="_blank"> Badge overview </a>
 
 Badge is located in the following class:
 
@@ -1432,21 +1441,25 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
 <span class="MuiBadge-root" id="primaryColorBadge">
-  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
-  <span class="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary">
-    4
-  </span>
+    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+    </svg>
+    <span class="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangular MuiBadge-colorPrimary">4</span>
 </span>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
 **is()** | Returns object for work with assertions | BadgeAssert
-**getPosition()** | Returns element's position | String
-**isDot()** | Shows that element is a dot | boolean
-**isNotVisible()** | Checks whether element is not visible | boolean
+**dot()** | Returns dot as element                  | UIElement
+**content()** | Returns content as element              | UIElement
+**avatar()** | Returns avatar as element               | Avatar
+**position()** | Returns element's position              | Position
+**hasDot()** | Checks that element has a dot           | boolean
+**isVisible()** | Checks whether element is visible       | boolean
+**isNotVisible()** | Checks whether element is not visible   | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 

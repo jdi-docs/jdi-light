@@ -35131,23 +35131,32 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-tables-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a></h5>
 <p><br></br></p>
-<h3 id='4-19-typography'>4.19 Typography</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(css = ".MuiGrid-root[3] .MuiTypography-root")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiGrid-root[3] .MuiTypography-root"</span><span class="o">)</span>
+<h3 id='4-19-typography'>4.19 Typography</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(css = ".MuiBox-root .MuiTypography-root")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiBox-root .MuiTypography-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Typography</span><span class="o">&gt;</span> <span class="n">typographyTexts</span><span class="o">;</span>
 
     <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"typographyTestData"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">typographyTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">number</span><span class="o">,</span> <span class="n">String</span> <span class="n">text</span><span class="o">,</span> <span class="n">TypographyStyles</span> <span class="n">style</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">typographyTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">number</span><span class="o">,</span> <span class="n">String</span> <span class="n">text</span><span class="o">,</span> <span class="n">String</span> <span class="n">style</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">typographyTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">number</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">text</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">style</span><span class="o">(</span><span class="n">style</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@DataProvider</span>
     <span class="kd">public</span> <span class="n">Object</span><span class="o">[][]</span> <span class="nf">typographyTestData</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[][]{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Head 1"</span><span class="o">,</span> <span class="n">HEAD_1</span><span class="o">},</span> <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Head 2"</span><span class="o">,</span> <span class="n">HEAD_2</span><span class="o">},</span> <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Head 3"</span><span class="o">,</span> <span class="n">HEAD_3</span><span class="o">},</span> <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="s">"Head 4"</span><span class="o">,</span> <span class="n">HEAD_4</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="s">"Head 5"</span><span class="o">,</span> <span class="n">HEAD_5</span><span class="o">},</span> <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="s">"Head 6"</span><span class="o">,</span> <span class="n">HEAD_6</span><span class="o">},</span> <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="s">"Subtitle 1"</span><span class="o">,</span> <span class="n">SUBTITLE_1</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="s">"Subtitle 2"</span><span class="o">,</span> <span class="n">SUBTITLE_2</span><span class="o">},</span> <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="s">"Body 1"</span><span class="o">,</span> <span class="n">BODY_1</span><span class="o">},</span> <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="s">"Body 2"</span><span class="o">,</span> <span class="n">BODY_2</span><span class="o">},</span>
-                <span class="o">{</span><span class="mi">11</span><span class="o">,</span> <span class="s">"BUTTON TEXT"</span><span class="o">,</span> <span class="n">BUTTON</span><span class="o">},</span> <span class="o">{</span><span class="mi">12</span><span class="o">,</span> <span class="s">"Caption text"</span><span class="o">,</span> <span class="n">CAPTION</span><span class="o">},</span> <span class="o">{</span><span class="mi">13</span><span class="o">,</span> <span class="s">"OVERLINE TEXT"</span><span class="o">,</span> <span class="n">OVERLINE</span><span class="o">}</span>
-        <span class="o">};</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[][]</span> <span class="o">{</span>
+              <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Head 1"</span><span class="o">,</span> <span class="s">"h1"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Head 2"</span><span class="o">,</span> <span class="s">"h2"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Head 3"</span><span class="o">,</span> <span class="s">"h3"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="s">"Head 4"</span><span class="o">,</span> <span class="s">"h4"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">5</span><span class="o">,</span> <span class="s">"Head 5"</span><span class="o">,</span> <span class="s">"h5"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="s">"Head 6"</span><span class="o">,</span> <span class="s">"h6"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">7</span><span class="o">,</span> <span class="s">"Subtitle 1"</span><span class="o">,</span> <span class="s">"subtitle1"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="s">"Subtitle 2"</span><span class="o">,</span> <span class="s">"subtitle2"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">9</span><span class="o">,</span> <span class="s">"Body 1"</span><span class="o">,</span> <span class="s">"body1"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="s">"Body 2"</span><span class="o">,</span> <span class="s">"body2"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">11</span><span class="o">,</span> <span class="s">"BUTTON TEXT"</span><span class="o">,</span> <span class="s">"button"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">12</span><span class="o">,</span> <span class="s">"Caption text"</span><span class="o">,</span> <span class="s">"caption"</span><span class="o">},</span>
+              <span class="o">{</span><span class="mi">13</span><span class="o">,</span> <span class="s">"OVERLINE TEXT"</span><span class="o">,</span> <span class="s">"overline"</span><span class="o">}</span>
+      <span class="o">};</span>
     <span class="o">}</span>
 </code></pre><h5 id='typography-overview'><a href="https://material-ui.com/components/typography/" target="_blank"> Typography overview </a></h5>
 <p>Typography is located in the following class:</p>
@@ -35164,20 +35173,20 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiContainer-root MuiContainer-maxWidthXl"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiBox-root jss271"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss272"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Head 1<span class="nt">&lt;/h2&gt;</span>
-        <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Head 2<span class="nt">&lt;/h2&gt;</span>
-        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Head 3<span class="nt">&lt;/h3&gt;</span>
-        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Head 4<span class="nt">&lt;/h4&gt;</span>
-        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Head 5<span class="nt">&lt;/h5&gt;</span>
-        <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Head 6<span class="nt">&lt;/h6&gt;</span>
-        <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Subtitle 1<span class="nt">&lt;/h6&gt;</span>
-        <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Subtitle 2<span class="nt">&lt;/h6&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Body 1<span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>Body 2<span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-button MuiTypography-gutterBottom MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Button text<span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Caption text<span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-overline MuiTypography-gutterBottom MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Overline text<span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss642"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h1 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>h1. Heading<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>h2. Heading<span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>h3. Heading<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>h4. Heading<span class="nt">&lt;/h4&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>h5. Heading<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>h6. Heading<span class="nt">&lt;/h6&gt;</span>
+        <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur<span class="nt">&lt;/h6&gt;</span>
+        <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-subtitle2 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur<span class="nt">&lt;/h6&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"</span><span class="nt">&gt;</span>body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-button MuiTypography-gutterBottom MuiTypography-displayBlock"</span><span class="nt">&gt;</span>button text<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-caption MuiTypography-gutterBottom MuiTypography-displayBlock"</span><span class="nt">&gt;</span>caption text<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-overline MuiTypography-gutterBottom MuiTypography-displayBlock"</span><span class="nt">&gt;</span>overline text<span class="nt">&lt;/span&gt;</span>
       <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
@@ -35211,12 +35220,12 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleBadgeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">primaryColorBadge</span><span class="o">.</span><span class="na">icon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
         <span class="n">primaryColorBadge</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4"</span><span class="o">)</span>
-            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">primaryColor</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="s">"TopRightRectangle"</span><span class="o">);</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">equalTo</span><span class="o">(</span><span class="s">"4"</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="s">"topRight"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='badge-overview'><a href="https://material-ui.com/ru/components/badges/" target="_blank"> Badge overview </a></h5>
+</code></pre><h5 id='badge-overview'><a href="https://v4.mui.com/components/badges/" target="_blank"> Badge overview </a></h5>
 <p>Badge is located in the following class:</p>
 
 <ul>
@@ -35229,10 +35238,10 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiBadge-root"</span> <span class="na">id=</span><span class="s">"primaryColorBadge"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary"</span><span class="nt">&gt;</span>
-    4
-  <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+    <span class="nt">&lt;/svg&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiBadge-badge MuiBadge-anchorOriginTopRightRectangular MuiBadge-colorPrimary"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/span&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
@@ -35250,13 +35259,33 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>BadgeAssert</td>
 </tr>
 <tr>
-<td><strong>getPosition()</strong></td>
-<td>Returns element&#39;s position</td>
-<td>String</td>
+<td><strong>dot()</strong></td>
+<td>Returns dot as element</td>
+<td>UIElement</td>
 </tr>
 <tr>
-<td><strong>isDot()</strong></td>
-<td>Shows that element is a dot</td>
+<td><strong>content()</strong></td>
+<td>Returns content as element</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>avatar()</strong></td>
+<td>Returns avatar as element</td>
+<td>Avatar</td>
+</tr>
+<tr>
+<td><strong>position()</strong></td>
+<td>Returns element&#39;s position</td>
+<td>Position</td>
+</tr>
+<tr>
+<td><strong>hasDot()</strong></td>
+<td>Checks that element has a dot</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isVisible()</strong></td>
+<td>Checks whether element is visible</td>
 <td>boolean</td>
 </tr>
 <tr>

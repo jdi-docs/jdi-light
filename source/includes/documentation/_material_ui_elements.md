@@ -1231,7 +1231,10 @@ Available methods in Java JDI Light:
 ### 4.18 Table
 
 ```java
-    // @FindBy(id = "basicTable")
+    // Root @FindBy(id = "basicTable")
+    // Row @FindBy(xpath = "//tbody/tr[%s]/*")
+    // Cell @FindBy(xpath = "//tbody/tr[{1}]/td[{0}]")
+    // Headers @FindBy(class = "MuiTableCell-head")
     @JTable(
             root = "#basicTable", 
             row = "//tbody/tr[%s]/*",
@@ -1479,20 +1482,21 @@ Available methods in Java JDI Light:
     @Test
     public void simpleSnackbarTest() {
         simpleSnackbar.is().notVisible();
+      
         simpleSnackbarButton.click();
-        simpleSnackbar.waitFor().displayed();
-        simpleSnackbar.has().text("Note archived");
+        simpleSnackbar.is().displayed().and().has().text("Note archived");
+      
         simpleSnackbar.snackbarButton(UNDO).click();
-        simpleSnackbar.waitFor().hidden();
-        simpleSnackbar.is().notVisible();
+        simpleSnackbar.is().hidden().and().is().notVisible();
+      
         simpleSnackbarButton.click();
-        simpleSnackbar.waitFor().displayed();
+        simpleSnackbar.is().displayed();
         simpleSnackbar.close();
         simpleSnackbar.is().notVisible();
     }
 ```
 
-##### <a href="https://material-ui.com/components/snackbars/" target="_blank"> Snackbars overview </a>
+##### <a href="https://v4.mui.com/components/snackbars/" target="_blank"> Snackbars overview </a>
 
 Snackbar is located in the following class:
 
@@ -1518,7 +1522,12 @@ Here is an example with provided Material-UI v4.12.3 code:
       <span class="MuiTouchRipple-root"></span>
     </button>
     <button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall" tabindex="0" type="button" aria-label="close">
-      <span class="MuiIconButton-label">...<span class="MuiTouchRipple-root"></span>
+      <span class="MuiIconButton-label">
+        <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+        </svg>
+      </span>
+      <span class="MuiTouchRipple-root"></span>
     </button>
   </div>
 </div>
@@ -1529,11 +1538,11 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | SnackbarAssert
-**snackbarButton(String)** | Returns element's button | UIElement
+**snackbarButton(String)** | Returns element's button | Button
 **text()** | Returns component's text| String
 **close()** | Closes element| void
-**messageType(String)** | Shows that element's message has required type| boolean
-**position(String)** | Shows that element has required position| boolean
+**messageType()** | Returns message type of the element| MessageType
+**position()** | Returns position of the element| Position
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a>
 
@@ -1559,7 +1568,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/backdrop/" target="_blank"> Backdrop overview </a>
+##### <a href="https://v4.mui.com/components/backdrop/" target="_blank"> Backdrop overview </a>
 
 Backdrop is located in the following class:
 
@@ -1572,8 +1581,13 @@ __Backdrop__ - element that is used to provide emphasis on a particular element 
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="MuiBackdrop-root jss284" aria-hidden="true" style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">
-  <div class="MuiCircularProgress-root MuiCircularProgress-indeterminate" role="progressbar" style="width: 40px; height: 40px;">
+<button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button">
+  <span class="MuiButton-label">Show backdrop</span>
+  <span class="MuiTouchRipple-root"></span>
+</button>
+
+<div class="MuiBackdrop-root jss63" aria-hidden="true" style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">
+  <div class="MuiCircularProgress-root MuiCircularProgress-indeterminate" style="width: 40px; height: 40px;" role="progressbar">
     <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
       <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6"></circle>
     </svg>
@@ -1597,9 +1611,9 @@ Available methods in Java JDI Light:
     //Button containing dialog @FindBy(xpath = "//span[text()='Open simple dialog']/parent::button")
     //Dialog @FindBy(xpath = "//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]")
     //Text reflecting last action @FindBy(id = "simpleDialogSelection")
-    @JDIButtonWithDialog(root = "//span[text()='Open simple dialog']/parent::button",
-              dialog = "//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]",
-              actionText = "#simpleDialogSelection")
+    @JButtonWithDialog(root = "//span[text()='Open simple dialog']/parent::button",
+        dialog = "//div[@aria-labelledby = 'simple-dialog-title']/parent::div[contains(@class, 'MuiDialog-container')]", 
+        actionText = "#simpleDialogSelection")
     public static ButtonWithDialog simpleDialogButton;
 
     @Test(dataProvider = "simpleDialogDataProvider")
@@ -1625,7 +1639,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/dialogs/" target="_blank"> Dialog overview </a>
+##### <a href="https://v4.mui.com/components/dialogs/" target="_blank"> Dialog overview </a>
 
 Dialog is located in the following class:
 
@@ -1638,19 +1652,72 @@ __Dialog__ - element that informs users about a task and can contain critical in
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded" role="dialog" aria-labelledby="simple-dialog-title">
-  <div class="MuiDialogTitle-root" id="simple-dialog-title">
-    <h2 class="MuiTypography-root MuiTypography-h6">Set backup account</h2>
+<h6 class="MuiTypography-root MuiTypography-subtitle1" id="simpleDialogSelection">Selected: user02@gmail.com</h6>
+
+<button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary" tabindex="0" type="button">
+  <span class="MuiButton-label">Open simple dialog</span>
+  <span class="MuiTouchRipple-root"></span>
+</button>
+
+<div class="MuiDialog-container MuiDialog-scrollPaper" role="none presentation" tabindex="-1" style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">
+  <div class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded" role="dialog" aria-labelledby="simple-dialog-title">
+    <div class="MuiDialogTitle-root" id="simple-dialog-title">
+      <h2 class="MuiTypography-root MuiTypography-h6">Set backup account</h2>
+    </div>
+    <ul class="MuiList-root MuiList-padding">
+      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
+        <div class="MuiListItemAvatar-root">
+          <div class="MuiAvatar-root MuiAvatar-circular jss93 MuiAvatar-colorDefault">
+            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="MuiListItemText-root">
+          <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">username@gmail.com</span>
+        </div>
+        <span class="MuiTouchRipple-root"></span>
+      </div>
+      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
+        <div class="MuiListItemAvatar-root">
+          <div class="MuiAvatar-root MuiAvatar-circular jss93 MuiAvatar-colorDefault">
+            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="MuiListItemText-root">
+          <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">user02@gmail.com</span>
+        </div>
+        <span class="MuiTouchRipple-root"></span>
+      </div>
+      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
+        <div class="MuiListItemAvatar-root">
+          <div class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault">
+            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="MuiListItemText-root">
+          <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">Add account</span>
+        </div>
+        <span class="MuiTouchRipple-root"></span>
+      </div>
+    </ul>
   </div>
-  <ul class="MuiList-root MuiList-padding">
-    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">...</div>
-    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">...</div>
-    <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">...</div>
-  </ul>
 </div>
+
 ```
 
-Available methods in Java JDI Light:
+Available methods in Java JDI Light for ButtonWithDialog:
+
+|Method | Description                          | Return Type
+--- |--------------------------------------| ---
+**dialog()** | Returns dialog as element            | Dialog
+**actionText()** | Returns action text | Text
+
+Available methods in Java JDI Light for Dialog:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1658,14 +1725,17 @@ Available methods in Java JDI Light:
 **title()** | Returns element's title | Text
 **list()** | Returns list of element's items | List
 **textContent()** | Returns element's text content | Text
-**actions()** | Returns element's action buttons | ButtonGroup
+**actionButtons()** | Returns element's action buttons | ButtonGroup
 **radioButtons()** | Returns element's radio buttons | RadioButtons
-**input()** | Returns element's input field | TextField
-**hasScrollableContent()** | Shows that element has scrollable content | Boolean
-**hasScrollableBody()** | Shows that element has scrollable body | Boolean
-**close()** | Closes element | void
-**confirm()** | Confirms and closes element | void
-**scrollDialogBodyTo(int)** | Scrolls element to targeted position | void
+**textField()** | Return element's text field | TextField
+**hasScrollableContent()** | Shows that element has scrollable content | boolean
+**scrollContentTo(int)** | Scrolls dialog content to targeted position | void
+**hasScrollableBody()** | Shows that element has scrollable body | boolean
+**scrollDialogBodyTo(int)** | Scrolls dialog body to targeted position | void
+**close()** | Closes element by pressing 'close' if exists | void
+**clickBuutton(String)** | Clicks button by its name | void
+**confirm()** | Confirms and closes element by pressing 'ok' if exists | void
+**cancel()** | Closes element by pressing 'cancel' if exists | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a>
 

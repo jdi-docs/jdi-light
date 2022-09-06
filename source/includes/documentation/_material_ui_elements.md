@@ -1486,7 +1486,7 @@ Available methods in Java JDI Light:
         simpleSnackbarButton.click();
         simpleSnackbar.is().displayed().and().has().text("Note archived");
       
-        simpleSnackbar.snackbarButton(UNDO).click();
+        simpleSnackbar.snackbarButton("UNDO").click();
         simpleSnackbar.is().hidden().and().is().notVisible();
       
         simpleSnackbarButton.click();

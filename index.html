@@ -35766,22 +35766,24 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tbody></table>
 <h5 id='here-you-can-find-date-time-pickers-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a></h5>
 <p><br></br></p>
-<h3 id='4-25-select'>4.25 Select</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//*[@id='demo-simple-select']/following-sibling::div")</span>
-    <span class="nd">@JDropdown</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"//*[@id='demo-simple-select']/following-sibling::div"</span><span class="o">)</span>
+<h3 id='4-25-select'>4.25 Select</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//*[@id = 'demo-simple-select']/ancestor::*[1]")</span>
+    <span class="nd">@JDropdown</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"//*[@id = 'demo-simple-select']/ancestor::*[1]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Select</span> <span class="n">simpleSelect</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleSelectTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="s">"Hansen"</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">age</span> <span class="o">=</span> <span class="s">"Ten"</span><span class="o">;</span>
 
+        <span class="n">simpleSelect</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">simpleSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
         <span class="n">simpleSelect</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
         <span class="n">simpleSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
         <span class="n">simpleSelect</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
         <span class="n">simpleSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
-        <span class="n">simpleSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
-        <span class="n">simpleSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+        <span class="n">simpleSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">age</span><span class="o">);</span>
+        <span class="n">simpleSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">age</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='select-overview'><a href="https://material-ui.com/components/selects/" target="_blank"> Select overview </a></h5>
+</code></pre><h5 id='select-overview'><a href="https://v4.mui.com/components/selects/" target="_blank"> Select overview </a></h5>
 <p>Select is located in the following class:</p>
 
 <ul>
@@ -35793,17 +35795,14 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Select.png" alt="Select" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root jss304"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"</span> <span class="na">data-shrink=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"demo-simple-select"</span><span class="nt">&gt;</span>
-    Simple Select
-  <span class="nt">&lt;/label&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-haspopup=</span><span class="s">"listbox"</span> <span class="na">aria-labelledby=</span><span class="s">"simple-select"</span> <span class="na">id=</span><span class="s">"simple-select"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span&gt;</span>​<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">class=</span><span class="s">"MuiSelect-nativeInput"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiSelect-icon"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-haspopup=</span><span class="s">"listbox"</span> <span class="na">aria-labelledby=</span><span class="s">"demo-simple-select-label demo-simple-select"</span> <span class="na">id=</span><span class="s">"demo-simple-select"</span><span class="nt">&gt;</span>
+    Ten
   <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">value=</span><span class="s">"20"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">class=</span><span class="s">"MuiSelect-nativeInput"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root MuiSelect-icon"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M7 10l5 5 5-5z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+  <span class="nt">&lt;/svg&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
@@ -35823,16 +35822,16 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <tr>
 <td><strong>list()</strong></td>
 <td>Returns list of options</td>
-<td>SelectAssert</td>
+<td>WebList</td>
 </tr>
 <tr>
 <td><strong>close()</strong></td>
-<td>Closes element</td>
+<td>Closes select by pressing &#39;Esc&#39;</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>select(String)</strong></td>
-<td>Selects required value in element</td>
+<td><strong>select(String...)</strong></td>
+<td>Selects list of values in element</td>
 <td>void</td>
 </tr>
 <tr>
@@ -35850,38 +35849,32 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>Returns value of selected element</td>
 <td>String</td>
 </tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Checks that element is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Checks that element is disabled</td>
+<td>boolean</td>
+</tr>
 </tbody></table>
 <h5 id='here-you-can-find-select-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a></h5>
 <p><br></br></p>
-<h3 id='4-26-switch'>4.26 Switch</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//fieldset//span[@class='MuiSwitch-root']")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//fieldset//span[@class='MuiSwitch-root']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Switch</span><span class="o">&gt;</span> <span class="n">formGroupSwitches</span><span class="o">;</span>
+<h3 id='4-26-switch'>4.26 Switch</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(class = "MuiSwitch-root")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiSwitch-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Switch</span> <span class="n">basicSwitch</span><span class="o">;</span>
 
-    <span class="c1">// @FindBy(xpath = "//p[contains(@class,'MuiFormHelperText-root')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//p[contains(@class,'MuiFormHelperText-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">formGroupTextForm</span><span class="o">;</span>
-
-    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"switchesWithFormGroupTestsDataProvider"</span><span class="o">)</span>
+    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">switchesWithFormGroupTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">fullName</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">formGroupTextForm</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Be careful"</span><span class="o">);</span>
-        <span class="n">switchWithLabelTestLogic</span><span class="o">(</span><span class="n">formGroupSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">),</span><span class="n">fullName</span><span class="o">);</span>
+        <span class="n">basicSwitch</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">basicSwitch</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+        <span class="n">basicSwitch</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
+        <span class="n">basicSwitch</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+        <span class="n">basicSwitch</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
     <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">switchWithLabelTestLogic</span><span class="o">(</span><span class="n">Switch</span> <span class="n">muiSwitch</span><span class="o">,</span> <span class="n">String</span> <span class="n">labelText</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">String</span> <span class="n">firstName</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">labelText</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">))</span>
-                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">())</span>
-                <span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">toLowerCase</span><span class="o">();</span>
-        <span class="n">basicSwitchTestLogic</span><span class="o">(</span><span class="n">muiSwitch</span><span class="o">);</span>
-        <span class="n">muiSwitch</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">();</span>
-        <span class="n">muiSwitch</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">labelText</span><span class="o">(</span><span class="n">labelText</span><span class="o">);</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">muiSwitch</span><span class="o">.</span><span class="na">isTurnedOn</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">muiSwitch</span><span class="o">.</span><span class="na">turnOff</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="n">muiSwitch</span><span class="o">.</span><span class="na">turnOn</span><span class="o">();</span>
-        <span class="n">formGroupTextForm</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Be careful with %s"</span><span class="o">,</span> <span class="n">firstName</span><span class="o">));</span>
-    <span class="o">}</span>
-</code></pre><h5 id='switch-overview'><a href="https://material-ui.com/components/switches/" target="_blank"> Switch overview </a></h5>
+</code></pre><h5 id='switch-overview'><a href="https://v4.mui.com/components/switches/" target="_blank"> Switch overview </a></h5>
 <p>Switch is located in the following class:</p>
 
 <ul>
@@ -35893,31 +35886,14 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Switch.png" alt="Switch" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;fieldset</span> <span class="na">class=</span><span class="s">"MuiFormControl-root"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;legend</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root"</span><span class="nt">&gt;</span>Assign responsibility<span class="nt">&lt;/legend&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormGroup-root"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormControlLabel-root"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-root"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root jss326 MuiSwitch-switchBase MuiSwitch-colorSecondary jss327 Mui-checked"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"jss329 MuiSwitch-input"</span> <span class="na">name=</span><span class="s">"gilad"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">""</span> <span class="na">checked=</span><span class="s">""</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-thumb"</span><span class="nt">&gt;&lt;/span&gt;</span>
-          <span class="nt">&lt;/span&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-        <span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-track"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"</span><span class="nt">&gt;</span>Gilad Gray<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormControlLabel-root"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-root"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"</span><span class="nt">&gt;</span>Jason Killian<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormControlLabel-root"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-root"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"</span><span class="nt">&gt;</span>Antoine Llorca<span class="nt">&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiFormHelperText-root"</span><span class="nt">&gt;</span>Be careful <span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/fieldset&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-root"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root jss63 MuiSwitch-switchBase MuiSwitch-colorSecondary jss64 Mui-checked"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">checked=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"jss66 MuiSwitch-input"</span> <span class="na">name=</span><span class="s">"checkedA"</span> <span class="na">aria-label=</span><span class="s">"secondary checkbox"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-thumb"</span><span class="nt">&gt;&lt;/span&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiSwitch-track"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
 
@@ -35934,28 +35910,23 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>SwitchAssert</td>
 </tr>
 <tr>
-<td><strong>has()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>SwitchAssert</td>
-</tr>
-<tr>
-<td><strong>isTurnedOn()</strong></td>
-<td>Shows that element turned on</td>
+<td><strong>isChecked()</strong></td>
+<td>Shows that element is checked</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isTurnedOff()</strong></td>
-<td>Shows that element turned off</td>
+<td><strong>isUnchecked()</strong></td>
+<td>Shows that element is unchecked</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>turnOn()</strong></td>
-<td>Turns element on</td>
+<td><strong>check()</strong></td>
+<td>Checks element or does nothing if checked</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>turnOff()</strong></td>
-<td>Turns element off</td>
+<td><strong>uncheck()</strong></td>
+<td>Unchecks element or does nothing if unchecked</td>
 <td>void</td>
 </tr>
 <tr>
@@ -35968,32 +35939,33 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>Returns label&#39;s text</td>
 <td>String</td>
 </tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Checks that element is disabled</td>
+<td>boolean</td>
+</tr>
 </tbody></table>
 <h5 id='here-you-can-find-switch-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a></h5>
 <p><br></br></p>
-<h3 id='4-27-button'>4.27 Button</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(xpath = "//h2[text()='Contained buttons']/parent::div/div[1]/*")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Contained buttons']/parent::div/div[1]/*"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">containedButtons</span><span class="o">;</span>
+<h3 id='4-27-button'>4.27 Button</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(id = "contained-button-default")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#contained-button-default"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MUIButton</span> <span class="n">defaultContainedButton</span><span class="o">;</span>
+
+    <span class="c1">// @FindBy(id = "contained-button-last-click")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#contained-button-last-click"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">containedButtonLastClick</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultButtonTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"DEFAULT"</span><span class="o">);</span>
-        <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Default"</span><span class="o">);</span>
-
-        <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"PRIMARY"</span><span class="o">);</span>
-        <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Primary"</span><span class="o">);</span>
-
-        <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"SECONDARY"</span><span class="o">);</span>
-        <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Secondary"</span><span class="o">);</span>
+        <span class="n">defaultContainedButton</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"DEFAULT"</span><span class="o">);</span>
+        <span class="n">defaultContainedButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">containedButtonLastClick</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Default"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='button-overview'><a href="https://material-ui.com/components/buttons/" target="_blank"> Button overview </a></h5>
+</code></pre><h5 id='button-overview'><a href="https://v4.mui.com/components/buttons/" target="_blank"> Button overview </a></h5>
 <p>Button is located in the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.elements.common.Button</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.material.elements.inputs.MUIButton</em></li>
 </ul>
 
 <p><strong>Button</strong> - element that allows users to take actions and make choices with a single tap.</p>
@@ -36001,13 +35973,12 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><img src="images/material-ui/Buttons.png" alt="Buttons" /></p>
 
 <p>Here is an example with provided Material-UI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;h2&gt;</span>Contained buttons<span class="nt">&lt;/h2&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss331"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-contained"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-contained"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"contained-button-default"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"contained-button-last-click"</span><span class="nt">&gt;</span>Last click: Default<span class="nt">&lt;/p&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
 
@@ -36024,9 +35995,9 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>TextAssert</td>
 </tr>
 <tr>
-<td><strong>getValue()</strong></td>
-<td>Returns button text</td>
-<td>String</td>
+<td><strong>label()</strong></td>
+<td>Returns button&#39;s label</td>
+<td>Label</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-buttons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a></h5>

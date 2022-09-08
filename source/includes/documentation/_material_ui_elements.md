@@ -1812,24 +1812,26 @@ Available methods in Java JDI Light:
 ### 4.25 Select
 
 ```java
-    // @FindBy(xpath = "//*[@id='demo-simple-select']/following-sibling::div")
-    @JDropdown(root = "//*[@id='demo-simple-select']/following-sibling::div")
+    // @FindBy(xpath = "//*[@id = 'demo-simple-select']/ancestor::*[1]")
+    @JDropdown(root = "//*[@id = 'demo-simple-select']/ancestor::*[1]")
     public static Select simpleSelect;
   
     @Test
     public void simpleSelectTest() {
-        String value = "Hansen";
+        String age = "Ten";
         
+        simpleSelect.show();
+        simpleSelect.is().collapsed();
         simpleSelect.expand();
         simpleSelect.is().expanded();
         simpleSelect.close();
         simpleSelect.is().collapsed();
-        simpleSelect.select(value);
-        simpleSelect.has().selected(value);
+        simpleSelect.select(age);
+        simpleSelect.has().selected(age);
     }
 ```
 
-##### <a href="https://material-ui.com/components/selects/" target="_blank"> Select overview </a>
+##### <a href="https://v4.mui.com/components/selects/" target="_blank"> Select overview </a>
 
 Select is located in the following class:
 
@@ -1842,31 +1844,30 @@ __Select__ - element that is used for collecting user provided information from 
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="MuiFormControl-root jss304">
-  <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated" data-shrink="false" id="demo-simple-select">
-    Simple Select
-  </label>
-  <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl">
-    <div class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input" tabindex="0" role="button" aria-haspopup="listbox" aria-labelledby="simple-select" id="simple-select">
-      <span>​</span>
-    </div>
-    <input aria-hidden="true" tabindex="-1" class="MuiSelect-nativeInput" value="">
-    <svg class="MuiSvgIcon-root MuiSelect-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+<div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl">
+  <div class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input" tabindex="0" role="button" aria-haspopup="listbox" aria-labelledby="demo-simple-select-label demo-simple-select" id="demo-simple-select">
+    Ten
   </div>
+  <input value="20" aria-hidden="true" tabindex="-1" class="MuiSelect-nativeInput" />
+  <svg class="MuiSvgIcon-root MuiSelect-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M7 10l5 5 5-5z"></path>
+  </svg>
 </div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
 **is()** | Returns object for work with assertions | SelectAssert
-**list()** | Returns list of options | SelectAssert
-**close()** | Closes element | void
-**select(String)** | Selects required value in element | void
-**selected()** | Returns value of selected element | String
-**getText()** | Returns value of selected element | String
-**text()** | Returns value of selected element | String
+**list()** | Returns list of options                 | WebList
+**close()** | Closes select by pressing 'Esc'         | void
+**select(String...)** | Selects list of values in element       | void
+**selected()** | Returns value of selected element       | String
+**getText()** | Returns value of selected element       | String
+**text()** | Returns value of selected element       | String
+**isEnabled()** | Checks that element is enabled          | boolean
+**isDisabled()** | Checks that element is disabled         | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a>
 
@@ -1875,37 +1876,21 @@ Available methods in Java JDI Light:
 ### 4.26 Switch
 
 ```java
-    // @FindBy(xpath = "//fieldset//span[@class='MuiSwitch-root']")
-    @UI("//fieldset//span[@class='MuiSwitch-root']")
-    public static List<Switch> formGroupSwitches;
+    // @FindBy(class = "MuiSwitch-root")
+    @UI(".MuiSwitch-root")
+    public static Switch basicSwitch;
 
-    // @FindBy(xpath = "//p[contains(@class,'MuiFormHelperText-root')]")
-    @UI("//p[contains(@class,'MuiFormHelperText-root')]")
-    public static Text formGroupTextForm;
-  
-    @Test(dataProvider = "switchesWithFormGroupTestsDataProvider")
+    @Test
     public void switchesWithFormGroupTest(int index, String fullName) {
-        formGroupTextForm.is().text("Be careful");
-        switchWithLabelTestLogic(formGroupSwitches.get(index),fullName);
-    }
-    
-    private void switchWithLabelTestLogic(Switch muiSwitch, String labelText) {
-        String firstName = Arrays.stream(labelText.split(" "))
-                .collect(Collectors.toList())
-                .get(0)
-                .toLowerCase();
-        basicSwitchTestLogic(muiSwitch);
-        muiSwitch.has().label();
-        muiSwitch.has().labelText(labelText);
-        if (muiSwitch.isTurnedOn()) {
-            muiSwitch.turnOff();
-        }
-        muiSwitch.turnOn();
-        formGroupTextForm.is().text(String.format("Be careful with %s", firstName));
+        basicSwitch.show();
+        basicSwitch.uncheck();
+        basicSwitch.is().unchecked();
+        basicSwitch.check();
+        basicSwitch.is().checked();
     }
 ```
 
-##### <a href="https://material-ui.com/components/switches/" target="_blank"> Switch overview </a>
+##### <a href="https://v4.mui.com/components/switches/" target="_blank"> Switch overview </a>
 
 Switch is located in the following class:
 
@@ -1918,45 +1903,28 @@ __Switch__ - element that toggles the state of a single setting on or off.
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<fieldset class="MuiFormControl-root">
-  <legend class="MuiFormLabel-root">Assign responsibility</legend>
-  <div class="MuiFormGroup-root">
-    <label class="MuiFormControlLabel-root">
-      <span class="MuiSwitch-root">
-        <span class="MuiButtonBase-root MuiIconButton-root jss326 MuiSwitch-switchBase MuiSwitch-colorSecondary jss327 Mui-checked" aria-disabled="false">
-          <span class="MuiIconButton-label">
-            <input class="jss329 MuiSwitch-input" name="gilad" type="checkbox" value="" checked="">
-            <span class="MuiSwitch-thumb"></span>
-          </span>
-          <span class="MuiTouchRipple-root"></span>
-        </span>
-        <span class="MuiSwitch-track"></span>
-      </span>
-      <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Gilad Gray</span>
-    </label>
-    <label class="MuiFormControlLabel-root">
-      <span class="MuiSwitch-root">...</span>
-      <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Jason Killian</span>
-    </label>
-    <label class="MuiFormControlLabel-root">
-      <span class="MuiSwitch-root">...</span>
-    <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Antoine Llorca</span></label></div>
-  <p class="MuiFormHelperText-root">Be careful </p>
-</fieldset>
+<span class="MuiSwitch-root">
+    <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiSwitch-switchBase MuiSwitch-colorSecondary jss64 Mui-checked" aria-disabled="false">
+        <span class="MuiIconButton-label"><input type="checkbox" checked="" class="jss66 MuiSwitch-input" name="checkedA" aria-label="secondary checkbox" value="" />
+          <span class="MuiSwitch-thumb"></span></span>
+        <span class="MuiTouchRipple-root"></span>
+    </span>
+    <span class="MuiSwitch-track"></span>
+</span>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions | SwitchAssert
-**has()** | Returns object for work with assertions | SwitchAssert
-**isTurnedOn()** | Shows that element turned on | boolean
-**isTurnedOff()** | Shows that element turned off | boolean
-**turnOn()** | Turns element on | void
-**turnOff()** | Turns element off | void
-**label()** | Returns element's label | Label
-**labelText()** | Returns label's text | String
+|Method | Description                                   | Return Type
+--- |-----------------------------------------------| ---
+**is()** | Returns object for work with assertions       | SwitchAssert
+**isChecked()** | Shows that element is checked                 | boolean
+**isUnchecked()** | Shows that element is unchecked               | boolean
+**check()** | Checks element or does nothing if checked     | void
+**uncheck()** | Unchecks element or does nothing if unchecked | void
+**label()** | Returns element's label                       | Label
+**labelText()** | Returns label's text                          | String
+**isDisabled()** | Checks that element is disabled               | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a>
 
@@ -1965,31 +1933,27 @@ Available methods in Java JDI Light:
 ### 4.27 Button
 
 ```java
-    // @FindBy(xpath = "//h2[text()='Contained buttons']/parent::div/div[1]/*")
-    @UI("//h2[text()='Contained buttons']/parent::div/div[1]/*")
-    public static List<Button> containedButtons;
+    // @FindBy(id = "contained-button-default")
+    @UI("#contained-button-default")
+    public static MUIButton defaultContainedButton;
+
+    // @FindBy(id = "contained-button-last-click")
+    @UI("#contained-button-last-click")
+    public static Text containedButtonLastClick;
 
     @Test
     public void defaultButtonTest() {
-        containedButtons.get(1).click();
-        containedButtons.get(1).is().text("DEFAULT");
-        containedButtons.get(6).is().text("Last click: Default");
-
-        containedButtons.get(2).click();
-        containedButtons.get(2).is().text("PRIMARY");
-        containedButtons.get(6).is().text("Last click: Primary");
-
-        containedButtons.get(3).click();
-        containedButtons.get(3).is().text("SECONDARY");
-        containedButtons.get(6).is().text("Last click: Secondary");
+        defaultContainedButton.label().has().text("DEFAULT");
+        defaultContainedButton.click();
+        containedButtonLastClick.has().text("Last click: Default");
     }
 ```
 
-##### <a href="https://material-ui.com/components/buttons/" target="_blank"> Button overview </a>
+##### <a href="https://v4.mui.com/components/buttons/" target="_blank"> Button overview </a>
 
 Button is located in the following class:
 
-- __Java__: _com.epam.jdi.light.ui.html.elements.common.Button_
+- __Java__: _com.epam.jdi.light.ui.material.elements.inputs.MUIButton_
 
 __Button__ - element that allows users to take actions and make choices with a single tap.
 
@@ -1998,21 +1962,20 @@ __Button__ - element that allows users to take actions and make choices with a s
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<h2>Contained buttons</h2>
-<div class="jss331">
-  <button class="MuiButtonBase-root MuiButton-root MuiButton-contained" tabindex="0" type="button">
-    <span class="MuiButton-label">Default</span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-</div>
+<button class="MuiButtonBase-root MuiButton-root MuiButton-contained" tabindex="0" type="button" id="contained-button-default">
+  <span class="MuiButton-label">Default</span>
+  <span class="MuiTouchRipple-root"></span>
+</button>
+
+<p id="contained-button-last-click">Last click: Default</p>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
 **is()** | Returns object for work with assertions | TextAssert
-**getValue()** | Returns button text | String
+**label()** | Returns button's label                  | Label
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a>
 

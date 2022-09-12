@@ -3729,19 +3729,20 @@ components based on whether the query matches or not.
     // @FindBy(xpath = "//div[contains(@class, 'MuiTypography-root')]/ancestor::*[contains(@class, 'MuiAlert-root')]")
     @UI("//div[contains(@class, 'MuiTypography-root')]/ancestor::*[contains(@class, 'MuiAlert-root')]")
     public static List<Alert> alertsWithDescription;
-    
+
     @Test(dataProvider = "alertsWithDescriptionTestData", dataProviderClass = AlertDataProvider.class)
-    public void alertsWithDescriptionTest(int alertIndex, String titleText, String messageText) {
+    public void alertsWithDescriptionTest(int alertIndex, String titleText, String messageText, String alertClass) {
         Alert alert = alertsWithDescription.get(alertIndex);
         alert.show();
         alert.is().displayed();
-        alert.icon.is().displayed();
-        alert.title.is().displayed().and().has().text(titleText);
-        alert.has().text(Matchers.containsString(messageText));
-    }
+        alert.icon().is().displayed();
+        alert.title().is().displayed().and().has().text(titleText);
+        alert.has().text(Matchers.containsString(messageText))
+        .and().cssClass(alertClass);
+  }
 ```
 
-##### <a href="https://mui.com/components/alert/" target="_blank"> Alert overview</a>
+##### <a href="https://v4.mui.com/components/alert/" target="_blank"> Alert overview</a>
 
 Alert is located in the following class:
 
@@ -3754,26 +3755,23 @@ An __Alert__ displays a short, important message in a way that attracts the user
 Here are examples with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardError MuiAlert-standard css-17y7f73" role="alert">
-  <div class="MuiAlert-icon css-1l54tgj">
-    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1cw4hi4" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ErrorOutlineIcon">
-      <path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+<div class="MuiPaper-root MuiAlert-root MuiAlert-standardError MuiPaper-elevation0" role="alert">
+  <div class="MuiAlert-icon">
+    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
     </svg>
   </div>
-  <div class="MuiAlert-message css-1w0ym84">
-    <div class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom MuiAlertTitle-root css-1jvvlz4">Error</div>
-    This is an error alert — <strong>check it out!</strong>
-  </div>
+  <div class="MuiAlert-message">This is an error alert — check it out!</div>
 </div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-|**is()** |Returns object for work with assertions| TextAssert
-|**Icon()** |Returns alert's icon| Icon
-|**Title()** |Returns alert's title| Text
+| Method      | Description | Return Type
+-------------| --- | ---
+| **is()**    |Returns object for work with assertions| TextAssert
+| **icon()**  |Returns alert's icon| Icon
+| **title()** |Returns alert's title| Text
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/AlertTests.java"  target="_blank">Here you can find Alert tests</a>
 

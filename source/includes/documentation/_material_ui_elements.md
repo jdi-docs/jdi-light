@@ -3730,6 +3730,16 @@ components based on whether the query matches or not.
     @UI("//div[contains(@class, 'MuiTypography-root')]/ancestor::*[contains(@class, 'MuiAlert-root')]")
     public static List<Alert> alertsWithDescription;
 
+    @DataProvider
+    public Object[][] alertsWithDescriptionTestData() {
+        return new Object[][]{
+        {1, "Error", "This is an error alert — check it out!", "MuiAlert-standardError"},
+        {2, "Warning", "This is a warning alert — check it out!", "MuiAlert-standardWarning"},
+        {3, "Info", "This is an info alert — check it out!", "MuiAlert-standardInfo"},
+        {4, "Success", "This is a success alert — check it out!", "MuiAlert-standardSuccess"}
+        };
+    }
+
     @Test(dataProvider = "alertsWithDescriptionTestData", dataProviderClass = AlertDataProvider.class)
     public void alertsWithDescriptionTest(int alertIndex, String titleText, String messageText, String alertClass) {
         Alert alert = alertsWithDescription.get(alertIndex);
@@ -3737,9 +3747,8 @@ components based on whether the query matches or not.
         alert.is().displayed();
         alert.icon().is().displayed();
         alert.title().is().displayed().and().has().text(titleText);
-        alert.has().text(Matchers.containsString(messageText))
-        .and().cssClass(alertClass);
-  }
+        alert.has().text(Matchers.containsString(messageText)).and().cssClass(alertClass);
+    }
 ```
 
 ##### <a href="https://v4.mui.com/components/alert/" target="_blank"> Alert overview</a>

@@ -2088,12 +2088,12 @@ Here are examples with provided MaterialUI v4.12.3 code:
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
-| --- | --- | ---
-**button(int)**        | Get button with index '{0}'| Button
-**button(String)**        | Get button with text '{0}'| Button
-**getAllButtons**        | Get all buttons in '{name}'| List\<Button\>
-**is()**        |Returns object for work with assertions| ButtonGroupAssert
+|Method | Description                             | Return Type
+| --- |-----------------------------------------| ---
+**button(int)**        | Get button by index                     | Button
+**button(String)**        | Get button by text                       | Button
+**getAllButtons**        | Get all buttons in a block              | List\<Button\>
+**is()**        | Returns object for work with assertions | ButtonGroupAssert
 
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a>

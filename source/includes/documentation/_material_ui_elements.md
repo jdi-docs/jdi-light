@@ -1986,49 +1986,58 @@ Available methods in Java JDI Light:
 ```java
     //      @FindBy(xpath = "//div[@aria-label = 'outlined primary button group']")
     @UI("//div[@aria-label = 'outlined primary button group']")
-    @JDIButtonGroup(list = ".MuiButtonGroup-groupedHorizontal")
+    @JDIButtonGroup(list = ".MuiButtonGroup-root")
     public static ButtonGroup basicButtonGroup;
 
-    //      @FindBy(xpath = "//div[@aria-label = 'vertical contained primary button group']")
-    @UI("//div[@aria-label = 'vertical contained primary button group']")
-    @JDIButtonGroup(list = ".MuiButton-root")
-    public static ButtonGroup verticalButtonGroup;
+    //      @FindBy(xpath = "//div[@aria-label = 'split button']")
+    @UI("//div[@aria-label = 'split button']")
+    @JDIButtonGroup(list = ".MuiButtonGroup-root")
+    public static ButtonGroup splitButtonGroup;
 ```
 
 ```java
     @Test
     public void basicButtonGroupTest(){
 
-        basicButtonGroup.getButtonByIndex(1).click();
-        basicButtonGroup.getButtonByIndex(2).click();
-        basicButtonGroup.getButtonByIndex(3).click();
+        basicButtonGroup.has().buttons(3)
+            .and().buttonsTexts(Matchers.containsInAnyOrder("THREE", "ONE", "TWO"));
+        basicButtonGroup.button(1).is().enabled().and().has().text("ONE");
 
-        basicButtonGroup.getButtonByText("Three").click();
-        basicButtonGroup.getButtonByText("Two").click();
-        basicButtonGroup.getButtonByText("One").click();
+        basicButtonGroup.button(1).click();
+        basicButtonGroup.button(2).click();
+        basicButtonGroup.button(3).click();
 
-        basicButtonGroup.getButtonByIndex(1).is().enabled();
-        basicButtonGroup.getButtonByIndex(1).has().text("ONE");
+        basicLastClick.has().text("Last click: Three");
+        basicButtonGroup.button("Three").click();
 
-        basicButtonGroup.has().numberOfGroupedButtons(3);
-        basicButtonGroup.has().buttonsTextsInAnyOrder(Arrays.asList("THREE","ONE","TWO"));
+        basicButtonGroup.button("Two").click();
+        basicButtonGroup.button("One").click();
     }
-
+    
     @Test
-    public void verticalButtonGroupTest(){
-
-        verticalButtonGroup.getButtonByIndex(2).click();
-        verticalButtonGroup.getButtonByIndex(3).click();
-
-        verticalButtonGroup.getButtonByText("Two").click();
-        verticalButtonGroup.getButtonByText("One").click();
-
-        basicButtonGroup.getButtonByIndex(2).is().enabled();
-        basicButtonGroup.getButtonByIndex(2).has().text("TWO");
+    public void splitButtonGroupTest() {
+    
+      String firstMenuItem = "Create a merge commit";
+      String secondMenuItem = "Squash and merge";
+      String thirdMenuItem = "Rebase and merge";
+    
+      splitButtonGroup.button(1).is().enabled()
+      .and().has().text(Matchers.equalToIgnoringCase(secondMenuItem));
+    
+      splitButtonGroup.button(2).click();
+      Timer.waitCondition(() -> splitButtonMenu.item(1).isDisplayed());
+      splitButtonMenu.item(firstMenuItem).click();
+      splitButtonGroup.button(1).has().text(Matchers.equalToIgnoringCase(firstMenuItem));
+    
+      splitButtonGroup.button(2).click();
+      splitButtonMenu.item(thirdMenuItem).is().disabled();
+    
+      splitButtonMenu.item(secondMenuItem).click();
+      splitButtonGroup.button(1).has().text(Matchers.equalToIgnoringCase(secondMenuItem));
     }
 ```
 
-##### <a href="https://material-ui.com/components/button-group/" target="_blank">ButtonGroup overview</a>
+##### <a href="https://v4.mui.com/ru/components/button-group/" target="_blank">ButtonGroup overview</a>
 
 ButtonGroup is located in the following class:
 
@@ -2039,45 +2048,40 @@ related buttons.
 
 ![ButtonGroup](../../images/buttongroup.png)
 ![ButtonGroup](../../images/verticalbuttongroup.png)
+![ButtonGroup](../../images/splitbutton.png)
 
 Here are examples with provided MaterialUI v4.12.3 code:
 
 ```html
 
 <div role="group" class="MuiButtonGroup-root" aria-label="outlined primary button group">
-  <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
-    tabindex="0" type="button">
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary" tabindex="0" type="button">
     <span class="MuiButton-label">One</span>
-    <span class="MuiTouchRipple-root"></span>
+    <span class="MuiTouchRipple-root"/>
   </button>
-  <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
-    tabindex="0" type="button">
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary" tabindex="0" type="button">
     <span class="MuiButton-label">Two</span>
-    <span class="MuiTouchRipple-root"></span>
+    <span class="MuiTouchRipple-root"/>
   </button>
-  <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
-    tabindex="0" type="button">
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary" tabindex="0" type="button">
     <span class="MuiButton-label">Three</span>
-    <span class="MuiTouchRipple-root"></span>
+    <span class="MuiTouchRipple-root"/>
   </button>
 </div>
 ```
 ```html
-<div role="group" class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-vertical" aria-label="vertical contained primary button group">
-  <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedVertical MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedVertical MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary" tabindex="0" type="button">
-    <span class="MuiButton-label">One</span>
-    <span class="MuiTouchRipple-root"></span>
+<div role="group" class="MuiButtonGroup-root MuiButtonGroup-contained" aria-label="split button">
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary" tabindex="0" type="button">
+    <span class="MuiButton-label">Create a merge commit</span>
+    <span class="MuiTouchRipple-root"/>
   </button>
-  <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedVertical MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedVertical MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary" tabindex="0" type="button">
-    <span class="MuiButton-label">Two</span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-  <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedVertical MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedVertical MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary" tabindex="0" type="button">
-    <span class="MuiButton-label">Three</span>
-    <span class="MuiTouchRipple-root"></span>
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button" aria-label="select merge strategy" aria-haspopup="menu" aria-controls="split-button-menu" aria-expanded="true">
+    <span class="MuiButton-label">
+      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 10l5 5 5-5z"/>
+      </svg>
+    </span>
+    <span class="MuiTouchRipple-root"/>
   </button>
 </div>
 ```
@@ -2086,10 +2090,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 | --- | --- | ---
-**is()** | Returns object for work with assertions | ButtonGroupAssert
-**getButtonByIndex(int)** | Get button by index | MaterialButton
-**getButtonByText(String)** | Get button by text | MaterialButton
-**getAllButtons()**        | Get all buttons in a block | Collection\<MaterialButton\>
+**button(int)**        | Get button with index '{0}'| Button
+**button(String)**        | Get button with text '{0}'| Button
+**getAllButtons**        | Get all buttons in '{name}'| List\<Button\>
+**is()**        |Returns object for work with assertions| ButtonGroupAssert
+
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a>
 

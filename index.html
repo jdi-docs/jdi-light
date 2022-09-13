@@ -36004,44 +36004,53 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <p><br></br></p>
 <h3 id='4-28-buttongroup'>4.28 ButtonGroup</h3><pre class="highlight java tab-java"><code>    <span class="c1">//      @FindBy(xpath = "//div[@aria-label = 'outlined primary button group']")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@aria-label = 'outlined primary button group']"</span><span class="o">)</span>
-    <span class="nd">@JDIButtonGroup</span><span class="o">(</span><span class="n">list</span> <span class="o">=</span> <span class="s">".MuiButtonGroup-groupedHorizontal"</span><span class="o">)</span>
+    <span class="nd">@JDIButtonGroup</span><span class="o">(</span><span class="n">list</span> <span class="o">=</span> <span class="s">".MuiButtonGroup-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonGroup</span> <span class="n">basicButtonGroup</span><span class="o">;</span>
 
-    <span class="c1">//      @FindBy(xpath = "//div[@aria-label = 'vertical contained primary button group']")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@aria-label = 'vertical contained primary button group']"</span><span class="o">)</span>
-    <span class="nd">@JDIButtonGroup</span><span class="o">(</span><span class="n">list</span> <span class="o">=</span> <span class="s">".MuiButton-root"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonGroup</span> <span class="n">verticalButtonGroup</span><span class="o">;</span>
+    <span class="c1">//      @FindBy(xpath = "//div[@aria-label = 'split button']")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@aria-label = 'split button']"</span><span class="o">)</span>
+    <span class="nd">@JDIButtonGroup</span><span class="o">(</span><span class="n">list</span> <span class="o">=</span> <span class="s">".MuiButtonGroup-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonGroup</span> <span class="n">splitButtonGroup</span><span class="o">;</span>
 </code></pre><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicButtonGroupTest</span><span class="o">(){</span>
 
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">buttons</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">buttonsTexts</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsInAnyOrder</span><span class="o">(</span><span class="s">"THREE"</span><span class="o">,</span> <span class="s">"ONE"</span><span class="o">,</span> <span class="s">"TWO"</span><span class="o">));</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"ONE"</span><span class="o">);</span>
 
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Three"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Two"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"One"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
 
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"ONE"</span><span class="o">);</span>
+        <span class="n">basicLastClick</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Three"</span><span class="o">);</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="s">"Three"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
 
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">numberOfGroupedButtons</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">buttonsTextsInAnyOrder</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"THREE"</span><span class="o">,</span><span class="s">"ONE"</span><span class="o">,</span><span class="s">"TWO"</span><span class="o">));</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="s">"Two"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="s">"One"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verticalButtonGroupTest</span><span class="o">(){</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">splitButtonGroupTest</span><span class="o">()</span> <span class="o">{</span>
 
-        <span class="n">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">String</span> <span class="n">firstMenuItem</span> <span class="o">=</span> <span class="s">"Create a merge commit"</span><span class="o">;</span>
+      <span class="n">String</span> <span class="n">secondMenuItem</span> <span class="o">=</span> <span class="s">"Squash and merge"</span><span class="o">;</span>
+      <span class="n">String</span> <span class="n">thirdMenuItem</span> <span class="o">=</span> <span class="s">"Rebase and merge"</span><span class="o">;</span>
 
-        <span class="n">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Two"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"One"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">()</span>
+      <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">equalToIgnoringCase</span><span class="o">(</span><span class="n">secondMenuItem</span><span class="o">));</span>
 
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"TWO"</span><span class="o">);</span>
+      <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">splitButtonMenu</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">isDisplayed</span><span class="o">());</span>
+      <span class="n">splitButtonMenu</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="n">firstMenuItem</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">equalToIgnoringCase</span><span class="o">(</span><span class="n">firstMenuItem</span><span class="o">));</span>
+
+      <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">splitButtonMenu</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="n">thirdMenuItem</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+
+      <span class="n">splitButtonMenu</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="n">secondMenuItem</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">equalToIgnoringCase</span><span class="o">(</span><span class="n">secondMenuItem</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre><h5 id='buttongroup-overview'><a href="https://material-ui.com/components/button-group/" target="_blank">ButtonGroup overview</a></h5>
+</code></pre><h5 id='buttongroup-overview'><a href="https://v4.mui.com/ru/components/button-group/" target="_blank">ButtonGroup overview</a></h5>
 <p>ButtonGroup is located in the following class:</p>
 
 <ul>
@@ -36052,42 +36061,37 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 related buttons.</p>
 
 <p><img src="images/buttongroup.png" alt="ButtonGroup" />
-<img src="images/verticalbuttongroup.png" alt="ButtonGroup" /></p>
+<img src="images/verticalbuttongroup.png" alt="ButtonGroup" />
+<img src="images/splitbutton.png" alt="ButtonGroup" /></p>
 
 <p>Here are examples with provided MaterialUI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code>
 <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"group"</span> <span class="na">class=</span><span class="s">"MuiButtonGroup-root"</span> <span class="na">aria-label=</span><span class="s">"outlined primary button group"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span>
-    <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"</span>
-    <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>One<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span>
-    <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"</span>
-    <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Two<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span>
-    <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"</span>
-    <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Three<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"group"</span> <span class="na">class=</span><span class="s">"MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-vertical"</span> <span class="na">aria-label=</span><span class="s">"vertical contained primary button group"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedVertical MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedVertical MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>One<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"group"</span> <span class="na">class=</span><span class="s">"MuiButtonGroup-root MuiButtonGroup-contained"</span> <span class="na">aria-label=</span><span class="s">"split button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Create a merge commit<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedVertical MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedVertical MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Two<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedVertical MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedVertical MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>Three<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedPrimary MuiButton-containedPrimary MuiButton-containedSizeSmall MuiButton-sizeSmall"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"select merge strategy"</span> <span class="na">aria-haspopup=</span><span class="s">"menu"</span> <span class="na">aria-controls=</span><span class="s">"split-button-menu"</span> <span class="na">aria-expanded=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M7 10l5 5 5-5z"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/svg&gt;</span>
+    <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
@@ -36101,24 +36105,24 @@ related buttons.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><strong>button(int)</strong></td>
+<td>Get button by index</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>button(String)</strong></td>
+<td>Get button by text</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>getAllButtons</strong></td>
+<td>Get all buttons in a block</td>
+<td>List&lt;Button&gt;</td>
+</tr>
+<tr>
 <td><strong>is()</strong></td>
 <td>Returns object for work with assertions</td>
 <td>ButtonGroupAssert</td>
-</tr>
-<tr>
-<td><strong>getButtonByIndex(int)</strong></td>
-<td>Get button by index</td>
-<td>MaterialButton</td>
-</tr>
-<tr>
-<td><strong>getButtonByText(String)</strong></td>
-<td>Get button by text</td>
-<td>MaterialButton</td>
-</tr>
-<tr>
-<td><strong>getAllButtons()</strong></td>
-<td>Get all buttons in a block</td>
-<td>Collection&lt;MaterialButton&gt;</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-button-group-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a></h5>

@@ -132,27 +132,21 @@ Here is an example with provided Material-UI v4.12.3 code:
     <li>
       <div class="MuiButtonBase-root MuiChip-root jss14 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">Angular</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
     <li>
       <div class="MuiButtonBase-root MuiChip-root jss14 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">jQuery</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
     <li>
       <div class="MuiButtonBase-root MuiChip-root jss14 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">Polymer</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
@@ -167,9 +161,7 @@ Here is an example with provided Material-UI v4.12.3 code:
     <li>
       <div class="MuiButtonBase-root MuiChip-root jss14 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
         <span class="MuiChip-label">Vue.js</span>
-        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
         <span class="MuiTouchRipple-root"></span>
       </div>
     </li>
@@ -244,9 +236,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 ```html
 <button class="MuiButtonBase-root MuiFab-root jss183 MuiFab-primary" tabindex="0" type="button" aria-label="add" title="Add">
    <span class="MuiFab-label">
-      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-      </svg>
+      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
    </span>
   <span class="MuiTouchRipple-root"></span>
 </button>
@@ -540,41 +530,22 @@ __Radio buttons__ - elements that allow the user to select one option from a set
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<fieldset class="MuiFormControl-root">
+<fieldset class="MuiFormControl-root" id="simpleRadio">
   <div class="MuiFormGroup-root" role="radiogroup" aria-label="gender">
     <label class="MuiFormControlLabel-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
-                <span class="MuiIconButton-label">
-                    <input class="jss218" name="position" type="radio" value="female" checked="" />
-                </span>
-                <span class="MuiTouchRipple-root"></span>
-            </span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
       <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">First</span>
     </label>
     <label class="MuiFormControlLabel-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary jss216 Mui-checked MuiIconButton-colorSecondary" aria-disabled="false">
-                <span class="MuiIconButton-label">
-                    <input class="jss218" name="position" type="radio" value="male" />
-                </span>
-                <span class="MuiTouchRipple-root"></span>
-            </span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary jss216 Mui-checked MuiIconButton-colorSecondary" aria-disabled="false">...</span>
       <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Second</span>
     </label>
     <label class="MuiFormControlLabel-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
-                <span class="MuiIconButton-label">
-                    <input class="jss218" name="position" type="radio" value="other" />
-                </span>
-                <span class="MuiTouchRipple-root"></span>
-            </span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
       <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Third</span>
     </label>
     <label class="MuiFormControlLabel-root Mui-disabled">
-            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary jss217 Mui-disabled MuiIconButton-colorSecondary Mui-disabled Mui-disabled" tabindex="-1" aria-disabled="true">
-                <span class="MuiIconButton-label">
-                    <input class="jss218" disabled="" name="position" type="radio" value="disabled" />
-                </span>
-            </span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss215 MuiRadio-root MuiRadio-colorSecondary jss217 Mui-disabled MuiIconButton-colorSecondary Mui-disabled Mui-disabled" tabindex="-1" aria-disabled="true">...</span>
       <span class="MuiTypography-root MuiFormControlLabel-label Mui-disabled MuiTypography-body1">Disabled</span>
     </label>
   </div>
@@ -630,14 +601,7 @@ Here is an example with provided Material-UI v4.12.3 code:
 ```html
 <header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4">
   <div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters">
-    <button class="MuiButtonBase-root MuiIconButton-root jss172 MuiIconButton-colorInherit MuiIconButton-edgeStart" tabindex="0" type="button" aria-label="menu">
-         <span class="MuiIconButton-label">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-               <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-            </svg>
-         </span>
-      <span class="MuiTouchRipple-root"></span>
-    </button>
+    <button class="MuiButtonBase-root MuiIconButton-root jss172 MuiIconButton-colorInherit MuiIconButton-edgeStart" tabindex="0" type="button" aria-label="menu">...</button>
     <h6 class="MuiTypography-root jss173 MuiTypography-h6">News</h6>
     <button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button">
       <span class="MuiButton-label">Login</span>
@@ -706,33 +670,14 @@ Here is an example with provided Material-UI v4.12.3 code:
       <span class="MuiButtonBase-root MuiIconButton-root jss262 MuiSwitch-switchBase MuiSwitch-colorSecondary" aria-disabled="false">
         <span class="MuiIconButton-label">
           <input class="jss265 MuiSwitch-input" type="checkbox" value="">
-          <span class="MuiSwitch-thumb"></span></span>
-        <span class="MuiTouchRipple-root"></span></span>
-      <span class="MuiSwitch-track"></span></span>
     <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Show</span>
   </label>
   <div class="jss258">
     <div class="MuiCollapse-root MuiCollapse-hidden" style="min-height: 0px; height: 0px; transition-duration: 300ms;">
-      <div class="MuiCollapse-wrapper">
-        <div class="MuiCollapse-wrapperInner">
-          <div class="MuiPaper-root jss259 MuiPaper-elevation4 MuiPaper-rounded">
-            <svg class="jss260">
-              <polygon points="0,100 50,00, 100,100" class="jss261"></polygon>
-            </svg>
-          </div>
-        </div>
-      </div>
+      <div class="MuiCollapse-wrapper">...</div>
     </div>
     <div class="MuiCollapse-root" style="min-height: 40px; height: 40px; transition-duration: 300ms;">
-      <div class="MuiCollapse-wrapper">
-        <div class="MuiCollapse-wrapperInner">
-          <div class="MuiPaper-root jss259 MuiPaper-elevation4 MuiPaper-rounded">
-            <svg class="jss260">
-              <polygon points="0,100 50,00, 100,100" class="jss261"></polygon>
-            </svg>
-          </div>
-        </div>
-      </div>
+      <div class="MuiCollapse-wrapper">...</div>
     </div>
   </div>
 </div>
@@ -846,12 +791,8 @@ Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
 <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8">
-  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
-  </svg>
-  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"></path>
-  </svg>
+  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
 </div>
 <p id="simpleLastClick">Last click: DeleteOutlinedIcon</p>
 <p id="simpleLastHover">Last hover: DeleteForeverIcon</p>
@@ -898,17 +839,13 @@ Here is an example with provided Material-UI v4.12.3 code:
 <div class="jss150">
   <button class="MuiButtonBase-root MuiFab-root MuiFab-primary" tabindex="0" type="button" aria-label="add">
       <span class="MuiFab-label">
-         <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-         </svg>
+         <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
       </span>
     <span class="MuiTouchRipple-root"></span>
   </button>
   <button class="MuiButtonBase-root MuiFab-root Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" aria-label="like">
       <span class="MuiFab-label">
-         <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-         </svg>
+         <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
       </span>
   </button>
 </div>
@@ -1027,14 +964,20 @@ Here is an example with provided Material-UI v4.12.3 code:
   <div class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0">
     <div class="MuiStep-root MuiStep-horizontal">
       <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal" tabindex="0" type="button">
+        ...
+        <span class="MuiTouchRipple-root MuiStepButton-touchRipple"></span>
+      </button>
+    </div>
+    <div class="MuiStepConnector-root MuiStepConnector-horizontal">
+      <span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span>
+    </div>
+    <div class="MuiStep-root MuiStep-horizontal">
+      <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal" tabindex="0" type="button">
             <span class="MuiStepLabel-root MuiStepLabel-horizontal">
-               <span class="MuiStepLabel-iconContainer">
-                  <svg class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                     <circle cx="12" cy="12" r="12"></circle>
-                     <text class="MuiStepIcon-text" x="12" y="16" text-anchor="middle">1</text>
-                  </svg>
+               ...
+               <span class="MuiStepLabel-labelContainer">
+                 <span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #2</span>
                </span>
-               <span class="MuiStepLabel-labelContainer"><span class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock">Step #1</span></span>
             </span>
         <span class="MuiTouchRipple-root MuiStepButton-touchRipple"></span>
       </button>
@@ -1043,28 +986,10 @@ Here is an example with provided Material-UI v4.12.3 code:
     <div class="MuiStep-root MuiStep-horizontal">
       <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal" tabindex="0" type="button">
             <span class="MuiStepLabel-root MuiStepLabel-horizontal">
-               <span class="MuiStepLabel-iconContainer">
-                  <svg class="MuiSvgIcon-root MuiStepIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                     <circle cx="12" cy="12" r="12"></circle>
-                     <text class="MuiStepIcon-text" x="12" y="16" text-anchor="middle">2</text>
-                  </svg>
+               ...
+               <span class="MuiStepLabel-labelContainer">
+                 <span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #3</span>
                </span>
-               <span class="MuiStepLabel-labelContainer"><span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #2</span></span>
-            </span>
-        <span class="MuiTouchRipple-root MuiStepButton-touchRipple"></span>
-      </button>
-    </div>
-    <div class="MuiStepConnector-root MuiStepConnector-horizontal"><span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span></div>
-    <div class="MuiStep-root MuiStep-horizontal">
-      <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal" tabindex="0" type="button">
-            <span class="MuiStepLabel-root MuiStepLabel-horizontal">
-               <span class="MuiStepLabel-iconContainer">
-                  <svg class="MuiSvgIcon-root MuiStepIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                     <circle cx="12" cy="12" r="12"></circle>
-                     <text class="MuiStepIcon-text" x="12" y="16" text-anchor="middle">3</text>
-                  </svg>
-               </span>
-               <span class="MuiStepLabel-labelContainer"><span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #3</span></span>
             </span>
         <span class="MuiTouchRipple-root MuiStepButton-touchRipple"></span>
       </button>
@@ -1290,34 +1215,7 @@ Here is an example with provided Material-UI v4.12.3 code:
             <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">24</td>
             <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">4</td>
         </tr>
-        <tr class="MuiTableRow-root">
-            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Ice cream sandwich</th>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">237</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">9</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">37</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">4.3</td>
-        </tr>
-        <tr class="MuiTableRow-root">
-            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Eclair</th>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">262</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">16</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">24</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">6</td>
-        </tr>
-        <tr class="MuiTableRow-root">
-            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Cupcake</th>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">305</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">3.7</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">67</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">4.3</td>
-        </tr>
-        <tr class="MuiTableRow-root">
-            <th class="MuiTableCell-root MuiTableCell-body" role="cell" scope="row">Gingerbread</th>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">356</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">16</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">49</td>
-            <td class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight">3.9</td>
-        </tr>
+        ...
     </tbody>
 </table>
 
@@ -1523,9 +1421,7 @@ Here is an example with provided Material-UI v4.12.3 code:
     </button>
     <button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall" tabindex="0" type="button" aria-label="close">
       <span class="MuiIconButton-label">
-        <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-        </svg>
+        <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
       </span>
       <span class="MuiTouchRipple-root"></span>
     </button>
@@ -1666,43 +1562,13 @@ Here is an example with provided Material-UI v4.12.3 code:
     </div>
     <ul class="MuiList-root MuiList-padding">
       <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
-        <div class="MuiListItemAvatar-root">
-          <div class="MuiAvatar-root MuiAvatar-circular jss93 MuiAvatar-colorDefault">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-            </svg>
-          </div>
-        </div>
+        <div class="MuiListItemAvatar-root">...</div>
         <div class="MuiListItemText-root">
           <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">username@gmail.com</span>
         </div>
         <span class="MuiTouchRipple-root"></span>
       </div>
-      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
-        <div class="MuiListItemAvatar-root">
-          <div class="MuiAvatar-root MuiAvatar-circular jss93 MuiAvatar-colorDefault">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="MuiListItemText-root">
-          <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">user02@gmail.com</span>
-        </div>
-        <span class="MuiTouchRipple-root"></span>
-      </div>
-      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
-        <div class="MuiListItemAvatar-root">
-          <div class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault">
-            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="MuiListItemText-root">
-          <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">Add account</span>
-        </div>
-        <span class="MuiTouchRipple-root"></span>
+      ...
       </div>
     </ul>
   </div>

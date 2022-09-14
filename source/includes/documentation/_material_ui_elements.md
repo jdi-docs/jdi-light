@@ -2111,8 +2111,8 @@ Available methods in Java JDI Light:
     public void basicGridItemsTest(int itemIndex, String itemWidth, String itemClass) {
         basicGrid.show();
         basicGrid.items().get(itemIndex)
-        .has().cssClass(itemClass)
-        .and().css("max-width", itemWidth);
+                .has().cssClass(itemClass)
+                .and().css("max-width", itemWidth);
         }
 
     @DataProvider

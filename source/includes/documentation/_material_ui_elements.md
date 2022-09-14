@@ -3678,22 +3678,21 @@ Input Adornments:
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-|**is()** |Returns object for work with assertions| TextFieldAssert
-|**setValue(String)**|Input text| void
-|**Clear()**|Clear data in Text Field| void
-|**Click()**|Click on Text Field| void
-|**GetText()**|Get current Text from Text Field| String
-|**placeHolderText()**|Get '{name}' placeholder text| String
-|**type()**|Get '{name}' type| String
-|**isReadonly()**|Check that '{name}' is readonly| boolean
-|**isEnabled()**|Check that '{name}' is enabled| boolean
-|**isDisabled()**|Check that '{name}' is disabled| boolean
-|**isEmpty()**|Check that '{name}' text area is empty| boolean
-|**setText(String)**|Set text '{name}' text area as {0}| void
-|**sendKeys(CharSequence...)**|Send text to '{name}' text area| void
-|**label()**|Get '{name}' label| Label
+| Method                        | Description | Return Type
+-------------------------------| --- | ---
+| **is()**                      |Returns object for work with assertions| TextFieldAssert
+| **setValue(String)**          |Input text| void
+| **clear()**                   |Clear data in Text Field| void
+| **GetText()**                 |Get current Text from Text Field| String
+| **placeHolderText()**         |Get '{name}' placeholder text| String
+| **type()**                    |Get '{name}' type| String
+| **isReadonly()**              |Check that '{name}' is readonly| boolean
+| **isEnabled()**               |Check that '{name}' is enabled| boolean
+| **isDisabled()**              |Check that '{name}' is disabled| boolean
+| **isEmpty()**                 |Check that '{name}' text area is empty| boolean
+| **setText(String)**           |Set text '{name}' text area as {0}| void
+| **sendKeys(CharSequence...)** |Send text to '{name}' text area| void
+| **label()**                   |Get '{name}' label| Label
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TextFieldTests.java"  target="_blank">Here you can find Text Fields tests</a>
 
 <br></br>

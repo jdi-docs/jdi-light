@@ -2065,140 +2065,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.30 GridList
-
-```java 
-     // @FindBy(css = ".MuiGridList-root.jss5")
-     @UI(".MuiGridList-root.jss5")
-     public static GridList singleLineGridList;
-    
-     @Test
-     public static void singleLineGridTest() {
-        singleLineGridList.has().size(5);
-        singleLineGridList.has().image(3).and().altImgName(3, HATS);
-        singleLineGridList.has().image(4).and().altImgName(4, BIKE);
-        singleLineGridList.has().title(5, CAMERA);
-    }
-```
-
-##### <a href="https://v3.mui.com/demos/grid-list/" target="_blank"> GridList overview </a>
-
-GridList is located in the following class:
-
-- __Java__: _com.epam.jdi.light.material.elements.layout.GridList_
-
-__The Grid List__ - list of Material UI Grid elements.
-
-![GridList](../../images/material-ui/GridList.png)
-
-Here is an example with provided MaterialUI v3.9.4 code:
-
-```html
-<div class="jss26">
-  <ul class="MuiGridList-root jss27" style="margin: -2px;">
-    <li class="MuiGridListTile-root" style="width: 40%; height: 184px; padding: 2px;">
-      <div class="MuiGridListTile-tile">
-        <img src="https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c?fit=crop&amp;auto=format" alt="coffee"
-             class="MuiGridListTile-imgFullWidth">
-        <div class="MuiGridListTileBar-root jss29 MuiGridListTileBar-titlePositionBottom">
-          <div class="MuiGridListTileBar-titleWrap MuiGridListTileBar-titleWrapActionPosRight">
-            <div class="MuiGridListTileBar-title jss28">coffee</div>
-          </div>
-          <div class="MuiGridListTileBar-actionIcon">
-            <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="star coffee">
-              <span class="MuiIconButton-label"></span>
-              <span class="MuiTouchRipple-root"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li class="MuiGridListTile-root" style="width: 40%; height: 184px; padding: 2px;">
-      <div class="MuiGridListTile-tile">
-        <img src="https://images.unsplash.com/photo-1518756131217-31eb79b20e8f?fit=crop&amp;auto=format" alt="fern"
-             class="MuiGridListTile-imgFullWidth">
-        <div class="MuiGridListTileBar-root jss29 MuiGridListTileBar-titlePositionBottom">
-          <div class="MuiGridListTileBar-titleWrap MuiGridListTileBar-titleWrapActionPosRight">
-            <div class="MuiGridListTileBar-title jss28">fern</div>
-          </div>
-          <div class="MuiGridListTileBar-actionIcon">
-            <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="star fern">
-              <span class="MuiIconButton-label"></span>
-              <span class="MuiTouchRipple-root"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li class="MuiGridListTile-root" style="width: 40%; height: 184px; padding: 2px;">
-      <div class="MuiGridListTile-tile">
-        <img src="https://images.unsplash.com/photo-1533827432537-70133748f5c8?fit=crop&amp;auto=format" alt="hats"
-             class="MuiGridListTile-imgFullWidth">
-        <div class="MuiGridListTileBar-root jss29 MuiGridListTileBar-titlePositionBottom">
-          <div class="MuiGridListTileBar-titleWrap MuiGridListTileBar-titleWrapActionPosRight">
-            <div class="MuiGridListTileBar-title jss28">hats</div>
-          </div>
-          <div class="MuiGridListTileBar-actionIcon">
-            <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="star hats">
-              <span class="MuiIconButton-label"></span>
-              <span class="MuiTouchRipple-root"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li class="MuiGridListTile-root" style="width: 40%; height: 184px; padding: 2px;">
-      <div class="MuiGridListTile-tile">
-        <img src="https://images.unsplash.com/photo-1589118949245-7d38baf380d6?fit=crop&amp;auto=format" alt="bike"
-             class="MuiGridListTile-imgFullWidth">
-        <div class="MuiGridListTileBar-root jss29 MuiGridListTileBar-titlePositionBottom">
-          <div class="MuiGridListTileBar-titleWrap MuiGridListTileBar-titleWrapActionPosRight">
-            <div class="MuiGridListTileBar-title jss28">bike</div>
-          </div>
-          <div class="MuiGridListTileBar-actionIcon">
-            <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="star bike">
-              <span class="MuiIconButton-label"></span>
-              <span class="MuiTouchRipple-root"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li class="MuiGridListTile-root" style="width: 40%; height: 184px; padding: 2px;">
-      <div class="MuiGridListTile-tile">
-        <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?fit=crop&amp;auto=format" alt="camera"
-             class="MuiGridListTile-imgFullWidth">
-        <div class="MuiGridListTileBar-root jss29 MuiGridListTileBar-titlePositionBottom">
-          <div class="MuiGridListTileBar-titleWrap MuiGridListTileBar-titleWrapActionPosRight">
-            <div class="MuiGridListTileBar-title jss28">camera</div>
-          </div>
-          <div class="MuiGridListTileBar-actionIcon">
-            <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="star camera">
-              <span class="MuiIconButton-label"></span>
-              <span class="MuiTouchRipple-root"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
-```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions| GridListAssert
-**hasImage(int)** | Shows that required element has image| boolean
-**getAltImgName(int)** | Returns required element's image alternative name| String
-**getTitle(int)** | Returns required element's title | String
-
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridListTests.java" target="_blank">Here you can find GridList tests</a>
-
-<br></br>
-
-### 4.31 Drawer
+### 4.30 Drawer
 
 ```java  
     //root - @FindBy(xpath = "//span[text() = 'left']/parent::button")
@@ -2324,7 +2191,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.32 Breadcrumbs
+### 4.31 Breadcrumbs
 
 ```java 
     //       @FindBy(css = ".MuiBreadcrumbs-root")
@@ -2418,7 +2285,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.33 Bottom Navigation
+### 4.32 Bottom Navigation
 
 ```java
     //    @FindBy(css = ".MuiBottomNavigationAction-root")
@@ -2480,7 +2347,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.34 Paper
+### 4.33 Paper
 
 ```java 
     //   @FindBy(id = "paperElevation3")
@@ -2529,7 +2396,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.35 Accordion
+### 4.34 Accordion
 
 ```java
     // UIElement @FindBy(css = ".MuiAccordion-root[1]")
@@ -2608,7 +2475,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.36 Portal
+### 4.35 Portal
 
 ```java 
     // @FindBy(css = ".MuiBox-root")
@@ -2669,7 +2536,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.37 Textarea Autosize
+### 4.36 Textarea Autosize
 
 ```java 
     //    @FindBy(xpath = "//textarea[@aria-label = 'empty textarea']")
@@ -2716,7 +2583,7 @@ Available methods in Java JDI Light you can find in html `TextArea` class.
 
 <br></br>
 
-### 4.38 Popover
+### 4.37 Popover
 
 ```java 
     //    @FindBy(css = ".MuiPopover-root .MuiPaper-root")
@@ -2770,7 +2637,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.39 Modal
+### 4.38 Modal
 
 ```java 
     //    @FindBy(xpath = "//*[@role='presentation' and not(@aria-hidden='true')]")
@@ -2852,7 +2719,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.40 Popper
+### 4.39 Popper
 
 ```java
     // @FindBy(css = "[type=button]")
@@ -2913,7 +2780,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.41 Progress
+### 4.40 Progress
 
 ```java
     //    @FindBy(xpath = "(//div[@aria-valuenow='100']/following-sibling::div)[1]")
@@ -2990,7 +2857,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.42 Link
+### 4.41 Link
 
 ```java 
     //    @FindBy(xpath = "//a[text()='Link']")
@@ -3057,7 +2924,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.43 Menus
+### 4.42 Menus
 
 ```java 
     //  @FindBy(css = "span.MuiButton-label")
@@ -3142,7 +3009,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.44 Lists
+### 4.43 Lists
 
 ```java
     // @FindBy(id = "simpleList")
@@ -3212,7 +3079,7 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListTests.java" target="_blank">Here you can find List tests</a>
 
-#### 4.44.1 List Items
+#### 4.43.1 List Items
 
 List Item is located in the following class:
 
@@ -3241,7 +3108,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.45 Transfer List
+### 4.44 Transfer List
 
 ```java
     // @FindBy(css = ".MuiGrid-justify-xs-center")
@@ -3441,7 +3308,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.46 Text Field
+### 4.45 Text Field
 
 ```java 
     //    @FindBy(xpath = "//form[@id='formProps']/div[2]/div[contains(@class, 'MuiTextField-root')]")
@@ -3562,7 +3429,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.47 UseMediaQuery
+### 4.46 UseMediaQuery
 
 ```java
     //    @FindBy(xpath = "//span[contains(.,'min-width')]")
@@ -3594,7 +3461,7 @@ components based on whether the query matches or not.
 
 <br></br>
 
-### 4.48 Alert
+### 4.47 Alert
 
 ```java
     // @FindBy(xpath = "//div[contains(@class, 'MuiTypography-root')]/ancestor::*[contains(@class, 'MuiAlert-root')]")

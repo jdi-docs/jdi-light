@@ -3573,45 +3573,46 @@ Available methods in Java JDI Light:
 ### 4.46 Text Field
 
 ```java 
-    //    @FindBy(xpath = "//form[@id='formProps']/div[2]/div[contains(@class, 'MuiTextField-root')]")
-    @UI("//form[@id='formProps']/div[2]/div[contains(@class, 'MuiTextField-root')]")
+    //    @FindBy(xpath = "//*[@id='filled-error']/ancestor::*[1]")
+    @UI("//*[@id='filled-error']/ancestor::*[1]")
     public static List<TextField> validationTextFields;
     
-    @Test
+   @Test
     public void validateTextFieldTests() {
-        validationTextFields.get(1).has().text(HELLO_WORLD);
-        validationTextFields.get(1).is().validationError();
-        validationTextFields.get(1).click();
-        validationTextFields.get(1).is().focused();
-        validationTextFields.get(1).clear();
-        validationTextFields.get(1).is().empty();
+        TextField validationTextField = validationTextFields.get(1);
+        validationTextField.show();
+        validationTextField.has().text(HELLO_WORLD);
+        validationTextField.label().has().cssClass("Mui-error");
+        validationTextField.click();
+        validationTextField.is().focused();
+        validationTextField.clear();
+        validationTextField.is().empty();
         validationTextFields.get(2).click();
-        validationTextFields.get(1).has().placeholder();
-        validationTextFields.get(1).has().placeholderText("Error");
-        validationTextFields.get(1).sendKeys(randomString);
-        validationTextFields.get(1).has().text(randomString);
-        validationTextFields.get(1).label().has().text("Error");
+        validationTextField.has().placeholderText("Error");
+        validationTextField.sendKeys(randomString);
+        validationTextField.has().text(randomString);
+        validationTextField.label().has().text("Error");
     }
 ```
 ```java 
-    //    @FindBy(xpath = "//form[@id='formProps']/div[5]/div[contains(@class, 'MuiFormControl-root')]")
-    @UI("//form[@id='formProps']/div[5]/div[contains(@class, 'MuiFormControl-root')]")
+    //    @FindBy(xpath = "//*[@id='standard-start-adornment']/ancestor::*[1]")
+    @UI("//*[@id='standard-start-adornment']/ancestor::*[1]")
     public static List<TextField> inputAdornmentsTextFields;
     
     @Test
     public void standardAdornmentTextFieldTests() {
-        inputAdornmentsTextFields.get(1).adornment().has().position("start");
-        inputAdornmentsTextFields.get(1).adornment().has().text("Kg");
-        inputAdornmentsTextFields.get(1).click();
-        inputAdornmentsTextFields.get(1).is().focused();
-        inputAdornmentsTextFields.get(1).is().empty();
-        inputAdornmentsTextFields.get(1).sendKeys(randomString);
-        inputAdornmentsTextFields.get(1).has().text(randomString);
-        inputAdornmentsTextFields.get(1).label().has().text("With normal TextField");
+        TextField standardAdornmentTextField = inputAdornmentsTextFields.get(1);
+        standardAdornmentTextField.show();
+        standardAdornmentTextField.adornment().has().position(START.toString()).and().text("Kg");
+        standardAdornmentTextField.click();
+        standardAdornmentTextField.is().focused().and().empty();
+        standardAdornmentTextField.sendKeys(randomString);
+        standardAdornmentTextField.has().text(randomString);
+        standardAdornmentTextField.label().has().text("With normal TextField");
     }
 ```
 
-##### <a href="https://material-ui.com/components/text-fields/" target="_blank"> Text Fields overview</a>
+##### <a href="https://v4.mui.com/components/text-fields/" target="_blank"> Text Fields overview</a>
 
 Text Field is located in the following class:
 
@@ -3625,56 +3626,61 @@ It supports standard, outlined and filled styling.
 
 Here are examples with provided MaterialUI v4.12.3 code:
 
+Validation:
 ```html
-<div>
-  <div class="MuiFormControl-root MuiTextField-root">
-    <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-filled Mui-error Mui-error MuiFormLabel-filled" data-shrink="true" for="filled-error" id="filled-error-label">Error</label>
-    <div class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline Mui-error Mui-error MuiInputBase-formControl">
-      <input aria-invalid="true" id="filled-error" type="text" class="MuiInputBase-input MuiFilledInput-input" value="Hello World">
-    </div>
-  </div>
-  <div class="MuiFormControl-root MuiTextField-root">
-    <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-filled Mui-error Mui-error MuiFormLabel-filled" data-shrink="true" for="filled-error-helper-text" id="filled-error-helper-text-label">Error</label>
-    <div class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline Mui-error Mui-error MuiInputBase-formControl">
-      <input aria-invalid="true" aria-describedby="filled-error-helper-text-helper-text" id="filled-error-helper-text" type="text" class="MuiInputBase-input MuiFilledInput-input" value="Hello World">
-    </div>
-    <p class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error MuiFormHelperText-filled" id="filled-error-helper-text-helper-text">Incorrect entry.</p>
+<div class="MuiFormControl-root MuiTextField-root">
+  <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-error Mui-error MuiFormLabel-filled" data-shrink="true" for="standard-error" id="standard-error-label">Error</label>
+  <div class="MuiInputBase-root MuiInput-root MuiInput-underline Mui-error Mui-error MuiInputBase-formControl MuiInput-formControl">
+    <input type="text" aria-invalid="true" id="standard-error" value="Hello World" class="MuiInputBase-input MuiInput-input"/>
   </div>
 </div>
 ```
+Input Adornments:
 ```html
 <div>
-  <div class="MuiFormControl-root MuiTextField-root">
+  <div class="MuiFormControl-root MuiTextField-root jss210 jss212">
     <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink" data-shrink="true" for="standard-start-adornment" id="standard-start-adornment-label">With normal TextField</label>
     <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart">
-      <div class="MuiInputAdornment-root MuiInputAdornment-positionStart">...</div>
-      <input aria-invalid="false" id="standard-start-adornment" type="text" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart" value="">
+      <div class="MuiInputAdornment-root MuiInputAdornment-positionStart">
+        <p class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary">Kg</p>
+      </div>
+      <input aria-invalid="false" id="standard-start-adornment" type="text" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart" value=""/>
     </div>
-  </div>
-  <div class="MuiFormControl-root">
-    <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd">
-      <input aria-invalid="false" aria-describedby="standard-weight-helper-text" id="standard-adornment-weight" type="text" aria-label="weight" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd" value="">
-      <div class="MuiInputAdornment-root MuiInputAdornment-positionEnd">...</div>
+    <div class="MuiFormControl-root jss210 jss211 jss212">
+      <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd">
+        <input aria-invalid="false" aria-describedby="standard-weight-helper-text" id="standard-adornment-weight" type="text" aria-label="weight" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd" value="">
+        <div class="MuiInputAdornment-root MuiInputAdornment-positionEnd">
+          <p class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary">Kg</p>
+        </div>
+      </div>
+      <p class="MuiFormHelperText-root" id="standard-weight-helper-text">Weight</p>
     </div>
-    <p class="MuiFormHelperText-root" id="standard-weight-helper-text">Weight</p>
-  </div>
-  <div class="MuiFormControl-root">
-    <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated" data-shrink="false" for="standard-adornment-password">Password</label>
-    <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd">
-      <input aria-invalid="false" id="standard-adornment-password" type="password" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd" value="">
-      <div class="MuiInputAdornment-root MuiInputAdornment-positionEnd">
-        <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="toggle password visibility">...</button>
+    <div class="MuiFormControl-root jss210 jss212">
+      <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated" data-shrink="false" for="standard-adornment-password">Password</label>
+      <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd">
+        <input aria-invalid="false" id="standard-adornment-password" type="password" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd" value="">
+        <div class="MuiInputAdornment-root MuiInputAdornment-positionEnd">
+          <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="toggle password visibility">
+               <span class="MuiIconButton-label">
+                  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                     <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/>
+                  </svg>
+               </span>
+            <span class="MuiTouchRipple-root"/>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="MuiFormControl-root jss210 MuiFormControl-fullWidth">
+      <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink" data-shrink="true" for="standard-adornment-amount">Amount</label>
+      <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart">
+        <div class="MuiInputAdornment-root MuiInputAdornment-positionStart">
+          <p class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary">$</p>
+        </div>
+        <input aria-invalid="false" id="standard-adornment-amount" type="text" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart" value=""/>
       </div>
     </div>
   </div>
-  <div class="MuiFormControl-root MuiFormControl-fullWidth">
-    <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink" data-shrink="true" for="standard-adornment-amount">Amount</label>
-    <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart">
-      <div class="MuiInputAdornment-root MuiInputAdornment-positionStart">...</div>
-      <input aria-invalid="false" id="standard-adornment-amount" type="text" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart" value="">
-    </div>
-  </div>
-</div>
 ```
 
 Available methods in Java JDI Light:
@@ -3686,7 +3692,15 @@ Available methods in Java JDI Light:
 |**Clear()**|Clear data in Text Field| void
 |**Click()**|Click on Text Field| void
 |**GetText()**|Get current Text from Text Field| String
-
+|**placeHolderText()**|Get '{name}' placeholder text| String
+|**type()**|Get '{name}' type| String
+|**isReadonly()**|Check that '{name}' is readonly| boolean
+|**isEnabled()**|Check that '{name}' is enabled| boolean
+|**isDisabled()**|Check that '{name}' is disabled| boolean
+|**isEmpty()**|Check that '{name}' text area is empty| boolean
+|**setText(String value)**|Set text '{name}' text area as {0}| void
+|**sendKeys(CharSequence... text)**|Send text to '{name}' text area| void
+|**label()**|Get '{name}' label| Label
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TextFieldTests.java"  target="_blank">Here you can find Text Fields tests</a>
 
 <br></br>
@@ -3708,7 +3722,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/use-media-query/#usemediaquery" target="_blank"> useMediaQuery overview </a>
+##### <a href="https://v4.mui.com/components/use-media-query/" target="_blank"> useMediaQuery overview </a>
 
 This is a CSS media query hook for React. It listens for matches to a CSS media query. It allows the rendering of
 components based on whether the query matches or not.

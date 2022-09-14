@@ -37756,41 +37756,42 @@ which are represented by icons and text.</p>
 </tbody></table>
 <h5 id='here-you-can-find-transfer-list-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Transfer List tests</a></h5>
 <p><br></br></p>
-<h3 id='4-46-text-field'>4.46 Text Field</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(xpath = "//form[@id='formProps']/div[2]/div[contains(@class, 'MuiTextField-root')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//form[@id='formProps']/div[2]/div[contains(@class, 'MuiTextField-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">TextField</span><span class="o">&gt;</span> <span class="n">validationTextFields</span><span class="o">;</span>
+<h3 id='4-46-text-field'>4.46 Text Field</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(xpath = "//*[@id='filled-error']/ancestor::*[contains(@class, 'MuiTextField-root')]")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id='filled-error']/ancestor::*[contains(@class, 'MuiTextField-root')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">validationTextFields</span><span class="o">;</span>
 
-    <span class="nd">@Test</span>
+   <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">validateTextFieldTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">HELLO_WORLD</span><span class="o">);</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">validationError</span><span class="o">();</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">focused</span><span class="o">();</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">clear</span><span class="o">();</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">empty</span><span class="o">();</span>
+        <span class="n">TextField</span> <span class="n">validationTextField</span> <span class="o">=</span> <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">);</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="s">"Mui-error"</span><span class="o">);</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">focused</span><span class="o">();</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">empty</span><span class="o">();</span>
         <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">placeholder</span><span class="o">();</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">placeholderText</span><span class="o">(</span><span class="s">"Error"</span><span class="o">);</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">randomString</span><span class="o">);</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">randomString</span><span class="o">);</span>
-        <span class="n">validationTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Error"</span><span class="o">);</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">placeholderText</span><span class="o">(</span><span class="s">"Error"</span><span class="o">);</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">randomString</span><span class="o">);</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">randomString</span><span class="o">);</span>
+        <span class="n">validationTextField</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Error"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(xpath = "//form[@id='formProps']/div[5]/div[contains(@class, 'MuiFormControl-root')]")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//form[@id='formProps']/div[5]/div[contains(@class, 'MuiFormControl-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">TextField</span><span class="o">&gt;</span> <span class="n">inputAdornmentsTextFields</span><span class="o">;</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(xpath = "//*[@id='standard-start-adornment']/ancestor::*[contains(@class, 'MuiTextField-root')]")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id='standard-start-adornment']/ancestor::*[contains(@class, 'MuiTextField-root')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">inputAdornmentsTextFields</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">standardAdornmentTextFieldTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">inputAdornmentsTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">adornment</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="s">"start"</span><span class="o">);</span>
-        <span class="n">inputAdornmentsTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">adornment</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Kg"</span><span class="o">);</span>
-        <span class="n">inputAdornmentsTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">inputAdornmentsTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">focused</span><span class="o">();</span>
-        <span class="n">inputAdornmentsTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">empty</span><span class="o">();</span>
-        <span class="n">inputAdornmentsTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">randomString</span><span class="o">);</span>
-        <span class="n">inputAdornmentsTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">randomString</span><span class="o">);</span>
-        <span class="n">inputAdornmentsTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"With normal TextField"</span><span class="o">);</span>
+        <span class="n">TextField</span> <span class="n">standardAdornmentTextField</span> <span class="o">=</span> <span class="n">inputAdornmentsTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">standardAdornmentTextField</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">standardAdornmentTextField</span><span class="o">.</span><span class="na">adornment</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="n">START</span><span class="o">.</span><span class="na">toString</span><span class="o">()).</span><span class="na">and</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Kg"</span><span class="o">);</span>
+        <span class="n">standardAdornmentTextField</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">standardAdornmentTextField</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">focused</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">empty</span><span class="o">();</span>
+        <span class="n">standardAdornmentTextField</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">randomString</span><span class="o">);</span>
+        <span class="n">standardAdornmentTextField</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">randomString</span><span class="o">);</span>
+        <span class="n">standardAdornmentTextField</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"With normal TextField"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='text-fields-overview'><a href="https://material-ui.com/components/text-fields/" target="_blank"> Text Fields overview</a></h5>
+</code></pre><h5 id='text-fields-overview'><a href="https://v4.mui.com/components/text-fields/" target="_blank"> Text Fields overview</a></h5>
 <p>Text Field is located in the following class:</p>
 
 <ul>
@@ -37804,54 +37805,57 @@ It supports standard, outlined and filled styling.</p>
 <img src="images/material-ui/InputAdornments.png" alt="Input Adornments" /></p>
 
 <p>Here are examples with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root MuiTextField-root"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-filled Mui-error Mui-error MuiFormLabel-filled"</span> <span class="na">data-shrink=</span><span class="s">"true"</span> <span class="na">for=</span><span class="s">"filled-error"</span> <span class="na">id=</span><span class="s">"filled-error-label"</span><span class="nt">&gt;</span>Error<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline Mui-error Mui-error MuiInputBase-formControl"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"filled-error"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiFilledInput-input"</span> <span class="na">value=</span><span class="s">"Hello World"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root MuiTextField-root"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-filled Mui-error Mui-error MuiFormLabel-filled"</span> <span class="na">data-shrink=</span><span class="s">"true"</span> <span class="na">for=</span><span class="s">"filled-error-helper-text"</span> <span class="na">id=</span><span class="s">"filled-error-helper-text-label"</span><span class="nt">&gt;</span>Error<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline Mui-error Mui-error MuiInputBase-formControl"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"true"</span> <span class="na">aria-describedby=</span><span class="s">"filled-error-helper-text-helper-text"</span> <span class="na">id=</span><span class="s">"filled-error-helper-text"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiFilledInput-input"</span> <span class="na">value=</span><span class="s">"Hello World"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiFormHelperText-root MuiFormHelperText-contained Mui-error MuiFormHelperText-filled"</span> <span class="na">id=</span><span class="s">"filled-error-helper-text-helper-text"</span><span class="nt">&gt;</span>Incorrect entry.<span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root MuiTextField-root"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"</span> <span class="na">data-shrink=</span><span class="s">"true"</span> <span class="na">for=</span><span class="s">"standard-start-adornment"</span> <span class="na">id=</span><span class="s">"standard-start-adornment-label"</span><span class="nt">&gt;</span>With normal TextField<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputAdornment-root MuiInputAdornment-positionStart"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"standard-start-adornment"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-describedby=</span><span class="s">"standard-weight-helper-text"</span> <span class="na">id=</span><span class="s">"standard-adornment-weight"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">aria-label=</span><span class="s">"weight"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputAdornment-root MuiInputAdornment-positionEnd"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiFormHelperText-root"</span> <span class="na">id=</span><span class="s">"standard-weight-helper-text"</span><span class="nt">&gt;</span>Weight<span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"</span> <span class="na">data-shrink=</span><span class="s">"false"</span> <span class="na">for=</span><span class="s">"standard-adornment-password"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"standard-adornment-password"</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputAdornment-root MuiInputAdornment-positionEnd"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"toggle password visibility"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root MuiFormControl-fullWidth"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"</span> <span class="na">data-shrink=</span><span class="s">"true"</span> <span class="na">for=</span><span class="s">"standard-adornment-amount"</span><span class="nt">&gt;</span>Amount<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputAdornment-root MuiInputAdornment-positionStart"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"standard-adornment-amount"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre>
+
+<p>Validation:
+<code>html
+&lt;div class=&quot;MuiFormControl-root MuiTextField-root&quot;&gt;
+  &lt;label class=&quot;MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-error Mui-error MuiFormLabel-filled&quot; data-shrink=&quot;true&quot; for=&quot;standard-error&quot; id=&quot;standard-error-label&quot;&gt;Error&lt;/label&gt;
+  &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline Mui-error Mui-error MuiInputBase-formControl MuiInput-formControl&quot;&gt;
+    &lt;input type=&quot;text&quot; aria-invalid=&quot;true&quot; id=&quot;standard-error&quot; value=&quot;Hello World&quot; class=&quot;MuiInputBase-input MuiInput-input&quot;/&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+Input Adornments:
+<code>html
+&lt;div&gt;
+  &lt;div class=&quot;MuiFormControl-root MuiTextField-root jss210 jss212&quot;&gt;
+    &lt;label class=&quot;MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink&quot; data-shrink=&quot;true&quot; for=&quot;standard-start-adornment&quot; id=&quot;standard-start-adornment-label&quot;&gt;With normal TextField&lt;/label&gt;
+    &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart&quot;&gt;
+      &lt;div class=&quot;MuiInputAdornment-root MuiInputAdornment-positionStart&quot;&gt;
+        &lt;p class=&quot;MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary&quot;&gt;Kg&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;input aria-invalid=&quot;false&quot; id=&quot;standard-start-adornment&quot; type=&quot;text&quot; class=&quot;MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart&quot; value=&quot;&quot;/&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;MuiFormControl-root jss210 jss211 jss212&quot;&gt;
+      &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd&quot;&gt;
+        &lt;input aria-invalid=&quot;false&quot; aria-describedby=&quot;standard-weight-helper-text&quot; id=&quot;standard-adornment-weight&quot; type=&quot;text&quot; aria-label=&quot;weight&quot; class=&quot;MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd&quot; value=&quot;&quot;&gt;
+        &lt;div class=&quot;MuiInputAdornment-root MuiInputAdornment-positionEnd&quot;&gt;
+          &lt;p class=&quot;MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary&quot;&gt;Kg&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;p class=&quot;MuiFormHelperText-root&quot; id=&quot;standard-weight-helper-text&quot;&gt;Weight&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;MuiFormControl-root jss210 jss212&quot;&gt;
+      &lt;label class=&quot;MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated&quot; data-shrink=&quot;false&quot; for=&quot;standard-adornment-password&quot;&gt;Password&lt;/label&gt;
+      &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd&quot;&gt;
+        &lt;input aria-invalid=&quot;false&quot; id=&quot;standard-adornment-password&quot; type=&quot;password&quot; class=&quot;MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd&quot; value=&quot;&quot;&gt;
+        &lt;div class=&quot;MuiInputAdornment-root MuiInputAdornment-positionEnd&quot;&gt;
+          &lt;button class=&quot;MuiButtonBase-root MuiIconButton-root&quot; tabindex=&quot;0&quot; type=&quot;button&quot; aria-label=&quot;toggle password visibility&quot;&gt;...&lt;/button&gt; 
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;MuiFormControl-root jss210 MuiFormControl-fullWidth&quot;&gt;
+      &lt;label class=&quot;MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink&quot; data-shrink=&quot;true&quot; for=&quot;standard-adornment-amount&quot;&gt;Amount&lt;/label&gt;
+      &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart&quot;&gt;
+        &lt;div class=&quot;MuiInputAdornment-root MuiInputAdornment-positionStart&quot;&gt;
+          &lt;p class=&quot;MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary&quot;&gt;$&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;input aria-invalid=&quot;false&quot; id=&quot;standard-adornment-amount&quot; type=&quot;text&quot; class=&quot;MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart&quot; value=&quot;&quot;/&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></p>
+
 <p>Available methods in Java JDI Light:</p>
 
 <table><thead>
@@ -37867,24 +37871,64 @@ It supports standard, outlined and filled styling.</p>
 <td>TextFieldAssert</td>
 </tr>
 <tr>
-<td><strong>setValue(String text)</strong></td>
+<td><strong>setValue(String)</strong></td>
 <td>Input text</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Clear()</strong></td>
+<td><strong>clear()</strong></td>
 <td>Clear data in Text Field</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Click()</strong></td>
-<td>Click on Text Field</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>GetText()</strong></td>
 <td>Get current Text from Text Field</td>
 <td>String</td>
+</tr>
+<tr>
+<td><strong>placeHolderText()</strong></td>
+<td>Get &#39;{name}&#39; placeholder text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>type()</strong></td>
+<td>Get &#39;{name}&#39; type</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isReadonly()</strong></td>
+<td>Check that &#39;{name}&#39; is readonly</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Check that &#39;{name}&#39; is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Check that &#39;{name}&#39; is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEmpty()</strong></td>
+<td>Check that &#39;{name}&#39; text area is empty</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>setText(String)</strong></td>
+<td>Set text &#39;{name}&#39; text area as {0}</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(CharSequence...)</strong></td>
+<td>Send text to &#39;{name}&#39; text area</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>label()</strong></td>
+<td>Get &#39;{name}&#39; label</td>
+<td>Label</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-text-fields-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TextFieldTests.java"  target="_blank">Here you can find Text Fields tests</a></h5>
@@ -37901,7 +37945,7 @@ It supports standard, outlined and filled styling.</p>
         <span class="n">useMediaQueryPage</span><span class="o">.</span><span class="na">driver</span><span class="o">().</span><span class="na">manage</span><span class="o">().</span><span class="na">window</span><span class="o">().</span><span class="na">setSize</span><span class="o">(</span><span class="k">new</span> <span class="n">Dimension</span><span class="o">(</span><span class="mi">700</span><span class="o">,</span> <span class="mi">1000</span><span class="o">));</span>
         <span class="n">useMediaQueryText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"true"</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre><h5 id='usemediaquery-overview'><a href="https://material-ui.com/components/use-media-query/#usemediaquery" target="_blank"> useMediaQuery overview </a></h5>
+</code></pre><h5 id='usemediaquery-overview'><a href="https://v4.mui.com/components/use-media-query/" target="_blank"> useMediaQuery overview </a></h5>
 <p>This is a CSS media query hook for React. It listens for matches to a CSS media query. It allows the rendering of
 components based on whether the query matches or not.</p>
 

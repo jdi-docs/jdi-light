@@ -3094,10 +3094,10 @@ Available methods in Java JDI Light:
 ### 4.44 Transfer List
 
 ```java
-    // @FindBy(css = ".MuiGrid-justify-xs-center")
-    // @UI(".MuiGrid-justify-xs-center")
-    @JDITransferList(root = "#root", allItemsLeftCheckbox = "(//span[./input[@aria-label='all items selected']])[1]",
-      allItemsRightCheckbox = "(//span[./input[@aria-label='all items selected']])[2]")
+    // @FindBy(css = ".MuiGrid-justify-content-xs-center")
+    // @UI(".MuiGrid-justify-content-xs-center")
+    @JDITransferList(root = "#root", allItemsLeftCheckbox = "(//span[./input[@aria-label='all items selected']][1])",
+      allItemsRightCheckbox = "(//span[./input[@aria-label='all items selected']][2]")
     public static EnhancedTransferList enhancedTransferList;
     
     @Test
@@ -3123,18 +3123,17 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/transfer-list/" target="_blank"> Transfer List overview</a>
+##### <a href="https://v4.mui.com/components/transfer-list/" target="_blank"> Transfer List overview</a>
 
 Abstract TransferList and its descendants are located in the following classes:
 
 - __Java__:
-_com.epam.jdi.light.material.elements.inputs.transferlist.TransferList_
-_com.epam.jdi.light.material.elements.inputs.transferlist.SimpleTransferList_
-_com.epam.jdi.light.material.elements.inputs.transferlist.EnhancedTransferList_
+  _com.epam.jdi.light.material.elements.inputs.transferlist.TransferList_
+  _com.epam.jdi.light.material.elements.inputs.transferlist.EnhancedTransferList_
 
 A **transfer list** (or "shuttle") enables the user to move one or more list items between lists.
 
-Inner lists of a transfer list have the same methods as a regular List. 
+Inner lists of a transfer list have the same methods as a regular List.
 
 ![Enhanced Transfer Lists](../../images/material-ui/EnhancedTransferList.png)
 
@@ -3142,12 +3141,12 @@ Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
 
-<div class="MuiGrid-root jss124 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+<div class="MuiGrid-root jss160 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-center">
   <div class="MuiGrid-root MuiGrid-item">
     <div class="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded">
-      <div class="MuiCardHeader-root jss125">
+      <div class="MuiCardHeader-root jss161">
         <div class="MuiCardHeader-avatar">
-          <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+          <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
         </div>
         <div class="MuiCardHeader-content">
           <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">Choices</span>
@@ -3155,101 +3154,107 @@ Here is an example with provided MaterialUI v4.12.3 code:
         </div>
       </div>
       <hr class="MuiDivider-root">
-      <div class="MuiList-root jss126 MuiList-dense MuiList-padding" role="list">
+      <div class="MuiList-root jss162 MuiList-dense MuiList-padding" role="list">
         <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
           <div class="MuiListItemIcon-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
           </div>
           <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-0-label">
             <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 1</span>
           </div>
-          <span class="MuiTouchRipple-root"></span>
+          <span class="MuiTouchRipple-root"/>
         </div>
         <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
           <div class="MuiListItemIcon-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
           </div>
           <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-1-label">
             <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 2</span>
           </div>
-          <span class="MuiTouchRipple-root"></span>
+          <span class="MuiTouchRipple-root"/>
         </div>
         <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
           <div class="MuiListItemIcon-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
           </div>
           <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-2-label">
             <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 3</span>
           </div>
-          <span class="MuiTouchRipple-root"></span>
+          <span class="MuiTouchRipple-root"/>
         </div>
         <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
           <div class="MuiListItemIcon-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
           </div>
           <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-3-label">
             <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 4</span>
           </div>
-          <span class="MuiTouchRipple-root"></span>
-        </div><li class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"></li>
+          <span class="MuiTouchRipple-root"/>
+        </div>
+        <li class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"/>
       </div>
     </div>
   </div>
   <div class="MuiGrid-root MuiGrid-item">
     <div class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center">
-      <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss127 MuiButton-outlinedSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled" tabindex="-1" type="button" aria-label="move selected right" disabled="">...</button>
-      <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss127 MuiButton-outlinedSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" aria-label="move selected left">...</button>
+      <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss163 MuiButton-outlinedSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" aria-label="move selected right">
+        <span class="MuiButton-label">&gt;</span>
+      </button>
+      <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss163 MuiButton-outlinedSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" aria-label="move selected left">
+        <span class="MuiButton-label">&lt;</span>
+      </button>
     </div>
   </div>
   <div class="MuiGrid-root MuiGrid-item">
     <div class="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded">
-      <div class="MuiCardHeader-root jss125">
+      <div class="MuiCardHeader-root jss161">
         <div class="MuiCardHeader-avatar">
-          <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+          <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
         </div>
         <div class="MuiCardHeader-content">
           <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">Chosen</span>
           <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">0/4 selected</span>
         </div>
-      </div><hr class="MuiDivider-root">
-      <div class="MuiList-root jss126 MuiList-dense MuiList-padding" role="list">
+      </div>
+      <hr class="MuiDivider-root">
+      <div class="MuiList-root jss162 MuiList-dense MuiList-padding" role="list">
         <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
           <div class="MuiListItemIcon-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
           </div>
           <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-4-label">
             <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 5</span>
           </div>
-          <span class="MuiTouchRipple-root"></span>
+          <span class="MuiTouchRipple-root"/>
         </div>
         <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
           <div class="MuiListItemIcon-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
           </div>
           <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-5-label">
             <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 6</span>
           </div>
-          <span class="MuiTouchRipple-root"></span>
+          <span class="MuiTouchRipple-root"/>
         </div>
         <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
           <div class="MuiListItemIcon-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
           </div>
           <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-6-label">
             <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 7</span>
           </div>
-          <span class="MuiTouchRipple-root"></span>
+          <span class="MuiTouchRipple-root"/>
         </div>
         <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
           <div class="MuiListItemIcon-root">
-            <span class="MuiButtonBase-root MuiIconButton-root jss106 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
+            <span class="MuiButtonBase-root MuiIconButton-root jss152 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">...</span>
           </div>
           <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-7-label">
             <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 8</span>
           </div>
-          <span class="MuiTouchRipple-root"></span>
+          <span class="MuiTouchRipple-root"/>
         </div>
-        <li class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"></li>
+        <li class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"/>
       </div>
     </div>
   </div>
@@ -3260,25 +3265,24 @@ Available methods in Java JDI Light:
 
 - **Transfer List**
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions | TransferListAssert
-**check(String)** | Checks required item | void
-**isChecked(String)** | Shows that required item is checked | boolean
-**uncheck(String)** | Unchecks required item | void
-**isUnchecked(String)** | Shows that required item is unchecked | boolean
-**isMoveRightButtonEnable()** | Shows that list's move right button is enable | boolean
-**isMoveRightButtonDisable()** | Shows that list's move right button is disable | boolean
-**isMoveLeftButtonEnable()** | Shows that list's move left button is enable | boolean
-**isMoveLeftButtonDisable()** | Shows that list's move left button is disable | boolean
-**isMoveLeftButtonDisable()** | Shows that list's move left button is disable | boolean
-
-- additional methods of **Simple Transfer List**
-
-|Method | Description | Return Type
---- | --- | ---
-**moveAllElementsRight()** | Clicks "move all items to right inner list" button | void
-**moveAllElementsLeft()** | Clicks "move all items to left inner list" button | void
+|Method | Description                                                                  | Return Type
+--- |------------------------------------------------------------------------------| ---
+**is()** | Returns object for work with assertions                                      | TransferListAssert
+**check(String)** | Checks required item                                                         | void
+**isChecked(String)** | Shows that required item is checked                                          | boolean
+**uncheck(String)** | Unchecks required item                                                       | void
+**isUnchecked(String)** | Shows that required item is unchecked                                        | boolean
+**isMoveRightButtonEnable()** | Shows that list's move right button is enable                                | boolean
+**isMoveRightButtonDisable()** | Shows that list's move right button is disable                               | boolean
+**isMoveLeftButtonEnable()** | Shows that list's move left button is enable                                 | boolean
+**isMoveLeftButtonDisable()** | Shows that list's move left button is disable                                | boolean
+**updateLeftItems()** | Updates left items list after moving and returns updated actual items list.  | List<String>
+**updateRightItems()** | Updates right items list after moving and returns updated actual items list. | List<String>
+**moveAllElementsLeft()** | Moves all items to the left list by clicking 'Move all left' button. | void
+**moveAllElementsRight()** | Moves all items to the right list by clicking 'Move all right' button. | void
+**getItemCheckbox(String)** | Gets the checkbox of item with given text (full equality is used by searching). | UIElement
+**moveItemsLeft()** | Moves selected items to the left list by clicking 'Move selected left' button. | void
+**moveItemsRight()** | Moves selected items to the right list by clicking 'Move selected right' button. | void
 
 - additional methods of **Enhanced Transfer List**
 
@@ -3418,39 +3422,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-### 4.46 UseMediaQuery
-
-```java
-    //    @FindBy(xpath = "//span[contains(.,'min-width')]")
-    @UI("//span[contains(.,'min-width')]")
-    public static Text useMediaQueryText;
-    
-    @Test
-    public void useMediaQueryTestWithDifferentScreenWidth() {
-        useMediaQueryText.has().value(containsString("true"));
-        useMediaQueryPage.driver().manage().window().setSize(new Dimension(500, 1000));
-        useMediaQueryText.has().value(containsString("false"));
-        useMediaQueryPage.driver().manage().window().setSize(new Dimension(700, 1000));
-        useMediaQueryText.has().value(containsString("true"));
-    }
-```
-
-##### <a href="https://v4.mui.com/components/use-media-query/" target="_blank"> useMediaQuery overview </a>
-
-This is a CSS media query hook for React. It listens for matches to a CSS media query. It allows the rendering of
-components based on whether the query matches or not.
-
-![useMediaQuery](../../images/material-ui/useMediaQuery.png)
-
-```html
-<span>(min-width:600px) matches: true</span>
-```
-
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/UseMediaQueryTests.java"  target="_blank">Here you can find useMediaQuery tests</a>
-
-<br></br>
-
-### 4.47 Alert
+### 4.46 Alert
 
 ```java
     // @FindBy(xpath = "//div[contains(@class, 'MuiTypography-root')]/ancestor::*[contains(@class, 'MuiAlert-root')]")

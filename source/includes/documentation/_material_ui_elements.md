@@ -3573,15 +3573,15 @@ Available methods in Java JDI Light:
 ### 4.46 Text Field
 
 ```java 
-    //    @FindBy(xpath = "//*[@id='filled-error']/ancestor::*[1]")
-    @UI("//*[@id='filled-error']/ancestor::*[1]")
-    public static List<TextField> validationTextFields;
+    //    @FindBy(xpath = "//*[@id='filled-error']/ancestor::*[contains(@class, 'MuiTextField-root')]")
+    @UI("//*[@id='filled-error']/ancestor::*[contains(@class, 'MuiTextField-root')]")
+    public static TextField validationTextFields;
     
    @Test
     public void validateTextFieldTests() {
         TextField validationTextField = validationTextFields.get(1);
         validationTextField.show();
-        validationTextField.has().text(HELLO_WORLD);
+        validationTextField.has().text("Hello World");
         validationTextField.label().has().cssClass("Mui-error");
         validationTextField.click();
         validationTextField.is().focused();
@@ -3595,9 +3595,9 @@ Available methods in Java JDI Light:
     }
 ```
 ```java 
-    //    @FindBy(xpath = "//*[@id='standard-start-adornment']/ancestor::*[1]")
-    @UI("//*[@id='standard-start-adornment']/ancestor::*[1]")
-    public static List<TextField> inputAdornmentsTextFields;
+    //    @FindBy(xpath = "//*[@id='standard-start-adornment']/ancestor::*[contains(@class, 'MuiTextField-root')]")
+    @UI("//*[@id='standard-start-adornment']/ancestor::*[contains(@class, 'MuiTextField-root')]")
+    public static TextField inputAdornmentsTextFields;
     
     @Test
     public void standardAdornmentTextFieldTests() {
@@ -3660,14 +3660,7 @@ Input Adornments:
       <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd">
         <input aria-invalid="false" id="standard-adornment-password" type="password" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd" value="">
         <div class="MuiInputAdornment-root MuiInputAdornment-positionEnd">
-          <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="toggle password visibility">
-               <span class="MuiIconButton-label">
-                  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                     <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/>
-                  </svg>
-               </span>
-            <span class="MuiTouchRipple-root"/>
-          </button>
+          <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="toggle password visibility">...</button> 
         </div>
       </div>
     </div>
@@ -3688,7 +3681,7 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 |**is()** |Returns object for work with assertions| TextFieldAssert
-|**setValue(String text)**|Input text| void
+|**setValue(String)**|Input text| void
 |**Clear()**|Clear data in Text Field| void
 |**Click()**|Click on Text Field| void
 |**GetText()**|Get current Text from Text Field| String
@@ -3698,8 +3691,8 @@ Available methods in Java JDI Light:
 |**isEnabled()**|Check that '{name}' is enabled| boolean
 |**isDisabled()**|Check that '{name}' is disabled| boolean
 |**isEmpty()**|Check that '{name}' text area is empty| boolean
-|**setText(String value)**|Set text '{name}' text area as {0}| void
-|**sendKeys(CharSequence... text)**|Send text to '{name}' text area| void
+|**setText(String)**|Set text '{name}' text area as {0}| void
+|**sendKeys(CharSequence...)**|Send text to '{name}' text area| void
 |**label()**|Get '{name}' label| Label
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TextFieldTests.java"  target="_blank">Here you can find Text Fields tests</a>
 

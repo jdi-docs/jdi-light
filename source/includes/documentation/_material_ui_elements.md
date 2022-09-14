@@ -1610,22 +1610,19 @@ Available methods in Java JDI Light for Dialog:
 ### 4.24 Date / Time pickers
 
 ```java
-    // @FindBy(xpath = "//*[@id = 'date-picker-inline-label']/parent::div")
-    @UI("//*[@id = 'date-picker-inline-label']/parent::div")
+    // @FindBy(xpath = "//*[@id = 'date-picker-inline']/parent::div")
+    @UI("//*[@id = 'date-picker-inline']/parent::div")
     public static DateTimePicker inlineDatePicker;
     
     @Test
     public void datePickerInlineTest() {
         inlineDatePicker.has().title("Date picker inline");
-
-        inlineDatePicker.input("10/10/2022");
+        inlineDatePicker.value("10/10/2022");
         inlineDatePicker.has().text("10/10/2022");
-        inlineDatePicker.selectDate("22");
-        inlineDatePicker.has().text(containsString("/22/"));
     }
 ```
 
-##### <a href="https://material-ui.com/components/pickers/" target="_blank"> Date / Time pickers overview </a>
+##### <a href="https://v4.mui.com/components/pickers/" target="_blank"> Date / Time pickers overview </a>
 
 DateTimePicker is located in the following class:
 
@@ -1638,10 +1635,13 @@ __Date / Time Picker__ - element that provides a simple way to select a single v
 Here is an example with provided Material-UI v4.12.3 code:
 
 ```html
-<div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd">
-  <input aria-invalid="false" id="date-picker-inline" type="text" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd" value="08/18/2014">
-  <div class="MuiInputAdornment-root MuiInputAdornment-positionEnd">
-    <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="change date">...</button>
+<div class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal">
+  <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled" data-shrink="true" for="date-picker-inline" id="date-picker-inline-label">Date picker inline</label>
+  <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd">
+    <input aria-invalid="false" id="date-picker-inline" type="text" class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd" value="08/18/2014" />
+    <div class="MuiInputAdornment-root MuiInputAdornment-positionEnd">
+      <button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="change date">...</button>
+    </div>
   </div>
 </div>
 
@@ -1651,25 +1651,29 @@ Here is an example with provided Material-UI v4.12.3 code:
       <div class="MuiPickersCalendarHeader-switchHeader">...</div>
       <div class="MuiPickersCalendarHeader-daysHeader">...</div>
     </div>
-    <div class="MuiPickersSlideTransition-transitionContainer MuiPickersCalendar-transitionContainer">...</div>
+    <div class="MuiPickersSlideTransition-transitionContainer MuiPickersCalendar-transitionContainer">
+      <div>
+        <div class="MuiPickersCalendar-week">
+          <div role="presentation">
+            <button class="MuiButtonBase-root MuiIconButton-root MuiPickersDay-day MuiPickersDay-hidden" tabindex="-1" type="button">
+              <span class="MuiIconButton-label"><p class="MuiTypography-root MuiTypography-body2 MuiTypography-colorInherit">27</p></span><span class="MuiTouchRipple-root"></span>
+            </button>
+          </div>
+          ...
+        </div>
+        ...
+      </div>
+    </div>
   </div>
 </div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
 **is()** | Returns object for work with assertions | DateTimePickerAssert
-**timer()** | Returns list for of hours| WebList
-**selectDate(String)** | Selects required date | void
-**expand()** | Expands element | void
-**cancel()** | Closes element without saving changes | void
-**confirm()** | Closes element with saving changes | void
-**input(String)** | Sets text in element's input field | void
-**title()** | Returns element's title | String
-**isExpanded()** | Shows that element is expanded | boolean
-**getText()** | Returns text from input field | String
+**value(String)** | Sets required date                      | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a>
 

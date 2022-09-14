@@ -2103,22 +2103,17 @@ Available methods in Java JDI Light:
 ### 4.29 Grid
 
 ```java
-    // @FindBy(id = "basicGrid")
-    @UI("#basicGrid")
+    // @FindBy(className = "MuiGrid-container")
+    @UI(".MuiGrid-container")
     public static Grid basicGrid;
 
     @Test(dataProvider = "basicGridItems")
     public void basicGridItemsTest(int itemIndex, String itemWidth, String itemClass) {
-        rootGrid.is().displayed()
-                .and().has().cssClass("MuiContainer-maxWidthXl");
         basicGrid.show();
-        basicGrid.is().displayed()
-                .and().has().items(7);
-        
         basicGrid.items().get(itemIndex)
-                .has().cssClass(itemClass)
-                .and().css("max-width", itemWidth);
-    }
+        .has().cssClass(itemClass)
+        .and().css("max-width", itemWidth);
+        }
 
     @DataProvider
     public Object[][] basicGridItems() {
@@ -2147,43 +2142,27 @@ __The grid__ adapts to screen size and orientation, creates visual consistency b
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3" id="basicGrid">
+<div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3">
   <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
-    <div class="MuiPaper-root jss6 MuiPaper-elevation1 MuiPaper-rounded">xs=12</div>
+    <div class="MuiPaper-root jss97 MuiPaper-elevation1 MuiPaper-rounded">xs=12</div>
   </div>
   <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6">
-    <div class="MuiPaper-root jss6 MuiPaper-elevation1 MuiPaper-rounded">xs=6</div>
+    <div class="MuiPaper-root jss97 MuiPaper-elevation1 MuiPaper-rounded">xs=6</div>
   </div>
   <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6">
-    <div class="MuiPaper-root jss6 MuiPaper-elevation1 MuiPaper-rounded">xs=6</div>
+    <div class="MuiPaper-root jss97 MuiPaper-elevation1 MuiPaper-rounded">xs=6</div>
   </div>
   <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3">
-    <div class="MuiFormControl-root MuiTextField-root jss6">
-      <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl">
-        <input aria-invalid="false" type="text" class="MuiInputBase-input MuiInput-input" value="xs=31">
-      </div>
-    </div>
+    <div class="MuiPaper-root jss97 MuiPaper-elevation1 MuiPaper-rounded">xs=3</div>
   </div>
   <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3">
-    <div class="MuiFormControl-root MuiTextField-root jss6">
-      <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl">
-        <input aria-invalid="false" type="text" class="MuiInputBase-input MuiInput-input" value="xs=32">
-      </div>
-    </div>
+    <div class="MuiPaper-root jss97 MuiPaper-elevation1 MuiPaper-rounded">xs=3</div>
   </div>
   <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3">
-    <div class="MuiFormControl-root MuiTextField-root jss6">
-      <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl">
-        <input aria-invalid="false" type="text" class="MuiInputBase-input MuiInput-input" value="xs=33">
-      </div>
-    </div>
+    <div class="MuiPaper-root jss97 MuiPaper-elevation1 MuiPaper-rounded">xs=3</div>
   </div>
   <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3">
-    <div class="MuiFormControl-root MuiTextField-root jss6">
-      <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl">
-        <input aria-invalid="false" type="text" class="MuiInputBase-input MuiInput-input" value="xs=34">
-      </div>
-    </div>
+    <div class="MuiPaper-root jss97 MuiPaper-elevation1 MuiPaper-rounded">xs=3</div>
   </div>
 </div>
 ```

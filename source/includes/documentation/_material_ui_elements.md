@@ -3005,17 +3005,16 @@ Available methods in Java JDI Light:
 
     @Test
     public void simpleListTests() {
-      simpleList.show();
-      simpleList.is().visible();
-      simpleList.has().size(2);
-    
-      simpleList.item(0).has().text("List item 1");
-      simpleList.item("List item 2").is().visible();
-    
-      simpleList.items().get(1).click();
-      String clickedOn = simpleList.items().get(1).getText();
-      simpleListLastClickInfo.has().text(format("You clicked on: %s", clickedOn));
-    
+        simpleList.show();
+        simpleList.is().visible();
+        simpleList.has().size(2);
+        
+        simpleList.item(0).has().text("List item 1");
+        simpleList.item("List item 2").is().visible();
+        
+        simpleList.items().get(1).click();
+        String clickedOn = simpleList.items().get(1).getText();
+        simpleListLastClickInfo.has().text(format("You clicked on: %s", clickedOn));
     }
 ```
 
@@ -3023,7 +3022,8 @@ Available methods in Java JDI Light:
 
 List is located in the following class:
 
-- __Java__: _com.epam.jdi.light.material.elements.displaydata.list_
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.list.MUIList
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.list.SimpleList
 
 __Lists__ are continuous groups of text or images. They are composed of items containing primary and supplemental actions,
 which are represented by icons and text.
@@ -3051,19 +3051,24 @@ Here are examples with provided MaterialUI v4.12.3 code:
 
 Available methods in Java JDI Light:
 
-|Method | Description                             | Return type
-| --- |-----------------------------------------| --- 
-**is()** | Returns object for work with assertions | SimpleListAssert
-**items()** | Returns a Java list of list items       | List<UIElement>
-**itemLocator()** | Returns a ".MuiListItem-root" string    | String
+|Method | Description                                                   | Return type
+| --- |---------------------------------------------------------------| --- 
+**is()** | Returns object for work with assertions    (for MUIList)                   | ContainerListAssert
+**is()** | Returns object for work with assertions                       | SimpleListAssert
+**items()** | Returns a Java list of list items                             | List<UIElement>
+**items()** | Returns a Java list of list items     (for MUIList)                        | List<ICoreElement>
+**itemLocator()** | Returns a itemlocator string                                  | String
+**itemLocator()** | Returns a itemlocator string      (for MUIList)                            | String
+**headerLocator()** | Returns a headerlocator string (for MUIList)                               | String
+**setup(Field)** | updates values of itemlocator and headerlocator (for MUIList) | void
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListTests.java" target="_blank">Here you can find List tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MUIListTests.java" target="_blank">Here you can find List tests</a>
 
 #### 4.43.1 List Items
 
 List Item is located in the following class:
 
-- __Java__: _com.epam.jdi.light.material.elements.displaydata.ListItem_
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.ListItem
 
 **List Items** represent elements collected in a Material UI List. 
 

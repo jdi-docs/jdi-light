@@ -3000,9 +3000,9 @@ Available methods in Java JDI Light:
 ### 4.43 Lists
 
 ```java
-    // @FindBy(id = "simpleList")
-    @UI("#simpleList")
-    public static List simpleList;
+    // @FindBy(css = ".MuiList-root")
+    @UI(".MuiList-root")
+    public static SimpleList simpleList;
 
     // @FindBy(id = "lastClickInfo")
     @UI("#lastClickInfo")
@@ -3010,21 +3010,25 @@ Available methods in Java JDI Light:
 
     @Test
     public void simpleListTests() {
-        simpleList.items().get(0).click();
-        String firstItemText = simpleList.items().get(0).getText();
-        simpleListLastClickInfo.has().text(format("You clicked on: %s", firstItemText));
-
+        simpleList.show();
+        simpleList.is().visible();
+        simpleList.has().size(2);
+        
+        simpleList.item(0).has().text("List item 1");
+        simpleList.item("List item 2").is().visible();
+        
         simpleList.items().get(1).click();
-        String secondItemText = simpleList.items().get(1).getText();
-        simpleListLastClickInfo.has().text(format("You clicked on: %s", secondItemText));
+        String clickedOn = simpleList.items().get(1).getText();
+        simpleListLastClickInfo.has().text(format("You clicked on: %s", clickedOn));
     }
 ```
 
-##### <a href="https://material-ui.com/components/lists/" target="_blank"> Lists overview </a>
+##### <a href="https://v4.mui.com/components/lists/" target="_blank"> Lists overview </a>
 
 List is located in the following class:
 
-- __Java__: _com.epam.jdi.light.material.elements.displaydata.List_
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.list.MUIList
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.list.SimpleList
 
 __Lists__ are continuous groups of text or images. They are composed of items containing primary and supplemental actions,
 which are represented by icons and text.
@@ -3034,44 +3038,47 @@ which are represented by icons and text.
 Here are examples with provided MaterialUI v4.12.3 code:
 
 ```html
-<nav class="MuiList-root MuiList-padding" aria-label="List items" id="simpleList">
+<nav class="MuiList-root MuiList-padding" aria-label="secondary mailbox folders">
   <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
     <div class="MuiListItemText-root">
-      <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">List item 1</span>
+      <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">Trash</span>
     </div>
-    <span class="MuiTouchRipple-root"></span>
+    <span class="MuiTouchRipple-root"/>
   </div>
-  <a class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">
+  <a class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" aria-disabled="false" href="#simple-list">
     <div class="MuiListItemText-root">
-      <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">List item 2</span>
+      <span class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock">Spam</span>
     </div>
-    <span class="MuiTouchRipple-root"></span>
+    <span class="MuiTouchRipple-root"/>
   </a>
 </nav>
-<p id="lastClickInfo">You clicked on: </p>
 ```
 
-Available methods in Java JDI Light:
+Available methods in Java JDI Light for SimpleList:
 
-|Method | Description | Return type
-| --- | --- | --- 
-**is()** | Returns object for work with assertions | ListAssert
-**items()** | Returns a Java list of list items | List\<ListItem>
-**getItemByText(String)** | Returns first list item with specified text | ListItem
-**selectItemByText(String)** | Clicks first list item with specified text | void
-**nestedLists()** | Returns a Java list of Material UI lists nested directly within the list | List\<List>
-**size()** | Returns list size | int
-**isEmpty()** | Checks if a list does not contain any elements | boolean
-**isDense()** | Checks if a list is dense | boolean
-**subheaders()** | Returns list sub-headers as Java list of UIElements | List\<UIElement>
+|Method | Description                                                   | Return type
+| --- |---------------------------------------------------------------| --- 
+**is()** | Returns object for work with assertions                       | SimpleListAssert
+**items()** | Returns a Java list of list items                             | List<UIElement>
+**itemLocator()** | Returns a itemlocator string                                  | String
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListTests.java" target="_blank">Here you can find List tests</a>
+Available methods in Java JDI Light for MUIList:
+
+|Method | Description                                     | Return type
+| --- |-------------------------------------------------| --- 
+**is()** | Returns object for work with assertions         | ContainerListAssert
+**items()** | Returns a Java list of list items               | List<ICoreElement>
+**itemLocator()** | Returns a itemlocator string                    | String
+**headerLocator()** | Returns a headerlocator string                  | String
+**setup(Field)** | Updates values of itemlocator and headerlocator | void
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MUIListTests.java" target="_blank">Here you can find List tests</a>
 
 #### 4.43.1 List Items
 
 List Item is located in the following class:
 
-- __Java__: _com.epam.jdi.light.material.elements.displaydata.ListItem_
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.ListItem
 
 **List Items** represent elements collected in a Material UI List. 
 
@@ -3091,8 +3098,8 @@ Available methods in Java JDI Light:
 **avatar()** | Returns avatar of list item | Avatar
 **checkbox()** | Returns checkbox of list item | Checkbox
 **isSelected()** | Checks if a list item is selected | boolean
-**secondaryActionButton()** | Returns secondary action button of list item | Button
-**secondaryActionSwitch()** | Returns secondary action switch of list item | Switch
+**button()** | Get '{name}' button | Button
+**getSwitch()** | Get '{name}' switch | Switch
 
 <br></br>
 

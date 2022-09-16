@@ -3049,18 +3049,25 @@ Here are examples with provided MaterialUI v4.12.3 code:
 </nav>
 ```
 
-Available methods in Java JDI Light:
+Available methods in Java JDI Light for SimpleList:
 
 |Method | Description                                                   | Return type
 | --- |---------------------------------------------------------------| --- 
-**is()** | Returns object for work with assertions    (for MUIList)                   | ContainerListAssert
 **is()** | Returns object for work with assertions                       | SimpleListAssert
 **items()** | Returns a Java list of list items                             | List<UIElement>
-**items()** | Returns a Java list of list items     (for MUIList)                        | List<ICoreElement>
 **itemLocator()** | Returns a itemlocator string                                  | String
-**itemLocator()** | Returns a itemlocator string      (for MUIList)                            | String
-**headerLocator()** | Returns a headerlocator string (for MUIList)                               | String
-**setup(Field)** | updates values of itemlocator and headerlocator (for MUIList) | void
+
+
+
+Available methods in Java JDI Light for MUIList:
+
+|Method | Description                                     | Return type
+| --- |-------------------------------------------------| --- 
+**is()** | Returns object for work with assertions         | ContainerListAssert
+**items()** | Returns a Java list of list items               | List<ICoreElement>
+**itemLocator()** | Returns a itemlocator string                    | String
+**headerLocator()** | Returns a headerlocator string                  | String
+**setup(Field)** | Updates values of itemlocator and headerlocator | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MUIListTests.java" target="_blank">Here you can find List tests</a>
 

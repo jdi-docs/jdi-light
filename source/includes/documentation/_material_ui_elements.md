@@ -3057,8 +3057,6 @@ Available methods in Java JDI Light for SimpleList:
 **items()** | Returns a Java list of list items                             | List<UIElement>
 **itemLocator()** | Returns a itemlocator string                                  | String
 
-
-
 Available methods in Java JDI Light for MUIList:
 
 |Method | Description                                     | Return type

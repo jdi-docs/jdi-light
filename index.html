@@ -37189,9 +37189,9 @@ animation works with CSS, not JavaScript.</p>
 </tbody></table>
 <h5 id='here-you-can-find-menu-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a></h5>
 <p><br></br></p>
-<h3 id='4-43-lists'>4.43 Lists</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(id = "simpleList")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#simpleList"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span> <span class="n">simpleList</span><span class="o">;</span>
+<h3 id='4-43-lists'>4.43 Lists</h3><pre class="highlight java tab-java"><code>    <span class="c1">// @FindBy(css = ".MuiList-root")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiList-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SimpleList</span> <span class="n">simpleList</span><span class="o">;</span>
 
     <span class="c1">// @FindBy(id = "lastClickInfo")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#lastClickInfo"</span><span class="o">)</span>
@@ -37199,19 +37199,23 @@ animation works with CSS, not JavaScript.</p>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleListTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">simpleList</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">String</span> <span class="n">firstItemText</span> <span class="o">=</span> <span class="n">simpleList</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getText</span><span class="o">();</span>
-        <span class="n">simpleListLastClickInfo</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">format</span><span class="o">(</span><span class="s">"You clicked on: %s"</span><span class="o">,</span> <span class="n">firstItemText</span><span class="o">));</span>
+        <span class="n">simpleList</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">simpleList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+        <span class="n">simpleList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+
+        <span class="n">simpleList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">);</span>
+        <span class="n">simpleList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"List item 2"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
 
         <span class="n">simpleList</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">String</span> <span class="n">secondItemText</span> <span class="o">=</span> <span class="n">simpleList</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">getText</span><span class="o">();</span>
-        <span class="n">simpleListLastClickInfo</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">format</span><span class="o">(</span><span class="s">"You clicked on: %s"</span><span class="o">,</span> <span class="n">secondItemText</span><span class="o">));</span>
+        <span class="n">String</span> <span class="n">clickedOn</span> <span class="o">=</span> <span class="n">simpleList</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">getText</span><span class="o">();</span>
+        <span class="n">simpleListLastClickInfo</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">format</span><span class="o">(</span><span class="s">"You clicked on: %s"</span><span class="o">,</span> <span class="n">clickedOn</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre><h5 id='lists-overview'><a href="https://material-ui.com/components/lists/" target="_blank"> Lists overview </a></h5>
+</code></pre><h5 id='lists-overview'><a href="https://v4.mui.com/components/lists/" target="_blank"> Lists overview </a></h5>
 <p>List is located in the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.List</em></li>
+<li><strong>Java</strong>: _com.epam.jdi.light.material.elements.displaydata.list.MUIList</li>
+<li><strong>Java</strong>: _com.epam.jdi.light.material.elements.displaydata.list.SimpleList</li>
 </ul>
 
 <p><strong>Lists</strong> are continuous groups of text or images. They are composed of items containing primary and supplemental actions,
@@ -37220,23 +37224,22 @@ which are represented by icons and text.</p>
 <p><img src="images/material-ui/simpleList.png" alt="simpleList" /></p>
 
 <p>Here are examples with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"MuiList-root MuiList-padding"</span> <span class="na">aria-label=</span><span class="s">"List items"</span> <span class="na">id=</span><span class="s">"simpleList"</span><span class="nt">&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"MuiList-root MuiList-padding"</span> <span class="na">aria-label=</span><span class="s">"secondary mailbox folders"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>List item 1<span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Trash<span class="nt">&lt;/span&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span> <span class="na">href=</span><span class="s">"#simple-list"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>List item 2<span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"</span><span class="nt">&gt;</span>Spam<span class="nt">&lt;/span&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"lastClickInfo"</span><span class="nt">&gt;</span>You clicked on: <span class="nt">&lt;/p&gt;</span>
 </code></pre>
-<p>Available methods in Java JDI Light:</p>
+<p>Available methods in Java JDI Light for SimpleList:</p>
 
 <table><thead>
 <tr>
@@ -37248,54 +37251,60 @@ which are represented by icons and text.</p>
 <tr>
 <td><strong>is()</strong></td>
 <td>Returns object for work with assertions</td>
-<td>ListAssert</td>
+<td>SimpleListAssert</td>
 </tr>
 <tr>
 <td><strong>items()</strong></td>
 <td>Returns a Java list of list items</td>
-<td>List&lt;ListItem&gt;</td>
+<td>List<UIElement></td>
 </tr>
 <tr>
-<td><strong>getItemByText(String)</strong></td>
-<td>Returns first list item with specified text</td>
-<td>ListItem</td>
-</tr>
-<tr>
-<td><strong>selectItemByText(String)</strong></td>
-<td>Clicks first list item with specified text</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>nestedLists()</strong></td>
-<td>Returns a Java list of Material UI lists nested directly within the list</td>
-<td>List&lt;List&gt;</td>
-</tr>
-<tr>
-<td><strong>size()</strong></td>
-<td>Returns list size</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>isEmpty()</strong></td>
-<td>Checks if a list does not contain any elements</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>isDense()</strong></td>
-<td>Checks if a list is dense</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>subheaders()</strong></td>
-<td>Returns list sub-headers as Java list of UIElements</td>
-<td>List&lt;UIElement&gt;</td>
+<td><strong>itemLocator()</strong></td>
+<td>Returns a itemlocator string</td>
+<td>String</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-list-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListTests.java" target="_blank">Here you can find List tests</a></h5><h4 id='4-43-1-list-items'>4.43.1 List Items</h4>
+
+<p>Available methods in Java JDI Light for MUIList:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>ContainerListAssert</td>
+</tr>
+<tr>
+<td><strong>items()</strong></td>
+<td>Returns a Java list of list items</td>
+<td>List<ICoreElement></td>
+</tr>
+<tr>
+<td><strong>itemLocator()</strong></td>
+<td>Returns a itemlocator string</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>headerLocator()</strong></td>
+<td>Returns a headerlocator string</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>setup(Field)</strong></td>
+<td>Updates values of itemlocator and headerlocator</td>
+<td>void</td>
+</tr>
+</tbody></table>
+<h5 id='here-you-can-find-list-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MUIListTests.java" target="_blank">Here you can find List tests</a></h5><h4 id='4-43-1-list-items'>4.43.1 List Items</h4>
 <p>List Item is located in the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.ListItem</em></li>
+<li><strong>Java</strong>: _com.epam.jdi.light.material.elements.displaydata.ListItem</li>
 </ul>
 
 <p><strong>List Items</strong> represent elements collected in a Material UI List. </p>
@@ -37354,13 +37363,13 @@ which are represented by icons and text.</p>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>secondaryActionButton()</strong></td>
-<td>Returns secondary action button of list item</td>
+<td><strong>button()</strong></td>
+<td>Get &#39;{name}&#39; button</td>
 <td>Button</td>
 </tr>
 <tr>
-<td><strong>secondaryActionSwitch()</strong></td>
-<td>Returns secondary action switch of list item</td>
+<td><strong>getSwitch()</strong></td>
+<td>Get &#39;{name}&#39; switch</td>
 <td>Switch</td>
 </tr>
 </tbody></table>

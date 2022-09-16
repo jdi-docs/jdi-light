@@ -36199,15 +36199,15 @@ content that are anchored to the left or right edge of the screen.</p>
 </tbody></table>
 <h5 id='here-you-can-find-drawer-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a></h5>
 <p><br></br></p>
-<h3 id='4-31-breadcrumbs'>4.31 Breadcrumbs</h3><pre class="highlight java tab-java"><code>    <span class="c1">//       @FindBy(css = ".MuiBreadcrumbs-root")</span>
+<h3 id='4-31-breadcrumbs'>4.31 Breadcrumbs</h3><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = ".MuiBreadcrumbs-root")</span>
     <span class="nd">@JDIBreadcrumbs</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">".MuiBreadcrumbs-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Breadcrumbs</span> <span class="n">routerBreadcrumbs</span><span class="o">;</span>
 
 </code></pre>
 <p>You can specify locators for the root, items and separators
-explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@JDIBreadcrumbs</span><span class="o">(</span>
-          <span class="n">root</span> <span class="o">=</span> <span class="s">".MuiBreadcrumbs-root[1]"</span><span class="o">,</span>
+explicitly through a <code>JBreadcrumbs</code> annotation:</p>
+<pre class="highlight java tab-java"><code>      <span class="nd">@JBreadcrumbs</span><span class="o">(</span>
+          <span class="n">root</span> <span class="o">=</span> <span class="s">".MuiBreadcrumbs-root"</span><span class="o">,</span>
           <span class="n">items</span> <span class="o">=</span> <span class="s">".MuiBreadcrumbs-li .MuiTypography-root"</span><span class="o">,</span>
           <span class="n">separators</span> <span class="o">=</span> <span class="s">".MuiBreadcrumbs-separator"</span>
     <span class="o">)</span>
@@ -36215,13 +36215,17 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 </code></pre><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">routerIntegrationBreadcrumbsTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Inbox"</span><span class="o">);</span>
-        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Important"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"Important"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
         <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Inbox"</span><span class="o">,</span> <span class="s">"Important"</span><span class="o">);</span>
-        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Trash"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"Trash"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
         <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Trash"</span><span class="o">);</span>
-        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Spam"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"Spam"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
         <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Spam"</span><span class="o">);</span>
-        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Inbox"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">mailBoxList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"Inbox"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
         <span class="n">routerBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"Home"</span><span class="o">,</span> <span class="s">"Inbox"</span><span class="o">);</span>
     <span class="o">}</span>
 
@@ -36231,15 +36235,15 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 
         <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Material-UI"</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"href"</span><span class="o">,</span> <span class="n">containsString</span><span class="o">(</span><span class="s">"#materialUI"</span><span class="o">));</span>
         <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Material-UI"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">simpleBreadcrumbsPage</span><span class="o">.</span><span class="na">driver</span><span class="o">().</span><span class="na">getCurrentUrl</span><span class="o">(),</span> <span class="n">endsWith</span><span class="o">(</span><span class="s">"#materialUI"</span><span class="o">));</span>
+        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentUrl</span><span class="o">(</span><span class="n">endsWith</span><span class="o">(</span><span class="s">"#materialUI"</span><span class="o">));</span>
 
         <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Core"</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"href"</span><span class="o">,</span> <span class="n">endsWith</span><span class="o">(</span><span class="s">"#core"</span><span class="o">));</span>
         <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Core"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">simpleBreadcrumbsPage</span><span class="o">.</span><span class="na">driver</span><span class="o">().</span><span class="na">getCurrentUrl</span><span class="o">(),</span> <span class="n">endsWith</span><span class="o">(</span><span class="s">"#core"</span><span class="o">));</span>
+        <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentUrl</span><span class="o">(</span><span class="n">endsWith</span><span class="o">(</span><span class="s">"#core"</span><span class="o">));</span>
 
         <span class="n">simpleBreadcrumbs</span><span class="o">.</span><span class="na">separators</span><span class="o">().</span><span class="na">foreach</span><span class="o">(</span><span class="n">separator</span> <span class="o">-&gt;</span> <span class="n">separator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"/"</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre><h5 id='breadcrumbs-overview'><a href="https://material-ui.com/components/Breadcrumbs/" target="_blank"> Breadcrumbs overview </a></h5>
+</code></pre><h5 id='breadcrumbs-overview'><a href="https://v4.mui.com/components/breadcrumbs/" target="_blank"> Breadcrumbs overview </a></h5>
 <p>Breadcrumbs is located in the following class:</p>
 
 <ul>
@@ -36252,20 +36256,13 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code>
-<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiBreadcrumbs-root MuiTypography-body1 MuiTypography-colorTextSecondary"</span>
-     <span class="na">aria-label=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiBreadcrumbs-root MuiTypography-body1 MuiTypography-colorTextSecondary"</span> <span class="na">aria-label=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"MuiBreadcrumbs-ol"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"MuiBreadcrumbs-li"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"</span> <span class="na">href=</span><span class="s">"#materialUI"</span><span class="nt">&gt;</span>Material-UI<span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"MuiBreadcrumbs-li"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"MuiBreadcrumbs-separator"</span><span class="nt">&gt;</span>/<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"MuiBreadcrumbs-li"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"</span> <span class="na">href=</span><span class="s">"#core"</span><span class="nt">&gt;</span>Core<span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"MuiBreadcrumbs-li"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"MuiBreadcrumbs-separator"</span><span class="nt">&gt;</span>/<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"MuiBreadcrumbs-li"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1 MuiTypography-colorTextPrimary"</span><span class="nt">&gt;</span>Breadcrumb<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"MuiBreadcrumbs-li"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/li&gt;</span>
   <span class="nt">&lt;/ol&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
 </code></pre>
@@ -36287,6 +36284,40 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 <td><strong>separators()</strong></td>
 <td>Returns element&#39;s separator list</td>
 <td>WebList</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>list()</strong></td>
+<td>Returns list of elements</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>separators()</strong></td>
+<td>Returns list of separators</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>currentUrl()</strong></td>
+<td>Returns current url</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>setup(Field)</strong></td>
+<td>Initializes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>BreadcrumbAssert</td>
 </tr>
 </tbody></table>
 <h5 id='here-and-here-you-can-find-breadcrumbs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/SimpleBreadcrumbsTests.java" target="_blank">Here</a> and <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/RouterBreadcrumbsTests.java" target="_blank">here you can find Breadcrumbs tests</a></h5>

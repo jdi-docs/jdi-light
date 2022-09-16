@@ -2919,39 +2919,44 @@ Available methods in Java JDI Light:
     @UI("span.MuiButton-label")
     public static Menu menu;
 
-    //  @FindBy(css = "ul.MuiList-root.MuiMenu-list.MuiList-padding")
-    @UI("ul.MuiList-root.MuiMenu-list.MuiList-padding")
-    public static List simpleMenuList;
+    //  @FindBy(css = "#selectedItem")
+    @UI("#selectedItem")
+    public static Text selectedSimpleMenuItem;
 
-    //  @FindBy(xpath = "//*/p[starts-with(@class, 'MuiTypography')]")
-    @UI("//*/p[starts-with(@class, 'MuiTypography')]")
-    public static Menu contextMenu;
+    //  @FindBy(css = "p.MuiTypography-root")
+    @UI("p.MuiTypography-root")
+    public static Text pageText;
 
-    //  @FindBy(css = "ul.MuiList-root.MuiMenu-list.MuiList-padding")
-    @UI("ul.MuiList-root.MuiMenu-list.MuiList-padding")
-    public static List contextMenuList;
+    //  @FindBy(css = ".MuiMenuItem-root")
+    @UI(".MuiMenuItem-root")
+    public static Menu contextMenuList;
 
     @Test
     public void simpleMenuTest() {
-        menu.has().text("OPEN MENU");
-        menu.click();
-        simpleMenuList.is().displayed();
-        menu.has().properMenuItems(simpleMenuList, SIMPLE_AND_SELECTED_MENU_ITEMS);
-        simpleMenuList.selectItemByText("Profile");
-        menu.is().displayed();
+        simpleMenuButton.show();
+        simpleMenuButton.has().text("OPEN MENU");
+        simpleMenuButton.click();
+
+        String option = "Profile";
+        menu.select(option);
+        selectedSimpleMenuItem.has().text("Selected menu: " + option);
     }
 
     @Test
     public void contextMenuTest() {
         contextMenuPage.open();
-        contextMenu.rightClick();
-        menu.has().properMenuItems(contextMenuList, CONTEXT_MENU_ITEMS);
-        contextMenuList.selectItemByText("Print");
-        contextMenu.isDisplayed();
+        contextMenuPage.isOpened();
+        pageText.is().displayed();
+
+        pageText.rightClick();
+        menu.is().displayed().and().has().itemsTexts(CONTEXT_MENU_ITEMS);
+        contextMenuList.select("Print");
+        waitCondition(() -> menu.isHidden());
+        menu.is().hidden();
     }
 ```
 
-##### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> Menus overview </a>
+##### <a href="https://v4.mui.com/components/menus/" target="_blank"> Menus overview </a>
 
 Menu is located in the following class:
 
@@ -2965,16 +2970,13 @@ __Menus__ display a list of choices on temporary surfaces.
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded" tabindex="-1" style="opacity: 1; transform: none; transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 130px; left: 227px; transform-origin: 0px 26px;">
+<div class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded" tabindex="-1" style="opacity: 1; transform: none; transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 387px; left: 277px; transform-origin: 0px 26px;">
   <ul class="MuiList-root MuiMenu-list MuiList-padding" role="menu" tabindex="-1">
-    <li class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button" tabindex="0" role="menuitem" aria-disabled="false">Profile
-      <span class="MuiTouchRipple-root"></span>
+    <li class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button" tabindex="0" role="menuitem" aria-disabled="false">Profile<span class="MuiTouchRipple-root"/>
     </li>
-    <li class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button" tabindex="-1" role="menuitem" aria-disabled="false">My account
-      <span class="MuiTouchRipple-root"></span>
+    <li class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button" tabindex="-1" role="menuitem" aria-disabled="false">My account<span class="MuiTouchRipple-root"/>
     </li>
-    <li class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button" tabindex="-1" role="menuitem" aria-disabled="false">Logout
-      <span class="MuiTouchRipple-root"></span>
+    <li class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button" tabindex="-1" role="menuitem" aria-disabled="false">Logout<span class="MuiTouchRipple-root"/>
     </li>
   </ul>
 </div>
@@ -2982,16 +2984,15 @@ Here is an example with provided MaterialUI v4.12.3 code:
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return type
-| --- | --- | --- 
-**has()** | Returns object for work with assertions  | MenuAssert
-**is()** | Returns object for work with assertions | MenuAssert
-**click()** | click | void
-**rightClick()** | right-click | void
-**scrollToMenuItem(List, String)** | scroll to menu item | void
-**isDisplayed()** | return answer is displayed | boolean
-**getText()** | return text | String
-**getMenuItems(List)** | return list of menu items | List<String>
+|Method | Description                                                                      | Return type
+| --- |----------------------------------------------------------------------------------| --- 
+**item(String)** | Gets item of this menu matching given name (full equality is used by searching). | ListItem
+**item(int)** | Gets specific item of this menu using its index.                                 | ListItem
+**items()** | Gets a list of this menu items.                                                  | List<ListItem>
+**itemsTexts()** | Gets items texts                                                                 | List<String>
+**selected()** | Gets selected item name                                                          | String
+**scrollToItem(String)** | Scrolls menu to the item with given name. The given name and item text must match exactly.                                                         | void
+**is()** | Returns object for work with assertions                                          | MenuAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
 

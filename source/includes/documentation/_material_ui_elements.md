@@ -2177,18 +2177,18 @@ Available methods in Java JDI Light:
 ### 4.31 Breadcrumbs
 
 ```java 
-    //       @FindBy(css = ".MuiBreadcrumbs-root")
+    //@FindBy(css = ".MuiBreadcrumbs-root")
     @JDIBreadcrumbs(root = ".MuiBreadcrumbs-root")
     public static Breadcrumbs routerBreadcrumbs;
     
 ```
 
 You can specify locators for the root, items and separators
-explicitly through a `JDIBreadcrumbs` annotation:
+explicitly through a `JBreadcrumbs` annotation:
 
 ```java    
-    @JDIBreadcrumbs(
-          root = ".MuiBreadcrumbs-root[1]",
+      @JBreadcrumbs(
+          root = ".MuiBreadcrumbs-root",
           items = ".MuiBreadcrumbs-li .MuiTypography-root",
           separators = ".MuiBreadcrumbs-separator"
     )
@@ -2199,13 +2199,17 @@ explicitly through a `JDIBreadcrumbs` annotation:
     @Test
     public void routerIntegrationBreadcrumbsTest() {
         routerBreadcrumbs.has().values("Home", "Inbox");
-        mailBoxList.get("Important").click();
+
+        mailBoxList.item("Important").click();
         routerBreadcrumbs.has().values("Home", "Inbox", "Important");
-        mailBoxList.get("Trash").click();
+
+        mailBoxList.item("Trash").click();
         routerBreadcrumbs.has().values("Home", "Trash");
-        mailBoxList.get("Spam").click();
+
+        mailBoxList.item("Spam").click();
         routerBreadcrumbs.has().values("Home", "Spam");
-        mailBoxList.get("Inbox").click();
+
+        mailBoxList.item("Inbox").click();
         routerBreadcrumbs.has().values("Home", "Inbox");
     }
     
@@ -2215,17 +2219,17 @@ explicitly through a `JDIBreadcrumbs` annotation:
 
         simpleBreadcrumbs.get("Material-UI").has().attr("href", containsString("#materialUI"));
         simpleBreadcrumbs.get("Material-UI").click();
-        jdiAssert(simpleBreadcrumbsPage.driver().getCurrentUrl(), endsWith("#materialUI"));
+        simpleBreadcrumbs.has().currentUrl(endsWith("#materialUI"));
 
         simpleBreadcrumbs.get("Core").has().attr("href", endsWith("#core"));
         simpleBreadcrumbs.get("Core").click();
-        jdiAssert(simpleBreadcrumbsPage.driver().getCurrentUrl(), endsWith("#core"));
+        simpleBreadcrumbs.has().currentUrl(endsWith("#core"));
 
         simpleBreadcrumbs.separators().foreach(separator -> separator.has().text("/"));
     }
 ```
 
-##### <a href="https://material-ui.com/components/Breadcrumbs/" target="_blank"> Breadcrumbs overview </a>
+##### <a href="https://v4.mui.com/components/breadcrumbs/" target="_blank"> Breadcrumbs overview </a>
 
 Breadcrumbs is located in the following class:
 
@@ -2239,20 +2243,13 @@ Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
 
-<nav class="MuiTypography-root MuiBreadcrumbs-root MuiTypography-body1 MuiTypography-colorTextSecondary"
-     aria-label="breadcrumb">
+<nav class="MuiTypography-root MuiBreadcrumbs-root MuiTypography-body1 MuiTypography-colorTextSecondary" aria-label="breadcrumb">
   <ol class="MuiBreadcrumbs-ol">
-    <li class="MuiBreadcrumbs-li">
-      <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit" href="#materialUI">Material-UI</a>
-    </li>
+    <li class="MuiBreadcrumbs-li">...</li>
     <li aria-hidden="true" class="MuiBreadcrumbs-separator">/</li>
-    <li class="MuiBreadcrumbs-li">
-      <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit" href="#core">Core</a>
-    </li>
+    <li class="MuiBreadcrumbs-li">...</li>
     <li aria-hidden="true" class="MuiBreadcrumbs-separator">/</li>
-    <li class="MuiBreadcrumbs-li">
-      <p class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextPrimary">Breadcrumb</p>
-    </li>
+    <li class="MuiBreadcrumbs-li">...</li>
   </ol>
 </nav>
 ```
@@ -2263,6 +2260,14 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **list()** | Returns element's list | WebList
 **separators()** | Returns element's separator list | WebList
+
+|Method | Description               | Return Type
+--- |---------------------------| ---
+**list()** | Returns list of elements  | WebList
+**separators()** | Returns list of separators | WebList
+**currentUrl()**| Returns current url       |String
+**setup(Field)**| Initializes               |void
+**is()**|Returns object for work with assertions |BreadcrumbAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/SimpleBreadcrumbsTests.java" target="_blank">Here</a> and <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/RouterBreadcrumbsTests.java" target="_blank">here you can find Breadcrumbs tests</a>
 

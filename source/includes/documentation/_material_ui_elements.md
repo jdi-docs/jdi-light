@@ -2177,7 +2177,7 @@ Available methods in Java JDI Light:
 ### 4.31 Breadcrumbs
 
 ```java 
-    //       @FindBy(css = ".MuiBreadcrumbs-root")
+    //@FindBy(css = ".MuiBreadcrumbs-root")
     @JDIBreadcrumbs(root = ".MuiBreadcrumbs-root")
     public static Breadcrumbs routerBreadcrumbs;
     
@@ -2187,8 +2187,8 @@ You can specify locators for the root, items and separators
 explicitly through a `JBreadcrumbs` annotation:
 
 ```java    
-    @JBreadcrumbs(
-          root = ".MuiBreadcrumbs-root[1]",
+      @JBreadcrumbs(
+          root = ".MuiBreadcrumbs-root",
           items = ".MuiBreadcrumbs-li .MuiTypography-root",
           separators = ".MuiBreadcrumbs-separator"
     )

@@ -2949,7 +2949,7 @@ Available methods in Java JDI Light:
         pageText.is().displayed();
 
         pageText.rightClick();
-        menu.is().displayed().and().has().itemsTexts(CONTEXT_MENU_ITEMS);
+        menu.is().displayed().and().has().itemsTexts(Arrays.asList("Copy", "Print", "Highlight", "Email"));
         contextMenuList.select("Print");
         waitCondition(() -> menu.isHidden());
         menu.is().hidden();

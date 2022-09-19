@@ -2284,12 +2284,21 @@ Available methods in Java JDI Light:
     public void defaultBottomNavigationTest(int index, String buttonText, String positionText) {
         bottomNavigationItems.select(index);
         bottomNavigationItems.has().selected(index);
-        currentPosition.has().text(containsString(positionText));
+        currentPosition.has().text(positionText);
         bottomNavigationItemsText.get(index).has().text(buttonText);
+    }
+
+    @DataProvider(name = "bottomNavigationButtons")
+    public Object[][] bottomNavigationButtons() {
+        return new Object[][] {
+            {1, "Recents", "Current isRecents(0)"},
+            {2, "Favorites", "Current isFavorites(1)"},
+            {3, "Nearby", "Current isNearby(2)"},
+        };  
     }
 ```
 
-##### <a href="https://material-ui.com/components/bottom-navigation/" target="_blank"> BottomNavigation overview </a>
+##### <a href="https://v4.mui.com/components/bottom-navigation/" target="_blank"> BottomNavigation overview </a>
 
 BottomNavigation is located in the following class:
 
@@ -2302,24 +2311,20 @@ __Bottom navigation__ bars allow movement between primary destinations in an app
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="MuiBottomNavigation-root jss44">
+<div class="MuiBottomNavigation-root jss166">
   <button class="MuiButtonBase-root MuiBottomNavigationAction-root Mui-selected" tabindex="0" type="button">
     <span class="MuiBottomNavigationAction-wrapper">
+      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
       <span class="MuiBottomNavigationAction-label Mui-selected">Recents</span>
     </span>
-    <span class="MuiTouchRipple-root"></span>
+    <span class="MuiTouchRipple-root"/>
   </button>
   <button class="MuiButtonBase-root MuiBottomNavigationAction-root" tabindex="0" type="button">
     <span class="MuiBottomNavigationAction-wrapper">
+      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
       <span class="MuiBottomNavigationAction-label">Favorites</span>
     </span>
-    <span class="MuiTouchRipple-root"></span>
-  </button>
-  <button class="MuiButtonBase-root MuiBottomNavigationAction-root" tabindex="0" type="button">
-    <span class="MuiBottomNavigationAction-wrapper">
-      <span class="MuiBottomNavigationAction-label">Nearby</span>
-    </span>
-    <span class="MuiTouchRipple-root"></span>
+    <span class="MuiTouchRipple-root"/>
   </button>
 </div>
 ```
@@ -2328,7 +2333,7 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions | BottomNavigation Assert
+**is()** | Returns object for work with assertions | UISelectAssert<?, ?>
 **selected** | Check if item is selected | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a>

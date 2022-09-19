@@ -2343,8 +2343,8 @@ Available methods in Java JDI Light:
 ### 4.33 Paper
 
 ```java 
-    //   @FindBy(id = "paperElevation3")
-    @UI("#paperElevation3")
+    //   @FindBy(css = ".MuiPaper-elevation3")
+    @UI(".MuiPaper-elevation3")
     public static Paper elevationThreePaper;
 
     @Test
@@ -2355,7 +2355,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/paper/" target="_blank"> Paper overview </a>
+##### <a href="https://v4.mui.com/components/paper/" target="_blank"> Paper overview </a>
 
 Paper is located in the following class:
 
@@ -2368,14 +2368,8 @@ In Material Design, the physical properties of paper are translated to the scree
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-
-<div class="jss46">
-  <div class="MuiPaper-root MuiPaper-elevation0 MuiPaper-rounded" id="paperElevation0">Paper with elevation = 0</div>
-  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded" id="paperElevationDefault">Paper with default elavation</div>
-  <div class="MuiPaper-root MuiPaper-elevation3 MuiPaper-rounded" id="paperElevation3">Paper with elevation = 3</div>
-  <div class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded" id="paperOutlined">Outlined paper</div>
-  <div class="MuiPaper-root MuiPaper-outlined" id="paperOutlinedZero">Outlined square paper</div>
-  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded" id="lastClickContent">You clicked:</div>
+<div class="MuiPaper-root MuiPaper-elevation3 MuiPaper-rounded" id="paperElevation3">
+  Paper with elevation = 3
 </div>
 ```
 

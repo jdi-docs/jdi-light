@@ -2530,25 +2530,34 @@ Available methods in Java JDI Light:
     //    @FindBy(xpath = "//textarea[@aria-label = 'empty textarea']")
     @UI("//textarea[@aria-label = 'empty textarea']")
     public static TextArea emptyTextArea;
+    
+    //    @FindBy(xpath = "//textarea[@aria-label = 'minimum height']")
+    @UI("//textarea[@aria-label = 'minimum height']")
+    public static TextArea minArea;
+
+    //    @FindBy(xpath = "//textarea[@aria-label = 'maximum height']")
+    @UI("//textarea[@aria-label = 'maximum height']")
+    public static TextArea maxArea;
   
-    @Test
+     @Test
     public void emptyAreaHeightIncreasesTest() {
-      initialHeight = emptyTextArea.getSize().height;
-      emptyTextArea.setLines(FOUR_LINES);
-      assertThat(emptyTextArea.getSize().height, greaterThan(initialHeight));
+        initialHeight = emptyTextArea.getSize().height;
+        emptyTextArea.setLines("1\n2\n3\n4");
+        assertThat(emptyTextArea.getSize().height, greaterThanOrEqualTo(initialHeight));
     }
 
     @Test
     public void emptyAreaHeightDecreasesTest() {
-      emptyTextArea.setLines(FOUR_LINES);
-      initialHeight = emptyTextArea.getSize().height;
-      emptyTextArea.clear();
-      emptyTextArea.setLines(ONE_LINE);
-      assertThat(emptyTextArea.getSize().height, lessThan(initialHeight));
+        emptyTextArea.setLines("1\n2\n3\n4");
+        initialHeight = emptyTextArea.getSize().height;
+        emptyTextArea.clear();
+        emptyTextArea.setLines("1");
+        assertThat(emptyTextArea.getSize().height, lessThan(initialHeight));
     }
+
 ```
 
-##### <a href="https://material-ui.com/components/textarea-autosize/" target="_blank"> TextArea Autosize overview </a>
+##### <a href="https://v4.mui.com/components/textarea-autosize/" target="_blank"> TextArea Autosize overview </a>
 
 TextArea is located in the following class:
 

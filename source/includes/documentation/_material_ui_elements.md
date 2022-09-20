@@ -2578,25 +2578,29 @@ Available methods in Java JDI Light you can find in html `TextArea` class.
     @UI(".MuiPopover-root .MuiPaper-root")
     public static Popover popover;
     
+    //    @FindBy(css = ".MuiButton-root")
+    @UI(".MuiButton-root")
+    public static Button popoverButton;
+    
     @Test
     public void clickPopoverTest() {
-        popover.button(CLICK_BUTTON).click();
-        popover.is().text(POPOVER_CONTENT);
-        popover.button(CLICK_BUTTON).click(1, 0);
+        popoverButton.click();
+        popover.has().text("Popover content");
+        popover.close();
         popover.is().notVisible();
     }
 
     @Test
     public void hoverPopoverTest() {
-        popover.button(HOVER_BUTTON).hover();
-        popover.button(HOVER_BUTTON).has().attr("aria-owns", "mouse-over-popover");
-        popover.is().text(POPOVER_CONTENT);
-        popover.button(CLICK_BUTTON).hover();
+        popoverButtonHover.click();
+        popoverButtonHover.has().attr("aria-owns", "mouse-over-popover");
+        popover.has().text("Popover content");
+        popover.close();
         popover.is().notVisible();
     }
 ```
 
-##### <a href="https://material-ui.com/components/popover/" target="_blank"> Popover overview </a>
+##### <a href="https://v4.mui.com/components/popover/" target="_blank"> Popover overview </a>
 
 Popover is located in the following class:
 
@@ -2609,17 +2613,17 @@ __The Popover__ can be used to display some content on top of another.
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="MuiPaper-root MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded" tabindex="-1" style="opacity: 1; transform: none; transition: opacity 207ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 138ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 175px; left: 261px; transform-origin: 68.5px 0px;">
-  <div class="jss55">Popover content</div>
+<div class="MuiPaper-root MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded" tabindex="-1" style="opacity: 1; transform: none; transition: opacity 207ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 138ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 175px; left: 141px; transform-origin: 68px 0px;">
+  <div class="jss37">Popover content</div>
 </div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions| PopoverAssert
-**button(String)** | Returns required element's button| UIElement
+|Method | Description                              | Return Type
+--- |------------------------------------------| ---
+**is()** | Returns object for work with assertions. | PopoverAssert
+**close()** | Closes this popover.                     | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a>
 
@@ -2638,23 +2642,23 @@ Available methods in Java JDI Light:
     
     @Test
     public void modalTests() {
-    
+        modal.show();
         buttonModal.click();
-        for (int i = 0; i <= 3; i++) {
-            modal.is().visible();
+        for (int i = 0; i <= MAX_MODAL - 1; i++) {
+            modal.is().displayed();
             modal.title().has().text("Text in a modal");
-            modal.has().text(EXPECTED_TEXT);
+            modal.description().has().text(EXPECTED_DESCRIPTION);
             modal.find("button").click();
         }
 
-        for (int i = 0; i <= 4; i++) {
+        for (int i = 0; i <= MAX_MODAL; i++) {
             modal.close();
         }
-        modal.is().notVisible();
+        modal.is().hidden();
     }
 ```
 
-##### <a href="https://material-ui.com/components/modal/" target="_blank"> Modal overview </a>
+##### <a href="https://v4.mui.com/components/modal/" target="_blank"> Modal overview </a>
 
 Modal is located in the following class:
 
@@ -2667,9 +2671,9 @@ __The Modal__ component provides a solid foundation for creating dialogs, popove
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="jss58" tabindex="-1" style="top: 53%; left: 59%; transform: translate(-53%, -59%);">
-  <h2 id="simple-modal-title1">Text in a modal</h2>
-  <p id="simple-modal-description1">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+<div class="jss35" tabindex="-1" style="top: 54%; left: 52%; transform: translate(-54%, -52%);">
+  <h2 id="simple-modal-title7">Text in a modal</h2>
+  <p id="simple-modal-description7">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
   <div>
     <h1>Modal windows</h1>
     <div>
@@ -2677,31 +2681,16 @@ Here is an example with provided MaterialUI v4.12.3 code:
     </div>
   </div>
 </div>
-<div role="presentation" aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" style="position: fixed; z-index: 1300; inset: 0px;">
-  <div aria-hidden="true" style="z-index: -1; position: fixed; inset: 0px; background-color: rgba(0, 0, 0, 0.5); -webkit-tap-highlight-color: transparent;"></div>
-  <div tabindex="0" data-test="sentinelStart"></div>
-  <div class="jss178" tabindex="-1" style="top: 46%; left: 51%; transform: translate(-46%, -51%);">
-    <h2 id="simple-modal-title2">Text in a modal</h2>
-    <p id="simple-modal-description2">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-    <div>
-      <h1>Modal windows</h1>
-      <div>
-        <button type="button">Open Modal</button>
-      </div>
-    </div>
-  </div>
-  <div tabindex="0" data-test="sentinelEnd"></div>
-</div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions| ModalAssert
-**getText()** | Returns element's text| String
-**title()** | Returns element's title| UIElement
-**close()** | Closes element| void
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
+**is()** | Returns object for work with assertions | ModalAssert
+**description()** | Returns element's description           | Text
+**title()** | Returns element's title                 | Text
+**close()** | Closes element                          | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ModalTests.java" target="_blank">Here you can find Modal tests</a>
 
@@ -2713,31 +2702,29 @@ Available methods in Java JDI Light:
     // @FindBy(css = "[type=button]")
     @UI("[type=button]")
     public static List<TooltipButton> popperButton;
-    
-    @Test(dataProvider = "positionedPopperDataProvider")
-    public void positionedPoppersTest(int number, String buttonText, Position position) {
-        
-        popperButton.get(number).has().text(buttonText);
-        popperButton.get(number).click();
-        popperButton.get(number).popper().assertThat().displayed();
-        popperButton.get(number).popper().assertThat().text("The content of the Popper.");
-        popperButton.get(number).popper().assertThat().position(position);
-        popperButton.get(number).click();
-        popperButton.get(number).popper().assertThat().notVisible();
+
+    @Test(dataProviderClass = PopperDataProvider.class, dataProvider = "positionedPopperDataProvider")
+    public void positionedPoppersTest(int number, String buttonText, String position) {
+      TooltipButton tooltipButton =  popperButton.get(number);
+      tooltipButton.has().text(buttonText);
+      tooltipButton.click();
+      tooltipButton.popper().is().displayed().and().has().text("The content of the Popper.").and().has().position(position);
+      tooltipButton.click();
+      tooltipButton.popper().is().notVisible();
     }
-    
+
     @DataProvider
     public Object[][] positionedPopperDataProvider() {
-        return new Object[][]{
-                {1, "TOP", Position.TOP}, 
-                {2, "LEFT", Position.LEFT}, 
-                {3, "RIGHT", Position.RIGHT}, 
-                {4, "BOTTOM", Position.BOTTOM}
-        };
+      return new Object[][] {
+      {1, "TOP", TOP.toString()},
+      {2, "LEFT", LEFT.toString()},
+      {3, "RIGHT", RIGHT.toString()},
+      {4, "BOTTOM", BOTTOM.toString()}
+      };
     }
 ```
 
-##### <a href="https://material-ui.com/components/popper/" target="_blank"> Popper overview </a>
+##### <a href="https://v4.mui.com/components/popper/" target="_blank"> Popper overview </a>
 
 Popper is located in the following class:
 
@@ -2750,10 +2737,11 @@ __A Popper__ can be used to display some content on top of another. It's an alte
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div role="tooltip" id="positionedPopper" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(415px, 82px, 0px);" x-placement="top">
-  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded" style="opacity: 1; transition: opacity 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">
-    <p class="MuiTypography-root jss61 MuiTypography-body1">The content of the Popper.</p>
-  </div>
+<div class="MuiGrid-root MuiGrid-item">
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-text" tabindex="0" type="button">
+    <span class="MuiButton-label">left</span>
+    <span class="MuiTouchRipple-root"/>
+  </button>
 </div>
 ```
 

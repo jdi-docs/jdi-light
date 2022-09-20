@@ -2387,30 +2387,29 @@ Available methods in Java JDI Light:
 ### 4.34 Accordion
 
 ```java
-    // UIElement @FindBy(css = ".MuiAccordion-root[1]")
+    // UIElement @FindBy(css = ".MuiAccordion-root")
     // UIElement @FindBy(css = ".MuiButtonBase-root.MuiAccordionSummary-root")
     // List<UIElement> @FindBy(className = "MuiAccordionDetails-root")
     // Button @FindBy(className = "MuiIconButton-label")
-    @JDropdown(
-            root = ".MuiAccordion-root[1]",
-            value = ".MuiButtonBase-root.MuiAccordionSummary-root",
-            list = ".MuiAccordionDetails-root",
-            expand = ".MuiIconButton-label")
     public static Accordion generalSettingsAccordion;
 
     @Test
     public void accordionExpandTest() {
-        generalSettingsAccordion.is().enabled();
-        generalSettingsAccordion.list().is().hidden();
-        generalSettingsAccordion.expand();
-        generalSettingsAccordion.list().is().displayed();
-        generalSettingsAccordion.close();
-        generalSettingsAccordion.is().collapsed();
-        generalSettingsAccordion.list().is().hidden();
+      generalSettingsAccordion.is().enabled();
+      generalSettingsAccordion.content.is().hidden();
+    
+      generalSettingsAccordion.expand();
+      generalSettingsAccordion.is().expanded();
+      generalSettingsAccordion.content.is().displayed()
+        .and().has().text(containsString("Nulla facilisi. Phasellus sollicitudin"));
+    
+      generalSettingsAccordion.collapse();
+      generalSettingsAccordion.is().collapsed();
+      generalSettingsAccordion.content.is().hidden();
     }
 ```
 
-##### <a href="https://mui.com/components/accordion/" target="_blank"> Accordion overview</a>
+##### <a href="https://v4.mui.com/components/accordion/" target="_blank"> Accordion overview</a>
 
 Accordion is located in the following class:
 
@@ -2426,19 +2425,21 @@ Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
 <div class="MuiPaper-root MuiAccordion-root MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded">
-  <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button" aria-disabled="false"
-       aria-expanded="false" aria-controls="panel1a-content" id="panel1a-header">
+  <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button" aria-disabled="false" aria-expanded="false" aria-controls="panel1a-content" id="panel1a-header">
     <div class="MuiAccordionSummary-content">
-      <p class="MuiTypography-root jss49 MuiTypography-body1">General settings</p>
-      <p class="MuiTypography-root jss50 MuiTypography-body1">I am an accordion</p>
+      <p class="MuiTypography-root jss3 MuiTypography-body1">General settings</p>
+      <p class="MuiTypography-root jss4 MuiTypography-body1">I am an accordion</p>
     </div>
-    <div class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-         aria-disabled="false" aria-hidden="true">
-      <span class="MuiIconButton-label"></span>
-      <span class="MuiTouchRipple-root"></span>
+    <div class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd" aria-disabled="false" aria-hidden="true">
+			<span class="MuiIconButton-label">
+				<svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+				</svg>
+			</span>
+      <span class="MuiTouchRipple-root"/>
     </div>
   </div>
-  <div class="MuiCollapse-container MuiCollapse-hidden" style="min-height: 0px;">
+  <div class="MuiCollapse-root MuiCollapse-hidden" style="min-height:0px">
     <div class="MuiCollapse-wrapper">
       <div class="MuiCollapse-wrapperInner">
         <div aria-labelledby="panel1a-header" id="panel1a-content" role="region">
@@ -2456,8 +2457,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions | DropdownAssert
-**isEnabled()** | Checks whether element is enabled | boolean
+**expand()** | Expands this accordion, if possible. If not possible, does nothing. | void
+**collapse()** | Collapses this accordion, if possible. If not possible, does nothing. | void
+**isExpanded()** | Checks if this accordion is expanded or not. | boolean
+**isCollapsed()** | Checks if this accordion is collapsed or not. | boolean
+**is()** | Returns object for work with assertions | AccordionAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a>
 
@@ -2472,23 +2476,27 @@ Available methods in Java JDI Light:
     
     @Test
     public void portalTest() {
-        portal.button().has().text("Mount children");
-        portal.field(1).has().text(FIRST_FIELD_TEXT);
-        portal.field(2).has().text("");
+        Button button = portal.button();
+        Text textFirst = portal.text(1);
+        Text textSecond = portal.text(2);
 
-        portal.button().click();
-        portal.button().has().text("Unmount children");
-        portal.field(1).has().text(FIRST_FIELD_TEXT);
-        portal.field(2).has().text("But I actually render here!");
+        button.has().text("Mount children");
+        textFirst.has().text("It looks like I will render here.");
+        textSecond.has().text(StringUtils.EMPTY);
 
-        portal.button().click(0, 1);
-        portal.button().has().text("Mount children");
-        portal.field(1).has().text(FIRST_FIELD_TEXT);
-        portal.field(2).has().text("");
+        button.click();
+        button.has().text("Unmount children");
+        textFirst.has().text("It looks like I will render here.");
+        textSecond.has().text("But I actually render here!");
+
+        button.click();
+        button.has().text("Mount children");
+        textFirst.has().text("It looks like I will render here.");
+        textSecond.has().text(StringUtils.EMPTY);
     }
 ```
 
-##### <a href="https://material-ui.com/components/Portal/" target="_blank"> Portal overview </a>
+##### <a href="https://v4.mui.com/components/portal/" target="_blank"> Portal overview </a>
 
 Portal is located in the following class:
 
@@ -2516,9 +2524,8 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions| PortalAssert
-**field(int)** | Returns required element's field| UIElement
-**button()** | Returns element's button| UIElement
+**text(int)** | Gets text of this portal with given index.| Text
+**button()** | Gets button of this portal.| Button
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PortalTests.java" target="_blank">Here you can find Portal tests</a>
 

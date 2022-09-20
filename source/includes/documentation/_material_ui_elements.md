@@ -2771,21 +2771,21 @@ Available methods in Java JDI Light:
 ### 4.40 Progress
 
 ```java
-    //    @FindBy(xpath = "(//div[@aria-valuenow='100']/following-sibling::div[1]")
-    @JProgress(root = "(//div[@aria-valuenow='100']/following-sibling::div[1]")
+    //    @FindBy(xpath = "(//div[@aria-valuenow='100']/following-sibling::div[1])")
+    @JProgress(root = "(//div[@aria-valuenow='100']/following-sibling::div[1])")
     public static CircularProgress circularProgressDeterminate;
 
     @Test
     public void circularDeterminateTest() {
         circularProgressDeterminateWithValue25.core().show();
         circularProgressDeterminateWithValue25.is().displayed().and().determinate()
-        .and().has().value(25);
+            .and().has().value(25);
         circularProgressDeterminateWithValue50.is().displayed().and().determinate()
-        .and().has().value(50);
+            .and().has().value(50);
         circularProgressDeterminateWithValue75.is().displayed().and().determinate()
-        .and().has().value(75);
+            .and().has().value(75);
         circularProgressDeterminateWithValue100.is().displayed().and().determinate()
-        .and().has().value(100);
+            .and().has().value(100);
         
         circularProgressDeterminate.is().displayed().and().determinate();
         int valueNow = circularProgressDeterminate.getValueNow();
@@ -2793,11 +2793,11 @@ Available methods in Java JDI Light:
         
         circularProgressDeterminateIndeterminate.is().displayed().and().indeterminate();
         circularProgressDeterminateIndeterminate.circle()
-        .has().cssClass("MuiCircularProgress-circleDisableShrink");
+            .has().cssClass("MuiCircularProgress-circleDisableShrink");
     }
 ```
 
-##### <a href="https://jdi-testing.github.io/jdi-light/material/progress" target="_blank"> Progress overview </a>
+##### <a href="https://v4.mui.com/components/progress/" target="_blank"> Progress overview </a>
 
 Abstract Progress and its descendants are located in the following classes:
 
@@ -2918,12 +2918,6 @@ Available methods in Java JDI Light:
 **is()** | Returns object for work with assertions                            | LinkAssert
 **isUnderlined()** | Checks that link is underlined                                     | boolean
 **isNotUnderlined()** | Checks that link is not underlined                                 | boolean
-**assertThat()** | Returns object for work with assertions                            | LinkAssert
-**has()** | Returns object for work with assertions                            | LinkAssert
-**waitFor()** | Returns object for work with assertions                            | LinkAssert
-**waitFor(int)** | Waits int sec. and returns object for work with assertions         | LinkAssert
-**shouldBe()** | Returns object for work with assertions                            | LinkAssert
-**verify()** | Set soft assert type, then returns object for work with assertions | LinkAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/LinkTests.java" target="_blank">Here you can find Link tests</a>
 

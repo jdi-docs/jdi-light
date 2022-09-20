@@ -36843,18 +36843,31 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 </tbody></table>
 <h5 id='here-you-can-find-popper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a></h5>
 <p><br></br></p>
-<h3 id='4-40-progress'>4.40 Progress</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(xpath = "(//div[@aria-valuenow='100']/following-sibling::div)[1]")</span>
-    <span class="nd">@JProgress</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"(//div[@aria-valuenow='100']/following-sibling::div)[1]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">CircularProgress</span> <span class="n">circularDeterminateProgress</span><span class="o">;</span>
+<h3 id='4-40-progress'>4.40 Progress</h3><pre class="highlight java tab-java"><code>    <span class="c1">//    @FindBy(xpath = "(//div[@aria-valuenow='100']/following-sibling::div[1])")</span>
+    <span class="nd">@JProgress</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"(//div[@aria-valuenow='100']/following-sibling::div[1])"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">CircularProgress</span> <span class="n">circularProgressDeterminate</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">circularDeterminateTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">circularDeterminateProgress</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">determinate</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">primaryColor</span><span class="o">();</span>
-        <span class="kt">int</span> <span class="n">valueNow</span> <span class="o">=</span> <span class="n">circularDeterminateProgress</span><span class="o">.</span><span class="na">getValueNow</span><span class="o">();</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">circularDeterminateProgress</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">valueNow</span> <span class="o">+</span> <span class="mi">10</span><span class="o">));</span>
+        <span class="n">circularProgressDeterminateWithValue25</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">circularProgressDeterminateWithValue25</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">determinate</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span>
+        <span class="n">circularProgressDeterminateWithValue50</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">determinate</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">50</span><span class="o">);</span>
+        <span class="n">circularProgressDeterminateWithValue75</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">determinate</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">75</span><span class="o">);</span>
+        <span class="n">circularProgressDeterminateWithValue100</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">determinate</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+
+        <span class="n">circularProgressDeterminate</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">determinate</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">valueNow</span> <span class="o">=</span> <span class="n">circularProgressDeterminate</span><span class="o">.</span><span class="na">getValueNow</span><span class="o">();</span>
+        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">circularProgressDeterminate</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">valueNow</span> <span class="o">+</span> <span class="mi">10</span><span class="o">));</span>
+
+        <span class="n">circularProgressDeterminateIndeterminate</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">indeterminate</span><span class="o">();</span>
+        <span class="n">circularProgressDeterminateIndeterminate</span><span class="o">.</span><span class="na">circle</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="s">"MuiCircularProgress-circleDisableShrink"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='progress-overview'><a href="https://material-ui.com/components/progress/" target="_blank"> Progress overview </a></h5>
+</code></pre><h5 id='progress-overview'><a href="https://v4.mui.com/components/progress/" target="_blank"> Progress overview </a></h5>
 <p>Abstract Progress and its descendants are located in the following classes:</p>
 
 <ul>
@@ -36873,9 +36886,9 @@ animation works with CSS, not JavaScript.</p>
 <p><img src="images/material-ui/Progress.png" alt="Progress" /></p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-determinate"</span> <span class="na">role=</span><span class="s">"progressbar"</span> <span class="na">aria-valuenow=</span><span class="s">"30"</span> <span class="na">style=</span><span class="s">"width: 40px; height: 40px; transform: rotate(-90deg);"</span><span class="nt">&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"</span> <span class="na">role=</span><span class="s">"progressbar"</span> <span class="na">id=</span><span class="s">"circularIndeterminateProgress"</span> <span class="na">style=</span><span class="s">"width: 40px; height: 40px;"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiCircularProgress-svg"</span> <span class="na">viewBox=</span><span class="s">"22 22 44 44"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;circle</span> <span class="na">class=</span><span class="s">"MuiCircularProgress-circle MuiCircularProgress-circleDeterminate"</span> <span class="na">cx=</span><span class="s">"44"</span> <span class="na">cy=</span><span class="s">"44"</span> <span class="na">r=</span><span class="s">"20.2"</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">stroke-width=</span><span class="s">"3.6"</span> <span class="na">style=</span><span class="s">"stroke-dasharray: 126.92; stroke-dashoffset: 88.844px;"</span><span class="nt">&gt;&lt;/circle&gt;</span>
+    <span class="nt">&lt;circle</span> <span class="na">class=</span><span class="s">"MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"</span> <span class="na">cx=</span><span class="s">"44"</span> <span class="na">cy=</span><span class="s">"44"</span> <span class="na">r=</span><span class="s">"20.2"</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">stroke-width=</span><span class="s">"3.6"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/svg&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
@@ -36918,16 +36931,6 @@ animation works with CSS, not JavaScript.</p>
 <td>int</td>
 </tr>
 <tr>
-<td><strong>getColor()</strong></td>
-<td>Returns element&#39;s color</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>isDisplayed()</strong></td>
-<td>Checks whether the element is displayed</td>
-<td>boolean</td>
-</tr>
-<tr>
 <td><strong>isIndeterminate()</strong></td>
 <td>Shows that element is indeterminate</td>
 <td>boolean</td>
@@ -36936,6 +36939,11 @@ animation works with CSS, not JavaScript.</p>
 <td><strong>isDeterminate()</strong></td>
 <td>Shows that element is determinate</td>
 <td>boolean</td>
+</tr>
+<tr>
+<td><strong>setup(Field)</strong></td>
+<td>Initialize field</td>
+<td>void</td>
 </tr>
 </tbody></table>
 
@@ -36974,29 +36982,24 @@ animation works with CSS, not JavaScript.</p>
 <td>LinearProgressAssert</td>
 </tr>
 <tr>
-<td><strong>bar1()</strong></td>
+<td><strong>firstBar()</strong></td>
 <td>Returns progress first bar</td>
 <td>UIElement</td>
 </tr>
 <tr>
-<td><strong>bar2()</strong></td>
+<td><strong>secondBar()</strong></td>
 <td>Returns progress second bar</td>
 <td>UIElement</td>
-</tr>
-<tr>
-<td><strong>firstBarColor()</strong></td>
-<td>Returns first bar color</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>secondBarColor()</strong></td>
-<td>Returns second bar color</td>
-<td>String</td>
 </tr>
 <tr>
 <td><strong>isBuffer()</strong></td>
 <td>Checks whether the progress is buffer</td>
 <td>boolean</td>
+</tr>
+<tr>
+<td><strong>setup(Field)</strong></td>
+<td>Initialize field</td>
+<td>void</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-progress-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a></h5>
@@ -37034,7 +37037,7 @@ animation works with CSS, not JavaScript.</p>
 
         <span class="n">inheritColorLink</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='link-overview'><a href="https://material-ui.com/components/links/" target="_blank"> Link overview </a></h5>
+</code></pre><h5 id='link-overview'><a href="https://v4.mui.com/components/links/" target="_blank"> Link overview </a></h5>
 <p>Link is located in the following class:</p>
 
 <ul>
@@ -37046,8 +37049,8 @@ animation works with CSS, not JavaScript.</p>
 <p><img src="images/material-ui/links.png" alt="Links" /></p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"</span> <span class="na">href=</span><span class="s">"#link1"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"</span> <span class="na">href=</span><span class="s">"#link2"</span><span class="nt">&gt;</span>color="inherit"<span class="nt">&lt;/a&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>color="inherit"<span class="nt">&lt;/a&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
 

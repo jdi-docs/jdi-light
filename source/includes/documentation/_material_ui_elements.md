@@ -2771,20 +2771,33 @@ Available methods in Java JDI Light:
 ### 4.40 Progress
 
 ```java
-    //    @FindBy(xpath = "(//div[@aria-valuenow='100']/following-sibling::div)[1]")
-    @JProgress(root = "(//div[@aria-valuenow='100']/following-sibling::div)[1]")
-    public static CircularProgress circularDeterminateProgress;
+    //    @FindBy(xpath = "(//div[@aria-valuenow='100']/following-sibling::div[1])")
+    @JProgress(root = "(//div[@aria-valuenow='100']/following-sibling::div[1])")
+    public static CircularProgress circularProgressDeterminate;
 
     @Test
     public void circularDeterminateTest() {
-        circularDeterminateProgress.is().displayed().and().determinate()
-                .and().has().primaryColor();
-        int valueNow = circularDeterminateProgress.getValueNow();
-        timer.wait(() -> circularDeterminateProgress.has().value(valueNow + 10));
+        circularProgressDeterminateWithValue25.core().show();
+        circularProgressDeterminateWithValue25.is().displayed().and().determinate()
+            .and().has().value(25);
+        circularProgressDeterminateWithValue50.is().displayed().and().determinate()
+            .and().has().value(50);
+        circularProgressDeterminateWithValue75.is().displayed().and().determinate()
+            .and().has().value(75);
+        circularProgressDeterminateWithValue100.is().displayed().and().determinate()
+            .and().has().value(100);
+        
+        circularProgressDeterminate.is().displayed().and().determinate();
+        int valueNow = circularProgressDeterminate.getValueNow();
+        timer.wait(() -> circularProgressDeterminate.has().value(valueNow + 10));
+        
+        circularProgressDeterminateIndeterminate.is().displayed().and().indeterminate();
+        circularProgressDeterminateIndeterminate.circle()
+            .has().cssClass("MuiCircularProgress-circleDisableShrink");
     }
 ```
 
-##### <a href="https://material-ui.com/components/progress/" target="_blank"> Progress overview </a>
+##### <a href="https://v4.mui.com/components/progress/" target="_blank"> Progress overview </a>
 
 Abstract Progress and its descendants are located in the following classes:
 
@@ -2801,9 +2814,9 @@ animation works with CSS, not JavaScript.
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-determinate" role="progressbar" aria-valuenow="30" style="width: 40px; height: 40px; transform: rotate(-90deg);">
+<div class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate" role="progressbar" id="circularIndeterminateProgress" style="width: 40px; height: 40px;">
   <svg class="MuiCircularProgress-svg" viewBox="22 22 44 44">
-    <circle class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6" style="stroke-dasharray: 126.92; stroke-dashoffset: 88.844px;"></circle>
+    <circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6"/>
   </svg>
 </div>
 ```
@@ -2812,17 +2825,16 @@ Available methods in Java JDI Light:
 
 - __Progress__
 
-|Method | Description | Return Type
---- | --- | ---
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
 **is()** | Returns object for work with assertions | ProgressAssert
-**label()** | Returns progress label | Label
-**getValueNow()** | Returns current element's value | int
-**maxValue()** | Returns element's max limit | int
-**minValue()** | Returns element's min limit | int
-**getColor()** | Returns element's color | String
-**isDisplayed()** | Checks whether the element is displayed | boolean
-**isIndeterminate()** | Shows that element is indeterminate | boolean
-**isDeterminate()** | Shows that element is determinate | boolean
+**label()** | Returns progress label                  | Label
+**getValueNow()** | Returns current element's value         | int
+**maxValue()** | Returns element's max limit             | int
+**minValue()** | Returns element's min limit             | int
+**isIndeterminate()** | Shows that element is indeterminate     | boolean
+**isDeterminate()** | Shows that element is determinate       | boolean
+**setup(Field)** | Initialize field                        | void
 
 - additional methods of __Circular Progress__
 
@@ -2835,11 +2847,10 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns object for work with assertions | LinearProgressAssert
-**bar1()** | Returns progress first bar | UIElement
-**bar2()** | Returns progress second bar | UIElement
-**firstBarColor()** | Returns first bar color | String
-**secondBarColor()** | Returns second bar color | String
+**firstBar()** | Returns progress first bar | UIElement
+**secondBar()** | Returns progress second bar | UIElement
 **isBuffer()** | Checks whether the progress is buffer | boolean
+**setup(Field)** | Initialize field                        | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
 
@@ -2883,7 +2894,7 @@ Available methods in Java JDI Light:
     }
 ```
 
-##### <a href="https://material-ui.com/components/links/" target="_blank"> Link overview </a>
+##### <a href="https://v4.mui.com/components/links/" target="_blank"> Link overview </a>
 
 Link is located in the following class:
 
@@ -2896,17 +2907,17 @@ __The Link__ component allows you to easily customize anchor elements with your 
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="#link1">Link</a>
-<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit" href="#link2">color="inherit"</a>
+<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="#">Link</a>
+<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit" href="#">color="inherit"</a>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return type
-| --- | --- | --- 
-**is()** | Returns object for work with assertions | LinkAssert
-**isUnderlined()** | Checks that link is underlined | boolean
-**isNotUnderlined()** | Checks that link is not underlined| boolean
+|Method | Description                                                        | Return type
+| --- |--------------------------------------------------------------------| --- 
+**is()** | Returns object for work with assertions                            | LinkAssert
+**isUnderlined()** | Checks that link is underlined                                     | boolean
+**isNotUnderlined()** | Checks that link is not underlined                                 | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/LinkTests.java" target="_blank">Here you can find Link tests</a>
 

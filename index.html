@@ -36043,7 +36043,7 @@ related buttons.</p>
 <p><br></br></p>
 <h3 id='4-30-drawer'>4.30 Drawer</h3><pre class="highlight java tab-java"><code>    <span class="c1">//root - @FindBy(xpath = "//span[text() = 'left']/parent::button")</span>
     <span class="c1">//drawer - @FindBy(css = ".MuiDrawer-paperAnchorLeft")</span>
-    <span class="nd">@JDIButtonWithDrawer</span><span class="o">(</span>
+    <span class="nd">@JButtonWithDrawer</span><span class="o">(</span>
             <span class="n">root</span> <span class="o">=</span> <span class="s">"//span[text() = 'left']/parent::button"</span><span class="o">,</span>
             <span class="n">drawer</span> <span class="o">=</span> <span class="s">".MuiDrawer-paperAnchorLeft"</span>
     <span class="o">)</span>
@@ -36056,27 +36056,24 @@ related buttons.</p>
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">leftTemporaryDrawerTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="s">"left"</span><span class="o">);</span>
-        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="mi">250</span><span class="o">);</span>
+        <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="s">"left"</span><span class="o">);</span>
         <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">close</span><span class="o">();</span>
         <span class="n">leftDrawerButton</span><span class="o">.</span><span class="na">drawer</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notExist</span><span class="o">();</span>
     <span class="o">}</span>
 
-    <span class="nd">@Test</span>
+    <span class="nd">@Test</span>    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clippedDrawerTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="s">"left"</span><span class="o">);</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="mi">240</span><span class="o">);</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">numberOfListItems</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">topList</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">topList</span><span class="o">().</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Starred"</span><span class="o">);</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">topList</span><span class="o">().</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">icon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">bottomList</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">bottomList</span><span class="o">().</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Spam"</span><span class="o">);</span>
-        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">bottomList</span><span class="o">().</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">icon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="o">}</span>
-</code></pre><h5 id='drawer-overview'><a href="https://material-ui.com/components/drawers/" target="_blank"> Drawer overview</a></h5>
+        <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="s">"left"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">totalSize</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+
+        <span class="n">SimpleList</span> <span class="n">testList</span> <span class="o">=</span> <span class="n">clippedDrawer</span><span class="o">.</span><span class="na">topList</span><span class="o">();</span>
+        <span class="n">testList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">testList</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Starred"</span><span class="o">);</span>
+        <span class="n">testList</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">with</span><span class="o">(</span><span class="n">CustomSiteListItem</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">icon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+
+        <span class="n">testList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">itemsWithTexts</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Inbox"</span><span class="o">,</span> <span class="s">"Starred"</span><span class="o">,</span> <span class="s">"Send email"</span><span class="o">,</span> <span class="s">"Drafts"</span><span class="o">));</span>
+</code></pre><h5 id='drawer-overview'><a href="https://v4.mui.com/components/drawers/" target="_blank"> Drawer overview</a></h5>
 <p>Drawer is located in the following class:</p>
 
 <ul>
@@ -36089,57 +36086,19 @@ content that are anchored to the left or right edge of the screen.</p>
 <p><img src="images/material-ui/Drawer.png" alt="Drawer" /></p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiPaper-elevation16"</span> <span class="na">tabindex=</span><span class="s">"-1"</span>
-     <span class="na">style=</span><span class="s">"transform: none; transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss34"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"MuiList-root MuiList-padding"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span>
-           <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemIcon-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span>
-           <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemIcon-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span>
-           <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemIcon-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span>
-           <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemIcon-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/ul&gt;</span>
-    <span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"MuiDivider-root"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"MuiList-root MuiList-padding"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span>
-           <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemIcon-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span>
-           <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemIcon-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span>
-           <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemIcon-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiListItemText-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/ul&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"presentation"</span> <span class="na">class=</span><span class="s">"MuiDrawer-root MuiDrawer-modal"</span> <span class="na">style=</span><span class="s">"position: fixed; z-index: 1300; inset: 0px;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiBackdrop-root"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">style=</span><span class="s">"opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">data-test=</span><span class="s">"sentinelStart"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiPaper-elevation16"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">style=</span><span class="s">"transform: none; transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss63"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"MuiList-root MuiList-padding"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">data-test=</span><span class="s">"sentinelEnd"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
@@ -36152,49 +36111,49 @@ content that are anchored to the left or right edge of the screen.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>DrawerAssert</td>
-</tr>
-<tr>
-<td><strong>listItems()</strong></td>
-<td>Returns List of element&#39;s list items</td>
-<td>List</td>
+<td><strong>content()</strong></td>
+<td>Returns element&#39;s content</td>
+<td>UIElement</td>
 </tr>
 <tr>
 <td><strong>lists()</strong></td>
-<td>Returns List of element&#39;s Material UI Lists</td>
-<td>List</td>
+<td>Returns List of element&#39;s elements</td>
+<td>List<SimpleList></td>
+</tr>
+<tr>
+<td><strong>list(int)</strong></td>
+<td>Returns {i} element&#39;s list of items</td>
+<td>SimpleList</td>
 </tr>
 <tr>
 <td><strong>topList()</strong></td>
-<td>Returns Material UI List at the top of the element</td>
-<td>List</td>
+<td>Returns element&#39;s top list</td>
+<td>SimpleList</td>
 </tr>
 <tr>
 <td><strong>bottomList()</strong></td>
-<td>Returns Material UI List at the bottom of the element</td>
-<td>List</td>
+<td>Returns element&#39;s bottom list</td>
+<td>SimpleList</td>
 </tr>
 <tr>
-<td><strong>getWidth()</strong></td>
-<td>Returns element&#39;s width</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>getPosition()</strong></td>
-<td>Returns element&#39;s position</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>isHidden()</strong></td>
-<td>Shows that element is hidden</td>
+<td><strong>isDisplayed</strong></td>
+<td>Checks that element is displayed</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>close()</strong></td>
 <td>Closes element</td>
 <td>void</td>
+</tr>
+<tr>
+<td><strong>position()</strong></td>
+<td>Returns element&#39;s position</td>
+<td>Position</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>DrawerAssert</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-drawer-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a></h5>

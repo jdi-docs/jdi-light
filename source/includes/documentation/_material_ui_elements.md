@@ -2053,7 +2053,7 @@ Available methods in Java JDI Light:
 ```java  
     //root - @FindBy(xpath = "//span[text() = 'left']/parent::button")
     //drawer - @FindBy(css = ".MuiDrawer-paperAnchorLeft")
-    @JDIButtonWithDrawer(
+    @JButtonWithDrawer(
             root = "//span[text() = 'left']/parent::button",
             drawer = ".MuiDrawer-paperAnchorLeft"
     )
@@ -2066,29 +2066,26 @@ Available methods in Java JDI Light:
     @Test
     public void leftTemporaryDrawerTest() {
         leftDrawerButton.click();
-        leftDrawerButton.drawer().is().displayed();
-        leftDrawerButton.drawer().has().position("left");
-        leftDrawerButton.drawer().has().width(250);
+        leftDrawerButton.drawer().is().displayed().and().has().position("left");
         leftDrawerButton.drawer().close();
         leftDrawerButton.drawer().is().notExist();
     }
     
-    @Test
+    @Test    
     public void clippedDrawerTest() {
-        clippedDrawer.is().displayed();
-        clippedDrawer.has().position("left");
-        clippedDrawer.has().width(240);
-        clippedDrawer.has().numberOfListItems(7);
-        clippedDrawer.topList().has().size(4);
-        clippedDrawer.topList().items().get(1).has().text("Starred");
-        clippedDrawer.topList().items().get(0).icon().is().displayed();
-        clippedDrawer.bottomList().has().size(3);
-        clippedDrawer.bottomList().items().get(2).has().text("Spam");
-        clippedDrawer.bottomList().items().get(1).icon().is().displayed();
-    }
+        clippedDrawer.is().displayed()
+                .and().has().position("left")
+                .and().has().totalSize(7);
+                
+        SimpleList testList = clippedDrawer.topList();
+        testList.has().size(4);
+        testList.items().get(1).has().text("Starred");
+        testList.items().get(0).with(CustomSiteListItem.class).icon().is().displayed();
+
+        testList.has().itemsWithTexts(Arrays.asList("Inbox", "Starred", "Send email", "Drafts"));
 ```
 
-##### <a href="https://material-ui.com/components/drawers/" target="_blank"> Drawer overview</a>
+##### <a href="https://v4.mui.com/components/drawers/" target="_blank"> Drawer overview</a>
 
 Drawer is located in the following class:
 
@@ -2102,73 +2099,35 @@ content that are anchored to the left or right edge of the screen.
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiPaper-elevation16" tabindex="-1"
-     style="transform: none; transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;">
-  <div class="jss34" role="presentation">
-    <ul class="MuiList-root MuiList-padding">
-      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button"
-           aria-disabled="false">
-        <div class="MuiListItemIcon-root"></div>
-        <div class="MuiListItemText-root"></div>
-        <span class="MuiTouchRipple-root"></span>
-      </div>
-      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button"
-           aria-disabled="false">
-        <div class="MuiListItemIcon-root"></div>
-        <div class="MuiListItemText-root"></div>
-        <span class="MuiTouchRipple-root"></span>
-      </div>
-      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button"
-           aria-disabled="false">
-        <div class="MuiListItemIcon-root"></div>
-        <div class="MuiListItemText-root"></div>
-        <span class="MuiTouchRipple-root"></span>
-      </div>
-      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button"
-           aria-disabled="false">
-        <div class="MuiListItemIcon-root"></div>
-        <div class="MuiListItemText-root"></div>
-        <span class="MuiTouchRipple-root"></span>
-      </div>
-    </ul>
-    <hr class="MuiDivider-root">
-    <ul class="MuiList-root MuiList-padding">
-      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button"
-           aria-disabled="false">
-        <div class="MuiListItemIcon-root"></div>
-        <div class="MuiListItemText-root"></div>
-        <span class="MuiTouchRipple-root"></span>
-      </div>
-      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button"
-           aria-disabled="false">
-        <div class="MuiListItemIcon-root"></div>
-        <div class="MuiListItemText-root"></div>
-        <span class="MuiTouchRipple-root"></span>
-      </div>
-      <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button"
-           aria-disabled="false">
-        <div class="MuiListItemIcon-root"></div>
-        <div class="MuiListItemText-root"></div>
-        <span class="MuiTouchRipple-root"></span>
-      </div>
-    </ul>
+<div role="presentation" class="MuiDrawer-root MuiDrawer-modal" style="position: fixed; z-index: 1300; inset: 0px;">
+  <div class="MuiBackdrop-root" aria-hidden="true" style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"/>
+  <div tabindex="0" data-test="sentinelStart"/>
+  <div class="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiPaper-elevation16" tabindex="-1" style="transform: none; transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;">
+    <div class="jss63" role="presentation">
+      <ul class="MuiList-root MuiList-padding">
+        <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">1</div>
+        <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">2</div>
+        <div class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button" tabindex="0" role="button" aria-disabled="false">3</div>
+      </ul>
+    </div>
   </div>
+  <div tabindex="0" data-test="sentinelEnd"/>
 </div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions | DrawerAssert
-**listItems()** | Returns List of element's list items | List
-**lists()** | Returns List of element's Material UI Lists | List
-**topList()** | Returns Material UI List at the top of the element | List
-**bottomList()** | Returns Material UI List at the bottom of the element | List
-**getWidth()** | Returns element's width | String
-**getPosition()** | Returns element's position | String
-**isHidden()** | Shows that element is hidden | boolean
+|Method | Description                         | Return Type
+--- |-------------------------------------| ---
+**content()** | Returns element's content           | UIElement
+**lists()** | Returns List of element's elements  | List<SimpleList>
+**list(int)** | Returns {i} element's list of items | SimpleList
+**topList()** | Returns element's top list          | SimpleList
+**bottomList()** | Returns element's bottom list       | SimpleList
+**isDisplayed**| Checks that element is displayed    |boolean
 **close()** | Closes element | void
+**position()** | Returns element's position | Position
+**is()** | Returns object for work with assertions | DrawerAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a>
 

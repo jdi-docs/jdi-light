@@ -2345,30 +2345,29 @@ Available methods in Java JDI Light:
 ### 4.34 Accordion
 
 ```java
-    // UIElement @FindBy(css = ".MuiAccordion-root[1]")
+    // UIElement @FindBy(css = ".MuiAccordion-root")
     // UIElement @FindBy(css = ".MuiButtonBase-root.MuiAccordionSummary-root")
     // List<UIElement> @FindBy(className = "MuiAccordionDetails-root")
     // Button @FindBy(className = "MuiIconButton-label")
-    @JDropdown(
-            root = ".MuiAccordion-root[1]",
-            value = ".MuiButtonBase-root.MuiAccordionSummary-root",
-            list = ".MuiAccordionDetails-root",
-            expand = ".MuiIconButton-label")
     public static Accordion generalSettingsAccordion;
 
     @Test
     public void accordionExpandTest() {
-        generalSettingsAccordion.is().enabled();
-        generalSettingsAccordion.list().is().hidden();
-        generalSettingsAccordion.expand();
-        generalSettingsAccordion.list().is().displayed();
-        generalSettingsAccordion.close();
-        generalSettingsAccordion.is().collapsed();
-        generalSettingsAccordion.list().is().hidden();
+      generalSettingsAccordion.is().enabled();
+      generalSettingsAccordion.content.is().hidden();
+    
+      generalSettingsAccordion.expand();
+      generalSettingsAccordion.is().expanded();
+      generalSettingsAccordion.content.is().displayed()
+        .and().has().text(containsString("Nulla facilisi. Phasellus sollicitudin"));
+    
+      generalSettingsAccordion.collapse();
+      generalSettingsAccordion.is().collapsed();
+      generalSettingsAccordion.content.is().hidden();
     }
 ```
 
-##### <a href="https://mui.com/components/accordion/" target="_blank"> Accordion overview</a>
+##### <a href="https://v4.mui.com/components/accordion/" target="_blank"> Accordion overview</a>
 
 Accordion is located in the following class:
 
@@ -2384,19 +2383,21 @@ Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
 <div class="MuiPaper-root MuiAccordion-root MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded">
-  <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button" aria-disabled="false"
-       aria-expanded="false" aria-controls="panel1a-content" id="panel1a-header">
+  <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button" aria-disabled="false" aria-expanded="false" aria-controls="panel1a-content" id="panel1a-header">
     <div class="MuiAccordionSummary-content">
-      <p class="MuiTypography-root jss49 MuiTypography-body1">General settings</p>
-      <p class="MuiTypography-root jss50 MuiTypography-body1">I am an accordion</p>
+      <p class="MuiTypography-root jss3 MuiTypography-body1">General settings</p>
+      <p class="MuiTypography-root jss4 MuiTypography-body1">I am an accordion</p>
     </div>
-    <div class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-         aria-disabled="false" aria-hidden="true">
-      <span class="MuiIconButton-label"></span>
-      <span class="MuiTouchRipple-root"></span>
+    <div class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd" aria-disabled="false" aria-hidden="true">
+			<span class="MuiIconButton-label">
+				<svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+				</svg>
+			</span>
+      <span class="MuiTouchRipple-root"/>
     </div>
   </div>
-  <div class="MuiCollapse-container MuiCollapse-hidden" style="min-height: 0px;">
+  <div class="MuiCollapse-root MuiCollapse-hidden" style="min-height:0px">
     <div class="MuiCollapse-wrapper">
       <div class="MuiCollapse-wrapperInner">
         <div aria-labelledby="panel1a-header" id="panel1a-content" role="region">
@@ -2414,8 +2415,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions | DropdownAssert
-**isEnabled()** | Checks whether element is enabled | boolean
+**expand()** | Expands this accordion, if possible. If not possible, does nothing. | void
+**collapse()** | Collapses this accordion, if possible. If not possible, does nothing. | void
+**isExpanded()** | Checks if this accordion is expanded or not. | boolean
+**isCollapsed()** | Checks if this accordion is collapsed or not. | boolean
+**is()** | Returns object for work with assertions | AccordionAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a>
 
@@ -2430,23 +2434,27 @@ Available methods in Java JDI Light:
     
     @Test
     public void portalTest() {
-        portal.button().has().text("Mount children");
-        portal.field(1).has().text(FIRST_FIELD_TEXT);
-        portal.field(2).has().text("");
+        Button button = portal.button();
+        Text textFirst = portal.text(1);
+        Text textSecond = portal.text(2);
 
-        portal.button().click();
-        portal.button().has().text("Unmount children");
-        portal.field(1).has().text(FIRST_FIELD_TEXT);
-        portal.field(2).has().text("But I actually render here!");
+        button.has().text("Mount children");
+        textFirst.has().text("It looks like I will render here.");
+        textSecond.has().text(StringUtils.EMPTY);
 
-        portal.button().click(0, 1);
-        portal.button().has().text("Mount children");
-        portal.field(1).has().text(FIRST_FIELD_TEXT);
-        portal.field(2).has().text("");
+        button.click();
+        button.has().text("Unmount children");
+        textFirst.has().text("It looks like I will render here.");
+        textSecond.has().text("But I actually render here!");
+
+        button.click();
+        button.has().text("Mount children");
+        textFirst.has().text("It looks like I will render here.");
+        textSecond.has().text(StringUtils.EMPTY);
     }
 ```
 
-##### <a href="https://material-ui.com/components/Portal/" target="_blank"> Portal overview </a>
+##### <a href="https://v4.mui.com/components/portal/" target="_blank"> Portal overview </a>
 
 Portal is located in the following class:
 
@@ -2474,9 +2482,8 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns object for work with assertions| PortalAssert
-**field(int)** | Returns required element's field| UIElement
-**button()** | Returns element's button| UIElement
+**text(int)** | Gets text of this portal with given index.| Text
+**button()** | Gets button of this portal.| Button
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PortalTests.java" target="_blank">Here you can find Portal tests</a>
 
@@ -2488,25 +2495,34 @@ Available methods in Java JDI Light:
     //    @FindBy(xpath = "//textarea[@aria-label = 'empty textarea']")
     @UI("//textarea[@aria-label = 'empty textarea']")
     public static TextArea emptyTextArea;
+    
+    //    @FindBy(xpath = "//textarea[@aria-label = 'minimum height']")
+    @UI("//textarea[@aria-label = 'minimum height']")
+    public static TextArea minArea;
+
+    //    @FindBy(xpath = "//textarea[@aria-label = 'maximum height']")
+    @UI("//textarea[@aria-label = 'maximum height']")
+    public static TextArea maxArea;
   
-    @Test
+     @Test
     public void emptyAreaHeightIncreasesTest() {
-      initialHeight = emptyTextArea.getSize().height;
-      emptyTextArea.setLines(FOUR_LINES);
-      assertThat(emptyTextArea.getSize().height, greaterThan(initialHeight));
+        initialHeight = emptyTextArea.getSize().height;
+        emptyTextArea.setLines("1\n2\n3\n4");
+        assertThat(emptyTextArea.getSize().height, greaterThanOrEqualTo(initialHeight));
     }
 
     @Test
     public void emptyAreaHeightDecreasesTest() {
-      emptyTextArea.setLines(FOUR_LINES);
-      initialHeight = emptyTextArea.getSize().height;
-      emptyTextArea.clear();
-      emptyTextArea.setLines(ONE_LINE);
-      assertThat(emptyTextArea.getSize().height, lessThan(initialHeight));
+        emptyTextArea.setLines("1\n2\n3\n4");
+        initialHeight = emptyTextArea.getSize().height;
+        emptyTextArea.clear();
+        emptyTextArea.setLines("1");
+        assertThat(emptyTextArea.getSize().height, lessThan(initialHeight));
     }
+
 ```
 
-##### <a href="https://material-ui.com/components/textarea-autosize/" target="_blank"> TextArea Autosize overview </a>
+##### <a href="https://v4.mui.com/components/textarea-autosize/" target="_blank"> TextArea Autosize overview </a>
 
 TextArea is located in the following class:
 
@@ -2536,25 +2552,29 @@ Available methods in Java JDI Light you can find in html `TextArea` class.
     @UI(".MuiPopover-root .MuiPaper-root")
     public static Popover popover;
     
+    //    @FindBy(css = ".MuiButton-root")
+    @UI(".MuiButton-root")
+    public static Button popoverButton;
+    
     @Test
     public void clickPopoverTest() {
-        popover.button(CLICK_BUTTON).click();
-        popover.is().text(POPOVER_CONTENT);
-        popover.button(CLICK_BUTTON).click(1, 0);
+        popoverButton.click();
+        popover.has().text("Popover content");
+        popover.close();
         popover.is().notVisible();
     }
 
     @Test
     public void hoverPopoverTest() {
-        popover.button(HOVER_BUTTON).hover();
-        popover.button(HOVER_BUTTON).has().attr("aria-owns", "mouse-over-popover");
-        popover.is().text(POPOVER_CONTENT);
-        popover.button(CLICK_BUTTON).hover();
+        popoverButtonHover.click();
+        popoverButtonHover.has().attr("aria-owns", "mouse-over-popover");
+        popover.has().text("Popover content");
+        popover.close();
         popover.is().notVisible();
     }
 ```
 
-##### <a href="https://material-ui.com/components/popover/" target="_blank"> Popover overview </a>
+##### <a href="https://v4.mui.com/components/popover/" target="_blank"> Popover overview </a>
 
 Popover is located in the following class:
 
@@ -2567,17 +2587,17 @@ __The Popover__ can be used to display some content on top of another.
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="MuiPaper-root MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded" tabindex="-1" style="opacity: 1; transform: none; transition: opacity 207ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 138ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 175px; left: 261px; transform-origin: 68.5px 0px;">
-  <div class="jss55">Popover content</div>
+<div class="MuiPaper-root MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded" tabindex="-1" style="opacity: 1; transform: none; transition: opacity 207ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 138ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 175px; left: 141px; transform-origin: 68px 0px;">
+  <div class="jss37">Popover content</div>
 </div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions| PopoverAssert
-**button(String)** | Returns required element's button| UIElement
+|Method | Description                              | Return Type
+--- |------------------------------------------| ---
+**is()** | Returns object for work with assertions. | PopoverAssert
+**close()** | Closes this popover.                     | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a>
 
@@ -2596,23 +2616,23 @@ Available methods in Java JDI Light:
     
     @Test
     public void modalTests() {
-    
+        modal.show();
         buttonModal.click();
-        for (int i = 0; i <= 3; i++) {
-            modal.is().visible();
+        for (int i = 0; i <= MAX_MODAL - 1; i++) {
+            modal.is().displayed();
             modal.title().has().text("Text in a modal");
-            modal.has().text(EXPECTED_TEXT);
+            modal.description().has().text(EXPECTED_DESCRIPTION);
             modal.find("button").click();
         }
 
-        for (int i = 0; i <= 4; i++) {
+        for (int i = 0; i <= MAX_MODAL; i++) {
             modal.close();
         }
-        modal.is().notVisible();
+        modal.is().hidden();
     }
 ```
 
-##### <a href="https://material-ui.com/components/modal/" target="_blank"> Modal overview </a>
+##### <a href="https://v4.mui.com/components/modal/" target="_blank"> Modal overview </a>
 
 Modal is located in the following class:
 
@@ -2625,9 +2645,9 @@ __The Modal__ component provides a solid foundation for creating dialogs, popove
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div class="jss58" tabindex="-1" style="top: 53%; left: 59%; transform: translate(-53%, -59%);">
-  <h2 id="simple-modal-title1">Text in a modal</h2>
-  <p id="simple-modal-description1">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+<div class="jss35" tabindex="-1" style="top: 54%; left: 52%; transform: translate(-54%, -52%);">
+  <h2 id="simple-modal-title7">Text in a modal</h2>
+  <p id="simple-modal-description7">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
   <div>
     <h1>Modal windows</h1>
     <div>
@@ -2635,31 +2655,16 @@ Here is an example with provided MaterialUI v4.12.3 code:
     </div>
   </div>
 </div>
-<div role="presentation" aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description" style="position: fixed; z-index: 1300; inset: 0px;">
-  <div aria-hidden="true" style="z-index: -1; position: fixed; inset: 0px; background-color: rgba(0, 0, 0, 0.5); -webkit-tap-highlight-color: transparent;"></div>
-  <div tabindex="0" data-test="sentinelStart"></div>
-  <div class="jss178" tabindex="-1" style="top: 46%; left: 51%; transform: translate(-46%, -51%);">
-    <h2 id="simple-modal-title2">Text in a modal</h2>
-    <p id="simple-modal-description2">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-    <div>
-      <h1>Modal windows</h1>
-      <div>
-        <button type="button">Open Modal</button>
-      </div>
-    </div>
-  </div>
-  <div tabindex="0" data-test="sentinelEnd"></div>
-</div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions| ModalAssert
-**getText()** | Returns element's text| String
-**title()** | Returns element's title| UIElement
-**close()** | Closes element| void
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
+**is()** | Returns object for work with assertions | ModalAssert
+**description()** | Returns element's description           | Text
+**title()** | Returns element's title                 | Text
+**close()** | Closes element                          | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ModalTests.java" target="_blank">Here you can find Modal tests</a>
 
@@ -2671,31 +2676,29 @@ Available methods in Java JDI Light:
     // @FindBy(css = "[type=button]")
     @UI("[type=button]")
     public static List<TooltipButton> popperButton;
-    
-    @Test(dataProvider = "positionedPopperDataProvider")
-    public void positionedPoppersTest(int number, String buttonText, Position position) {
-        
-        popperButton.get(number).has().text(buttonText);
-        popperButton.get(number).click();
-        popperButton.get(number).popper().assertThat().displayed();
-        popperButton.get(number).popper().assertThat().text("The content of the Popper.");
-        popperButton.get(number).popper().assertThat().position(position);
-        popperButton.get(number).click();
-        popperButton.get(number).popper().assertThat().notVisible();
+
+    @Test(dataProviderClass = PopperDataProvider.class, dataProvider = "positionedPopperDataProvider")
+    public void positionedPoppersTest(int number, String buttonText, String position) {
+      TooltipButton tooltipButton =  popperButton.get(number);
+      tooltipButton.has().text(buttonText);
+      tooltipButton.click();
+      tooltipButton.popper().is().displayed().and().has().text("The content of the Popper.").and().has().position(position);
+      tooltipButton.click();
+      tooltipButton.popper().is().notVisible();
     }
-    
+
     @DataProvider
     public Object[][] positionedPopperDataProvider() {
-        return new Object[][]{
-                {1, "TOP", Position.TOP}, 
-                {2, "LEFT", Position.LEFT}, 
-                {3, "RIGHT", Position.RIGHT}, 
-                {4, "BOTTOM", Position.BOTTOM}
-        };
+      return new Object[][] {
+      {1, "TOP", TOP.toString()},
+      {2, "LEFT", LEFT.toString()},
+      {3, "RIGHT", RIGHT.toString()},
+      {4, "BOTTOM", BOTTOM.toString()}
+      };
     }
 ```
 
-##### <a href="https://material-ui.com/components/popper/" target="_blank"> Popper overview </a>
+##### <a href="https://v4.mui.com/components/popper/" target="_blank"> Popper overview </a>
 
 Popper is located in the following class:
 
@@ -2708,10 +2711,11 @@ __A Popper__ can be used to display some content on top of another. It's an alte
 Here is an example with provided MaterialUI v4.12.3 code:
 
 ```html
-<div role="tooltip" id="positionedPopper" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(415px, 82px, 0px);" x-placement="top">
-  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded" style="opacity: 1; transition: opacity 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">
-    <p class="MuiTypography-root jss61 MuiTypography-body1">The content of the Popper.</p>
-  </div>
+<div class="MuiGrid-root MuiGrid-item">
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-text" tabindex="0" type="button">
+    <span class="MuiButton-label">left</span>
+    <span class="MuiTouchRipple-root"/>
+  </button>
 </div>
 ```
 

@@ -36289,10 +36289,19 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultBottomNavigationTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">buttonText</span><span class="o">,</span> <span class="n">String</span> <span class="n">positionText</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
         <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
-        <span class="n">currentPosition</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">positionText</span><span class="o">));</span>
+        <span class="n">currentPosition</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">positionText</span><span class="o">);</span>
         <span class="n">bottomNavigationItemsText</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">buttonText</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='bottomnavigation-overview'><a href="https://material-ui.com/components/bottom-navigation/" target="_blank"> BottomNavigation overview </a></h5>
+
+    <span class="nd">@DataProvider</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"bottomNavigationButtons"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Object</span><span class="o">[][]</span> <span class="nf">bottomNavigationButtons</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[][]</span> <span class="o">{</span>
+            <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Recents"</span><span class="o">,</span> <span class="s">"Current isRecents(0)"</span><span class="o">},</span>
+            <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Favorites"</span><span class="o">,</span> <span class="s">"Current isFavorites(1)"</span><span class="o">},</span>
+            <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Nearby"</span><span class="o">,</span> <span class="s">"Current isNearby(2)"</span><span class="o">},</span>
+        <span class="o">};</span>  
+    <span class="o">}</span>
+</code></pre><h5 id='bottomnavigation-overview'><a href="https://v4.mui.com/components/bottom-navigation/" target="_blank"> BottomNavigation overview </a></h5>
 <p>BottomNavigation is located in the following class:</p>
 
 <ul>
@@ -36304,24 +36313,20 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 <p><img src="images/material-ui/BottomNavigation.png" alt="BottomNavigation" /></p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiBottomNavigation-root jss44"</span><span class="nt">&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiBottomNavigation-root jss166"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiBottomNavigationAction-root Mui-selected"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiBottomNavigationAction-wrapper"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
       <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiBottomNavigationAction-label Mui-selected"</span><span class="nt">&gt;</span>Recents<span class="nt">&lt;/span&gt;</span>
     <span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiBottomNavigationAction-root"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiBottomNavigationAction-wrapper"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/svg&gt;</span>
       <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiBottomNavigationAction-label"</span><span class="nt">&gt;</span>Favorites<span class="nt">&lt;/span&gt;</span>
     <span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiBottomNavigationAction-root"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiBottomNavigationAction-wrapper"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiBottomNavigationAction-label"</span><span class="nt">&gt;</span>Nearby<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
@@ -36337,7 +36342,7 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 <tr>
 <td><strong>is()</strong></td>
 <td>Returns object for work with assertions</td>
-<td>BottomNavigation Assert</td>
+<td>UISelectAssert&lt;?, ?&gt;</td>
 </tr>
 <tr>
 <td><strong>selected</strong></td>
@@ -36347,8 +36352,8 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 </tbody></table>
 <h5 id='here-you-can-find-bottom-navigation-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a></h5>
 <p><br></br></p>
-<h3 id='4-33-paper'>4.33 Paper</h3><pre class="highlight java tab-java"><code>    <span class="c1">//   @FindBy(id = "paperElevation3")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#paperElevation3"</span><span class="o">)</span>
+<h3 id='4-33-paper'>4.33 Paper</h3><pre class="highlight java tab-java"><code>    <span class="c1">//   @FindBy(css = ".MuiPaper-elevation3")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiPaper-elevation3"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Paper</span> <span class="n">elevationThreePaper</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
@@ -36357,7 +36362,7 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
         <span class="n">elevationThreePaper</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">elevation</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
         <span class="n">elevationThreePaper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">rounded</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='paper-overview'><a href="https://material-ui.com/components/paper/" target="_blank"> Paper overview </a></h5>
+</code></pre><h5 id='paper-overview'><a href="https://v4.mui.com/components/paper/" target="_blank"> Paper overview </a></h5>
 <p>Paper is located in the following class:</p>
 
 <ul>
@@ -36369,14 +36374,8 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 <p><img src="images/material-ui/Paper.png" alt="Paper" /></p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss46"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPaper-elevation0 MuiPaper-rounded"</span> <span class="na">id=</span><span class="s">"paperElevation0"</span><span class="nt">&gt;</span>Paper with elevation = 0<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"</span> <span class="na">id=</span><span class="s">"paperElevationDefault"</span><span class="nt">&gt;</span>Paper with default elavation<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPaper-elevation3 MuiPaper-rounded"</span> <span class="na">id=</span><span class="s">"paperElevation3"</span><span class="nt">&gt;</span>Paper with elevation = 3<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPaper-outlined MuiPaper-rounded"</span> <span class="na">id=</span><span class="s">"paperOutlined"</span><span class="nt">&gt;</span>Outlined paper<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPaper-outlined"</span> <span class="na">id=</span><span class="s">"paperOutlinedZero"</span><span class="nt">&gt;</span>Outlined square paper<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"</span> <span class="na">id=</span><span class="s">"lastClickContent"</span><span class="nt">&gt;</span>You clicked:<span class="nt">&lt;/div&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPaper-elevation3 MuiPaper-rounded"</span> <span class="na">id=</span><span class="s">"paperElevation3"</span><span class="nt">&gt;</span>
+  Paper with elevation = 3
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
@@ -36396,28 +36395,27 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 </tbody></table>
 <h5 id='here-you-can-find-paper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/PaperTests.java" target="_blank">Here you can find Paper tests</a></h5>
 <p><br></br></p>
-<h3 id='4-34-accordion'>4.34 Accordion</h3><pre class="highlight java tab-java"><code>    <span class="c1">// UIElement @FindBy(css = ".MuiAccordion-root[1]")</span>
+<h3 id='4-34-accordion'>4.34 Accordion</h3><pre class="highlight java tab-java"><code>    <span class="c1">// UIElement @FindBy(css = ".MuiAccordion-root")</span>
     <span class="c1">// UIElement @FindBy(css = ".MuiButtonBase-root.MuiAccordionSummary-root")</span>
     <span class="c1">// List&lt;UIElement&gt; @FindBy(className = "MuiAccordionDetails-root")</span>
     <span class="c1">// Button @FindBy(className = "MuiIconButton-label")</span>
-    <span class="nd">@JDropdown</span><span class="o">(</span>
-            <span class="n">root</span> <span class="o">=</span> <span class="s">".MuiAccordion-root[1]"</span><span class="o">,</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s">".MuiButtonBase-root.MuiAccordionSummary-root"</span><span class="o">,</span>
-            <span class="n">list</span> <span class="o">=</span> <span class="s">".MuiAccordionDetails-root"</span><span class="o">,</span>
-            <span class="n">expand</span> <span class="o">=</span> <span class="s">".MuiIconButton-label"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Accordion</span> <span class="n">generalSettingsAccordion</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accordionExpandTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
-        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
-        <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+      <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+      <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">content</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+
+      <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+      <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
+      <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">content</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Nulla facilisi. Phasellus sollicitudin"</span><span class="o">));</span>
+
+      <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">collapse</span><span class="o">();</span>
+      <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
+      <span class="n">generalSettingsAccordion</span><span class="o">.</span><span class="na">content</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='accordion-overview'><a href="https://mui.com/components/accordion/" target="_blank"> Accordion overview</a></h5>
+</code></pre><h5 id='accordion-overview'><a href="https://v4.mui.com/components/accordion/" target="_blank"> Accordion overview</a></h5>
 <p>Accordion is located in the following class:</p>
 
 <ul>
@@ -36432,19 +36430,21 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiAccordion-root MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiAccordionSummary-root"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span>
-       <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-controls=</span><span class="s">"panel1a-content"</span> <span class="na">id=</span><span class="s">"panel1a-header"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiAccordionSummary-root"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-controls=</span><span class="s">"panel1a-content"</span> <span class="na">id=</span><span class="s">"panel1a-header"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiAccordionSummary-content"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root jss49 MuiTypography-body1"</span><span class="nt">&gt;</span>General settings<span class="nt">&lt;/p&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root jss50 MuiTypography-body1"</span><span class="nt">&gt;</span>I am an accordion<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root jss3 MuiTypography-body1"</span><span class="nt">&gt;</span>General settings<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root jss4 MuiTypography-body1"</span><span class="nt">&gt;</span>I am an accordion<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"</span>
-         <span class="na">aria-disabled=</span><span class="s">"false"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiIconButton-label"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"MuiSvgIcon-root"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/svg&gt;</span>
+            <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-container MuiCollapse-hidden"</span> <span class="na">style=</span><span class="s">"min-height: 0px;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-root MuiCollapse-hidden"</span> <span class="na">style=</span><span class="s">"min-height:0px"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-wrapper"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiCollapse-wrapperInner"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">aria-labelledby=</span><span class="s">"panel1a-header"</span> <span class="na">id=</span><span class="s">"panel1a-content"</span> <span class="na">role=</span><span class="s">"region"</span><span class="nt">&gt;</span>
@@ -36467,14 +36467,29 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>DropdownAssert</td>
+<td><strong>expand()</strong></td>
+<td>Expands this accordion, if possible. If not possible, does nothing.</td>
+<td>void</td>
 </tr>
 <tr>
-<td><strong>isEnabled()</strong></td>
-<td>Checks whether element is enabled</td>
+<td><strong>collapse()</strong></td>
+<td>Collapses this accordion, if possible. If not possible, does nothing.</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isExpanded()</strong></td>
+<td>Checks if this accordion is expanded or not.</td>
 <td>boolean</td>
+</tr>
+<tr>
+<td><strong>isCollapsed()</strong></td>
+<td>Checks if this accordion is collapsed or not.</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>AccordionAssert</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-accordion-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a></h5>
@@ -36485,21 +36500,25 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">portalTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">portal</span><span class="o">.</span><span class="na">button</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Mount children"</span><span class="o">);</span>
-        <span class="n">portal</span><span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">FIRST_FIELD_TEXT</span><span class="o">);</span>
-        <span class="n">portal</span><span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="n">Button</span> <span class="n">button</span> <span class="o">=</span> <span class="n">portal</span><span class="o">.</span><span class="na">button</span><span class="o">();</span>
+        <span class="n">Text</span> <span class="n">textFirst</span> <span class="o">=</span> <span class="n">portal</span><span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">Text</span> <span class="n">textSecond</span> <span class="o">=</span> <span class="n">portal</span><span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
 
-        <span class="n">portal</span><span class="o">.</span><span class="na">button</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">portal</span><span class="o">.</span><span class="na">button</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Unmount children"</span><span class="o">);</span>
-        <span class="n">portal</span><span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">FIRST_FIELD_TEXT</span><span class="o">);</span>
-        <span class="n">portal</span><span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"But I actually render here!"</span><span class="o">);</span>
+        <span class="n">button</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Mount children"</span><span class="o">);</span>
+        <span class="n">textFirst</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"It looks like I will render here."</span><span class="o">);</span>
+        <span class="n">textSecond</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">EMPTY</span><span class="o">);</span>
 
-        <span class="n">portal</span><span class="o">.</span><span class="na">button</span><span class="o">().</span><span class="na">click</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-        <span class="n">portal</span><span class="o">.</span><span class="na">button</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Mount children"</span><span class="o">);</span>
-        <span class="n">portal</span><span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">FIRST_FIELD_TEXT</span><span class="o">);</span>
-        <span class="n">portal</span><span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">button</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Unmount children"</span><span class="o">);</span>
+        <span class="n">textFirst</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"It looks like I will render here."</span><span class="o">);</span>
+        <span class="n">textSecond</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"But I actually render here!"</span><span class="o">);</span>
+
+        <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">button</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Mount children"</span><span class="o">);</span>
+        <span class="n">textFirst</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"It looks like I will render here."</span><span class="o">);</span>
+        <span class="n">textSecond</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">EMPTY</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h5 id='portal-overview'><a href="https://material-ui.com/components/Portal/" target="_blank"> Portal overview </a></h5>
+</code></pre><h5 id='portal-overview'><a href="https://v4.mui.com/components/portal/" target="_blank"> Portal overview </a></h5>
 <p>Portal is located in the following class:</p>
 
 <ul>
@@ -36531,19 +36550,14 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>PortalAssert</td>
-</tr>
-<tr>
-<td><strong>field(int)</strong></td>
-<td>Returns required element&#39;s field</td>
-<td>UIElement</td>
+<td><strong>text(int)</strong></td>
+<td>Gets text of this portal with given index.</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><strong>button()</strong></td>
-<td>Returns element&#39;s button</td>
-<td>UIElement</td>
+<td>Gets button of this portal.</td>
+<td>Button</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-portal-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PortalTests.java" target="_blank">Here you can find Portal tests</a></h5>
@@ -36552,22 +36566,31 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//textarea[@aria-label = 'empty textarea']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">emptyTextArea</span><span class="o">;</span>
 
-    <span class="nd">@Test</span>
+    <span class="c1">//    @FindBy(xpath = "//textarea[@aria-label = 'minimum height']")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//textarea[@aria-label = 'minimum height']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">minArea</span><span class="o">;</span>
+
+    <span class="c1">//    @FindBy(xpath = "//textarea[@aria-label = 'maximum height']")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//textarea[@aria-label = 'maximum height']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">maxArea</span><span class="o">;</span>
+
+     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">emptyAreaHeightIncreasesTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">initialHeight</span> <span class="o">=</span> <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">;</span>
-      <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="n">FOUR_LINES</span><span class="o">);</span>
-      <span class="n">assertThat</span><span class="o">(</span><span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">,</span> <span class="n">greaterThan</span><span class="o">(</span><span class="n">initialHeight</span><span class="o">));</span>
+        <span class="n">initialHeight</span> <span class="o">=</span> <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">;</span>
+        <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">"1\n2\n3\n4"</span><span class="o">);</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">,</span> <span class="n">greaterThanOrEqualTo</span><span class="o">(</span><span class="n">initialHeight</span><span class="o">));</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">emptyAreaHeightDecreasesTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="n">FOUR_LINES</span><span class="o">);</span>
-      <span class="n">initialHeight</span> <span class="o">=</span> <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">;</span>
-      <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-      <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="n">ONE_LINE</span><span class="o">);</span>
-      <span class="n">assertThat</span><span class="o">(</span><span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">,</span> <span class="n">lessThan</span><span class="o">(</span><span class="n">initialHeight</span><span class="o">));</span>
+        <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">"1\n2\n3\n4"</span><span class="o">);</span>
+        <span class="n">initialHeight</span> <span class="o">=</span> <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">;</span>
+        <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">,</span> <span class="n">lessThan</span><span class="o">(</span><span class="n">initialHeight</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre><h5 id='textarea-autosize-overview'><a href="https://material-ui.com/components/textarea-autosize/" target="_blank"> TextArea Autosize overview </a></h5>
+
+</code></pre><h5 id='textarea-autosize-overview'><a href="https://v4.mui.com/components/textarea-autosize/" target="_blank"> TextArea Autosize overview </a></h5>
 <p>TextArea is located in the following class:</p>
 
 <ul>
@@ -36589,23 +36612,27 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiPopover-root .MuiPaper-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Popover</span> <span class="n">popover</span><span class="o">;</span>
 
+    <span class="c1">//    @FindBy(css = ".MuiButton-root")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiButton-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">popoverButton</span><span class="o">;</span>
+
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickPopoverTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">CLICK_BUTTON</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">popover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">POPOVER_CONTENT</span><span class="o">);</span>
-        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">CLICK_BUTTON</span><span class="o">).</span><span class="na">click</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="n">popoverButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Popover content"</span><span class="o">);</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
         <span class="n">popover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hoverPopoverTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">HOVER_BUTTON</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">HOVER_BUTTON</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"aria-owns"</span><span class="o">,</span> <span class="s">"mouse-over-popover"</span><span class="o">);</span>
-        <span class="n">popover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">POPOVER_CONTENT</span><span class="o">);</span>
-        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">CLICK_BUTTON</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">popoverButtonHover</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">popoverButtonHover</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"aria-owns"</span><span class="o">,</span> <span class="s">"mouse-over-popover"</span><span class="o">);</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Popover content"</span><span class="o">);</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
         <span class="n">popover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='popover-overview'><a href="https://material-ui.com/components/popover/" target="_blank"> Popover overview </a></h5>
+</code></pre><h5 id='popover-overview'><a href="https://v4.mui.com/components/popover/" target="_blank"> Popover overview </a></h5>
 <p>Popover is located in the following class:</p>
 
 <ul>
@@ -36617,8 +36644,8 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 <p><img src="images/material-ui/Popover.png" alt="Popover" /></p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">style=</span><span class="s">"opacity: 1; transform: none; transition: opacity 207ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 138ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 175px; left: 261px; transform-origin: 68.5px 0px;"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss55"</span><span class="nt">&gt;</span>Popover content<span class="nt">&lt;/div&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">style=</span><span class="s">"opacity: 1; transform: none; transition: opacity 207ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 138ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 175px; left: 141px; transform-origin: 68px 0px;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss37"</span><span class="nt">&gt;</span>Popover content<span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
@@ -36632,13 +36659,13 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 </thead><tbody>
 <tr>
 <td><strong>is()</strong></td>
-<td>Returns object for work with assertions</td>
+<td>Returns object for work with assertions.</td>
 <td>PopoverAssert</td>
 </tr>
 <tr>
-<td><strong>button(String)</strong></td>
-<td>Returns required element&#39;s button</td>
-<td>UIElement</td>
+<td><strong>close()</strong></td>
+<td>Closes this popover.</td>
+<td>void</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-popover-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a></h5>
@@ -36653,21 +36680,21 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">modalTests</span><span class="o">()</span> <span class="o">{</span>
-
+        <span class="n">modal</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
         <span class="n">buttonModal</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">modal</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">MAX_MODAL</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">modal</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
             <span class="n">modal</span><span class="o">.</span><span class="na">title</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Text in a modal"</span><span class="o">);</span>
-            <span class="n">modal</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">EXPECTED_TEXT</span><span class="o">);</span>
+            <span class="n">modal</span><span class="o">.</span><span class="na">description</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">EXPECTED_DESCRIPTION</span><span class="o">);</span>
             <span class="n">modal</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="s">"button"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
         <span class="o">}</span>
 
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">MAX_MODAL</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
             <span class="n">modal</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
         <span class="o">}</span>
-        <span class="n">modal</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+        <span class="n">modal</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h5 id='modal-overview'><a href="https://material-ui.com/components/modal/" target="_blank"> Modal overview </a></h5>
+</code></pre><h5 id='modal-overview'><a href="https://v4.mui.com/components/modal/" target="_blank"> Modal overview </a></h5>
 <p>Modal is located in the following class:</p>
 
 <ul>
@@ -36679,30 +36706,15 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 <p><img src="images/material-ui/Modal.png" alt="Modal" /></p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss58"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">style=</span><span class="s">"top: 53%; left: 59%; transform: translate(-53%, -59%);"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"simple-modal-title1"</span><span class="nt">&gt;</span>Text in a modal<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"simple-modal-description1"</span><span class="nt">&gt;</span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.<span class="nt">&lt;/p&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss35"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">style=</span><span class="s">"top: 54%; left: 52%; transform: translate(-54%, -52%);"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"simple-modal-title7"</span><span class="nt">&gt;</span>Text in a modal<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"simple-modal-description7"</span><span class="nt">&gt;</span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.<span class="nt">&lt;/p&gt;</span>
   <span class="nt">&lt;div&gt;</span>
     <span class="nt">&lt;h1&gt;</span>Modal windows<span class="nt">&lt;/h1&gt;</span>
     <span class="nt">&lt;div&gt;</span>
       <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Open Modal<span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"presentation"</span> <span class="na">aria-labelledby=</span><span class="s">"simple-modal-title"</span> <span class="na">aria-describedby=</span><span class="s">"simple-modal-description"</span> <span class="na">style=</span><span class="s">"position: fixed; z-index: 1300; inset: 0px;"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">style=</span><span class="s">"z-index: -1; position: fixed; inset: 0px; background-color: rgba(0, 0, 0, 0.5); -webkit-tap-highlight-color: transparent;"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">data-test=</span><span class="s">"sentinelStart"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jss178"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">style=</span><span class="s">"top: 46%; left: 51%; transform: translate(-46%, -51%);"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"simple-modal-title2"</span><span class="nt">&gt;</span>Text in a modal<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"simple-modal-description2"</span><span class="nt">&gt;</span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;div&gt;</span>
-      <span class="nt">&lt;h1&gt;</span>Modal windows<span class="nt">&lt;/h1&gt;</span>
-      <span class="nt">&lt;div&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Open Modal<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">data-test=</span><span class="s">"sentinelEnd"</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
@@ -36720,14 +36732,14 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 <td>ModalAssert</td>
 </tr>
 <tr>
-<td><strong>getText()</strong></td>
-<td>Returns element&#39;s text</td>
-<td>String</td>
+<td><strong>description()</strong></td>
+<td>Returns element&#39;s description</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><strong>title()</strong></td>
 <td>Returns element&#39;s title</td>
-<td>UIElement</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><strong>close()</strong></td>
@@ -36741,28 +36753,26 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"[type=button]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">TooltipButton</span><span class="o">&gt;</span> <span class="n">popperButton</span><span class="o">;</span>
 
-    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"positionedPopperDataProvider"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">positionedPoppersTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">number</span><span class="o">,</span> <span class="n">String</span> <span class="n">buttonText</span><span class="o">,</span> <span class="n">Position</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="n">popperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">number</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">buttonText</span><span class="o">);</span>
-        <span class="n">popperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">number</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">popperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">number</span><span class="o">).</span><span class="na">popper</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">popperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">number</span><span class="o">).</span><span class="na">popper</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"The content of the Popper."</span><span class="o">);</span>
-        <span class="n">popperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">number</span><span class="o">).</span><span class="na">popper</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
-        <span class="n">popperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">number</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">popperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">number</span><span class="o">).</span><span class="na">popper</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">PopperDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"positionedPopperDataProvider"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">positionedPoppersTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">number</span><span class="o">,</span> <span class="n">String</span> <span class="n">buttonText</span><span class="o">,</span> <span class="n">String</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">TooltipButton</span> <span class="n">tooltipButton</span> <span class="o">=</span>  <span class="n">popperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+      <span class="n">tooltipButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">buttonText</span><span class="o">);</span>
+      <span class="n">tooltipButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">tooltipButton</span><span class="o">.</span><span class="na">popper</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"The content of the Popper."</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+      <span class="n">tooltipButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">tooltipButton</span><span class="o">.</span><span class="na">popper</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
     <span class="o">}</span>
 
     <span class="nd">@DataProvider</span>
     <span class="kd">public</span> <span class="n">Object</span><span class="o">[][]</span> <span class="nf">positionedPopperDataProvider</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[][]{</span>
-                <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="s">"TOP"</span><span class="o">,</span> <span class="n">Position</span><span class="o">.</span><span class="na">TOP</span><span class="o">},</span> 
-                <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="s">"LEFT"</span><span class="o">,</span> <span class="n">Position</span><span class="o">.</span><span class="na">LEFT</span><span class="o">},</span> 
-                <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="s">"RIGHT"</span><span class="o">,</span> <span class="n">Position</span><span class="o">.</span><span class="na">RIGHT</span><span class="o">},</span> 
-                <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="s">"BOTTOM"</span><span class="o">,</span> <span class="n">Position</span><span class="o">.</span><span class="na">BOTTOM</span><span class="o">}</span>
-        <span class="o">};</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[][]</span> <span class="o">{</span>
+      <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="s">"TOP"</span><span class="o">,</span> <span class="n">TOP</span><span class="o">.</span><span class="na">toString</span><span class="o">()},</span>
+      <span class="o">{</span><span class="mi">2</span><span class="o">,</span> <span class="s">"LEFT"</span><span class="o">,</span> <span class="n">LEFT</span><span class="o">.</span><span class="na">toString</span><span class="o">()},</span>
+      <span class="o">{</span><span class="mi">3</span><span class="o">,</span> <span class="s">"RIGHT"</span><span class="o">,</span> <span class="n">RIGHT</span><span class="o">.</span><span class="na">toString</span><span class="o">()},</span>
+      <span class="o">{</span><span class="mi">4</span><span class="o">,</span> <span class="s">"BOTTOM"</span><span class="o">,</span> <span class="n">BOTTOM</span><span class="o">.</span><span class="na">toString</span><span class="o">()}</span>
+      <span class="o">};</span>
     <span class="o">}</span>
-</code></pre><h5 id='popper-overview'><a href="https://material-ui.com/components/popper/" target="_blank"> Popper overview </a></h5>
+</code></pre><h5 id='popper-overview'><a href="https://v4.mui.com/components/popper/" target="_blank"> Popper overview </a></h5>
 <p>Popper is located in the following class:</p>
 
 <ul>
@@ -36774,10 +36784,11 @@ explicitly through a <code>JBreadcrumbs</code> annotation:</p>
 <p><img src="images/material-ui/Popper.png" alt="Popper" /></p>
 
 <p>Here is an example with provided MaterialUI v4.12.3 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"tooltip"</span> <span class="na">id=</span><span class="s">"positionedPopper"</span> <span class="na">style=</span><span class="s">"position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(415px, 82px, 0px);"</span> <span class="na">x-placement=</span><span class="s">"top"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"</span> <span class="na">style=</span><span class="s">"opacity: 1; transition: opacity 350ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root jss61 MuiTypography-body1"</span><span class="nt">&gt;</span>The content of the Popper.<span class="nt">&lt;/p&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiGrid-root MuiGrid-item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiButton-root MuiButton-text"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiButton-label"</span><span class="nt">&gt;</span>left<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"MuiTouchRipple-root"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>

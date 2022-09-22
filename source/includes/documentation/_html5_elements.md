@@ -3847,9 +3847,9 @@ Methods available for Java in JDI Light:
 Methods available for Java in JDI Light:
 
 ```java 
-public class ActionsWebPageTests extends TestsInit {
+public class ActionsWebPageTests implements TestsInit {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void before() {
         shouldBeLoggedIn();
         contactFormPage.shouldBeOpened();
@@ -3862,24 +3862,15 @@ public class ActionsWebPageTests extends TestsInit {
     }
 
     @Test
-    public void checkUrlPageTest() {
-        contactFormPage.url().check();
-    }
-
-    @Test
     public void getTitleTest() {
         Assert.assertEquals(WebPage.getTitle(), "Contact Form");
-    }
-
-    @Test
-    public void checkTitlePageTest() {
-       contactFormPage.title().check();
     }
 
     @Test
     public void checkOpenedTest() {
         contactFormPage.checkOpened();
     }
+
 
     @Test
     public void isOpenedTest() {
@@ -3892,56 +3883,82 @@ public class ActionsWebPageTests extends TestsInit {
     }
 
     @Test
+    public void scrollToTopTest() {
+        WebPage.scrollToTop();
+    }
+
+    @Test
+    public void scrollDownTest() {
+        WebPage.scrollDown(30);
+    }
+
+    @Test
+    public void scrollUpTest() {
+        WebPage.scrollUp(20);
+    }
+
+    @Test
+    public void scrollRightTest() {
+        WebPage.scrollRight(10);
+    }
+
+    @Test
+    public void scrollLeftTest() {
+        WebPage.scrollLeft(5);
+    }
+
+    @Test
     public void toStringTest() {
         Assert.assertEquals(contactFormPage.toString(), "StaticSite.contactFormPage (url=https://jdi-testing.github.io/jdi-light/contacts.html; title=Contact Form)");
     }
 }
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**asForm()**|Returns new Form parameterized with local Name|Form<T>
-**back()**|Go back to previous page|void
-**checkOpened()**|Checks that page has opened|void
-**forward()**|Go forward to next page|void
-**getCurrentPage()**|Returns the name of current Page|String
-**getHtml()**|Gets HTML of current page|String
-**getTitle()**|Returns Page Title|String
-**getUrl()**|Returns URL of Page|String
-**isOpened()**|Checks that page has opened|boolean
-**open(String url)**|Opens url specified for page|void
-**open(Object... params)**|Opens url specified for page with parameters|void
-**openedPage(String url)**|Checks that page has opened|void
-**openSite()**|Opens a Site|void
-**openSite(Class<?> site)**|Parameterized Site opening|void
-**openUrl(String url)**|Opening WebPage with URL|void
-**refresh()**|Reloads current page|void
-**reload()**|Same as **refresh()**|void
-**scroll(int x, int y)**|Scrolls to designated position|void
-**scrollToTop()**|Scrolls to top|void
-**scrollToBottom()**|Scrolls to bottom|void
-**scrollDown(int value)**|Scrolls down to designated position|void
-**scrollUp(int value)**|Scrolls up to designated position|void
-**scrollRight(int value)**|Scrolls right to designated position|void
-**scrollLeft(int value)**|Scrolls left to designated position|void
-**setCurrentPage(WebPage page)**|Instantiates the current Page with Name|void
-**setUrl(String uri)**|Setting Up URL of Page|void
-**setUrl(String uri, String template, CheckTypes validate)**|Parameterized setting Up URL of Page|void
-**shouldBeOpened()**|Checks that page has opened|void
-**shouldBeOpened(Object... params)**|Checks that page has opened with parameters|void
-**title()**|Returns new StringCheckType object with checked Title|StringCheckType
-**toString()**|Overrides the Object class toString() method|String
-**updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and     |void
-**url()**|Returns new StringCheckType object with checked URL|StringCheckType
-**visualWindowCheck()**|empty|void
-**WebPage()**|Default constructor for WebPage class|WebPage
-**WebPage(String url)**|Parameterized URL constructor for WebPage class|WebPage
-**WebPage(String url, String title)**|Parameterized with URL and Title constructor|WebPage
-**windowScreenshot()**|Getting window screenshot|String
-**xOffset()**|Getting window x offset|long
-**yOffset()**|Getting window y offset|long
-**zoom(double factor)**|Zooms current page|void
-**zoomLevel()**|Getting zoom level|double
+|Method | Description                                           | Return Type
+--- |-------------------------------------------------------| ---
+**asForm()**| Returns new Form parameterized with local Name        |Form<T>
+**back()**| Go back to previous page                              |void
+**checkOpened()**| Checks that page has opened                           |void
+**forward()**| Go forward to next page                               |void
+**getCurrentPage()**| Returns the name of current Page                      |String
+**getHtml()**| Gets HTML of current page                             |String
+**getTitle()**| Returns Page Title                                    |String
+**getUrl()**| Returns URL of Page                                   |String
+**isOpened()**| Checks that page has opened                           |boolean
+**open(String)**| Opens url specified for page                          |void
+**open(Object...)**| Opens url specified for page with parameters          |void
+**openedPage(String)**| Checks that page has opened                           |void
+**openSite()**| Opens a Site                                          |void
+**openSite(Class<?>)**| Parameterized Site opening                            |void
+**openUrl(String)**| Opening WebPage with URL                              |void
+**openUrl(String,String)**| Opening WebPage with URL and page name                |void
+**refresh()**| Reloads current page                                  |void
+**reload()**| Same as **refresh()**                                 |void
+**scroll(int,int)**| Scrolls to designated position                        |void
+**scrollToTop()**| Scrolls to top                                        |void
+**scrollToBottom()**| Scrolls to bottom                                     |void
+**scrollDown(int)**| Scrolls down to designated position                   |void
+**scrollUp(int)**| Scrolls up to designated position                     |void
+**scrollRight(int)**| Scrolls right to designated position                  |void
+**scrollLeft(int)**| Scrolls left to designated position                   |void
+**setCurrentPage(WebPage)**| Instantiates the current Page with Name               |void
+**setUrl(String)**| Setting Up URL of Page                                |void
+**setUrl(String,String,CheckTypes)**| Parameterized setting Up URL of Page                  |void
+**shouldBeOpened()**| Checks that page has opened                           |void
+**shouldBeOpened(Object)**| Checks that page has opened with parameters           |void
+**title()**| Returns new StringCheckType object with checked Title |StringCheckType
+**toString()**| Overrides the Object class toString() method          |String
+**updatePageData(Url,Title)**| Setting Page URL and Title                            |void
+**url()**| Returns new StringCheckType object with checked URL   |StringCheckType
+**visualWindowCheck()**| empty                                                 |void
+**WebPage()**| Default constructor for WebPage class                 |WebPage
+**WebPage(String)**| Parameterized URL constructor for WebPage class       |WebPage
+**WebPage(String,String)**| Parameterized with URL and Title constructor          |WebPage
+**windowScreenshot()**| Getting window screenshot,returns path or exception   |String
+**xOffset()**| Getting window x offset                               |long
+**yOffset()**| Getting window y offset                               |long
+**zoom(double)**| Zooms current page                                    |void
+**zoomLevel()**| Getting zoom level                                    |double
 
 More than that, it has a nested **StringCheckType** class with the following methods:
 

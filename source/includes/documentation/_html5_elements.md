@@ -3558,8 +3558,6 @@ And here are methods available in Java:
 
 #### 1.3.2 Form
 
-
-
 **Form** – Logical part of a web page that represents an HTML form.
 Form consists of elements based on _SetValue_ interface and buttons with **submit** function.
 
@@ -3569,162 +3567,359 @@ Form provides the _fill, submit and verify/check_ functionality.
 
 ```html
 <form class="form" id="contact-form">
-    <div class="row overflow">
-        <div class="col-sm-4">
-            <div class="form-group form-group10">
-                <label for="name">Name</label>
-                <input id="name" type="text" class="uui-form-element">
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group form-group10">
-                <label for="last-name">Last Name</label>
-                <input id="last-name" type="text" class="uui-form-element">
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group form-group10">
-                <label for="position">Position</label>
-                <input id="position" type="text" class="uui-form-element">
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="form-group form-group10 lower">
-                <label for="passport">Passport</label>
-                <input id="passport" type="checkbox" name="passport" class="uui-form-element">
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group form-group10">
-                <label for="passport-number">Number</label>
-                <input id="passport-number" type="text" class="uui-form-element">
-            </div>
-        </div>
-        <div class="col-sm-5">
-            <div class="form-group form-group10">
-                <label for="passport-seria">Seria</label>
-                <input id="passport-seria" type="text" class="uui-form-element">
-            </div>
-        </div>
-        </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <label for="gender">Gender</label>
-            <select class="uui-form-element" ui="dropdown" id="gender">
-                <option>Male</option>
-                <option checked="">Female</option>
-            </select>
-        </div>
-        <div class="col-sm-4">
-            <label for="religion">Religion</label>
-            <div class="form-group form-group10">
-                <input list="religion-options" id="religion" placeholder="Religion" class="uui-form-element">
-                <datalist id="religion-options">
-                    <option>Christian</option>
-                    <option>Muslims</option>
-                    <option>Induism</option>
-                    <option>Other</option>
-                </datalist>
-            </div>
-        </div>
-        <div class="col-sm-4">	
-            <label for="weather">Weather</label>
-            <div class="form-group salad" ui="droplist" id="weather">
-                <div class="dropdown salad">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
-                    <ul class="dropdown-menu" style="display: none;">
-                        <li>
-                            <a href="#" class="checkbox">
-                                <input type="checkbox" id="g5" class="uui-form-element blue">
-                                <label for="g5">Sun</label>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="checkbox">
-                                <input type="checkbox" id="g6" class="uui-form-element blue">
-                                <label for="g6">Rain</label>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="checkbox">
-                                <input type="checkbox" id="g7" class="uui-form-element blue">
-                                <label for="g7">Weather</label>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="checkbox">
-                                <input type="checkbox" id="g8" class="uui-form-element blue">
-                                <label for="g8">Snow</label>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <div class="row overflow">
+    <div class="col-sm-4">
+      <div class="form-group form-group10">
+        <label for="first-name">First Name</label>
+        <input id="first-name" type="text" class="uui-form-element">
+      </div>
     </div>
-    <div class="row overflow">
-        <div class="col-sm-12">
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="uui-form-element" rows="4" cols="10" id="description"></textarea>
-            </div>
-            <div> 
-                <input id="accept-conditions" type="checkbox" name="accept-conditions">
-                <label for="accept-conditions">Accept conditions</label>
-            </div>
-        </div>
-        <div class="col-sm-12 text-right">
-            <button class="uui-button dark-blue" type="submit">Submit</button>
-        </div>
+    <div class="col-sm-4">
+      <div class="form-group form-group10">
+        <label for="last-name">Last Name</label>
+        <input id="last-name" type="text" class="uui-form-element">
+      </div>
     </div>
- </form>
+    <div class="col-sm-4">
+      <div class="form-group form-group10">
+        <label for="position">Position</label>
+        <input id="position" type="text" class="uui-form-element">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group form-group10 lower">
+        <label for="passport">Passport</label>
+        <input id="passport" type="checkbox" name="passport" class="uui-form-element">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group form-group10">
+        <label for="passport-number">Number</label>
+        <input id="passport-number" type="text" class="uui-form-element">
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="form-group form-group10">
+        <label for="passport-seria">Seria</label>
+        <input id="passport-seria" type="text" class="uui-form-element">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <label for="gender">Gender</label>
+      <select class="uui-form-element" ui="dropdown" id="gender">
+        <option>Male</option>
+        <option checked="">Female</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <label for="religion">Religion</label>
+      <div class="form-group form-group10">
+        <input list="religion-options" id="religion" placeholder="Religion" class="uui-form-element">
+        <datalist id="religion-options">
+          <option>Christian</option>
+          <option>Muslims</option>
+          <option>Induism</option>
+          <option>Other</option>
+        </datalist>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <label for="weather">Weather</label>
+      <div class="form-group salad" ui="droplist" id="weather">
+        <div class="dropdown salad">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"/>
+          </button>
+          <ul class="dropdown-menu" style="display: none;">
+            <li>
+              <a href="#" class="checkbox">
+                <input type="checkbox" id="g5" class="uui-form-element blue">
+                <label for="g5">Sun</label>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="checkbox">
+                <input type="checkbox" id="g6" class="uui-form-element blue">
+                <label for="g6">Rain</label>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="checkbox">
+                <input type="checkbox" id="g7" class="uui-form-element blue">
+                <label for="g7">Weather</label>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="checkbox">
+                <input type="checkbox" id="g8" class="uui-form-element blue">
+                <label for="g8">Snow</label>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row overflow">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="uui-form-element" rows="4" cols="10" id="description"/>
+      </div>
+      <div>
+        <input id="accept-conditions" type="checkbox" name="accept-conditions">
+        <label for="accept-conditions">Accept conditions</label>
+      </div>
+    </div>
+    <div class="col-sm-12 text-right">
+      <button class="uui-button dark-blue" type="submit">Submit</button>
+    </div>
+  </div>
+</form>
 ```
 
 Form is located in the following classes:
 
-- __Java__: <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light/src/main/java/com/epam/jdi/light/elements/composite/Form.java">Form.java</a>
-- __C#__:   <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light/Elements/Composite/Form.cs">Form.cs</a>
+- __Java__: _com.epam.jdi.light.elements.composite.Form_
+- __C#__:   _JDI.Light.Elements.Composite.Form_
 
  ```java    
-public class ContactFormCustom extends Form<Contacts> {
-    @Mandatory TextField name;
-    TextField lastName, position, passportNumber, passportSeria;
+public class FormContactsTests implements TestsInit {
+    @BeforeMethod
+    public void before() {
+        shouldBeLoggedIn();
+        contactFormPage.shouldBeOpened();
+        refresh();
+    }
 
-    Dropdown gender;
-    IsCombobox religion;
+private static Contacts defaultContact() {
+        return new Contacts().set(c -> {
+            c.firstName = "Roman";
+            c.lastName = "Iovlev";
+            c.position = "ChiefQA";
+            //c.passport = true;
+            c.passportNumber = "4321";
+            c.passportSeria = "123456";
+            c.description = "JDI - awesome UI automation tool";
+            c.acceptConditions = "true";
+            c.gender = "Female";
+            c.religion = "Other";
+        });
+    }
 
-    Checkbox passport, acceptConditions;
-    TextArea description;
+    @Test
+    public void fillContactFormTest() {
+        main.contactForm.description.getText();
+        main.contactForm.fill(DEFAULT_CONTACT);
+        main.contactForm.check(DEFAULT_CONTACT);
+    }
 
-    @UI("['Submit']") public Button submit;
-}
+    @Test
+    public void submitTextToContactFormTest() {
+        main.contactForm.submit("Roman");
+        main.contactForm.check(ONLY_NAME_FILLED_DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
 
-@Test
-public void submitEntityToContactFormCustomTest() {
-    main.contactFormCustom.submit(DEFAULT_CONTACT);
-    main.contactFormCustom.check(DEFAULT_CONTACT);
-    checkContactFormCustomSubmitted();
-}
+    @Test
+    public void submitEntityToContactFormTest() {
+        main.contactForm.submit(DEFAULT_CONTACT);
+        main.contactForm.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
 
-@Test
-public void plainSubmitTest() {
-    main.contactFormCustom.fill(DEFAULT_CONTACT);
-    main.contactFormCustom.submit();
-    main.contactFormCustom.check(DEFAULT_CONTACT);
-    checkContactFormCustomSubmitted();
-}
+    @Test
+    public void submitTextToContactFormUsingCustomButtonTest() {
+        main.contactForm.submit("Roman", "custom");
+        main.contactForm.check(ONLY_NAME_FILLED_DEFAULT_CONTACT);
+    }
 
-@Test
-public void onlyMandatoryOptionTest() {
-    main.contactFormCustom.onlyMandatory().fill(DEFAULT_CONTACT);
-    main.contactFormCustom.onlyMandatory().check(DEFAULT_CONTACT);
-    main.contactFormCustom.check(ONLY_NAME_FILLED_DEFAULT_CONTACT);
-}
+    @Test
+    public void submitTextToContactFormUsingNonExistentButtonTest() {
+        main.contactFormCustom.submit("Roman", "nonExistent");
+    }
 
-@Test
-public void onlyOptionalOptionTest() {
-    main.contactForm.onlyOptional().fill(DEFAULT_CONTACT);
-    main.contactFormCustom.onlyOptional().check(ALL_EXCEPT_NAME_FILLED_DEFAULT_CONTACT);
+    @Test
+    public void submitEntityToContactFormUsingCustomButtonTest() {
+        main.contactForm.submit(DEFAULT_CONTACT, "custom");
+        main.contactForm.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void submitEntityToContactFormUsingNonExistentButtonTest() {
+        main.contactFormCustom.submit(DEFAULT_CONTACT, "nonExistent");
+    }
+
+    @Test
+    public void plainSubmitTest() {
+        main.contactForm.fill(DEFAULT_CONTACT);
+        main.contactForm.submit();
+        main.contactForm.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void pressButtonTest() {
+        main.contactFormCustom.fill(DEFAULT_CONTACT);
+        main.contactFormCustom.pressButton("custom");
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void verifyMethodPositiveTest() {
+        main.contactForm.fill(DEFAULT_CONTACT);
+        List<String> verified = main.contactForm.verify(DEFAULT_CONTACT);
+        assertEquals(verified.size(), 0);
+    }
+
+    @Test
+    public void verifyMethodNegativeTest() {
+        main.contactForm.fill(ALL_EXCEPT_NAME_FILLED_DEFAULT_CONTACT);
+        List<String> verified = main.contactForm.verify(DEFAULT_CONTACT);
+        assertEquals(verified.size(), 1);
+        assertTrue(verified.get(0).contains("Roman"));
+    }
+
+    @Test
+    public void checkMethodPositiveTest() {
+        main.contactForm.fill(DEFAULT_CONTACT);
+        main.contactForm.check(DEFAULT_CONTACT);
+        assertEquals(main.contactForm.verify(DEFAULT_CONTACT).size(), 0);
+    }
+
+    @Test(expectedExceptions = RuntimeException.class)
+    public void checkMethodNegativeTest() {
+        main.contactForm.fill(ALL_EXCEPT_NAME_FILLED_DEFAULT_CONTACT);
+        TIMEOUTS.element.set(1);
+        main.contactForm.check(DEFAULT_CONTACT);
+    }
+
+    @Test
+    public void sendMethodTest() {
+        main.contactFormCustom.fill(DEFAULT_CONTACT);
+        main.contactFormCustom.send();
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void sendEntityMethodTest() {
+        main.contactFormCustom.send(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void addEntityMethodTest() {
+        main.contactFormCustom.add(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void publishMethodTest() {
+        main.contactFormCustom.publish(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void saveMethodTest() {
+        main.contactFormCustom.save(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void updateMethodTest() {
+        main.contactFormCustom.update(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void cancelMethodTest() {
+        main.contactFormCustom.cancel(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void closeMethodTest() {
+        main.contactFormCustom.close(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void backMethodTest() {
+        main.contactFormCustom.back(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void selectMethodTest() {
+        main.contactFormCustom.select(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void nextMethodTest() {
+        main.contactFormCustom.next(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void searchMethodTest() {
+        main.contactFormCustom.search(DEFAULT_CONTACT);
+        main.contactFormCustom.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void onlyMandatoryOptionTest() {
+        main.contactFormCustom.onlyMandatory().fill(DEFAULT_CONTACT);
+        main.contactFormCustom.check(ONLY_NAME_FILLED_DEFAULT_CONTACT);
+        assertEquals(main.contactFormCustom.getFilter(), ALL);
+    }
+
+    @Test
+    public void onlyOptionalOptionTest() {
+        main.contactFormCustom.onlyOptional().fill(DEFAULT_CONTACT);
+        main.contactFormCustom.check(ALL_EXCEPT_NAME_FILLED_DEFAULT_CONTACT);
+        assertEquals(main.contactFormCustom.getFilter(), ALL);
+    }
+
+    @Test
+    public void overriddenFillActionTest() {
+        main.contactFormCustomFill.fill(DEFAULT_CONTACT);
+        main.contactFormCustomFill.check(UPPER_CASE_NAME_CONTACT);
+    }
+
+    @Test
+    public void uiFormTest() {
+        main.contactFormUI.submit(DEFAULT_CONTACT);
+        main.contactFormUI.check(DEFAULT_CONTACT);
+        checkContactFormSubmitted();
+    }
+
+    @Test
+    public void overriddenGetActionTest() {
+        main.contactFormCustomGet.fill(DEFAULT_CONTACT);
+        main.contactFormCustomGet.check(LOWER_CASE_NAME_CONTACT);
+    }
+
+    private void checkContactFormSubmitted() {
+        lastLogEntry.assertThat()
+                .text(containsString("submit:button clicked"));
+    }
 }
  ```
 
@@ -3797,38 +3992,38 @@ Methods available for Java in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**add(T entity)** | Fills all settable elements and clicks “add” Button or ”addButton” | void
-**back(T entity)** | Fills all settable elements and clicks “back” Button or ”backButton” | void
-**cancel(T entity)** | Fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
-**check(T entity)** | Verifies that form has been filled correctly. If not, throws an exception | void
-**close(T entity)** | Fills all settable elements and clicks “close” Button or ”closeButton” | void
-**fill(T entity)** | Fills all settable elements of the form that can be matched with fields of the input entity | void
-**fillAction(Field field, Object element, Object parent, String setValue)** | Defines the specifics of how form elements will be filled | void
-**getAction(Field field, Object element, Object parent)** | Defines the specifics of how form elements will be obtained for verification and checks | String
+**add(T)** | Fills all settable elements and clicks “add” Button or ”addButton” | void
+**back(T)** | Fills all settable elements and clicks “back” Button or ”backButton” | void
+**cancel(T)** | Fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
+**check(T)** | Verifies that form has been filled correctly. If not, throws an exception | void
+**close(T)** | Fills all settable elements and clicks “close” Button or ”closeButton” | void
+**fill(T)** | Fills all settable elements of the form that can be matched with fields of the input entity | void
+**fillAction(Field, Object, Object, String)** | Defines the specifics of how form elements will be filled | void
+**getAction(Field, Object, Object)** | Defines the specifics of how form elements will be obtained for verification and checks | String
 **isDisplayed()** | Check that form is displayed | boolean
 **isValid()** | Return that form is valid | boolean
 **login()** | Clicks "login" Button or "loginButton"| void
-**login(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
-**loginAs(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
-**next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
+**login(T)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**loginAs(T)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**next(T)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
 **onlyMandatory()** | Sets form filter option to **MANDATORY**, meaning that only mandatory form elements are filled/submitted or verified/checked for the duration of a single form action | void
 **onlyOptional()** | Sets form filter option to **OPTIONAL**, meaning that only optional form elements are filled/submitted or verified/checked for the duration of a single form action | void
-**pressButton(String buttonName)** | Clicks “buttonName” Button or "buttonNamebutton". Allows different buttons to send one form, e.g. save/publish/cancel/search/update/... | void
-**publish(T entity)** | Fills all settable elements and clicks “publish” Button or ”publishButton” | void
-**save(T entity)** | Fills all settable elements and clicks “save” Button or ”saveButton” | void
-**select(T entity)** | Fills all settable elements and clicks “select” Button or ”selectButton” | void
-**search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
+**pressButton(String)** | Clicks “buttonName” Button or "buttonNamebutton". Allows different buttons to send one form, e.g. save/publish/cancel/search/update/... | void
+**publish(T)** | Fills all settable elements and clicks “publish” Button or ”publishButton” | void
+**save(T)** | Fills all settable elements and clicks “save” Button or ”saveButton” | void
+**select(T)** | Fills all settable elements and clicks “select” Button or ”selectButton” | void
+**search(T)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
 **send()** | Sends the form by clicking “send” Button or "sendButton" | void
-**send(T entity)** | Fills all settable elements and clicks “send” Button or ”sendButton” | void
+**send(T)** | Fills all settable elements and clicks “send” Button or ”sendButton” | void
 **submit()** | Sends the form by clicking "submit" Button or "submitButton" | void
-**submit(String text)** | Fills first settable form field with value and clicks "submit" Button or "submitButton"  | void
-**submit(T entity)** | Fills all settable elements and clicks "submit" Button or "submitButton"  | void
-**submit(String text, String buttonName)** | Fills first settable field with value and clicks “buttonName” Button or "buttonNamebutton"| void
-**submit(T entity, String buttonName)** | Fills all settable elements and clicks “buttonName” Button or "buttonNamebutton" | void
-**verify(T entity)** | Verifies that form has been filled correctly. If not, returns a list of keys where verification has failed | List<String>
+**submit(String)** | Fills first settable form field with value and clicks "submit" Button or "submitButton"  | void
+**submit(T)** | Fills all settable elements and clicks "submit" Button or "submitButton"  | void
+**submit(String, String)** | Fills first settable field with value and clicks “buttonName” Button or "buttonNamebutton"| void
+**submit(T, String)** | Fills all settable elements and clicks “buttonName” Button or "buttonNamebutton" | void
+**verify(T)** | Verifies that form has been filled correctly. If not, returns a list of keys where verification has failed | List<String>
 **update(T entity)** | Fills all settable elements and clicks “update” Button or ”updateButton” | void
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java" target="_blank">Test examples in Java</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormContactsTests.java" target="_blank">Test examples in Java</a>
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs" target="_blank">Test examples in C#</a>
 
@@ -3840,7 +4035,7 @@ Methods available for Java in JDI Light:
 
 **WebPage** is provided by JDI Light in:
 
-- __Java__: _com.epam.jdi.light.elements.composite_
+- __Java__: _com.epam.jdi.light.elements.composite.WebPage_
 
 ![WebPage](../../images/html/webpage.png)
 

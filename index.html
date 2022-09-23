@@ -9229,9 +9229,9 @@ Methods available for Java in JDI Light:</p>
 <p><img src="images/html/webpage.png" alt="WebPage" /></p>
 
 <p>Methods available for Java in JDI Light:</p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ActionsWebPageTests</span> <span class="kd">extends</span> <span class="n">TestsInit</span> <span class="o">{</span>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ActionsWebPageTests</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span>
 
-    <span class="nd">@BeforeMethod</span>
+    <span class="nd">@BeforeMethod</span><span class="o">(</span><span class="n">alwaysRun</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">shouldBeLoggedIn</span><span class="o">();</span>
         <span class="n">contactFormPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
@@ -9244,24 +9244,15 @@ Methods available for Java in JDI Light:</p>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkUrlPageTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">contactFormPage</span><span class="o">.</span><span class="na">url</span><span class="o">().</span><span class="na">check</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTitleTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">WebPage</span><span class="o">.</span><span class="na">getTitle</span><span class="o">(),</span> <span class="s">"Contact Form"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkTitlePageTest</span><span class="o">()</span> <span class="o">{</span>
-       <span class="n">contactFormPage</span><span class="o">.</span><span class="na">title</span><span class="o">().</span><span class="na">check</span><span class="o">();</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOpenedTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">contactFormPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
     <span class="o">}</span>
+
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isOpenedTest</span><span class="o">()</span> <span class="o">{</span>
@@ -9271,6 +9262,31 @@ Methods available for Java in JDI Light:</p>
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollToBottomTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">WebPage</span><span class="o">.</span><span class="na">scrollToBottom</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollToTopTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">WebPage</span><span class="o">.</span><span class="na">scrollToTop</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollDownTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">WebPage</span><span class="o">.</span><span class="na">scrollDown</span><span class="o">(</span><span class="mi">30</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollUpTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">WebPage</span><span class="o">.</span><span class="na">scrollUp</span><span class="o">(</span><span class="mi">20</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollRightTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">WebPage</span><span class="o">.</span><span class="na">scrollRight</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollLeftTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">WebPage</span><span class="o">.</span><span class="na">scrollLeft</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
@@ -9332,17 +9348,17 @@ Methods available for Java in JDI Light:</p>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>open(String url)</strong></td>
+<td><strong>open(String)</strong></td>
 <td>Opens url specified for page</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>open(Object... params)</strong></td>
+<td><strong>open(Object...)</strong></td>
 <td>Opens url specified for page with parameters</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>openedPage(String url)</strong></td>
+<td><strong>openedPage(String)</strong></td>
 <td>Checks that page has opened</td>
 <td>void</td>
 </tr>
@@ -9352,13 +9368,18 @@ Methods available for Java in JDI Light:</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>openSite(Class&lt;?&gt; site)</strong></td>
+<td><strong>openSite(Class&lt;?&gt;)</strong></td>
 <td>Parameterized Site opening</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>openUrl(String url)</strong></td>
+<td><strong>openUrl(String)</strong></td>
 <td>Opening WebPage with URL</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>openUrl(String,String)</strong></td>
+<td>Opening WebPage with URL and page name</td>
 <td>void</td>
 </tr>
 <tr>
@@ -9372,7 +9393,7 @@ Methods available for Java in JDI Light:</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>scroll(int x, int y)</strong></td>
+<td><strong>scroll(int,int)</strong></td>
 <td>Scrolls to designated position</td>
 <td>void</td>
 </tr>
@@ -9387,37 +9408,37 @@ Methods available for Java in JDI Light:</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>scrollDown(int value)</strong></td>
+<td><strong>scrollDown(int)</strong></td>
 <td>Scrolls down to designated position</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>scrollUp(int value)</strong></td>
+<td><strong>scrollUp(int)</strong></td>
 <td>Scrolls up to designated position</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>scrollRight(int value)</strong></td>
+<td><strong>scrollRight(int)</strong></td>
 <td>Scrolls right to designated position</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>scrollLeft(int value)</strong></td>
+<td><strong>scrollLeft(int)</strong></td>
 <td>Scrolls left to designated position</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>setCurrentPage(WebPage page)</strong></td>
+<td><strong>setCurrentPage(WebPage)</strong></td>
 <td>Instantiates the current Page with Name</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>setUrl(String uri)</strong></td>
+<td><strong>setUrl(String)</strong></td>
 <td>Setting Up URL of Page</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>setUrl(String uri, String template, CheckTypes validate)</strong></td>
+<td><strong>setUrl(String,String,CheckTypes)</strong></td>
 <td>Parameterized setting Up URL of Page</td>
 <td>void</td>
 </tr>
@@ -9427,7 +9448,7 @@ Methods available for Java in JDI Light:</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>shouldBeOpened(Object... params)</strong></td>
+<td><strong>shouldBeOpened(Object)</strong></td>
 <td>Checks that page has opened with parameters</td>
 <td>void</td>
 </tr>
@@ -9442,8 +9463,8 @@ Methods available for Java in JDI Light:</p>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>updatePageData(Url urlAnnotation, Title titleAnnotation)</strong></td>
-<td>Setting Page URL and</td>
+<td><strong>updatePageData(Url,Title)</strong></td>
+<td>Setting Page URL and Title</td>
 <td>void</td>
 </tr>
 <tr>
@@ -9462,18 +9483,18 @@ Methods available for Java in JDI Light:</p>
 <td>WebPage</td>
 </tr>
 <tr>
-<td><strong>WebPage(String url)</strong></td>
+<td><strong>WebPage(String)</strong></td>
 <td>Parameterized URL constructor for WebPage class</td>
 <td>WebPage</td>
 </tr>
 <tr>
-<td><strong>WebPage(String url, String title)</strong></td>
+<td><strong>WebPage(String,String)</strong></td>
 <td>Parameterized with URL and Title constructor</td>
 <td>WebPage</td>
 </tr>
 <tr>
 <td><strong>windowScreenshot()</strong></td>
-<td>Getting window screenshot</td>
+<td>Getting window screenshot,returns path or exception</td>
 <td>String</td>
 </tr>
 <tr>
@@ -9487,7 +9508,7 @@ Methods available for Java in JDI Light:</p>
 <td>long</td>
 </tr>
 <tr>
-<td><strong>zoom(double factor)</strong></td>
+<td><strong>zoom(double)</strong></td>
 <td>Zooms current page</td>
 <td>void</td>
 </tr>
@@ -37711,7 +37732,7 @@ Input Adornments:
       &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd&quot;&gt;
         &lt;input aria-invalid=&quot;false&quot; id=&quot;standard-adornment-password&quot; type=&quot;password&quot; class=&quot;MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd&quot; value=&quot;&quot;&gt;
         &lt;div class=&quot;MuiInputAdornment-root MuiInputAdornment-positionEnd&quot;&gt;
-          &lt;button class=&quot;MuiButtonBase-root MuiIconButton-root&quot; tabindex=&quot;0&quot; type=&quot;button&quot; aria-label=&quot;toggle password visibility&quot;&gt;...&lt;/button&gt; 
+          &lt;button class=&quot;MuiButtonBase-root MuiIconButton-root&quot; tabindex=&quot;0&quot; type=&quot;button&quot; aria-label=&quot;toggle password visibility&quot;&gt;...&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;

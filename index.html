@@ -8829,161 +8829,358 @@ Form consists of elements based on <em>SetValue</em> interface and buttons with 
 
 <p><img src="images/html/contact_form_example.png" alt="Form" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"form"</span> <span class="na">id=</span><span class="s">"contact-form"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row overflow"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Name<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"last-name"</span><span class="nt">&gt;</span>Last Name<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"last-name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"position"</span><span class="nt">&gt;</span>Position<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"position"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10 lower"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"passport"</span><span class="nt">&gt;</span>Passport<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"passport"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"passport"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"passport-number"</span><span class="nt">&gt;</span>Number<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"passport-number"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-5"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"passport-seria"</span><span class="nt">&gt;</span>Seria<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"passport-seria"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"gender"</span><span class="nt">&gt;</span>Gender<span class="nt">&lt;/label&gt;</span>
-            <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"uui-form-element"</span> <span class="na">ui=</span><span class="s">"dropdown"</span> <span class="na">id=</span><span class="s">"gender"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;option&gt;</span>Male<span class="nt">&lt;/option&gt;</span>
-                <span class="nt">&lt;option</span> <span class="na">checked=</span><span class="s">""</span><span class="nt">&gt;</span>Female<span class="nt">&lt;/option&gt;</span>
-            <span class="nt">&lt;/select&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"religion"</span><span class="nt">&gt;</span>Religion<span class="nt">&lt;/label&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">list=</span><span class="s">"religion-options"</span> <span class="na">id=</span><span class="s">"religion"</span> <span class="na">placeholder=</span><span class="s">"Religion"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;datalist</span> <span class="na">id=</span><span class="s">"religion-options"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;option&gt;</span>Christian<span class="nt">&lt;/option&gt;</span>
-                    <span class="nt">&lt;option&gt;</span>Muslims<span class="nt">&lt;/option&gt;</span>
-                    <span class="nt">&lt;option&gt;</span>Induism<span class="nt">&lt;/option&gt;</span>
-                    <span class="nt">&lt;option&gt;</span>Other<span class="nt">&lt;/option&gt;</span>
-                <span class="nt">&lt;/datalist&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>  
-            <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"weather"</span><span class="nt">&gt;</span>Weather<span class="nt">&lt;/label&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group salad"</span> <span class="na">ui=</span><span class="s">"droplist"</span> <span class="na">id=</span><span class="s">"weather"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown salad"</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default dropdown-toggle"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/button&gt;</span>
-                    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span>
-                        <span class="nt">&lt;li&gt;</span>
-                            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"g5"</span> <span class="na">class=</span><span class="s">"uui-form-element blue"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"g5"</span><span class="nt">&gt;</span>Sun<span class="nt">&lt;/label&gt;</span>
-                            <span class="nt">&lt;/a&gt;</span>
-                        <span class="nt">&lt;/li&gt;</span>
-                        <span class="nt">&lt;li&gt;</span>
-                            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"g6"</span> <span class="na">class=</span><span class="s">"uui-form-element blue"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"g6"</span><span class="nt">&gt;</span>Rain<span class="nt">&lt;/label&gt;</span>
-                            <span class="nt">&lt;/a&gt;</span>
-                        <span class="nt">&lt;/li&gt;</span>
-                        <span class="nt">&lt;li&gt;</span>
-                            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"g7"</span> <span class="na">class=</span><span class="s">"uui-form-element blue"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"g7"</span><span class="nt">&gt;</span>Weather<span class="nt">&lt;/label&gt;</span>
-                            <span class="nt">&lt;/a&gt;</span>
-                        <span class="nt">&lt;/li&gt;</span>
-                        <span class="nt">&lt;li&gt;</span>
-                            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"g8"</span> <span class="na">class=</span><span class="s">"uui-form-element blue"</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"g8"</span><span class="nt">&gt;</span>Snow<span class="nt">&lt;/label&gt;</span>
-                            <span class="nt">&lt;/a&gt;</span>
-                        <span class="nt">&lt;/li&gt;</span>
-                    <span class="nt">&lt;/ul&gt;</span>
-                <span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row overflow"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"first-name"</span><span class="nt">&gt;</span>First Name<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"first-name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row overflow"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-12"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"description"</span><span class="nt">&gt;</span>Description<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"uui-form-element"</span> <span class="na">rows=</span><span class="s">"4"</span> <span class="na">cols=</span><span class="s">"10"</span> <span class="na">id=</span><span class="s">"description"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div&gt;</span> 
-                <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"accept-conditions"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"accept-conditions"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"accept-conditions"</span><span class="nt">&gt;</span>Accept conditions<span class="nt">&lt;/label&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-12 text-right"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"uui-button dark-blue"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"last-name"</span><span class="nt">&gt;</span>Last Name<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"last-name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
- <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"position"</span><span class="nt">&gt;</span>Position<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"position"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10 lower"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"passport"</span><span class="nt">&gt;</span>Passport<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"passport"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"passport"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"passport-number"</span><span class="nt">&gt;</span>Number<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"passport-number"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-5"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"passport-seria"</span><span class="nt">&gt;</span>Seria<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"passport-seria"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"gender"</span><span class="nt">&gt;</span>Gender<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"uui-form-element"</span> <span class="na">ui=</span><span class="s">"dropdown"</span> <span class="na">id=</span><span class="s">"gender"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;option&gt;</span>Male<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option</span> <span class="na">checked=</span><span class="s">""</span><span class="nt">&gt;</span>Female<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;/select&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"religion"</span><span class="nt">&gt;</span>Religion<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group10"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">list=</span><span class="s">"religion-options"</span> <span class="na">id=</span><span class="s">"religion"</span> <span class="na">placeholder=</span><span class="s">"Religion"</span> <span class="na">class=</span><span class="s">"uui-form-element"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;datalist</span> <span class="na">id=</span><span class="s">"religion-options"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;option&gt;</span>Christian<span class="nt">&lt;/option&gt;</span>
+          <span class="nt">&lt;option&gt;</span>Muslims<span class="nt">&lt;/option&gt;</span>
+          <span class="nt">&lt;option&gt;</span>Induism<span class="nt">&lt;/option&gt;</span>
+          <span class="nt">&lt;option&gt;</span>Other<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/datalist&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"weather"</span><span class="nt">&gt;</span>Weather<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group salad"</span> <span class="na">ui=</span><span class="s">"droplist"</span> <span class="na">id=</span><span class="s">"weather"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown salad"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default dropdown-toggle"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/button&gt;</span>
+          <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"g5"</span> <span class="na">class=</span><span class="s">"uui-form-element blue"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"g5"</span><span class="nt">&gt;</span>Sun<span class="nt">&lt;/label&gt;</span>
+              <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"g6"</span> <span class="na">class=</span><span class="s">"uui-form-element blue"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"g6"</span><span class="nt">&gt;</span>Rain<span class="nt">&lt;/label&gt;</span>
+              <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"g7"</span> <span class="na">class=</span><span class="s">"uui-form-element blue"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"g7"</span><span class="nt">&gt;</span>Weather<span class="nt">&lt;/label&gt;</span>
+              <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"g8"</span> <span class="na">class=</span><span class="s">"uui-form-element blue"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"g8"</span><span class="nt">&gt;</span>Snow<span class="nt">&lt;/label&gt;</span>
+              <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row overflow"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-12"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"description"</span><span class="nt">&gt;</span>Description<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"uui-form-element"</span> <span class="na">rows=</span><span class="s">"4"</span> <span class="na">cols=</span><span class="s">"10"</span> <span class="na">id=</span><span class="s">"description"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"accept-conditions"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"accept-conditions"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"accept-conditions"</span><span class="nt">&gt;</span>Accept conditions<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-12 text-right"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"uui-button dark-blue"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
 </code></pre>
 <p>Form is located in the following classes:</p>
 
 <ul>
-<li><strong>Java</strong>: <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light/src/main/java/com/epam/jdi/light/elements/composite/Form.java">Form.java</a></li>
-<li><strong>C#</strong>:   <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light/Elements/Composite/Form.cs">Form.cs</a></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.composite.Form</em></li>
+<li><strong>C#</strong>:   <em>JDI.Light.Elements.Composite.Form</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactFormCustom</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">Contacts</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="nd">@Mandatory</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
-    <span class="n">TextField</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">,</span> <span class="n">passportSeria</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FormContactsTests</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span>
+    <span class="nd">@BeforeMethod</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">shouldBeLoggedIn</span><span class="o">();</span>
+        <span class="n">contactFormPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
+        <span class="n">refresh</span><span class="o">();</span>
+    <span class="o">}</span>
 
-    <span class="n">Dropdown</span> <span class="n">gender</span><span class="o">;</span>
-    <span class="n">IsCombobox</span> <span class="n">religion</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="n">Contacts</span> <span class="nf">defaultContact</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Contacts</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="s">"Iovlev"</span><span class="o">;</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="s">"ChiefQA"</span><span class="o">;</span>
+            <span class="c1">//c.passport = true;</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">passportNumber</span> <span class="o">=</span> <span class="s">"4321"</span><span class="o">;</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">passportSeria</span> <span class="o">=</span> <span class="s">"123456"</span><span class="o">;</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="s">"JDI - awesome UI automation tool"</span><span class="o">;</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">acceptConditions</span> <span class="o">=</span> <span class="s">"true"</span><span class="o">;</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">gender</span> <span class="o">=</span> <span class="s">"Female"</span><span class="o">;</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">religion</span> <span class="o">=</span> <span class="s">"Other"</span><span class="o">;</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
 
-    <span class="n">Checkbox</span> <span class="n">passport</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">;</span>
-    <span class="n">TextArea</span> <span class="n">description</span><span class="o">;</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fillContactFormTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">description</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"['Submit']"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Button</span> <span class="n">submit</span><span class="o">;</span>
-<span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">submitTextToContactFormTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">ONLY_NAME_FILLED_DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">submitEntityToContactFormCustomTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
-    <span class="n">checkContactFormCustomSubmitted</span><span class="o">();</span>
-<span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">submitEntityToContactFormTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">plainSubmitTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">submit</span><span class="o">();</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
-    <span class="n">checkContactFormCustomSubmitted</span><span class="o">();</span>
-<span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">submitTextToContactFormUsingCustomButtonTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">,</span> <span class="s">"custom"</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">ONLY_NAME_FILLED_DEFAULT_CONTACT</span><span class="o">);</span>
+    <span class="o">}</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyMandatoryOptionTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">onlyMandatory</span><span class="o">().</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">onlyMandatory</span><span class="o">().</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">ONLY_NAME_FILLED_DEFAULT_CONTACT</span><span class="o">);</span>
-<span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">submitTextToContactFormUsingNonExistentButtonTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">,</span> <span class="s">"nonExistent"</span><span class="o">);</span>
+    <span class="o">}</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyOptionalOptionTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">onlyOptional</span><span class="o">().</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
-    <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">onlyOptional</span><span class="o">().</span><span class="na">check</span><span class="o">(</span><span class="n">ALL_EXCEPT_NAME_FILLED_DEFAULT_CONTACT</span><span class="o">);</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">submitEntityToContactFormUsingCustomButtonTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">,</span> <span class="s">"custom"</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">submitEntityToContactFormUsingNonExistentButtonTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">,</span> <span class="s">"nonExistent"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">plainSubmitTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">submit</span><span class="o">();</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">pressButtonTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">pressButton</span><span class="o">(</span><span class="s">"custom"</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyMethodPositiveTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">verified</span> <span class="o">=</span> <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">verify</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">verified</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyMethodNegativeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">ALL_EXCEPT_NAME_FILLED_DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">verified</span> <span class="o">=</span> <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">verify</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">verified</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="n">assertTrue</span><span class="o">(</span><span class="n">verified</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkMethodPositiveTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">verify</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">).</span><span class="na">size</span><span class="o">(),</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">expectedExceptions</span> <span class="o">=</span> <span class="n">RuntimeException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkMethodNegativeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">ALL_EXCEPT_NAME_FILLED_DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">TIMEOUTS</span><span class="o">.</span><span class="na">element</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">send</span><span class="o">();</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendEntityMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addEntityMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">publishMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">publish</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">saveMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">updateMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">cancelMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">cancel</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">backMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">back</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">nextMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">next</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">searchMethodTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">search</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyMandatoryOptionTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">onlyMandatory</span><span class="o">().</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">ONLY_NAME_FILLED_DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">getFilter</span><span class="o">(),</span> <span class="n">ALL</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyOptionalOptionTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">onlyOptional</span><span class="o">().</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">ALL_EXCEPT_NAME_FILLED_DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">getFilter</span><span class="o">(),</span> <span class="n">ALL</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">overriddenFillActionTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustomFill</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustomFill</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">UPPER_CASE_NAME_CONTACT</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">uiFormTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormUI</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormUI</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">checkContactFormSubmitted</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">overriddenGetActionTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustomGet</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustomGet</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">LOWER_CASE_NAME_CONTACT</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkContactFormSubmitted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">lastLogEntry</span><span class="o">.</span><span class="na">assertThat</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"submit:button clicked"</span><span class="o">));</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
 <p>Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. The entity should extend DataClass class (parameterized by the entity itself).
@@ -9061,42 +9258,42 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>add(T entity)</strong></td>
+<td><strong>add(T)</strong></td>
 <td>Fills all settable elements and clicks “add” Button or ”addButton”</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>back(T entity)</strong></td>
+<td><strong>back(T)</strong></td>
 <td>Fills all settable elements and clicks “back” Button or ”backButton”</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>cancel(T entity)</strong></td>
+<td><strong>cancel(T)</strong></td>
 <td>Fills all settable elements and clicks “cancel” Button or ”cancelButton”</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>check(T entity)</strong></td>
+<td><strong>check(T)</strong></td>
 <td>Verifies that form has been filled correctly. If not, throws an exception</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>close(T entity)</strong></td>
+<td><strong>close(T)</strong></td>
 <td>Fills all settable elements and clicks “close” Button or ”closeButton”</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>fill(T entity)</strong></td>
+<td><strong>fill(T)</strong></td>
 <td>Fills all settable elements of the form that can be matched with fields of the input entity</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>fillAction(Field field, Object element, Object parent, String setValue)</strong></td>
+<td><strong>fillAction(Field, Object, Object, String)</strong></td>
 <td>Defines the specifics of how form elements will be filled</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>getAction(Field field, Object element, Object parent)</strong></td>
+<td><strong>getAction(Field, Object, Object)</strong></td>
 <td>Defines the specifics of how form elements will be obtained for verification and checks</td>
 <td>String</td>
 </tr>
@@ -9116,17 +9313,17 @@ Methods available for Java in JDI Light:</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>login(T entity)</strong></td>
+<td><strong>login(T)</strong></td>
 <td>Fills all settable elements and clicks “login” Button or ”loginButton”</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>loginAs(T entity)</strong></td>
+<td><strong>loginAs(T)</strong></td>
 <td>Fills all settable elements and clicks “login” Button or ”loginButton”</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>next(T entity)</strong></td>
+<td><strong>next(T)</strong></td>
 <td>Fills all settable elements and clicks “next” Button or ”nextButton”</td>
 <td>void</td>
 </tr>
@@ -9141,27 +9338,27 @@ Methods available for Java in JDI Light:</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>pressButton(String buttonName)</strong></td>
+<td><strong>pressButton(String)</strong></td>
 <td>Clicks “buttonName” Button or &quot;buttonNamebutton&quot;. Allows different buttons to send one form, e.g. save/publish/cancel/search/update/...</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>publish(T entity)</strong></td>
+<td><strong>publish(T)</strong></td>
 <td>Fills all settable elements and clicks “publish” Button or ”publishButton”</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>save(T entity)</strong></td>
+<td><strong>save(T)</strong></td>
 <td>Fills all settable elements and clicks “save” Button or ”saveButton”</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>select(T entity)</strong></td>
+<td><strong>select(T)</strong></td>
 <td>Fills all settable elements and clicks “select” Button or ”selectButton”</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>search(T entity)</strong></td>
+<td><strong>search(T)</strong></td>
 <td>Fills all settable elements and clicks “search” Button or ”searchButton”</td>
 <td>void</td>
 </tr>
@@ -9171,7 +9368,7 @@ Methods available for Java in JDI Light:</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>send(T entity)</strong></td>
+<td><strong>send(T)</strong></td>
 <td>Fills all settable elements and clicks “send” Button or ”sendButton”</td>
 <td>void</td>
 </tr>
@@ -9181,27 +9378,27 @@ Methods available for Java in JDI Light:</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>submit(String text)</strong></td>
+<td><strong>submit(String)</strong></td>
 <td>Fills first settable form field with value and clicks &quot;submit&quot; Button or &quot;submitButton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>submit(T entity)</strong></td>
+<td><strong>submit(T)</strong></td>
 <td>Fills all settable elements and clicks &quot;submit&quot; Button or &quot;submitButton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>submit(String text, String buttonName)</strong></td>
+<td><strong>submit(String, String)</strong></td>
 <td>Fills first settable field with value and clicks “buttonName” Button or &quot;buttonNamebutton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>submit(T entity, String buttonName)</strong></td>
+<td><strong>submit(T, String)</strong></td>
 <td>Fills all settable elements and clicks “buttonName” Button or &quot;buttonNamebutton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>verify(T entity)</strong></td>
+<td><strong>verify(T)</strong></td>
 <td>Verifies that form has been filled correctly. If not, returns a list of keys where verification has failed</td>
 <td>List<String></td>
 </tr>
@@ -9212,7 +9409,7 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java" target="_blank">Test examples in Java</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormContactsTests.java" target="_blank">Test examples in Java</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs" target="_blank">Test examples in C#</a></p>
 
@@ -9223,7 +9420,7 @@ Methods available for Java in JDI Light:</p>
 <p><strong>WebPage</strong> is provided by JDI Light in:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.composite</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.composite.WebPage</em></li>
 </ul>
 
 <p><img src="images/html/webpage.png" alt="WebPage" /></p>

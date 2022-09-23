@@ -8706,10 +8706,12 @@ value from a list or enter it by himself (is inherited from the <a href="#datali
       <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"h3"</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">TagName</span><span class="p">);</span>
   <span class="p">}</span>
 
-  <span class="p">[</span><span class="nf">TestCaseSource</span><span class="p">(</span><span class="nf">nameof</span><span class="p">(</span><span class="n">ContactSectionCases</span><span class="p">))]</span>
+  <span class="p">[</span><span class="nf">TestCaseSource</span><span class="p">(</span><span class="nf">nameof</span><span class="p">(</span><span class="n">_contactSectionCases</span><span class="p">))]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">CustomContactSectionTest</span><span class="p">(</span><span class="kt">string</span> <span class="n">htmlElementToCheckName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">expectedLocator</span><span class="p">,</span> <span class="kt">string</span> <span class="n">expectedName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">expectedSmartLocator</span><span class="p">)</span>
   <span class="p">{</span>
-      <span class="n">ContactSection</span><span class="p">.</span><span class="nf">CheckInitializedElement</span><span class="p">(</span><span class="n">ContactSection</span><span class="p">.</span><span class="nf">GetType</span><span class="p">().</span><span class="nf">GetField</span><span class="p">(</span><span class="n">htmlElementToCheckName</span><span class="p">).</span><span class="nf">GetValue</span><span class="p">(</span><span class="n">ContactSection</span><span class="p">)</span> <span class="k">as</span> <span class="n">UIElement</span><span class="p">,</span> <span class="n">expectedLocator</span><span class="p">,</span> <span class="n">expectedName</span><span class="p">,</span> <span class="n">expectedSmartLocator</span><span class="p">);</span>
+      <span class="kt">var</span> <span class="n">targetElement</span> <span class="p">=</span>
+          <span class="n">ContactSection</span><span class="p">.</span><span class="nf">GetType</span><span class="p">().</span><span class="nf">GetMember</span><span class="p">(</span><span class="n">htmlElementToCheckName</span><span class="p">)[</span><span class="m">0</span><span class="p">].</span><span class="nf">GetMemberValue</span><span class="p">(</span><span class="n">ContactSection</span><span class="p">)</span> <span class="k">as</span> <span class="n">UIElement</span><span class="p">;</span>
+      <span class="n">ContactSection</span><span class="p">.</span><span class="nf">CheckInitializedElement</span><span class="p">(</span><span class="n">targetElement</span><span class="p">,</span> <span class="n">expectedLocator</span><span class="p">,</span> <span class="n">expectedName</span><span class="p">,</span> <span class="n">expectedSmartLocator</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
@@ -8718,16 +8720,20 @@ value from a list or enter it by himself (is inherited from the <a href="#datali
       <span class="n">FooterSection</span><span class="p">.</span><span class="nf">CheckInitializedElement</span><span class="p">(</span><span class="n">FooterSection</span><span class="p">.</span><span class="n">AboutLink</span><span class="p">,</span> <span class="s">"By.PartialLinkText: About"</span><span class="p">,</span> <span class="s">"AboutLink"</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>            
   <span class="p">}</span>
 
-  <span class="p">[</span><span class="nf">TestCaseSource</span><span class="p">(</span><span class="nf">nameof</span><span class="p">(</span><span class="n">HeaderSectionCases</span><span class="p">))]</span>
+  <span class="p">[</span><span class="nf">TestCaseSource</span><span class="p">(</span><span class="nf">nameof</span><span class="p">(</span><span class="n">_headerSectionCases</span><span class="p">))]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">CustomHeaderSectionTest</span><span class="p">(</span><span class="kt">string</span> <span class="n">htmlElementToCheckName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">expectedLocator</span><span class="p">,</span> <span class="kt">string</span> <span class="n">expectedName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">expectedSmartLocator</span><span class="p">)</span>
   <span class="p">{</span>
-      <span class="n">HeaderSection</span><span class="p">.</span><span class="nf">CheckInitializedElement</span><span class="p">(</span><span class="n">HeaderSection</span><span class="p">.</span><span class="nf">GetType</span><span class="p">().</span><span class="nf">GetField</span><span class="p">(</span><span class="n">htmlElementToCheckName</span><span class="p">).</span><span class="nf">GetValue</span><span class="p">(</span><span class="n">HeaderSection</span><span class="p">)</span> <span class="k">as</span> <span class="n">UIElement</span><span class="p">,</span> <span class="n">expectedLocator</span><span class="p">,</span> <span class="n">expectedName</span><span class="p">,</span> <span class="n">expectedSmartLocator</span><span class="p">);</span>
+      <span class="kt">var</span> <span class="n">targetElement</span> <span class="p">=</span>
+          <span class="n">HeaderSection</span><span class="p">.</span><span class="nf">GetType</span><span class="p">().</span><span class="nf">GetMember</span><span class="p">(</span><span class="n">htmlElementToCheckName</span><span class="p">)[</span><span class="m">0</span><span class="p">].</span><span class="nf">GetMemberValue</span><span class="p">(</span><span class="n">HeaderSection</span><span class="p">)</span> <span class="k">as</span> <span class="n">UIElement</span><span class="p">;</span>
+      <span class="n">HeaderSection</span><span class="p">.</span><span class="nf">CheckInitializedElement</span><span class="p">(</span><span class="n">targetElement</span><span class="p">,</span> <span class="n">expectedLocator</span><span class="p">,</span> <span class="n">expectedName</span><span class="p">,</span> <span class="n">expectedSmartLocator</span><span class="p">);</span>
   <span class="p">}</span>
 
-  <span class="p">[</span><span class="nf">TestCaseSource</span><span class="p">(</span><span class="nf">nameof</span><span class="p">(</span><span class="n">JdiSearchSectionCases</span><span class="p">))]</span>
+  <span class="p">[</span><span class="nf">TestCaseSource</span><span class="p">(</span><span class="nf">nameof</span><span class="p">(</span><span class="n">_jdiSearchSectionCases</span><span class="p">))]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">CustomJdiSearchSectionTest</span><span class="p">(</span><span class="kt">string</span> <span class="n">htmlElementToCheckName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">expectedLocator</span><span class="p">,</span> <span class="kt">string</span> <span class="n">expectedName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">expectedSmartLocator</span><span class="p">)</span>
   <span class="p">{</span>
-      <span class="n">JdiSearchSection</span><span class="p">.</span><span class="nf">CheckInitializedElement</span><span class="p">(</span><span class="n">JdiSearchSection</span><span class="p">.</span><span class="nf">GetType</span><span class="p">().</span><span class="nf">GetField</span><span class="p">(</span><span class="n">htmlElementToCheckName</span><span class="p">).</span><span class="nf">GetValue</span><span class="p">(</span><span class="n">JdiSearchSection</span><span class="p">)</span> <span class="k">as</span> <span class="n">UIElement</span><span class="p">,</span> <span class="n">expectedLocator</span><span class="p">,</span> <span class="n">expectedName</span><span class="p">,</span> <span class="n">expectedSmartLocator</span><span class="p">);</span>
+      <span class="kt">var</span> <span class="n">targetElement</span> <span class="p">=</span>
+          <span class="n">JdiSearchSection</span><span class="p">.</span><span class="nf">GetType</span><span class="p">().</span><span class="nf">GetMember</span><span class="p">(</span><span class="n">htmlElementToCheckName</span><span class="p">)[</span><span class="m">0</span><span class="p">].</span><span class="nf">GetMemberValue</span><span class="p">(</span><span class="n">JdiSearchSection</span><span class="p">)</span> <span class="k">as</span> <span class="n">UIElement</span><span class="p">;</span>
+      <span class="n">JdiSearchSection</span><span class="p">.</span><span class="nf">CheckInitializedElement</span><span class="p">(</span><span class="n">targetElement</span><span class="p">,</span> <span class="n">expectedLocator</span><span class="p">,</span> <span class="n">expectedName</span><span class="p">,</span> <span class="n">expectedSmartLocator</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
@@ -8737,7 +8743,7 @@ value from a list or enter it by himself (is inherited from the <a href="#datali
       <span class="n">SummarySection</span><span class="p">.</span><span class="nf">CheckInitializedElement</span><span class="p">(</span><span class="n">SummarySection</span><span class="p">.</span><span class="n">Calculate</span><span class="p">,</span> <span class="s">"By.Id: calculate-button"</span><span class="p">,</span> <span class="s">"Calculate"</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
   <span class="p">}</span>
 
-  <span class="k">public</span> <span class="k">static</span> <span class="kt">object</span><span class="p">[]</span> <span class="n">ContactSectionCases</span> <span class="p">=</span>
+  <span class="k">private</span> <span class="k">static</span> <span class="kt">object</span><span class="p">[]</span> <span class="n">_contactSectionCases</span> <span class="p">=</span>
   <span class="p">{</span>
       <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="nf">nameof</span><span class="p">(</span><span class="n">ContactSection</span><span class="p">.</span><span class="n">DescriptionField</span><span class="p">),</span> <span class="s">"By.CssSelector: textarea#description"</span><span class="p">,</span> <span class="s">"Description"</span><span class="p">,</span> <span class="k">null</span> <span class="p">},</span>
       <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="nf">nameof</span><span class="p">(</span><span class="n">ContactSection</span><span class="p">.</span><span class="n">FirstRoller</span><span class="p">),</span> <span class="s">"By.XPath: .//a[@class='ui-slider-handle ui-state-default ui-corner-all' and position()=1]"</span><span class="p">,</span> <span class="s">"FirstRoller"</span><span class="p">,</span> <span class="k">null</span> <span class="p">},</span>
@@ -8747,7 +8753,7 @@ value from a list or enter it by himself (is inherited from the <a href="#datali
       <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="nf">nameof</span><span class="p">(</span><span class="n">ContactSection</span><span class="p">.</span><span class="n">SubmitButton</span><span class="p">),</span> <span class="s">"By.XPath: //button[@type='submit' and contains(., 'Submit')]"</span><span class="p">,</span> <span class="s">"SubmitButton"</span><span class="p">,</span> <span class="k">null</span> <span class="p">},</span>
   <span class="p">};</span>
 
-  <span class="k">public</span> <span class="k">static</span> <span class="kt">object</span><span class="p">[]</span> <span class="n">HeaderSectionCases</span> <span class="p">=</span>
+  <span class="k">private</span> <span class="k">static</span> <span class="kt">object</span><span class="p">[]</span> <span class="n">_headerSectionCases</span> <span class="p">=</span>
   <span class="p">{</span>
       <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="nf">nameof</span><span class="p">(</span><span class="n">HeaderSection</span><span class="p">.</span><span class="n">Image</span><span class="p">),</span> <span class="s">"By.XPath: //img[@src=\"label/Logo_Epam_Color.svg\"]"</span><span class="p">,</span> <span class="s">"Image"</span><span class="p">,</span> <span class="k">null</span> <span class="p">},</span>
       <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="nf">nameof</span><span class="p">(</span><span class="n">HeaderSection</span><span class="p">.</span><span class="n">Menu</span><span class="p">),</span> <span class="s">"By.CssSelector: ul.uui-navigation.nav"</span><span class="p">,</span> <span class="s">"Menu"</span><span class="p">,</span> <span class="k">null</span> <span class="p">},</span>
@@ -8755,7 +8761,7 @@ value from a list or enter it by himself (is inherited from the <a href="#datali
       <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="nf">nameof</span><span class="p">(</span><span class="n">HeaderSection</span><span class="p">.</span><span class="n">Search</span><span class="p">),</span> <span class="s">"By.CssSelector: input#last-name"</span><span class="p">,</span> <span class="s">"Search"</span><span class="p">,</span> <span class="s">"By.Id: search"</span> <span class="p">}</span>
   <span class="p">};</span>
 
-  <span class="k">public</span> <span class="k">static</span> <span class="kt">object</span><span class="p">[]</span> <span class="n">JdiSearchSectionCases</span> <span class="p">=</span>
+  <span class="k">private</span> <span class="k">static</span> <span class="kt">object</span><span class="p">[]</span> <span class="n">_jdiSearchSectionCases</span> <span class="p">=</span>
   <span class="p">{</span>
       <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="nf">nameof</span><span class="p">(</span><span class="n">JdiSearchSection</span><span class="p">.</span><span class="n">SearchButton</span><span class="p">),</span> <span class="s">"By.CssSelector: .search&gt;.icon-search"</span><span class="p">,</span> <span class="s">"SearchButton"</span><span class="p">,</span> <span class="k">null</span> <span class="p">},</span>
       <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="nf">nameof</span><span class="p">(</span><span class="n">JdiSearchSection</span><span class="p">.</span><span class="n">SearchButtonActive</span><span class="p">),</span> <span class="s">"By.CssSelector: .icon-search.active"</span><span class="p">,</span> <span class="s">"SearchButtonActive"</span><span class="p">,</span> <span class="k">null</span> <span class="p">},</span>
@@ -8771,15 +8777,12 @@ value from a list or enter it by himself (is inherited from the <a href="#datali
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.Section</em></li>
 </ul>
 <pre class="highlight java tab-java"><code>   <span class="nd">@UI</span><span class="o">(</span><span class="s">".someSectionUI"</span><span class="o">)</span> <span class="c1">// @FindBy(css = ".someSectionUI")</span>
-   <span class="kd">public</span> <span class="kd">static</span> <span class="n">SomeSection</span> <span class="n">someSectionUI</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">CustomSection</span> <span class="n">customSectionUI</span><span class="o">;</span>
 
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">someSectionWebElementTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">assertNotNull</span><span class="o">(</span><span class="n">someSection</span><span class="o">.</span><span class="na">webElementPublic</span><span class="o">);</span>
-      <span class="n">assertEquals</span><span class="o">(</span><span class="n">someSection</span><span class="o">.</span><span class="na">webElementPublic</span><span class="o">.</span><span class="na">locator</span><span class="o">.</span><span class="na">toString</span><span class="o">(),</span> <span class="s">"id='webElementPublic'"</span><span class="o">);</span>
-      <span class="n">assertEquals</span><span class="o">(</span><span class="n">someSection</span><span class="o">.</span><span class="na">webElementPublic</span><span class="o">.</span><span class="na">parent</span><span class="o">,</span> <span class="n">someSection</span><span class="o">);</span>
-      <span class="n">assertEquals</span><span class="o">(</span><span class="n">someSection</span><span class="o">.</span><span class="na">webElementPublic</span><span class="o">.</span><span class="na">name</span><span class="o">,</span> <span class="s">"Web Element Public"</span><span class="o">);</span>
-   <span class="o">}</span>
+   <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"customSectionWebElementDataProvider"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">CustomSectionDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customSectionWebElementTest</span><span class="o">(</span><span class="n">IBaseElement</span> <span class="n">htmlElementToCheck</span><span class="o">,</span> <span class="n">String</span> <span class="n">expectedLocator</span><span class="o">,</span> <span class="n">Object</span> <span class="n">expectedParent</span><span class="o">,</span> <span class="n">String</span> <span class="n">expectedName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">checkInitializedElement</span><span class="o">(</span><span class="n">htmlElementToCheck</span><span class="o">,</span> <span class="n">expectedLocator</span><span class="o">,</span> <span class="n">expectedParent</span><span class="o">,</span> <span class="n">expectedName</span><span class="o">);</span>
+    <span class="o">}</span>
 
 </code></pre>
 <p>And here are methods available in Java:</p>
@@ -8792,29 +8795,19 @@ value from a list or enter it by himself (is inherited from the <a href="#datali
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>assertThat()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
+<td><strong>click()</strong></td>
+<td>Makes a click</td>
+<td>void</td>
 </tr>
 <tr>
-<td><strong>has()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
+<td><strong>click(ElementArea)</strong></td>
+<td>Makes a click to area</td>
+<td>void</td>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
 <td>Returns object for work with assertions</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>shouldBe()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>waitFor()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
+<td>TextAssert</td>
 </tr>
 </tbody></table>
 

@@ -3338,6 +3338,7 @@ It supports standard, outlined and filled styling.
 Here are examples with provided MaterialUI v4.12.3 code:
 
 Validation:
+
 ```html
 <div class="MuiFormControl-root MuiTextField-root">
   <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-error Mui-error MuiFormLabel-filled" data-shrink="true" for="standard-error" id="standard-error-label">Error</label>
@@ -3347,6 +3348,7 @@ Validation:
 </div>
 ```
 Input Adornments:
+
 ```html
 <div>
   <div class="MuiFormControl-root MuiTextField-root jss210 jss212">

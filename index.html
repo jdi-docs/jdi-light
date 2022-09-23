@@ -37698,57 +37698,54 @@ It supports standard, outlined and filled styling.</p>
 
 <p>Here are examples with provided MaterialUI v4.12.3 code:</p>
 
-<p>Validation:
-<code>html
-&lt;div class=&quot;MuiFormControl-root MuiTextField-root&quot;&gt;
-  &lt;label class=&quot;MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-error Mui-error MuiFormLabel-filled&quot; data-shrink=&quot;true&quot; for=&quot;standard-error&quot; id=&quot;standard-error-label&quot;&gt;Error&lt;/label&gt;
-  &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline Mui-error Mui-error MuiInputBase-formControl MuiInput-formControl&quot;&gt;
-    &lt;input type=&quot;text&quot; aria-invalid=&quot;true&quot; id=&quot;standard-error&quot; value=&quot;Hello World&quot; class=&quot;MuiInputBase-input MuiInput-input&quot;/&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code>
-Input Adornments:
-<code>html
-&lt;div&gt;
-  &lt;div class=&quot;MuiFormControl-root MuiTextField-root jss210 jss212&quot;&gt;
-    &lt;label class=&quot;MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink&quot; data-shrink=&quot;true&quot; for=&quot;standard-start-adornment&quot; id=&quot;standard-start-adornment-label&quot;&gt;With normal TextField&lt;/label&gt;
-    &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart&quot;&gt;
-      &lt;div class=&quot;MuiInputAdornment-root MuiInputAdornment-positionStart&quot;&gt;
-        &lt;p class=&quot;MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary&quot;&gt;Kg&lt;/p&gt;
-      &lt;/div&gt;
-      &lt;input aria-invalid=&quot;false&quot; id=&quot;standard-start-adornment&quot; type=&quot;text&quot; class=&quot;MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart&quot; value=&quot;&quot;/&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;MuiFormControl-root jss210 jss211 jss212&quot;&gt;
-      &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd&quot;&gt;
-        &lt;input aria-invalid=&quot;false&quot; aria-describedby=&quot;standard-weight-helper-text&quot; id=&quot;standard-adornment-weight&quot; type=&quot;text&quot; aria-label=&quot;weight&quot; class=&quot;MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd&quot; value=&quot;&quot;&gt;
-        &lt;div class=&quot;MuiInputAdornment-root MuiInputAdornment-positionEnd&quot;&gt;
-          &lt;p class=&quot;MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary&quot;&gt;Kg&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;p class=&quot;MuiFormHelperText-root&quot; id=&quot;standard-weight-helper-text&quot;&gt;Weight&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;MuiFormControl-root jss210 jss212&quot;&gt;
-      &lt;label class=&quot;MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated&quot; data-shrink=&quot;false&quot; for=&quot;standard-adornment-password&quot;&gt;Password&lt;/label&gt;
-      &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd&quot;&gt;
-        &lt;input aria-invalid=&quot;false&quot; id=&quot;standard-adornment-password&quot; type=&quot;password&quot; class=&quot;MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd&quot; value=&quot;&quot;&gt;
-        &lt;div class=&quot;MuiInputAdornment-root MuiInputAdornment-positionEnd&quot;&gt;
-          &lt;button class=&quot;MuiButtonBase-root MuiIconButton-root&quot; tabindex=&quot;0&quot; type=&quot;button&quot; aria-label=&quot;toggle password visibility&quot;&gt;...&lt;/button&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;MuiFormControl-root jss210 MuiFormControl-fullWidth&quot;&gt;
-      &lt;label class=&quot;MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink&quot; data-shrink=&quot;true&quot; for=&quot;standard-adornment-amount&quot;&gt;Amount&lt;/label&gt;
-      &lt;div class=&quot;MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart&quot;&gt;
-        &lt;div class=&quot;MuiInputAdornment-root MuiInputAdornment-positionStart&quot;&gt;
-          &lt;p class=&quot;MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary&quot;&gt;$&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;input aria-invalid=&quot;false&quot; id=&quot;standard-adornment-amount&quot; type=&quot;text&quot; class=&quot;MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart&quot; value=&quot;&quot;/&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></p>
-
+<p>Validation:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root MuiTextField-root"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-error Mui-error MuiFormLabel-filled"</span> <span class="na">data-shrink=</span><span class="s">"true"</span> <span class="na">for=</span><span class="s">"standard-error"</span> <span class="na">id=</span><span class="s">"standard-error-label"</span><span class="nt">&gt;</span>Error<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline Mui-error Mui-error MuiInputBase-formControl MuiInput-formControl"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">aria-invalid=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"standard-error"</span> <span class="na">value=</span><span class="s">"Hello World"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiInput-input"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<p>Input Adornments:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root MuiTextField-root jss210 jss212"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"</span> <span class="na">data-shrink=</span><span class="s">"true"</span> <span class="na">for=</span><span class="s">"standard-start-adornment"</span> <span class="na">id=</span><span class="s">"standard-start-adornment-label"</span><span class="nt">&gt;</span>With normal TextField<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputAdornment-root MuiInputAdornment-positionStart"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"</span><span class="nt">&gt;</span>Kg<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"standard-start-adornment"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root jss210 jss211 jss212"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-describedby=</span><span class="s">"standard-weight-helper-text"</span> <span class="na">id=</span><span class="s">"standard-adornment-weight"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">aria-label=</span><span class="s">"weight"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputAdornment-root MuiInputAdornment-positionEnd"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"</span><span class="nt">&gt;</span>Kg<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiFormHelperText-root"</span> <span class="na">id=</span><span class="s">"standard-weight-helper-text"</span><span class="nt">&gt;</span>Weight<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root jss210 jss212"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"</span> <span class="na">data-shrink=</span><span class="s">"false"</span> <span class="na">for=</span><span class="s">"standard-adornment-password"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"standard-adornment-password"</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputAdornment-root MuiInputAdornment-positionEnd"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"MuiButtonBase-root MuiIconButton-root"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">aria-label=</span><span class="s">"toggle password visibility"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiFormControl-root jss210 MuiFormControl-fullWidth"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"</span> <span class="na">data-shrink=</span><span class="s">"true"</span> <span class="na">for=</span><span class="s">"standard-adornment-amount"</span><span class="nt">&gt;</span>Amount<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedStart"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"MuiInputAdornment-root MuiInputAdornment-positionStart"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"standard-adornment-amount"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
 <p>Available methods in Java JDI Light:</p>
 
 <table><thead>

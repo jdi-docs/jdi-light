@@ -3460,10 +3460,12 @@ Here is the list of some methods available for C# in JDI Light:
       Assert.AreEqual("h3", e.TagName);
   }
   
-  [TestCaseSource(nameof(ContactSectionCases))]
+  [TestCaseSource(nameof(_contactSectionCases))]
   public void CustomContactSectionTest(string htmlElementToCheckName, string expectedLocator, string expectedName, string expectedSmartLocator)
   {
-      ContactSection.CheckInitializedElement(ContactSection.GetType().GetField(htmlElementToCheckName).GetValue(ContactSection) as UIElement, expectedLocator, expectedName, expectedSmartLocator);
+      var targetElement =
+          ContactSection.GetType().GetMember(htmlElementToCheckName)[0].GetMemberValue(ContactSection) as UIElement;
+      ContactSection.CheckInitializedElement(targetElement, expectedLocator, expectedName, expectedSmartLocator);
   }
 
   [Test]
@@ -3472,16 +3474,20 @@ Here is the list of some methods available for C# in JDI Light:
       FooterSection.CheckInitializedElement(FooterSection.AboutLink, "By.PartialLinkText: About", "AboutLink", null);            
   }
 
-  [TestCaseSource(nameof(HeaderSectionCases))]
+  [TestCaseSource(nameof(_headerSectionCases))]
   public void CustomHeaderSectionTest(string htmlElementToCheckName, string expectedLocator, string expectedName, string expectedSmartLocator)
   {
-      HeaderSection.CheckInitializedElement(HeaderSection.GetType().GetField(htmlElementToCheckName).GetValue(HeaderSection) as UIElement, expectedLocator, expectedName, expectedSmartLocator);
+      var targetElement =
+          HeaderSection.GetType().GetMember(htmlElementToCheckName)[0].GetMemberValue(HeaderSection) as UIElement;
+      HeaderSection.CheckInitializedElement(targetElement, expectedLocator, expectedName, expectedSmartLocator);
   }
 
-  [TestCaseSource(nameof(JdiSearchSectionCases))]
+  [TestCaseSource(nameof(_jdiSearchSectionCases))]
   public void CustomJdiSearchSectionTest(string htmlElementToCheckName, string expectedLocator, string expectedName, string expectedSmartLocator)
   {
-      JdiSearchSection.CheckInitializedElement(JdiSearchSection.GetType().GetField(htmlElementToCheckName).GetValue(JdiSearchSection) as UIElement, expectedLocator, expectedName, expectedSmartLocator);
+      var targetElement =
+          JdiSearchSection.GetType().GetMember(htmlElementToCheckName)[0].GetMemberValue(JdiSearchSection) as UIElement;
+      JdiSearchSection.CheckInitializedElement(targetElement, expectedLocator, expectedName, expectedSmartLocator);
   }
 
   [Test]
@@ -3491,7 +3497,7 @@ Here is the list of some methods available for C# in JDI Light:
       SummarySection.CheckInitializedElement(SummarySection.Calculate, "By.Id: calculate-button", "Calculate", null);
   }
 
-  public static object[] ContactSectionCases =
+  private static object[] _contactSectionCases =
   {
       new object[] { nameof(ContactSection.DescriptionField), "By.CssSelector: textarea#description", "Description", null },
       new object[] { nameof(ContactSection.FirstRoller), "By.XPath: .//a[@class='ui-slider-handle ui-state-default ui-corner-all' and position()=1]", "FirstRoller", null },
@@ -3501,7 +3507,7 @@ Here is the list of some methods available for C# in JDI Light:
       new object[] { nameof(ContactSection.SubmitButton), "By.XPath: //button[@type='submit' and contains(., 'Submit')]", "SubmitButton", null },
   };
 
-  public static object[] HeaderSectionCases =
+  private static object[] _headerSectionCases =
   {
       new object[] { nameof(HeaderSection.Image), "By.XPath: //img[@src=\"label/Logo_Epam_Color.svg\"]", "Image", null },
       new object[] { nameof(HeaderSection.Menu), "By.CssSelector: ul.uui-navigation.nav", "Menu", null },
@@ -3509,7 +3515,7 @@ Here is the list of some methods available for C# in JDI Light:
       new object[] { nameof(HeaderSection.Search), "By.CssSelector: input#last-name", "Search", "By.Id: search" }
   };
 
-  public static object[] JdiSearchSectionCases =
+  private static object[] _jdiSearchSectionCases =
   {
       new object[] { nameof(JdiSearchSection.SearchButton), "By.CssSelector: .search>.icon-search", "SearchButton", null },
       new object[] { nameof(JdiSearchSection.SearchButtonActive), "By.CssSelector: .icon-search.active", "SearchButtonActive", null },
@@ -3527,30 +3533,22 @@ Section is located in the following classes:
 
 ```java 
    @UI(".someSectionUI") // @FindBy(css = ".someSectionUI")
-   public static SomeSection someSectionUI;
+    public static CustomSection customSectionUI;
 
-   @Test
-   public void someSectionWebElementTest() {
-      assertNotNull(someSection.webElementPublic);
-      assertEquals(someSection.webElementPublic.locator.toString(), "id='webElementPublic'");
-      assertEquals(someSection.webElementPublic.parent, someSection);
-      assertEquals(someSection.webElementPublic.name, "Web Element Public");
-   }
+   @Test(dataProvider = "customSectionWebElementDataProvider", dataProviderClass = CustomSectionDataProvider.class)
+    public void customSectionWebElementTest(IBaseElement htmlElementToCheck, String expectedLocator, Object expectedParent, String expectedName) {
+        checkInitializedElement(htmlElementToCheck, expectedLocator, expectedParent, expectedName);
+    }
    
 ```
 
-
-
 And here are methods available in Java:
 
-|Method | Description | Return Type
---- | --- | ---
-**assertThat()** | Returns object for work with assertions | IsAssert
-**has()** | Returns object for work with assertions | IsAssert
-**is()** | Returns object for work with assertions | IsAssert
-**shouldBe()** | Returns object for work with assertions | IsAssert
-**waitFor()** | Returns object for work with assertions | IsAssert
-
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
+**click()** | Makes a click                           | void
+**click(ElementArea)** | Makes a click to area                   | void
+**is()** | Returns object for work with assertions | TextAssert
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/section" target="_blank">Test examples in Java</a>
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs" target="_blank">Test examples in C#</a>

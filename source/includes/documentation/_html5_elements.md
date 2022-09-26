@@ -4,74 +4,42 @@
 #### 1.1.1 Label
 
 ```java 
+  //In the following test 'name' is used to define locator
    
-  //In the following test, 'name' and 'disabledName' labels are found by utilizing their element locators:
-   
-  // @FindBy(css = "#name")
-  @UI("#name") 
-  public static TextField name;
+  // @FindBy(xpath = "//label[@for='#name']")
+  @UI("//label[@for='#name']") 
+  
+  public static TextField yourName;
 	
-  // @FindBy(css = "#disabled-name")
-  @UI("#disabled-name") 
-  public static TextField disabledName;
-	
-  //By default, Label locator is constructed like this: 
-  By.cssSelector("[for="+getAttribute("id")+"]")
-   
   @Test
   public void labelTest() {
-      assertEquals(name.label().getText(), "Your name:");
-      name.label().is().text(containsString("Your"));
+      assertEquals(yourName.label().getText(), "Your name:");
+      yourName.label().is().text(containsString("Your"));
       disabledName.label().is().text(equalToIgnoringCase("Surname:"));
   }
-	
- @Test
- public void labelAssertThatTest() {
-     jdiTitle.assertThat().text(is(text));
- }
-
- @Test
- public void labelClickTest() {
-     jdiTitle.click();
-     validateAlert(containsString("JDI Title"));
- }
-  
  ```
 
- ```csharp 
-  	
- In the next test Label is found from NameTextField locator:
-  
- [FindBy(Css = "div.main-content #name")]
- public TextField NameTextField { get; set; }
-	
- By default, Label is found by locator By.CssSelector($"[for={WebElement.GetAttribute("id")}]")
+**Label** — Defines a label for an ```<input>``` control.
 
- [Test] 
- public void LabelTest() 
- { 
-     Assert.AreEqual(TestSite.Html5Page.NameTextField.Label().GetText(), "Your name:");
-     TestSite.Html5Page.NameTextField.Label().Is.Text(ContainsString("Your"));
-     Assert.AreEqual(TestSite.Html5Page.SurnameTextField.Label().GetText(), "Surname:");
-     TestSite.Html5Page.SurnameTextField.Label().Is.Text(ContainsString("Surname:")); 
- }	 
-	
- [Test] 
- public void GetLabelTextTest() 
- { 
-     AreEqual(TestSite.Html5Page.ColorPicker.LabelText(), "Select a color"); 
- } 
- 
-  ```
-**Label** — Elements' caption for a large number of JDI common elements.
-
-![Label](../../images/colorpicker.png)
+![Label](../../images/label.png)
 
 ```html 
-<label for="test">Description</label>
+<form>
+    <input type="radio" name="gender" value="male" id="male">
+    <label for="male">Male</label>
+    <input type="radio" name="gender" value="female" id="female">
+    <label for="female">Female</label>
+</form>
 ```
 
+Available methods inJDI Light:
 
+|Method | Description                         | Return Type
+--- |-------------------------------------| --- 
+**setValue(String)**| sets value                          |void
+**getValue()**| gets value                          | String
+**getText()**| returns value. Overrided method of UIBaseElement | String
+**is()**|Assert action|TextAssert
 
 Available methods in C# JDI Light:
 
@@ -83,9 +51,10 @@ Available methods in C# JDI Light:
 **is()** | Assert action | TextAssert
 **Label()** | Creates label for element using the element's Id | Label
 **LabelText()** | Gets the text of a label | string
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs" target="_blank">C# test examples</a>
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">Java test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextFieldTests.java" target="_blank">Java test examples</a>
+
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs" target="_blank">C# test examples</a>
 
 [BDD Steps examples](https://jdi-docs.github.io/jdi-light/?java#label-2)
 

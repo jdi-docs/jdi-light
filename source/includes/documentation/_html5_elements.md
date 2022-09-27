@@ -3319,90 +3319,168 @@ Here is the list of available methods/asserts in Java:
 **datalist** – A graphical control element that allows user to choose a single
 value from a list or enter it by himself (is inherited from the [Datalist](#datalist))
 
-![ComboBox](../../images/icecreamdatalist.png)
+![DataList](../../images/icecreamdatalist.png)
 
-ComboBox is provided by JDI Light in:
+DataList is provided by JDI Light in:
 
-- __Java__: _com.epam.jdi.light.ui.html.complex.Combobox_
-- __C#__: _JDI.Light.Elements.Common.Combobox_
+- __Java__: _com.epam.jdi.light.ui.html.elements.complex.DataListOptions_
+- __C#__: _JDI.Light.Elements.Common.DataList_
 
 ```java 
-    public static Combobox iceCream;
+    // @FindBy(id = "ice-cream-flavors")
+    @UI("#ice-cream-flavors") 
+    public static DataListOptions iceCream;
 
-    // @FindBy(id = "ice-cream")
-    @UI("#ice-cream") 
-    public static DataList iceCreamDataList;
+    @Test
+    public void getValueTest() {
+        assertEquals(iceCream.getValue(), "Coconut");
+    }
+
+    @Test
+    public void getTextTest() {
+        assertEquals(iceCream.getText(), "Coconut");
+    }
 
     @Test
     public void inputTest() {
         iceCream.input("New text");
-        iceCream.is().text("New text");
+        assertEquals(iceCream.getText(), "New text");
+    }
+
+    @Test
+    public void inputNullValueTest() {
+        String value = iceCream.getText();
+        iceCream.input(null);
+        iceCream.has().text(value);
+    }
+
+    @Test
+    public void clearTest() {
         iceCream.clear();
-        iceCream.is().text("");
+        assertEquals(iceCream.getText(), "");
     }
 
     @Test
     public void placeholderTest() {
-        iceCream.placeholder().equals("Ice cream");
+        assertEquals(iceCream.placeholder(), "Ice cream");
+    }
+
+    @Test
+    public void focusTest() {
+        iceCream.focus();
+    }
+
+    @Test
+    public void sendKeysTest() {
+        iceCream.sendKeys("Test");
+        assertEquals(iceCream.getValue(), "Coconut" +"Test");
+    }
+
+    @Test
+    public void sendNullValueTest() {
+        String optionName = null;
+        iceCream.sendKeys(optionName);
+        iceCream.has().text("Coconut");
+    }
+
+    @Test
+    public void sendFirstNullValueTest() {
+        iceCream.sendKeys(null, "Test");
+        iceCream.has().text("Coconut");
     }
 
     @Test
     public void selectTest() {
         iceCream.select("Chocolate");
+        assertEquals(iceCream.getValue(), "Chocolate");
+    }
+
+    @Test
+    public void setNullValueTest() {
+        String optionName = null;
+        iceCream.select(optionName);
+        iceCream.has().text("Coconut");
+    }
+
+    @Test
+    public void selectEnumTest() {
         iceCream.select(Strawberry);
-        iceCream.select(5);
+        assertEquals(iceCream.getValue(), "Strawberry");
+    }
+    @Test
+    public void selectNumTest() {
+        iceCream.clear();
+        iceCream.select(ELEMENT.startIndex + 4);
+        assertEquals(iceCream.getValue(), "Vanilla");
+    }
+    @Test
+    public void selectedTest() {
+        assertEquals(iceCream.selected(), "Coconut");
     }
 
     @Test
     public void labelTest() {
-        iceCreamIs.label().is().text("Choose your lovely icecream");
-        iceCreamIs.label().is().text(containsString("lovely icecream"));
+        assertEquals(iceCream.label().getText(), "Choose your lovely icecream");
+        iceCream.label().is().text(containsString("lovely icecream"));
     }
 
     @Test
     public void isValidationTest() {
-        iceCream.listEnabled();
-        iceCream.assertThat().equals(asList("Chocolate", "Strawberry"));
         iceCream.is().enabled();
-        iceCream.is().selected("Coconut");
-        iceCream.is().selected(is("Coconut"));
+        iceCream.is().text(is("Coconut"));
         iceCream.select(Vanilla);
         iceCream.is().text(containsString("Van"));
     }
+
+    @Test
+    public void assertValidationTest() {
+        iceCream.assertThat().text(is("Coconut"));
+    }
+
+    @Test
+    public void baseValidationTest() {
+        baseValidation(iceCream);
+    }
+
+    @Test
+    public void valuesTest() {
+        iceCream.is().values(values);
+    }
+
+    @Test
+    public void attrsTest() {
+        assertEquals(iceCream.list().attrs("value").toArray(), values);
+    }
 ```
 ```csharp 
-[Test]
-public void ExpandComboBox() 
-{
-    MyComboBox.Expand();
-}
-[Test]
-public void SelectComboBox() 
-{
-    MyComboBox.Select("some value");
-	MyComboBox.Is().Selected(Is.EqualTo("some value"));
-	TestSite.Html5Page.IceCreamComboBox.AssertThat().Selected(Is.EqualTo("Strawberry"));	
-}
-[Test]
-public void SelectByIndex() 
-{
-    MyComboBox.Select(1);
-}
-[Test]
-public void FillComboBox() 
-{
-    MyComboBox.Input("some value");
-    SubmitButton.Click();
-}
+    [Test]
+    public void ExpandComboBox() 
+    {
+        MyComboBox.Expand();
+    }
+    [Test]
+    public void SelectComboBox() 
+    {
+        MyComboBox.Select("some value");
+    	MyComboBox.Is().Selected(Is.EqualTo("some value"));
+    	TestSite.Html5Page.IceCreamComboBox.AssertThat().Selected(Is.EqualTo("Strawberry"));	
+    }
+    [Test]
+    public void SelectByIndex() 
+    {
+        MyComboBox.Select(1);
+    }
+    [Test]
+    public void FillComboBox() 
+    {
+        MyComboBox.Input("some value");
+        SubmitButton.Click();
+    }
 ```
 
 Have a look at the following example with HTML code provided:
 
-<!-- ![Combobox example](../../images/html/datalist_html.png) -->
-
 ```html
-<input list="ice-cream-flavors" id="ice-cream" placeholder="Ice cream">
-
 <datalist id="ice-cream-flavors">
     <option value="Chocolate"></option>
     <option value="Coconut"></option>
@@ -3414,13 +3492,22 @@ Have a look at the following example with HTML code provided:
 
 The list of methods available for Java in JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**listEnabled()** |Return list of values of enabled options | List\<String>
-**listDisabled()** |Return list of values of disabled options | List\<String>
-**select(String/Enum/int)** |Select combobox option by value or index | void
-**selected()** |Get selected option value | String
-**values()** |Get all option values from combobox | List\<String>
+|Method | Description                                                              | Return Type
+--- |--------------------------------------------------------------------------| ---
+**list()** | Returns a WebList item representing a list of available Datalist options | WebList
+**getText()** | Gets button text                                                         | String
+**listEnabled()** | Return list of values of enabled options                                 | List<String>
+**listDisabled()** | Return list of values of disabled options                                | List<String>
+**isEnabled()** | Check that '{name}' is enabled                                           | boolean
+**isDisplayed()** | Check that '{name}' is displayed                                         | boolean
+**isExpanded()** | Return if element expanded                                               | boolean
+**isCollapsed()** | Checks whether element is collapsed                                      | boolean
+**is()** | Returns DropdownAssert class                                             | DropdownAssert
+**getStartIndex()** | Returns start index                                                      | int
+**setStartIndex()** | Sets start index                                                         | void
+**select(String/int)** | Select combobox option by value or index                                 | void
+**selected()** | Get selected option value                                                | String
+**values()** | Get all option values from combobox                                      | List<String>
 
 Here is the list of some methods available for C# in JDI Light:
 
@@ -3433,9 +3520,9 @@ Here is the list of some methods available for C# in JDI Light:
 **is()** |  Returns object for work with assertions| ComboBoxAssert
 **Select(string/int)** |Select combobox by value/index  | void
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/combobox/IsComboboxTests.java" target="_blank">Test examples in Java</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/combobox/DataListTests.java" target="_blank">Test examples in Java</a>
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java" target="_blank">Test examples in C#</a>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#combobox-2)
 

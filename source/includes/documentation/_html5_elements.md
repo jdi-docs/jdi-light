@@ -3292,7 +3292,7 @@ Here is the list of available methods/asserts in Java:
 **select(String)** | Selects the value based on its visible text | void
 **select(int)** | Selects the value based on its index        | void
 **assertThat()** | Returns object for work with assertions     | SelectAssert
-**check(String/Strings.../TEnum.../int...)** | Select multiselector by values              | void
+**check(String/String.../TEnum.../int...)** | Select multiselector by values              | void
 **checked()** | Get selected values                         | List<String>
 **is()** | Returns object for work with assertions     | UIMSelectAssert<?,?>
 **values()** | Get the elements values                     | List<String>

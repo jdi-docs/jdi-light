@@ -8468,33 +8468,93 @@ MultiSelector is represented by the following class:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><strong>select(String)</strong></td>
+<td>Selects the value based on its visible text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select(int)</strong></td>
+<td>Selects the value based on its index</td>
+<td>void</td>
+</tr>
+<tr>
 <td><strong>assertThat()</strong></td>
 <td>Returns object for work with assertions</td>
 <td>SelectAssert</td>
 </tr>
 <tr>
-<td><strong>check(String/Strings.../TEnum...)</strong></td>
+<td><strong>check(String/String.../TEnum.../int...)</strong></td>
 <td>Select multiselector by values</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>checked()</strong></td>
 <td>Get selected values</td>
-<td>List&lt;String&gt;</td>
+<td>List<String></td>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
 <td>Returns object for work with assertions</td>
-<td>SelectAssert</td>
+<td>UIMSelectAssert&lt;?,?&gt;</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Get the elements values</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>values(TextTypes)</strong></td>
+<td>Get the elements values</td>
+<td>List<String></td>
 </tr>
 <tr>
 <td><strong>selected()</strong></td>
-<td>Get selected values</td>
+<td>Get selected element value by name</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>uncheck(Strings.../TEnum.../int)</strong></td>
+<td><strong>selected(String)</strong></td>
+<td>Checks if element selected by name</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>listEnabled()</strong></td>
+<td>Get the list of enabled elements</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>listDisabled()</strong></td>
+<td>Get the list of disabled elements</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>setValue(String)</strong></td>
+<td>Sets element value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Gets element value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getStartIndex()</strong></td>
+<td>Returns start index</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>SetStartIndex(int)</strong></td>
+<td>Sets start index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck(String.../TEnum.../int...)</strong></td>
 <td>Select multiselector by values/indices</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheckAll()</strong></td>
+<td>Unchecks all elements</td>
 <td>void</td>
 </tr>
 </tbody></table>

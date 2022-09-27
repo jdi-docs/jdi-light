@@ -3287,14 +3287,26 @@ Here is a list of available methods and properties in C#:
 
 Here is the list of available methods/asserts in Java:
 
-|Method | Description | Return Type
---- | --- | ---
-**assertThat()** | Returns object for work with assertions| SelectAssert
-**check(String/Strings.../TEnum...)** |Select multiselector by values | void
-**checked()** |Get selected values  | List\<String>
-**is()** |  Returns object for work with assertions| SelectAssert
-**selected()** |Get selected values  | String
-**uncheck(Strings.../TEnum.../int)** |Select multiselector by values/indices  | void
+|Method | Description                                 | Return Type
+--- |---------------------------------------------| ---
+**select(String)** | Selects the value based on its visible text | void
+**select(int)** | Selects the value based on its index        | void
+**assertThat()** | Returns object for work with assertions     | SelectAssert
+**check(String/String.../TEnum.../int...)** | Select multiselector by values              | void
+**checked()** | Get selected values                         | List<String>
+**is()** | Returns object for work with assertions     | UIMSelectAssert<?,?>
+**values()** | Get the elements values                     | List<String>
+**values(TextTypes)** | Get the elements values                     | List<String>
+**selected()** | Get selected element value by name          | String
+**selected(String)** | Checks if element selected by name          | boolean
+**listEnabled()** | Get the list of enabled elements            | List<String>
+**listDisabled()** | Get the list of disabled elements           | List<String>
+**setValue(String)** | Sets element value                          | void
+**getValue()** | Gets element value                          | String
+**getStartIndex()** | Returns start index                         | int
+**SetStartIndex(int)** | Sets start index                            | void
+**uncheck(String.../TEnum.../int...)** | Select multiselector by values/indices      | void
+**uncheckAll()** | Unchecks all elements                       | void
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java" target="_blank">Test examples in Java</a>
 

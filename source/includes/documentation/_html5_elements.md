@@ -3073,87 +3073,260 @@ The list of some methods available for C# in JDI Light:
 
 Checklist element type is available in the following packages:
 
-- __Java__: com.epam.jdi.light.ui.html.complex.Checklist
-- __C__#: JDI.Light.Elements.Complex.CheckList
+- __Java__: _com.epam.jdi.light.elements.complex.CheckList_
+- __C__#: _JDI.Light.Elements.Complex.CheckList_
 
 See an example with HTML code describing checklist element.
 
 ![Checklist Example](../../images/html/checklist_html2.png)
 
 ```java 
-//@FindBy(name = "checks-group")
-@UI("[name=checks-group]") public static Checklist weather;
-public static Checklist weatherNoLocator;
 
-@Test
-public void checkTest() {
-    weather.check("Rainy day", "Sunny");
-    weather.is().checked(hasSize(2));
-    weather.is().checked(hasItems("Rainy day", "Sunny"));
-}
+  //@FindBy(name = "checks-group")
+  @UI("[name=checks-group]")
+  public static Checklist weather;
 
-@Test
-public void assertValidationTest() {
-    weather.assertThat().values(containsInAnyOrder(
-      "Hot option", "Cold", "Rainy day", "Sunny", "Disabled"));
-    weatherNoLocator.assertThat().selected("Hot option");
-}
+  @Test
+  public void getValueTest() {
+      assertEquals(weather.getValue(), "Hot option");
+  }
+
+  @Test
+  public void checkTest() {
+      weather.check("Cold");
+      assertEquals(weather.checked(), asList("Cold"));
+  }
+
+  @Test
+  public void checkTwoTest() {
+      weather.check("Cold", "Hot option");
+      assertEquals(weather.checked(), asList("Hot option", "Cold"));
+  }
+
+  @Test
+  public void uncheckTest() {
+      weather.check("Rainy day", "Sunny");
+      weather.uncheck("Rainy day");
+      weather.is().checked(hasSize(3));
+      weather.is().checked(hasItems("Hot option", "Cold", "Sunny"));
+  }
+
+  @Test
+  public void uncheckTwoTest() {
+      weather.check("Rainy day", "Sunny");
+      weather.uncheck("Rainy day", "Sunny");
+      weather.is().checked(hasSize(2));
+      weather.is().checked(hasItems("Hot option", "Cold"));
+  }
+
+  @Test
+  public void selectTest() {
+      weather.select("Cold");
+      assertEquals(weather.checked(), asList("Hot option", "Cold"));
+  }
+
+  @Test
+  public void selectTwoTest() {
+      weather.select("Cold", "Hot option");
+      assertEquals(weather.checked(), asList("Cold"));
+  }
+
+  @Test
+  public void checkEnumTest() {
+      weather.check(Cold);
+      assertEquals(weather.checked(), asList("Cold"));
+  }
+
+  @Test
+  public void checkEnumTwoTest() {
+      weather.check(Cold, Hot);
+      assertEquals(weather.checked(), asList("Hot option", "Cold"));
+  }
+
+  @Test
+  public void uncheckEnumTest() {
+      weather.check("Rainy day", "Sunny");
+      weather.uncheck(Rainy);
+      weather.is().checked(hasSize(3));
+      weather.is().checked(hasItems("Hot option", "Cold", "Sunny"));
+  }
+
+  @Test
+  public void uncheckEnumTwoTest() {
+      weather.check("Rainy day", "Sunny");
+      weather.uncheck(Rainy, Sunny);
+      weather.is().checked(hasSize(2));
+      weather.is().checked(hasItems("Hot option", "Cold"));
+  }
+
+  @Test
+  public void selectEnumTest() {
+      weather.select(Cold);
+      assertEquals(weather.checked(), asList("Hot option", "Cold"));
+  }
+
+  @Test
+  public void selectEnumTwoTest() {
+      weather.select(Cold, Hot);
+      assertEquals(weather.checked(), asList("Cold"));
+  }
+
+  @Test
+  public void checkNumTest() {
+      weather.check(ELEMENT.startIndex + 3);
+      assertEquals(weather.checked(), asList("Sunny"));
+  }
+
+  @Test
+  public void checkNumTwoTest() {
+      weather.check(ELEMENT.startIndex, ELEMENT.startIndex + 3);
+      assertEquals(weather.checked(), asList("Hot option", "Sunny"));
+  }
+
+  @Test
+  public void uncheckNumTest() {
+      weather.checkAll();
+      weather.uncheck(ELEMENT.startIndex);
+      weather.is().checked(hasSize(3));
+      weather.is().checked(hasItems("Cold", "Rainy day", "Sunny"));
+  }
+
+  @Test
+  public void uncheckNumTwoTest() {
+      weather.checkAll();
+      weather.uncheck(ELEMENT.startIndex, ELEMENT.startIndex + 3);
+      weather.is().checked(hasSize(2));
+      weather.is().checked(hasItems("Cold", "Rainy day"));
+  }
+
+  @Test
+  public void selectNumTest() {
+      weather.select(ELEMENT.startIndex + 3);
+      assertEquals(weather.checked(), asList("Hot option", "Sunny"));
+  }
+
+  @Test
+  public void selectNumTwoTest() {
+      weather.select(ELEMENT.startIndex, ELEMENT.startIndex + 3);
+      assertEquals(weather.checked(), asList("Sunny"));
+  }
+
+  @Test
+  public void selectedTest() {
+      assertEquals(weather.selected(), "Hot option");
+  }
+
+  @Test
+  public void disabledTest() {
+      try {
+          weather.select("Disabled");
+          fail("Click on disabled element should throw exception");
+      } catch (Exception ex) {
+          assertThat(ex.getMessage(), containsString("Can't perform click. Element is disabled"));
+      }
+      assertEquals(weather.selected(), "Hot option");
+  }
+
+  @Test
+  public void isValidationTest() {
+      weather.is().displayed().selected("Hot option");
+      weather.is().selected(Hot);
+      weather.assertThat().values(hasItem("Sunny"))
+              .disabled(hasItem("Disabled"))
+              .enabled(not(hasItem("Disabled")))
+              .enabled(hasItems("Cold", "Sunny"));
+  }
+
+  @Test
+  public void assertValidationTest() {
+      weather.assertThat().values(containsInAnyOrder(
+              "Hot option", "Cold", "Rainy day", "Sunny", "Disabled"));
+      checksGroup.assertThat().selected("Hot option");
+  }
+
+  @Test
+  public void uncheckAllTest() {
+      weather.check(Rainy, Sunny);
+      weather.uncheckAll();
+      weather.is().checked(hasSize(0));
+  }
+
+  @Test
+  public void checkAllTest() {
+      weather.checkAll();
+      weather.is().checked(hasSize(4));
+      weather.is().checked(hasItems("Hot option", "Cold", "Rainy day", "Sunny"));
+  }
+
+  @Test
+  public void setNullValueTest() {
+      String value = weather.getText();
+      weather.setValue(null);
+      weather.has().text(value);
+  }
+
+  @Test
+  public void selectNullTest() {
+      String optionName = null;
+      weather.select(optionName);
+      weather.has().text("Hot option");
+  }
 ```
 ```csharp 
-[FindBy(Css = "div:nth-child(11) > div.html-left")]
-public ICheckList weather;
-
-[FindBy(Css = "div:nth-child(11) > div.html-left")]
-public ICheckList<MyCheckBox> genericWeather;
-
-[Test]
-public void CheckCheckList()
-{
-    weather.Check("Cold", "Hot option");
-    Jdi.Assert.CollectionEquals(new[] { "Cold", "Hot option" }, weather.Checked());
-}
-
-[Test]
-public void UncheckTest()
-{
-    _weather.Check(false, "Rainy day", "Sunny");
-    _weather.Uncheck(false, "Rainy day", "Sunny");
-    _weather.Is.Selected(HasSize(2));
-    _weather.Is.Selected(HasItems(new[] { "Hot option", "Cold" }));
-}
-
-[Test]
-public void IsValidationTests()
-{
-    weather.AssertThat
-                .Values(HasItems(new[] {"Cold", "Sunny"}))
-                .Disabled(HasItems(new[] {"Disabled"}))                
-                .Size(Is.LessThan(6))
-                .AllDisplayed();
-}
-
-[Test]
-public void UncheckAllTest()
-{
-    _weather.Uncheck(false, "Rainy day", "Sunny");
-    _weather.UncheckAll();
-    _weather.Is.Selected(HasSize(0));
-}
-
-[Test]
-public void CheckAllTest()
-{
-    _weather.CheckAll();
-    _weather.Is.Selected(HasSize(4));
-    _weather.Is.Selected(HasItems(new[] { "Hot option", "Cold", "Rainy day", "Sunny" }));
-}
-
-[Test]
-public void IsDisabledTest()
-{
-    _weather.Select(false, "Disabled");
-    _weather.Is.Selected(HasItems(new [] { "Hot option" } ));
-}
+  [FindBy(Css = "div:nth-child(11) > div.html-left")]
+  public ICheckList weather;
+  
+  [FindBy(Css = "div:nth-child(11) > div.html-left")]
+  public ICheckList<MyCheckBox> genericWeather;
+  
+  [Test]
+  public void CheckCheckList()
+  {
+      weather.Check("Cold", "Hot option");
+      Jdi.Assert.CollectionEquals(new[] { "Cold", "Hot option" }, weather.Checked());
+  }
+  
+  [Test]
+  public void UncheckTest()
+  {
+      _weather.Check(false, "Rainy day", "Sunny");
+      _weather.Uncheck(false, "Rainy day", "Sunny");
+      _weather.Is.Selected(HasSize(2));
+      _weather.Is.Selected(HasItems(new[] { "Hot option", "Cold" }));
+  }
+  
+  [Test]
+  public void IsValidationTests()
+  {
+      weather.AssertThat
+                  .Values(HasItems(new[] {"Cold", "Sunny"}))
+                  .Disabled(HasItems(new[] {"Disabled"}))                
+                  .Size(Is.LessThan(6))
+                  .AllDisplayed();
+  }
+  
+  [Test]
+  public void UncheckAllTest()
+  {
+      _weather.Uncheck(false, "Rainy day", "Sunny");
+      _weather.UncheckAll();
+      _weather.Is.Selected(HasSize(0));
+  }
+  
+  [Test]
+  public void CheckAllTest()
+  {
+      _weather.CheckAll();
+      _weather.Is.Selected(HasSize(4));
+      _weather.Is.Selected(HasItems(new[] { "Hot option", "Cold", "Rainy day", "Sunny" }));
+  }
+  
+  [Test]
+  public void IsDisabledTest()
+  {
+      _weather.Select(false, "Disabled");
+      _weather.Is.Selected(HasItems(new [] { "Hot option" } ));
+  }
 ```
 
 ```html
@@ -3175,22 +3348,24 @@ public void IsDisabledTest()
 
 List of available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**assertThat()** | Get select assert | selectAssert
-**check(String.../Enum/int...)** | Check specified checkboxes and uncheck others | void
-**checkAll()** | Check all checkboxes in checklist | void
-**checked()** | Get selected checkbox values | List\<String>
-**has()** | Get select assert | selectAssert
-**is()** | Get select assert | selectAssert
-**listEnabled()** | Get enabled checkboxes | List\<String>
-**listDisabled()** | Get disabled checkboxes | List\<String>
-**selected()** | Get selected checkbox values | String
-**select(String.../Enum/int...)** | Select checkboxes | void
-**size()** | Get checklist size | int
-**uncheck(String.../Enum/int...)** | Uncheck specified checkboxes and check others  | void
-**uncheckAll()** | Uncheck all checkboxes in checklist | void
-**values()** | Get checklist values | List\<String>
+|Method | Description                                                               | Return Type
+--- |---------------------------------------------------------------------------| ---
+**list()** | Returns a WebList item representing a list of available Checklist options | WebList
+**isDisplayed()** | Check that Checklist is displayed                                         | boolean
+**check(String.../TEnum/TEnum.../int/int...)** | Check specified checkboxes and uncheck others                             | void
+**checkAll()** | Check all checkboxes in checklist                                         | void
+**checked()** | Get selected checkbox values                                              | List<String>
+**is()** | Get select assert                                                         | ChecklistAssert
+**listEnabled()** | Get enabled checkboxes                                                    | List<String>
+**listDisabled()** | Get disabled checkboxes                                                   | List<String>
+**selected(UIElement/String)** | Get selected checkbox values                                              | boolean
+**selected()** | Get '{name}' selected option                                              | String
+**select(String.../TEnum/TEnum.../int/String/int...)** | Select checkboxes                                                         | void
+**uncheck(String.../TEnum/TEnum.../int.../int)** | Uncheck specified checkboxes and check others                             | void
+**uncheckAll()** | Uncheck all checkboxes in checklist                                       | void
+**setValue(String)** | Sets the value                                                            | void
+**getStartIndex()** | Returns start index                                                       | int
+**setStartIndex(int)** | Set start index                                                           | void
 
 Here is the list of some methods available for C# in JDI Light:
 

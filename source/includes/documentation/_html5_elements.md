@@ -82,7 +82,6 @@ Available methods in C# JDI Light:
 
 [BDD Steps examples](https://jdi-docs.github.io/jdi-light/?java#label-2)
 
-
 #### 1.1.2 Button
 
 ```java 

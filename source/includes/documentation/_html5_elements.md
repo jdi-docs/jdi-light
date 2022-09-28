@@ -2749,23 +2749,21 @@ JDI Light provides a MultiSelector class which is using for MultiDropdown repres
 
     @Test
     public void selectTest() {
+        skipForFirefox();
         multiDropdown.check("Electro", "Metalic");
-        multiDropdown.checked().equals(asList("Electro", "Metalic"));
-        multiDropdown.is().selected("Electro");
-        multiDropdown.uncheck("Metalic");
-        multiDropdown.checked().equals(asList("Electro"));
+        assertEquals(multiDropdown.checked(), asList("Electro", "Metalic"));
     }
 
     @Test
     public void disabledTest() {
-        multiDropdown.check("Steam");
+        skipForFirefox();
         multiDropdown.select("Disabled");
-        multiDropdown.is().selected("Steam");
+        assertEquals(multiDropdown.selected(), "Steam");
     }
 
     @Test
     public void labelTest() {
-        multiDropdown.label().is().text("Multi dropdown:");
+        assertEquals(multiDropdown.label().getText(), "Multi dropdown:");
         multiDropdown.label().is().text(containsString("Multi"));
     }
 
@@ -2773,11 +2771,10 @@ JDI Light provides a MultiSelector class which is using for MultiDropdown repres
     public void isValidationTest() {
         multiDropdown.is().selected("Steam");
         multiDropdown.is().selected(Steam);
-        multiDropdown.assertThat().values(hasItem("Steam"));
-        multiDropdown.shouldBe().value("Steam");
+        multiDropdown.assertThat().values(hasItem("Wood"));
         multiDropdown.assertThat().disabled(hasItem("Disabled"))
-                .enabled(not(hasItem("Disabled")))
-                .enabled(hasItems("Electro", "Metalic"));
+            .enabled(not(hasItem("Disabled")))
+            .enabled(hasItems("Electro", "Metalic"));
     }
 ```
 
@@ -2843,53 +2840,80 @@ public void BaseValidationTest()
 
 ```html
 <span class="multiselect-native-select">
-    <select id="multi-dropdown" multiple="multiple">
-         <option value="electro">Electro</option>
-         <option value="steam" selected="">Steam</option>
-         <option value="metalic">Metalic</option>
-         <option value="dis" disabled="">Disabled</option>
-         <option value="wood">Wood</option>
-    </select>
-    <div class="btn-group">
-        <button type="button" class="multiselect dropdown-toggle btn btn-default"
-                data-toggle="dropdown" title="Steam">
-            <span class="multiselect-selected-text">Steam</span>
-            <b class="caret"></b>
-        </button>
-        <ul class="multiselect-container dropdown-menu">
-            <li><a tabindex="0"><label class="checkbox" title="Electro"><input
-                    type="checkbox" value="electro"> Electro</label></a></li>
-            <li class="active"><a tabindex="0"><label class="checkbox" title="Steam">
-                <input type="checkbox" value="steam"> Steam</label></a></li>
-            <li><a tabindex="0"><label class="checkbox" title="Metalic">
-                <input type="checkbox" value="metalic"> Metalic</label></a></li>
-            <li class="disabled"><a tabindex="-1"><label class="checkbox" title="Disabled">
-                <input type="checkbox" value="dis" disabled=""> Disabled</label></a></li>
-            <li><a tabindex="0"><label class="checkbox" title="Wood">
-                <input type="checkbox" value="wood"> Wood</label></a></li>
-        </ul>
-    </div>
+   <select id="multi-dropdown" multiple="multiple">
+      <option value="electro">Electro</option>
+      <option value="steam" selected="">Steam</option>
+      <option value="metalic">Metalic</option>
+      <option value="dis" disabled="">Disabled</option>
+      <option value="wood">Wood</option>
+   </select>
+   <div class="btn-group">
+      <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="Steam">
+      <span class="multiselect-selected-text">Steam</span>
+      <b class="caret"/>
+      </button>
+      <ul class="multiselect-container dropdown-menu">
+         <li>
+            <a tabindex="0">
+            <label class="checkbox" title="Electro">
+            <input type="checkbox" value="electro"> Electro</label>
+            </a>
+         </li>
+         <li class="active">
+            <a tabindex="0">
+            <label class="checkbox" title="Steam">
+            <input type="checkbox" value="steam"> Steam</label>
+            </a>
+         </li>
+         <li>
+            <a tabindex="0">
+            <label class="checkbox" title="Metalic">
+            <input type="checkbox" value="metalic"> Metalic</label>
+            </a>
+         </li>
+         <li class="disabled">
+            <a tabindex="-1">
+            <label class="checkbox" title="Disabled">
+            <input type="checkbox" value="dis" disabled=""> Disabled</label>
+            </a>
+         </li>
+         <li>
+            <a tabindex="0">
+            <label class="checkbox" title="Wood">
+            <input type="checkbox" value="wood"> Wood</label>
+            </a>
+         </li>
+      </ul>
+   </div>
 </span>
 ```
 
 MultiDropdown are represented by the following classes:
 
-- __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
+- __Java__: _com.epam.jdi.light.ui.html.elements.complex.MultiSelector_
 - __C#__: _JDI.Light.Elements.Composite.MultiDropdown_
 
 The list of methods available for Java in JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**assertThat()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
-**check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
-**checked()** | Get selected values | List\<String>
-**has()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
-**is()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
-**selected()** | Get selected value by default | String
-**shouldBe()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
-**uncheck(String.../Enum.../int...)** | Deselect values in multi dropdown | void
-**waitFor()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+|Method | Description                                                | Return Type
+--- |------------------------------------------------------------| ---
+**list()** | locator representing list options                          | WebList
+**select(String/int)** | Selects the value based on its visible text/index          | WebList
+**check(String/String.../TEnum.../int...)** | Check that only particular elements are selected           | void
+**checked()** | Get checked elements                                       | List<String>
+**is()** | Applicable for performing assert actions for MultiDropdown | UIMSelectAssert
+**selected()** | Get selected value                                         | String
+**selected(String)** | Get selected value                                         | boolean
+**values()** | Get the elements values                                    | List<String>
+**values(TextTypes)** | Get the elements values                                    | List<String>
+**listEnabled()** | Get the list of enabled elements                           | List<String>
+**listDisabled()** | Get the list of disabled elements                          | List<String>
+**setValue()** | Sets element value                                         | void
+**getValue()** | Gets element value                                         | String
+**getStartIndex()** | Gets start index                                           | int
+**setStartIndex(int)** | Sets start index                                           | void
+**unckeckAll(String)** | Uncheck all selected elements                              | void
+**uncheck(String.../TEnum.../int.../String)** | Unchecks particular elements by index/name                 | void
 
 Here is the list of some methods available for C# in JDI Light:
 

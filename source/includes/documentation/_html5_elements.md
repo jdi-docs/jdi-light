@@ -4,10 +4,8 @@
 #### 1.1.1 Label
 
 ```java 
-  //In the following test 'name' is used to define locator
-   
-  // @FindBy(xpath = "//label[@for='#name']")
-  @UI("//label[@for='#name']") 
+  // @FindBy(xpath = "//label[@for='your-name']")
+  @UI("//label[@for='your-name']") 
   
   public static TextField yourName;
 	
@@ -18,6 +16,32 @@
       disabledName.label().is().text(equalToIgnoringCase("Surname:"));
   }
  ```
+
+```csharp 
+  	
+ In the next test Label is found from NameTextField locator:
+  
+ [FindBy(Css = "div.main-content #name")]
+ public TextField NameTextField { get; set; }
+	
+ By default, Label is found by locator By.CssSelector($"[for={WebElement.GetAttribute("id")}]")
+
+ [Test] 
+ public void LabelTest() 
+ { 
+     Assert.AreEqual(TestSite.Html5Page.NameTextField.Label().GetText(), "Your name:");
+     TestSite.Html5Page.NameTextField.Label().Is.Text(ContainsString("Your"));
+     Assert.AreEqual(TestSite.Html5Page.SurnameTextField.Label().GetText(), "Surname:");
+     TestSite.Html5Page.SurnameTextField.Label().Is.Text(ContainsString("Surname:")); 
+ }	 
+	
+ [Test] 
+ public void GetLabelTextTest() 
+ { 
+     AreEqual(TestSite.Html5Page.ColorPicker.LabelText(), "Select a color"); 
+ } 
+ 
+  ```
 
 **Label** — Defines a label for an ```<input>``` control.
 
@@ -32,7 +56,7 @@
 </form>
 ```
 
-Available methods inJDI Light:
+Available methods in JDI Light:
 
 |Method | Description                         | Return Type
 --- |-------------------------------------| --- 

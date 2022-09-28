@@ -85,34 +85,20 @@ Available methods in C# JDI Light:
 #### 1.1.2 Button
 
 ```java 
-@UI("[value*='Red Button']") // @FindBy(css = "[value*='Red Button']")
+@UI("[value*='Red Button']") 
+// @FindBy(css = "[value*='Red Button']")
 public static Button redButton;
 
 @Test
-public void buttonTest() {
-   redButton.is().text(text);
-   redButton.assertThat().displayed()
-         .and().text(is(text))
-         .core()
-         .css("font-size", is("14px"))
-         .cssClass("uui-button red")
-         .attr("type", "button")
-         .tag(is("input"));
-}
+public void clickTest() {
+    redButton.click();
+    validateAndAcceptAlert("Red button");
 
-@Test
-public void buttonAssertThatTest() {
-   redButton.assertThat().text(is(text));
-}
-
-@Test
-public void buttonClickTest() {
-   redButton.click();
-   validateAlert(containsString("Red button"));
-   dblClickButton.doubleClick();
-   validateAlert(containsString("Double Click"));
+    blueButton.click();
+    validateAndAcceptAlert("Blue button");
 }
 ```
+
 ```csharp
 
 [FindBy(Css = ".red")]
@@ -133,47 +119,27 @@ public void GetTextTest()
 }
 
 ```
-**Button** — Element that represents a clickable button.
+**Button** — The ```<button>``` tag is used to create clickable buttons on the web page
 
 ![Button](../../images/button.png)
 
+
+Here is an example with provided HTML code:
 ```html 
-<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" 
-ondblclick="alert('Double Click');" oncontextmenu="alert('Right Click');">Red button</button>
+<input type="button" value="Big Red Button-Input" class="uui-button red" onclick="alert('Red button');">
 ```
-
-```h
-<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" 
-ondblclick="alert('Double Click');" oncontextmenu="alert('Right Click');">Red button</button>
-
 
 Button is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.Button_
   - __C#__: _JDI.Light.Elements.Common.Button_
 
-
-Here is an example with provided HTML code:
-
-<!-- ![Button example](../../images/html/button_html.png) -->
-
-```html
-<input type="button" value="Big Red Button-Input" 
-class="uui-button red" onclick="alert('Red button');">
-```
-
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**assertThat()** | Assert action | TextAssert
-**click()** | Click the button  | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ButtonTests.java" target="_blank">Java test examples</a>
-<br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)
+|Method | Description        | Return Type
+--- |--------------------| ---
+**getValue()** | Get button's value | String
+**is()** | Assert action      | TextAssert
 
 Available methods and properties in C# JDI Light:
 
@@ -184,6 +150,8 @@ Available methods and properties in C# JDI Light:
 **GetText()** | Get button text | string
 **Is** | Assert action | TextAssert
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ButtonTests.java" target="_blank">Java test examples</a>
+<br>
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ButtonTests.cs" target="_blank">C# test examples</a>
 <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)

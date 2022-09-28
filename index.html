@@ -3357,38 +3357,17 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
      <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Gold"</span><span class="o">);</span>  <span class="c1">// will wait 1 second after select </span>
      <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorValue</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Gold"</span><span class="o">)</span> <span class="c1">// will wait 3 seconds after getText </span>
    <span class="o">}</span>
-</code></pre><h2 id='1-html5-elements'>1. HTML5 elements</h2><h3 id='1-1-html5-common-elements'>1.1 HTML5 Common elements</h3><h4 id='1-1-1-label'>1.1.1 Label</h4><pre class="highlight java tab-java"><code>
-  <span class="c1">//In the following test, 'name' and 'disabledName' labels are found by utilizing their element locators:</span>
+</code></pre><h2 id='1-html5-elements'>1. HTML5 elements</h2><h3 id='1-1-html5-common-elements'>1.1 HTML5 Common elements</h3><h4 id='1-1-1-label'>1.1.1 Label</h4><pre class="highlight java tab-java"><code>  <span class="c1">// @FindBy(xpath = "//label[@for='your-name']")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//label[@for='your-name']"</span><span class="o">)</span> 
 
-  <span class="c1">// @FindBy(css = "#name")</span>
-  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> 
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
-
-  <span class="c1">// @FindBy(css = "#disabled-name")</span>
-  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#disabled-name"</span><span class="o">)</span> 
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">disabledName</span><span class="o">;</span>
-
-  <span class="c1">//By default, Label locator is constructed like this: </span>
-  <span class="n">By</span><span class="o">.</span><span class="na">cssSelector</span><span class="o">(</span><span class="s">"[for="</span><span class="o">+</span><span class="n">getAttribute</span><span class="o">(</span><span class="s">"id"</span><span class="o">)+</span><span class="s">"]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">yourName</span><span class="o">;</span>
 
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Your name:"</span><span class="o">);</span>
-      <span class="n">name</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Your"</span><span class="o">));</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">yourName</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Your name:"</span><span class="o">);</span>
+      <span class="n">yourName</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Your"</span><span class="o">));</span>
       <span class="n">disabledName</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"Surname:"</span><span class="o">));</span>
   <span class="o">}</span>
-
- <span class="nd">@Test</span>
- <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelAssertThatTest</span><span class="o">()</span> <span class="o">{</span>
-     <span class="n">jdiTitle</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
- <span class="o">}</span>
-
- <span class="nd">@Test</span>
- <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelClickTest</span><span class="o">()</span> <span class="o">{</span>
-     <span class="n">jdiTitle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-     <span class="n">validateAlert</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"JDI Title"</span><span class="o">));</span>
- <span class="o">}</span>
-
 </code></pre><pre class="highlight csharp tab-csharp"><code>
  <span class="n">In</span> <span class="n">the</span> <span class="n">next</span> <span class="n">test</span> <span class="n">Label</span> <span class="k">is</span> <span class="n">found</span> <span class="k">from</span> <span class="n">NameTextField</span> <span class="n">locator</span><span class="p">:</span>
 
@@ -3413,11 +3392,47 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
  <span class="p">}</span> 
 
 </code></pre>
-<p><strong>Label</strong> — Elements&#39; caption for a large number of JDI common elements.</p>
+<p><strong>Label</strong> — Defines a label for an <code>&lt;input&gt;</code> control.</p>
 
-<p><img src="images/colorpicker.png" alt="Label" /></p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"test"</span><span class="nt">&gt;</span>Description<span class="nt">&lt;/label&gt;</span>
+<p><img src="images/label.png" alt="Label" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"gender"</span> <span class="na">value=</span><span class="s">"male"</span> <span class="na">id=</span><span class="s">"male"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"male"</span><span class="nt">&gt;</span>Male<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"gender"</span> <span class="na">value=</span><span class="s">"female"</span> <span class="na">id=</span><span class="s">"female"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"female"</span><span class="nt">&gt;</span>Female<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
 </code></pre>
+<p>Available methods in JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setValue(String)</strong></td>
+<td>sets value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>gets value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns value. Overrided method of UIBaseElement</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+
 <p>Available methods in C# JDI Light:</p>
 
 <table><thead>
@@ -3459,9 +3474,9 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs" target="_blank">C# test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextFieldTests.java" target="_blank">Java test examples</a></p>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">Java test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs" target="_blank">C# test examples</a></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#label-2">BDD Steps examples</a></p>
 <h4 id='1-1-2-button'>1.1.2 Button</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[value*='Red Button']"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "[value*='Red Button']")</span>

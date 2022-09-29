@@ -2544,84 +2544,75 @@ Consider an example of HTML5 dropdown with the given HTML code:
 ![Dropdown HTML5](../../images/html/dropdown_html52.png)
 
 ```java 
-@JDropdown(root = "div[ui=dropdown]",
-    value = ".filter-option",
-    list = "li",
-    expand = ".caret")
-public static Dropdown colors2; //@FindBy(css = "div[ui=dropdown]")
+    @JDropdown(root = "div[ui=dropdown]",
+        value = ".filter-option",
+        list = "li",
+        expand = ".caret")
+    public static Dropdown colors2; //@FindBy(css = "div[ui=dropdown]")
 	
-@Test
-public void selectStringTest() {
-    colors2.select("Red");
-    colors2.is().selected("Red");
-}
+    @Test
+    public void selectStringTest() {
+         colors2.select("Red");
+         lastLogEntry.assertThat()
+             .text(containsString("Colors: value changed to Red"));
+    }
 
-@Test
-public void selectEnumTest() {
-    colors2.select(Green);
-    colors2.is().selected(Green);
-}
+    @Test
+    public void selectEnumTest() {
+        colors2.select(Green);
+        lastLogEntry.assertThat()
+            .text(containsString("Colors: value changed to Green"));
+    }
 
-@Test
-public void selectIndexTest() {
-    colors2.select(4);
-    colors2.is().selected(Blue);
-}
-
-@Test
-public void checkValuesTest() {
-    colors2.assertThat().size(5);
-    colors2.assertThat().values(is(dropdownValues));
-    colors2.is().values(hasItem("Yellow"));
-    colors2.is().values(not(hasItem("Missing color")));
-    colors2.is().enabled("Colors", "Red", "Green", "Blue", "Yellow");
-    colors2.is().values(INNER, hasItem("Yellow"));
-    colors2.assertThat().values(INNER, is(dropdownValues));
-    colors2.is().values(INNER, not(hasItem("Missing color")));
-}    
+    @Test
+    public void selectIndexTest() {
+        colors2.select(ELEMENT.startIndex + 3);
+        lastLogEntry.assertThat()
+            .text(containsString("Colors: value changed to Blue"));
+    }    
 ```
 
 ```csharp 
-[FindBy(Css = "#dress-code")] 
-public Dropdown DressCode;
-
-[Test]
-public void SelectEnumTest() 
-{
-    DressCode.Select(Fancy);
-    Assert.AreEquals(DressCode.GetSelected(), "Fancy");
-}
-
-[Test]
-public void LabelTest()
-{
-    AreEqual(TestSite.Html5Page.DressCode.Label().GetText(), "Dress code:");
-    TestSite.Html5Page.DressCode.Label().Is.Text(ContainsString("Dress"));
-}
-
-[Test]
-public void IsValidationTest()
-{
-    TestSite.Html5Page.DressCode.Is.Selected("Casual");
-    TestSite.Html5Page.DressCode.Is.Selected(DressCode.Casual);
-    TestSite.Html5Page.DressCode.Is.Values(HasItems(new[] { "Pirate" }));
-    TestSite.Html5Page.DressCode.Is.Disabled(HasItems(new[] { "Disabled" }));
-    TestSite.Html5Page.DressCode.Is.Enabled(HasItems(new[] { "Pirate", "Fancy" }));
-}
-
-[Test]
-public void AssertValidationTest()
-{
-    TestSite.Html5Page.DressCode.AssertThat.Values(
-    ContainsInAnyOrder(new[] {"Fancy", "Casual", "Disabled", "Pirate"}));
-}
-
-[Test]
-public void BaseValidationTest()
-{
-    BaseElementValidation(TestSite.Html5Page.DressCode);
-}
-
+    [FindBy(Css = "#dress-code")] 
+    public Dropdown DressCode;
+    
+    [Test]
+    public void SelectEnumTest() 
+    {
+        DressCode.Select(Fancy);
+        Assert.AreEquals(DressCode.GetSelected(), "Fancy");
+    }
+    
+    [Test]
+    public void LabelTest()
+    {
+        AreEqual(TestSite.Html5Page.DressCode.Label().GetText(), "Dress code:");
+        TestSite.Html5Page.DressCode.Label().Is.Text(ContainsString("Dress"));
+    }
+    
+    [Test]
+    public void IsValidationTest()
+    {
+        TestSite.Html5Page.DressCode.Is.Selected("Casual");
+        TestSite.Html5Page.DressCode.Is.Selected(DressCode.Casual);
+        TestSite.Html5Page.DressCode.Is.Values(HasItems(new[] { "Pirate" }));
+        TestSite.Html5Page.DressCode.Is.Disabled(HasItems(new[] { "Disabled" }));
+        TestSite.Html5Page.DressCode.Is.Enabled(HasItems(new[] { "Pirate", "Fancy" }));
+    }
+    
+    [Test]
+    public void AssertValidationTest()
+    {
+        TestSite.Html5Page.DressCode.AssertThat.Values(
+        ContainsInAnyOrder(new[] {"Fancy", "Casual", "Disabled", "Pirate"}));
+    }
+    
+    [Test]
+    public void BaseValidationTest()
+    {
+        BaseElementValidation(TestSite.Html5Page.DressCode);
+    }
+    
 ```
 
 ```html
@@ -2699,21 +2690,20 @@ JDropdown annotation consists of the following elements using which element inne
 
 Here is a list of some available methods:
 
-|Method | Description | Return Type
---- | --- | ---
-**assertThat()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
-**close()** | Close expanded before dropdown list | void
-**expand()** | Expand dropdown list | void
-**getValue()/getText()/getSelected()** | Return selected dropdown value | String
-**has()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
-**is()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
-**isExpanded()** | Show that dropdown element expanded | boolean
-**isDisplayed()** | Show\wait that dropdown element displayed on the screen | boolean
-**selected(String option)** | Check if option has been selected | boolean
-**setup(Field field)** | Setup the dropdown using specified fields | void
-**shouldBe()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
-**size()** | Return amount of elements in the list | int
-**waitFor()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
+|Method | Description                                                              | Return Type
+--- |--------------------------------------------------------------------------| ---
+**iCore()** |                                                                          | UIElement
+**list()** | Returns a WebList item representing a list of available Dropdown options | WebList
+**select(String/int)** | Select the specified element by the value                                | void
+**isDisplayed()** | Show\wait that dropdown element displayed on the screen                  | boolean
+**selected(String)** | Is 'String' selected                                                     | boolean
+**selected()** | Check that '{name}' is displayed                                         | String
+**values()** | Get '{name}' values                                                      | List<String>
+**getText()** | Gets element text                                                        | String
+**getValue()** | Gets element value                                                       | String
+**setValue(String)** | Sets element value                                                       | void
+**setup(Field field)** | Setup the dropdown using specified fields                                | void
+**size()** | Return amount of elements in the list                                    | int
 
 Available Assert methods in C#:
 

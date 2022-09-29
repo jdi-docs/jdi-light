@@ -2383,53 +2383,56 @@ able to perform a list of read-only interactions with this element in order to g
 DataTables are represented by the following classes in Java:
 
 ```java 
-@UI("#users-table") //@FindBy(id = "users-table")
-public static DataTable<PerformanceUserRow, PerformanceUserInfo> usersData;
-@JTable( root = "#users-table",
-        row = "//tr[%s]/td", column = "//tr/td[%s]",
-        cell = "//tr[{1}]/td[{0}]", allCells = "td",
-        headers = "th", header = {"Name", "Phone", "Email", "City"},
-        rowHeader = "Name", size = 4
-)
-public static DataTable<PerformanceUserRow, PerformanceUserInfo> usersDataSetup;
+  @UI("#users-table") 
+  //@FindBy(id = "users-table")
+  public static DataTable<UserRow, UserInfo> usersData;
+  @JTable(
+		  root = "#users-table",
+		  row = "//tr[%s]/td",
+		  column = "//tr/td[%s]",
+		  cell = "//tr[{1}]/td[{0}]",
+		  allCells = "td",
+		  headers = "th",
+		  header = {"Name", "Phone", "Email", "City"},
+	 	  rowHeader = "Name",
+		  size = 4
+	)
+  public static DataTable<UserRow, UserInfo> usersDataSetup;
+  
+  public static UserInfo GRADY_BROCK = new UserInfo().set(u-> {
+        u.name = "Grady Brock";
+        u.email = "cursus.et@commodo.org";
+        u.phone = "(011307) 16843";
+        u.city = "Alcobendas";
+  });
 
-@Test
-public void filterDataTest() {
-    assertEquals(usersDataSetup.dataRow("Grady Brock"), GRADY_BROCK);
-    assertEquals(usersDataSetup.dataRow(2), GRADY_BROCK);
-    usersDataSetup.assertThat().row(d -> d.name.contains("Brock"));
-    usersDataSetup.has().row(GRADY_BROCK);
-    usersDataSetup.assertThat().row(d -> d.equals(GRADY_BROCK));
-}
+  @Test
+  public void filterDataTest() {
+      assertEquals(usersData.dataRow(ELEMENT.startIndex + 1), GRADY_BROCK);
+      assertEquals(usersData.dataRow("Grady Brock"), GRADY_BROCK);
+      assertEquals(usersData.dataRow(d -> d.name.contains("Brock")), GRADY_BROCK);
+      usersData.assertThat().row(d -> d.equals(GRADY_BROCK));
+      usersData.has().row(GRADY_BROCK);
+  }
 
-@Test
-public void filterLinesTest() {
-    PerformanceUserRow line =  usersData.line(2);
-    validateUserRow(line);
-    line =  usersData.line("Grady Brock");
-    validateUserRow(line);
-    line =  usersData.line(d -> d.name.contains("Brock"));
-    validateUserRow(line);
-}
+  @Test
+  public void filterLinesTest() {
+      UserRow line =  usersData.line(ELEMENT.startIndex + 1);
+      validateUserRow(line);
+      line =  usersData.line("Grady Brock");
+      validateUserRow(line);
+      line =  usersData.line(d -> d.name.contains("Brock"));
+      validateUserRow(line);
+  }
 
-private void validateUserRow(PerformanceUserRow line) {
-    line.city.click();
-    validateAlert(is(GRADY_BROCK.city));
-    assertEquals(line.email.getText(), GRADY_BROCK.email);
-}
+  private void validateUserRow(UserRow line) {
+      line.city.click();
+      Alerts.validateAndAcceptAlert(is(GRADY_BROCK.city));
+      assertEquals(line.email.getText(), GRADY_BROCK.email);
+  }
 
-@Test
-public void rowMatcherChainTest() {
-    usersDataSetup.assertThat()
-            .all().rows(d -> d.name.length() > 4)
-            .no().rows(d -> isBlank(d.phone))
-            .atLeast(2).rows(d -> d.name.contains("Sean"))
-            .exact(15).rows(d -> d.phone.contains("0800 1111"))
-            .exact(1).row(GRADY_BROCK);
-}
   ```
-
-- __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_
+- __Java__: _com.epam.jdi.light.elements.complex.table.DataTable_
 
 ![DataTable](../../images/html/tableHtml2.png)
 
@@ -2469,53 +2472,51 @@ Here is a list of available methods in Java (DataTable expand [Table](#table) cl
 
 In return types, column _"D"_ refers to the user data object and _"L"_ refers to the table line object.
 
-| Method | Description | Return Type|
---- | --- | ---
-**allData()** | Gets all section rows from the specified table | List\<D>
-**allLines()** | Gets all object rows from the specified table | List\<L>
-**data(Enum rowName)** | Returns a section of a table according to row name | D
-**data(int rowNum)** | Returns a section of a table according to row number | D
-**data(JFunc1<D, Boolean> matcher)** | Returns a section of a table according to matching row | D
-**data(Matcher<String> matcher, Column column)** | Returns a section of a table according to matching row and column | D
-**data(Pair<Matcher<String>,Column>...matchers)** | Returns a section of a table according to matching column | D
-**data(String rowName)** | Returns a section of a table according to row name | D
-**data(TableMatcher...matchers)** | Returns a section of a table according to matchers | D
-**datas(JFunc1<D, Boolean> matcher)** | Returns a list of sections of a table according to matchers | List\<D>
-**datas(JFunc1<D, Boolean> matcher, int amount)** | Returns a list of sections of a table according to matchers | List\<D>
-**datas(TableMatcher...matchers)** | Returns a list of sections of a table according to matchers | List\<D>
-**filterData(Matcher<String> matcher, Column column)** | Returns a list of sections of a table according to matching row and column | List\<D>
-**filterDatas(Pair<Matcher<String>,Column>...matchers)** | Returns a list of sections of a table according to matching column | List\<D>
-**filterLines(Matcher<String> matcher, Column column)** | Returns a list of objects of a table according to matching row and column | List\<L>
-**filterLines(Pair<Matcher<String>,Column>...matchers)** | Returns a list of objects of a table according to matching column | List\<L>
-**getValue()** | Returns string content of values for particular row, where values are separated by "&#124;" | String
-**getValue()** | Returns table content separated by "&#124;" | String
-**line(Enum rowName)** | Returns an object of a table according to row name | L
-**line(int rowNum)** | Returns an object of a table according to row number | L
-**line(JFunc1<D, Boolean> matcher)** | Returns an object of a table according to matching row | L
-**line(Matcher<String> matcher, Column column)** | Returns an object of a table according to matching row and column | L
-**line(Pair<Matcher<String>,Column>...matchers)** | Returns an object of a table according to matching column | L
-**line(String rowName)** | Returns an object of a table according to row name | L
-**line(TableMatcher...matchers)** | Returns an object of a table according to matchers | L
-**lines(JFunc1<D, Boolean> matcher)** | Returns a list of objects of a table according to matchers | List\<L>
-**lines(TableMatcher...matchers)** | Returns a list of objects of a table according to matchers | List\<L>
-**offCache()** | Turns off cache usage | void
-**refresh()** | Clears all data and lines | void
-**setup(Field field)** | Sets up the table using specified fields | void
+| Method | Description                                                                 | Return Type|
+--- |-----------------------------------------------------------------------------| ---
+**dataRow(int)** | Get table row by the row number                                             | D
+**allData()** | Get all table rows                                                          | List<D>
+**allData(MapArray<String, MapArray<String, UIElement>>)** | Get all table rows                                                          | List<D>
+**allLines()** | Gets all object rows from the specified table                               | List<L>
+**allLines(MapArray<String, MapArray<String, UIElement>>)** | Gets all object rows from the specified table                               | List<L>
+**columnValues(String, Class<C>)** | Returns column values                                                       | <C extends HasValue> List<C>
+**dataRow(String)** | Get table row by the row name                                               | D
+**dataRow(Enum<?>)** | Get table row by the row name                                               | D
+**dataRow(Matcher<String>,Column)** | Get table row that match criteria in column                                 | D
+**dataRow(ColumnMatcher...)** | Get first table row that match criteria                                     | D
+**dataRow(JFunc1<D, Boolean>)** | Get first table row that match criteria                                     | D
+**dataRow(Pair<Matcher<String>, Column>...)** | Get table row that match criteria in column                                 | D
+**dataRows(JFunc1<D, Boolean>)** | Get all table rows that match criteria                                      | List<D>
+**dataRows(ColumnMatcher...)** | Get all table rows that match criteria                                      | List<D>
+**dataRows(JFunc1<D, Boolean>,int)** | Get at least a specified number of rows of the table that meet the criteria | List<D>
+**filterData(Matcher<String>,Column)** | Get table rows that match criteria in column                                | List<D>
+**filterDatas(Pair<Matcher<String>,Column>...)** | Get table rows that match criteria in column                                | List<D>
+**filterLines(Matcher<String>,Column)** | Get table rows that match criteria in column                                | List<L>
+**filterLines(Pair<Matcher<String>,Column>...)** | Get table rows that match criteria in column                                | List<L>
+**get(String)** | Returns values of the specified row                                         | D
+**getValue()** | Get table value                                                             | String
+**elements(int)** | Returns elements of table                                                   | List<D>
+**line(Enum<?>)** | Returns an object of a table according to row name                          | L
+**line(int)** | Returns an object of a table according to row number                        | L
+**line(JFunc1<D, Boolean>)** | Get first table row that match criteria                                     | L
+**line(Matcher<String>, Column)** | Get table row that match criteria in column                                 | L
+**line(Pair<Matcher<String>,Column>...)** | Get table row that match criteria in column                                 | L
+**line(ColumnMatcher...)** | Get first table row that match criteria                                     | L
+**line(String)** | Get table row by the row name                                               | L
+**lines(JFunc1<D, Boolean>)** | et first table row that match criteria                                      | List<L>
+**lines(ColumnMatcher...)** | Get all table rows that match criteria                                      | List<L>
+**offCache()** | Turns off cache usage                                                       | void
+**refresh()** | Clears all data and lines                                                   | void
+**setup(Field)** | Sets up the table using specified fields                                    | void
+**is()** | Returns object for work with assertions                                                      | DataTableAssert<L, D>
+**is(Matcher<? super List<D>>)** | Returns object for work with assertions                                                      | DataTableAssert<L, D>
+**assertThat(Matcher<? super List<D>>)** | Returns object for work with assertions                                                      | DataTableAssert<L, D>
+**verify(Matcher<? super List<D>>)** | Returns object for work with assertions                                                      | DataTableAssert<L, D>
 
-DataTableAssert methods in Java:
 
-| Method | Description | Return Type|
---- | --- | ---
-**assertThat()** | Applicable for performing assert actions for tables | DataTableAssert
-**has()** | Applicable for performing assert actions for tables | DataTableAssert
-**is()** | Applicable for performing assert actions for tables | DataTableAssert
-**shouldBe()** | Applicable for performing assert actions for tables | DataTableAssert
-**waitFor()** | Applicable for performing assert actions for tables | DataTableAssert
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/test-examples/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/DataTableTests.java" target="_blank">Test examples in Java</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### 1.2.4 Dropdown
 

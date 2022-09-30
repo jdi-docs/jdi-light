@@ -6244,7 +6244,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <p>Radio buttons are represented by the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.elements.RadioButtons</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.elements.complex.RadioButtons</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.RadioButtons</em></li>
 </ul>
 
@@ -6258,51 +6258,54 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Green"</span><span class="o">);</span>
-        <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
-        <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Green"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Green"</span><span class="o">);</span>
         <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Blue"</span><span class="o">);</span>
         <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Blue"</span><span class="o">);</span>
-        <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"Blue"</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">valuesTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">hasItems</span><span class="o">(</span><span class="s">"Red"</span><span class="o">,</span> <span class="s">"Green"</span><span class="o">,</span> <span class="s">"Blue"</span><span class="o">,</span> <span class="s">"Yellow"</span><span class="o">));</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">values</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Red"</span><span class="o">,</span> <span class="s">"Green"</span><span class="o">,</span> <span class="s">"Blue"</span><span class="o">,</span> <span class="s">"Yellow"</span><span class="o">));</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Blue"</span><span class="o">);</span>
+        <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">Blue</span><span class="o">);</span>
         <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">hasItem</span><span class="o">(</span><span class="s">"Yellow"</span><span class="o">));</span>
         <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">(</span><span class="n">hasItem</span><span class="o">(</span><span class="s">"Yellow"</span><span class="o">));</span>
         <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">(</span><span class="n">not</span><span class="o">(</span><span class="n">hasItem</span><span class="o">(</span><span class="s">"Yellow"</span><span class="o">)));</span>
         <span class="n">colors</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">(</span><span class="n">hasItems</span><span class="o">(</span><span class="s">"Green"</span><span class="o">,</span> <span class="s">"Blue"</span><span class="o">));</span>
+
+        <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Blue"</span><span class="o">);</span>
+        <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">Blue</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">colors</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">contains</span><span class="o">(</span><span class="s">"Red"</span><span class="o">,</span> <span class="s">"Green"</span><span class="o">,</span> <span class="s">"Blue"</span><span class="o">,</span> <span class="s">"Yellow"</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#colors")]</span> 
-<span class="k">public</span> <span class="n">IRadioButtons</span> <span class="n">MyRadioButtons</span><span class="p">;</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code>    <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#colors"</span><span class="p">)]</span> 
+    <span class="k">public</span> <span class="n">IRadioButtons</span> <span class="n">MyRadioButtons</span><span class="p">;</span>
 
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButton</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButtonByIndex</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelected</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
-    <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">Is</span><span class="p">().</span><span class="nf">Selected</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"some value"</span><span class="p">));</span> 
-    <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">Selected</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"some value"</span><span class="p">));</span>
-<span class="p">}</span>
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButton</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButtonByIndex</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelected</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
+        <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">Is</span><span class="p">().</span><span class="nf">Selected</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"some value"</span><span class="p">));</span> 
+        <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">Selected</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"some value"</span><span class="p">));</span>
+    <span class="p">}</span>
 </code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">id=</span><span class="s">"red"</span> <span class="na">name=</span><span class="s">"colors"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"red"</span><span class="nt">&gt;</span>Red<span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;br&gt;</span>
 

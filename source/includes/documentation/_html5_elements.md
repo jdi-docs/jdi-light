@@ -1938,7 +1938,7 @@ Here is the list of available methods in Java JDI Light:
 
 Radio buttons are represented by the following class:
 
-- __Java__: _com.epam.jdi.light.ui.html.complex.elements.RadioButtons_
+- __Java__: _com.epam.jdi.light.ui.html.elements.complex.RadioButtons_
 - __C#__: _JDI.Light.Elements.Complex.RadioButtons_
 
 Consider an example where each radio button has a particular color, described by the following HTML code:
@@ -1953,24 +1953,27 @@ Consider an example where each radio button has a particular color, described by
     @Test
     public void selectTest() {
         colors.select("Green");
-        colors.is().selected(Green);
-        colors.is().text("Green");
+        assertEquals(colors.getValue(), "Green");
         colorsNoLocator.select("Blue");
         colorsNoLocator.is().selected("Blue");
-        colors.is().value("Blue");
     }
 
     @Test
     public void valuesTest() {
-        colors.is().values(hasItems("Red", "Green", "Blue", "Yellow"));
+        assertEquals(colors.values(), asList("Red", "Green", "Blue", "Yellow"));
     }
 
     @Test
     public void isValidationTest() {
+        colors.is().selected("Blue");
+        colors.is().selected(Blue);
         colors.is().values(hasItem("Yellow"));
         colors.is().disabled(hasItem("Yellow"));
         colors.is().enabled(not(hasItem("Yellow")));
         colors.is().enabled(hasItems("Green", "Blue"));
+
+        colorsNoLocator.is().selected("Blue");
+        colorsNoLocator.is().selected(Blue);
     }
 
     @Test
@@ -1979,27 +1982,27 @@ Consider an example where each radio button has a particular color, described by
     }
 ```
 ```csharp 
-[FindBy(Css = "#colors")] 
-public IRadioButtons MyRadioButtons;
-
-[Test]
-public void SelectRadioButton() 
-{
-    MyRadioButtons.Select("some value");
-}
-[Test]
-public void SelectRadioButtonByIndex() 
-{
-    MyRadioButtons.Select(1);
-}
-[Test]
-public void GetSelected() 
-{
-    var selected = MyRadioButtons.GetSelected();
-    Assert.AreEqual(selected, "some value");
-	MyRadioButtons.Is().Selected(Is.EqualTo("some value")); 
-	MyRadioButtons.AssertThat().Selected(Is.EqualTo("some value"));
-}
+    [FindBy(Css = "#colors")] 
+    public IRadioButtons MyRadioButtons;
+    
+    [Test]
+    public void SelectRadioButton() 
+    {
+        MyRadioButtons.Select("some value");
+    }
+    [Test]
+    public void SelectRadioButtonByIndex() 
+    {
+        MyRadioButtons.Select(1);
+    }
+    [Test]
+    public void GetSelected() 
+    {
+        var selected = MyRadioButtons.GetSelected();
+        Assert.AreEqual(selected, "some value");
+    	MyRadioButtons.Is().Selected(Is.EqualTo("some value")); 
+    	MyRadioButtons.AssertThat().Selected(Is.EqualTo("some value"));
+    }
 ```
 
 ```html

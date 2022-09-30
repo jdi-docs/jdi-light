@@ -1846,64 +1846,78 @@ Here is a list of available methods in C#:
 
 Title is represented by the following class:
 
-- __Java__: _com.epam.jdi.light.ui.html.common.Title_
+- __Java__: _com.epam.jdi.light.elements.common.Label_
 - __C#__: _JDI.Light.Elements.Common.Title
 
 ![Title](../../images/html/title2.png)
 
 ```java 
-@UI("[ui=jdi-title]") //@FindBy(css = "[ui=jdi-title]") 
-public static Title jdiTitle;
+    @UI("[ui=jdi-title]") 
+    //@FindBy(css = "[ui=jdi-title]") 
+    public static Label jdiTitle;
 
-@Test
-public void textTest() {
-    jdiTitle.is().text(titleText);
-}
+    @Test
+    public void getTextTest() {
+        assertEquals(jdiTitle.getText(), text);
+    }
 
-@Test
-public void clickTest() {
-    jdiTitle.click();
-    assertEquals(getAlertText(), "JDI Title");
-    acceptAlert();
-}    
+    @Test
+    public void getValueTest() {
+        assertEquals(jdiTitle.getValue(), text);
+    }
+
+    @Test
+    public void clickTest() {
+        jdiTitle.click();
+        assertEquals(getAlertText(), "JDI Title");
+        acceptAlert();
+    }
+
+    @Test
+    public void isValidationTest() {
+        jdiTitle.is().enabled();
+        jdiTitle.is().text(is(text));
+        jdiTitle.is().text(equalTo(text));
+        jdiTitle.is().text(equalToIgnoringCase("jdi TESTING platform"));
+    }    
 ```
 ```csharp 
-[FindBy(Css = "[ui=jdi-title]")]
-public Title JdiTitle;
-
-[Test]
-public void GetTextTest() 
-{
-        Assert.AreEqual(JdiTitle.GetText(), "Title text");
-}
-
-[Test]
-public void ClickTest() 
-{
-        JdiTitle.ClickTitle();
-}
-
-[Test]
-public void IsValidationTest()
-{
-       TestSite.Html5Page.JdiTitle.Is.Enabled();
-       TestSite.Html5Page.JdiTitle.Is.Text(EqualTo(_text));
-       TestSite.Html5Page.JdiTitle.Is.Text(Is(_text));
-       TestSite.Html5Page.JdiTitle.Is.Text(EqualToIgnoringCaseMatcher.EqualTo("jdi TESTING platform"));
-}
-
-[Test]
-public void AssertValidationTest()
-{
-       TestSite.Html5Page.JdiTitle.AssertThat.Text(EqualTo(_text));
-}
-
-[Test]
-public void BaseValidationTest()
-{
-       BaseElementValidation(TestSite.Html5Page.JdiTitle);
-}   
+    [FindBy(Css = "[ui=jdi-title]")]
+    public Title JdiTitle;
     
+    [Test]
+    public void GetTextTest() 
+    {
+            Assert.AreEqual(JdiTitle.GetText(), "Title text");
+    }
+    
+    [Test]
+    public void ClickTest() 
+    {
+            JdiTitle.ClickTitle();
+    }
+    
+    [Test]
+    public void IsValidationTest()
+    {
+           TestSite.Html5Page.JdiTitle.Is.Enabled();
+           TestSite.Html5Page.JdiTitle.Is.Text(EqualTo(_text));
+           TestSite.Html5Page.JdiTitle.Is.Text(Is(_text));
+           TestSite.Html5Page.JdiTitle.Is.Text(EqualToIgnoringCaseMatcher.EqualTo("jdi TESTING platform"));
+    }
+    
+    [Test]
+    public void AssertValidationTest()
+    {
+           TestSite.Html5Page.JdiTitle.AssertThat.Text(EqualTo(_text));
+    }
+    
+    [Test]
+    public void BaseValidationTest()
+    {
+           BaseElementValidation(TestSite.Html5Page.JdiTitle);
+    }   
+        
 ```
 
 ```html 
@@ -1912,10 +1926,10 @@ public void BaseValidationTest()
 
 Here is the list of methods available in C# JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**AssertThat** |Gets Title's assert | TitleAssert
-**Is** |Gets Title's assert | TitleAssert
+|Method | Description         | Return Type
+--- |---------------------| ---
+**getValue()** | Returns             | String
+**Is** | Gets Title's assert | TextAssert
 
 Here is the list of available methods in Java JDI Light:
 

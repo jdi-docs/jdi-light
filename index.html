@@ -6126,60 +6126,74 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <p>Title is represented by the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Title</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.common.Label</em></li>
 <li><strong>C#</strong>: _JDI.Light.Elements.Common.Title</li>
 </ul>
 
 <p><img src="images/html/title2.png" alt="Title" /></p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-title]"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "[ui=jdi-title]") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Title</span> <span class="n">jdiTitle</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-title]"</span><span class="o">)</span> 
+    <span class="c1">//@FindBy(css = "[ui=jdi-title]") </span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Label</span> <span class="n">jdiTitle</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">textTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">jdiTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">titleText</span><span class="o">);</span>
-<span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiTitle</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+    <span class="o">}</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">jdiTitle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">getAlertText</span><span class="o">(),</span> <span class="s">"JDI Title"</span><span class="o">);</span>
-    <span class="n">acceptAlert</span><span class="o">();</span>
-<span class="o">}</span>    
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "[ui=jdi-title]</span><span class="s">")]
-</span><span class="k">public</span> <span class="n">Title</span> <span class="n">JdiTitle</span><span class="p">;</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiTitle</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+    <span class="o">}</span>
 
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span> 
-<span class="p">{</span>
-        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">JdiTitle</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Title text"</span><span class="p">);</span>
-<span class="p">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">jdiTitle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">getAlertText</span><span class="o">(),</span> <span class="s">"JDI Title"</span><span class="o">);</span>
+        <span class="n">acceptAlert</span><span class="o">();</span>
+    <span class="o">}</span>
 
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> 
-<span class="p">{</span>
-        <span class="n">JdiTitle</span><span class="p">.</span><span class="nf">ClickTitle</span><span class="p">();</span>
-<span class="p">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">jdiTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">jdiTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+        <span class="n">jdiTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalTo</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+        <span class="n">jdiTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"jdi TESTING platform"</span><span class="o">));</span>
+    <span class="o">}</span>    
+</code></pre><pre class="highlight csharp tab-csharp"><code>    <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"[ui=jdi-title]"</span><span class="p">)]</span>
+    <span class="k">public</span> <span class="n">Title</span> <span class="n">JdiTitle</span><span class="p">;</span>
 
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
-<span class="p">{</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">();</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">Is</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="n">EqualToIgnoringCaseMatcher</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"jdi TESTING platform"</span><span class="p">));</span>
-<span class="p">}</span>
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span> 
+    <span class="p">{</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">JdiTitle</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Title text"</span><span class="p">);</span>
+    <span class="p">}</span>
 
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
-<span class="p">{</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
-<span class="p">}</span>
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> 
+    <span class="p">{</span>
+            <span class="n">JdiTitle</span><span class="p">.</span><span class="nf">ClickTitle</span><span class="p">();</span>
+    <span class="p">}</span>
 
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
-<span class="p">{</span>
-       <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">);</span>
-<span class="p">}</span>   
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
+    <span class="p">{</span>
+           <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">();</span>
+           <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+           <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">Is</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+           <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="n">EqualToIgnoringCaseMatcher</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"jdi TESTING platform"</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
+    <span class="p">{</span>
+           <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
+    <span class="p">{</span>
+           <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">);</span>
+    <span class="p">}</span>   
 
 </code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;h1</span> <span class="na">ui=</span><span class="s">"jdi-title"</span> <span class="na">onclick=</span><span class="s">"alert('JDI Title');"</span><span class="nt">&gt;</span>JDI Testing platform<span class="nt">&lt;/h1&gt;</span>
 </code></pre>
@@ -6193,14 +6207,14 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>AssertThat</strong></td>
-<td>Gets Title&#39;s assert</td>
-<td>TitleAssert</td>
+<td><strong>getValue()</strong></td>
+<td>Returns</td>
+<td>String</td>
 </tr>
 <tr>
 <td><strong>Is</strong></td>
 <td>Gets Title&#39;s assert</td>
-<td>TitleAssert</td>
+<td>TextAssert</td>
 </tr>
 </tbody></table>
 

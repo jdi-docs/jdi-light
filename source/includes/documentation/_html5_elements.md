@@ -1733,71 +1733,71 @@ And here are methods available in Java:
 
 
 ```java 
-@UI("#text-area") 
-// same as FindBy(css = "#text-area")
-public static TextArea textArea;
+  @UI("#text-area") 
+  // same as FindBy(css = "#text-area")
+  public static TextArea textArea;
 
-String text = "TextArea";
+  String defaultText = "TextArea";
 
-@Test
-public void addNewLineTest(){
-    textArea.setLines("line1", "line2");
-    textArea.addNewLine("line3");
-    textArea.assertThat().text(is("line1\nline2\nline3"));
-    textArea.clear();
-    textArea.assertThat().text(is(""));
-}
+  @Test
+  public void addNewLineTest() {
+      textArea.setLines("line1", "line2");
+      textArea.addNewLine("line3");
+      assertEquals(textArea.getText(), "line1\nline2\nline3");
+  }
 
-@Test
-public void isValidationTest() {
-    textArea.is().enabled();
-    textArea.setText(text);
-    textArea.is().text(containsString("Area"));
-    disabledTextArea.is().disabled();
-}
+  @Test
+  public void isValidationTest() {
+      textArea.is().enabled();
+      textArea.setText(defaultText);
+      textArea.is().text(is(defaultText));
+      textArea.is().text(containsString("Area"));
+      disabledTextArea.is().disabled();
+   }
 
-@Test
-public void rowsTest() {
-    textArea.is().rowsCount(is(3));
-    textArea.is().colsCount(is(33));
-    textArea.is().minlength(is(10));
-    textArea.is().maxlength(is(200));
-}
+  @Test
+  public void rowsTest() {
+      assertEquals(textArea.rows(), 3);
+      assertEquals(textArea.cols(), 33);
+      assertEquals(textArea.minlength(), 10);
+      assertEquals(textArea.maxlength(), 200);
+
+      textArea.is().rowsCount(is(3));
+      textArea.is().colsCount(is(33));
+      textArea.is().minlength(is(10));
+      textArea.is().maxlength(is(200));
+  }
 ```
 ```csharp 
-[FindBy(Css = "#text-area")]
-public ITextArea TextArea;
+  [FindBy(Css = "#text-area")]
+  public ITextArea TextArea;
 
-    [Test]
-    public void GetTextTest()
-    {
-        TextArea.SetText(Text);
-        Assert.AreEqual(TextArea.GetText(), "Text");
-    }
-    
-   [Test]
-   public void AddNewLineTest()
-   {
-      TextArea.SetText("line1", "line2");
-      TextArea.AddNewLine("line3");
-      Assert.CollectionEquals(TextArea.GetLines(), new[] { "line1", "line2", "line3" });
-   }
+  [Test]
+  public void GetTextTest()
+  {
+      TextArea.SetText(Text);
+      Assert.AreEqual(TextArea.GetText(), "Text");
+  }
+   
+  [Test]
+  public void AddNewLineTest()
+  {
+     TextArea.SetText("line1", "line2");
+     TextArea.AddNewLine("line3");
+     Assert.CollectionEquals(TextArea.GetLines(), new[] { "line1", "line2", "line3" });
+  }
 ```
 ```html
 <label for="text-area">Text example:</label>
-<textarea id="text-area" rows="3" cols="33" maxlength="200" minlength="10"
-          required="" wrap="hard" placeholder="Input huge text">Textarea with sizing
-          and wrap attribute (try values of hard, soft, and off to see how it affects wrapping).
-          The maximum number of characters is constrained to 200 by the maxlength attribute.
-</textarea> <br>
-<textarea disabled="" placeholder="Disabled area"></textarea>
+<textarea id="text-area" rows="3" cols="33" maxlength="200" minlength="10" required="" wrap="hard" placeholder="Input huge text">Textarea with sizing and wrap attribute (try values of hard, soft, and off to see how it affects wrapping). The maximum number of characters is constrained to 200 by the maxlength attribute.
+                            </textarea>
+<br>
+<textarea disabled="" placeholder="Disabled area"/>
 ```
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 Text areas are represented by the following classes:
 
-- __Java__: <a href='https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-html/src/main/java/com/epam/jdi/light/ui/html/elements/common/TextArea.java'>TextArea</a>
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.TextArea_
 - __C#__: _JDI.Light.Elements.Common.TextArea_
 
 In Java TextArea is a descendant of UIBaseElement with HasLabel, SetValue, HasPlaceholder, IsInput interfaces parameterized with TextAreaAssert and inherits its methods. But TextArea also has methods of its own.
@@ -1808,19 +1808,17 @@ Here is a list of available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**addNewLine(String line)** | add line to the already existing  | void
+**addNewLine(String)** | add line to the already existing  | void
 **cols()** | returns value of cols attribute | int
 **getLines()** | returns lines (text) from the text area | List<String>
 **getValue()**    | calls getText() method                 | String
 **getText()**     | returns value of attribute "value"     | String
 **is()**          | returns object for work with assertions | TextAreaAssert
-**labelText()** | returns value of TextArea label | String
 **maxlength()** | returns value of maxlength attribute | int
 **minlength()** | returns value of minlength attribute | int
-**placeholder()** | returns value of placeholder in TextArea | String
 **rows()** | returns value of rows attribute | int
-**setLines(String... lines)** | sets lines (text)  | void
-**setValue()**    | setting value                          | void
+**setLines(String...)** | sets lines (text)  | void
+**setValue(String)**    | setting value                          | void
 
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextAreaTests.java" target="_blank">Test examples in Java</a><br>

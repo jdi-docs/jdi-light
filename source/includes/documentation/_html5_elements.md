@@ -1508,24 +1508,28 @@ And here are methods available in Java:
 
 
 ```java 
-@UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
-public static Text jdiText;
+  @UI("[ui=jdi-text]") 
+  //@FindBy(css = "[ui=jdi-text]") 
+  public static Text jdiText;
 
-@Test
-public void textPositiveTest() {
-    jdiText.is().text(equalTo(TEXT));
-    jdiText.is().text(TEXT);
-}
+  String text = "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.";
 
-@Test
-public void textContainsTest() {        
-    jdiText.is().text(containsString(PART_OF_TEXT));
-}
+  @Test
+  public void getTextTest() {
+      assertEquals(jdiText.getText(), text);
+  }
 
-@Test
-public void textDoesNotContainWordTest() {
-    jdiText.is().text(not(NOT_EXPECTED_TEXT));
-}
+  @Test
+  public void getValueTest() {
+      assertEquals(jdiText.getValue(), text);
+  }
+
+  @Test
+  public void isValidationTest() {
+      jdiText.is().enabled();
+      jdiText.is().text(is(text));
+      jdiText.is().text(containsString("Powerful Framework for UI"));
+  }
   
 ```
 
@@ -1598,7 +1602,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.</p>
 Text is represented by the following class:
 
 - __C#__: JDI.Light.Elements.Common.TextElement
-- __Java__: com.epam.jdi.light.ui.html.common.Text
+- __Java__: com.epam.jdi.light.ui.html.elements.common.Text
 
 Here is a list of available methods in C#:
 
@@ -1616,11 +1620,10 @@ And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**assertThat()** |Various assert actions for Text| TextAssert
-**getText()** |Get current value | String
+**getValue()** |Get current value | String
 **is()** |Various assert actions for Text| TextAssert
 
-<a href="https://github.com/jdi-testing/jdi-light/tree/1509---jdi-light-test-examples/jdi-light-html-tests/src/test/java/io/github/epam/example/common/TextExampleTests.java" target="_blank">Test examples in Java</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextTests.java" target="_blank">Test examples in Java</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#text-2)
 

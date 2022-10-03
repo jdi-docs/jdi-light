@@ -5734,52 +5734,52 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <p><a href="https://github.com/jdi-testing/jdi-light/tree/1509---jdi-light-test-examples/jdi-light-html-tests/src/test/java/io/github/epam/example/common/TextExampleTests.java" target="_blank">Test examples in Java</a></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#text-2">BDD Steps example</a></p>
-<h4 id='1-1-15-textfield'>1.1.15 TextField</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#name")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+<h4 id='1-1-15-textfield'>1.1.15 TextField</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#your-name"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#your-name")</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">yourName</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTextTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">name</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
-    <span class="n">name</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
-    <span class="n">name</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
-    <span class="n">name</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Field"</span><span class="o">));</span>
-<span class="o">}</span>
+  <span class="n">String</span> <span class="n">defaultText</span> <span class="o">=</span> <span class="s">"TextField"</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendKeysTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">name</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
-    <span class="n">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Test"</span><span class="o">);</span>
-    <span class="n">name</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">text</span> <span class="o">+</span> <span class="s">"Test"</span><span class="o">);</span>
-<span class="o">}</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-    <span class="n">name</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Id = "name")]</span>
-<span class="k">public</span> <span class="n">ITextField</span> <span class="n">NameField</span><span class="p">;</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">yourName</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"New text"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">yourName</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"New text"</span><span class="o">);</span>
+  <span class="o">}</span>
 
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">InputTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
-            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">ToAddText</span><span class="p">);</span>
-        <span class="p">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendKeysTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">yourName</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Test"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">yourName</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">defaultText</span> <span class="o">+</span><span class="s">"Test"</span><span class="o">);</span>
+  <span class="o">}</span>
 
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">SendKeyTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">SendKeys</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
-            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
-        <span class="p">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">yourName</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">yourName</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">""</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code>  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Id</span> <span class="p">=</span> <span class="s">"name"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="n">ITextField</span> <span class="n">NameField</span><span class="p">;</span>
 
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">ClearTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
-            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-        <span class="p">}</span>
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">InputTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">ToAddText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">SendKeyTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">SendKeys</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">ClearTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+  <span class="p">}</span>
 </code></pre>
 <p><strong>TextField</strong> — Is a simple element type that allows users to fill in text fields.</p>
 
@@ -5793,7 +5793,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 
 <ul>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.TextField</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.TextField</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.elements.common.TextField</em></li>
 </ul>
 
 <p>Here is a list of available methods and properties in C#:</p>
@@ -5870,16 +5870,6 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>clear()</strong></td>
-<td>clears the text field</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>focus()</strong></td>
-<td>places cursor within the text field</td>
-<td>void</td>
-</tr>
-<tr>
 <td><strong>getText()</strong></td>
 <td>returns text from the text field</td>
 <td>String</td>
@@ -5890,24 +5880,14 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <td>String</td>
 </tr>
 <tr>
-<td><strong>input(String value)</strong></td>
-<td>sets new text</td>
+<td><strong>setValue(String)</strong></td>
+<td>sets new value</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>placeholder()</strong></td>
-<td>returns value of the placeholder attribute</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>sendKeys(CharSequence... value)</strong></td>
-<td>adds text to the field</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>setText(String value)</strong></td>
-<td>sets new text</td>
-<td>void</td>
+<td><strong>is()</strong></td>
+<td>returns object for work with assertions</td>
+<td>TextAssert</td>
 </tr>
 </tbody></table>
 
@@ -5917,67 +5897,67 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <p><strong>TextArea</strong> — Is a simple element type that allows users to fill in text areas (unlike TextField, multiple lines of text are allowed).</p>
 
 <p><img src="images/html/textArea_html2.png" alt="InputTypeTextArea" /></p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-area"</span><span class="o">)</span> 
-<span class="c1">// same as FindBy(css = "#text-area")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">textArea</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-area"</span><span class="o">)</span> 
+  <span class="c1">// same as FindBy(css = "#text-area")</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">textArea</span><span class="o">;</span>
 
-<span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">"TextArea"</span><span class="o">;</span>
+  <span class="n">String</span> <span class="n">defaultText</span> <span class="o">=</span> <span class="s">"TextArea"</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNewLineTest</span><span class="o">(){</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">"line1"</span><span class="o">,</span> <span class="s">"line2"</span><span class="o">);</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">addNewLine</span><span class="o">(</span><span class="s">"line3"</span><span class="o">);</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"line1\nline2\nline3"</span><span class="o">));</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">""</span><span class="o">));</span>
-<span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNewLineTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">"line1"</span><span class="o">,</span> <span class="s">"line2"</span><span class="o">);</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">addNewLine</span><span class="o">(</span><span class="s">"line3"</span><span class="o">);</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"line1\nline2\nline3"</span><span class="o">);</span>
+  <span class="o">}</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Area"</span><span class="o">));</span>
-    <span class="n">disabledTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
-<span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">defaultText</span><span class="o">);</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">defaultText</span><span class="o">));</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Area"</span><span class="o">));</span>
+      <span class="n">disabledTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+   <span class="o">}</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">rowsTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">rowsCount</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">colsCount</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">33</span><span class="o">));</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">minlength</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">10</span><span class="o">));</span>
-    <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">maxlength</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#text-area")]</span>
-<span class="k">public</span> <span class="n">ITextArea</span> <span class="n">TextArea</span><span class="p">;</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rowsTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">rows</span><span class="o">(),</span> <span class="mi">3</span><span class="o">);</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">cols</span><span class="o">(),</span> <span class="mi">33</span><span class="o">);</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">minlength</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">maxlength</span><span class="o">(),</span> <span class="mi">200</span><span class="o">);</span>
 
-    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">TextArea</span><span class="p">.</span><span class="nf">SetText</span><span class="p">(</span><span class="n">Text</span><span class="p">);</span>
-        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TextArea</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Text"</span><span class="p">);</span>
-    <span class="p">}</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">rowsCount</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">colsCount</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">33</span><span class="o">));</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">minlength</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">10</span><span class="o">));</span>
+      <span class="n">textArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">maxlength</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
+  <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code>  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#text-area"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="n">ITextArea</span> <span class="n">TextArea</span><span class="p">;</span>
 
-   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-   <span class="k">public</span> <span class="k">void</span> <span class="nf">AddNewLineTest</span><span class="p">()</span>
-   <span class="p">{</span>
-      <span class="n">TextArea</span><span class="p">.</span><span class="nf">SetText</span><span class="p">(</span><span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">);</span>
-      <span class="n">TextArea</span><span class="p">.</span><span class="nf">AddNewLine</span><span class="p">(</span><span class="s">"line3"</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="n">TextArea</span><span class="p">.</span><span class="nf">GetLines</span><span class="p">(),</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">,</span> <span class="s">"line3"</span> <span class="p">});</span>
-   <span class="p">}</span>
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TextArea</span><span class="p">.</span><span class="nf">SetText</span><span class="p">(</span><span class="n">Text</span><span class="p">);</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TextArea</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Text"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">AddNewLineTest</span><span class="p">()</span>
+  <span class="p">{</span>
+     <span class="n">TextArea</span><span class="p">.</span><span class="nf">SetText</span><span class="p">(</span><span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">);</span>
+     <span class="n">TextArea</span><span class="p">.</span><span class="nf">AddNewLine</span><span class="p">(</span><span class="s">"line3"</span><span class="p">);</span>
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="n">TextArea</span><span class="p">.</span><span class="nf">GetLines</span><span class="p">(),</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">,</span> <span class="s">"line3"</span> <span class="p">});</span>
+  <span class="p">}</span>
 </code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"text-area"</span><span class="nt">&gt;</span>Text example:<span class="nt">&lt;/label&gt;</span>
-<span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"text-area"</span> <span class="na">rows=</span><span class="s">"3"</span> <span class="na">cols=</span><span class="s">"33"</span> <span class="na">maxlength=</span><span class="s">"200"</span> <span class="na">minlength=</span><span class="s">"10"</span>
-          <span class="na">required=</span><span class="s">""</span> <span class="na">wrap=</span><span class="s">"hard"</span> <span class="na">placeholder=</span><span class="s">"Input huge text"</span><span class="nt">&gt;</span>Textarea with sizing
-          and wrap attribute (try values of hard, soft, and off to see how it affects wrapping).
-          The maximum number of characters is constrained to 200 by the maxlength attribute.
-<span class="nt">&lt;/textarea&gt;</span> <span class="nt">&lt;br&gt;</span>
-<span class="nt">&lt;textarea</span> <span class="na">disabled=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Disabled area"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+<span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"text-area"</span> <span class="na">rows=</span><span class="s">"3"</span> <span class="na">cols=</span><span class="s">"33"</span> <span class="na">maxlength=</span><span class="s">"200"</span> <span class="na">minlength=</span><span class="s">"10"</span> <span class="na">required=</span><span class="s">""</span> <span class="na">wrap=</span><span class="s">"hard"</span> <span class="na">placeholder=</span><span class="s">"Input huge text"</span><span class="nt">&gt;</span>Textarea with sizing and wrap attribute (try values of hard, soft, and off to see how it affects wrapping). The maximum number of characters is constrained to 200 by the maxlength attribute.
+                            <span class="nt">&lt;/textarea&gt;</span>
+<span class="nt">&lt;br&gt;</span>
+<span class="nt">&lt;textarea</span> <span class="na">disabled=</span><span class="s">""</span> <span class="na">placeholder=</span><span class="s">"Disabled area"</span><span class="nt">/&gt;</span>
 </code></pre>
-<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-
 <p>Text areas are represented by the following classes:</p>
 
 <ul>
-<li><strong>Java</strong>: <a href='https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-html/src/main/java/com/epam/jdi/light/ui/html/elements/common/TextArea.java'>TextArea</a></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.elements.common.TextArea</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.TextArea</em></li>
 </ul>
 
@@ -5995,7 +5975,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>addNewLine(String line)</strong></td>
+<td><strong>addNewLine(String)</strong></td>
 <td>add line to the already existing</td>
 <td>void</td>
 </tr>
@@ -6025,11 +6005,6 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <td>TextAreaAssert</td>
 </tr>
 <tr>
-<td><strong>labelText()</strong></td>
-<td>returns value of TextArea label</td>
-<td>String</td>
-</tr>
-<tr>
 <td><strong>maxlength()</strong></td>
 <td>returns value of maxlength attribute</td>
 <td>int</td>
@@ -6040,22 +6015,17 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <td>int</td>
 </tr>
 <tr>
-<td><strong>placeholder()</strong></td>
-<td>returns value of placeholder in TextArea</td>
-<td>String</td>
-</tr>
-<tr>
 <td><strong>rows()</strong></td>
 <td>returns value of rows attribute</td>
 <td>int</td>
 </tr>
 <tr>
-<td><strong>setLines(String... lines)</strong></td>
+<td><strong>setLines(String...)</strong></td>
 <td>sets lines (text)</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>setValue()</strong></td>
+<td><strong>setValue(String)</strong></td>
 <td>setting value</td>
 <td>void</td>
 </tr>

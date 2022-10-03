@@ -1626,54 +1626,54 @@ And here are methods available in Java:
 
 #### 1.1.15 TextField
 ```java 
-@UI("#name") //@FindBy(css = "#name")
-public static TextField name;
+  @UI("#your-name") //@FindBy(css = "#your-name")
+  public static TextField yourName;
 
-@Test
-public void setTextTest() {
-    name.setText(text);
-    name.is().text(text);
-    name.is().text(is(text));
-    name.is().text(containsString("Field"));
-}
+  String defaultText = "TextField";
+  
+  
+  @Test
+  public void inputTest() {
+        yourName.input("New text");
+        assertEquals(yourName.getText(), "New text");
+  }
 
-@Test
-public void sendKeysTest() {
-    name.setText(text);
-    name.sendKeys("Test");
-    name.is().text(text + "Test");
-}
+  @Test
+  public void sendKeysTest() {
+        yourName.sendKeys("Test");
+        assertEquals(yourName.getValue(), defaultText +"Test");
+  }
 
-@Test
-public void clearTest() {
-    name.clear();
-    name.is().text("");
-}
+  @Test
+  public void clearTest() {
+        yourName.clear();
+        assertEquals(yourName.getText(), "");
+  }
 ```
 ```csharp 
-[FindBy(Id = "name")]
-public ITextField NameField;
+  [FindBy(Id = "name")]
+  public ITextField NameField;
         
-        [Test]
-        public void InputTest()
-        {
-            TestSite.ContactFormPage.NameField.Input(ToAddText);
-            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, ToAddText);
-        }
-        
-        [Test]
-        public void SendKeyTest()
-        {
-            TestSite.ContactFormPage.NameField.SendKeys(ToAddText);
-            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, _defaultText + ToAddText);
-        }
+  [Test]
+  public void InputTest()
+  {
+      TestSite.ContactFormPage.NameField.Input(ToAddText);
+      Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, ToAddText);
+  }
+  
+  [Test]
+  public void SendKeyTest()
+  {
+      TestSite.ContactFormPage.NameField.SendKeys(ToAddText);
+      Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, _defaultText + ToAddText);
+  }
 
-        [Test]
-        public void ClearTest()
-        {
-            TestSite.ContactFormPage.NameField.Clear();
-            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, "");
-        }
+  [Test]
+  public void ClearTest()
+  {
+      TestSite.ContactFormPage.NameField.Clear();
+      Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, "");
+  }
 ```
 **TextField** — Is a simple element type that allows users to fill in text fields.
 
@@ -1689,7 +1689,7 @@ public ITextField NameField;
 Text fields are represented by the following classes in Java and C#:
 
 - __C#__: _JDI.Light.Elements.Common.TextField_
-- __Java__: _com.epam.jdi.light.ui.html.common.TextField_
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.TextField_
 
 Here is a list of available methods and properties in C#:
 
@@ -1711,16 +1711,12 @@ Here is a list of available methods and properties in C#:
 
 And here are methods available in Java:
 
-|Method | Description | Return Type
---- | --- | ---
-**clear()** | clears the text field | void
-**focus()** | places cursor within the text field | void
-**getText()** | returns text from the text field  | String
-**getValue()** | returns text from the text field| String
-**input(String value)** | sets new text | void
-**placeholder()** | returns value of the placeholder attribute | String
-**sendKeys(CharSequence... value)** | adds text to the field | void
-**setText(String value)** | sets new text | void
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
+**getText()** | returns text from the text field        | String
+**getValue()** | returns text from the text field        | String
+**setValue(String)** | sets new value                          | void
+**is()** | returns object for work with assertions | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextFieldTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>

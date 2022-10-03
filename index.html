@@ -5580,24 +5580,28 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 <a href="https://jdi-docs.github.io/jdi-light/?java#range-2">BDD Steps example</a> <br></p>
 <h4 id='1-1-14-text'>1.1.14 Text</h4>
 <p><strong>Text</strong> — Is a combination of letters and text symbols. Most testing activities involve working with text: text is typed into login fields, buttons get located by their texts, actual text gets compared to expected.</p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-text]"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "[ui=jdi-text]") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">jdiText</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-text]"</span><span class="o">)</span> 
+  <span class="c1">//@FindBy(css = "[ui=jdi-text]") </span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">jdiText</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">textPositiveTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalTo</span><span class="o">(</span><span class="n">TEXT</span><span class="o">));</span>
-    <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">TEXT</span><span class="o">);</span>
-<span class="o">}</span>
+  <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">"Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">textContainsTest</span><span class="o">()</span> <span class="o">{</span>        
-    <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">PART_OF_TEXT</span><span class="o">));</span>
-<span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiText</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+  <span class="o">}</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">textDoesNotContainWordTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">not</span><span class="o">(</span><span class="n">NOT_EXPECTED_TEXT</span><span class="o">));</span>
-<span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiText</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Powerful Framework for UI"</span><span class="o">));</span>
+  <span class="o">}</span>
 
 </code></pre><pre class="highlight csharp tab-csharp"><code>  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">".main-txt"</span><span class="p">)]</span>
   <span class="k">public</span> <span class="n">TextElement</span> <span class="n">Text</span><span class="p">;</span>
@@ -5664,7 +5668,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 
 <ul>
 <li><strong>C#</strong>: JDI.Light.Elements.Common.TextElement</li>
-<li><strong>Java</strong>: com.epam.jdi.light.ui.html.common.Text</li>
+<li><strong>Java</strong>: com.epam.jdi.light.ui.html.elements.common.Text</li>
 </ul>
 
 <p>Here is a list of available methods in C#:</p>
@@ -5715,12 +5719,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>assertThat()</strong></td>
-<td>Various assert actions for Text</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>getText()</strong></td>
+<td><strong>getValue()</strong></td>
 <td>Get current value</td>
 <td>String</td>
 </tr>
@@ -5731,7 +5730,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/tree/1509---jdi-light-test-examples/jdi-light-html-tests/src/test/java/io/github/epam/example/common/TextExampleTests.java" target="_blank">Test examples in Java</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextTests.java" target="_blank">Test examples in Java</a></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#text-2">BDD Steps example</a></p>
 <h4 id='1-1-15-textfield'>1.1.15 TextField</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#your-name"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#your-name")</span>

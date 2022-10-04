@@ -1198,56 +1198,40 @@ NumberSelector is represented by the following classes:
 
 ```java 
     @UI("#height") 
-    // equal to @FindBy(css = "#height") 
+    //@FindBy(css = "#height") 
     public static NumberSelector height;
 
     @Test
-    public void minMaxTest() {
-        height.assertThat().min(is(0.3));
-        height.assertThat().max(is(2.5));
+    public void minTest() {
+        assertEquals(height.min(), 0.3);
     }
 
     @Test
-    public void stepTest() {
-        height.assertThat().step(is(0.2));
-    }
-
-    @Test
-    public void placeholderTest() {
-        height.is().placeholder("20 cm increments. Range [0.3,2.5]");
+    public void maxTest() {
+        assertEquals(height.max(), 2.5);
     }
 
     @Test
     public void setNumberTest() {
         height.setNumber("1.4");
-        height.is().number(greaterThanOrEqualTo(0.3));
-        height.is().number(lessThanOrEqualTo(2.5));
-        height.assertThat().number(is(1.4));
+        assertEquals(height.value(), "1.4");
     }
 
     @Test
-    public void labelTest() {
-        height.label().is().text("Height (metres):");
-        height.label().is().text(containsString("Height"));
-        height.label().is().text(equalToIgnoringCase("height (metres):"));
+    public void stepTest() {
+        assertEquals(height.step(), 0.2);
     }
-
-    @Test
-    public void assertValidationTest() {
-        height.assertThat().number(greaterThan(0.0));
-        height.assertThat().number(lessThan(3.0));
-        height.assertThat().number(is(2.1));
-    }
+    
 ```
 ```csharp 
-[FindBy(Css = "#height")]
-public INumberSelector numberSelector;
-
-[Test]
-public void GetNumberTest()
-{
-    Jdi.Assert.AreEquals(number, numberSelector.Value());
-}
+    [FindBy(Css = "#height")]
+    public INumberSelector numberSelector;
+    
+    [Test]
+    public void GetNumberTest()
+    {
+        Jdi.Assert.AreEquals(number, numberSelector.Value());
+    }
 ```
 
 
@@ -1263,14 +1247,14 @@ Here is the list of available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**assertThat()** | Returns object for work with assertions | NumberAssert
 **is()** | Returns object for work with assertions | NumberAssert
-**max()** |Returns the max value  | String
-**min()** |Returns the min value   | String
+**max()** |Returns the max value  | double
+**min()** |Returns the min value   | double
 **value()** |Returns the value  | String
-**placeholder()** |Returns the placeholder text  | String
 **setNumber(String)** |Sets the value | void
-**step()** |Returns the step value | String
+**setValue(String)** |Sets the value | void
+**getValue()** |Returns the value  | String
+**step()** |Returns the step value | double
 
 Here is the list of available methods in C#:
 
@@ -1299,41 +1283,45 @@ Here is the list of available methods in C#:
 
 ProgressBar is located in the following class:
 
-- __Java__: _com.epam.jdi.light.ui.html.common.ProgressBar_
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.ProgressBar_
 - __C#__: _JDI.Light.Elements.Common.ProgressBar_
 
 ```java 
-@UI("#progress") // @FindBy(id = "progress")
-public static ProgressBar progress;
+  @UI("#progress") 
+  // @FindBy(id = "progress")
+  public static ProgressBar progress;
 
-@Test
-public void valueTest() {
-    progress.is().volume(70);
-    progress.is().volume(greaterThanOrEqualTo(10));
-    progress.is().volume(lessThanOrEqualTo(100));
-}
+  @Test
+  public void getLabelTextTest() {
+        assertEquals(progress.labelText(), "File progress");
+  }
 
-@Test
-public void maxTest() {
-    progress.is().maxVolume(100);
-}
+  @Test
+  public void getValueTest() {
+        assertEquals(progress.value(), 70);
+  }
+
+  @Test
+  public void maxTest() {
+        assertEquals(progress.max(), 100);
+  }
 ```
 ```csharp
 
-[FindBy(Css = "#progress")]
-public ProgressBar Progress;
-
-[Test]
-public void GetValueTest() 
-{
-     Assert.AreEqual(Progress.Value(), "70");
-}
-
-[Test]
-public void MaxTest() 
-{
-     Assert.AreEqual(Progress.Max(), "100");
-}
+  [FindBy(Css = "#progress")]
+  public ProgressBar Progress;
+  
+  [Test]
+  public void GetValueTest() 
+  {
+       Assert.AreEqual(Progress.Value(), "70");
+  }
+  
+  [Test]
+  public void MaxTest() 
+  {
+       Assert.AreEqual(Progress.Max(), "100");
+  }
 
 ```
 
@@ -1350,10 +1338,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**assertThat()** |Various assert actions for Progress bar | ProgressAssert
+**getValue()** |Get current progress value | String
 **is()** |Various assert actions for Progress bar  | ProgressAssert
-**max()** |Get progressbar maximum possible value  | String
-**value()** |Get current progress value  | String
+**max()** |Get progressbar maximum possible value  | int
+**value()** |Get current progress value  | int
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ProgressTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#progress-bar) <br>
@@ -1374,26 +1362,41 @@ Available methods in C# JDI Light:
 #### 1.1.13 Range
 
 ```java 
-@UI("#volume")  //@FindBy(id = "volume") 
-public static Range volume;
+  @UI("#volume")  //@FindBy(id = "volume") 
+  public static Range volume;
 
-@Test
-public void setVolumeTest() {
-    volume.setVolume(10);
-    volume.assertThat().volume(10);
-}
+  double defaultVolume = 90;
 
-@Test
-public void checkStepTest() {
-    volume.assertThat().step(5);
-    volume.assertThat().step(is(5));
-}
+  @Test
+  public void setupValueTest() {
+        volume.setupValue(10);
+        assertEquals(volume.value(), 10.0);
 
-@Test
-public void checkMaxTest() {
-    volume.assertThat().maxVolume(100);
-    volume.assertThat().maxVolume(is(100));
-}
+        defaultRange.setupValue(65);
+        assertEquals(defaultRange.value(), 65.0);
+
+        minMaxRange.setupValue(3);
+        assertEquals(minMaxRange.value(), 3.0);
+
+        fractionalRange.setupValue(3.5);
+        assertEquals(fractionalRange.value(), 3.5);
+  }
+
+  @Test
+ public void stepTest() {
+        assertEquals(volume.step(), 5.0);
+        assertEquals(defaultRange.step(), 1.0);
+        assertEquals(minMaxRange.step(), 2.0);
+        assertEquals(fractionalRange.step(), 0.5);
+ }
+
+  @Test
+  public void maxTest() {
+        assertEquals(volume.max(), 100.0);
+        assertEquals(defaultRange.max(), 100.0);
+        assertEquals(minMaxRange.max(), 10.0);
+        assertEquals(fractionalRange.max(), 7.0);
+  }
 ```
 
 ```csharp
@@ -1439,34 +1442,30 @@ public void checkMaxTest() {
 
 ```html
 <label for="volume">Volume</label>
-<input type="text" disabled="" id="volume-value"> <br>
-    <span>10</span>
-    <input type="range" id="volume" min="10" max="100" value="90" step="5"
-           class="range" list="volume-list"
-           oninput="showVal(this.value)" onchange="showVal(this.value)">
-    <span>100</span>
-    
-    <datalist id="volume-list">
-        <option value="0">
-        </option>
-        <option value="20">
-        </option>
-        <option value="40">
-        </option>
-        <option value="60">
-        </option>
-        <option value="80">
-        </option>
-        <option value="100">
-        </option>
-    </datalist> <br> <br>
-
-<input type="range" disabled="">
+<input type="text" disabled="" id="volume-value" class="range-value" value="90">
+<br>
+<span>10</span>
+<input type="range" id="volume" min="10" max="100" value="90" step="5" class="range" list="volume-list" oninput="show_val(this)" onchange="show_val(this)">
+<span>100</span>
+<datalist id="volume-list">
+  <option value="0">
+  </option>
+  <option value="20">
+  </option>
+  <option value="40">
+  </option>
+  <option value="60">
+  </option>
+  <option value="80">
+  </option>
+  <option value="100">
+  </option>
+</datalist>
 ```
 
 Range is represented by the following class:</br>
 
-- __Java__: _com.epam.jdi.light.ui.html.common.Range_
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.Range_
 - __C#__: _JDI.Light.Elements.Common.Range_
 
 Here is a list of available methods in C#:
@@ -1490,12 +1489,11 @@ And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**assertThat()** | Returns object for work with assertions | RangeAssert
 **getValue()** | Gets the value | String
 **is()** | Returns object for work with assertions | RangeAssert
 **max()** | Returns the max value | double
 **min()** | Returns the min value | double
-**setValue(double volume)** | Sets the value | void
+**setupValue(double volume)** | Sets the value | void
 **setValue(String volume)** | Sets the value | void
 **step()** | Returns the step value | double
 **value()** | Returns the value | double

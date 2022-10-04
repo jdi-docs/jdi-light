@@ -801,35 +801,33 @@ Available method in C# JDI Light:
 ![Icon](../../images/html/image_html2.png)
 
 ```java 
-@UI("#jdi-logo") 
-// same as FindBy(css = "#jdi-logo")
-public static Icon jdiLogo;
+  @UI("#jdi-logo") 
+  // same as FindBy(css = "#jdi-logo")
+  public static Icon userIcon;
 
-    @Test
-    public void isValidationTest() {
-        WebPage.refresh();
-        jdiLogo.is().src(containsString("jdi-logo.jpg"));
-        jdiLogo.is().alt(is("Jdi Logo 2"));
-        jdiLogo.assertThat().height(is(100));
-        jdiLogo.assertThat().width(is(101));
-    }
+  @Test
+  public void loginWithUserToLightLocatorFormTest() {
+      userIcon.click();
+      loginAs("#login-form", DEFAULT_USER);
+      homePage.checkOpened();
+  }
 ```
 ```csharp 
-[FindBy(Css = "#jdi-logo")]
-public IIcon Logo
-;
-
-[Test]
-public void GetSourceTest()
-{
-  Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
-}
-
-[Test]
-public void GetTipTest()
-{
-  Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
-}
+  [FindBy(Css = "#jdi-logo")]
+  public IIcon Logo
+  ;
+  
+  [Test]
+  public void GetSourceTest()
+  {
+    Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
+  }
+  
+  [Test]
+  public void GetTipTest()
+  {
+    Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
+  }
 ```
 
 ```html
@@ -841,8 +839,6 @@ public void GetTipTest()
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a>
 <br>
 
-<br><br><br><br><br><br><br><br><br>
-
 Icon is represented by Image class:
 
 [Image](https://jdi-docs.github.io/jdi-light/#image)
@@ -853,12 +849,13 @@ Icon in JDI is a descendant of Image. It inherits all Image's methods and serves
 |Method | Description | Return Type
 --- | --- | ---
 **alt()** |get value of alt attribute | String
-**assertThat()** |method for building assertions  | ImageAssert
 **click()** | click on the image| void
-**height()** |get value of height attribute| String
+**height()** |get value of height attribute| int
 **is()** | method for building assertions | ImageAssert
 **src()** | get value of src attribute | String
-**width()** | get value of width attribute| String
+**width()** | get value of width attribute| int
+**fileName()** | Get image source path| String
+**getValue()** | Get image source path| String
 
 Here is a list of available methods in C#:
 
@@ -885,33 +882,39 @@ Here is a list of available methods in C#:
 ![Image](../../images/html/image_html2.png)
 
 ```java 
-@UI("#jdi-logo") 
-// same as FindBy(css = "#jdi-logo")
-public static Image jdiLogo;
+  @UI("#jdi-logo") 
+  // same as FindBy(css = "#jdi-logo")
+  public static Image jdiLogo;
 
-@Test
-public void isValidationTest() {
-    jdiLogo.is().src(containsString("jdi-logo.jpg"));
-    jdiLogo.is().alt(is("Jdi Logo 2"));
-    jdiLogo.assertThat().height(is(100));
-    jdiLogo.assertThat().width(is(101));
-}
+  @Test
+  public void isValidationTest() {
+      WebPage.refresh();
+      jdiLogo.is().src(containsString("jdi-logo.jpg"));
+      jdiLogo.is().alt(is("Jdi Logo 2"));
+      jdiLogo.assertThat().height(is(100));
+      jdiLogo.assertThat().width(is(101));
+  }
+  
+  @Test
+  public void getSrcTest() {
+      assertEquals(jdiLogo.src(), text);
+  }
 ```
 ```csharp 
-[FindBy(Css = "#jdi-logo")]
-public IImage LogoImage;
+  [FindBy(Css = "#jdi-logo")]
+  public IImage LogoImage;
 
-   [Test]
-   public void GetSourceTest()
-   {
-     Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
-   }
+  [Test]
+  public void GetSourceTest()
+  {
+    Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
+  }
 
-   [Test]
-   public void GetTipTest()
-   {
-     Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
-   }
+  [Test]
+  public void GetTipTest()
+  {
+    Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
+  }
 ```
 ```html
 <label for="jdi-logo">JDI Logo:</label>
@@ -919,11 +922,9 @@ public IImage LogoImage;
      width="101" height="100" onclick="alert('JDI Logo');">
 ```
 
-<br><br><br><br><br><br><br><br><br>
-
 Images are represented by the following classes in Java and C#:
 
-- __Java__: _com.epam.jdi.light.ui.html.common.Image_
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.Image_
 - __C#__: _JDI.Light.Elements.Common.Image_
 
 Here is a list of available methods in Java:
@@ -931,12 +932,13 @@ Here is a list of available methods in Java:
 |Method | Description | Return Type
 --- | --- | ---
 **alt()** |get value of alt attribute | String
-**assertThat()** |method for building assertions  | ImageAssert
 **click()** | click on the image| void
-**height()** |get value of height attribute| String
+**height()** |get value of height attribute| int
 **is()** | method for building assertions | ImageAssert
 **src()** | get value of src attribute | String
-**width()** | get value of width attribute| String
+**width()** | get value of width attribute| int
+**fileName()** | Get image source path| String
+**getValue()** | Get image source path| String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a>
 
@@ -957,47 +959,43 @@ Here is a list of available methods in C#:
 #### 1.1.9 Link
 
 ```java 
-//@FindBy(css = "[ui=github-link]") 
-@UI("[ui=github-link]") 
-public static Link githubLink;
 
-@Test
-public void linkTextTest() {
-    githubLink.is().text(EXPECTED_TEXT);
-    githubLink.is().text(equalTo(EXPECTED_TEXT));
-    githubLink.is().text(containsString(PART_OF_EXPECTED_TEXT));
-}
+  //@FindBy(css = "[ui=github-link]") 
+  @UI("[ui=github-link]") 
+  public static Link githubLink;
 
-@Test
-public void linkRefTest() {
-    githubLink.is().ref(EXPECTED_URL);
-    githubLink.is().ref(equalTo(EXPECTED_URL));
-    githubLink.is().ref(containsString(PART_OF_EXPECTED_URL));
-    githubLink.is().ref(matchesPattern(EXPECTED_URL_REGEX));
-}
+  @Test
+  public void getTextTest() {
+        assertEquals(githubLink.getText(), text);
+  }
+
+  @Test
+  public void getRefTest() {
+        assertEquals(githubLink.ref(), "https://github.com/jdi-testing");
+  }
 ```
 ```csharp 
-[FindBy(Css = "[ui = github-link]")]
-public ILink GithubLink;
-
-[Test]
-public void GetTextTest()
-{
-    Assert.AreEqual(GithubLink.GetText(), Text);
-}
-
-[Test]
-public void GetUrlTest()
-{
-     Assert.AreEqual(GithubLink.Url(), "https://epam.github.io/JDI/html5.html");
-}
+  [FindBy(Css = "[ui = github-link]")]
+  public ILink GithubLink;
+  
+  [Test]
+  public void GetTextTest()
+  {
+      Assert.AreEqual(GithubLink.GetText(), Text);
+  }
+  
+  [Test]
+  public void GetUrlTest()
+  {
+       Assert.AreEqual(GithubLink.Url(), "https://epam.github.io/JDI/html5.html");
+  }
 ```
 
 **Link** — A graphical control element that allows user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
 
 Link are represented by the following class:
 
-- __Java__: _com.epam.jdi.light.ui.html.common.Link_
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.Link_
 - __C#__: _JDI.Light.Elements.Common.Link_
 
 
@@ -1012,14 +1010,13 @@ Here is the list of available methods in Java:
 |Method | Description | Return Type
 --- | --- | ---
 **alt()** |Returns the alternate text | String
-**assertThat()** | Returns object for work with assertions | LinkAssert
 **click()** |Follow the link | void
-**getText()** |Returns the link text  | String
+**getValue()** |Returns the link text  | String
 **is()** | Returns object for work with assertions | LinkAssert
 **ref()** |Returns the reference  | String
 **url()** |Returns the URL  | URL
 
-<a href="https://github.com/jdi-testing/jdi-light/tree/1509---jdi-light-test-examples/jdi-light-html-tests/src/test/java/io/github/epam/example/common/LinkExampleTests.java" target="_blank">Test examples in Java</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LinkTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
 
 Here is the list of available methods in C#:
@@ -1044,8 +1041,7 @@ Here is the list of available methods in C#:
 
 Menu element is located in JDI Light in:
 
-- __Java__: _com.epam.jdi.light.ui.html. element
-  .Menu_
+- __Java__: _com.epam.jdi.light.ui.html.
 - __C#__: _JDI.Light.Elements.Composite.Menu_
 
 ![Menu example](../../images/html/menu2.png)
@@ -1055,113 +1051,202 @@ Here is an example with provided HTML code:
 <!-- ![Menu example](../../images/html/menu.png) -->
 
 ```java 
-@UI(".sidebar-menu span<[*'%s']<<") 
-public static Menu leftMenu;
-@Url("/metals-colors.html") @Title("Metal and Colors")
-public static MetalAndColorsPage metalAndColorsPage;
+  @UI(".sidebar-menu [ui=label]") 
+  //@FindBy(css = ".sidebar-menu [ui=label]")
+  public static Menu leftMenu;
 
-@Test
-public void selectEnumTest() {
-    leftMenu.select(MetalsColors);
-    metalAndColorsPage.checkOpened();
-}
+  @Test
+  public void setNullValueTest() {
+        String optionName = null;
+        String selectedValue = leftMenu.selected();
+        leftMenu.select(optionName);
+        leftMenu.has().text(selectedValue);
+  }
+  
+  @Test
+  public void selectTest() {
+        leftMenu.select("Contact form");
+        contactFormPage.checkOpened();
+  }
+  
 ```
 ```csharp
-[FindBy(Css = "ul.sidebar-menu")]
-public Menu SidebarMenu;
-
-[Test]
-public void SelectEnumTest()
-{
-     TestSite.SidebarMenu.Select(Navigation.MetalsColors);
-     TestSite.MetalsColorsPage.CheckOpened();
-}
-
-[Test]
-public void IsValidationTest()
-{
-     TestSite.SidebarMenu.Select("Elements packs", "HTML 5");
-     TestSite.SidebarMenu.Is.Selected("HTML 5")
-}
-
-[Test]
-public void AssertValidationTest()
-{
-     TestSite.SidebarMenu.Select("Elements packs", "HTML 5");
-     TestSite.SidebarMenu.AssertThat.Selected("HTML 5");
-}
-
+  [FindBy(Css = "ul.sidebar-menu")]
+  public Menu SidebarMenu;
+  
+  [Test]
+  public void SelectEnumTest()
+  {
+       TestSite.SidebarMenu.Select(Navigation.MetalsColors);
+       TestSite.MetalsColorsPage.CheckOpened();
+  }
+  
+  [Test]
+  public void IsValidationTest()
+  {
+       TestSite.SidebarMenu.Select("Elements packs", "HTML 5");
+       TestSite.SidebarMenu.Is.Selected("HTML 5")
+  }
+  
+  [Test]
+  public void AssertValidationTest()
+  {
+       TestSite.SidebarMenu.Select("Elements packs", "HTML 5");
+       TestSite.SidebarMenu.AssertThat.Selected("HTML 5");
+  }
+  
 ```
 
 ```html 
-<ul class="sidebar-menu">
-    <li ui="label" index="1">
-        <a href="index.html"> <span>Home</span>  </a>
-    </li>           
-    <li ui="label" index="2">
-        <a href="contacts.html"> <span>Contact form</span> </a> 
-     </li>            
-    <li class="menu-title" index="3">                
-        <a ui="label"> 
-            <span>Service</span>
-            <div class="fa fa-caret-down arrow"></div>                
-        </a>                
-        <ul class="sub hide-menu">                    
-            <li ui="label" index="1">
-                <a href="support.html">
-                    <p><span>Support</span></p>
-                </a>
-            </li>                    
-            <li ui="label" index="2"><a href="dates.html"><span>Dates</span></a>
-            </li>                    
-            <li ui="label" index="3"><a href="complex-table.html"> <span>Complex Table </span></a>
-            </li>                    
-            <li ui="label" index="4"><a href="simple-table.html"> <span>Simple Table</span></a>
-            </li>                    
-            <li ui="label" index="5"><a href="search.html"> <span>Search</span> </a>
-            </li>                    
-            <li ui="label" index="6"><a href="user-table.html"> <span>User Table</span></a>
-            </li>                    
-            <li ui="label" index="7"><a href="table-pages.html"> <span>Table with pages</span></a>
-            </li>                    
-            <li ui="label" index="8"><a href="different-elements.html"> <span>Different elements</span> </a>
-            </li>                    
-            <li ui="label" index="9"><a href="performance.html"><span>Performance</span></a>
-            </li>                
-        </ul>            
-    </li>            
-    <li ui="label" index="4"><a href="metals-colors.html">  <span>Metals &amp; Colors</span></a>       
-    </li>            
-    <li class="menu-title active" index="5">
-        <a ui="label">
-          <span>Elements packs</span>
-          <div class="fa fa-caret-down arrow"></div>                
-        </a>                
-        <ul class="sub">                    
-            <li ui="label" index="1" class="active"><a href="html5.html"><span>HTML 5</span></a></li>                    
-            <li ui="label" index="2"><a href="bootstrap.html"><span>Bootstrap</span>  </a></li>					          
-            <li ui="label" index="3"><a href="bootstrap_form.html">	<span>Bootstrap form</span></a></li>					          
-            <li ui="label" index="4"><a href="react-ant.html"> <span>React Ant</span></a></li>               
-         </ul>            
-    </li>        
+<ul class="sidebar-menu left">
+	<li ui="label" index="1">
+		<a href="index.html">
+			<span>Home</span>
+		</a>
+	</li>
+	<li ui="label" index="2">
+		<a href="contacts.html">
+			<span>Contact form</span>
+		</a>
+	</li>
+	<li class="menu-title" index="3">
+		<a ui="label">
+			<span>Service</span>
+			<div class="fa fa-caret-down arrow"/>
+		</a>
+		<ul class="sub hide-menu">
+			<li ui="label" index="1">
+				<a href="support.html">
+					<p>
+						<span>Support</span>
+					</p>
+				</a>
+			</li>
+			<li ui="label" index="2">
+				<a href="dates.html">
+					<span>Dates</span>
+				</a>
+			</li>
+			<li ui="label" index="3">
+				<a href="complex-table.html">
+					<span>Complex Table </span>
+				</a>
+			</li>
+			<li ui="label" index="4">
+				<a href="simple-table.html">
+					<span>Simple Table</span>
+				</a>
+			</li>
+			<li ui="label" index="5">
+				<a href="search.html">
+					<span>Search</span>
+				</a>
+			</li>
+			<li ui="label" index="6">
+				<a href="user-table.html">
+					<span>User Table</span>
+				</a>
+			</li>
+			<li ui="label" index="7">
+				<a href="table-pages.html">
+					<span>Table with pages</span>
+				</a>
+			</li>
+			<li ui="label" index="8">
+				<a href="different-elements.html">
+					<span>Different elements</span>
+				</a>
+			</li>
+			<li ui="label" index="9">
+				<a href="performance.html">
+					<span>Performance</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+	<li ui="label" index="4">
+		<a href="metals-colors.html">
+			<span>Metals &amp; Colors</span>
+		</a>
+	</li>
+	<li class="menu-title active" index="5">
+		<a ui="label">
+			<span>Elements packs</span>
+			<div class="fa fa-caret-down arrow"/>
+		</a>
+		<ul class="sub">
+			<li ui="label" index="1" class="active">
+				<a href="html5.html">
+					<span>HTML 5</span>
+				</a>
+			</li>
+			<li ui="label" index="2">
+				<a href="mobile-html5.html">
+					<span>Mobile and HTML 5</span>
+				</a>
+			</li>
+			<li ui="label" index="3">
+				<a href="bootstrap-new.html">
+					<span>Bootstrap</span>
+				</a>
+			</li>
+			<li ui="label" index="4">
+				<a href="bootstrap_form.html">
+					<span>Bootstrap form</span>
+				</a>
+			</li>
+			<li ui="label" index="5">
+				<a href="bootstrap_forms.html">
+					<span>Bootstrap forms</span>
+				</a>
+			</li>
+			<li ui="label" index="6">
+				<a href="react-ant.html">
+					<span>React Ant</span>
+				</a>
+			</li>
+			<li ui="label" index="7">
+				<a href="angular.html">
+					<span>Angular</span>
+				</a>
+			</li>
+			<li ui="label" index="8">
+				<a href="material">
+					<span>Material UI</span>
+				</a>
+			</li>
+			<li ui="label" index="9">
+				<a href="vuetify">
+					<span>Vuetify</span>
+				</a>
+			</li>
+		</ul>
+	</li>
 </ul>
+				
 ```
 
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**String selected()** | Returns selected menu item | String
-**List<String> values()** | Returns selected menu item and subitems | List<String>
-**void hoverAndClick(String...)** | Hovers and clicks menu item and subitems | void
-**void hoverAndClick(String)** | Hovers and clicks menu item | void
-**void select(int...)** | Select menu element by index | void
-**void select(int)** | Select menu element and subelements by index | void
-**void select(String...)** | Select menu element and subelement | void
-**void select(String)** | Select menu element | void
-**void select(TEnum...)** | Select menu element and subelement | void
-**void select(TEnum)** | Select menu element | void
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
+**selected()** | Returns selected menu item              | String
+**selected(String/int)** | Check is item seleceted                 | boolean
+**values()** | Returns selected menu item and subitems | List<String>
+**values(TextTypes)** | Returns selected menu item and subitems | List<String>
+**select(String/String.../int/int.../TEnum/TEnum...)** | Select menu element                     | void
+**listEnabled()** | Returns all enable menu options         | List<String>
+**listDisabled()** | Returns all disabled menu options       | List<String>
+**attrs()** | Gets all element attributes             | List<String>
+**getText()** | Gets button text                        | String
+**getValue()** | Returns the value                       | String
+**setValue(String)** | Sets the value                          | void
+**isDisplayed()** | Check that menu is displayed            | boolean
+**isHidden()** | Check that menu is hidden               | boolean
+**size()** | Get menu size                           | int
+**isEmpty()** | Check that '{name}' menu is empty       | boolean
+**isNotEmpty()** | Check that '{name}' menu is not empty   | boolean
 
 Available methods in C# JDI Light:
 

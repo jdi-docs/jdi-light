@@ -173,8 +173,8 @@ Here is an example with provided HTML code:
 <!-- ![Checkbox example](../../images/html/checkbox_html.png) -->
 
 ```java 
-//@FindBy(id = "accept-conditions") 
-@UI("#accept-conditions")
+//@FindBy(xpath = "//input[@type='checkbox' and @id='accept-conditions']") 
+@UI("//input[@type='checkbox' and @id='accept-conditions']")
 public static Checkbox acceptConditions;
 
 @Test
@@ -194,6 +194,7 @@ public void getLabelTextTest() {
     acceptConditions.label().is().text(labelText);
 }
 ```
+
 ```csharp
 
 [FindBy(XPath = "//*[@id='elements-checklist']//*[text()='Water']")]
@@ -292,21 +293,21 @@ public void BaseValidationTest()
 ```
 
 ```html
-<input type="checkbox" id="accept-conditions" checked="">
-<label for="accept-conditions">Accept terms and conditions</label>
+<div>
+  <input type="checkbox" id="accept-conditions" checked="">
+  <label for="accept-conditions">Accept terms and conditions</label>
+</div>
 ```
 
 Available methods in Java JDI Light:
 
-|Methods | Description | Return Type
+|Method | Description | Return Type
 --- | --- | ---
-**assertThat()** | Assert action checkbox | CheckboxAssert
+**safeGetLabel()**| Safely returns label |Label
 **check(String)**| Set to checked if string value equals "true" (case insensitive), otherwise set to unchecked | void
 **check()**| Set to checked | void
-**click()** | Click the checkbox  | void
-**is()** | Assert action checkbox | CheckboxAssert
-**isSelected()** | Verify value | boolean
 **uncheck()**| Set to unchecked | void
+
 
 Available methods in C# JDI Light:
 

@@ -3809,21 +3809,20 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/CheckBoxTests.cs" target="_blank">C# test examples</a></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#checkbox-2">BDD Steps example</a></p>
-<h4 id='1-1-4-colorpicker'>1.1.4 ColorPicker</h4><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(xpath = "//input[@type='color' and @id='color-picker']") </span>
-<span class="nd">@UI</span><span class="o">(</span><span class="s">"//input[@type='color' and @id='color-picker']"</span><span class="o">)</span>
+<h4 id='1-1-4-colorpicker'>1.1.4 ColorPicker</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#color-picker"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "color-picker")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ColorPicker</span> <span class="n">colorPicker</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getColorTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">disabledPicker</span><span class="o">.</span><span class="na">color</span><span class="o">(),</span> <span class="n">defaultColor</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkColorTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">colorPicker</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">COLOR</span><span class="o">);</span>
+    <span class="n">disabledPicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">DISABLED_COLOR</span><span class="o">);</span>
 <span class="o">}</span>
+
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setColorTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">colorPicker</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="s">"#432376"</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorPicker</span><span class="o">.</span><span class="na">color</span><span class="o">(),</span> <span class="s">"#432376"</span><span class="o">);</span>
-    <span class="n">disabledPicker</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="s">"#432376"</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">disabledPicker</span><span class="o">.</span><span class="na">color</span><span class="o">(),</span> <span class="s">"#432376"</span><span class="o">);</span>
-<span class="o">}</span>
+    <span class="n">colorPicker</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">SETTING_COLOR</span><span class="o">);</span>
+    <span class="n">colorPicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">SETTING_COLOR</span><span class="o">);</span>
+<span class="o">}</span>  
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#color-picker")]</span>
 <span class="k">public</span> <span class="n">ColorPicker</span> <span class="n">ColorPicker</span><span class="p">;</span>
 
@@ -3854,10 +3853,8 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 <p>Here is an example with provided HTML code:</p>
 
 <!-- ![ColorPicker](../../images/html/colorpicker_html.png) -->
-<pre class="highlight html tab-html"><code><span class="nt">&lt;div&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"color"</span> <span class="na">value=</span><span class="s">"#3fd7a6"</span> <span class="na">id=</span><span class="s">"color-picker"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"color-picker"</span><span class="nt">&gt;</span>Select a color<span class="nt">&lt;/label&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"color"</span> <span class="na">value=</span><span class="s">"#3fd7a6"</span> <span class="na">id=</span><span class="s">"color-picker"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"color-picker"</span><span class="nt">&gt;</span>Select a color<span class="nt">&lt;/label&gt;</span>
 </code></pre>
 <p>Here is the list of some available methods in Java:</p>
 
@@ -3869,9 +3866,19 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 </tr>
 </thead><tbody>
 <tr>
+<td><strong>assertThat()</strong></td>
+<td>Assert action</td>
+<td>ColorAssert</td>
+</tr>
+<tr>
 <td><strong>color()</strong></td>
 <td>Returns color code in  hexadecimal format (&quot;#rrggbb&quot;)</td>
 <td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>ColorAssert</td>
 </tr>
 <tr>
 <td><strong>setColor(String)</strong></td>
@@ -3879,6 +3886,10 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 <td>void</td>
 </tr>
 </tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ColorPickerTests.java" target="_blank">Java test examples</a>
+<br>
+<a href="https://jdi-docs.github.io/jdi-light/?java#colorpicker-2">BDD Steps example</a><br></p>
 
 <p>Here is the list of some available methods in C#:</p>
 
@@ -3911,9 +3922,7 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ColorPickerTests.java" target="_blank">Java test examp
-<br>
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs" target="_blank">Test examples in C#</a>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs" target="_blank">Test examples in C#</a>
 <br>
 <a href="https://jdi-docs.github.io/jdi-light/?java#colorpicker-2">BDD Steps example</a><br></p>
 <h4 id='1-1-5-datetimeselector'>1.1.5 DateTimeSelector</h4>

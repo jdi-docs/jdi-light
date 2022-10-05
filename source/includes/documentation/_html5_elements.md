@@ -332,20 +332,21 @@ Available methods in C# JDI Light:
 #### 1.1.4 ColorPicker
 
 ```java 
-@UI("#color-picker") // @FindBy(id = "color-picker")
+//@FindBy(xpath = "//input[@type='color' and @id='color-picker']") 
+@UI("//input[@type='color' and @id='color-picker']")
 public static ColorPicker colorPicker;
 
 @Test
-public void checkColorTest() {
-    colorPicker.assertThat().color(COLOR);
-    disabledPicker.is().color(DISABLED_COLOR);
+public void getColorTest() {
+    assertEquals(disabledPicker.color(), defaultColor);
 }
-
 @Test
 public void setColorTest() {
-    colorPicker.setColor(SETTING_COLOR);
-    colorPicker.is().color(SETTING_COLOR);
-}  
+    colorPicker.setColor("#432376");
+    assertEquals(colorPicker.color(), "#432376");
+    disabledPicker.setColor("#432376");
+    assertEquals(disabledPicker.color(), "#432376");
+}
 ```
 ```csharp
 [FindBy(Css = "#color-picker")]
@@ -379,22 +380,18 @@ Here is an example with provided HTML code:
 <!-- ![ColorPicker](../../images/html/colorpicker_html.png) -->
 
 ```html
-<input type="color" value="#3fd7a6" id="color-picker">
-<label for="color-picker">Select a color</label>
+<div>
+  <input type="color" value="#3fd7a6" id="color-picker">
+  <label for="color-picker">Select a color</label>
+</div>
 ```
 
 Here is the list of some available methods in Java:
 
 |Methods | Description | Return Type
 --- | --- | ---
-**assertThat()** | Assert action | ColorAssert
 **color()** | Returns color code in  hexadecimal format ("#rrggbb") | String
-**is()** | Assert action | ColorAssert
 **setColor(String)** | Set color from string hex representation ("#rrggbb") | void
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ColorPickerTests.java" target="_blank">Java test examples</a>
-<br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#colorpicker-2)<br>
 
 Here is the list of some available methods in C#:
 
@@ -405,6 +402,8 @@ Here is the list of some available methods in C#:
 **Is()** | Assert action | ColorAssert
 **SetColor(String)** | Set color from string hex representation ("#rrggbb") | void
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ColorPickerTests.java" target="_blank">Java test examp
+<br>
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs" target="_blank">Test examples in C#</a>
 <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#colorpicker-2)<br>

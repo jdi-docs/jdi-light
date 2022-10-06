@@ -440,7 +440,7 @@ Here is the list of some available methods in C#:
 <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#colorpicker-2)<br>
 
-#### 1.1.5 DateTimeSelector
+#### 1.1.5 DateTimeSelector. Date
 
 **DateTimeSelector** — Is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.
 
@@ -451,6 +451,260 @@ The list of supported elements:
 - Input Type Month
 - Input Type Time
 - Input Type DateTime-Local
+
+<hr>
+
+**Input Type Date** — A graphical control element that allows user to set value for date.
+
+```java 
+//@FindBy(css = "#birth-date")
+@UI("#birth-date")
+
+public static DateTimeSelector birthDate;
+
+@Test
+public void setDateTimeTest() {
+    birthDate.setDateTime("2018-11-13");
+    assertEquals(birthDate.value(), "2018-11-13");
+}
+
+@Test
+public void labelTest() {
+    assertEquals(birthDate.label().getText(), "Birth date");
+    birthDate.label().is().text(containsString("Birth"));
+}
+```
+```csharp 
+[FindBy(Css = "#birth-date")]
+public IDateTimeSelector BirthDate { get; set; }
+        
+[Test]
+public void SetBirthDateTest()
+{
+    TestSite.Html5Page.BirthDate.Format = "yyyy-MM-dd";
+    TestSite.Html5Page.BirthDate.SetDateTime(_dateTime);    
+    TestSite.Html5Page.BirthDate.AssertThat().SelectedTime(Is.EqualToIgnoringCase("2019-04-01"));	
+}
+```
+
+![InputTypeDate](../../images/html/inputTypeDate_html2.png)
+
+```html
+<div>
+  <label for="birth-date">Birth date</label>
+  <input type="date" id="birth-date" value="1985-06-18" min="1970-01-01" max="2030-12-31">
+</div>
+```
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/DateTests.java" target="_blank">Type Date test examples in Java</a>
+<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Type Date test examples in C#</a>
+
+<hr>
+
+**Input Type Week** — A graphical control element that allows user to set values for week and year.
+
+```java 
+//@FindBy(css = "#autumn-week")
+@UI("#autumn-week")
+
+public static DateTimeSelector autumnWeek;
+
+@Test
+public void setDateTimeTest() {
+    autumnWeek.setDateTime("2018-W12");
+    autumnWeek.show();
+    assertEquals(autumnWeek.value(), "2018-W12");
+}
+
+@Test
+public void labelTest() {
+    autumnWeek.label().assertThat().text(is("Autumn"));
+    autumnWeek.label().is().text(equalToIgnoringCase("autumn"));
+}
+```
+
+```csharp 
+[FindBy(Css = "#autumn-week")]
+public IDateTimeSelector AutumnDateTime { get; set; }
+        
+[Test]
+public void AutumnDateTimeTest()
+{
+    var calendar = new GregorianCalendar();
+    var weekNum = calendar.GetWeekOfYear(_dateTime, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
+    TestSite.Html5Page.AutumnDateTime.Format = "yyyy-" + $"W{weekNum}";
+
+    TestSite.Html5Page.AutumnDateTime.SetDateTime(_dateTime);
+    var setValue = TestSite.Html5Page.AutumnDateTime.GetValue();
+    Assert.AreEqual(setValue, "2019-W13");
+}
+```
+![InputTypeWeek](../../images/html/inputTypeWeek_html2.png)
+
+```html
+<div>
+  <label for="autumn-week">Autumn</label>
+  <input type="week" id="autumn-week" value="2018-W40" min="2018-W35" max="2018-W48" required="">
+</div>
+```
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/WeekTests.java" target="_blank">Type Week test examples in Java</a>
+<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Type Week test examples in C#</a>
+
+<hr>
+
+**Input Type Month** — a graphical control element that allows user to set values for month and year.
+
+```java 
+//@FindBy(css = "#month-date")
+@UI("#month-date")
+
+public static DateTimeSelector monthDate;
+
+@Test
+public void setDateTimeTest() {
+    monthDate.setDateTime("2018-10");
+    monthDate.show();
+    assertEquals(monthDate.value(), "2018-10");
+}
+
+@Test
+public void labelTest() {
+    monthDate.label().is().text(containsString("Holidays"));
+    monthDate.label().is().text(equalToIgnoringCase("month of holidays"));
+}
+```
+
+```csharp 
+[FindBy(Css = "#month-date")]
+public IDateTimeSelector MonthOfHolidays { get; set; }
+        
+[Test]
+public void SetMonthTest()
+{
+    TestSite.Html5Page.MonthOfHolidays.Format = "yyyy-MM";
+    TestSite.Html5Page.MonthOfHolidays.SetDateTime(_dateTime);
+    var setValue = TestSite.Html5Page.MonthOfHolidays.GetValue();
+    Assert.AreEqual(setValue, "2019-04");
+}
+```
+
+![InputTypeMonth](../../images/html/inputTypeMonth_html2.png)
+
+```html
+<div>
+  <label for="autumn-week">Autumn</label>
+  <input type="week" id="autumn-week" value="2018-W40" min="2018-W35" max="2018-W48" required="">
+</div>
+```
+
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Type Month test examples in C#</a>
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/MonthTests.java" target="_blank">Type Month test examples in Java</a>
+
+<hr>
+
+**Input Type Time** — A graphical control element that allows user to set time.
+
+```java 
+//@FindBy(css = "#booking-time")
+@UI("#booking-time")
+
+public static DateTimeSelector bookingTime
+
+@Test
+public void setDateTimeTest() {
+    bookingTime.setDateTime("05:00");
+    bookingTime.show();
+    assertEquals(bookingTime.value(), "05:00");
+}
+
+@Test
+public void labelTest() {
+    assertEquals(bookingTime.label().getText(), "Booking Time:");
+    bookingTime.label().is().text(equalToIgnoringCase("booking Time:"));
+}
+```
+
+```csharp 
+[FindBy(Css = "#booking-time")]
+public IDateTimeSelector BookingTime { get; set; }
+        
+[Test]
+public void SetTimeTest()
+{
+    TestSite.Html5Page.BookingTime.Format = "H:mm";
+    TestSite.Html5Page.BookingTime.SetDateTime(_dateTime);
+    var setValue = TestSite.Html5Page.BookingTime.GetValue();
+    Assert.AreEqual(setValue, "15:00");
+}
+```
+
+![InputTypeTime](../../images/html/inputTypeTime_html2.png)
+
+```html
+<div>
+  <label for="booking-time">Booking Time:</label>
+  <input type="time" id="booking-time" value="11:00" min="9:00" max="18:00">
+</div>
+```
+
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Type Time test examples in C#</a>
+<br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TimeTests.java" target="_blank">Type Time test examples in Java</a>
+
+<hr>
+
+**Input Type DateTime-Local** — A graphical control element that allows user to set time and date.
+
+```java 
+//@FindBy(css = "#party-time")
+@UI("#party-time")
+
+public static DateTimeSelector partyTime;
+
+@Test
+public void setDateTimeTest() {
+    partyTime.setDateTime("2017-05-10T00:00");
+    partyTime.show();
+    assertEquals(partyTime.value(), "2017-05-10T00:00");
+}
+
+@Test
+public void labelTest() {
+    partyTime.label().assertThat().text(is("Date/time:"));
+    partyTime.label().is().text(equalToIgnoringCase("date/time:"));
+}
+```
+
+```csharp 
+[FindBy(Css = "#party-time")]
+public IDateTimeSelector PartyTime { get; set; }
+
+[Test]
+public void SetPartyTimeTest()
+{
+    TestSite.Html5Page.PartyTime.Format = "yyyy-MM-ddTHH:mm";
+    TestSite.Html5Page.PartyTime.SetDateTime(_dateTime);
+    var setValue = TestSite.Html5Page.PartyTime.GetDateTime();
+    Assert.AreEqual(setValue, _dateTime);
+}
+```
+
+![InputTypeDateTime](../../images/html/inputDateTimeLocal_html2.png)
+
+```html
+<div>
+  <label for="party-time">Date/time:</label>
+  <input type="datetime-local" id="party-time" value="2018-06-12T19:30" min="2018-05-07T00:00" max="2018-06-14T00:00">
+</div>
+```
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/DateTimeTests.java" target="_blank">Type DateTime-Local test examples in Java</a>
+<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Type DateTime-Local test examples in C#</a>
 
 There following classes represent this type of element:
 
@@ -473,203 +727,17 @@ And here are some of the methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**assertThat()** | Assertion | DateTimeAssert
-**is()** | Assertion | DateTimeAssert
+**value()** | Returns the set date or time | String
 **max()** | Gets attribute with name max | String
 **min()** | Gets attribute with name min | String
-**setDateTime(string value)** | Sets a date or time | void
-**value()** | Returns the set date or time | String
+**setDateTime(String)** | Sets a date or time | void
+**setValue(String)**|Sets a date or time|void
+**getValue()** | Returns the set date or time | String
+**is()** | Assertion | DateTimeAssert
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#datetimeselector-2)
 
 __In the following sections there are examples of different implementations of such fields.__
-
-__Input Type Date__
-
-```java 
-//@FindBy(css = "#birth-date")
-@UI("#birth-date")  
-public static DateTimeSelector birthDate;
-
-//@FindBy(id = "party-time")
-@UI("#party-time") 
-public static DateTimeSelector partyTime;
-
-//@FindBy(css = "#booking-time")
-@UI("#booking-date")  
-public static DateTimeSelector bookingTime;
-
-@Test
-public void setDateTimeTest() {
-    partyTime.setDateTime("2017-05-10T00:00");
-    partyTime.show();
-    partyTime.is().text("2017-05-10T00:00");
-    bookingTime.setDateTime("05:00");
-    bookingTime.show();
-    bookingTime.is().text("05:00");
-}
-
-@Test
-public void getDateTest() {
-    birthDate.is().text("1985-06-18");
-}
-
-@Test
-public void minMaxTest() {
-    assertEquals(partyTime.min(), "2018-05-07T00:00");
-    assertEquals(partyTime.max(), "2018-06-14T00:00");
-}
-
-@Test
-public void labelTest() {
-    birthDate.label().assertThat().text(is("Birth date"));
-    birthDate.label().is().text(equalToIgnoringCase("birth date"));
-    birthDate.assertThat().date(containsString("1985"));
-}
-```
-```csharp 
-[FindBy(Css = "#birth-date")]
-public IDateTimeSelector BirthDate { get; set; }
-        
-[Test]
-public void SetBirthDateTest()
-{
-    TestSite.Html5Page.BirthDate.Format = "yyyy-MM-dd";
-    TestSite.Html5Page.BirthDate.SetDateTime(_dateTime);    
-    TestSite.Html5Page.BirthDate.AssertThat().SelectedTime(Is.EqualToIgnoringCase("2019-04-01"));	
-}
-```
-**Input Type Date** — A graphical control element that allows user to set value for date.
-
-![InputTypeDate](../../images/html/inputTypeDate_html2.png)
-
-```html
-<label for="birth-date">Birth date</label>
-<input type="date" id="birth-date" value="1985-06-18" min="1970-01-01" max="2030-12-31">
-```
-
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/DateTests.java" target="_blank">Test examples in Java</a>
-
-__Input Type Week__
-
-```csharp 
-[FindBy(Css = "#autumn-week")]
-public IDateTimeSelector AutumnDateTime { get; set; }
-        
-[Test]
-public void AutumnDateTimeTest()
-{
-    var calendar = new GregorianCalendar();
-    var weekNum = calendar.GetWeekOfYear(_dateTime, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
-    TestSite.Html5Page.AutumnDateTime.Format = "yyyy-" + $"W{weekNum}";
-
-    TestSite.Html5Page.AutumnDateTime.SetDateTime(_dateTime);
-    var setValue = TestSite.Html5Page.AutumnDateTime.GetValue();
-    Assert.AreEqual(setValue, "2019-W13");
-}
-```
-**Input Type Week** — A graphical control element that allows user to set values for week and year.
-
-![InputTypeWeek](../../images/html/inputTypeWeek_html2.png)
-
-```html
-<label for="autumn-week">Autumn</label>
-<input type="week" id="autumn-week" value="2018-W40"
- min="2018-W35" max="2018-W48" required="">
-```
-
-
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/WeekTests.java" target="_blank">Test examples in Java</a>
-
-
-__Input Type Month__
-
-```csharp 
-[FindBy(Css = "#month-date")]
-public IDateTimeSelector MonthOfHolidays { get; set; }
-        
-[Test]
-public void SetMonthTest()
-{
-    TestSite.Html5Page.MonthOfHolidays.Format = "yyyy-MM";
-    TestSite.Html5Page.MonthOfHolidays.SetDateTime(_dateTime);
-    var setValue = TestSite.Html5Page.MonthOfHolidays.GetValue();
-    Assert.AreEqual(setValue, "2019-04");
-}
-```
-**Input Type Month** — a graphical control element that allows user to set values for month and year.
-
-![InputTypeMonth](../../images/html/inputTypeMonth_html2.png)
-
-```html
-<label for="month-date">Month of Holidays</label>
-<input type="month" id="month-date" min="2015-03"
- max="2020-12" value="2018-05">
-```
-
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/MonthTests.java" target="_blank">Test examples in Java</a>
-
-__Input Type Time__
-
-```csharp 
-[FindBy(Css = "#booking-time")]
-public IDateTimeSelector BookingTime { get; set; }
-        
-[Test]
-public void SetTimeTest()
-{
-    TestSite.Html5Page.BookingTime.Format = "H:mm";
-    TestSite.Html5Page.BookingTime.SetDateTime(_dateTime);
-    var setValue = TestSite.Html5Page.BookingTime.GetValue();
-    Assert.AreEqual(setValue, "15:00");
-}
-```
-**Input Type Time** — A graphical control element that allows user to set time.
-
-![InputTypeTime](../../images/html/inputTypeTime_html2.png)
-
-```html
-<label for="booking-time">Booking Time:</label>
-<input type="time" id="booking-time" value="11:00" min="9:00" max="18:00">
-```
-
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TimeTests.java" target="_blank">Test examples in Java</a>
-
-__Input Type DateTime-Local__
-
-```csharp 
-[FindBy(Css = "#party-time")]
-public IDateTimeSelector PartyTime { get; set; }
-
-[Test]
-public void SetPartyTimeTest()
-{
-    TestSite.Html5Page.PartyTime.Format = "yyyy-MM-ddTHH:mm";
-    TestSite.Html5Page.PartyTime.SetDateTime(_dateTime);
-    var setValue = TestSite.Html5Page.PartyTime.GetDateTime();
-    Assert.AreEqual(setValue, _dateTime);
-}
-```
-**Input Type DateTime-Local** — A graphical control element that allows user to set time and date.
-
-![InputTypeDateTime](../../images/html/inputDateTimeLocal_html2.png)
-
-```html
-<label for="party-time">Date/time:</label>
-<input type="datetime-local" id="party-time" value="2018-06-12T19:30" min="2018-05-07T00:00" max="2018-06-14T00:00">
-```
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/DateTimeTests.java" target="_blank">Test examples in Java</a>
-
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
 
 #### 1.1.6 FileInput

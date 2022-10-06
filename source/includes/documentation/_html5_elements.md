@@ -440,7 +440,7 @@ Here is the list of some available methods in C#:
 <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#colorpicker-2)<br>
 
-#### 1.1.5 DateTimeSelector. Date
+#### 1.1.5 DateTimeSelector
 
 **DateTimeSelector** — Is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.
 

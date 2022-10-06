@@ -712,48 +712,26 @@ __In the following sections there are examples of different implementations of s
 
 **FileInput** — A graphical control element that allows user to upload documents to web site.
 
-![FileInput](../../images/fileInputAndDownload.png)
-
-FileInput element is located in JDI Light in:
-
-- __Java__: _com.epam.jdi.light.ui.html.common.FileInput_
-- __C#__: _JDI.Light.Elements.Composite.FileInput_
-
-
-Here is an example with HTML code provided:
-
-<!-- ![FileInput example](../../images/html/fileinput_html.png) -->
-
 ```java 
 //@FindBy(id = "avatar")
 @UI("#avatar") 
 public static FileInput avatar; 
 
-//@FindBy(xpath = "//a[@download]")
-@UI("[download]") 
-public static Link downloadJdiLogo;
-
 @Test
 public void uploadTest() {
-    avatar.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
-    avatar.is().text(containsString("general.xml"));
+    avatar.uploadFile(mergePath(COMMON.projectPath,"/src/test/resources/functional.xml"));
+    avatar.is().text(containsString("functional.xml"));
+    assertTrue(avatar.getText().contains("functional.xml"));
+    assertTrue(avatar.getValue().contains("functional.xml"));
 }
 
 @Test
 public void labelTest() {
-    avatar.label().is().text(containsString("picture:"));
-}
-
-@Test
-public void downloadTest() {
-    FileAssert.cleanupDownloads();
-    FileAssert.downloadJdiLogo.click();
-    FileAssert.assertThatFile("jdi-logo.jpg")
-            .isDownloaded()
-            .hasSize(is(32225L));
-    FileAssert.assertThatFile("jdi-logo.jpg").hasSize(greaterThan(100L));
+    assertEquals(avatar.labelText(), "Profile picture:");
+    avatar.label().is().text(containsString("picture"));
 }
 ```
+
 ```csharp
 [Test]
 public void FileInputTest()
@@ -792,27 +770,33 @@ public void BaseValidationTest()
 
 ```
 
+![FileInput](../../images/fileInputAndDownload.png)
+
+FileInput element is located in JDI Light in:
+
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.FileInput_
+- __C#__: _JDI.Light.Elements.Composite.FileInput_
+
+
+Here is an example with HTML code provided:
+
 ```html
-<label for="avatar">Profile picture:</label>
-<input type="file" id="avatar" accept="image/png, image/jpeg">
-<input type="file" accept="image/png, image/jpeg" disabled="">
-<a href="/jdi-light/images/jdi-logo.jpg" download="">Download JDI Logo</a>
+<div class="html-left">
+  <label for="avatar">Profile picture:</label>
+  <input type="file" id="avatar" accept="image/png, image/jpeg">
+</div>
 ```
 
 Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**assertThat()** | property that returns object for work with assertions | TextAssert
-**click()** | click on element | void
+**uploadFile(String)** | set file path to input | void
+**uploadFileRobot(String, long)** | set file path to input | void
+**setValue(String)** | set file path to input | void
+**text()** | returns text of input field | String
 **getValue()** | Get file name | String
 **is()** | property that returns object for work with assertions | TextAssert
-**hover()** | hover on element | void
-**label()**| Get label | Label
-**setValue(String value)** | set file path to input | void
-**text()** | returns text of input field | String
-**uploadFile(String path)** | set file path to input | void
-**uploadFileRobot(String path, long mSecDelay)** | set file path to input | void
 
 Available method in C# JDI Light:
 
@@ -824,10 +808,10 @@ Available method in C# JDI Light:
 **SelectFile(string filepath)** |Select file to upload  | void
 **Text(Matcher<string> value)** | Checks whether an occurrence of a text is contained within a text file | FileAssert
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/example/common/FileInputExampleTests.java">Test examples in Java</a>
-
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/FileUploadTests.java">Test examples in Java</a>
+<br>
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/FileInputTests.cs">Test examples in C#</a>
-
+<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#fileinput-2)
 
 #### 1.1.7 Icon

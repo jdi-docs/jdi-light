@@ -5109,40 +5109,49 @@ The `mat-dialog` service can be used to open modal dialogs with Material Design 
 ![Dialog](../../images/angular/dialog.PNG)
 
 ```html  
-<dialog-overview-example _nghost-agc-c348="" ng-version="9.1.0"><h2 _ngcontent-agc-c348="" class="example-h2"><a _ngcontent-agc-c348="" href="https://material.angular.io/components/dialog/overview"> Dialog Overview </a></h2><ol _ngcontent-agc-c348=""><li _ngcontent-agc-c348=""><mat-form-field _ngcontent-agc-c348="" class="mat-form-field ng-tns-c95-161 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid"><div class="mat-form-field-wrapper ng-tns-c95-161"><div class="mat-form-field-flex ng-tns-c95-161"><!----><!----><div class="mat-form-field-infix ng-tns-c95-161"><input _ngcontent-agc-c348="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-161 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" id="mat-input-74" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c95-161"><label class="mat-form-field-label ng-tns-c95-161 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-189" for="mat-input-74" aria-owns="mat-input-74"><!----><mat-label _ngcontent-agc-c348="" class="ng-tns-c95-161 ng-star-inserted">What's your name?</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c95-161 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c95-161"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c95-161"><!----><div class="mat-form-field-hint-wrapper ng-tns-c95-161 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c95-161"></div></div><!----></div></div></mat-form-field></li><li _ngcontent-agc-c348=""><button _ngcontent-agc-c348="" id="dialog" mat-raised-button="" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper">Pick one</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button></li><br _ngcontent-agc-c348=""><!----></ol></dialog-overview-example>
+<button _ngcontent-rnx-c348="" id="dialog" mat-raised-button="" class="mat-focus-indicator mat-raised-button mat-button-base">
+   <span class="mat-button-wrapper">Pick one</span>
+   <div matripple="" class="mat-ripple mat-button-ripple"></div>
+   <div class="mat-button-focus-overlay"></div>
+</button>
 ```
 
 ```java  
-//@FindBy(css = "#dialog")
-public static Dialog dialog;
+  //@FindBy(css = "#dialog")
+  @UI("#dialog")
+  public static Dialog dialog;
 
-@Test
-public void basicDialogTest() {
-    dialog.sendKeysToNameFormField("EPAM Systems");
-    dialog.open();
-    dialog.is().opened();
-    dialog.is().nameText("EPAM Systems");
-    dialog.sendKeysToAnswerFormField("Lion");
-    dialog.submitAnswer();
-    dialog.is().closed();
-    dialog.is().answerText("Lion");
-}
+  @Test
+  public void basicDialogTest() {
+      dialog.sendKeysToNameFormField("EPAM Systems");
+      dialog.open();
+      dialog.is().opened();
+      dialog.is().nameText("EPAM Systems");
+      dialog.sendKeysToAnswerFormField("Lion");
+      dialog.submitAnswer();
+      dialog.is().closed();
+      dialog.is().answerText("Lion");
+  }
 ```
 
 List of the available **Dialog** methods:
 
-| Method | Description | Return Type
---- | --- | --- 
-**is()** | Assert action | DialogAssert
-**open()** | Open dialog window | void
-**opened()** | Check that dialog window is opened | boolean
-**nameText()** | Check that name is correct | boolean
-**sendKeysToAnswerFormField()** | Enter answer | void
-**sendKeysToNameFormField()** | Enter name | void
-**submitAnswer()** | Click "Ok" button | void
-**close()** | Close dialog window | void
-**closed()** | Check that bottom sheet is closed | boolean
-**answerText()** | Check that answer is correct | boolean
+| Method | Description                        | Return Type
+--- |------------------------------------| --- 
+**is()** | Assert action                      | DialogAssert
+**clickOkButton()** | Clicks "ok" button                 | void
+**clickNoThanksButton()** | Clicks "no thanks" button          | void
+**open()** | Open dialog window                 | void
+**isOpened()** | Check that dialog window is opened | boolean
+**isClosed()** | Check that dialog window is closed | boolean
+**nameText(String)** | Check that name is correct         | boolean
+**sendKeysToAnswerFormField(String)** | Enter answer                       | void
+**sendKeysToNameFormField(String)** | Enter name                         | void
+**answerText(String)** | Check that answer is correct       | boolean
+**nameText(String)** | Check that name is correct         | boolean
+**submitAnswer()** | Click "Ok" button                  | void
+**close()** | Close dialog window                | void
+**answerText()** | Check that answer is correct       | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/DialogTests.java" target="_blank">Dialog java tests examples</a>
 
@@ -5156,7 +5165,7 @@ Sort header locates in following class:
 
 The `mat-sort-header` provide buttons to change table`s rows
 
-    - __Java__: _com.epam.jdi.light.elements.complex.table.Table_
+- __Java__: _com.epam.jdi.light.angular.elements.complex.SortingOverview_
 
 ![Sort Header](../../images/angular/sorting_header.png)
 
@@ -5167,57 +5176,133 @@ List of the available **Sorting Header** methods:
 **is()** | Assert action | Assert
 **getTableHeaders()** | Get table headers | WebList
 **clickButtonByText(String text)** | Get header with by text | void
-
+**headerButtonIsClicked()** | Is header clicked | boolean
+**isHeadersDisplayed()** | Is header displayed | boolean
 
 ```html  
- <a _ngcontent-poo-c363="" href="https://material.angular.io/components/sort/overview"> Sorting overview </a>
+ <tr _ngcontent-rnx-c363="">
+   <th _ngcontent-rnx-c363="" mat-sort-header="name" class="mat-sort-header ng-tns-c191-177">
+      <div class="mat-sort-header-container ng-tns-c191-177">
+         <button type="button" class="mat-sort-header-button mat-focus-indicator ng-tns-c191-177" aria-label="Change sorting for name">Dessert (100g)</button>
+         <div class="mat-sort-header-arrow ng-trigger ng-trigger-arrowPosition ng-tns-c191-177 ng-star-inserted" style="transform: translateY(25%); opacity: 0;">
+            <div class="mat-sort-header-stem ng-tns-c191-177"></div>
+            <div class="mat-sort-header-indicator ng-tns-c191-177 ng-trigger ng-trigger-indicator" style="transform: translateY(0px);">
+               <div class="mat-sort-header-pointer-left ng-tns-c191-177 ng-trigger ng-trigger-leftPointer" style="transform: rotate(-45deg);"></div>
+               <div class="mat-sort-header-pointer-right ng-tns-c191-177 ng-trigger ng-trigger-rightPointer" style="transform: rotate(45deg);"></div>
+               <div class="mat-sort-header-pointer-middle ng-tns-c191-177"></div>
+            </div>
+         </div>
+         <!---->
+      </div>
+   </th>
+   <th _ngcontent-rnx-c363="" mat-sort-header="calories" class="mat-sort-header ng-tns-c191-178">
+      <div class="mat-sort-header-container ng-tns-c191-178">
+         <button type="button" class="mat-sort-header-button mat-focus-indicator ng-tns-c191-178" aria-label="Change sorting for calories">Calories</button>
+         <div class="mat-sort-header-arrow ng-trigger ng-trigger-arrowPosition ng-tns-c191-178 ng-star-inserted" style="transform: translateY(25%); opacity: 0;">
+            <div class="mat-sort-header-stem ng-tns-c191-178"></div>
+            <div class="mat-sort-header-indicator ng-tns-c191-178 ng-trigger ng-trigger-indicator" style="transform: translateY(0px);">
+               <div class="mat-sort-header-pointer-left ng-tns-c191-178 ng-trigger ng-trigger-leftPointer" style="transform: rotate(-45deg);"></div>
+               <div class="mat-sort-header-pointer-right ng-tns-c191-178 ng-trigger ng-trigger-rightPointer" style="transform: rotate(45deg);"></div>
+               <div class="mat-sort-header-pointer-middle ng-tns-c191-178"></div>
+            </div>
+         </div>
+         <!---->
+      </div>
+   </th>
+   <th _ngcontent-rnx-c363="" mat-sort-header="fat" class="mat-sort-header ng-tns-c191-179">
+      <div class="mat-sort-header-container ng-tns-c191-179">
+         <button type="button" class="mat-sort-header-button mat-focus-indicator ng-tns-c191-179" aria-label="Change sorting for fat">Fat (g)</button>
+         <div class="mat-sort-header-arrow ng-trigger ng-trigger-arrowPosition ng-tns-c191-179 ng-star-inserted" style="transform: translateY(25%); opacity: 0;">
+            <div class="mat-sort-header-stem ng-tns-c191-179"></div>
+            <div class="mat-sort-header-indicator ng-tns-c191-179 ng-trigger ng-trigger-indicator" style="transform: translateY(0px);">
+               <div class="mat-sort-header-pointer-left ng-tns-c191-179 ng-trigger ng-trigger-leftPointer" style="transform: rotate(-45deg);"></div>
+               <div class="mat-sort-header-pointer-right ng-tns-c191-179 ng-trigger ng-trigger-rightPointer" style="transform: rotate(45deg);"></div>
+               <div class="mat-sort-header-pointer-middle ng-tns-c191-179"></div>
+            </div>
+         </div>
+         <!---->
+      </div>
+   </th>
+   <th _ngcontent-rnx-c363="" mat-sort-header="carbs" class="mat-sort-header ng-tns-c191-180">
+      <div class="mat-sort-header-container ng-tns-c191-180">
+         <button type="button" class="mat-sort-header-button mat-focus-indicator ng-tns-c191-180" aria-label="Change sorting for carbs">Carbs (g)</button>
+         <div class="mat-sort-header-arrow ng-trigger ng-trigger-arrowPosition ng-tns-c191-180 ng-star-inserted" style="transform: translateY(25%); opacity: 0;">
+            <div class="mat-sort-header-stem ng-tns-c191-180"></div>
+            <div class="mat-sort-header-indicator ng-tns-c191-180 ng-trigger ng-trigger-indicator" style="transform: translateY(0px);">
+               <div class="mat-sort-header-pointer-left ng-tns-c191-180 ng-trigger ng-trigger-leftPointer" style="transform: rotate(-45deg);"></div>
+               <div class="mat-sort-header-pointer-right ng-tns-c191-180 ng-trigger ng-trigger-rightPointer" style="transform: rotate(45deg);"></div>
+               <div class="mat-sort-header-pointer-middle ng-tns-c191-180"></div>
+            </div>
+         </div>
+         <!---->
+      </div>
+   </th>
+   <th _ngcontent-rnx-c363="" mat-sort-header="protein" class="mat-sort-header ng-tns-c191-181">
+      <div class="mat-sort-header-container ng-tns-c191-181">
+         <button type="button" class="mat-sort-header-button mat-focus-indicator ng-tns-c191-181" aria-label="Change sorting for protein">Protein (g)</button>
+         <div class="mat-sort-header-arrow ng-trigger ng-trigger-arrowPosition ng-tns-c191-181 ng-star-inserted" style="transform: translateY(25%); opacity: 0;">
+            <div class="mat-sort-header-stem ng-tns-c191-181"></div>
+            <div class="mat-sort-header-indicator ng-tns-c191-181 ng-trigger ng-trigger-indicator" style="transform: translateY(0px);">
+               <div class="mat-sort-header-pointer-left ng-tns-c191-181 ng-trigger ng-trigger-leftPointer" style="transform: rotate(-45deg);"></div>
+               <div class="mat-sort-header-pointer-right ng-tns-c191-181 ng-trigger ng-trigger-rightPointer" style="transform: rotate(45deg);"></div>
+               <div class="mat-sort-header-pointer-middle ng-tns-c191-181"></div>
+            </div>
+         </div>
+         <!---->
+      </div>
+   </th>
+</tr>
 ``` 
 
 ```java  
-private static final String DESSERT = "Dessert (100g)";
-private static final String CALORIES = "Calories";
-private static final String FAT = "Fat (g)";
-private static final String CARBS = "Carbs (g)";
-private static final String PROTEIN = "Protein (g)";
-       
+    private static final String DESSERT = "Dessert (100g)";
+    private static final String CALORIES = "Calories";
+    private static final String FAT = "Fat (g)";
+    private static final String CARBS = "Carbs (g)";
+    private static final String PROTEIN = "Protein (g)";
+    
+    //@FindBy(css="#sort-headers tr:nth-child(1)")
+    @UI("#sort-headers tr:nth-child(1)")
+    public static SortingOverview sortingOverview;
+           
     @Test
     public void tableIsVisible() {
-       sortingOverviewSection.sortingOverview.is().tableIsVisible();
+        sortingOverview.is().tableIsVisible();
     }
        
     @Test
     public void sortingTableByFirstColumn() {
-       sortingOverviewSection.sortingOverview.clickButtonByText(DESSERT);
-       sortingOverviewSection.sortingOverview.clickButtonByText(DESSERT);
-       sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+        sortingOverview.clickButtonByText(DESSERT);
+        sortingOverview.clickButtonByText(DESSERT);
+        sortingOverview.is().arrowButtonClicked();
     }
-       
+
     @Test
     public void sortingTableBySecondColumn() {
-       sortingOverviewSection.sortingOverview.clickButtonByText(CALORIES);
-       sortingOverviewSection.sortingOverview.clickButtonByText(CALORIES);
-       sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+        sortingOverview.clickButtonByText(CALORIES);
+        sortingOverview.clickButtonByText(CALORIES);
+        sortingOverview.is().arrowButtonClicked();
     }
-       
+
     @Test
     public void sortingTableByThirdColumn() {
-        sortingOverviewSection.sortingOverview.clickButtonByText(FAT);
-        sortingOverviewSection.sortingOverview.clickButtonByText(FAT);
-        sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+        sortingOverview.clickButtonByText(FAT);
+        sortingOverview.clickButtonByText(FAT);
+        sortingOverview.is().arrowButtonClicked();
     }
-       
+
     @Test
     public void sortingTableByFourthColumn() {
-        sortingOverviewSection.sortingOverview.clickButtonByText(CARBS);
-        sortingOverviewSection.sortingOverview.clickButtonByText(CARBS);
-        sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+        sortingOverview.clickButtonByText(CARBS);
+        sortingOverview.clickButtonByText(CARBS);
+        sortingOverview.is().arrowButtonClicked();
     }
-       
+
     @Test
     public void sortingTableByFifthColumn() {
-        sortingOverviewSection.sortingOverview.clickButtonByText(PROTEIN);
-        sortingOverviewSection.sortingOverview.clickButtonByText(PROTEIN);
-        sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+        sortingOverview.clickButtonByText(PROTEIN);
+        sortingOverview.clickButtonByText(PROTEIN);
+        sortingOverview.is().arrowButtonClicked();
     }
 ```
 
@@ -5225,11 +5310,9 @@ List of the available **Table** methods:
 
 | Method | Description | Return Type
 --- | --- | --- 
-**is()** | Assert action | Assert
-**getTableHeaders()** | Get list of names of columns | WebList
-**clickButtonByText(String text)** | Click to header button by text | void
-**headerButtonIsClicked()** | Verify that header button clicked | boolean
-
+**is()** | Assert action | TableAssert
+**elements(int)** | Returns rows whose number is greater than or equal to the specified number | List<String>
+**get(String)** | Returns values of the specified row | String
 
 
 #####<a href="https://material.angular.io/components/sort/overview"><i class="fa fa-info-circle"></i>Sort header</a>
@@ -5282,19 +5365,23 @@ The `mat-table` provides a Material Design styled data-table that can be used to
     @JTable(root ="table-basic-example > table")
     public static Table basicTable;
 
-    @JTable(root ="table-basic-flex-example > mat-table",
-            headers = "mat-header-row > mat-header-cell",
-            row = "//mat-row[%s]/mat-cell",
+    @JTable(
+            root = "//mat-table",
+            headers = "//mat-header-row/mat-header-cell",
             column = "//mat-row/mat-cell[%s]",
+            row = "//mat-row[%s]/mat-cell",
             cell = "//mat-row[{1}]/mat-cell[{0}]",
-            allCells = "mat-cell")
-    public static Table flexTable;
+            allCells = "//mat-cell",
+            size=4)
+    public static Table basicMatTable;
 
     @Test
-    public void verifyMatTablesTest() {
-        basicTable.show();
-        assertEquals(basicTable.is().name, "Basic Table");
-        assertEquals(flexTable.is().name, "Flex Table");
+    public void tableStructureTest() {
+        assertEquals(tableSection.basicMatTable.size(), 4);
+        assertEquals(tableSection.basicMatTable.count(), 5);
+        assertEquals(tableSection.basicMatTable.header(), asList("No.", "Name", "Weight", "Symbol"));
+        tableSection.basicMatTable.is().size(5);
+
     }
 ```
 
@@ -5325,54 +5412,69 @@ This annotation has the following fields that can be used for locating a table e
 
 Here is a list of available methods in Java:
 
-| Method | Description | Return Type
---- | --- | --- 
-**is()** | Assert action | TableAssert
-**header()** | get list of names of columns | List<String>
-**footerUI()** | link to UI footer | WebList
-**cell(int colNum, int rowNum)** | Returns a cell object of a table according to the cell index | String
-**cell(int colNum, String rowName)** | Returns a cell object of a table according to the cell index | String
-**cell(String colName, int rowNum)** | Returns a cell object of a table according to the cell index | String
-**cell(String colName, String rowNum)** | Returns a cell object of a table according to the cell index | String
-**column(Enum colName)** | Returns a column object of a table according to column name | Line
-**column(int colNum)** | Returns a column object of a table according to column number | Line
-**column(String colName)** | Returns a column object of a table according to column name | Line
-**column(String column)** | Asserts whether table Check that the table has the specified column | BaseTableAssert
-**columns()** | Returns a list of column objects of a table | List\<Line>
-**columns(List<String> columns)** | Asserts whether table Check that the table has the specified columns | BaseTableAssert
-**columns(Matcher<Collection<? extends String>>)** | Match passed value with table columns | BaseTableAssert
-**count()** | Returns amount of rows | int
-**empty()** | Asserts whether table is empty | BaseTableAssert
-**filterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
-**filterRows(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
+| Method | Description                                                                                | Return Type|
+--- |--------------------------------------------------------------------------------------------| ---
+**getStartIndex()** | Returns start index                                                                        | int
+**setStartIndex(int)** | Sets start index                                                                           | void
+**core()** | Returns a UIElement                                                                        | UIElement
+**setHeader(List<String>)** | Sets header value                                                                          | void
+**headerUI()** | Returns a header name                                                                      | WebList
+**footerUI()** | Returns a footer name                                                                      | WebList
+**rowHeader()** | Returns a value of a table header corresponding to a particular raw                        | List<String>
+**cell(int, int)** | Returns a cell object of a table according to column number and row number                 | String
+**cell(int, String)** | Returns a cell object of a table according to the row number and column name               | String
+**cell(String, int)** | Returns a cell object of a table according to the column name and row number               | String
+**cell(String, String)** | Returns a cell object of a table according column name and row name                        | String
+**column(Enum<?>)** | Returns a column object of a table according to column name                                | Line
+**column(int)** | Returns a column object of a table according to column number                              | Line
+**column(String)** | Returns a column object of a table according to column name                                | Line
+**columns()** | Returns a list of column objects of a table                                                | List<Line>
+**count()** | Returns amount of rows                                                                     | int
+**filterRows(Matcher<String>, Column)** | Sets and returns a list of filtered rows of a table according to matching column           | List<Line>
+**filterRows(Pair<Matcher<String>,Column>...)** | Sets and returns a list of filtered rows of a table according to matching column           | List<Line>
 **getValue()** | Returns a string content of values for a particular row, where values are separated by ";" | String
-**header()** | Returns a list of table's headers | List<String>
-**isEmpty()** | Asserts whether a table is empty | boolean
-**isNotEmpty()** | Asserts whether a table is not empty | boolean
-**notEmpty()** | Asserts whether table is not empty | BaseTableAssert
-**preview()** | Returns table preview | String
-**row(Matcher<String> matcher, Column column)** |Check that the table has rows that meet expected condition| BaseTableAssert
-**rows(TableMatcher... matchers)** |Makes sure that the table has at least a certain number of the specified line| BaseTableAssert
-**row(Enum rowName)** | Returns a row object of a table according to row name | Line
-**row(int rowNum)** | Returns a row object of a table according to row number | Line
-**row(Matcher<String> matcher, Column column)** | Returns a row object of a table according to matching column | Line
-**row(Pair<Matcher<String>,Column>... matchers)** | Returns a row object of a table according to matching column | Line
-**row(String rowName)** | Returns a row object of a table according to row name | Line
-**row(TableMatcher... matchers)** | Returns a row object of a table according to matcher | Line
-**rowThat(TableMatcher... matchers)** |Check that the table has at list one specified row | BaseTableAssert
-**rowThat(Single matcher, Column column)** | Check that the table has at list one specified row | BaseTableAssert
-**rows()** | Returns a list of rows of a table | List\<Line>
-**rows(TableMatcher... matchers)** | Returns a list of rows of a table according to matchers | List\<Line>
-**size()** | Returns amount of columns | int
-**webRow(int rowNum)** | Returns all UIElements in the row according to row number | List<UIElement>
-**webRow(String rowName)** | Returns all UIElements in the row according to row name | List<UIElement>
-**webRow(Enum rowName)** | Returns all UIElements in the row according to row name | List<UIElement>
-**webColumn(int colNum)** | Returns all UIElements in the column according to column number | List<UIElement>
-**webColumn(String colName)** | Returns all UIElements in the column according to column name | List<UIElement>
-**webColumn(Enum colName)** | Returns all UIElements in the column according to column name | List<UIElement>
-**webCell(int colNum, int rowNum)** | Returns all UIElements in the column according to cell position | List<UIElement>
-**size(Matcher<Integer> condition)** | Asserts whether table size satisfies some matcher condition | BaseTableAssert
-**size(int size)** | Asserts whether table has a particular size | BaseTableAssert
+**header()** | Returns a list of table's headers                                                          | List<String>
+**isEmpty()** | Asserts whether a table is empty                                                           | boolean
+**isNotEmpty()** | Asserts whether a table is not empty                                                       | boolean
+**preview()** | Returns table preview                                                                      | String
+**row(Matcher<String>, Column)** | Check that the table has rows that meet expected condition                                 | Line
+**row(Enum<?>)** | Returns a row object of a table according to row name                                      | Line
+**row(int)** | Returns a row object of a table according to row number                                    | Line
+**row(Pair<Matcher<String>,Column>)** | Returns a row object of a table according to matching column                               | Line
+**row(String)** | Returns a row object of a table according to row name                                      | Line
+**row(ColumnMatcher...)** | Returns a row object of a table according to matcher                                       | Line
+**rows()** | Returns a list of rows of a table                                                          | List<Line>
+**rows(ColumnMatcher...)** | Get all table rows that match criteria                                                     | List<Line>
+**rowsImages()** | Get all table rows                                                                         | List<Line>
+**setup(Field)** | Initialize field                                                                           | void
+**getTableJs()** | Returns table                                                                              | T
+**clear()** | clears the text field                                                                             | void
+**refresh()** | Clears all data and lines                                                                             | void
+**offCache()** | Turns off cache usage                                                                            | void
+**size()** | Returns amount of columns                                                                  | int
+**validateRowIndex(int)** | Validates row index                                                                        | void
+**webRow(int)** | Returns all UIElements in the row according to row number                                  | WebList
+**webRow(int,String)** | Returns all UIElements in the row according to row number                                  | WebList
+**webRow(String)** | Returns all UIElements in the row according to row name                                    | WebList
+**webRow(Enum<?>)** | Returns all UIElements in the row according to row name                                    | List<UIElement>
+**webColumn(int)** | Returns all UIElements in the column according to column number                            | WebList
+**webColumn(String)** | Returns all UIElements in the column according to column name                              | WebList
+**webColumn(Enum<?>)** | Returns all UIElements in the column according to column name                              | WebList
+**webCell(int, int)** | Returns all UIElements in the column according to cell position                            | UIElement
+**getJSValues(String)** | Returns list of locators                                                                   | List<String>
+**jsCells()** | Returns list of locators                                                                   | List<String>
+**jsColumn(int)** | Returns list of column locators                                                            | List<String>
+**jsColumn(String)** | Returns list of column locators                                                            | List<String>
+**jsRow(int)** | Returns list of row locators                                                               | List<String>
+**jsRow(String)** | Returns list of row locators                                                               | List<String>
+**jsRowIndexByName(String)** | Returns row index by its name                                                              | int
+**getRowIndexByName(String)** | Returns row index by its name                                                              | int
+**getRow(int)** | Returns row by its row number                                                              | WebList
+**getColumn(int)** | Returns column by its row number                                                           | WebList
+**getCell(int,int)** | Returns cell by its column number and row number                                           | UIElement
+**filter()** | Filters a table                                                                            | WebList
+**filterBy(String)** | Filters a table with by a filterName                                                       | UIElement
+**searchBy(String)** | Filter {name} by column {0}                                                      | UIElement
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/table/MatTableTests.java" target="_blank">MatTable java tests examples</a>
 
@@ -5452,7 +5554,7 @@ public void turnOnOffNodeItemTest() {
 
 Chips are located in the following class:
 
-    - __Java__: com.epam.jdi.light.angular.elements.complex.chips
+- __Java__: _com.epam.jdi.light.angular.elements.complex.chips_
 
 The `mat-chip-list` displays a list of values as individual, keyboard accessible, chips.
 
@@ -5481,20 +5583,34 @@ There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chi
         basicChipsRow.clickChipsByTextValue(TWOFISH);
         basicChipsRow.clickChipsByTextValue(PRIMARYFISH);
         basicChipsRow.clickChipsByTextValue(ACCENTFISH);
-    
-        basicSelectedValue.has().text(String.format("You clicked: %s", ACCENTFISH));
+
+        basicSelectedValue.has().text(format("You clicked: %s", ACCENTFISH));
     }  
 ```        
 
 ![Chips](../../images/angular/basicChips.png)
 
 ```html  
- <mat-chip-list id="mat-chip-list-0" aria-label="Fish selection">
-   <mat-chip (click)="clickedBasicChip='One fish'">One fish</mat-chip>
-   <mat-chip (click)="clickedBasicChip='Two fish'">Two fish</mat-chip>
-   <mat-chip color="primary" selected (click)="clickedBasicChip='Primary fish'">Primary fish</mat-chip>
-   <mat-chip color="accent" selected (click)="clickedBasicChip='Accent fish'">Accent fish</mat-chip>
- </mat-chip-list>
+ <mat-chip-list aria-label="Fish selection" id="mat-chip-list-0" class="mat-chip-list" tabindex="0" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false" role="listbox" aria-orientation="horizontal">
+   <div class="mat-chip-list-wrapper">
+   <mat-chip _ngcontent-rnx-c332="" role="option" class="mat-chip mat-focus-indicator mat-primary mat-standard-chip" tabindex="-1" aria-disabled="false">
+      <div class="mat-chip-ripple"/>
+      One fish
+   </mat-chip>
+   <mat-chip _ngcontent-rnx-c332="" role="option" class="mat-chip mat-focus-indicator mat-primary mat-standard-chip" tabindex="-1" aria-disabled="false">
+      <div class="mat-chip-ripple"/>
+      Two fish
+   </mat-chip>
+   <mat-chip _ngcontent-rnx-c332="" role="option" color="primary" selected="" class="mat-chip mat-focus-indicator mat-primary mat-standard-chip mat-chip-selected" tabindex="-1" aria-disabled="false" aria-selected="true">
+      <div class="mat-chip-ripple"/>
+      Primary fish
+   </mat-chip>
+   <mat-chip _ngcontent-rnx-c332="" role="option" color="accent" selected="" class="mat-chip mat-focus-indicator mat-standard-chip mat-accent mat-chip-selected" tabindex="-1" aria-disabled="false" aria-selected="true">
+      <div class="mat-chip-ripple"/>
+	  Accent fish
+   </mat-chip>
+   </div>
+</mat-chip-list>
 ```
 
 ```java    
@@ -5520,20 +5636,35 @@ There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chi
         stackedChipsList.clickChipsByTextValue(PRIMARY);
         stackedChipsList.clickChipsByTextValue(ACCENT);
         stackedChipsList.clickChipsByTextValue(WARN);
-    
-        stackedSelectedValue.has().text(String.format("You clicked: %s", WARN));
-    } 
+
+        stackedSelectedValue.has().text(format("You clicked: %s", WARN));
+    }
 ``` 
 
 ![Chips](../../images/angular/stackedChips.png)
 
 ```html  
- <mat-chip-list id="mat-chip-list-1" class="mat-chip-list-stacked" aria-label="Color selection">
-   <mat-chip *ngFor="let chip of availableColors" selected [color]="chip.color"
-             (click)="clickedStackedChip=chip.name">
-     {{chip.name}}
+ <mat-chip-list aria-label="Color selection" id="mat-chip-list-1" class="mat-chip-list mat-chip-list-stacked" tabindex="0" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false" role="listbox" aria-orientation="horizontal">
+   <div class="mat-chip-list-wrapper">
+   <mat-chip role="option" selected="" class="mat-chip mat-focus-indicator mat-primary mat-standard-chip mat-chip-selected ng-star-inserted" tabindex="-1" aria-disabled="false" aria-selected="true">
+      <div class="mat-chip-ripple"/>
+      none 
    </mat-chip>
- </mat-chip-list>
+   <mat-chip role="option" selected="" class="mat-chip mat-focus-indicator mat-primary mat-standard-chip mat-chip-selected ng-star-inserted" tabindex="-1" aria-disabled="false" aria-selected="true">
+      <div class="mat-chip-ripple"/>
+      Primary 
+   </mat-chip>
+   <mat-chip role="option" selected="" class="mat-chip mat-focus-indicator mat-standard-chip mat-accent mat-chip-selected ng-star-inserted" tabindex="-1" aria-disabled="false" aria-selected="true">
+      <div class="mat-chip-ripple"/>
+      Accent 
+   </mat-chip>
+   <mat-chip role="option" selected="" class="mat-chip mat-focus-indicator mat-standard-chip mat-warn mat-chip-selected ng-star-inserted" tabindex="-1" aria-disabled="false" aria-selected="true">
+      <div class="mat-chip-ripple"/>
+         Warn 
+   </mat-chip>
+   <!---->
+   </div>
+</mat-chip-list>
 ``` 
 
 ```java  
@@ -5548,64 +5679,63 @@ There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chi
     private static final String APPLE = "Apple";
     private static final String LEMON = "Lemon";
     private static final String LIME = "Lime";
-    private static final String ORANGE = "Orange";
-    private static final String STRAWBERRY = "Strawberry";
        
     @Test
-    public void chipsAutocompleteTest() {
-    
-    String expectedValuesArray[] = {"Apple", "Lemon", "Lime", "Orange", "Strawberry"};
-    List<String> expectedValues = Arrays.asList(expectedValuesArray);
-    
+    public void chipsAutocompleteTest() throws InterruptedException {
+        String[] expectedValuesArray = {
+                "Apple", "Lemon", "Lime", "Orange", "Strawberry"};
+        List<String> expectedValues = Arrays.asList(expectedValuesArray);
         chipsAutocompleteField.show();
         chipsAutocompleteField.is().displayed();
         chipsAutocompleteInput.is().assertChipsIsEnabled();
         chipsAutocompleteInput.has().assertChipsHasPlaceholder(PLACEHOLDER);
         chipsAutocompleteInput.has().assertChipsHasOptions(expectedValues);
+
         chipsAutocompleteInput.setValue(LEMON);
         chipsAutocompleteField.collapseField();
         chipsAutocompleteInput.setValue(APPLE);
         chipsAutocompleteField.collapseField();
         chipsAutocompleteInput.setValue(LIME);
         chipsAutocompleteField.collapseField();
-        chipsAutocompleteInput.setValue(ORANGE);
-        chipsAutocompleteField.collapseField();
-        chipsAutocompleteInput.setValue(STRAWBERRY);
-    }   
+    }
 ```   
 
 ![Chips](../../images/angular/chipsAutocomplete.png)
 
 ```html  
- <mat-form-field id="chips-autocomplete-field" class="example-chip-list">
-   <mat-chip-list #chipList aria-label="Fruit selection">
-     <mat-chip
-       *ngFor="let fruit of fruits"
-       [selectable]="selectable"
-       [removable]="removable"
-       (removed)="remove(fruit)">
-       {{fruit}}
-       <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-     </mat-chip>
-     <input
-       placeholder="New fruit..."
-       #fruitInput
-       [formControl]="fruitCtrl"
-       [matAutocomplete]="auto"
-       [matChipInputFor]="chipList"
-       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-       (matChipInputTokenEnd)="add($event)">
-   </mat-chip-list>
-   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-     <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
-       {{fruit}}
-     </mat-option>
-   </mat-autocomplete>
- </mat-form-field>
+ <mat-form-field id="chips-autocomplete-field" class="mat-form-field example-chip-list mat-primary mat-form-field-type-mat-chip-list mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-should-float">
+   <div class="mat-form-field-wrapper">
+      <div class="mat-form-field-flex">
+         <div class="mat-form-field-infix">
+            <mat-chip-list aria-label="Fruit selection" class="mat-chip-list" id="mat-chip-list-2" tabindex="0" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false" role="listbox" aria-orientation="horizontal">
+               <div class="mat-chip-list-wrapper">
+                  <mat-chip role="option" class="mat-chip mat-focus-indicator mat-primary mat-standard-chip mat-chip-with-trailing-icon ng-star-inserted" tabindex="-1" aria-disabled="false">
+                     <div class="mat-chip-ripple"></div>
+                     Lemon 
+                     <mat-icon role="img" matchipremove="" class="mat-icon notranslate mat-chip-remove mat-chip-trailing-icon material-icons mat-icon-no-color ng-star-inserted" aria-hidden="true">cancel</mat-icon>
+                  </mat-chip>
+				  <input placeholder="New fruit..." class="mat-autocomplete-trigger mat-chip-input mat-input-element ng-untouched ng-pristine ng-valid" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" id="mat-chip-list-input-0">
+               </div>
+            </mat-chip-list>
+            <mat-autocomplete class="ng-tns-c95-157">
+            </mat-autocomplete>
+            <span class="mat-form-field-label-wrapper">
+            </span>
+         </div>
+      </div>
+      <div class="mat-form-field-underline ng-star-inserted"><span class="mat-form-field-ripple"></span></div>
+      <div class="mat-form-field-subscript-wrapper">
+         <div class="mat-form-field-hint-wrapper ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+            <div class="mat-form-field-hint-spacer"></div>
+         </div>
+      </div>
+   </div>
+</mat-form-field>
 ``` 
 
 ```java 
     //@FindBy(css="#chips-with-input-field")
+    @UI("#chips-with-input-field")
     public static Chips chipsWithInputField;
     
     //@FindBy(css="#mat-chip-list-input-1")
@@ -5628,37 +5758,63 @@ There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chi
 ![Chips](../../images/angular/chipsWithInput.png)
 
 ```html  
- <mat-form-field id="chips-with-input-field" class="example-chip-list">
-   <mat-chip-list #chipList aria-label="Fruit selection">
-     <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
-               [removable]="removable" (removed)="remove(fruit)">
-       {{fruit.name}}
-       <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-     </mat-chip>
-     <input placeholder="New fruit..."
-            [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            [matChipInputAddOnBlur]="addOnBlur"
-            (matChipInputTokenEnd)="add($event)">
-   </mat-chip-list>
- </mat-form-field>
+ <mat-form-field id="chips-with-input-field" class="mat-form-field example-chip-list mat-primary mat-form-field-type-mat-chip-list mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-should-float">
+   <div class="mat-form-field-wrapper">
+      <div class="mat-form-field-flex">
+         <div class="mat-form-field-infix">
+            <mat-chip-list aria-label="Fruit selection" class="mat-chip-list" id="mat-chip-list-3" tabindex="0" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false" role="listbox" aria-orientation="horizontal">
+               <div class="mat-chip-list-wrapper">
+                  <mat-chip role="option" class="mat-chip mat-focus-indicator mat-primary mat-standard-chip mat-chip-with-trailing-icon ng-star-inserted" tabindex="-1" aria-disabled="false">
+                     <div class="mat-chip-ripple"></div>
+                     Lemon 
+                     <mat-icon role="img" matchipremove="" class="mat-icon notranslate mat-chip-remove mat-chip-trailing-icon material-icons mat-icon-no-color ng-star-inserted" aria-hidden="true">cancel</mat-icon>
+                  </mat-chip>
+                  <mat-chip role="option" class="mat-chip mat-focus-indicator mat-primary mat-standard-chip mat-chip-with-trailing-icon ng-star-inserted" tabindex="-1" aria-disabled="false">
+                     <div class="mat-chip-ripple"></div>
+                     Lime 
+                     <mat-icon role="img" matchipremove="" class="mat-icon notranslate mat-chip-remove mat-chip-trailing-icon material-icons mat-icon-no-color ng-star-inserted" aria-hidden="true">cancel</mat-icon>
+                  </mat-chip>
+                  <mat-chip role="option" class="mat-chip mat-focus-indicator mat-primary mat-standard-chip mat-chip-with-trailing-icon ng-star-inserted" tabindex="-1" aria-disabled="false">
+                     <div class="mat-chip-ripple"></div>
+                     Apple 
+                     <mat-icon role="img" matchipremove="" class="mat-icon notranslate mat-chip-remove mat-chip-trailing-icon material-icons mat-icon-no-color ng-star-inserted" aria-hidden="true">cancel</mat-icon>
+                  </mat-chip>
+                  <input placeholder="New fruit..." class="mat-chip-input mat-input-element" id="mat-chip-list-input-1">
+               </div>
+            </mat-chip-list>
+            <span class="mat-form-field-label-wrapper">
+            </span>
+         </div>
+      </div>
+      <div class="mat-form-field-underline ng-star-inserted"><span class="mat-form-field-ripple"></span></div>
+      <div class="mat-form-field-subscript-wrapper">
+         <div class="mat-form-field-hint-wrapper ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+            <div class="mat-form-field-hint-spacer"></div>
+         </div>
+      </div>
+   </div>
+</mat-form-field>
 ``` 
 
 List of the available **Chips** methods:
 
-| Method | Description | Return Type
---- | --- | --- 
-**getChips()** | Returns a list of chips | WebList
-**getChipsByText(String value)** | Returns a chip by text | UIElement
-**clickChipsByTextValue(String value)** | Clicks a chip by text | void
-**getPlaceholderForChips()** | Returns a placeholder for an input field  | String
-**chipsHasText(String value)** | Checks whether a chip has a corresponding text | boolean
-**setValue(String selectValue)** | Selects a chosen value in autocomplete | void
-**options()** | Returns a list of options available in autocomplete  | List
-**input(String value)** | Inputs a value into an input field  | void
-**clearInputField()** | Removes an entered value from an input field   | void
-**enabled()** | Checks whether a chip is enabled  | boolean
-**has()** | Assert action | ChipsAssert
-**is()** | Assert action | ChipsAssert
+| Method | Description                                         | Return Type
+--- |-----------------------------------------------------| --- 
+**getChips()** | Returns a list of chips                             | WebList
+**getChipsByText(String)** | Returns a chip by text                              | UIElement
+**clickChipsByTextValue(String)** | Clicks a chip by text                               | void
+**getPlaceholderForChips()** | Returns a placeholder for an input field            | String
+**chipsHasText(String)** | Checks whether a chip has a corresponding text      | boolean
+**setValue(String)** | Selects a chosen value in autocomplete              | void
+**setValue(String,String)** | Selects a chosen value in autocomplete              | void
+**options()** | Returns a list of options available in autocomplete | List<String>
+**input(String)** | Inputs a value into an input field                  | void
+**clearInputField()** | Removes an entered value from an input field        | void
+**enabled()** | Checks whether a chip is enabled                    | boolean
+**is()** | Assert action                                       | ChipsAssert
+**click()** | click element                                       | void
+**select(String)** | selects value                                       | void
+**getValue()** | returns value                                       | String
+**collapseField()** | Collapse chips autocomplete field                                       | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ChipsTests.java" target="_blank">Here you can find Chips tests</a>

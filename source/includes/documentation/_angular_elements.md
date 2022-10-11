@@ -4515,61 +4515,27 @@ Expansion panel is located in the following class:
 *Header*
 
 ```java 
-//@FindBy(css = "#basic-expansion-panel")
-public static ExpansionPanel basicExpansionPanel;
+  //@FindBy(css = "#basic-expansion-panel")
+  @UI("#basic-expansion-panel")
+  public static ExpansionPanel basicExpansionPanel;
 
-@Test
-public void displayedTest() {
-    basicExpansionPanel.is().displayed();
-}
-@Test
-public void expandByIndicatorTest() {
-    basicExpansionPanel.expand(1);
-    basicExpansionPanel.is().expanded(1);
-}
-@Test
-public void collapseByIndicatorTest() {
-    basicExpansionPanel.expand(2);
-    basicExpansionPanel.collapse(2);
-    basicExpansionPanel.is().collapsed(2);
-}
-@Test
-public void expandCollapseByIndicatorTest() {
-    basicExpansionPanel.expand(2);
-    basicExpansionPanel.expand(1);
-    basicExpansionPanel.is().expanded(1).and().collapsed(2);
-}
-@Test
-public void inputTest() {
-    String expectedName = "Viktor";
-    String expectedAge = "33";
-    basicExpansionPanel.expand(1);
-    basicExpansionPanel.clear(FIRST_NAME);
-    basicExpansionPanel.clear(AGE);
-    basicExpansionPanel.input(FIRST_NAME, expectedName);
-    basicExpansionPanel.input(AGE, expectedAge);
-    basicExpansionPanel.has().value(FIRST_NAME, expectedName).and().value(AGE, expectedAge);
-}
-@Test
-public void titleTest() {
-    basicExpansionPanel.has().title("Personal data", 1);
-    basicExpansionPanel.has().title(is("Self aware panel"), 2);
-}
-@Test
-public void descriptionTest() {
-    basicExpansionPanel.has().description("Type your name and age", 1);
-    basicExpansionPanel.has().description(is("Currently I am closed"), 2);
-}
-@Test
-public void variableDescriptionTest() {
-    basicExpansionPanel.expand(2);
-    basicExpansionPanel.has().description("Currently I am open", 2);
-}
-@Test
-public void contentTest() {
-    basicExpansionPanel.expand(2);
-    basicExpansionPanel.has().content("I'm visible because I am open", 2);
-}
+  @Test
+  public void displayedTest() {
+        basicExpansionPanel.is().displayed();
+  }
+
+  @Test
+  public void expandByIndicatorTest() {
+      basicExpansionPanel.expand(1);
+      basicExpansionPanel.is().expanded(1);
+  }
+  
+  @Test
+  public void collapseByIndicatorTest() {
+      basicExpansionPanel.expand(2);
+      basicExpansionPanel.collapse(2);
+      basicExpansionPanel.is().collapsed(2);
+  }
 ```
 
 The `<mat-expansion-panel-header>` shows a summary of the panel content and acts as the control for expanding and collapsing.
@@ -4646,147 +4612,269 @@ See examples with HTML code describing expansion panel element.
 </mat-accordion>
 ```
 ```java 
-//@FindBy(css = "#accordion-expansion-panel")
-public static ExpansionPanel accordionExpansionPanel;
+  //@FindBy(css = "#accordion-expansion-panel")
+  @UI("#accordion-expansion-panel")
+  public static ExpansionPanel accordionExpansionPanel;
 
-@Test
-public void expandByIconTest() {
-    accordionExpansionPanel.show();
-    accordionExpansionPanel.expand(3);
-    accordionExpansionPanel.is().expanded(3);
-}
-@Test
-public void collapseByIconTest() {
-    accordionExpansionPanel.show();
-    accordionExpansionPanel.expand(3);
-    accordionExpansionPanel.collapse(3);
-    accordionExpansionPanel.is().collapsed(3);
-}
-@Test
-public void expandCollapseByIconTest() {
-    accordionExpansionPanel.show();
-    accordionExpansionPanel.expand(2);
-    accordionExpansionPanel.expand(1);
-    accordionExpansionPanel.expand(3);
-    accordionExpansionPanel.is().expanded(3).and().collapsed(1).and().collapsed(2);
-}
-@Test
-public void nextTest() {
-    accordionExpansionPanel.show();
-    accordionExpansionPanel.expand(1);
-    accordionExpansionPanel.next("Personal data");
-    accordionExpansionPanel.next("Destination");
-    accordionExpansionPanel.is().expanded(3).and().collapsed(1).and().collapsed(2);
-}
-@Test
-public void previousTest() {
-    accordionExpansionPanel.show();
-    accordionExpansionPanel.expand(3);
-    accordionExpansionPanel.previous("Day of the trip");
-    accordionExpansionPanel.previous("Destination");
-    accordionExpansionPanel.is().expanded(1).and().collapsed(2).and().collapsed(3);
-}
-@Test
-public void endTest() {
-    accordionExpansionPanel.show();
-    accordionExpansionPanel.expand(3);
-    accordionExpansionPanel.end("Day of the trip");
-    accordionExpansionPanel.is().collapsed(1).and().collapsed(2).and().collapsed(3);
-}
-@Test
-public void multiInputTest() {
-    String expectedName = "Alex";
-    String expectedAge = "25";
-    String expectedDestination = "Spain";
-    String expectedDate = "12/1/2019";
-    accordionExpansionPanel.show();
-    accordionExpansionPanel.expand(1);
-    accordionExpansionPanel.clear(FIRST_NAME);
-    accordionExpansionPanel.clear(AGE);
-    accordionExpansionPanel.input(FIRST_NAME, expectedName);
-    accordionExpansionPanel.input(AGE, expectedAge);
-    accordionExpansionPanel.expand(2);
-    accordionExpansionPanel.clear(COUNTRY);
-    accordionExpansionPanel.input(COUNTRY, expectedDestination);
-    accordionExpansionPanel.expand(3);
-    accordionExpansionPanel.input(DATE, expectedDate);
-    accordionExpansionPanel.expand(1);
-    accordionExpansionPanel.has().value(FIRST_NAME, expectedName).and().value(AGE, expectedAge);
-    accordionExpansionPanel.expand(2);
-    accordionExpansionPanel.has().value(COUNTRY, expectedDestination);
-    accordionExpansionPanel.expand(3);
-    accordionExpansionPanel.has().value(is(expectedDate), DATE);
-}
+  @Test
+  public void expandByIconTest() {
+      accordionExpansionPanel.show();
+      accordionExpansionPanel.expand(3);
+      accordionExpansionPanel.is().expanded(3);
+  }
+  
+  @Test
+  public void collapseByIconTest() {
+      accordionExpansionPanel.show();
+      accordionExpansionPanel.expand(3);
+      accordionExpansionPanel.collapse(3);
+      accordionExpansionPanel.is().collapsed(3);
+  }
+  
+  @Test
+  public void expandCollapseByIconTest() {
+      accordionExpansionPanel.show();
+      accordionExpansionPanel.expand(2);
+      accordionExpansionPanel.expand(1);
+      accordionExpansionPanel.expand(3);
+      accordionExpansionPanel.is().expanded(3).and().collapsed(1).and().collapsed(2);
+  }
 ```
 
 ![Accordion expansion panel](../../images/angular/accordion_expansion_panel.png)
 
 ```html 
-<mat-accordion class="example-headers-align" id="accordion-expansion-panel">
-  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Personal data
-      </mat-panel-title>
-      <mat-panel-description>
-        Type your name and age
-        <mat-icon>account_circle</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-form-field>
-      <mat-label>First name</mat-label>
-      <input matInput id="accordion-first-name-input">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Age</mat-label>
-      <input matInput type="number" min="1" id="accordion-age-input">
-    </mat-form-field>
-    <mat-action-row>
-      <button mat-button color="primary" (click)="nextStep()">Next</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Destination
-      </mat-panel-title>
-      <mat-panel-description>
-        Type the country name
-        <mat-icon>map</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-form-field>
-      <mat-label>Country</mat-label>
-      <input matInput id="accordion-country-input">
-    </mat-form-field>
-    <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="nextStep()">Next</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Day of the trip
-      </mat-panel-title>
-      <mat-panel-description>
-        Inform the date you wish to travel
-        <mat-icon>date_range</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-form-field>
-      <mat-label>Date</mat-label>
-      <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly id="accordion-date-input">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-datepicker #picker></mat-datepicker>
-    <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="nextStep()">End</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-</mat-accordion>
+<mat-accordion _ngcontent-aid-c307="" id="accordion-expansion-panel" class="mat-accordion example-headers-align">
+	<mat-expansion-panel _ngcontent-aid-c307="" hidetoggle="" class="mat-expansion-panel ng-tns-c150-120 mat-expanded mat-expansion-panel-spacing">
+		<mat-expansion-panel-header _ngcontent-aid-c307="" role="button" class="mat-expansion-panel-header ng-tns-c152-121 ng-trigger ng-trigger-expansionHeight ng-tns-c150-120 ng-star-inserted mat-expanded mat-expansion-toggle-indicator-after" id="mat-expansion-panel-header-2" tabindex="0" aria-controls="cdk-accordion-child-2" aria-expanded="true" aria-disabled="false" style="height: 64px;">
+			<span class="mat-content ng-tns-c152-121">
+				<mat-panel-title _ngcontent-aid-c307="" class="mat-expansion-panel-header-title ng-tns-c152-121"> Personal data </mat-panel-title>
+				<mat-panel-description _ngcontent-aid-c307="" class="mat-expansion-panel-header-description ng-tns-c152-121"> Type your name and age <mat-icon _ngcontent-aid-c307="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">account_circle</mat-icon>
+				</mat-panel-description>
+			</span>
+			<!---->
+		</mat-expansion-panel-header>
+		<div role="region" class="mat-expansion-panel-content ng-tns-c150-120 ng-trigger ng-trigger-bodyExpansion" id="cdk-accordion-child-2" aria-labelledby="mat-expansion-panel-header-2" style="visibility: visible;">
+			<div class="mat-expansion-panel-body ng-tns-c150-120">
+				<mat-form-field _ngcontent-aid-c307="" class="mat-form-field ng-tns-c95-122 mat-primary ng-tns-c150-120 ng-star-inserted mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder">
+					<div class="mat-form-field-wrapper ng-tns-c95-122">
+						<div class="mat-form-field-flex ng-tns-c95-122">
+							<!---->
+							<!---->
+							<div class="mat-form-field-infix ng-tns-c95-122">
+								<input _ngcontent-aid-c307="" matinput="" id="accordion-first-name-input" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-122 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
+									<span class="mat-form-field-label-wrapper ng-tns-c95-122">
+										<label class="mat-form-field-label ng-tns-c95-122 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-163" for="accordion-first-name-input" aria-owns="accordion-first-name-input" style="">
+											<!---->
+											<mat-label _ngcontent-aid-c307="" class="ng-tns-c95-122 ng-star-inserted">First name</mat-label>
+											<!---->
+											<!---->
+										</label>
+										<!---->
+									</span>
+								</div>
+								<!---->
+							</div>
+							<div class="mat-form-field-underline ng-tns-c95-122 ng-star-inserted" style="">
+								<span class="mat-form-field-ripple ng-tns-c95-122"/>
+							</div>
+							<!---->
+							<div class="mat-form-field-subscript-wrapper ng-tns-c95-122">
+								<!---->
+								<div class="mat-form-field-hint-wrapper ng-tns-c95-122 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+									<!---->
+									<div class="mat-form-field-hint-spacer ng-tns-c95-122"/>
+								</div>
+								<!---->
+							</div>
+						</div>
+					</mat-form-field>
+					<mat-form-field _ngcontent-aid-c307="" class="mat-form-field ng-tns-c95-123 mat-primary ng-tns-c150-120 ng-star-inserted mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder">
+						<div class="mat-form-field-wrapper ng-tns-c95-123">
+							<div class="mat-form-field-flex ng-tns-c95-123">
+								<!---->
+								<!---->
+								<div class="mat-form-field-infix ng-tns-c95-123">
+									<input _ngcontent-aid-c307="" matinput="" type="number" min="1" id="accordion-age-input" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-123 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
+										<span class="mat-form-field-label-wrapper ng-tns-c95-123">
+											<label class="mat-form-field-label ng-tns-c95-123 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-165" for="accordion-age-input" aria-owns="accordion-age-input" style="">
+												<!---->
+												<mat-label _ngcontent-aid-c307="" class="ng-tns-c95-123 ng-star-inserted">Age</mat-label>
+												<!---->
+												<!---->
+											</label>
+											<!---->
+										</span>
+									</div>
+									<!---->
+								</div>
+								<div class="mat-form-field-underline ng-tns-c95-123 ng-star-inserted" style="">
+									<span class="mat-form-field-ripple ng-tns-c95-123"/>
+								</div>
+								<!---->
+								<div class="mat-form-field-subscript-wrapper ng-tns-c95-123">
+									<!---->
+									<div class="mat-form-field-hint-wrapper ng-tns-c95-123 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+										<!---->
+										<div class="mat-form-field-hint-spacer ng-tns-c95-123"/>
+									</div>
+									<!---->
+								</div>
+							</div>
+						</mat-form-field>
+						<!---->
+					</div>
+					<mat-action-row _ngcontent-aid-c307="" class="mat-action-row ng-tns-c150-120">
+						<button _ngcontent-aid-c307="" mat-button="" color="primary" class="mat-focus-indicator mat-button mat-button-base mat-primary">
+							<span class="mat-button-wrapper">Next</span>
+							<div matripple="" class="mat-ripple mat-button-ripple"/>
+							<div class="mat-button-focus-overlay"/>
+						</button>
+					</mat-action-row>
+				</div>
+			</mat-expansion-panel>
+			<!---->
+			<mat-expansion-panel _ngcontent-aid-c307="" hidetoggle="" class="mat-expansion-panel ng-tns-c150-124">
+				<mat-expansion-panel-header _ngcontent-aid-c307="" role="button" class="mat-expansion-panel-header ng-tns-c152-125 ng-trigger ng-trigger-expansionHeight ng-tns-c150-124 ng-star-inserted mat-expansion-toggle-indicator-after" id="mat-expansion-panel-header-3" tabindex="0" aria-controls="cdk-accordion-child-3" aria-expanded="false" aria-disabled="false" style="height: 48px;">
+					<span class="mat-content ng-tns-c152-125">
+						<mat-panel-title _ngcontent-aid-c307="" class="mat-expansion-panel-header-title ng-tns-c152-125"> Destination </mat-panel-title>
+						<mat-panel-description _ngcontent-aid-c307="" class="mat-expansion-panel-header-description ng-tns-c152-125"> Type the country name <mat-icon _ngcontent-aid-c307="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">map</mat-icon>
+						</mat-panel-description>
+					</span>
+					<!---->
+				</mat-expansion-panel-header>
+				<div role="region" class="mat-expansion-panel-content ng-tns-c150-124 ng-trigger ng-trigger-bodyExpansion" id="cdk-accordion-child-3" aria-labelledby="mat-expansion-panel-header-3" style="height: 0px; visibility: hidden;">
+					<div class="mat-expansion-panel-body ng-tns-c150-124">
+						<mat-form-field _ngcontent-aid-c307="" class="mat-form-field ng-tns-c95-126 mat-primary ng-tns-c150-124 ng-star-inserted mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder">
+							<div class="mat-form-field-wrapper ng-tns-c95-126">
+								<div class="mat-form-field-flex ng-tns-c95-126">
+									<!---->
+									<!---->
+									<div class="mat-form-field-infix ng-tns-c95-126">
+										<input _ngcontent-aid-c307="" matinput="" id="accordion-country-input" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-126 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
+											<span class="mat-form-field-label-wrapper ng-tns-c95-126">
+												<label class="mat-form-field-label ng-tns-c95-126 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-167" for="accordion-country-input" aria-owns="accordion-country-input" style="">
+													<!---->
+													<mat-label _ngcontent-aid-c307="" class="ng-tns-c95-126 ng-star-inserted">Country</mat-label>
+													<!---->
+													<!---->
+												</label>
+												<!---->
+											</span>
+										</div>
+										<!---->
+									</div>
+									<div class="mat-form-field-underline ng-tns-c95-126 ng-star-inserted" style="">
+										<span class="mat-form-field-ripple ng-tns-c95-126"/>
+									</div>
+									<!---->
+									<div class="mat-form-field-subscript-wrapper ng-tns-c95-126">
+										<!---->
+										<div class="mat-form-field-hint-wrapper ng-tns-c95-126 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+											<!---->
+											<div class="mat-form-field-hint-spacer ng-tns-c95-126"/>
+										</div>
+										<!---->
+									</div>
+								</div>
+							</mat-form-field>
+							<!---->
+						</div>
+						<mat-action-row _ngcontent-aid-c307="" class="mat-action-row ng-tns-c150-124">
+							<button _ngcontent-aid-c307="" mat-button="" color="warn" class="mat-focus-indicator mat-button mat-button-base mat-warn">
+								<span class="mat-button-wrapper">Previous</span>
+								<div matripple="" class="mat-ripple mat-button-ripple"/>
+								<div class="mat-button-focus-overlay"/>
+							</button>
+							<button _ngcontent-aid-c307="" mat-button="" color="primary" class="mat-focus-indicator mat-button mat-button-base mat-primary">
+								<span class="mat-button-wrapper">Next</span>
+								<div matripple="" class="mat-ripple mat-button-ripple"/>
+								<div class="mat-button-focus-overlay"/>
+							</button>
+						</mat-action-row>
+					</div>
+				</mat-expansion-panel>
+				<!---->
+				<mat-expansion-panel _ngcontent-aid-c307="" hidetoggle="" class="mat-expansion-panel ng-tns-c150-127">
+					<mat-expansion-panel-header _ngcontent-aid-c307="" role="button" class="mat-expansion-panel-header ng-tns-c152-128 ng-trigger ng-trigger-expansionHeight ng-tns-c150-127 ng-star-inserted mat-expansion-toggle-indicator-after" id="mat-expansion-panel-header-4" tabindex="0" aria-controls="cdk-accordion-child-4" aria-expanded="false" aria-disabled="false" style="height: 48px;">
+						<span class="mat-content ng-tns-c152-128">
+							<mat-panel-title _ngcontent-aid-c307="" class="mat-expansion-panel-header-title ng-tns-c152-128"> Day of the trip </mat-panel-title>
+							<mat-panel-description _ngcontent-aid-c307="" class="mat-expansion-panel-header-description ng-tns-c152-128"> Inform the date you wish to travel <mat-icon _ngcontent-aid-c307="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">date_range</mat-icon>
+							</mat-panel-description>
+						</span>
+						<!---->
+					</mat-expansion-panel-header>
+					<div role="region" class="mat-expansion-panel-content ng-tns-c150-127 ng-trigger ng-trigger-bodyExpansion" id="cdk-accordion-child-4" aria-labelledby="mat-expansion-panel-header-4" style="height: 0px; visibility: hidden;">
+						<div class="mat-expansion-panel-body ng-tns-c150-127">
+							<mat-form-field _ngcontent-aid-c307="" class="mat-form-field ng-tns-c95-129 mat-primary ng-tns-c150-127 ng-star-inserted mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder">
+								<div class="mat-form-field-wrapper ng-tns-c95-129">
+									<div class="mat-form-field-flex ng-tns-c95-129">
+										<!---->
+										<!---->
+										<div class="mat-form-field-infix ng-tns-c95-129">
+											<input _ngcontent-aid-c307="" matinput="" readonly="true" id="accordion-date-input" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-129 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" aria-haspopup="dialog">
+												<mat-datepicker _ngcontent-aid-c307="" class="ng-tns-c95-129"/>
+												<!---->
+												<span class="mat-form-field-label-wrapper ng-tns-c95-129">
+													<label class="mat-form-field-label ng-tns-c95-129 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-169" for="accordion-date-input" aria-owns="accordion-date-input" style="">
+														<!---->
+														<mat-label _ngcontent-aid-c307="" class="ng-tns-c95-129 ng-star-inserted">Date</mat-label>
+														<!---->
+														<!---->
+													</label>
+													<!---->
+												</span>
+											</div>
+											<div class="mat-form-field-suffix ng-tns-c95-129 ng-star-inserted" style="">
+												<mat-datepicker-toggle _ngcontent-aid-c307="" matsuffix="" class="mat-datepicker-toggle ng-tns-c95-129" tabindex="-1">
+													<button mat-icon-button="" type="button" class="mat-focus-indicator mat-icon-button mat-button-base" aria-haspopup="dialog" aria-label="Open calendar" tabindex="0">
+														<span class="mat-button-wrapper">
+															<svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" focusable="false" class="mat-datepicker-toggle-default-icon ng-star-inserted">
+																<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+															</svg>
+															<!---->
+														</span>
+														<div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"/>
+														<div class="mat-button-focus-overlay"/>
+													</button>
+												</mat-datepicker-toggle>
+											</div>
+											<!---->
+										</div>
+										<div class="mat-form-field-underline ng-tns-c95-129 ng-star-inserted" style="">
+											<span class="mat-form-field-ripple ng-tns-c95-129"/>
+										</div>
+										<!---->
+										<div class="mat-form-field-subscript-wrapper ng-tns-c95-129">
+											<!---->
+											<div class="mat-form-field-hint-wrapper ng-tns-c95-129 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+												<!---->
+												<div class="mat-form-field-hint-spacer ng-tns-c95-129"/>
+											</div>
+											<!---->
+										</div>
+									</div>
+								</mat-form-field>
+								<mat-datepicker _ngcontent-aid-c307="" class="ng-tns-c150-127"/>
+								<!---->
+								<!---->
+							</div>
+							<mat-action-row _ngcontent-aid-c307="" class="mat-action-row ng-tns-c150-127">
+								<button _ngcontent-aid-c307="" mat-button="" color="warn" class="mat-focus-indicator mat-button mat-button-base mat-warn">
+									<span class="mat-button-wrapper">Previous</span>
+									<div matripple="" class="mat-ripple mat-button-ripple"/>
+									<div class="mat-button-focus-overlay"/>
+								</button>
+								<button _ngcontent-aid-c307="" mat-button="" color="primary" class="mat-focus-indicator mat-button mat-button-base mat-primary">
+									<span class="mat-button-wrapper">End</span>
+									<div matripple="" class="mat-ripple mat-button-ripple"/>
+									<div class="mat-button-focus-overlay"/>
+								</button>
+							</mat-action-row>
+						</div>
+					</mat-expansion-panel>
+					<!---->
+				</mat-accordion>
 ```
 
 List of some available **ExpansionPanel** methods:
@@ -4794,19 +4882,19 @@ List of some available **ExpansionPanel** methods:
 |Method | Description | Return Type
 --- | --- | --- 
 **is()** | Assert action | ExpansionPanelAssert
-**expand(int index)** | Expand ExpansionPanel panel by index | void
-**collapse(int index)** | Collapse expanded ExpansionPanel panel by index | void
-**isExpanded(int index)** | Shows that ExpansionPanel has expanded by index | boolean
-**isCollapsed(int index)** | Shows that ExpansionPanel has collapsed by index | boolean
-**next(String title)** | Select next ExpansionPanel by title | void
-**previous(String title)** | Select previous ExpansionPanel by title | void
-**end(String title)** | Select end ExpansionPanel by title | void
-**input(String placeholder, String text)** | Input ExpansionPanel panel placeholder text | void
-**clear(String field)** | Clear ExpansionPanel field | void
-**value(String field)** | Get ExpansionPanel field value | String
-**title(int index)** | Get ExpansionPanel title value by index | String
-**description(int index)** | Get ExpansionPanel description value by index | String
-**content(int index)** | Get ExpansionPanel content value by index | String
+**expand(int)** | Expand ExpansionPanel panel by index | void
+**collapse(int)** | Collapse expanded ExpansionPanel panel by index | void
+**isExpanded(int)** | Shows that ExpansionPanel has expanded by index | boolean
+**isCollapsed(int)** | Shows that ExpansionPanel has collapsed by index | boolean
+**next(String)** | Select next ExpansionPanel by title | void
+**previous(String)** | Select previous ExpansionPanel by title | void
+**end(String)** | Select end ExpansionPanel by title | void
+**input(String, String)** | Input ExpansionPanel panel placeholder text | void
+**clear(String)** | Clear ExpansionPanel field | void
+**value(String)** | Get ExpansionPanel field value | String
+**title(int)** | Get ExpansionPanel title value by index | String
+**description(int)** | Get ExpansionPanel description value by index | String
+**content(int)** | Get ExpansionPanel content value by index | String
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ExpansionPanelTests.java" target="_blank">ExpansionPanel java tests examples</a>
 ---
@@ -4816,7 +4904,7 @@ List of some available **ExpansionPanel** methods:
 
 Sidenav is located in the following class:
 
-- __Java__: com.epam.jdi.light.angular.elements.complex.SideNavTests
+- __Java__: _com.epam.jdi.light.angular.elements.complex.SideNav_
 
 **Sidenav content**
 
@@ -4827,37 +4915,48 @@ components: <mat-sidenav-container> which acts as a structural container for our
 <mat-sidenav-content> which represents the main content, and <mat-sidenav> which represents the added side content.
 
 ```java
-@FindBy(css = "#basic-sidenav")
-public static SideNav basicSideNav;
+    //@FindBy(css = "#basic-side-nav")
+    @UI("#basic-side-nav")
+    public static SideNav basicSideNav;
 
     @Test
     public void verifyBasicSideNavTest() {
-        basicSideNav.show();
-        basicSideNav.is().displayed();
-        basicSideNav.is().enabled();
-        basicSideNav.getSideNav().has().text(SIDE_NAV_CONTENT);
-        basicSideNav.getContent().has().text(MAIN_CONTENT);
+      basicSideNav.show();
+      basicSideNav.is().displayed();
+      basicSideNav.is().enabled();
+      basicSideNav.getSideNav().has().text("Sidenav content");
+      basicSideNav.getContent().has().text("Main content");
     }
 ```
 
 ```html
-<!-- Creates an empty sidenav container with no sidenavs and implicit empty content. -->
-<mat-sidenav-container></mat-sidenav-container>
+<mat-sidenav-container _ngcontent-aid-c294="" id="basic-side-nav" class="mat-drawer-container mat-sidenav-container example-container">
+  <div class="mat-drawer-backdrop ng-star-inserted"/>
+  <!---->
+  <div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"/>
+  <mat-sidenav _ngcontent-aid-c294="" tabindex="-1" mode="side" opened="" class="mat-drawer mat-sidenav ng-tns-c184-102 ng-trigger ng-trigger-transform ng-star-inserted mat-drawer-side mat-drawer-opened" style="transform: none; visibility: visible;">
+    <div class="mat-drawer-inner-container ng-tns-c184-102">Sidenav content</div>
+  </mat-sidenav>
+  <div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"/>
+  <mat-sidenav-content _ngcontent-aid-c294="" class="mat-drawer-content mat-sidenav-content" style="margin-left: 101px;">Main content</mat-sidenav-content>
+  <!---->
+</mat-sidenav-container>
 ```
 
 ![Basic sidenav](../../images/angular/sidenav/basic_sidenav.PNG)
 
 ```java
     //@FindBy(css = "#basic-drawer")
+    @UI("#basic-drawer")
     public static SideNav basicDrawer;
 
     @Test
     public void verifyBasicDrawerTest() {
-        basicDrawer.show();
-        basicDrawer.is().displayed();
-        basicDrawer.is().enabled();
-        basicDrawer.getMatDrawer().has().text(DRAWER_CONTENT);
-        basicDrawer.getMatDrawerContent().has().text(MAIN_CONTENT);
+      basicDrawer.show();
+      basicDrawer.is().displayed();
+      basicDrawer.is().enabled();
+      basicDrawer.getMatDrawer().has().text("Drawer content");
+      basicDrawer.getMatDrawerContent().has().text("Main content");
     }
 ```
 
@@ -4865,34 +4964,44 @@ public static SideNav basicSideNav;
 
 ```java
     //@FindBy(css = "#implicit-main-content")
+    @UI("#implicit-main-content")
     public static SideNav implicitMainContent;
 
     @Test
     public void verifyImplicitMainContentWithTwoSideNavTest() {
-        implicitMainContent.show();
-        UIElement startSideNav = implicitMainContent.getSideNav("start");
-        UIElement endSideNav = implicitMainContent.getSideNav("end");
-
-        startSideNav.has().attr(MODE, SIDE);
-        startSideNav.has().attr(STYLE, STYLE_VISIBLE);
-        startSideNav.has().text("Start content");
-
-        endSideNav.has().attr(MODE, SIDE);
-        endSideNav.has().attr(STYLE, STYLE_VISIBLE);
-        endSideNav.has().text("End content");
-
-        implicitMainContent.getContent().has().text("Implicit main content");
-        implicitMainContent.getContent().is().displayed();
-        implicitMainContent.getContent().is().enabled();
+      implicitMainContent.show();
+      UIElement startSideNav = implicitMainContent.getSideNav("start");
+      UIElement endSideNav = implicitMainContent.getSideNav("end");
+    
+      startSideNav.has().attr("mode", "side");
+      startSideNav.has().attr("style", "transform: none; visibility: visible;");
+      startSideNav.has().text("Start content");
+    
+      endSideNav.has().attr("mode", "side");
+      endSideNav.has().attr("style", "transform: none; visibility: visible;");
+      endSideNav.has().text("End content");
+    
+      implicitMainContent.getContent().has().text("Implicit main content");
+      implicitMainContent.getContent().is().displayed();
+      implicitMainContent.getContent().is().enabled();
     }
 ```
 
 ```html
-<!-- Creates a layout with a left and right sidenav and implicit content. -->
-<mat-sidenav-container>
-  <mat-sidenav>Start</mat-sidenav>
-  <mat-sidenav position="end">End</mat-sidenav>
-  <section>Main</section>
+<mat-sidenav-container _ngcontent-aid-c296="" id="implicit-main-content" class="mat-drawer-container mat-sidenav-container example-container">
+  <!---->
+  <div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"/>
+  <mat-sidenav _ngcontent-aid-c296="" tabindex="-1" opened="" mode="side" position="start" class="mat-drawer mat-sidenav ng-tns-c184-104 ng-trigger ng-trigger-transform ng-star-inserted mat-drawer-side mat-drawer-opened" style="transform: none; visibility: visible;">
+    <div class="mat-drawer-inner-container ng-tns-c184-104">Start content</div>
+  </mat-sidenav>
+  <div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"/>
+  <div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"/>
+  <mat-sidenav _ngcontent-aid-c296="" tabindex="-1" opened="" mode="side" position="end" class="mat-drawer mat-sidenav ng-tns-c184-105 ng-trigger ng-trigger-transform ng-star-inserted mat-drawer-end mat-drawer-side mat-drawer-opened" style="transform: none; visibility: visible;">
+    <div class="mat-drawer-inner-container ng-tns-c184-105">End content</div>
+  </mat-sidenav>
+  <div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true"/>
+  <mat-sidenav-content cdkscrollable="" class="mat-drawer-content mat-sidenav-content ng-star-inserted" style="margin-left: 80px; margin-right: 76px;"> Implicit main content </mat-sidenav-content>
+  <!---->
 </mat-sidenav-container>
 ```
 
@@ -4900,20 +5009,21 @@ public static SideNav basicSideNav;
 
 ```java
     //@FindBy(css = "#open-close-behavior")
+    @UI("#open-close-behavior")
     public static SideNav openCloseBehavior;
 
     @Test
     public void verifyOpenCloseBehaviorTest() {
-        openCloseBehavior.show();
-        openCloseBehavior.getContent().is().displayed();
-        openCloseBehavior.getContent().is().enabled();
-
-        sideNavToggle.click();
-        openCloseBehavior.getSideNav().has().text(SIDE_NAV_CONTENT);
-
-        sideNavOpened.click();
-        openCloseBehavior.base().timer().wait(() -> openCloseBehavior.isEnabled());
-        openCloseBehavior.getEvents().has().text("open!\nclose!");
+      openCloseBehavior.show();
+      openCloseBehavior.getContent().is().displayed();
+      openCloseBehavior.getContent().is().enabled();
+    
+      sideNavToggle.click();
+      openCloseBehavior.getSideNav().has().text("Sidenav content");
+    
+      sideNavOpened.click();
+      openCloseBehavior.base().timer().wait(() -> openCloseBehavior.isEnabled());
+      openCloseBehavior.getEvents().has().text("open!\nclose!");
     }
 ```
 
@@ -4921,19 +5031,20 @@ public static SideNav basicSideNav;
 
 ```java
     //@FindBy(css = "#configurable-mode")
+    @UI("#configurable-mode")
     public static SideNav configurableMode;
 
     @Test
     public void toggleConfigurableSideNavTest() {
-        refresh();
-        configurableMode.show();
-        contentToggle.click();
-        configurableMode.base().timer().wait(() -> configurableMode.visualValidation(".mat-sidenav"));
-        configurableMode.getSideNav().has().attr(STYLE, STYLE_VISIBLE);
-
-        sideToggle.click();
-        configurableMode.base().timer().wait(() -> configurableMode.visualValidation(".mat-sidenav"));
-        configurableMode.getSideNav().has().attr(STYLE, STYLE_HIDDEN);
+      refresh();
+      configurableMode.show();
+      contentToggle.click();
+      configurableMode.base().timer().wait(() -> configurableMode.visualValidation(".mat-sidenav"));
+      configurableMode.getSideNav().has().attr(STYLE, STYLE_VISIBLE);
+    
+      sideToggle.click();
+      configurableMode.base().timer().wait(() -> configurableMode.visualValidation(".mat-sidenav"));
+      configurableMode.getSideNav().has().attr(STYLE, STYLE_HIDDEN);
     }
 ```
 
@@ -4941,22 +5052,23 @@ public static SideNav basicSideNav;
 
 ```java
     //@FindBy(css = "#custom-escape-backdrop")
+    @UI("#custom-escape-backdrop")
     public static SideNav customEscapeBackdrop;
 
     @Test
     public void closeByToggleTest() {
-        refresh();
-        customEscapeBackdrop.show();
-        openSideNav.click();
-        toggleSideNav.click();
-        customEscapeBackdrop.getContent().has().text(containsString("toggle button"));
+      refresh();
+      customEscapeBackdrop.show();
+      openSideNav.click();
+      toggleSideNav.click();
+      customEscapeBackdrop.getContent().has().text(containsString("toggle button"));
     }
-
+    
     @Test
     public void closeByBackdropTest() {
-        openSideNav.click();
-        customEscapeBackdrop.core().click();
-        customEscapeBackdrop.getContent().has().text(containsString("backdrop"));
+      openSideNav.click();
+      customEscapeBackdrop.core().click();
+      customEscapeBackdrop.getContent().has().text(containsString("backdrop"));
     }
 ```
 
@@ -4964,15 +5076,16 @@ public static SideNav basicSideNav;
 
 ```java
     //@FindBy(css = "#auto-size-side-nav")
+    @UI("#auto-size-side-nav")
     public static SideNav autoSizeSideNav;
 
     @Test
     public void verifyAutoSizeSideNav() {
-        autoSizeSideNav.show();
-        toggleAutoNav.click();
-        toggleExtraText.click();
-        autoSizeSideNav.getMatDrawer().has().text(containsString("Toggle extra text"));
-        autoSizeSideNav.getMatDrawerContent().has().attr(STYLE, "margin-left: 294px;");
+      autoSizeSideNav.show();
+      toggleAutoNav.click();
+      toggleExtraText.click();
+      autoSizeSideNav.getMatDrawer().has().text(containsString("Toggle extra text"));
+      autoSizeSideNav.getMatDrawerContent().has().attr(STYLE, "margin-left: 294px;");
     }
 ```
 
@@ -4980,26 +5093,24 @@ public static SideNav basicSideNav;
 
 ```java
     //@FindBy(css = "#fixed-position")
+    @UI("#fixed-position")
     public static SideNav fixedPosition;
 
     @Test
     public void fixedSideNavTest() {
-        String testValue = "100";
-        fixedPosition.show();
-        topGap.click();
-        topGap.clear();
-        topGap.sendKeys(testValue);
-        bottomGap.click();
-        bottomGap.clear();
-        bottomGap.sendKeys(testValue);
-        fixSideNav.click();
-        fixedPosition.getSideNav().has().attr(STYLE, "transform: none; visibility: visible; top: 100px; bottom: " +
-                "100px;");
-
-        toggleFixedSideNav.click();
-        fixedPosition.base().timer().wait(() -> fixedPosition.visualValidation(".mat-sidenav-content"));
-        fixedPosition.getSideNav().has().attr(STYLE, "top: 100px; bottom: 100px; box-shadow: none; visibility: " +
-                "hidden;");
+      String testValue = "100";
+      fixedPosition.show();
+      topGap.click();
+      topGap.clear();
+      topGap.sendKeys(testValue);
+      bottomGap.click();
+      bottomGap.clear();
+      bottomGap.sendKeys(testValue);
+      fixSideNav.click();
+      fixedPosition.getSideNav().has().attr(STYLE, "transform: none; visibility: visible; top: 100px; bottom: " + "100px;");
+      toggleFixedSideNav.click();
+      fixedPosition.base().timer().wait(() -> fixedPosition.visualValidation(".mat-sidenav-content"));
+      fixedPosition.getSideNav().has().attr(STYLE, "top: 100px; bottom: 100px; box-shadow: none; visibility: " + "hidden;");
     }
 ```
 
@@ -5007,17 +5118,18 @@ public static SideNav basicSideNav;
 
 ```java
     //@FindBy(css = "#responsive-content")
+    @UI("#responsive-content")
     public static SideNav responsiveContent;
 
     @Test
     public void toggleResponsiveSideNavTest() {
-        int[] testValues = {1, 3};
-        responsiveContent.show();
-        toolbarToggle.click();
-        for (int value : testValues) {
-            responsiveContent.getSideNavLinks().get(value).click();
-            responsiveContent.getResponsiveResults().get(value).has().text(String.format("Selected Nav Item %d", value));
-        }
+      int[] testValues = {1, 3};
+      responsiveContent.show();
+      toolbarToggle.click();
+      for (int value : testValues) {
+      responsiveContent.getSideNavLinks().get(value).click();
+      responsiveContent.getResponsiveResults().get(value).has().text(format("Selected Nav Item %d", value));
+      }
     }
 ```
 ![Responsive sidenav](../../images/angular/sidenav/responsive.PNG)
@@ -5026,17 +5138,15 @@ List of some available **Sidenav** methods:
 
 |Method | Description | Return Type
 --- | --- | --- 
-**is()** | Assert action | SideNavAssert
-**has()** | Assert action | SideNavAssert
-**click()** | Click the checkbox | void
-**get()** | Select button by index | action
-**getText()** | Get button text | String
-**hasClass()** | Verify element class | boolean
-**isDisplayed** | Verify state | boolean
-**show()** | Scroll to element | void
-**text()** | Gets text | String
-**sendKeys(CharSequence… value)** | Sends specified value as keys | void
-**attr(String value)** | Gets attribute | String
+**getSideNav()** | Get '{name}' side nav | UIElement
+**getSideNav(String)** | Get '{name}' side nav  by '{0}' position value | UIElement
+**getContent()** | Get '{name}' side nav content | UIElement
+**getEvents()** | Get '{name}' side nav content | UIElement
+**getSideNavLinks()** | Get '{name}' side nav content | WebList
+**getResponsiveResults()** | Get '{name}' side nav content | WebList
+**getSideNavItems()** | Get '{name}' side nav content | WebList
+**getMatDrawer()** | Get '{name}' mat drawer | UIElement
+**getMatDrawerContent()** | Get '{name}' mat drawer content | UIElement
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SideNavTests.java" target="_blank">Sidenav java tests examples</a>
 
@@ -5055,31 +5165,66 @@ intended primarily as an interaction on mobile devices where they can be used as
 ![Bottom sheet](../../images/angular/bottom_sheet.PNG)
 
 ```html  
-<mat-bottom-sheet-container tabindex="-1" role="dialog" aria-modal="true" class="mat-bottom-sheet-container ng-tns-c99-206 ng-trigger ng-trigger-state ng-star-inserted" style="transform: translateY(0%);"><bottom-sheet-overview-example-sheet class="ng-star-inserted"><mat-nav-list role="navigation" id="bottom-sheet-container" class="mat-nav-list mat-list-base"><a href="https://keep.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Keep</span><span mat-line="" class="mat-line">Add to a note</span></div></div></a><a href="https://docs.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Docs</span><span mat-line="" class="mat-line">Embed in a document</span></div></div></a><a href="https://plus.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Plus</span><span mat-line="" class="mat-line">Share with your friends</span></div></div></a><a href="https://hangouts.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Hangouts</span><span mat-line="" class="mat-line">Show to your coworkers</span></div></div></a></mat-nav-list></bottom-sheet-overview-example-sheet><!----></mat-bottom-sheet-container>
+<mat-bottom-sheet-container tabindex="-1" role="dialog" aria-modal="true" class="mat-bottom-sheet-container ng-tns-c99-206 ng-trigger ng-trigger-state ng-star-inserted" style="transform: translateY(0%);">
+	<bottom-sheet-overview-example-sheet class="ng-star-inserted">
+		<mat-nav-list role="navigation" id="bottom-sheet-container" class="mat-nav-list mat-list-base">
+			<a href="https://keep.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line">
+				<div class="mat-list-item-content">
+					<div mat-ripple="" class="mat-ripple mat-list-item-ripple"/>
+					<div class="mat-list-text">
+						<span mat-line="" class="mat-line">Google Keep</span>
+						<span mat-line="" class="mat-line">Add to a note</span>
+					</div>
+				</div>
+			</a>
+			<a href="https://docs.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line">
+				<div class="mat-list-item-content">
+					<div mat-ripple="" class="mat-ripple mat-list-item-ripple"/>
+					<div class="mat-list-text">
+						<span mat-line="" class="mat-line">Google Docs</span>
+						<span mat-line="" class="mat-line">Embed in a document</span>
+					</div>
+				</div>
+			</a>
+			<a href="https://plus.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line">
+				<div class="mat-list-item-content">
+					<div mat-ripple="" class="mat-ripple mat-list-item-ripple"/>
+					<div class="mat-list-text">
+						<span mat-line="" class="mat-line">Google Plus</span>
+						<span mat-line="" class="mat-line">Share with your friends</span>
+					</div>
+				</div>
+			</a>
+			<a href="https://hangouts.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line">
+				<div class="mat-list-item-content">
+					<div mat-ripple="" class="mat-ripple mat-list-item-ripple"/>
+					<div class="mat-list-text">
+						<span mat-line="" class="mat-line">Google Hangouts</span>
+						<span mat-line="" class="mat-line">Show to your coworkers</span>
+					</div>
+				</div>
+			</a>
+		</mat-nav-list>
+	</bottom-sheet-overview-example-sheet>
+	<!---->
+</mat-bottom-sheet-container>
 ```
 
 ```java  
-//@FindBy(css = "#bottom-sheet")
-public static BottomSheet bottomSheet;
+  //@FindBy(css = "#bottom-sheet")
+  @UI("#bottom-sheet")
+  public static BottomSheet bottomSheet;
+  
+  private static final List<String> BOTTOM_SHEET_VALUES = Arrays.asList("Google Keep", "Google Docs", "Google Plus", "Google Hangouts");
 
-@Test
-public void checkBottomSheetIsDisplayedTest() {
-    bottomSheet.open();
-    bottomSheet.is().opened();
-}
-
-@Test
-public void checkBottomSheetIsHiddenTest() {
-    bottomSheet.open();
-    bottomSheet.close();
-    bottomSheet.is().closed();
-}
-
-@Test
-public void checkBottomSheetAvailableOptionsTest() {
-    bottomSheet.open();
-    bottomSheet.is().values(BOTTOM_SHEET_VALUES);
-}
+  @Test
+  public void checkBottomSheetAvailableOptionsTest() {
+        bottomSheet.open();
+        bottomSheet.is().opened();
+        bottomSheet.is().values(BOTTOM_SHEET_VALUES);
+        bottomSheet.close();
+        bottomSheet.is().closed();
+  }
 ```
 
 List of the available **Bottom sheet** methods:
@@ -5091,7 +5236,7 @@ List of the available **Bottom sheet** methods:
 **close()** | Close bottom sheet | void
 **opened()** | Check that bottom sheet is opened| boolean
 **closed()** | Check that bottom sheet is closed | boolean
-**values()** | Get list of bottom sheet options | List
+**values()** | Get list of bottom sheet options | List<String>
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/BottomSheetTests.java" target="_blank">Bottom sheet java tests examples</a>
 

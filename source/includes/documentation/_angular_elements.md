@@ -3373,62 +3373,6 @@ during initialization, it is advised to lazy load the tab's content.
 
 #### 2.2.11 Datepicker
 
-```java 
-//@FindBy(css = "#basic-datepicker")
-public static Datepicker basicDatepicker;
-
-@Test
-public void checkExpanded() {
-    basicDatepicker.expand();
-    basicDatepicker.is().expanded();
-}
-@Test
-public void checkEnabled() {
-    basicDatepicker.is().enabled();
-}
-@Test
-public void checkEnabledToggle() {
-    basicDatepicker.has().enabledToggle();
-}
-@Test
-public void checkEnabledInput() {
-    basicDatepicker.has().enabledInput();
-}
-@Test
-public void checkCollapsed() {
-    basicDatepicker.collapse();
-    basicDatepicker.is().collapsed();
-}
-@Test
-public void checkFocus() {
-    basicDatepicker.focus();
-    basicDatepicker.is().focused();
-}
-@Test
-public void checkTodayDayValue() {
-    basicDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
-}
-@Test
-public void checkSendKeysDate() {
-    basicDatepicker.sendKeys("11/25/2012");
-    basicDatepicker.is().date("11/25/2012");
-}
-@Test
-public void checkSelectedDate() {
-    basicDatepicker.setDate(LocalDate.of(1990, 11, 16));
-    basicDatepicker.is().selectedDate(LocalDate.of(1990, 11, 16));
-}
-@Test
-public void checkInputMonthDayYear() {
-    basicDatepicker.input("20-nov-2014");
-    basicDatepicker.is().month(Month.NOVEMBER).day(20).year(Year.of(2014));
-}
-@Test
-public void checkSelectedMonthDayYear() {
-    basicDatepicker.setText("04-OCTOBER-2000");
-    basicDatepicker.is().selectedMonth(Month.OCTOBER).selectedDay(4).selectedYear(Year.of(2000));
-}
-```
 ##### <a href="https://material.angular.io/components/datepicker/overview" target="_blank">Datepicker overview</a>
 
 The datepicker allows users to enter a date either through text input, or by choosing a date from the calendar.
@@ -3447,13 +3391,47 @@ See examples with HTML code describing datepicker elements.
 
 ![Basic Datepicker](../../images/angular/basic_datepicker.png)
 
+```java 
+  //@FindBy(css = "#basic-datepicker")
+  @UI("#basic-datepicker")
+  public static Datepicker basicDatepicker;
+
+  @Test
+  public void checkDisplayed() {
+      basicDatepicker.is().displayed();
+  }
+
+  @Test
+  public void checkExpanded() {
+      basicDatepicker.expand();
+      basicDatepicker.is().expanded();
+      basicDatepicker.collapse();
+      basicDatepicker.is().collapsed();
+  }
+  
+  @Test
+  public void checkSelectDayValue() {
+      basicDatepicker.clear();
+      LocalDate now = LocalDate.now();
+      basicDatepicker.selectDay(now.getDayOfMonth());
+      basicDatepicker.has().day(now.getDayOfMonth()).month(now.getMonth()).year(Year.of(now.getYear()));
+  }
+  
+  @Test
+  public void checkInputMonthDayYear() {
+      basicDatepicker.input("20-nov-2014");
+      basicDatepicker.is().month(Month.NOVEMBER).day(20).year(Year.of(2014));
+  }
+```
+
 ```html 
-<mat-form-field>
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker" id="basic-datepicker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+<input _ngcontent-mwa-c267="" matinput="" id="basic-datepicker" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-59 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" aria-haspopup="dialog">
+	<mat-datepicker _ngcontent-mwa-c267="" class="ng-tns-c95-59"/>
+	<span class="mat-form-field-label-wrapper ng-tns-c95-59">
+		<label class="mat-form-field-label ng-tns-c95-59 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-93" for="basic-datepicker" aria-owns="basic-datepicker">
+			<mat-label _ngcontent-mwa-c267="" class="ng-tns-c95-59 ng-star-inserted">Choose a date</mat-label>
+		</label>
+	</span>
 ```
 The `startView` property of `<mat-datepicker>` can be used to set the view that will show up when the calendar first
 opens. It can be set to `month`, `year`, or `multi-year`; by default it will open to month view.
@@ -3462,97 +3440,125 @@ The month, year, or range of years that the calendar opens to is determined by f
 selected, if so it will open to the month or year containing that date.
 
 ```java 
-//@FindBy(css = "#start-date-datepicker")
-public static Datepicker startDateDatepicker;
+  //@FindBy(css = "#start-date-datepicker")
+  @UI("#start-date-datepicker")
+  public static Datepicker startDateDatepicker;
 
-@Test
-public void checkLabelValue() {
-    startDateDatepicker.label().has().value(CHOOSE_A_DATE);
-}
-@Test
-public void checkStartYearValue() {
-    startDateDatepicker.has().startYear(Year.of(1990));
-}
-@Test
-public void checkStartMonthValue() {
-    startDateDatepicker.has().startMonth(Month.JANUARY);
-}
-@Test
-public void checkStartDayValue() {
-    startDateDatepicker.has().startDay(1);
-}
-@Test
-public void checkStartDayWithLocaleValue() {
-    startDateDatepicker.has().startDay(1, Locale.US);
-}
+ @Test
+ public void checkLabelValue() {
+     startDateDatepicker.label().has().value(CHOOSE_A_DATE);
+ }
+
+ @Test
+ public void checkStartYearValue() {
+     startDateDatepicker.has().startYear(Year.of(1990));
+ }
+
+ @Test
+ public void checkStartMonthValue() {
+     startDateDatepicker.has().startMonth(Month.JANUARY);
+ }
+
+ @Test
+ public void checkStartDayValue() {
+     startDateDatepicker.has().startDay(1);
+ }
+
+ @Test
+ public void checkStartDayWithLocaleValue() {
+     startDateDatepicker.has().startDay(1, Locale.US);
+ }
 ```
 ![Datepicker start date](../../images/angular/start_date_datepicker.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker" id="start-date-datepicker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-</mat-form-field>
+<mat-form-field _ngcontent-mwa-c268="" class="mat-form-field ng-tns-c95-60 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder">
+	<div class="mat-form-field-wrapper ng-tns-c95-60">
+		<div class="mat-form-field-flex ng-tns-c95-60">
+			<div class="mat-form-field-infix ng-tns-c95-60">
+				<input _ngcontent-mwa-c268="" matinput="" id="start-date-datepicker" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-60 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" aria-haspopup="dialog">
+					<mat-datepicker _ngcontent-mwa-c268="" startview="year" class="ng-tns-c95-60"/>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-60">
+						<label class="mat-form-field-label ng-tns-c95-60 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-95" for="start-date-datepicker" aria-owns="start-date-datepicker">
+							<mat-label _ngcontent-mwa-c268="" class="ng-tns-c95-60 ng-star-inserted">Choose a date</mat-label>
+						</label>
+					</span>
+				</div>
+				<div class="mat-form-field-suffix ng-tns-c95-60 ng-star-inserted">
+					<mat-datepicker-toggle _ngcontent-mwa-c268="" matsuffix="" id="start-date-datepicker-toggle" class="mat-datepicker-toggle ng-tns-c95-60" tabindex="-1">
+						<button mat-icon-button="" type="button" class="mat-focus-indicator mat-icon-button mat-button-base" aria-haspopup="dialog" aria-label="Open calendar" tabindex="0">
+							<span class="mat-button-wrapper">
+								<svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" focusable="false" class="mat-datepicker-toggle-default-icon ng-star-inserted">
+									<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+								</svg>
+							</span>
+							<div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"/>
+							<div class="mat-button-focus-overlay"/>
+						</button>
+					</mat-datepicker-toggle>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-60 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-60"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-60">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-60 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-60"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
 ```
 
 ```java 
-//@FindBy(css = "#selected-datepicker")
-public static Datepicker selectedDatepicker;
-//@FindBy(css = "#deserialize-datepicker")
-public static Datepicker deserializeDatepicker;
-//@FindBy(css = "#binding-datepicker")
-public static Datepicker bindingDatepicker;
+  //@FindBy(css = "#selected-datepicker")
+  @UI("#selected-datepicker")
+  public static Datepicker selectedDatepicker;
+  
+  //@FindBy(css = "#deserialize-datepicker")
+  @UI("#deserialize-datepicker")
+  public static Datepicker deserializeDatepicker;
+  
+  //@FindBy(css = "#binding-datepicker")
+  @UI("#binding-datepicker")
+  public static Datepicker bindingDatepicker;
 
-@Test
-public void checkInputDateBinding() {
-    selectedDatepicker.input("7/28/2014");
-    bindingDatepicker.is().date("7/28/2014");
-}
-@Test
-public void checkSelectedDateBinding() {
-    selectedDatepicker.setDate(LocalDate.of(1988, 1, 12));
-    bindingDatepicker.is().selectedDate(LocalDate.of(1988, 1, 12));
-}
-@Test
-public void checkInputMonthDayYearBinding() {
-    selectedDatepicker.input("2/15/1997");
-    bindingDatepicker.is().month(Month.FEBRUARY).day(15).year(Year.of(1997));
-}
-@Test
-public void checkSelectDateBinding() {
-    selectedDatepicker.select(LocalDate.of(2017, 12, 24));
-    bindingDatepicker.is().text("12/24/2017");
-}
-@Test
-public void checkHasNoReverseBinding() {
-    bindingDatepicker.select("1/1/2020");
-    selectedDatepicker.is().value("");
-}
-@Test
-public void checkSetInvalidAdditionalTextValue() {
-    deserializeDatepicker.setText("day");
-    deserializeDatepicker.is().invalid();
-}
-@Test
-public void checkSetInvalidTextValue() {
-    deserializeDatepicker.clear();
-    deserializeDatepicker.setText("year");
-    deserializeDatepicker.is().invalid();
-}
-@Test
-public void checkInputInvalidDateValue() {
-    deserializeDatepicker.clear();
-    deserializeDatepicker.input("13/1/2020");
-    deserializeDatepicker.is().invalid();
-}
-@Test
-public void checkSetInvalidDateValue() {
-    deserializeDatepicker.clear();
-    deserializeDatepicker.setText("2020-13-02");
-    deserializeDatepicker.is().invalid();
-}
+  @Test
+  public void checkTodayDayBindingValue() {
+      bindingDatepicker.clear();
+      selectedDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
+      bindingDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
+  }
+  
+  @Test
+  public void checkInputDateBinding() {
+      selectedDatepicker.input("7/28/2014");
+      bindingDatepicker.is().date("7/28/2014");
+  }
+
+  @Test
+  public void checkSelectedDateBinding() {
+      selectedDatepicker.setDate(LocalDate.of(1988, 1, 12));
+      bindingDatepicker.is().selectedDate(LocalDate.of(1988, 1, 12));
+  }
+
+  @Test
+  public void checkInputMonthDayYearBinding() {
+      selectedDatepicker.input("2/15/1997");
+      bindingDatepicker.is().month(Month.FEBRUARY).day(15).year(Year.of(1997));
+  }
+
+  @Test
+  public void checkSelectDateBinding() {
+      selectedDatepicker.select(LocalDate.of(2017, 12, 24));
+      bindingDatepicker.is().text("12/24/2017");
+  }
+
+  @Test
+  public void checkHasNoReverseBinding() {
+      bindingDatepicker.select("1/1/2020");
+      selectedDatepicker.is().value("");
+  }
 ```
 The type of values that the datepicker expects depends on the type of `DateAdapter` provided in your application.
 The `NativeDateAdapter`, for example, works directly with plain JavaScript `Date` objects. When using the
@@ -3597,82 +3603,84 @@ popup before or after the respective values and prevent the user from advancing 
 (depending on current view) containing the `min` or `max` date.
 
 ```java 
-//@FindBy(css = "#min-max-datepicker")
-public static Datepicker minMaxDatepicker;
+  //@FindBy(css = "#min-max-datepicker")
+  @UI("#min-max-datepicker")
+  public static Datepicker minMaxDatepicker;
 
-@Test
-public void checkTodayDayValue() {
-    minMaxDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
-}
-@Test
-public void checkDisabledPreviousMonthNavigation() {
-    String minDate = getMinDate();
-    minMaxDatepicker.input(minDate);
-    minMaxDatepicker.is().date(minDate).and().disabledNavigation(PREVIOUS_MONTH.getName());
-}
-@Test
-public void checkDisabledNextMonthNavigation() {
-    String maxDate = getMaxDate();
-    minMaxDatepicker.input(maxDate);
-    minMaxDatepicker.is().month(Month.DECEMBER).day(31).year(Year.of(LocalDate.now().getYear() + 1))
-                    .and().disabledNavigation(NEXT_MONTH.getName());
-}
-@Test
-public void checkDisabledMonthsAndYearsNavigation() {
-    String firstDisabledYearCell = String.format(CELL.getName(), MIN_YEAR - 2);
-    String secondDisabledYearCell = String.format(CELL.getName(), MIN_YEAR - 1);
-    minMaxDatepicker.openYearsView();
-    minMaxDatepicker.has().disabledNavigation(PREVIOUS_TWENTY_YEARS.getName(),
-                                              NEXT_TWENTY_YEARS.getName(),
-                                              firstDisabledYearCell,
-                                              secondDisabledYearCell);
-}
+  @Test
+  public void checkTodayDayValue() {
+      minMaxDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
+  }
+
+  @Test
+  public void checkDisabledPreviousMonthNavigation() {
+      String minDate = getMinDate();
+      minMaxDatepicker.input(minDate);
+      minMaxDatepicker.is().date(minDate).and().disabledNavigation(PREVIOUS_MONTH.getName());
+  }
+  
+  @Test
+  public void checkDisabledNextMonthNavigation() {
+      String maxDate = getMaxDate();
+      minMaxDatepicker.input(maxDate);
+      minMaxDatepicker.is().month(Month.DECEMBER).day(31).year(Year.of(LocalDate.now().getYear() + 1))
+                      .and().disabledNavigation(NEXT_MONTH.getName());
+  }
+
+  @Test
+  public void checkDisabledMonthsAndYearsNavigation() {
+      String firstDisabledYearCell = format(CELL.getName(), MIN_YEAR - 2);
+      String secondDisabledYearCell = format(CELL.getName(), MIN_YEAR - 1);
+      minMaxDatepicker.openYearsView();
+      minMaxDatepicker.has().disabledNavigation(PREVIOUS_TWENTY_YEARS.getName(),
+          NEXT_TWENTY_YEARS.getName(), firstDisabledYearCell, secondDisabledYearCell);
+  }
 ```
 ![Datepicker with min & max validation](../../images/angular/min_max_datepicker.png)
 
 ```html 
-<mat-form-field class="example-full-width">
-  <mat-label>Choose a date</mat-label>
-  <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" id="min-max-datepicker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+<div class="mat-form-field-infix ng-tns-c95-64">
+	<input _ngcontent-mwa-c270="" matinput="" id="min-max-datepicker" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-64 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" aria-haspopup="dialog" min="2001-12-31" max="2023-12-30" aria-owns="mat-datepicker-5">
+		<mat-datepicker _ngcontent-mwa-c270="" class="ng-tns-c95-64"/>
+		<span class="mat-form-field-label-wrapper ng-tns-c95-64">
+			<label class="mat-form-field-label ng-tns-c95-64 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-103" for="min-max-datepicker" aria-owns="min-max-datepicker">
+				<mat-label _ngcontent-mwa-c270="" class="ng-tns-c95-64 ng-star-inserted">Choose a date</mat-label>
+			</label>
+		</span>
+	</div>
 ```
 The second way to add date validation is using the `matDatepickerFilter` property of the datepicker input.
 
 ```java 
-//@FindBy(css = "#filter-datepicker")
-public static Datepicker filterDatepicker;
+  //@FindBy(css = "#filter-datepicker")
+  @UI("#filter-datepicker")
+  public static Datepicker filterDatepicker;
 
-@Test
-public void checkLabelValue() {
-    filterDatepicker.label().has().value(CHOOSE_A_DATE);
-}
-@Test
-public void checkTodayDayValue() {
-    filterDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
-}
-@Test
-public void checkEmptyDateValue() {
-    filterDatepicker.clear();
-    filterDatepicker.has().value("");
-}
-@Test
-public void checkDisabledSaturdays() {
-    filterDatepicker.has().disabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.SATURDAY));
-}
-@Test
-public void checkDisabledSundays() {
-    filterDatepicker.has().disabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.SUNDAY));
-}
-@Test
-public void checkEnabledMondays() {
-    filterDatepicker.has().enabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.MONDAY));
-}
-@Test
-public void checkEnabledWednesdays() {
-    filterDatepicker.has().enabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.WEDNESDAY));
-}
+  @Test
+  public void checkLabelValue() {
+      filterDatepicker.label().has().value(CHOOSE_A_DATE);
+  }
+
+  @Test
+  public void checkTodayDayValue() {
+      filterDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
+  }
+
+  @Test
+  public void checkEmptyDateValue() {
+      filterDatepicker.clear();
+      filterDatepicker.has().value("");
+  }
+
+  @Test
+  public void checkDisabledSaturdays() {
+      filterDatepicker.has().disabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.SATURDAY));
+  }
+
+  @Test
+  public void checkDisabledSundays() {
+      filterDatepicker.has().disabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.SUNDAY));
+  }
 ```
 This property accepts a function of `<D> => boolean` (where `<D>` is the date type used by the datepicker. A result of
 `true` indicates that the date is valid and a result of `false` indicates that it is not. Again this will also disable
@@ -3683,52 +3691,80 @@ advancing the calendar past that point.
 ![Datepicker with filter validation](../../images/angular/filter_datepicker.png)
 
 ```html 
-<mat-form-field class="example-full-width">
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" id="filter-datepicker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+<div class="mat-form-field-wrapper ng-tns-c95-65">
+	<div class="mat-form-field-flex ng-tns-c95-65">
+		<div class="mat-form-field-infix ng-tns-c95-65">
+			<input _ngcontent-mwa-c271="" matinput="" id="filter-datepicker" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-65 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" aria-haspopup="dialog">
+				<mat-datepicker _ngcontent-mwa-c271="" class="ng-tns-c95-65"/>
+				<span class="mat-form-field-label-wrapper ng-tns-c95-65">
+					<label class="mat-form-field-label ng-tns-c95-65 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-105" for="filter-datepicker" aria-owns="filter-datepicker">
+						<mat-label _ngcontent-mwa-c271="" class="ng-tns-c95-65 ng-star-inserted">Choose a date</mat-label>
+					</label>
+				</span>
+			</div>
+			<div class="mat-form-field-suffix ng-tns-c95-65 ng-star-inserted">
+				<mat-datepicker-toggle _ngcontent-mwa-c271="" matsuffix="" id="filter-datepicker-toggle" class="mat-datepicker-toggle ng-tns-c95-65" tabindex="-1">
+					<button mat-icon-button="" type="button" class="mat-focus-indicator mat-icon-button mat-button-base" aria-haspopup="dialog" aria-label="Open calendar" tabindex="0">
+						<span class="mat-button-wrapper">
+							<svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" focusable="false" class="mat-datepicker-toggle-default-icon ng-star-inserted">
+								<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+							</svg>
+						</span>
+						<div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"/>
+						<div class="mat-button-focus-overlay"/>
+					</button>
+				</mat-datepicker-toggle>
+			</div>
+		</div>
+		<div class="mat-form-field-underline ng-tns-c95-65 ng-star-inserted">
+			<span class="mat-form-field-ripple ng-tns-c95-65"/>
+		</div>
+		<div class="mat-form-field-subscript-wrapper ng-tns-c95-65">
+			<div class="mat-form-field-hint-wrapper ng-tns-c95-65 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+				<div class="mat-form-field-hint-spacer ng-tns-c95-65"/>
+			</div>
+		</div>
+	</div>
 ```
 
 ```java 
-//@FindBy(css = "#input-change-events-datepicker")
-public static Datepicker inputChangeEventsDatepicker;
+  //@FindBy(css = "#input-change-events-datepicker")
+  @UI("#input-change-events-datepicker")
+  public static Datepicker inputChangeEventsDatepicker;
 
-@Test
-public void selectFirstInputChangeEventsTest() {
-    refresh();
-    LocalDate firstEventDate = LocalDate.now();
-    List<String> inputChangeEvents = getInputChangeEvents(firstEventDate);
-    inputChangeEventsDatepicker.select(firstEventDate);
-    inputChangeEventsDatepicker.select(LocalDate.of(2020, 8, 9));
-    inputChangeEventsDatepicker.is().firstInputChangeEvents(inputChangeEvents);
-}
-@Test
-public void selectLastInputChangeEventsTest() {
-    LocalDate lastEventDate = LocalDate.now();
-    List<String> inputChangeEvents = getInputChangeEvents(lastEventDate);
-    inputChangeEventsDatepicker.select(LocalDate.of(2020, 8, 9));
-    inputChangeEventsDatepicker.select(lastEventDate);
-    inputChangeEventsDatepicker.is().lastInputChangeEvents(inputChangeEvents);
-}
-@Test
-public void selectLastNullInputChangeEventsTest() {
-    LocalDate eventDate = LocalDate.now();
-    List<String> inputChangeEvents = new ArrayList<>(Arrays.asList("input: null", "change: null"));
-    inputChangeEventsDatepicker.select(eventDate);
-    inputChangeEventsDatepicker.clear();
-    inputChangeEventsDatepicker.is().lastInputChangeEvents(inputChangeEvents);
-}
-@Test
-public void selectLastUndefinedChangeEventTest() {
-    refresh();
-    String changeEvent = "change: undefined";
-    inputChangeEventsDatepicker.show();
-    inputChangeEventsDatepicker.sendKeys("august");
-    inputChangeEventsDatepicker.clear();
-    inputChangeEventsDatepicker.is().lastChangeEvent(changeEvent);
-}
+  @Test
+  public void checkLabelValue() {
+      String inputChangeEvents = "Input & change events";
+      inputChangeEventsDatepicker.label().has().value(inputChangeEvents);
+  }
+
+  @Test
+  public void selectFirstInputChangeEventsTest() {
+      refresh();
+      LocalDate firstEventDate = LocalDate.now();
+      List<String> inputChangeEvents = getInputChangeEvents(firstEventDate);
+      inputChangeEventsDatepicker.select(firstEventDate);
+      inputChangeEventsDatepicker.select(LocalDate.of(2020, 8, 9));
+      inputChangeEventsDatepicker.is().firstInputChangeEvents(inputChangeEvents);
+  }
+
+  @Test
+  public void selectLastInputChangeEventsTest() {
+      LocalDate lastEventDate = LocalDate.now();
+      List<String> inputChangeEvents = getInputChangeEvents(lastEventDate);
+      inputChangeEventsDatepicker.select(LocalDate.of(2020, 8, 9));
+      inputChangeEventsDatepicker.select(lastEventDate);
+      inputChangeEventsDatepicker.is().lastInputChangeEvents(inputChangeEvents);
+  }
+
+  @Test
+  public void selectLastNullInputChangeEventsTest() {
+      LocalDate eventDate = LocalDate.now();
+      List<String> inputChangeEvents = new ArrayList<>(Arrays.asList("input: null", "change: null"));
+      inputChangeEventsDatepicker.select(eventDate);
+      inputChangeEventsDatepicker.clear();
+      inputChangeEventsDatepicker.is().lastInputChangeEvents(inputChangeEvents);
+  }
 ```
 The input's native `(input)` and `(change)` events will only trigger due to user interaction with the input element;
 they will not fire when the user selects a date from the calendar popup. Therefore, the datepicker input also has support
@@ -3758,43 +3794,56 @@ By default, the `<mat-datepicker>` and `<mat-datepicker-toggle>` will inherit th
 but this can be overridden by setting the `disabled` property on the datepicker or toggle elements.
 
 ```java 
-//@FindBy(css = "#completely-disabled-datepicker")
-public static Datepicker completelyDisabledDatepicker;
-//@FindBy(css = "#popup-disabled-datepicker")
-public static Datepicker popupDisabledDatepicker;
-//@FindBy(css = "#input-disabled-datepicker")
-public static Datepicker inputDisabledDatepicker;
+  //@FindBy(css = "#completely-disabled-datepicker")
+  @UI("#completely-disabled-datepicker")
+  public static Datepicker completelyDisabledDatepicker;
+  
+  //@FindBy(css = "#popup-disabled-datepicker")
+  @UI("#popup-disabled-datepicker")
+  public static Datepicker popupDisabledDatepicker;
+  
+  //@FindBy(css = "#input-disabled-datepicker")
+  @UI("#input-disabled-datepicker")
+  public static Datepicker inputDisabledDatepicker;
 
-@Test
-public void checkLabelValue() {
-    completelyDisabledDatepicker.label().has().value(completelyDisabled);
-    popupDisabledDatepicker.label().has().value(popupDisabled);
-    inputDisabledDatepicker.label().has().value(inputDisabled);
-}
-@Test
-public void checkCompletelyDisabled() {
-    completelyDisabledDatepicker.is().disabled();
-}
-@Test
-public void checkToggleDisabled() {
-    completelyDisabledDatepicker.has().disabledToggle();
-    popupDisabledDatepicker.has().disabledToggle();
-}
-@Test
-public void checkInputDisabled() {
-    completelyDisabledDatepicker.has().disabledInput();
-    inputDisabledDatepicker.has().disabledInput();
-}
-@Test
-public void checkSetDateToEnabledInput() {
-    popupDisabledDatepicker.setDate(LocalDate.of(2030, 1, 19));
-    popupDisabledDatepicker.is().date("1/19/2030");
-}
-@Test
-public void checkSelectDateByEnabledToggle() {
-    inputDisabledDatepicker.select(LocalDate.of(2029, 2, 28));
-    inputDisabledDatepicker.is().selectedDate(LocalDate.of(2029, 2, 28));
-}
+  @Test
+  public void checkLabelValue() {
+      String completelyDisabled = "Completely disabled";
+      completelyDisabledDatepicker.label().has().value(completelyDisabled);
+      String popupDisabled = "Popup disabled";
+      popupDisabledDatepicker.label().has().value(popupDisabled);
+      String inputDisabled = "Input disabled";
+      inputDisabledDatepicker.label().has().value(inputDisabled);
+  }
+
+  @Test
+  public void checkCompletelyDisabled() {
+      completelyDisabledDatepicker.is().disabled();
+  }
+
+  @Test
+  public void checkToggleDisabled() {
+      completelyDisabledDatepicker.has().disabledToggle();
+      popupDisabledDatepicker.has().disabledToggle();
+  }
+
+  @Test
+  public void checkInputDisabled() {
+      completelyDisabledDatepicker.has().disabledInput();
+      inputDisabledDatepicker.has().disabledInput();
+  }
+
+  @Test
+  public void checkSetDateToEnabledInput() {
+      popupDisabledDatepicker.setDate(LocalDate.of(2030, 1, 19));
+      popupDisabledDatepicker.is().date("1/19/2030");
+  }
+
+  @Test
+  public void checkSelectDateByEnabledToggle() {
+      inputDisabledDatepicker.select(LocalDate.of(2029, 2, 28));
+      inputDisabledDatepicker.is().selectedDate(LocalDate.of(2029, 2, 28));
+  }
 ```
 
 This can be useful if you want to disable text input but allow selection via the calendar or vice-versa.
@@ -3832,34 +3881,39 @@ as much screen real estate and need bigger click targets. For this reason `<mat-
 that can be set to `true` in order to enable a more touch friendly UI where the calendar opens in a large dialog.
 
 ```java 
-//@FindBy(css = "#touch-ui-datepicker")
-public static Datepicker touchUiDatepicker;
+  //@FindBy(css = "#touch-ui-datepicker")
+  @UI("#touch-ui-datepicker")
+  public static Datepicker touchUiDatepicker;
 
-@Test
-public void checkSendKeysDate() {
-    touchUiDatepicker.sendKeys("11/25/2012");
-    touchUiDatepicker.is().date("11/25/2012");
-}
-@Test
-public void checkSelectedDate() {
-    touchUiDatepicker.setDate(LocalDate.of(1990, 11, 16));
-    touchUiDatepicker.is().selectedDate(LocalDate.of(1990, 11, 16));
-}
-@Test
-public void checkInputMonthDayYear() {
-    touchUiDatepicker.input("20-nov-2014");
-    touchUiDatepicker.is().month(Month.NOVEMBER).day(20).year(Year.of(2014));
-}
-@Test
-public void checkSelectDate() {
-    touchUiDatepicker.select(LocalDate.of(2019, 12, 21));
-    touchUiDatepicker.is().text("12/21/2019");
-}
-@Test
-public void checkSelectStringDate() {
-    touchUiDatepicker.select("11/25/2020");
-    touchUiDatepicker.is().value("11/25/2020");
-}
+  @Test
+  public void checkSendKeysDate() {
+      touchUiDatepicker.sendKeys("11/25/2012");
+      touchUiDatepicker.is().date("11/25/2012");
+  }
+
+  @Test
+  public void checkSelectedDate() {
+      touchUiDatepicker.setDate(LocalDate.of(1990, 11, 16));
+      touchUiDatepicker.is().selectedDate(LocalDate.of(1990, 11, 16));
+  }
+
+  @Test
+  public void checkInputMonthDayYear() {
+      touchUiDatepicker.input("20-nov-2014");
+      touchUiDatepicker.is().month(Month.NOVEMBER).day(20).year(Year.of(2014));
+  }
+
+  @Test
+  public void checkSelectDate() {
+      touchUiDatepicker.select(LocalDate.of(2019, 12, 21));
+      touchUiDatepicker.is().text("12/21/2019");
+  }
+
+  @Test
+  public void checkSelectStringDate() {
+      touchUiDatepicker.select("11/25/2020");
+      touchUiDatepicker.is().value("11/25/2020");
+  }
 ```
 ![Datepicker touch UI](../../images/angular/touch_ui_datepicker.png)
 
@@ -3872,19 +3926,21 @@ public void checkSelectStringDate() {
 </mat-form-field>
 ```
 ```java 
-//@FindBy(css = "#open-method-datepicker")
-public static Datepicker openMethodDatepicker;
+  //@FindBy(css = "#open-method-datepicker")
+  @UI("#open-method-datepicker")
+  public static Datepicker openMethodDatepicker;
 
-@Test
-public void checkSelectedDate() {
-    openMethodDatepicker.setDate(LocalDate.of(1997, 3, 10));
-    openMethodDatepicker.is().selectedDate(LocalDate.of(1997, 3, 10));
-}
-@Test
-public void checkSelectDate() {
-    openMethodDatepicker.select(LocalDate.of(2017, 7, 2));
-    openMethodDatepicker.is().text("7/2/2017");
-}
+  @Test
+  public void checkSelectedDate() {
+      openMethodDatepicker.setDate(LocalDate.of(1997, 3, 10));
+      openMethodDatepicker.is().selectedDate(LocalDate.of(1997, 3, 10));
+  }
+
+  @Test
+  public void checkSelectDate() {
+      openMethodDatepicker.select(LocalDate.of(2017, 7, 2));
+      openMethodDatepicker.is().text("7/2/2017");
+  }
 ```
 The calendar popup can be programmatically controlled using the `open` and `close` methods on the `<mat-datepicker>`.
 It also has an `opened` property that reflects the status of the popup.
@@ -3902,58 +3958,81 @@ By default, the `MAT_DATE_LOCALE` injection token will use the existing `LOCALE_
 If you want to override it, you can provide a new value for the `MAT_DATE_LOCALE` token:
 
 ```java 
-//@FindBy(css = "#different-locale-datepicker")
-public static Datepicker differentLocaleDatepicker;
+  //@FindBy(css = "#different-locale-datepicker")
+  @UI("#different-locale-datepicker")
+  public static Datepicker differentLocaleDatepicker;
 
-@Test
-public void checkInputDate() {
-    refresh();
-    differentLocaleDatepicker.input("2002/12/13");
-    differentLocaleDatepicker.is().selectedDate(LocalDate.of(2002, 12, 13), Locale.JAPAN);
-}
-@Test
-public void checkSendKeysDate() {
-    differentLocaleDatepicker.switchLocale();
-    differentLocaleDatepicker.sendKeys("06/10/2009");
-    differentLocaleDatepicker.is().selectedDate(LocalDate.of(2009, 10, 6), Locale.FRANCE);
-}
-@Test
-public void checkSelectedDate() {
-    refresh();
-    differentLocaleDatepicker.select("09/16/2009", Locale.JAPAN);
-    differentLocaleDatepicker.is().selectedDate(LocalDate.of(2009, 9, 16), Locale.JAPAN);
-}
-@Test
-public void checkSelectStringDate() {
-    differentLocaleDatepicker.switchLocale();
-    differentLocaleDatepicker.select("02/07/2015", Locale.FRANCE);
-    differentLocaleDatepicker.is().text("7/2/2015");
-}
-@Test
-public void checkSelectDate() {
-    differentLocaleDatepicker.switchLocale();
-    differentLocaleDatepicker.select(LocalDate.of(2016, 7, 2), Locale.FRANCE);
-    differentLocaleDatepicker.is().value("2/7/2016");
-}
-@Test
-public void checkSwitchLocale() {
-    differentLocaleDatepicker.show();
-    differentLocaleDatepicker.switchLocale();
-    differentLocaleDatepicker.has().locale(Locale.FRANCE);
-}
+  @Test
+  public void checkSelectedDate() {
+      refresh();
+      differentLocaleDatepicker.select("09/16/2009", Locale.JAPAN);
+      differentLocaleDatepicker.is().selectedDate(LocalDate.of(2009, 9, 16), Locale.JAPAN);
+  }
+
+  @Test
+  public void checkSelectStringDate() {
+      differentLocaleDatepicker.switchLocale();
+      differentLocaleDatepicker.select("02/07/2015", Locale.FRANCE);
+      differentLocaleDatepicker.is().text("7/2/2015");
+  }
+
+  @Test
+  public void checkSelectDate() {
+      differentLocaleDatepicker.switchLocale();
+      differentLocaleDatepicker.select(LocalDate.of(2016, 7, 2), Locale.FRANCE);
+      differentLocaleDatepicker.is().value("2/7/2016");
+  }
 ```
 ```html
-    @NgModule({
-      providers: [
-        {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
-      ],
-    })
-    export class MyApp {}
+<input _ngcontent-mwa-c276="" matinput="" id="different-locale-datepicker" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-198 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" aria-haspopup="dialog">
+<mat-datepicker _ngcontent-mwa-c276="" class="ng-tns-c95-198"/>
+<span class="mat-form-field-label-wrapper ng-tns-c95-198">
+		<label class="mat-form-field-label ng-tns-c95-198 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-223" for="different-locale-datepicker" aria-owns="different-locale-datepicker">
+			<mat-label _ngcontent-mwa-c276="" class="ng-tns-c95-198 ng-star-inserted">Different locale</mat-label>
+		</label>
+	</span>
+</div>
+<div class="mat-form-field-suffix ng-tns-c95-198 ng-star-inserted">
+  <mat-datepicker-toggle _ngcontent-mwa-c276="" matsuffix="" id="different-locale-datepicker-toggle" class="mat-datepicker-toggle ng-tns-c95-198" tabindex="-1">
+    <button mat-icon-button="" type="button" class="mat-focus-indicator mat-icon-button mat-button-base" aria-haspopup="dialog" aria-label="Open calendar" tabindex="0">
+			<span class="mat-button-wrapper">
+				<svg viewBox="0 0 24 24" width="24px" height="24px" fill="currentColor" focusable="false" class="mat-datepicker-toggle-default-icon ng-star-inserted">
+				</svg>
+			</span>
 ```
 It's also possible to set the locale at runtime using the `setLocale` method of the `DateAdapter`.
 
 ![Datepicker with different locale](../../images/angular/different_locale_datepicker.png)
 
+```java 
+  //@FindBy(css = "#moment-js-datepicker")
+  @UI("#moment-js-datepicker")
+  public static Datepicker momentJsDatepicker;
+
+  @Test
+  public void checkLabelValue() {
+      String momentDatepicker = "Moment.js datepicker";
+      momentJsDatepicker.label().has().value(momentDatepicker);
+  }
+
+  @Test
+  public void checkMomentDate() {
+      refresh();
+      momentJsDatepicker.is().selectedDate(LocalDate.of(2017, 1, 1));
+  }
+
+  @Test
+  public void checkInputDate() {
+      momentJsDatepicker.input("5/10/1996");
+      momentJsDatepicker.is().selectedDate(LocalDate.of(1996, 5, 10));
+  }
+
+  @Test
+  public void checkSetTextDate() {
+      momentJsDatepicker.setText("4/14/2009");
+      momentJsDatepicker.is().date("4/14/2009");
+  }
+```
 ```html 
 <mat-form-field>
   <mat-label>Different locale</mat-label>
@@ -3963,47 +4042,36 @@ It's also possible to set the locale at runtime using the `setLocale` method of 
 </mat-form-field>
 <button mat-button (click)="french()">Dynamically switch to French</button>
 ```
-```java 
-//@FindBy(css = "#moment-js-datepicker")
-public static Datepicker momentJsDatepicker;
-
-@Test
-public void checkMomentDate() {
-    refresh();
-    momentJsDatepicker.is().selectedDate(LocalDate.of(2017, 1, 1));
-}
-@Test
-public void checkInputDate() {
-    momentJsDatepicker.input("5/10/1996");
-    momentJsDatepicker.is().selectedDate(LocalDate.of(1996, 5, 10));
-}
-@Test
-public void checkSetTextDate() {
-    momentJsDatepicker.setText("4/14/2009");
-    momentJsDatepicker.is().date("4/14/2009");
-}
-@Test
-public void checkSelectValidDate() {
-    momentJsDatepicker.select("1/31/2007");
-    momentJsDatepicker.is().valid();
-}
-@Test
-public void checkSetInvalidDate() {
-    momentJsDatepicker.input("January-31-2007");
-    momentJsDatepicker.is().invalid();
-}
-@Test
-public void checkSendKeysDate() {
-    momentJsDatepicker.sendKeys("11/03/2008");
-    momentJsDatepicker.is().selectedDate(LocalDate.of(2008, 11, 3));
-}
-```
 The datepicker was built to be date implementation agnostic. This means that it can be made to work with a variety
 of different date implementations. However it also means that developers need to make sure to provide the appropriate
 pieces for the datepicker to work with their chosen implementation.
 
 ![Datepicker that uses Moment.js dates](../../images/angular/moment_js_datepicker.png)
 
+
+```java 
+  //@FindBy(css = "#custom-formats-datepicker")
+  @UI("#custom-formats-datepicker")
+  public static Datepicker customFormatsDatepicker;
+
+  @Test
+  public void checkLabelValue() {
+      String verboseDatepicker = "Verbose datepicker";
+      customFormatsDatepicker.label().has().value(verboseDatepicker);
+  }
+
+  @Test
+  public void checkInputDate() {
+      customFormatsDatepicker.input("MAR-10-1997");
+      customFormatsDatepicker.is().selectedDate(LocalDate.of(1997, 3, 10));
+  }
+
+  @Test
+  public void checkSetTextDate() {
+      customFormatsDatepicker.setText("January-31-2007");
+      customFormatsDatepicker.is().date("January 31, 2007");
+  }
+```
 ```html 
 <mat-form-field>
   <mat-label>Moment.js datepicker</mat-label>
@@ -4012,32 +4080,6 @@ pieces for the datepicker to work with their chosen implementation.
   <mat-datepicker #dp></mat-datepicker>
 </mat-form-field>
 ```
-```java 
-//@FindBy(css = "#custom-formats-datepicker")
-public static Datepicker customFormatsDatepicker;
-
-@Test
-public void checkInputDate() {
-    customFormatsDatepicker.input("MAR-10-1997");
-    customFormatsDatepicker.is().selectedDate(LocalDate.of(1997, 3, 10));
-}
-@Test
-public void checkSetTextDate() {
-    customFormatsDatepicker.setText("January-31-2007");
-    customFormatsDatepicker.is().date("January 31, 2007");
-}
-@Test
-public void checkSendKeysDate() {
-    customFormatsDatepicker.sendKeys("November 03, 2008");
-    customFormatsDatepicker.is().selectedDate(LocalDate.of(2008, 11, 3));
-}
-@Test
-public void checkSelectDate() {
-    customFormatsDatepicker.select(LocalDate.of(2017, 7, 2));
-    customFormatsDatepicker.is().text("July 2, 2017");
-}
-```
-
 The `MAT_DATE_FORMATS` object is a collection of formats that the datepicker uses when parsing and displaying dates.
 These formats are passed through to the `DateAdapter` so you will want to make sure that the format objects you're
 using are compatible with the `DateAdapter` used in your app.
@@ -4061,51 +4103,58 @@ import the `NativeDateModule` or `MomentDateModule`. These modules are identical
 
 List of some available **Datepicker** methods:
 
-|Method | Description | Return Type
---- | --- | --- 
-**is()** | Assert action | DatepickerAssert
-**expand()** | Expand Datepicker panel | void
-**collapse()** | Collapse expanded Datepicker panel | void
-**isExpanded()** | Shows that Datepicker has expanded | boolean
-**isCollapsed()** | Shows that Datepicker has collapsed | boolean
-**isFocused()** | Shows that Datepicker has focus | boolean
-**isValid()** | Shows that Datepicker has a valid value | boolean
-**isInvalid()** | Shows that Datepicker has an invalid value | boolean
-**isEnabled()** | Shows Datepicker is enabled | boolean
-**isDisabled()** | Shows Datepicker is disabled | boolean
-**isToggleEnabled()** | Shows Datepicker toggle is enabled | boolean
-**isToggleDisabled()** | Shows Datepicker toggle is disabled | boolean
-**isInputEnabled()** | Shows Datepicker input is enabled  | boolean
-**isInputDisabled()** | Shows Datepicker input is disabled  | boolean
-**isDisabledNavigationElements(String... elements)** | Shows Datepicker elements is disabled  | boolean
-**setDate(LocalDate date)** | Set date on input Datepicker | void
-**selectDayInPreviousMonth(int day)** | Select day in the previous month | void
-**selectDayInNextMonth(int day)** | Select day in the next month | void
-**navigateToDayInPreviousMonths(int monthCount, int day)** | Navigate to day in the defined previous month count | void
-**navigateToDayInNextMonths(int monthCount, int day)** | Navigate to day in the defined next month count | void
-**openYearsView()** | Open Datepicker years view | void
-**getMonth()** | Get Datepicker input month value | Month
-**startMonth()** | Get Datepicker start month value | Month
-**getDay()** | Get Datepicker input day value | int
-**startDay()** | Get Datepicker start day value | int
-**getYear()** | Get Datepicker input year value | Year
-**startYear()** | Get Datepicker start year value | Year
-**select(String date/LocalDate date)** | Select date in Datepicker | void
-**select(String date/LocalDate date, Locale locale)** | Select date in Datepicker with specific Locale | void
-**selectedDate()** | Get Datepicker selected date value | LocalDate
-**selectedDate(Locale locale)** | Get Datepicker selected date value with specific Locale | LocalDate
-**selectedMonth()** | Get Datepicker selected month value | Month
-**selectDay(int day)** | Select day in Datepicker | void
-**selectedDay()** | Get Datepicker selected day value | int
-**todayDay()** | Get Datepicker doday day value | int
-**selectedYear()** | Get Datepicker selected year value | Year
-**getWeekDayNumbers(DatepickerNavigation weekName)** | Get Datepicker week day numbers | String[]
-**switchLocale()** | Switch locale for Datepicker | void
-**isSelectedLocale(Locale locale)** | Check Datepicker locale | boolean
-**isFirstInputChangeEvents(List<String> events)** | Check Datepicker has first input & change events | boolean
-**isLastInputChangeEvents(List<String> events)** | Check Datepicker has last input & change events | boolean
-**isLastChangeEvent(String lastChangeEvent)** | Check Datepicker has last change event | boolean
-**isLastInputEvent(String lastInputEvent)** | Check Datepicker has last input event | boolean
+|Method | Description                                                          | Return Type
+--- |----------------------------------------------------------------------| --- 
+**is()** | Assert action                                                        | DatepickerAssert
+**expand()** | Expand Datepicker panel                                              | void
+**collapse()** | Collapse expanded Datepicker panel                                   | void
+**isExpanded()** | Shows that Datepicker has expanded                                   | boolean
+**isCollapsed()** | Shows that Datepicker has collapsed                                  | boolean
+**isFocused()** | Shows that Datepicker has focus                                      | boolean
+**isValid()** | Shows that Datepicker has a valid value                              | boolean
+**isInvalid()** | Shows that Datepicker has an invalid value                           | boolean
+**isEnabled()** | Shows Datepicker is enabled                                          | boolean
+**isDisabled()** | Shows Datepicker is disabled                                         | boolean
+**isToggleEnabled()** | Shows Datepicker toggle is enabled                                   | boolean
+**isToggleDisabled()** | Shows Datepicker toggle is disabled                                  | boolean
+**isInputEnabled()** | Shows Datepicker input is enabled                                    | boolean
+**isInputDisabled()** | Shows Datepicker input is disabled                                   | boolean
+**isDisabledNavigationElements(String...)** | Shows Datepicker elements is disabled                                | boolean
+**isEnabledNavigationElements(String...)** | Shows Datepicker elements is enabled                                 | boolean
+**clear()** | clears field                                                         | void
+**value()** | Returns value                                                        | String
+**sendKeys(CharSequence...)** | Sets keys for date                                                   | void
+**setText(String)** | Sets string for date                                                 | void
+**input(String)** | input text                                                           | void
+**setDate(LocalDate)** | Set date on input Datepicker                                         | void
+**selectDayInPreviousMonth(int)** | Select day in the previous month                                     | void
+**selectDayInNextMonth(int)** | Select day in the next month                                         | void
+**navigateToDayInPreviousMonths(int, int)** | Navigate to day in the defined previous month count (monthcount,day) | void
+**navigateToDayInNextMonths(int, int)** | Navigate to day in the defined next month count (monthcount,day)      | void
+**openYearsView()** | Open Datepicker years view                                           | void
+**getMonth()** | Get Datepicker input month value                                     | Month
+**startMonth()** | Get Datepicker start month value                                     | Month
+**getDay()** | Get Datepicker input day value                                       | int
+**startDay()** | Get Datepicker start day value                                       | int
+**startDay(Locale)** | Get Datepicker start day value                                       | int
+**getYear()** | Get Datepicker input year value                                      | Year
+**startYear()** | Get Datepicker start year value                                      | Year
+**select(String/LocalDate)** | Select date in Datepicker                                            | void
+**select(String /LocalDate, Locale)** | Select date in Datepicker with specific Locale                       | void
+**selectedDate()** | Get Datepicker selected date value                                   | LocalDate
+**selectedDate(Locale)** | Get Datepicker selected date value with specific Locale              | LocalDate
+**selectedMonth()** | Get Datepicker selected month value                                  | Month
+**selectDay(int)** | Select day in Datepicker                                             | void
+**selectedDay()** | Get Datepicker selected day value                                    | int
+**todayDay()** | Get Datepicker doday day value                                       | int
+**selectedYear()** | Get Datepicker selected year value                                   | Year
+**getWeekDayNumbers(DatepickerNavigation)** | Get Datepicker week day numbers                                      | String[]
+**switchLocale()** | Switch locale for Datepicker                                         | void
+**isSelectedLocale(Locale)** | Check Datepicker locale                                              | boolean
+**isFirstInputChangeEvents(List<String>)** | Check Datepicker has first input & change events                     | boolean
+**isLastInputChangeEvents(List<String>)** | Check Datepicker has last input & change events                      | boolean
+**isLastChangeEvent(String)** | Check Datepicker has last change event                               | boolean
+**isLastInputEvent(String)** | Check Datepicker has last input event                                | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/datepicker" target="_blank">Datepicker java tests examples</a>
 
@@ -4118,207 +4167,209 @@ Menu element represents a group of commands that a user can perform or activate.
 
 Menu is located in the following classes:
 
-- __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.Menu
+- __Java__: _com.epam.jdi.light.angular.elements.complex.NestedDropdownMenu_
 
 There are three different menu in Angular: basic menu, menu with icons and nested menu.
 
 See an example with HTML code describing basic menu element.
 
 ```java 
-//FindBy(css = "#basic-menu-button")
-public static NestedDropdownMenu basicMenu; 
+  //FindBy(css = "#basic-menu-button")
+  @UI("#basic-menu-button")
+  public static NestedDropdownMenu basicMenuButton;
     
-//FindBy(css = "#basic-menu-selected-option")
-public static Text basicMenuSelectedOption;
+  //FindBy(css = "#basic-menu-selected-option")
+  @UI("#basic-menu-selected-option")
+  public static Text basicMenuSelectedOption;
 
-@Test
-public void basicMenuTest() {
-    basicMenu.is().displayed();
-}
+  @Test
+  public void basicMenuTest() {
+      basicMenu.is().displayed();
+  }
 
-@Test
-public void basicMenuSelectTest() {
-    basicMenu.select("Item 1");
-    basicMenuSelectedOption.is().text("Item 1");
-}
+  @Test
+  public void basicMenuSelectTest() {
+      basicMenuButton.select("Item 1");
+      basicMenuSelectedOption.is().text("Item 1");
+  }
 
-@Test
-public void checkBasicMenuAvailableOptionsTest() {
-    String[] expectedList = BASIC_MENU_VALUES;
-    basicMenu.expand();
-    List<String> actualList = basicMenu.values();
-    for (int i = 0; i < expectedList.length; i++) {
-    basicMenu.is().checkValue(expectedList[i], (actualList.get(i)));
-}
+  @Test
+  public void checkBasicMenuAvailableOptionsTest() {
+      String[] expectedList = BASIC_MENU_VALUES;
+      basicMenuButton.expand();
+      List<String> actualList = basicMenuButton.values();
+      for (int i = 0; i < expectedList.length; i++) {
+          basicMenuButton.is().checkValue(expectedList[i], (actualList.get(i)));
+  }
 ```
 
 ![Basic menu](../../images/angular/basic_menu.png)
 
 ```html 
-<button aria-haspopup="true" id="nested-menu-button">
-    <span>Animal index</span>
+<button _ngcontent-mwa-c289="" aria-haspopup="true" id="basic-menu-button" mat-button="" class="mat-focus-indicator mat-menu-trigger mat-button mat-button-base">
+	<span class="mat-button-wrapper">Menu</span>
+	<div matripple="" class="mat-ripple mat-button-ripple"/>
+	<div class="mat-button-focus-overlay"/>
 </button>
-<div class="mat-menu-content">
-    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Vertebrates"</button>
-    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Invertebrates"</button>
-</div>
 ```
-
-|Method | Description | Return Type
---- | --- | ---
-**expand()** | Expand menu | void
-**select()** | Select a certain element | UIElement
-**values()** | Get list of values | List
-**checkValue()** | Check that element value is correct | boolean
-**is()** | Assert action | NestedDropdownMenuAssert
-**displayed()** | Check that element is displayed | TextAssert
-**text()** | Assert that element has presented text | TextAssert
 
 See an example with HTML code describing menu with icons element.
 
 ```java 
-//FindBy(css = "#menu-with-icons-button")
-public static NestedDropdownMenu menuWithIcons; 
+  //FindBy(css = "#menu-with-icons-button")
+  @UI("#menu-with-icons-button")
+  public static NestedDropdownMenu menuWithIconsButton; 
     
-//FindBy(css = "#icons-menu-selected-option")
-public static Text iconsMenuSelectedOption;
+  //FindBy(css = "#icons-menu-selected-option")
+  @UI("#menu-with-icons-button")
+  public static Text iconsMenuSelectedOption;
 
-@Test
-public void menuWithIconsTest() {
-    menuWithIcons.is().displayed();
-}
+  @Test
+  public void menuWithIconsTest() {
+      menuWithIconsButton.is().displayed();
+  }
 
-@Test
-public void menuWithIconsSelectTest() {
-    menuWithIcons.expand();
-    menuWithIcons.selectForMenuWithIcons("Redial");
-    iconsMenuSelectedOption.is().text("Redial");
-}
+  @Test
+  public void menuWithIconsSelectTest() {
+      menuWithIconsButton.expand();
+      menuWithIconsButton.selectForMenuWithIcons("Redial");
+      iconsMenuSelectedOption.is().text("Redial");
+  }
 
-@Test
-public void disabledMenuWithIconsOptionTest() {
-    menuWithIcons.expand();
-    menuWithIcons.is().isDisabledMenuWithIconsOption("Check voice mail");
-}
+  @Test
+  public void disabledMenuWithIconsOptionTest() {
+      menuWithIconsButton.expand();
+      menuWithIconsButton.is().isDisabledMenuWithIconsOption("Check voice mail");
+  }
 
-@Test
-public void checkMenuWithIconsAvailableOptionsTest() {
-    String[] expectedList = MENU_WITH_ICONS_VALUES;
-    List<String> actualList = menuWithIcons.valuesForMenuWithIcons();
-    menuWithIcons.expand();
-    for (int i = 0; i < expectedList.length; i++) {
-        menuWithIcons.checkValue(expectedList[i], actualList.get(i));
-    }
-}
+  @Test
+  public void checkMenuWithIconsAvailableOptionsTest() {
+      String[] expectedList = MENU_WITH_ICONS_VALUES;
+      List<String> actualList = menuWithIconsButton.valuesForMenuWithIcons();
+      menuWithIconsButton.expand();
+      for (int i = 0; i < expectedList.length; i++) {
+          menuWithIconsButton.checkValue(expectedList[i], actualList.get(i));
+      }
+  }
 ```
 
 ![Menu with icons](../../images/angular/menu_with_icons.png)
 
 ```html 
-<button aria-haspopup="true" id="menu-with-icons-button">
-    <span>
-        <mat-icon role="img"></mat-icon>
-    </span>
-</button> 
-<div class="mat-menu-content"> 
-    <button role="menuitem" aria-disabled="false">
-        <mat-icon role="img"</mat-icon>
-            <span>Redial</span>
-    </button>
-    <button role="menuitem" aria-disabled="true">
-        <mat-icon role="img"</mat-icon>
-            <span>Check voice mail</span>
-    </button>
-    <button role="menuitem" aria-disabled="false">
-        <mat-icon role="img"</mat-icon>
-            <span>Disable alerts>/span>
-    </button>
+<button _ngcontent-mwa-c290="" aria-haspopup="true" id="menu-with-icons-button" mat-icon-button="" aria-label="Example icon-button with a menu" class="mat-focus-indicator mat-menu-trigger mat-icon-button mat-button-base">
+	<span class="mat-button-wrapper">
+		<mat-icon _ngcontent-mwa-c290="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">more_vert</mat-icon>
+	</span>
+	<div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"/>
+	<div class="mat-button-focus-overlay"/>
+</button>
+<div class="mat-menu-content ng-tns-c168-95">
+	<button _ngcontent-mwa-c290="" mat-menu-item="" class="mat-focus-indicator mat-menu-item ng-tns-c168-95" role="menuitem" tabindex="0" aria-disabled="false">
+		<mat-icon _ngcontent-mwa-c290="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">dialpad</mat-icon>
+		<span _ngcontent-mwa-c290="">Redial</span>
+		<div matripple="" class="mat-ripple mat-menu-ripple"/>
+	</button>
+	<button _ngcontent-mwa-c290="" mat-menu-item="" disabled="true" class="mat-focus-indicator mat-menu-item ng-tns-c168-95" role="menuitem" tabindex="-1" aria-disabled="true">
+		<mat-icon _ngcontent-mwa-c290="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">voicemail</mat-icon>
+		<span _ngcontent-mwa-c290="">Check voice mail</span>
+		<div matripple="" class="mat-ripple mat-menu-ripple"/>
+	</button>
+	<button _ngcontent-mwa-c290="" mat-menu-item="" class="mat-focus-indicator mat-menu-item ng-tns-c168-95" role="menuitem" tabindex="0" aria-disabled="false">
+		<mat-icon _ngcontent-mwa-c290="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">notifications_off</mat-icon>
+		<span _ngcontent-mwa-c290="">Disable alerts</span>
+		<div matripple="" class="mat-ripple mat-menu-ripple"/>
+	</button>
 </div>
 ```
-|Method | Description | Return Type
---- | --- | ---
-**expand()** | Expand menu | void
-**selectForMenuWithIcons()** | Select a certain element | UIElement
-**valuesForMenuWithIcons()** | Get list of values | List
-**checkValue()** | Check that element value is correct | boolean
-**isDisabledMenuWithIconsOption()** | Check that element is disabled | boolean
-**is()** | Assert action | NestedDropdownMenuAssert
-**displayed()** | Check that element is displayed | TextAssert
-**text()** | Assert that element has presented text | TextAssert
 
 See an example with HTML code describing nested menu element.
 
 ```java 
-//FindBy(css = "#nested-menu-button")
-public static NestedDropdownMenu nestedMenu;
+  //FindBy(css = "#nested-menu-button")
+  @UI("#nested-menu-button")
+  public static NestedDropdownMenu nestedMenuButton;
     
-//FindBy(css = "#nested-menu-selected-option-")
-public static Text nestedMenuSelectedOption;
+  //FindBy(css = "#nested-menu-selected-option")
+  @UI("#nested-menu-selected-option")
+  public static Text nestedMenuSelectedOption;
 
-@Test
-public void nestedMenuTest() {
-    nestedMenu.is().displayed();
-    }
+  @Test
+  public void nestedMenuTest() {
+      nestedMenuButton.is().displayed();
+  }
 
-@Test
-public void nestedMenuFirstNestingLayerSelectTest() {
-    nestedMenu.expand();
-    nestedMenu.select("Vertebrates");
-    nestedMenuSelectedOption.is().text("Vertebrates");
-}
+  @Test
+  public void nestedMenuFirstNestingLayerSelectTest() {
+      nestedMenuButton.expand();
+      nestedMenuButton.select("Vertebrates ");
+      nestedMenuSelectedOption.is().text("Vertebrates");
+  }
     
-@Test
-public void nestedMenuSecondNestingLayerSelectTest() {
-    nestedMenu.expand();
-    nestedMenu.select("Vertebrates", "Fishes");
-    nestedMenuSelectedOption.is().text("Fishes");
-}
+  @Test
+  public void nestedMenuSecondNestingLayerSelectTest() {
+      nestedMenuButton.expand();
+      nestedMenuButton.select("Vertebrates ", "Fishes");
+      nestedMenuSelectedOption.is().text("Fishes");
+  }
     
-@Test
-public void nestedMenuThirdNestingLayerSelectTest() {
-    nestedMenu.expand();
-    nestedMenu.select("Vertebrates", "Fishes", "Bala shark");
-    nestedMenuSelectedOption.is().text("Bala shark");
-}
+  @Test
+  public void nestedMenuThirdNestingLayerSelectTest() {
+      nestedMenuButton.expand();
+      nestedMenuButton.select("Vertebrates ", "Fishes", "Bala shark");
+      nestedMenuSelectedOption.is().text("Bala shark");
+  }
     
-@Test
-public void disabledNestedMenuOptionTest() {
-    nestedMenu.expand();
-    nestedMenu.is().isDisabledNestedMenuOption("Vertebrates", "Reptiles", "Velociraptor");
-}
-    
-@Test
-public void checkNestedMenuAvailableOptionsTest() {
-    String[] expectedList = NESTED_MENU_VALUES;
-    nestedMenu.expand();
-    List<String> actualList = nestedMenu.valuesForNestedMenu();
-    for (int i = 0; i < expectedList.length; i++) {
-        nestedMenu.is().checkValue(expectedList[i], actualList.get(i));
-    }
-}
+  @Test
+  public void disabledNestedMenuOptionTest() {
+      nestedMenuButton.expand();
+      nestedMenuButton.is().isDisabledNestedMenuOption("Vertebrates ", "Reptiles", "Velociraptor");
+  }
+
+  @Test
+  public void checkNestedMenuAvailableOptionsTest() {
+      String[] expectedList = NESTED_MENU_VALUES;
+      nestedMenuButton.expand();
+      List<String> actualList = nestedMenuButton.valuesForNestedMenu();
+      for (int i = 0; i < expectedList.length; i++) {
+          nestedMenuButton.is().checkValue(expectedList[i], actualList.get(i));
+      }
+  }
 ```
 
 ![Nested menu](../../images/angular/nested_menu.png)
 
 ```html 
-<button aria-haspopup="true" id="nested-menu-button">
-    <span>Animal index</span>
-</button> 
-<div class="mat-menu-content"> 
-    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Vertebrates"</button>
-    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Invertebrates"</button>
+<button _ngcontent-mwa-c291="" aria-haspopup="true" id="nested-menu-button" mat-button="" class="mat-focus-indicator mat-menu-trigger mat-button mat-button-base">
+	<span class="mat-button-wrapper">Animal index</span>
+	<div matripple="" class="mat-ripple mat-button-ripple"/>
+	<div class="mat-button-focus-overlay"/>
+</button>
+<div class="mat-menu-content ng-tns-c168-96">
+	<button _ngcontent-mwa-c291="" aria-haspopup="true" mat-menu-item="" class="mat-focus-indicator mat-menu-trigger mat-menu-item mat-menu-item-submenu-trigger ng-tns-c168-96 mat-menu-item-highlighted" role="menuitem" tabindex="0" aria-disabled="false" aria-expanded="true" aria-controls="mat-menu-panel-3">Vertebrates <div matripple="" class="mat-ripple mat-menu-ripple"/>
+	</button>
+	<!---->
+	<button _ngcontent-mwa-c291="" aria-haspopup="true" mat-menu-item="" class="mat-focus-indicator mat-menu-trigger mat-menu-item mat-menu-item-submenu-trigger ng-tns-c168-96" role="menuitem" tabindex="0" aria-disabled="false"> Invertebrates <div matripple="" class="mat-ripple mat-menu-ripple"/>
+	</button>
+	<!---->
 </div>
 ```
-|Method | Description | Return Type
---- | --- | ---
-**expand()** | Expand menu | void
-**select()** | Select a certain element | UIElement
-**valuesForNestedMenu()** | Get list of values | List
-**checkValue()** | Check that element value is correct | boolean
-**isDisabledNestedMenuOption()** | Check that element is disabled | boolean
-**is()** | Assert action | NestedDropdownMenuAssert
-**displayed()** | Check that element is displayed | TextAssert
-**text()** | Assert that element has presented text | TextAssert
+List of some available **NestedDropdownMenu** methods:
+
+|Method | Description                                                      | Return Type
+--- |------------------------------------------------------------------| ---
+**expand()** | Expand menu                                                      | void
+**isExpanded()** | Check if menu expanded                                           | boolean
+**close()** | Closing menu                                                     | void
+**isClosed()** | Check if menu closed                                             | boolean
+**select(String...)** | Select a certain element                                         | UIElement
+**values()** | Get list of values                                               | List<String>
+**checkValue(String,String)** | Check that element value is correct (expectedValue, actualValue) | boolean
+**valuesForNestedMenu()** | Get list of values from nested menu                              | List<String>
+**valuesForMenuWithIcons()** | Get list of values from menu with icons                          | List<String>
+**selectForMenuWithIcons(String)** | Select a certain element for menu with icons                     | void
+**isDisabledMenuWithIconsOption(String)** | Checks is option is disabled for menu with icons                 | boolean
+**isDisabledNestedMenuOption(String...)** | Checks is option is disabled for nested menu                     | boolean
+**is()** | Assert action                                                    | NestedDropdownMenuAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/menu" target="_blank">Menu java tests examples</a>
 
@@ -4342,105 +4393,47 @@ method.
 See examples with HTML code describing ripple element.
 
 ```java 
-//@FindBy(css = "#ripple-container")
-public static Ripple rippleContainer;
-@Test
-public void displayedTest() {
-    rippleContainer.is().displayed();
-}
-@Test
-public void centeredTest() {
-    rippleContainer.center();
-    rippleContainer.is().centered();
-}
-@Test
-public void disabledTest() {
-    rippleContainer.disable();
-    rippleContainer.is().disabled();
-}
-@Test
-public void unboundedTest() {
-    rippleContainer.unbound();
-    rippleContainer.is().unbounded();
-}
-@Test
-public void rippleActionTest() {
-    rippleContainer.ripple();
-    rippleContainer.is().active();
-}
-@Test
-public void radiusTest() {
-    int expectedRadius = 260;
-    rippleContainer.setRadius(expectedRadius);
-    rippleContainer.has().radius(expectedRadius);
-}
-@Test
-public void rippleRadiusTest() {
-    int expectedRadius = 124;
-    rippleContainer.setRadius(expectedRadius);
-    rippleContainer.is().radius(is(124));
-}
-@Test
-public void rippleCorrectRadiusTest() {
-    rippleContainer.setRadius(100);
-    rippleContainer.has().correctRadius();
-}
-@Test
-public void rippleNotCorrectRadiusTest() {
-    rippleContainer.setRadius(-5);
-    rippleContainer.has().incorrectRadius();
-}
-@Test
-public void colorTest() {
-    String expectedColor = "BLUE";
-    rippleContainer.setColor(expectedColor);
-    rippleContainer.is().color(expectedColor.toLowerCase());
-}
-@Test
-public void rippleCorrectColorTest() {
-    rippleContainer.setColor("rgba(255, 0, 255, 0.7)");
-    rippleContainer.has().correctColor();
-}
-@Test
-public void rippleNotCorrectColorTest() {
-    rippleContainer.setColor("custom color");
-    rippleContainer.has().incorrectColor();
-}
-@Test
-public void rippleRadiusAndColorTest() {
-    String expectedColor = "SALMON";
-    int expectedRadius = 219;
-    rippleContainer.setColor(expectedColor);
-    rippleContainer.setRadius(expectedRadius);
-    rippleContainer.is().radius(expectedRadius).and().color(is(expectedColor.toLowerCase()));
-}
-@Test
-public void rippleRadiusAndColorAndCenteredTest() {
-    rippleContainer.center();
-    String expectedColor = "rgba(28, 140, 16, 0.1)";
-    int expectedRadius = 150;
-    rippleContainer.setColor(expectedColor);
-    rippleContainer.setRadius(expectedRadius);
-    rippleContainer.is().radius(expectedRadius).and().color(is(expectedColor.toLowerCase())).and().centered();
-}
-@Test
-public void mouseClickByCoordinatesAndRadiusTest() {
-    int x = 0;
-    int y = 299;
-    int expectedRadius = 300;
-    rippleContainer.setRadius(expectedRadius);
-    rippleContainer.ripple(x, y);
-    rippleContainer.is().rippleCenter(x, y).and().radius(expectedRadius);
-}
-@Test
-public void randomMouseClickCenteredAndUnboundedTest() {
-    rippleContainer.unbound();
-    rippleContainer.center();
-    int x = RandomUtils.nextInt(0, 299);
-    int y = RandomUtils.nextInt(0, 299);
-    rippleContainer.ripple(x, y);
-    rippleContainer.is().unbounded().and().centered();
-}
+  //@FindBy(css = "#ripple-container")
+  @UI("#ripple-container")
+  public static Ripple rippleContainer;
+  
+  @Test
+  public void displayedTest() {
+      rippleContainer.is().displayed();
+  }
+
+  @Test
+  public void disabledTest() {
+      rippleContainer.disable();
+      rippleContainer.is().disabled();
+      rippleContainer.enable();
+      rippleContainer.is().enabled();
+  }
+
+  @Test
+  public void unboundedTest() {
+      rippleContainer.unbound();
+      rippleContainer.is().unbounded();
+  }
+
+  @Test
+  public void centeredTest() {
+      rippleContainer.center();
+      rippleContainer.is().centered();
+  }
+
+  @Test
+  public void rippleActionTest() {
+      rippleContainer.ripple();
+      rippleContainer.is().active();
+  }
+
+  @Test
+  public void radiusTest() {
+      int expectedRadius = 260;
+      rippleContainer.setRadius(expectedRadius);
+      rippleContainer.has().radius(expectedRadius);
+  }
 ```
 
 ![Ripple](../../images/angular/ripple.png)
@@ -4473,33 +4466,33 @@ public void randomMouseClickCenteredAndUnboundedTest() {
 
 List of some available **Ripple** methods:
 
-|Method | Description | Return Type
---- | --- | --- 
-**is()** | Assert action | RippleAssert
-**isDisplayed()** | Shows Ripple is displayed | boolean
-**ripple()** | Activate Ripple | void
-**ripple(int x, int y)** | Activate Ripple by coordinates | void
-**enable()** | Enable Ripple | void
-**disable()** | Disable Ripple | void
-**bound()** | Bound Ripple | void
-**unbound()** | Unbound Ripple | void
-**decentralize()** | Decentralize Ripple | void
-**center()** | Center Ripple | void
-**isDisabled()** | Shows that Ripple has disabled | boolean
-**isUnbounded()** | Shows that Ripple has unbounded | boolean
-**isCentered()** | Shows that Ripple has centered | boolean
-**isActive()** | Shows that Ripple is active | boolean
-**isRippleCenter(int x, int y)** | Shows that Ripple has centered by coordinates | boolean
-**setRadius(int radius)** | Setup Ripple radius | void
-**setColor(int color)** | Setup Ripple color | void
-**isRadius(int radius)** | Shows that Ripple has required radius | boolean
-**isColor(String color)** | Shows that Ripple has required color | boolean
-**color()** | Get Ripple color | String
-**radius()** | Get Ripple radius | int
-**isCorrectRadius()** | Shows that Ripple input radius is correct | boolean
-**isCorrectColor()** | Shows that Ripple input color is correct | boolean
-**clearRadius()** | Clear Ripple input radius | void
-**clearColor()** | Clear Ripple input color | void
+|Method | Description                                         | Return Type
+--- |-----------------------------------------------------| --- 
+**is()** | Assert action                                       | RippleAssert
+**isDisplayed()** | Shows Ripple is displayed                           | boolean
+**ripple()** | Activate Ripple                                     | void
+**ripple(int , int )** | Activate Ripple by coordinates (x,y)                | void
+**enable()** | Enable Ripple                                       | void
+**disable()** | Disable Ripple                                      | void
+**bound()** | Bound Ripple                                        | void
+**unbound()** | Unbound Ripple                                      | void
+**decentralize()** | Decentralize Ripple                                 | void
+**center()** | Center Ripple                                       | void
+**isDisabled()** | Shows that Ripple has disabled                      | boolean
+**isUnbounded()** | Shows that Ripple has unbounded                     | boolean
+**isCentered()** | Shows that Ripple has centered                      | boolean
+**isActive()** | Shows that Ripple is active                         | boolean
+**isRippleCenter(int, int)** | Shows that Ripple has centered by coordinates (x,y) | boolean
+**setRadius(int)** | Setup Ripple radius                                 | void
+**setColor(String)** | Setup Ripple color                                  | void
+**isRadius(int)** | Shows that Ripple has required radius               | boolean
+**isColor(String)** | Shows that Ripple has required color                | boolean
+**color()** | Get Ripple color                                    | String
+**radius()** | Get Ripple radius                                   | int
+**isCorrectRadius()** | Shows that Ripple input radius is correct           | boolean
+**isCorrectColor()** | Shows that Ripple input color is correct            | boolean
+**clearRadius()** | Clear Ripple input radius                           | void
+**clearColor()** | Clear Ripple input color                            | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RippleTests.java" target="_blank">Ripple java tests examples</a>
 

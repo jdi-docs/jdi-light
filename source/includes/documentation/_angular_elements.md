@@ -2480,11 +2480,11 @@ List of some available **NativeSelector** methods:
 
 #### 2.2.6 Form Field
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/FormFieldTests.java" target="_blank">Here you can find the Form Field tests</a>
-
 ##### <a href="https://material.angular.io/components/form-field/overview" target="_blank">Form Field overview</a>
 
 Form field combines different Angular materials within a single field.
+
+- __Java__: com.epam.jdi.light.angular.elements.complex.FormField
 
 The test methods below allow to discriminate fields in the form: input, mat-select, and textarea. For each type there are methods to get specific types from the form and proccess them.
 Test methods also allow to handle form fields in the form independently of the type just by accessing them using index.
@@ -2494,23 +2494,40 @@ See an example with HTML code describing a form field element.
 ![Form fields example](../../images/angular/form_field_example.png)
 
 ```java 
+  //@FindBy(css = "simple-form-field")
+  @UI("simple-form-field")
+  public static FormField simpleFormFieldInput; 
 
-public static FormField simpleFormFieldInput; 
-
-@Test 
-public void simpleFormFieldInput() { 
-    formFieldSection.simpleFormFieldInput.has().label(1, "Input");
-	formFieldSection.simpleFormFieldInput.has().label(2, "Select");
-	formFieldSection.simpleFormFieldInput.has().label(3, "Textarea");
-    formFieldSection.simpleFormFieldInput.set(1, "Test input value");
-	formFieldSection.simpleFormFieldInput.has().value(1, "Test input value");
-	formFieldSection.simpleFormFieldInput.set(2, "Option");
-	formFieldSection.simpleFormFieldInput.has().value(2, "Option");
-	formFieldSection.simpleFormFieldInput.set(3, "Test text area value");
-	formFieldSection.simpleFormFieldInput.has().value(3, "Test text area value");
-	formFieldSection.simpleFormFieldInput.clear(1);
-	formFieldSection.simpleFormFieldInput.has().value(1, "");
-} 
+  @Test
+  public void simpleFormFieldTest() {
+      simpleFormFieldInput.show();
+      simpleFormFieldInput.has().inputLabel(1, "Input");
+      simpleFormFieldInput.has().textAreaLabel(1, "Textarea");
+      simpleFormFieldInput.has().dropdownLabel(1, "Select");
+      simpleFormFieldInput.set(1, "Test input value");
+      simpleFormFieldInput.has().value(1, "Test input value");
+      simpleFormFieldInput.set(2, "Option");
+      simpleFormFieldInput.has().value(2, "Option");
+      simpleFormFieldInput.set(3, "Test text area value");
+      simpleFormFieldInput.has().value(3, "Test text area value");
+      simpleFormFieldInput.input(1, "Input value");
+      simpleFormFieldInput.has().inputText(1, "Input value");
+      simpleFormFieldInput.has().inputText(1, containsString("Input"));
+      simpleFormFieldInput.select(1, "Option");
+      simpleFormFieldInput.has().dropdownText(1, "Option");
+      simpleFormFieldInput.has().dropdownText(1, containsString("tion"));
+      simpleFormFieldInput.setTextArea(1, "Text area value");
+      simpleFormFieldInput.has().textAreaText(1, "Text area value");
+      simpleFormFieldInput.has().textAreaText(1, containsString(" area v"));
+      simpleFormFieldInput.clearTextArea(1);
+      simpleFormFieldInput.has().textAreaText(1, "");
+      simpleFormFieldInput.set(3, "Another text area value");
+      simpleFormFieldInput.has().value(3, "Another text area value");
+      simpleFormFieldInput.clear(1);
+      simpleFormFieldInput.has().value(1, "");
+      simpleFormFieldInput.clear(3);
+      simpleFormFieldInput.has().value(3, "");
+  }
 
 ``` 
 
@@ -2534,19 +2551,18 @@ public void simpleFormFieldInput() {
 ![Form fields with hints](../../images/angular/form_field_with_hints.png)
 
 ```java 
+  public static FormField formFieldExampleContainerInputLimited;
 
-public static FormField formFieldExampleContainerInputLimited; 
-
-@Test 
-    public void formFieldsWithHintsTest() {
-        formFieldsSection.formFieldExampleContainerInputLimited.show();
-        formFieldsSection.formFieldExampleContainerInputLimited.has().hint(1, "0/10");
-        formFieldsSection.formFieldExampleContainerInputLimited.has().hint(2, "Here's the dropdown arrow ^");
-        formFieldsSection.formFieldExampleContainerInputLimited.set(1, "12345678901");
-        formFieldsSection.formFieldExampleContainerInputLimited.has().hint(1, "10/10");
-        formFieldsSection.formFieldExampleContainerInputLimited.has().inputHint(1, "10/10");
-        formFieldsSection.formFieldExampleContainerInputLimited.has().value(1, "1234567890");
-    }
+  @Test
+  public void formFieldsWithHintsTest() {
+      formFieldExampleContainerInputLimited.show();
+      formFieldExampleContainerInputLimited.has().hint(1, "0/10");
+      formFieldExampleContainerInputLimited.has().hint(2, "Here's the dropdown arrow ^");
+      formFieldExampleContainerInputLimited.set(1, "12345678901");
+      formFieldExampleContainerInputLimited.has().hint(1, "10/10");
+      formFieldExampleContainerInputLimited.has().inputHint(1, "10/10");
+      formFieldExampleContainerInputLimited.has().value(1, "1234567890");
+  }
 ``` 
 
 ```html 
@@ -2563,38 +2579,45 @@ public static FormField formFieldExampleContainerInputLimited;
 </div> 
 ``` 
 
-|Method | Description | Return Type
---- | --- | --- 
-**getInputs()** | Gets the WebList of input elements presented in the form | WebList
-**getDropdowns()** | Gets the WebList of dropdown elements presented in the form | WebList
-**getTextAreas()** | Gets the WebList of text area elements presented in the form | WebList
-**input(int index, String value)** | Inputs a value into the input with the provided index. This method counts inputs only | void
-**select(int index, String value)** | Selects a value from the dropdown with the provided index. This method counts dropdowns only | void
-**setTextArea(int index, String value)** | Inputs a value into the text area with the provided index. This method counts text areas only | void
-**set(int index, String value)** | Sets the field with the provided index which is counted for all form fields in the form. Depending on the type of the field (input, mat-select, or textarea) it inputs or selects a value | void
-**value(int index)** | Sets the field with the provided index which is counted for all form fields in the form | String
-**focusOut(int index)** | Moves the focus out of the field with the provided index | void
-**clear(int index)** | Clears field with the provided index | void
-**clickIcon(int index)** | Clicks the icon in the form field with the provided index which is counted for all fields in the form | void
-**is()** | Assert action | FormFieldsAssert
-**value(int index, String expected)** | Assert action: value in the field with the provided index in the form | FormFieldsAssert
-**inputText(int index, String expected)** | Assert action: verifies text in the input with the provided index | FormFieldsAssert
-**textAreaText(int index, String expected)** | Assert action: verifies text in the text area with the provided index | FormFieldsAssert
-**dropdownText(int index, String expected)** | Assert action: verifies text in the dropdown with the provided index | FormFieldsAssert
-**inputPlaceholder(int index, String expected)** | Assert action: placeholder in the input with the provided index | FormFieldsAssert
-**inputLabel(int index, String expected)** | Assert action: label in the input with the provided index | FormFieldsAssert
-**textAreaLabel(int index, String expected)** | Assert action: label in the text area with the provided index | FormFieldsAssert
-**dropdownLabel(int index, String expected)** | Assert action: dropdown in the text area with the provided index | FormFieldsAssert
-**inputHint(int index, String expected)** | Assert action: hint in the input with the provided index | FormFieldsAssert
-**inputError(int index, String expected)** | Assert action: error in the input with the provided index | FormFieldsAssert
-**hint(int index, String expected)** | Assert action: hint in the field with the provided index in the form | FormFieldsAssert
-**fieldIcon(int index, String expected)** | Assert action: icon in the field with the provided index in the form | FormFieldsAssert
-**font(int index, String expected)** | Assert action: font in the field with the provided index in the form | FormFieldsAssert
-**font(int index, Matcher<String> condition)** | Assert action: font contains in the field with the provided index in the form | FormFieldsAssert
-**color(int index, String expected)** | Assert action: color in the field with the provided index in the form | FormFieldsAssert
-**placeholder(int index, String expected)** | Assert action: placeholder in the field with the provided index in the form | FormFieldsAssert
-**label(int index, String expected)** | Assert action: label in the field with the provided index in the form | FormFieldsAssert
-**error(int index, String expected)** | Assert action: error in the field with the provided index in the form | FormFieldsAssert
+|Method | Description                                                                                                                                                                               | Return Type
+--- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- 
+**getInputs()** | Gets the WebList of input elements presented in the form                                                                                                                                  | WebList
+**getDropdowns()** | Gets the WebList of dropdown elements presented in the form                                                                                                                               | WebList
+**getTextAreas()** | Gets the WebList of text area elements presented in the form                                                                                                                              | WebList
+**input(int, String)** | Inputs a value into the input with the provided index. This method counts inputs only                                                                                                     | void
+**select(int, String)** | Selects a value from the dropdown with the provided index. This method counts dropdowns only                                                                                              | void
+**setTextArea(int, String)** | Inputs a value into the text area with the provided index. This method counts text areas only                                                                                             | void
+**set(int, String)** | Sets the field with the provided index which is counted for all form fields in the form. Depending on the type of the field (input, mat-select, or textarea) it inputs or selects a value | void
+**value(int)** | Sets the field with the provided index which is counted for all form fields in the form                                                                                                   | String
+**clear(int)** | Clears field with the provided index                                                                                                                                                      | void
+**clickIcon(int)** | Clicks the icon in the form field with the provided index which is counted for all fields in the form                                                                                     | void
+**is()** | Assert action                                                                                                                                                                             | FormFieldsAssert
+**inputText(int)** | Assert action: verifies text in the input with the provided index                                                                                                                         | String
+**getInputValue(int)** | Get value for input with index                                                                                                                                                            | String
+**textAreaText(int)** | verifies text in the text area with the provided index                                                                                                                                    | String
+**getTextAreaValue(int)** | Get value for text area with index                                                                                                                                                        | String
+**getDropdownValue(int)** | Get value for dropdown with index                                                                                                                                                         | String
+**inputPlaceholder(int)** | placeholder in the input with the provided index                                                                                                                                          | String
+**inputLabel(int)** | label in the input with the provided index                                                                                                                                                | String
+**textAreaLabel(int)** | label in the text area with the provided index                                                                                                                                            | String
+**dropdownLabel(int)** | dropdown in the text area with the provided index                                                                                                                                         | String
+**inputHint(int)** | hint in the input with the provided index                                                                                                                                                 | String
+**inputError(int)** | error in the input with the provided index                                                                                                                                                | String
+**hint(int)** | hint in the field with the provided index in the form                                                                                                                                     | String
+**font(int)** | Returns font in the field with the provided index in the form                                                                                                                             | String
+**color(int)** | Returns color in the field with the provided index in the form                                                                                                                            | String
+**placeholder(int)** | placeholder in the field with the provided index in the form                                                                                                                              | String
+**label(int)** | label in the field with the provided index in the form                                                                                                                                    | String
+**error(int)** | error in the field with the provided index in the form                                                                                                                                    | String
+**focusOut()** | Get focus out from element                                                                                                                                                                | void
+**clearInput(int)** | Clear value from input in element with index                                                                                                                                              | void
+**clearTextArea(int)** | Clear value from text area in element with index                                                                                                                                          | void
+**set(int,String)** | Set value for element with index                                                                                                                                                          | void
+**value(int)** | Returns value in the field with the provided index in the form                                                                                                                            | String
+**icon(int)** | Get icon text in element with index                                                                                                                                                       | String
+
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/FormFieldTests.java" target="_blank">Here you can find the Form Field tests</a>
 
 ---
 
@@ -2603,14 +2626,28 @@ public static FormField formFieldExampleContainerInputLimited;
 
 You can find the autocomplete methods in the following class:
 
-- __Java__: com.epam.jdi.light.angular.elements.complex.AutoComplete.java
+- __Java__: com.epam.jdi.light.angular.elements.complex.AutoComplete
 
 See the examples with HTML code describing autocomplete elements below.
 
 Autocomplete element is identified by the input node wrapped inside the ```mat-form-field``` (see the test examples).
 
 ![Autocomplete Overview](../../images/angular/autocomplete_overview.png)
+```java  
+  //@FindBy(css = "#autocomplete-overview-input")
+  @UI("#autocomplete-overview-input")
+  public AutoComplete autocompleteOverview;
 
+  @Test
+  public void verifyOnlyOneAutocompleteIsExpandedAtATime() {
+      autocompleteSection.autocompleteOverview.click();
+      autocompleteSection.autocompleteOverview.is().expanded();
+      autocompleteSection.simpleAutocomplete.is().collapsed();
+      autocompleteSection.displayValueAutocomplete.is().collapsed();
+      autocompleteSection.filterAutocomplete.is().collapsed();
+      autocompleteSection.optionGroupsAutocomplete.is().collapsed();
+  }
+```
 ```html  
 <mat-form-field>
     <div class="mat-form-field-wrapper">
@@ -2634,22 +2671,34 @@ Autocomplete element is identified by the input node wrapped inside the ```mat-f
     </div>
 </mat-form-field>
 ```
-
-```java  
-//@FindBy(css = "#autocomplete-overview-input")
-public static AutoComplete autocompleteOverviewInput;
-
-@Test
-public void verifyautocompleteOverviewInput() {
-    autocompleteSection.autocompleteOverviewInput.has().placeholder("State");
-    autocompleteSection.autocompleteOverviewInput.setValue("F", "FloridaPopulation: 20.27M");
-    autocompleteSection.autocompleteOverviewInput.has().text("Florida");
-    autocompleteSection.autocompleteOverviewInput.setValue("CaliforniaPopulation: 39.14M");
-    autocompleteSection.autocompleteOverviewInput.has().text("California");
-}
-```
-
 ![Disabled autocomplete](../../images/angular/disabled_autocomplete.png)
+```java  
+  //@FindBy(css = "#autocomplete-overview-input")
+  @UI("#autocomplete-overview-input")
+  public static AutoComplete autocompleteOverviewInput;
+
+  //@FindBy(css = "#autocomplete-overview-slide-toggle")
+  @UI("#autocomplete-overview-slide-toggle")
+  public SlideToggle autocompleteDisableInput;
+
+  @Test
+  public void verifyAutoCompleteOverview() {
+      autocompleteSection.autocompleteOverview.clear();
+      autocompleteSection.autocompleteOverview.is().empty();
+      autocompleteSection.autocompleteOverview.is().notMandatory();
+      autocompleteSection.autocompleteOverview.has().placeholder("State");
+      autocompleteSection.autocompleteDisableInput.check();
+      autocompleteSection.autocompleteOverview.is().disabled();
+      autocompleteSection.autocompleteDisableInput.uncheck();
+      autocompleteSection.autocompleteOverview.is().enabled();
+      autocompleteSection.autocompleteOverview.setValue("F", "FloridaPopulation: 20.27M");
+      autocompleteSection.autocompleteOverview.is().collapsed();
+      autocompleteSection.autocompleteOverview.has().text("Florida");
+      autocompleteSection.autocompleteOverview.setValue("CaliforniaPopulation: 39.14M");
+      autocompleteSection.autocompleteOverview.is().collapsed();
+      autocompleteSection.autocompleteOverview.has().text("California");
+  }
+```
 
 ```html  
 <mat-form-field class="mat-form-field mat-form-field-disabled">
@@ -2674,24 +2723,28 @@ public void verifyautocompleteOverviewInput() {
     </div>
 </mat-form-field>
 ```
-
-```java  
-//@FindBy(css = "#autocomplete-overview-input")
-public static AutoComplete autocompleteOverviewInput;
-
-//@FindBy(css = "#autocomplete-overview-slide-toggle")
-public static SlideToggle autocompleteOverviewInputSlideToggle;
-
-@Test
-public void verifyautocompleteOverviewInputDisabling() {
-    autocompleteSection.autocompleteOverviewInputSlideToggle.check();
-    autocompleteSection.autocompleteOverviewInput.is().disabled();
-    autocompleteSection.autocompleteOverviewInputSlideToggle.uncheck();
-    autocompleteSection.autocompleteOverviewInput.is().enabled();
-}
-```
-
 ![Display value autocomplete](../../images/angular/display_value_autocomplete.png)
+```java  
+  //@FindBy(css ="#autocomplete-display-value-input")
+  @UI("#autocomplete-display-value-input")
+  public AutoComplete displayValueAutocomplete
+
+  @Test
+  public void verifyDisplayValueAutocomplete() {
+      autocompleteSection.displayValueAutocomplete.has().displayValue("Assignee");
+      autocompleteSection.displayValueAutocomplete.has().placeholder("");
+      autocompleteSection.displayValueAutocomplete.is().enabled();
+      autocompleteSection.displayValueAutocomplete.is().notMandatory();
+      autocompleteSection.displayValueAutocomplete.is().valid();
+      autocompleteSection.displayValueAutocomplete.setValue("Sh", "Shelley");
+      autocompleteSection.displayValueAutocomplete.is().collapsed();
+      autocompleteSection.displayValueAutocomplete.has().text("Shelley");
+      autocompleteSection.displayValueAutocomplete.setValue("Mary");
+      autocompleteSection.displayValueAutocomplete.has().text("Mary");
+      autocompleteSection.displayValueAutocomplete.is().collapsed();
+      autocompleteSection.displayValueAutocomplete.is().valid();
+  }
+```
 
 ```html  
 <mat-form-field>
@@ -2720,23 +2773,33 @@ public void verifyautocompleteOverviewInputDisabling() {
     </div>
 </mat-form-field>
 ```
-
-```java  
-//@FindBy(css ="#autocomplete-display-value-input")
-public static AutoComplete autocompleteDisplayValueInput
-
-@Test
-public void verifyautocompleteDisplayValueInput() {
-    autocompleteSection.autocompleteDisplayValueInput.has().displayValue("Assignee");
-    autocompleteSection.autocompleteDisplayValueInput.has().placeholder("");
-    autocompleteSection.autocompleteDisplayValueInput.setValue("Sh", "Shelley");
-    autocompleteSection.autocompleteDisplayValueInput.has().text("Shelley");
-    autocompleteSection.autocompleteDisplayValueInput.setValue("Mary");
-    autocompleteSection.autocompleteDisplayValueInput.has().text("Mary");
-}
-```
-
 ![Filter autocomplete](../../images/angular/filter_autocomplete.png)
+```java  
+  //@FindBy(css = "#autocomplete-filter-input")
+  @UI("#autocomplete-filter-input")
+  public AutoComplete filterAutocomplete
+
+  @Test
+  public void verifyFilterAutocomplete() {
+      String expectedValuesArray[] = {"One", "Two", "Three"};
+      List<String> expectedValues = Arrays.asList(expectedValuesArray);
+
+      autocompleteSection.filterAutocomplete.has().displayValue("");
+      autocompleteSection.filterAutocomplete.has().placeholder("Pick one");
+      autocompleteSection.filterAutocomplete.is().enabled();
+      autocompleteSection.filterAutocomplete.is().valid();
+      autocompleteSection.filterAutocomplete.is().notMandatory();
+      autocompleteSection.filterAutocomplete.click();
+      autocompleteSection.filterAutocomplete.has().options(expectedValues);
+      autocompleteSection.filterAutocomplete.setValue("n", "One");
+      autocompleteSection.filterAutocomplete.has().text("One");
+      autocompleteSection.filterAutocomplete.setValue("Three");
+      autocompleteSection.filterAutocomplete.has().text("Three");
+      autocompleteSection.filterAutocomplete.setValue("o", "Two");
+      autocompleteSection.filterAutocomplete.has().text("Two");
+      autocompleteSection.filterAutocomplete.is().valid();
+  }
+```
 
 ```html  
 <mat-form-field>
@@ -2762,28 +2825,42 @@ public void verifyautocompleteDisplayValueInput() {
     </div>
 </mat-form-field>
 ```
+![Groups and options autocomplete](../../images/angular/groups_and_options_autocomplete.png)
 
 ```java  
-//@FindBy(css = "#autocomplete-filter-input")
-public static AutoComplete autocompleteFilterInput
+  //@FindBy(css = "#autocomplete-filter-input")
+  @UI("#autocomplete-grouped-options-input")
+  public AutoComplete optionGroupsAutocomplete;
 
-@Test
-public void verifyAutocompleteFilterInput() {
-    String expectedValuesArray[] = {"One", "Two", "Three"};
-    List<String> expectedValues = Arrays.asList(expectedValuesArray);
-	
-    autocompleteSection.autocompleteFilterInput.click();
-    autocompleteSection.autocompleteFilterInput.has().options(expectedValues);
-    autocompleteSection.autocompleteFilterInput.setValue("n", "One");
-    autocompleteSection.autocompleteFilterInput.has().text("One");
-    autocompleteSection.autocompleteFilterInput.setValue("Three");
-    autocompleteSection.autocompleteFilterInput.has().text("Three");
-    autocompleteSection.autocompleteFilterInput.setValue("o", "Two");
-    autocompleteSection.autocompleteFilterInput.has().text("Two");
-}
+
+  @Test
+  public void verifyOptionGroupsAutocomplete() {
+      String[] values = {"A", "C", "D", "F", "G", "H", "I", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "W"};
+      List<String> groupsValues = Arrays.asList(values);
+
+      Map<String, List<String>> groupAndOptionsValues = new HashMap<>();
+      String[] options = {"California", "Colorado", "Connecticut"};
+      List<String> optionsValues = Arrays.asList(options);
+      groupAndOptionsValues.put("C", optionsValues);
+
+      autocompleteSection.optionGroupsAutocomplete.has().placeholder("States Group");
+      autocompleteSection.optionGroupsAutocomplete.clear();
+      autocompleteSection.optionGroupsAutocomplete.is().mandatory();
+      autocompleteSection.optionGroupsAutocomplete.is().invalid();
+      autocompleteSection.optionGroupsAutocomplete.click();
+      autocompleteSection.optionGroupsAutocomplete.has().groups(groupsValues);
+      autocompleteSection.optionGroupsAutocomplete.input("C");
+      autocompleteSection.optionGroupsAutocomplete.has().groupsAndOptions(groupAndOptionsValues);
+      autocompleteSection.optionGroupsAutocomplete.setValue("C", "California");
+      autocompleteSection.optionGroupsAutocomplete.has().text("California");
+      autocompleteSection.optionGroupsAutocomplete.is().valid();
+      autocompleteSection.optionGroupsAutocomplete.input("C");
+      autocompleteSection.optionGroupsAutocomplete.setValue("Colorado");
+      autocompleteSection.optionGroupsAutocomplete.has().text("Colorado");
+      autocompleteSection.optionGroupsAutocomplete.setValue("New York");
+      autocompleteSection.optionGroupsAutocomplete.has().text("New York");
+  }
 ```
-
-![Groups and options autocomplete](../../images/angular/groups_and_options_autocomplete.png)
 
 ```html  
 <mat-form-field _class="mat-form-field mat-form-field-invalid ng-invalid">
@@ -2811,56 +2888,22 @@ public void verifyAutocompleteFilterInput() {
 </mat-form-field>
 ```
 
-```java  
-@Test
-public void verifyOptionGroupsAutocomplete() {
-    String[] values = {"A", "C", "D", "F", "G", "H", "I", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "W"};
-    List<String> groupsValues = Arrays.asList(values);
-	
-    Map<String, List<String>> groupAndOptionsValues = new HashMap<>();
-    String[] options = {"California", "Colorado", "Connecticut"};
-    List<String> optionsValues = Arrays.asList(options);
-    groupAndOptionsValues.put("C", optionsValues);
-	
-    autocompleteSection.optionGroupsAutocomplete.clear();
-    autocompleteSection.optionGroupsAutocomplete.is().mandatory();
-    autocompleteSection.optionGroupsAutocomplete.is().invalid();
-	
-    autocompleteSection.optionGroupsAutocomplete.click();
-    autocompleteSection.optionGroupsAutocomplete.has().groups(groupsValues);
-	
-    autocompleteSection.optionGroupsAutocomplete.input("C");
-    autocompleteSection.optionGroupsAutocomplete.has().groupsAndOptions(groupAndOptionsValues);
-	
-    autocompleteSection.optionGroupsAutocomplete.setValue("C", "California");
-    autocompleteSection.optionGroupsAutocomplete.has().text("California");
-    autocompleteSection.optionGroupsAutocomplete.is().valid();
-    autocompleteSection.optionGroupsAutocomplete.input("C");
-    autocompleteSection.optionGroupsAutocomplete.setValue("Colorado");
-    autocompleteSection.optionGroupsAutocomplete.has().text("Colorado");
-    autocompleteSection.optionGroupsAutocomplete.setValue("New York");
-    autocompleteSection.optionGroupsAutocomplete.has().text("New York");
-}
-```
-
 List of the available **AutoComplete** methods:
 
 | Method | Description | Return Type
 --- | --- | --- 
-**is()** | Assert action | AutoCompleteAssert
-**has()** | Assert action | AutoCompleteAssert
-***input(String value)*** | Inputs the provided value | void
-***select(String value)*** | Selects the required value from the autocomplete list | void
-***select(String input, String value)*** | Provides the input and selects the required value | void
+***is()***| Assert action | AutoCompleteAssert
+***input(String)*** | Inputs the provided value | void
+***select(String)*** | Selects the required value from the autocomplete list | void
 ***placeholder()*** | Returns the value of the displayed placeholder | String
 ***displayValue()*** | Returns the display value | String
-***isOptionHighlighted(String option)*** | Returns true if the provided option is highlighted in the displayed list | boolean
-***setValue(String inputValue, String selectValue)*** | Types in the inputValue and selects the corresponding selectValue | void
-***setValue(String selectValue)*** | Selects the required selectValue | void
+***isOptionHighlighted(String)*** | Returns true if the provided option is highlighted in the displayed list | boolean
+***setValue(String,String)*** | Types in the inputValue and selects the corresponding selectValue (inputvalue,selectvalue) | void
+***setValue(String)*** | Selects the required selectValue | void
 ***getValue()*** | Returns the value popualted into the autocomplete | String
 ***text()*** | Returns the value popualted into the autocomplete | String
 ***options()*** | Return the list of options avaialble for the particular autocomplete | List<String>
-***options(String inputValue)*** | Returns the list of options which are displayed when the inputValue is provided | List<String>
+***options(String)*** | Returns the list of options which are displayed when the inputValue is provided | List<String>
 ***groups()*** | Returns the groups of options available in the autocomplete | List<String>
 ***groupsAndOptionsValues()*** | Returns the hash map where the keys are the groups and the values are the lists of options within each group | HashMap<String, List<String>>
 ***isMandatory()*** | Returns true if the autocomplete field is mandatory | boolean
@@ -2869,50 +2912,57 @@ List of the available **AutoComplete** methods:
 ***isDisabled()*** | Returns true if the autocomplete is disabled | boolean
 ***expanded()*** | Returns true if the autocomplete is expanded | Boolean
 ***collapsed()*** | Returns true if the autocomplete is collapsed | Boolean
+***setUniqueAutoCompleteAttribute(String)*** | Sets value of autocomplete attribute | void
+***click()*** | clicks on element | void
+***focusOut()*** | Get focus out | void
+***clear()*** | clears value | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">AutoComplete java tests examples</a>
 
 #### 2.2.8 Snackbar
 
 ```java 
+  //@FindBy(id = "//simple-snack-bar") 
    @UI("//simple-snack-bar")
    public Snackbar basicSnackbar;
    
+   //@FindBy(id = "#snack-bar-custom-component") 
    @UI("#snack-bar-custom-component")
    public Snackbar customSnackbar;
 
 
    @Test
-    public void checkBasicSnackbarTest() {
-        snackbarSection.messageInput.setValue(MESSAGE);
-        snackbarSection.actionInput.setValue(ACTION);
-        snackbarSection.openButton.click();
+   public void checkBasicSnackbarTest() {
+       snackbarSection.messageInput.setValue(MESSAGE);
+       snackbarSection.actionInput.setValue(ACTION);
+       snackbarSection.openButton.click();
 
-        snackbarSection.basicSnackbar.is().displayed();
-        snackbarSection.basicSnackbar.has().message(MESSAGE);
-        snackbarSection.basicSnackbar.has().action(ACTION);
-        snackbarSection.basicSnackbar.is().disappear();
-    }
+       snackbarSection.basicSnackbar.is().displayed();
+       snackbarSection.basicSnackbar.has().message(MESSAGE);
+       snackbarSection.basicSnackbar.has().action(ACTION);
+   }
    
    @Test
-    public void checkSnackbarDurationTest() {
-        snackbarSection.durationInput.setValue(String.valueOf(DURATION));
-        snackbarSection.customSnackbarOpenButton.click();
+   public void checkSnackbarDurationTest() {
+       final int DURATION = 5;
 
-        duration(DURATION, () -> {
-            snackbarSection.customSnackbar.base().timer().wait(() ->
-			snackbarSection.customSnackbar.is().displayed());
-            snackbarSection.customSnackbar.base().timer().wait(() ->
-			snackbarSection.customSnackbar.is().hidden());
-        });
-    }
+       JAction action = () -> {
+           snackbarSection.customSnackbar.base().timer().wait(() -> snackbarSection.customSnackbar.isDisplayed());
+           snackbarSection.customSnackbar.base().timer().wait(() -> snackbarSection.customSnackbar.isHidden());
+       };
+
+       snackbarSection.durationInput.setValue(String.valueOf(DURATION));
+       snackbarSection.customSnackbarOpenButton.click();
+
+       duration(DURATION, 1000, action);
+   }
 ```
 
 ##### <a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snackbar overview</a>
 
 Snackbar is located in the following class:
 
-- __Java__: com.epam.jdi.light.ui.angular.elements.complex.Snackbar
+- __Java__: com.epam.jdi.light.angular.elements.complex.Snackbar
 
 ![Snackbar](../../images/angular/snackbar.png)
 
@@ -2943,56 +2993,127 @@ Snackbar is located in the following class:
 #### 2.2.9 Paginator
 
 ```java 
-    @UI("//paginator-configurable-example/mat-paginator")
-    public Paginator paginator;
+  //@FindBy(id = "//paginator-configurable-example/mat-paginator") 
+  @UI("//paginator-configurable-example/mat-paginator")
+  public Paginator paginator;
 	
 	@Test
-    public void labelPaginationTest() {
-        paginator.has().label("Items per page:");
-    }
-	
+  public void labelPaginationTest() {
+      paginator.has().label("Items per page:");
+  }
 
-    @Test
-    public void navigationDisabledPaginatorTest() {
-        listLength.setValue("0");
+  @Test
+  public void basicPaginatorTest() {
+      final int STEP = 10;
+      paginator.select(STEP);
 
-        paginator.has().range();
-        paginator.has().previousDisabled();
-        paginator.has().nextDisabled();
+      paginator.is().range(1, STEP, TOTAL);
+      paginator.is().previousDisabled();
+      paginator.is().nextEnabled();
+      paginator.next();
 
-        listLength.setValue("100");
-        paginator.select(100);
-        paginator.has().previousDisabled();
-        paginator.has().nextDisabled();
-    }
+      for (int i = STEP + 1; i < TOTAL - STEP + 1; i += STEP) {
+          paginator.is().range(i, i + STEP - 1, TOTAL);
+          paginator.is().previousEnabled();
+          paginator.is().nextEnabled();
+          paginator.next();
+      }
 
-    @Test
-    public void pageSizeOptionsPaginatorTest() {
-        paginator.has().itemsPerPageList(PAGESIZEOPTIONS);
-    }
+      paginator.is().range(TOTAL - STEP + 1, TOTAL, TOTAL);
+      paginator.is().previousEnabled();
+      paginator.is().nextDisabled();
+      paginator.previous();
+
+      for (int i = TOTAL - 2 * STEP + 1; i > 1; i -= STEP) {
+          paginator.is().range(i, i + STEP - 1, TOTAL);
+          paginator.is().previousEnabled();
+          paginator.is().nextEnabled();
+          paginator.previous();
+      }
+
+      paginator.is().range(1, STEP, TOTAL);
+      paginator.is().previousDisabled();
+      paginator.is().nextEnabled();
+  }
 ```
 
 ##### <a href="https://material.angular.io/components/paginator/overview" target="_blank">Paginator overview</a>
 
 Paginator is located in the following class:
 
-- __Java__: com.epam.jdi.light.ui.angular.elements.complex.Paginator
+- __Java__: com.epam.jdi.light.angular.elements.complex.Paginator
 
 ![Paginator](../../images/angular/paginator.png)
 
 ```html 
-<mat-paginator [length]="100"
-              [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 100]">
+<mat-paginator _ngcontent-sjd-c362="" class="mat-paginator">
+	<div class="mat-paginator-outer-container">
+		<div class="mat-paginator-container">
+			<div class="mat-paginator-page-size ng-star-inserted">
+				<div class="mat-paginator-page-size-label"> Items per page: </div>
+				<mat-form-field class="mat-form-field mat-paginator-page-size-select ng-tns-c95-175 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float ng-star-inserted mat-form-field-should-float">
+					<div class="mat-form-field-wrapper ng-tns-c95-175">
+						<div class="mat-form-field-flex ng-tns-c95-175">
+							<div class="mat-form-field-infix ng-tns-c95-175">
+								<mat-select role="listbox" class="mat-select ng-tns-c171-176 ng-tns-c95-175 ng-star-inserted" id="mat-select-19" tabindex="0" aria-label="Items per page:" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false">
+									<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-176">
+										<div class="mat-select-value ng-tns-c171-176">
+											<span class="mat-select-value-text ng-tns-c171-176 ng-star-inserted">
+												<span class="ng-tns-c171-176 ng-star-inserted">10</span>
+											</span>
+										</div>
+										<div class="mat-select-arrow-wrapper ng-tns-c171-176">
+											<div class="mat-select-arrow ng-tns-c171-176"/>
+										</div>
+									</div>
+								</mat-select>
+								<span class="mat-form-field-label-wrapper ng-tns-c95-175">
+								</span>
+							</div>
+						</div>
+						<div class="mat-form-field-underline ng-tns-c95-175 ng-star-inserted">
+							<span class="mat-form-field-ripple ng-tns-c95-175"/>
+						</div>
+						<div class="mat-form-field-subscript-wrapper ng-tns-c95-175">
+							<div class="mat-form-field-hint-wrapper ng-tns-c95-175 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+								<div class="mat-form-field-hint-spacer ng-tns-c95-175"/>
+							</div>
+						</div>
+					</div>
+				</mat-form-field>
+			</div>
+			<div class="mat-paginator-range-actions">
+				<div class="mat-paginator-range-label"> 1 – 10 of 100 </div>
+				<button mat-icon-button="" type="button" class="mat-focus-indicator mat-paginator-navigation-previous mat-icon-button mat-button-base" aria-label="Previous page" disabled="true">
+					<span class="mat-button-wrapper">
+						<svg viewBox="0 0 24 24" focusable="false" class="mat-paginator-icon">
+							<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+						</svg>
+					</span>
+					<div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"/>
+					<div class="mat-button-focus-overlay"/>
+				</button>
+				<button mat-icon-button="" type="button" class="mat-focus-indicator mat-paginator-navigation-next mat-icon-button mat-button-base" aria-label="Next page">
+					<span class="mat-button-wrapper">
+						<svg viewBox="0 0 24 24" focusable="false" class="mat-paginator-icon">
+							<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+						</svg>
+					</span>
+					<div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"/>
+					<div class="mat-button-focus-overlay"/>
+				</button>
+			</div>
+		</div>
+	</div>
 </mat-paginator>
 ```
 
 |Method | Description | Return Type
 --- | --- | ---
 **label()** | Get label | String
-**select(int number)** | Select number of items per page | void
+**select(int)** | Select number of items per page | void
 **selected()** | Get selected number of items per page | int
-**options()** | Get list of number of items per page | List\<Integer\>
+**options()** | Get list of number of items per page | List<Integer>
 **range()** | Get range | String
 **isPreviousEnabled()** | Check if previous button enabled | boolean
 **previous()** | Click previous button | void
@@ -3004,13 +3125,12 @@ Paginator is located in the following class:
 
 #### 2.2.10 Tab group
 
-<br>
 
 ```java 
-    /**@FindBy(id = "basic-tab") public static TabGroupSection tabsSection;*/
+    //@FindBy(id = "basic-tab") 
     @UI("#basic-tab")
-    public Tabs basicTab;
-
+    public TabGroup basicTab;
+    
     @Test
     public void verifyTabs() {
         tabsSection.basicTab.is().displayed();
@@ -3025,7 +3145,7 @@ Paginator is located in the following class:
     @Test
     public void verifyTabPanelContentByNumber() {
         int tabNumberForTest = 3;
-        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+        String stringForTest = format(DYNAMIC_CONTENT, tabNumberForTest);
         tabsSection.basicTab.clickTab(tabNumberForTest);
         tabsSection.basicTab.is().assertTabPanelContent(stringForTest);
     }
@@ -3039,34 +3159,23 @@ Angular Material tabs organize content into separate views where only one view c
 ```html
 <mat-tab-group _ngcontent-sbh-c317 id="basic-tab" class="mat-tab-group mat-primary"></mat-tab-group>
 ```
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-
-<br>
 
 ```java 
-    /**@FindBy(id = "tab-with-custom-label") public static TabGroupSection tabsSection;*/
+    //@FindBy(id = "tab-with-custom-label") 
     @UI("#tab-with-custom-label")
     public TabGroup tabWithCustomLabel;
 
-     @Test
-     public void verifyCustomLabelTemplateTabPanelContentByNumber() {
-         int tabNumberForTest = 3;
-         String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-         tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
-         tabsSection.tabWithCustomLabel.is().assertTabPanelContent(stringForTest);
-     }
-    
-     @Test
-     public void activeCustomLabelTemplateTabIsHighlighted() {
-         int tabNumberForTest = 2;
-         tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
-         tabsSection.tabWithCustomLabel.is().assertTabIsHighlighted(tabNumberForTest);
-     }
+    @Test
+    public void verifyCustomLabelTemplateTabs() {
+        tabsSection.tabWithCustomLabel.is().displayed();
+        tabsSection.tabWithCustomLabel.has().attr(CLASS_ATTR, TAB_GROUP_DEFAULT_CLASS);
+    }
+
+    @Test
+    public void verifyCustomLabelTemplateTabsTitles() {
+        List<String> listForTest = Arrays.asList("thumb_up\nFirst", "thumb_up\nSecond", "thumb_up\nThird");
+        tabsSection.tabWithCustomLabel.is().assertTabsTitles(listForTest);
+    }
 ```
 
 If a tab's label is only text then the simple tab-group API can be used.
@@ -3085,18 +3194,8 @@ For more complex labels, add a template with the mat-tab-label directive inside 
 </ng-template>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-
-<br>
-
 ```java 
-     /**@FindBy(id = "tab-dynamic-height-based-on-content") public static TabGroupSection tabsSection;*/
+     //@FindBy(id = "tab-dynamic-height-based-on-content")
      @UI("#tab-dynamic-height-based-on-content")
      public TabGroup tabDynamicHeightBasedOnContent;
          
@@ -3105,7 +3204,7 @@ For more complex labels, add a template with the mat-tab-label directive inside 
           List<String> listForTest = Arrays.asList("Short tab", "Long tab");
           tabsSection.tabDynamicHeightBasedOnContent.is().assertTabsTitles(listForTest);
       }
-     
+  
       @Test
       public void verifyDynamicHeightBasedOnContentsTabPanelContentByNumber() {
           int tabNumberForTest = 2;
@@ -3126,37 +3225,27 @@ to the height of the active tab.
 mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-
-<br>
-
 ```java 
-    /**@FindBy(id = "dynamically-changing-tabs") public static TabGroupSection tabsSection;*/
+    //@FindBy(id = "dynamically-changing-tabs")
     @UI("#dynamically-changing-tabs")
     public TabGroup dynamicallyChangingTabs;
 
     @Test
-     public void selectedByIndexTabIsHighlighted() {
-         int indexForTest = 2;
-         int tabNumberForTest = indexForTest + 1;
-         tabsSection.selectByIndexInput.clear();
-         tabsSection.selectByIndexInput.sendKeys(String.valueOf(indexForTest));
-         tabsSection.dynamicallyChangingTabs.is().assertTabIsHighlighted(tabNumberForTest);
-     }
- 
-     @Test
-     public void selectedByIndexTabIsNormalizedToTabsCount() {
-         int indexForTest = 10;
-         int tabNumberForTest = tabsSection.dynamicallyChangingTabs.getTabsCount();
-         tabsSection.selectByIndexInput.sendKeys(String.valueOf(indexForTest));
-         tabsSection.dynamicallyChangingTabs.is().assertTabIsHighlighted(tabNumberForTest);
-     }
+    public void selectedByIndexTabIsHighlighted() {
+        int indexForTest = 2;
+        int tabNumberForTest = indexForTest + 1;
+        tabsSection.selectByIndexInput.clear();
+        tabsSection.selectByIndexInput.sendKeys(String.valueOf(indexForTest));
+        tabsSection.dynamicallyChangingTabs.is().assertTabIsHighlighted(tabNumberForTest);
+    }
+
+    @Test
+    public void selectedByIndexTabIsNormalizedToTabsCount() {
+        int indexForTest = 10;
+        int tabNumberForTest = tabsSection.dynamicallyChangingTabs.getTabsCount();
+        tabsSection.selectByIndexInput.sendKeys(String.valueOf(indexForTest));
+        tabsSection.dynamicallyChangingTabs.is().assertTabIsHighlighted(tabNumberForTest);
+    }
 ```
 
 ![Tabs examples](../../images/angular/tab/tabs_dynamicly_changing.PNG)
@@ -3165,21 +3254,8 @@ mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
 <mat-tab-group _ngcontent-sbh-c352  id="dynamically-changing-tabs" class="mat-tab-group mat-primary"></mat-tab-group>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-**getTabsCount()** | returns tabs count | int
-**sendKeys()** | fill the text area | void
-**clear()** | clear text aria | void
-
-<br>
-
 ```java 
-    /**@FindBy(id = "tab-with-headers-on-the-bottom") public static TabGroupSection tabsSection;*/
+    //@FindBy(id = "tab-with-headers-on-the-bottom")
     @UI("#tab-with-headers-on-the-bottom")
     public TabGroup tabWithHeadersOnTheBottom;
 
@@ -3187,11 +3263,11 @@ mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
     public void verifyTabsWithHeadersOnTheBottomTitles() {
         tabsSection.tabWithHeadersOnTheBottom.is().assertTabsTitles(TITLES_DEFAULT_LIST);
     }
-    
+
     @Test
     public void verifyTabWithHeadersOnTheBottomPanelContentByNumber() {
         int tabNumberForTest = 3;
-        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+        String stringForTest = format(DYNAMIC_CONTENT, tabNumberForTest);
         tabsSection.tabWithHeadersOnTheBottom.clickTab(tabNumberForTest);
         tabsSection.tabWithHeadersOnTheBottom.is().assertTabPanelContent(stringForTest);
     }
@@ -3204,18 +3280,8 @@ mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
 class="mat-tab-group mat-primary mat-tab-group-inverted-header"></mat-tab-group>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-
-<br>
-
 ```java 
-    /**@FindBy(id = "tabs-with-lazy-loaded-content") public static TabGroupSection tabsSection;*/
+    //@FindBy(id = "tabs-with-lazy-loaded-content")
     @UI("#tabs-with-lazy-loaded-content")
     public TabGroup tabsWithLazyLoadedContent;
 
@@ -3227,10 +3293,10 @@ class="mat-tab-group mat-primary mat-tab-group-inverted-header"></mat-tab-group>
         SimpleDateFormat dateTimeInGMT = new SimpleDateFormat("MMM d, yyyy, h:mm:ss aa");
         dateTimeInGMT.setTimeZone(TimeZone.getTimeZone("GMT+3"));
         String timeForTest = dateTimeInGMT.format(new Date());
-        String stringForTest = String.format("Content %s - Loaded: %s", tabNumberForTest, timeForTest);
+        String stringForTest = format("Content %s - Loaded: %s", tabNumberForTest, timeForTest);
         tabsSection.tabsWithLazyLoadedContent.is().assertTabPanelContent(stringForTest);
     }
-    
+
     @Test
     public void activeTabWithLazyLoadedContentIsHighlighted() {
         int tabNumberForTest = 2;
@@ -3250,26 +3316,15 @@ during initialization, it is advised to lazy load the tab's content.
 <mat-tab-group _ngcontent-sbh-c354 id="tabs-with-lazy-loaded-content" class="mat-tab-group mat-primary"></mat-tab-group>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-**refresh()** | refresh the page | void
-
-<br>
-
 ```java 
-    /**@FindBy(id = "tab-group-theme-example") public static TabGroupSection tabsSection;*/
+    //@FindBy(id = "tab-group-theme-example")
     @UI("#tab-group-theme-example")
     public TabGroup tabGroupThemeExample;
 
     @Test
     public void verifyCustomThemeTabPanelContentByNumber() {
         int tabNumberForTest = 3;
-        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+        String stringForTest = format(DYNAMIC_CONTENT, tabNumberForTest);
         tabsSection.tabGroupThemeExample.clickTab(tabNumberForTest);
         tabsSection.tabGroupThemeExample.is().assertTabPanelContent(stringForTest);
     }
@@ -3288,33 +3343,20 @@ during initialization, it is advised to lazy load the tab's content.
 <mat-tab-group _ngcontent-sbh-c355 id="tab-group-theme-example" class="mat-tab-group mat-primary mat-background-primary"></mat-tab-group>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-**clickButtonByValue(String value)** | click button in button toggle | void
-
-<br>
-
 ```java 
-    /**@FindBy(id = "tabs-async-loading-content") public static TabGroupSection tabsSection;*/
+    //@FindBy(id = "tabs-async-loading-content")
     @UI("#tabs-async-loading-content")
     public TabGroup tabsAsyncLoadingContent;
+
+     @Test
+    public void verifyTabsAsyncLoadingContent() {
+        tabsSection.tabsAsyncLoadingContent.is().displayed();
+        tabsSection.tabsAsyncLoadingContent.has().attr(CLASS_ATTR, TAB_GROUP_DEFAULT_CLASS);
+    }
 
     @Test
     public void verifyCustomThemeAsyncLoadingContentTabsTitles() {
         tabsSection.tabsAsyncLoadingContent.is().assertTabsTitles(TITLES_DEFAULT_LIST);
-    }
-     
-    @Test
-    public void verifyAsyncLoadingContentTabPanelContentByNumber() {
-        int tabNumberForTest = 3;
-        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-        tabsSection.tabsAsyncLoadingContent.clickTab(tabNumberForTest);
-        tabsSection.tabsAsyncLoadingContent.is().assertTabPanelContent(stringForTest);
     }
 ```
 
@@ -3324,33 +3366,22 @@ during initialization, it is advised to lazy load the tab's content.
 <mat-tab-group _ngcontent-sbh-c356 id="tabs-async-loading-content" class="mat-tab-group mat-primary"></mat-tab-group>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-
-<br>
-
 ```java 
-    /**@FindBy(id = "tabs-nav-bar") public static TabGroupSection tabsSection;*/
+    //@FindBy(id = "tabs-nav-bar")
     @UI("#tabs-nav-bar")
     public TabGroup tabsNavBar;
 
     @Test
-    public void verifyTabWithLinkIsHighLighted() {
-        String tabTitleForTest = "Third";
-        tabsSection.tabsNavBar.clickTabLink(tabTitleForTest);
-        tabsSection.tabsNavBar.is().assertTabWithLinkIsHighlighted(tabTitleForTest);
+    public void verifyTabsWithLinks() {
+        String classForTest = "mat-tab-nav-bar mat-tab-header mat-primary mat-background-primary";
+        tabsSection.tabsNavBar.is().displayed();
+        tabsSection.tabsNavBar.has().attr(CLASS_ATTR, classForTest);
     }
 
     @Test
-    public void verifyTabWithLinkBackgroundColor() {
-        tabsSection.toggleBackgroundButton.click();
-        tabsSection.tabsNavBar.has().attr(CLASS_ATTR, "mat-tab-nav-bar mat-tab-header mat-primary " +
-                    "mat-background-primary");
+    public void verifyTabsLinksTitles() {
+        List<String> listForTest = Arrays.asList("First", "Second", "Third", "Disabled Link");
+        tabsSection.tabsNavBar.is().assertTabsLinksTitles(listForTest);
     }
 ```
 
@@ -3359,15 +3390,22 @@ during initialization, it is advised to lazy load the tab's content.
 ```html
 <nav _ngcontent-sbh-c357 id="tabs-nav-bar" class="mat-tab-nav-bar mat-tab-header mat-primary"></nav>
 ```
+List of some available TabGroup methods:
 
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**clickTabLink(String tabName)** | Click required tab by tab name | void
-**getTabLinksCount()** | return number of tabs | int
+|Method | Description                                                                   | Return Type
+--- |-------------------------------------------------------------------------------| ---
+**is()** | Assert action                                                                 | TabGroupAssert
+**clickTab(int)** | Click required tab by tab number                                              | void
+**clickTab(String)** | Click required tab by tab name                                                | void
+**tabsTitlesContainValues(List<String>)** | Check if tabs titles contain values                                           | boolean
+**tabIsHighlighted(int)** | Check if tab number is highlited                                              | boolean
+**tabPanelContainsValue(String)** | Check if panel content value                                                  | boolean
+**clickTabLink(String)** | Click tab-link by tab number                                                  | void
+**getTabLinksCount()** | Click tab-link by tab number                                                  | int
+**getTabsCount()** | Get tab link count                                                            | int
+**tabsLinksTitlesContainValues(List<String>)** | Check if tab-links contain values                                             | boolean
+**tabWithLinkIsHighlighted(String)** | Check if tab-link number is highlited                                         | boolean
+**clear()** | clear text aria                                                               | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a>
 

@@ -13098,8 +13098,12 @@ errorStateMatcher property of the <code>&lt;mat-select&gt;</code>.</p>
 <td><code>Map&lt;String, List&lt;String&gt;&gt;</code></td>
 </tr>
 </tbody></table>
-<h4 id='2-2-6-form-field'>2.2.6 Form Field</h4><h5 id='here-you-can-find-the-form-field-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/FormFieldTests.java" target="_blank">Here you can find the Form Field tests</a></h5><h5 id='form-field-overview'><a href="https://material.angular.io/components/form-field/overview" target="_blank">Form Field overview</a></h5>
+<h4 id='2-2-6-form-field'>2.2.6 Form Field</h4><h5 id='form-field-overview'><a href="https://material.angular.io/components/form-field/overview" target="_blank">Form Field overview</a></h5>
 <p>Form field combines different Angular materials within a single field.</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.FormField</li>
+</ul>
 
 <p>The test methods below allow to discriminate fields in the form: input, mat-select, and textarea. For each type there are methods to get specific types from the form and proccess them.
 Test methods also allow to handle form fields in the form independently of the type just by accessing them using index.</p>
@@ -13107,23 +13111,40 @@ Test methods also allow to handle form fields in the form independently of the t
 <p>See an example with HTML code describing a form field element.</p>
 
 <p><img src="images/angular/form_field_example.png" alt="Form fields example" /></p>
-<pre class="highlight java tab-java"><code>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">FormField</span> <span class="n">simpleFormFieldInput</span><span class="o">;</span> 
+<pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(css = "simple-form-field")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"simple-form-field"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">FormField</span> <span class="n">simpleFormFieldInput</span><span class="o">;</span> 
 
-<span class="nd">@Test</span> 
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleFormFieldInput</span><span class="o">()</span> <span class="o">{</span> 
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Input"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Select"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Textarea"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Option"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Option"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Test text area value"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Test text area value"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
-<span class="o">}</span> 
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleFormFieldTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">inputLabel</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Input"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">textAreaLabel</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Textarea"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">dropdownLabel</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Select"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Option"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Option"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Test text area value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Test text area value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Input value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">inputText</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Input value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">inputText</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">containsString</span><span class="o">(</span><span class="s">"Input"</span><span class="o">));</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Option"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">dropdownText</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Option"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">dropdownText</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">containsString</span><span class="o">(</span><span class="s">"tion"</span><span class="o">));</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">setTextArea</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Text area value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">textAreaText</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Text area value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">textAreaText</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">containsString</span><span class="o">(</span><span class="s">" area v"</span><span class="o">));</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">clearTextArea</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">textAreaText</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Another text area value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Another text area value"</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+      <span class="n">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+  <span class="o">}</span>
 
 </code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>
    <span class="nt">&lt;mat-form-field</span> <span class="na">_ngcontent-vjc-c279</span> <span class="na">appearance=</span><span class="s">"fill"</span> <span class="na">id=</span><span class="s">"simple-form-field-input"</span><span class="nt">&gt;</span>
@@ -13141,19 +13162,18 @@ Test methods also allow to handle form fields in the form independently of the t
 <span class="nt">&lt;/div&gt;</span> 
 </code></pre>
 <p><img src="images/angular/form_field_with_hints.png" alt="Form fields with hints" /></p>
-<pre class="highlight java tab-java"><code>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">FormField</span> <span class="n">formFieldExampleContainerInputLimited</span><span class="o">;</span> 
+<pre class="highlight java tab-java"><code>  <span class="kd">public</span> <span class="kd">static</span> <span class="n">FormField</span> <span class="n">formFieldExampleContainerInputLimited</span><span class="o">;</span>
 
-<span class="nd">@Test</span> 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">formFieldsWithHintsTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hint</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"0/10"</span><span class="o">);</span>
-        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hint</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Here's the dropdown arrow ^"</span><span class="o">);</span>
-        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"12345678901"</span><span class="o">);</span>
-        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hint</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"10/10"</span><span class="o">);</span>
-        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">inputHint</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"10/10"</span><span class="o">);</span>
-        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"1234567890"</span><span class="o">);</span>
-    <span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">formFieldsWithHintsTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+      <span class="n">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hint</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"0/10"</span><span class="o">);</span>
+      <span class="n">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hint</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Here's the dropdown arrow ^"</span><span class="o">);</span>
+      <span class="n">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"12345678901"</span><span class="o">);</span>
+      <span class="n">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hint</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"10/10"</span><span class="o">);</span>
+      <span class="n">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">inputHint</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"10/10"</span><span class="o">);</span>
+      <span class="n">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"1234567890"</span><span class="o">);</span>
+  <span class="o">}</span>
 </code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">_ngcontent-tkf-c282</span><span class="nt">&gt;</span>
    <span class="nt">&lt;mat-form-field</span> <span class="na">_ngcontent-tkf-c282</span> <span class="na">appearance=</span><span class="s">"fill"</span> <span class="na">id=</span><span class="s">"simple-form-field-input"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;input</span> <span class="na">_ngcontent-tkf-c282</span><span class="nt">&gt;</span>
@@ -13189,42 +13209,37 @@ Test methods also allow to handle form fields in the form independently of the t
 <td>WebList</td>
 </tr>
 <tr>
-<td><strong>input(int index, String value)</strong></td>
+<td><strong>input(int, String)</strong></td>
 <td>Inputs a value into the input with the provided index. This method counts inputs only</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>select(int index, String value)</strong></td>
+<td><strong>select(int, String)</strong></td>
 <td>Selects a value from the dropdown with the provided index. This method counts dropdowns only</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>setTextArea(int index, String value)</strong></td>
+<td><strong>setTextArea(int, String)</strong></td>
 <td>Inputs a value into the text area with the provided index. This method counts text areas only</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>set(int index, String value)</strong></td>
+<td><strong>set(int, String)</strong></td>
 <td>Sets the field with the provided index which is counted for all form fields in the form. Depending on the type of the field (input, mat-select, or textarea) it inputs or selects a value</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>value(int index)</strong></td>
+<td><strong>value(int)</strong></td>
 <td>Sets the field with the provided index which is counted for all form fields in the form</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>focusOut(int index)</strong></td>
-<td>Moves the focus out of the field with the provided index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>clear(int index)</strong></td>
+<td><strong>clear(int)</strong></td>
 <td>Clears field with the provided index</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>clickIcon(int index)</strong></td>
+<td><strong>clickIcon(int)</strong></td>
 <td>Clicks the icon in the form field with the provided index which is counted for all fields in the form</td>
 <td>void</td>
 </tr>
@@ -13234,144 +13249,201 @@ Test methods also allow to handle form fields in the form independently of the t
 <td>FormFieldsAssert</td>
 </tr>
 <tr>
-<td><strong>value(int index, String expected)</strong></td>
-<td>Assert action: value in the field with the provided index in the form</td>
-<td>FormFieldsAssert</td>
-</tr>
-<tr>
-<td><strong>inputText(int index, String expected)</strong></td>
+<td><strong>inputText(int)</strong></td>
 <td>Assert action: verifies text in the input with the provided index</td>
-<td>FormFieldsAssert</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>textAreaText(int index, String expected)</strong></td>
-<td>Assert action: verifies text in the text area with the provided index</td>
-<td>FormFieldsAssert</td>
+<td><strong>getInputValue(int)</strong></td>
+<td>Get value for input with index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>dropdownText(int index, String expected)</strong></td>
-<td>Assert action: verifies text in the dropdown with the provided index</td>
-<td>FormFieldsAssert</td>
+<td><strong>textAreaText(int)</strong></td>
+<td>verifies text in the text area with the provided index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>inputPlaceholder(int index, String expected)</strong></td>
-<td>Assert action: placeholder in the input with the provided index</td>
-<td>FormFieldsAssert</td>
+<td><strong>getTextAreaValue(int)</strong></td>
+<td>Get value for text area with index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>inputLabel(int index, String expected)</strong></td>
-<td>Assert action: label in the input with the provided index</td>
-<td>FormFieldsAssert</td>
+<td><strong>getDropdownValue(int)</strong></td>
+<td>Get value for dropdown with index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>textAreaLabel(int index, String expected)</strong></td>
-<td>Assert action: label in the text area with the provided index</td>
-<td>FormFieldsAssert</td>
+<td><strong>inputPlaceholder(int)</strong></td>
+<td>placeholder in the input with the provided index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>dropdownLabel(int index, String expected)</strong></td>
-<td>Assert action: dropdown in the text area with the provided index</td>
-<td>FormFieldsAssert</td>
+<td><strong>inputLabel(int)</strong></td>
+<td>label in the input with the provided index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>inputHint(int index, String expected)</strong></td>
-<td>Assert action: hint in the input with the provided index</td>
-<td>FormFieldsAssert</td>
+<td><strong>textAreaLabel(int)</strong></td>
+<td>label in the text area with the provided index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>inputError(int index, String expected)</strong></td>
-<td>Assert action: error in the input with the provided index</td>
-<td>FormFieldsAssert</td>
+<td><strong>dropdownLabel(int)</strong></td>
+<td>dropdown in the text area with the provided index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>hint(int index, String expected)</strong></td>
-<td>Assert action: hint in the field with the provided index in the form</td>
-<td>FormFieldsAssert</td>
+<td><strong>inputHint(int)</strong></td>
+<td>hint in the input with the provided index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>fieldIcon(int index, String expected)</strong></td>
-<td>Assert action: icon in the field with the provided index in the form</td>
-<td>FormFieldsAssert</td>
+<td><strong>inputError(int)</strong></td>
+<td>error in the input with the provided index</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>font(int index, String expected)</strong></td>
-<td>Assert action: font in the field with the provided index in the form</td>
-<td>FormFieldsAssert</td>
+<td><strong>hint(int)</strong></td>
+<td>hint in the field with the provided index in the form</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>font(int index, Matcher<String> condition)</strong></td>
-<td>Assert action: font contains in the field with the provided index in the form</td>
-<td>FormFieldsAssert</td>
+<td><strong>font(int)</strong></td>
+<td>Returns font in the field with the provided index in the form</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>color(int index, String expected)</strong></td>
-<td>Assert action: color in the field with the provided index in the form</td>
-<td>FormFieldsAssert</td>
+<td><strong>color(int)</strong></td>
+<td>Returns color in the field with the provided index in the form</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>placeholder(int index, String expected)</strong></td>
-<td>Assert action: placeholder in the field with the provided index in the form</td>
-<td>FormFieldsAssert</td>
+<td><strong>placeholder(int)</strong></td>
+<td>placeholder in the field with the provided index in the form</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>label(int index, String expected)</strong></td>
-<td>Assert action: label in the field with the provided index in the form</td>
-<td>FormFieldsAssert</td>
+<td><strong>label(int)</strong></td>
+<td>label in the field with the provided index in the form</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>error(int index, String expected)</strong></td>
-<td>Assert action: error in the field with the provided index in the form</td>
-<td>FormFieldsAssert</td>
+<td><strong>error(int)</strong></td>
+<td>error in the field with the provided index in the form</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>focusOut()</strong></td>
+<td>Get focus out from element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clearInput(int)</strong></td>
+<td>Clear value from input in element with index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clearTextArea(int)</strong></td>
+<td>Clear value from text area in element with index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>set(int,String)</strong></td>
+<td>Set value for element with index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value(int)</strong></td>
+<td>Returns value in the field with the provided index in the form</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>icon(int)</strong></td>
+<td>Get icon text in element with index</td>
+<td>String</td>
 </tr>
 </tbody></table>
-
+<h5 id='here-you-can-find-the-form-field-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/FormFieldTests.java" target="_blank">Here you can find the Form Field tests</a></h5>
 <hr>
 <h4 id='2-2-7-autocomplete'>2.2.7 Autocomplete</h4><h5 id='autocomplete-overview'><a href="https://material.angular.io/components/autocomplete/overview" target="_blank">Autocomplete overview</a></h5>
 <p>You can find the autocomplete methods in the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.AutoComplete.java</li>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.AutoComplete</li>
 </ul>
 
 <p>See the examples with HTML code describing autocomplete elements below.</p>
 
 <p>Autocomplete element is identified by the input node wrapped inside the <code>mat-form-field</code> (see the test examples).</p>
 
-<p><img src="images/angular/autocomplete_overview.png" alt="Autocomplete Overview" /></p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-infix"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;input</span>
-                    <span class="na">id=</span><span class="s">"autocomplete-overview-input"</span>
-                    <span class="na">placeholder=</span><span class="s">"State"</span>
-                    <span class="na">aria-label=</span><span class="s">"State"</span>
-                    <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched"</span>
-                    <span class="na">aria-invalid=</span><span class="s">"false"</span>
-                    <span class="na">aria-required=</span><span class="s">"false"</span>
-                    <span class="na">autocomplete=</span><span class="s">"off"</span>
-                    <span class="na">role=</span><span class="s">"combobox"</span>
-                    <span class="na">aria-autocomplete=</span><span class="s">"list"</span>
-                    <span class="na">aria-expanded=</span><span class="s">"false"</span>
-                    <span class="na">aria-haspopup=</span><span class="s">"true"</span>
-                <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/mat-form-field&gt;</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#autocomplete-overview-input")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">AutoComplete</span> <span class="n">autocompleteOverviewInput</span><span class="o">;</span>
+<p><img src="images/angular/autocomplete_overview.png" alt="Autocomplete Overview" />
+```java<br>
+  //@FindBy(css = &quot;#autocomplete-overview-input&quot;)
+  @UI(&quot;#autocomplete-overview-input&quot;)
+  public AutoComplete autocompleteOverview;</p>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyautocompleteOverviewInput</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">placeholder</span><span class="o">(</span><span class="s">"State"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"F"</span><span class="o">,</span> <span class="s">"FloridaPopulation: 20.27M"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Florida"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"CaliforniaPopulation: 39.14M"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"California"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre>
-<p><img src="images/angular/disabled_autocomplete.png" alt="Disabled autocomplete" /></p>
+<p>@Test
+  public void verifyOnlyOneAutocompleteIsExpandedAtATime() {
+      autocompleteSection.autocompleteOverview.click();
+      autocompleteSection.autocompleteOverview.is().expanded();
+      autocompleteSection.simpleAutocomplete.is().collapsed();
+      autocompleteSection.displayValueAutocomplete.is().collapsed();
+      autocompleteSection.filterAutocomplete.is().collapsed();
+      autocompleteSection.optionGroupsAutocomplete.is().collapsed();
+  }
+<code>
+</code>html<br>
+<mat-form-field>
+    <div class="mat-form-field-wrapper">
+        <div class="mat-form-field-flex">
+            <div class="mat-form-field-infix">
+                <input
+                    id="autocomplete-overview-input"
+                    placeholder="State"
+                    aria-label="State"
+                    class="mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched"
+                    aria-invalid="false"
+                    aria-required="false"
+                    autocomplete="off"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                />
+            </div>
+        </div>
+    </div>
+</mat-form-field>
+<code>
+![Disabled autocomplete](../../images/angular/disabled_autocomplete.png)
+</code>java<br>
+  //@FindBy(css = &quot;#autocomplete-overview-input&quot;)
+  @UI(&quot;#autocomplete-overview-input&quot;)
+  public static AutoComplete autocompleteOverviewInput;</p>
+
+<p>//@FindBy(css = &quot;#autocomplete-overview-slide-toggle&quot;)
+  @UI(&quot;#autocomplete-overview-slide-toggle&quot;)
+  public SlideToggle autocompleteDisableInput;</p>
+
+<p>@Test
+  public void verifyAutoCompleteOverview() {
+      autocompleteSection.autocompleteOverview.clear();
+      autocompleteSection.autocompleteOverview.is().empty();
+      autocompleteSection.autocompleteOverview.is().notMandatory();
+      autocompleteSection.autocompleteOverview.has().placeholder(&quot;State&quot;);
+      autocompleteSection.autocompleteDisableInput.check();
+      autocompleteSection.autocompleteOverview.is().disabled();
+      autocompleteSection.autocompleteDisableInput.uncheck();
+      autocompleteSection.autocompleteOverview.is().enabled();
+      autocompleteSection.autocompleteOverview.setValue(&quot;F&quot;, &quot;FloridaPopulation: 20.27M&quot;);
+      autocompleteSection.autocompleteOverview.is().collapsed();
+      autocompleteSection.autocompleteOverview.has().text(&quot;Florida&quot;);
+      autocompleteSection.autocompleteOverview.setValue(&quot;CaliforniaPopulation: 39.14M&quot;);
+      autocompleteSection.autocompleteOverview.is().collapsed();
+      autocompleteSection.autocompleteOverview.has().text(&quot;California&quot;);
+  }
+```</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"mat-form-field mat-form-field-disabled"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
@@ -13393,21 +13465,29 @@ Test methods also allow to handle form fields in the form independently of the t
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/mat-form-field&gt;</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#autocomplete-overview-input")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">AutoComplete</span> <span class="n">autocompleteOverviewInput</span><span class="o">;</span>
-
-<span class="c1">//@FindBy(css = "#autocomplete-overview-slide-toggle")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">SlideToggle</span> <span class="n">autocompleteOverviewInputSlideToggle</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyautocompleteOverviewInputDisabling</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInputSlideToggle</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInputSlideToggle</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-<span class="o">}</span>
 </code></pre>
-<p><img src="images/angular/display_value_autocomplete.png" alt="Display value autocomplete" /></p>
+<p><img src="images/angular/display_value_autocomplete.png" alt="Display value autocomplete" />
+```java<br>
+  //@FindBy(css =&quot;#autocomplete-display-value-input&quot;)
+  @UI(&quot;#autocomplete-display-value-input&quot;)
+  public AutoComplete displayValueAutocomplete</p>
+
+<p>@Test
+  public void verifyDisplayValueAutocomplete() {
+      autocompleteSection.displayValueAutocomplete.has().displayValue(&quot;Assignee&quot;);
+      autocompleteSection.displayValueAutocomplete.has().placeholder(&quot;&quot;);
+      autocompleteSection.displayValueAutocomplete.is().enabled();
+      autocompleteSection.displayValueAutocomplete.is().notMandatory();
+      autocompleteSection.displayValueAutocomplete.is().valid();
+      autocompleteSection.displayValueAutocomplete.setValue(&quot;Sh&quot;, &quot;Shelley&quot;);
+      autocompleteSection.displayValueAutocomplete.is().collapsed();
+      autocompleteSection.displayValueAutocomplete.has().text(&quot;Shelley&quot;);
+      autocompleteSection.displayValueAutocomplete.setValue(&quot;Mary&quot;);
+      autocompleteSection.displayValueAutocomplete.has().text(&quot;Mary&quot;);
+      autocompleteSection.displayValueAutocomplete.is().collapsed();
+      autocompleteSection.displayValueAutocomplete.is().valid();
+  }
+```</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
@@ -13433,20 +13513,34 @@ Test methods also allow to handle form fields in the form independently of the t
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/mat-form-field&gt;</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css ="#autocomplete-display-value-input")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">AutoComplete</span> <span class="n">autocompleteDisplayValueInput</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyautocompleteDisplayValueInput</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">displayValue</span><span class="o">(</span><span class="s">"Assignee"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">placeholder</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Sh"</span><span class="o">,</span> <span class="s">"Shelley"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Shelley"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Mary"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Mary"</span><span class="o">);</span>
-<span class="o">}</span>
 </code></pre>
-<p><img src="images/angular/filter_autocomplete.png" alt="Filter autocomplete" /></p>
+<p><img src="images/angular/filter_autocomplete.png" alt="Filter autocomplete" />
+```java<br>
+  //@FindBy(css = &quot;#autocomplete-filter-input&quot;)
+  @UI(&quot;#autocomplete-filter-input&quot;)
+  public AutoComplete filterAutocomplete</p>
+
+<p>@Test
+  public void verifyFilterAutocomplete() {
+      String expectedValuesArray[] = {&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;};
+      List<String> expectedValues = Arrays.asList(expectedValuesArray);</p>
+
+<p>autocompleteSection.filterAutocomplete.has().displayValue(&quot;&quot;);
+      autocompleteSection.filterAutocomplete.has().placeholder(&quot;Pick one&quot;);
+      autocompleteSection.filterAutocomplete.is().enabled();
+      autocompleteSection.filterAutocomplete.is().valid();
+      autocompleteSection.filterAutocomplete.is().notMandatory();
+      autocompleteSection.filterAutocomplete.click();
+      autocompleteSection.filterAutocomplete.has().options(expectedValues);
+      autocompleteSection.filterAutocomplete.setValue(&quot;n&quot;, &quot;One&quot;);
+      autocompleteSection.filterAutocomplete.has().text(&quot;One&quot;);
+      autocompleteSection.filterAutocomplete.setValue(&quot;Three&quot;);
+      autocompleteSection.filterAutocomplete.has().text(&quot;Three&quot;);
+      autocompleteSection.filterAutocomplete.setValue(&quot;o&quot;, &quot;Two&quot;);
+      autocompleteSection.filterAutocomplete.has().text(&quot;Two&quot;);
+      autocompleteSection.filterAutocomplete.is().valid();
+  }
+```</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
@@ -13469,26 +13563,41 @@ Test methods also allow to handle form fields in the form independently of the t
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/mat-form-field&gt;</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#autocomplete-filter-input")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">AutoComplete</span> <span class="n">autocompleteFilterInput</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyAutocompleteFilterInput</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">String</span> <span class="n">expectedValuesArray</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="s">"One"</span><span class="o">,</span> <span class="s">"Two"</span><span class="o">,</span> <span class="s">"Three"</span><span class="o">};</span>
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">expectedValues</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">expectedValuesArray</span><span class="o">);</span>
-
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">options</span><span class="o">(</span><span class="n">expectedValues</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"n"</span><span class="o">,</span> <span class="s">"One"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"One"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Three"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Three"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"o"</span><span class="o">,</span> <span class="s">"Two"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Two"</span><span class="o">);</span>
-<span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/groups_and_options_autocomplete.png" alt="Groups and options autocomplete" /></p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field</span> <span class="na">_class=</span><span class="s">"mat-form-field mat-form-field-invalid ng-invalid"</span><span class="nt">&gt;</span>
+<pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(css = "#autocomplete-filter-input")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#autocomplete-grouped-options-input"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="n">AutoComplete</span> <span class="n">optionGroupsAutocomplete</span><span class="o">;</span>
+
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyOptionGroupsAutocomplete</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">String</span><span class="o">[]</span> <span class="n">values</span> <span class="o">=</span> <span class="o">{</span><span class="s">"A"</span><span class="o">,</span> <span class="s">"C"</span><span class="o">,</span> <span class="s">"D"</span><span class="o">,</span> <span class="s">"F"</span><span class="o">,</span> <span class="s">"G"</span><span class="o">,</span> <span class="s">"H"</span><span class="o">,</span> <span class="s">"I"</span><span class="o">,</span> <span class="s">"K"</span><span class="o">,</span> <span class="s">"L"</span><span class="o">,</span> <span class="s">"M"</span><span class="o">,</span> <span class="s">"N"</span><span class="o">,</span> <span class="s">"O"</span><span class="o">,</span> <span class="s">"P"</span><span class="o">,</span> <span class="s">"R"</span><span class="o">,</span> <span class="s">"S"</span><span class="o">,</span> <span class="s">"T"</span><span class="o">,</span> <span class="s">"U"</span><span class="o">,</span> <span class="s">"V"</span><span class="o">,</span> <span class="s">"W"</span><span class="o">};</span>
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">groupsValues</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">values</span><span class="o">);</span>
+
+      <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">groupAndOptionsValues</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+      <span class="n">String</span><span class="o">[]</span> <span class="n">options</span> <span class="o">=</span> <span class="o">{</span><span class="s">"California"</span><span class="o">,</span> <span class="s">"Colorado"</span><span class="o">,</span> <span class="s">"Connecticut"</span><span class="o">};</span>
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionsValues</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">options</span><span class="o">);</span>
+      <span class="n">groupAndOptionsValues</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"C"</span><span class="o">,</span> <span class="n">optionsValues</span><span class="o">);</span>
+
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">placeholder</span><span class="o">(</span><span class="s">"States Group"</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">mandatory</span><span class="o">();</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">invalid</span><span class="o">();</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">groups</span><span class="o">(</span><span class="n">groupsValues</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">groupsAndOptions</span><span class="o">(</span><span class="n">groupAndOptionsValues</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"C"</span><span class="o">,</span> <span class="s">"California"</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"California"</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">valid</span><span class="o">();</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Colorado"</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Colorado"</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"New York"</span><span class="o">);</span>
+      <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"New York"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field</span> <span class="na">_class=</span><span class="s">"mat-form-field mat-form-field-invalid ng-invalid"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-infix"</span><span class="nt">&gt;</span>
@@ -13511,35 +13620,6 @@ Test methods also allow to handle form fields in the form independently of the t
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/mat-form-field&gt;</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyOptionGroupsAutocomplete</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">String</span><span class="o">[]</span> <span class="n">values</span> <span class="o">=</span> <span class="o">{</span><span class="s">"A"</span><span class="o">,</span> <span class="s">"C"</span><span class="o">,</span> <span class="s">"D"</span><span class="o">,</span> <span class="s">"F"</span><span class="o">,</span> <span class="s">"G"</span><span class="o">,</span> <span class="s">"H"</span><span class="o">,</span> <span class="s">"I"</span><span class="o">,</span> <span class="s">"K"</span><span class="o">,</span> <span class="s">"L"</span><span class="o">,</span> <span class="s">"M"</span><span class="o">,</span> <span class="s">"N"</span><span class="o">,</span> <span class="s">"O"</span><span class="o">,</span> <span class="s">"P"</span><span class="o">,</span> <span class="s">"R"</span><span class="o">,</span> <span class="s">"S"</span><span class="o">,</span> <span class="s">"T"</span><span class="o">,</span> <span class="s">"U"</span><span class="o">,</span> <span class="s">"V"</span><span class="o">,</span> <span class="s">"W"</span><span class="o">};</span>
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">groupsValues</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">values</span><span class="o">);</span>
-
-    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">groupAndOptionsValues</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-    <span class="n">String</span><span class="o">[]</span> <span class="n">options</span> <span class="o">=</span> <span class="o">{</span><span class="s">"California"</span><span class="o">,</span> <span class="s">"Colorado"</span><span class="o">,</span> <span class="s">"Connecticut"</span><span class="o">};</span>
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionsValues</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">options</span><span class="o">);</span>
-    <span class="n">groupAndOptionsValues</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"C"</span><span class="o">,</span> <span class="n">optionsValues</span><span class="o">);</span>
-
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">mandatory</span><span class="o">();</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">invalid</span><span class="o">();</span>
-
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">groups</span><span class="o">(</span><span class="n">groupsValues</span><span class="o">);</span>
-
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">groupsAndOptions</span><span class="o">(</span><span class="n">groupAndOptionsValues</span><span class="o">);</span>
-
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"C"</span><span class="o">,</span> <span class="s">"California"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"California"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">valid</span><span class="o">();</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Colorado"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Colorado"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"New York"</span><span class="o">);</span>
-    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"New York"</span><span class="o">);</span>
-<span class="o">}</span>
 </code></pre>
 <p>List of the available <strong>AutoComplete</strong> methods:</p>
 
@@ -13551,28 +13631,18 @@ Test methods also allow to handle form fields in the form independently of the t
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
+<td><strong><em>is()</em></strong></td>
 <td>Assert action</td>
 <td>AutoCompleteAssert</td>
 </tr>
 <tr>
-<td><strong>has()</strong></td>
-<td>Assert action</td>
-<td>AutoCompleteAssert</td>
-</tr>
-<tr>
-<td><strong><em>input(String value)</em></strong></td>
+<td><strong><em>input(String)</em></strong></td>
 <td>Inputs the provided value</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong><em>select(String value)</em></strong></td>
+<td><strong><em>select(String)</em></strong></td>
 <td>Selects the required value from the autocomplete list</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong><em>select(String input, String value)</em></strong></td>
-<td>Provides the input and selects the required value</td>
 <td>void</td>
 </tr>
 <tr>
@@ -13586,17 +13656,17 @@ Test methods also allow to handle form fields in the form independently of the t
 <td>String</td>
 </tr>
 <tr>
-<td><strong><em>isOptionHighlighted(String option)</em></strong></td>
+<td><strong><em>isOptionHighlighted(String)</em></strong></td>
 <td>Returns true if the provided option is highlighted in the displayed list</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong><em>setValue(String inputValue, String selectValue)</em></strong></td>
-<td>Types in the inputValue and selects the corresponding selectValue</td>
+<td><strong><em>setValue(String,String)</em></strong></td>
+<td>Types in the inputValue and selects the corresponding selectValue (inputvalue,selectvalue)</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong><em>setValue(String selectValue)</em></strong></td>
+<td><strong><em>setValue(String)</em></strong></td>
 <td>Selects the required selectValue</td>
 <td>void</td>
 </tr>
@@ -13616,7 +13686,7 @@ Test methods also allow to handle form fields in the form independently of the t
 <td>List<String></td>
 </tr>
 <tr>
-<td><strong><em>options(String inputValue)</em></strong></td>
+<td><strong><em>options(String)</em></strong></td>
 <td>Returns the list of options which are displayed when the inputValue is provided</td>
 <td>List<String></td>
 </tr>
@@ -13660,43 +13730,66 @@ Test methods also allow to handle form fields in the form independently of the t
 <td>Returns true if the autocomplete is collapsed</td>
 <td>Boolean</td>
 </tr>
+<tr>
+<td><strong><em>setUniqueAutoCompleteAttribute(String)</em></strong></td>
+<td>Sets value of autocomplete attribute</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong><em>click()</em></strong></td>
+<td>clicks on element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong><em>focusOut()</em></strong></td>
+<td>Get focus out</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong><em>clear()</em></strong></td>
+<td>clears value</td>
+<td>void</td>
+</tr>
 </tbody></table>
-<h5 id='autocomplete-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">AutoComplete java tests examples</a></h5><h4 id='2-2-8-snackbar'>2.2.8 Snackbar</h4><pre class="highlight java tab-java"><code>   <span class="nd">@UI</span><span class="o">(</span><span class="s">"//simple-snack-bar"</span><span class="o">)</span>
+<h5 id='autocomplete-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">AutoComplete java tests examples</a></h5><h4 id='2-2-8-snackbar'>2.2.8 Snackbar</h4><pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(id = "//simple-snack-bar") </span>
+   <span class="nd">@UI</span><span class="o">(</span><span class="s">"//simple-snack-bar"</span><span class="o">)</span>
    <span class="kd">public</span> <span class="n">Snackbar</span> <span class="n">basicSnackbar</span><span class="o">;</span>
 
+   <span class="c1">//@FindBy(id = "#snack-bar-custom-component") </span>
    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#snack-bar-custom-component"</span><span class="o">)</span>
    <span class="kd">public</span> <span class="n">Snackbar</span> <span class="n">customSnackbar</span><span class="o">;</span>
 
 
    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkBasicSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">messageInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">MESSAGE</span><span class="o">);</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">actionInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">ACTION</span><span class="o">);</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">openButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkBasicSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
+       <span class="n">snackbarSection</span><span class="o">.</span><span class="na">messageInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">MESSAGE</span><span class="o">);</span>
+       <span class="n">snackbarSection</span><span class="o">.</span><span class="na">actionInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">ACTION</span><span class="o">);</span>
+       <span class="n">snackbarSection</span><span class="o">.</span><span class="na">openButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">message</span><span class="o">(</span><span class="n">MESSAGE</span><span class="o">);</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">action</span><span class="o">(</span><span class="n">ACTION</span><span class="o">);</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disappear</span><span class="o">();</span>
-    <span class="o">}</span>
+       <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+       <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">message</span><span class="o">(</span><span class="n">MESSAGE</span><span class="o">);</span>
+       <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">action</span><span class="o">(</span><span class="n">ACTION</span><span class="o">);</span>
+   <span class="o">}</span>
 
    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSnackbarDurationTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">durationInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">DURATION</span><span class="o">));</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbarOpenButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSnackbarDurationTest</span><span class="o">()</span> <span class="o">{</span>
+       <span class="kd">final</span> <span class="kt">int</span> <span class="n">DURATION</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
 
-        <span class="n">duration</span><span class="o">(</span><span class="n">DURATION</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
-            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span>
-            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">());</span>
-            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span>
-            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">());</span>
-        <span class="o">});</span>
-    <span class="o">}</span>
+       <span class="n">JAction</span> <span class="n">action</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+           <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
+           <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">isHidden</span><span class="o">());</span>
+       <span class="o">};</span>
+
+       <span class="n">snackbarSection</span><span class="o">.</span><span class="na">durationInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">DURATION</span><span class="o">));</span>
+       <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbarOpenButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+
+       <span class="n">duration</span><span class="o">(</span><span class="n">DURATION</span><span class="o">,</span> <span class="mi">1000</span><span class="o">,</span> <span class="n">action</span><span class="o">);</span>
+   <span class="o">}</span>
 </code></pre><h5 id='snackbar-overview'><a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snackbar overview</a></h5>
 <p>Snackbar is located in the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: com.epam.jdi.light.ui.angular.elements.complex.Snackbar</li>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.Snackbar</li>
 </ul>
 
 <p><img src="images/angular/snackbar.png" alt="Snackbar" /></p>
@@ -13745,44 +13838,115 @@ Test methods also allow to handle form fields in the form independently of the t
 <td>SnackbarAssert</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-snackbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a></h5><h4 id='2-2-9-paginator'>2.2.9 Paginator</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//paginator-configurable-example/mat-paginator"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Paginator</span> <span class="n">paginator</span><span class="o">;</span>
+<h5 id='here-you-can-find-snackbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a></h5><h4 id='2-2-9-paginator'>2.2.9 Paginator</h4><pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(id = "//paginator-configurable-example/mat-paginator") </span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//paginator-configurable-example/mat-paginator"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="n">Paginator</span> <span class="n">paginator</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelPaginationTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="s">"Items per page:"</span><span class="o">);</span>
-    <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelPaginationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="s">"Items per page:"</span><span class="o">);</span>
+  <span class="o">}</span>
 
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicPaginatorTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="kd">final</span> <span class="kt">int</span> <span class="n">STEP</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">STEP</span><span class="o">);</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">navigationDisabledPaginatorTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">listLength</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"0"</span><span class="o">);</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">range</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">STEP</span><span class="o">,</span> <span class="n">TOTAL</span><span class="o">);</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">previousDisabled</span><span class="o">();</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">nextEnabled</span><span class="o">();</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
 
-        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">range</span><span class="o">();</span>
-        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">previousDisabled</span><span class="o">();</span>
-        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">nextDisabled</span><span class="o">();</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">STEP</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">TOTAL</span> <span class="o">-</span> <span class="n">STEP</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">STEP</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">range</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">STEP</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">TOTAL</span><span class="o">);</span>
+          <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">previousEnabled</span><span class="o">();</span>
+          <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">nextEnabled</span><span class="o">();</span>
+          <span class="n">paginator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+      <span class="o">}</span>
 
-        <span class="n">listLength</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"100"</span><span class="o">);</span>
-        <span class="n">paginator</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
-        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">previousDisabled</span><span class="o">();</span>
-        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">nextDisabled</span><span class="o">();</span>
-    <span class="o">}</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">range</span><span class="o">(</span><span class="n">TOTAL</span> <span class="o">-</span> <span class="n">STEP</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">TOTAL</span><span class="o">,</span> <span class="n">TOTAL</span><span class="o">);</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">previousEnabled</span><span class="o">();</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">nextDisabled</span><span class="o">();</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">previous</span><span class="o">();</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">pageSizeOptionsPaginatorTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">itemsPerPageList</span><span class="o">(</span><span class="n">PAGESIZEOPTIONS</span><span class="o">);</span>
-    <span class="o">}</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">TOTAL</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">STEP</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">-=</span> <span class="n">STEP</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">range</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">STEP</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">TOTAL</span><span class="o">);</span>
+          <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">previousEnabled</span><span class="o">();</span>
+          <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">nextEnabled</span><span class="o">();</span>
+          <span class="n">paginator</span><span class="o">.</span><span class="na">previous</span><span class="o">();</span>
+      <span class="o">}</span>
+
+      <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">range</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">STEP</span><span class="o">,</span> <span class="n">TOTAL</span><span class="o">);</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">previousDisabled</span><span class="o">();</span>
+      <span class="n">paginator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">nextEnabled</span><span class="o">();</span>
+  <span class="o">}</span>
 </code></pre><h5 id='paginator-overview'><a href="https://material.angular.io/components/paginator/overview" target="_blank">Paginator overview</a></h5>
 <p>Paginator is located in the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: com.epam.jdi.light.ui.angular.elements.complex.Paginator</li>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.Paginator</li>
 </ul>
 
 <p><img src="images/angular/paginator.png" alt="Paginator" /></p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-paginator</span> <span class="err">[</span><span class="na">length</span><span class="err">]="</span><span class="na">100</span><span class="err">"</span>
-              <span class="err">[</span><span class="na">pageSize</span><span class="err">]="</span><span class="na">10</span><span class="err">"</span>
-              <span class="err">[</span><span class="na">pageSizeOptions</span><span class="err">]="[</span><span class="na">5</span><span class="err">,</span> <span class="na">10</span><span class="err">,</span> <span class="na">25</span><span class="err">,</span> <span class="na">100</span><span class="err">]"</span><span class="nt">&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-paginator</span> <span class="na">_ngcontent-sjd-c362=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-paginator"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-paginator-outer-container"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-paginator-container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-paginator-page-size ng-star-inserted"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-paginator-page-size-label"</span><span class="nt">&gt;</span> Items per page: <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"mat-form-field mat-paginator-page-size-select ng-tns-c95-175 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float ng-star-inserted mat-form-field-should-float"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper ng-tns-c95-175"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex ng-tns-c95-175"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-infix ng-tns-c95-175"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;mat-select</span> <span class="na">role=</span><span class="s">"listbox"</span> <span class="na">class=</span><span class="s">"mat-select ng-tns-c171-176 ng-tns-c95-175 ng-star-inserted"</span> <span class="na">id=</span><span class="s">"mat-select-19"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-label=</span><span class="s">"Items per page:"</span> <span class="na">aria-required=</span><span class="s">"false"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-multiselectable=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+                                    <span class="nt">&lt;div</span> <span class="na">cdk-overlay-origin=</span><span class="s">""</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"mat-select-trigger ng-tns-c171-176"</span><span class="nt">&gt;</span>
+                                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-select-value ng-tns-c171-176"</span><span class="nt">&gt;</span>
+                                            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"mat-select-value-text ng-tns-c171-176 ng-star-inserted"</span><span class="nt">&gt;</span>
+                                                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"ng-tns-c171-176 ng-star-inserted"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/span&gt;</span>
+                                            <span class="nt">&lt;/span&gt;</span>
+                                        <span class="nt">&lt;/div&gt;</span>
+                                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-select-arrow-wrapper ng-tns-c171-176"</span><span class="nt">&gt;</span>
+                                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-select-arrow ng-tns-c171-176"</span><span class="nt">/&gt;</span>
+                                        <span class="nt">&lt;/div&gt;</span>
+                                    <span class="nt">&lt;/div&gt;</span>
+                                <span class="nt">&lt;/mat-select&gt;</span>
+                                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"mat-form-field-label-wrapper ng-tns-c95-175"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;/span&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-underline ng-tns-c95-175 ng-star-inserted"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"mat-form-field-ripple ng-tns-c95-175"</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-subscript-wrapper ng-tns-c95-175"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-hint-wrapper ng-tns-c95-175 ng-trigger ng-trigger-transitionMessages ng-star-inserted"</span> <span class="na">style=</span><span class="s">"opacity: 1; transform: translateY(0%);"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-hint-spacer ng-tns-c95-175"</span><span class="nt">/&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/mat-form-field&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-paginator-range-actions"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-paginator-range-label"</span><span class="nt">&gt;</span> 1 – 10 of 100 <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">mat-icon-button=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"mat-focus-indicator mat-paginator-navigation-previous mat-icon-button mat-button-base"</span> <span class="na">aria-label=</span><span class="s">"Previous page"</span> <span class="na">disabled=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"mat-button-wrapper"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">class=</span><span class="s">"mat-paginator-icon"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/svg&gt;</span>
+                    <span class="nt">&lt;/span&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">matripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-button-ripple mat-button-ripple-round"</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-button-focus-overlay"</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">mat-icon-button=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"mat-focus-indicator mat-paginator-navigation-next mat-icon-button mat-button-base"</span> <span class="na">aria-label=</span><span class="s">"Next page"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"mat-button-wrapper"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">class=</span><span class="s">"mat-paginator-icon"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/svg&gt;</span>
+                    <span class="nt">&lt;/span&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">matripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-button-ripple mat-button-ripple-round"</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-button-focus-overlay"</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/mat-paginator&gt;</span>
 </code></pre>
 <table><thead>
@@ -13798,7 +13962,7 @@ Test methods also allow to handle form fields in the form independently of the t
 <td>String</td>
 </tr>
 <tr>
-<td><strong>select(int number)</strong></td>
+<td><strong>select(int)</strong></td>
 <td>Select number of items per page</td>
 <td>void</td>
 </tr>
@@ -13810,7 +13974,7 @@ Test methods also allow to handle form fields in the form independently of the t
 <tr>
 <td><strong>options()</strong></td>
 <td>Get list of number of items per page</td>
-<td>List&lt;Integer&gt;</td>
+<td>List<Integer></td>
 </tr>
 <tr>
 <td><strong>range()</strong></td>
@@ -13843,11 +14007,9 @@ Test methods also allow to handle form fields in the form independently of the t
 <td>PaginatorAssert</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-paginator-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/PaginatorTests.java" target="_blank">Here you can find Paginator tests</a></h5><h4 id='2-2-10-tab-group'>2.2.10 Tab group</h4>
-<p><br></p>
-<pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "basic-tab") public static TabGroupSection tabsSection;*/</span>
+<h5 id='here-you-can-find-paginator-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/PaginatorTests.java" target="_blank">Here you can find Paginator tests</a></h5><h4 id='2-2-10-tab-group'>2.2.10 Tab group</h4><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "basic-tab") </span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basic-tab"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Tabs</span> <span class="n">basicTab</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">basicTab</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabs</span><span class="o">()</span> <span class="o">{</span>
@@ -13863,7 +14025,7 @@ Test methods also allow to handle form fields in the form independently of the t
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
         <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
         <span class="n">tabsSection</span><span class="o">.</span><span class="na">basicTab</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
         <span class="n">tabsSection</span><span class="o">.</span><span class="na">basicTab</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
     <span class="o">}</span>
@@ -13872,55 +14034,21 @@ Test methods also allow to handle form fields in the form independently of the t
 
 <p><img src="images/angular/tab/tabs_base_group.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tab-group</span> <span class="na">_ngcontent-sbh-c317</span> <span class="na">id=</span><span class="s">"basic-tab"</span> <span class="na">class=</span><span class="s">"mat-tab-group mat-primary"</span><span class="nt">&gt;&lt;/mat-tab-group&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-</tbody></table>
-
-<p><br></p>
-<pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "tab-with-custom-label") public static TabGroupSection tabsSection;*/</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "tab-with-custom-label") </span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tab-with-custom-label"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabWithCustomLabel</span><span class="o">;</span>
 
-     <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCustomLabelTemplateTabPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-         <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
-         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
-     <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCustomLabelTemplateTabs</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">CLASS_ATTR</span><span class="o">,</span> <span class="n">TAB_GROUP_DEFAULT_CLASS</span><span class="o">);</span>
+    <span class="o">}</span>
 
-     <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">activeCustomLabelTemplateTabIsHighlighted</span><span class="o">()</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabIsHighlighted</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-     <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCustomLabelTemplateTabsTitles</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listForTest</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"thumb_up\nFirst"</span><span class="o">,</span> <span class="s">"thumb_up\nSecond"</span><span class="o">,</span> <span class="s">"thumb_up\nThird"</span><span class="o">);</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsTitles</span><span class="o">(</span><span class="n">listForTest</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p>If a tab&#39;s label is only text then the simple tab-group API can be used.
 For more complex labels, add a template with the mat-tab-label directive inside the mat-tab.</p>
@@ -13931,43 +14059,7 @@ For more complex labels, add a template with the mat-tab-label directive inside 
   <span class="nt">&lt;mat-icon</span> <span class="na">class=</span><span class="s">"example-tab-icon"</span><span class="nt">&gt;</span>thumb_up<span class="nt">&lt;/mat-icon&gt;</span>
   First
 <span class="nt">&lt;/ng-template&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>clickTab()</strong></td>
-<td>Click required tab by tab number or tab name</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><br></p>
-<pre class="highlight java tab-java"><code>     <span class="cm">/**@FindBy(id = "tab-dynamic-height-based-on-content") public static TabGroupSection tabsSection;*/</span>
+</code></pre><pre class="highlight java tab-java"><code>     <span class="c1">//@FindBy(id = "tab-dynamic-height-based-on-content")</span>
      <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tab-dynamic-height-based-on-content"</span><span class="o">)</span>
      <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabDynamicHeightBasedOnContent</span><span class="o">;</span>
 
@@ -13992,117 +14084,30 @@ to the height of the active tab.</p>
 <p><img src="images/angular/tab/tabs_dynamic_height.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tab-group</span> <span class="na">_ngcontent-sbh-c351</span> <span class="na">dynamicheight</span> <span class="na">id=</span><span class="s">"tab-dynamic-height-based-on-content"</span> <span class="na">class=</span><span class="s">"mat-tab-group 
 mat-primary mat-tab-group-dynamic-height"</span><span class="nt">&gt;&lt;/mat-tab-group&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>clickTab()</strong></td>
-<td>Click required tab by tab number or tab name</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><br></p>
-<pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "dynamically-changing-tabs") public static TabGroupSection tabsSection;*/</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "dynamically-changing-tabs")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#dynamically-changing-tabs"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">dynamicallyChangingTabs</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectedByIndexTabIsHighlighted</span><span class="o">()</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">indexForTest</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-         <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="n">indexForTest</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-         <span class="n">tabsSection</span><span class="o">.</span><span class="na">selectByIndexInput</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-         <span class="n">tabsSection</span><span class="o">.</span><span class="na">selectByIndexInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">indexForTest</span><span class="o">));</span>
-         <span class="n">tabsSection</span><span class="o">.</span><span class="na">dynamicallyChangingTabs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabIsHighlighted</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-     <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectedByIndexTabIsHighlighted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">indexForTest</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="n">indexForTest</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">selectByIndexInput</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">selectByIndexInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">indexForTest</span><span class="o">));</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">dynamicallyChangingTabs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabIsHighlighted</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+    <span class="o">}</span>
 
-     <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectedByIndexTabIsNormalizedToTabsCount</span><span class="o">()</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">indexForTest</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-         <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="n">tabsSection</span><span class="o">.</span><span class="na">dynamicallyChangingTabs</span><span class="o">.</span><span class="na">getTabsCount</span><span class="o">();</span>
-         <span class="n">tabsSection</span><span class="o">.</span><span class="na">selectByIndexInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">indexForTest</span><span class="o">));</span>
-         <span class="n">tabsSection</span><span class="o">.</span><span class="na">dynamicallyChangingTabs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabIsHighlighted</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-     <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectedByIndexTabIsNormalizedToTabsCount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">indexForTest</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="n">tabsSection</span><span class="o">.</span><span class="na">dynamicallyChangingTabs</span><span class="o">.</span><span class="na">getTabsCount</span><span class="o">();</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">selectByIndexInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">indexForTest</span><span class="o">));</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">dynamicallyChangingTabs</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabIsHighlighted</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/tab/tabs_dynamicly_changing.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tab-group</span> <span class="na">_ngcontent-sbh-c352</span>  <span class="na">id=</span><span class="s">"dynamically-changing-tabs"</span> <span class="na">class=</span><span class="s">"mat-tab-group mat-primary"</span><span class="nt">&gt;&lt;/mat-tab-group&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>clickTab()</strong></td>
-<td>Click required tab by tab number or tab name</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>getTabsCount()</strong></td>
-<td>returns tabs count</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>sendKeys()</strong></td>
-<td>fill the text area</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>clear()</strong></td>
-<td>clear text aria</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><br></p>
-<pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "tab-with-headers-on-the-bottom") public static TabGroupSection tabsSection;*/</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "tab-with-headers-on-the-bottom")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tab-with-headers-on-the-bottom"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabWithHeadersOnTheBottom</span><span class="o">;</span>
 
@@ -14114,7 +14119,7 @@ mat-primary mat-tab-group-dynamic-height"</span><span class="nt">&gt;&lt;/mat-ta
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithHeadersOnTheBottomPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
         <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithHeadersOnTheBottom</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithHeadersOnTheBottom</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
     <span class="o">}</span>
@@ -14122,43 +14127,7 @@ mat-primary mat-tab-group-dynamic-height"</span><span class="nt">&gt;&lt;/mat-ta
 <p><img src="images/angular/tab/tabs_with_bottom_headers.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tab-group</span> <span class="na">_ngcontent-sbh-c353</span>  <span class="na">id=</span><span class="s">"tab-with-headers-on-the-bottom"</span> <span class="na">headerposition=</span><span class="s">"below"</span> 
 <span class="na">class=</span><span class="s">"mat-tab-group mat-primary mat-tab-group-inverted-header"</span><span class="nt">&gt;&lt;/mat-tab-group&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>clickTab()</strong></td>
-<td>Click required tab by tab number or tab name</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><br></p>
-<pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "tabs-with-lazy-loaded-content") public static TabGroupSection tabsSection;*/</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "tabs-with-lazy-loaded-content")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tabs-with-lazy-loaded-content"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabsWithLazyLoadedContent</span><span class="o">;</span>
 
@@ -14170,7 +14139,7 @@ mat-primary mat-tab-group-dynamic-height"</span><span class="nt">&gt;&lt;/mat-ta
         <span class="n">SimpleDateFormat</span> <span class="n">dateTimeInGMT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">"MMM d, yyyy, h:mm:ss aa"</span><span class="o">);</span>
         <span class="n">dateTimeInGMT</span><span class="o">.</span><span class="na">setTimeZone</span><span class="o">(</span><span class="n">TimeZone</span><span class="o">.</span><span class="na">getTimeZone</span><span class="o">(</span><span class="s">"GMT+3"</span><span class="o">));</span>
         <span class="n">String</span> <span class="n">timeForTest</span> <span class="o">=</span> <span class="n">dateTimeInGMT</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
-        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Content %s - Loaded: %s"</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">,</span> <span class="n">timeForTest</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">format</span><span class="o">(</span><span class="s">"Content %s - Loaded: %s"</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">,</span> <span class="n">timeForTest</span><span class="o">);</span>
         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsWithLazyLoadedContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
     <span class="o">}</span>
 
@@ -14189,55 +14158,14 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
 
 <p><img src="images/angular/tab/tabs_lazy_loaded_content.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tab-group</span> <span class="na">_ngcontent-sbh-c354</span> <span class="na">id=</span><span class="s">"tabs-with-lazy-loaded-content"</span> <span class="na">class=</span><span class="s">"mat-tab-group mat-primary"</span><span class="nt">&gt;&lt;/mat-tab-group&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>clickTab()</strong></td>
-<td>Click required tab by tab number or tab name</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>refresh()</strong></td>
-<td>refresh the page</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><br></p>
-<pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "tab-group-theme-example") public static TabGroupSection tabsSection;*/</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "tab-group-theme-example")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tab-group-theme-example"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabGroupThemeExample</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCustomThemeTabPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
         <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabGroupThemeExample</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabGroupThemeExample</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
     <span class="o">}</span>
@@ -14251,123 +14179,45 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
 </code></pre>
 <p><img src="images/angular/tab/tabs_theme_customizing.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tab-group</span> <span class="na">_ngcontent-sbh-c355</span> <span class="na">id=</span><span class="s">"tab-group-theme-example"</span> <span class="na">class=</span><span class="s">"mat-tab-group mat-primary mat-background-primary"</span><span class="nt">&gt;&lt;/mat-tab-group&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>clickTab()</strong></td>
-<td>Click required tab by tab number or tab name</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>clickButtonByValue(String value)</strong></td>
-<td>click button in button toggle</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><br></p>
-<pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "tabs-async-loading-content") public static TabGroupSection tabsSection;*/</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "tabs-async-loading-content")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tabs-async-loading-content"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabsAsyncLoadingContent</span><span class="o">;</span>
+
+     <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabsAsyncLoadingContent</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">CLASS_ATTR</span><span class="o">,</span> <span class="n">TAB_GROUP_DEFAULT_CLASS</span><span class="o">);</span>
+    <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCustomThemeAsyncLoadingContentTabsTitles</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsTitles</span><span class="o">(</span><span class="n">TITLES_DEFAULT_LIST</span><span class="o">);</span>
     <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyAsyncLoadingContentTabPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
-        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
-    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/tab/tabs_async_loading_tab_content.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tab-group</span> <span class="na">_ngcontent-sbh-c356</span> <span class="na">id=</span><span class="s">"tabs-async-loading-content"</span> <span class="na">class=</span><span class="s">"mat-tab-group mat-primary"</span><span class="nt">&gt;&lt;/mat-tab-group&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>clickTab()</strong></td>
-<td>Click required tab by tab number or tab name</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><br></p>
-<pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "tabs-nav-bar") public static TabGroupSection tabsSection;*/</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "tabs-nav-bar")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tabs-nav-bar"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabsNavBar</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLinkIsHighLighted</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">String</span> <span class="n">tabTitleForTest</span> <span class="o">=</span> <span class="s">"Third"</span><span class="o">;</span>
-        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">clickTabLink</span><span class="o">(</span><span class="n">tabTitleForTest</span><span class="o">);</span>
-        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabWithLinkIsHighlighted</span><span class="o">(</span><span class="n">tabTitleForTest</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabsWithLinks</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">classForTest</span> <span class="o">=</span> <span class="s">"mat-tab-nav-bar mat-tab-header mat-primary mat-background-primary"</span><span class="o">;</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">CLASS_ATTR</span><span class="o">,</span> <span class="n">classForTest</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLinkBackgroundColor</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">tabsSection</span><span class="o">.</span><span class="na">toggleBackgroundButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">CLASS_ATTR</span><span class="o">,</span> <span class="s">"mat-tab-nav-bar mat-tab-header mat-primary "</span> <span class="o">+</span>
-                    <span class="s">"mat-background-primary"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabsLinksTitles</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listForTest</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"First"</span><span class="o">,</span> <span class="s">"Second"</span><span class="o">,</span> <span class="s">"Third"</span><span class="o">,</span> <span class="s">"Disabled Link"</span><span class="o">);</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsLinksTitles</span><span class="o">(</span><span class="n">listForTest</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/tab/tabs_with_nav_bar.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;nav</span> <span class="na">_ngcontent-sbh-c357</span> <span class="na">id=</span><span class="s">"tabs-nav-bar"</span> <span class="na">class=</span><span class="s">"mat-tab-nav-bar mat-tab-header mat-primary"</span><span class="nt">&gt;&lt;/nav&gt;</span>
 </code></pre>
+<p>List of some available TabGroup methods:</p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -14376,34 +14226,64 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
 <td><strong>is()</strong></td>
 <td>Assert action</td>
-<td>TextAssert</td>
+<td>TabGroupAssert</td>
 </tr>
 <tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
+<td><strong>clickTab(int)</strong></td>
+<td>Click required tab by tab number</td>
+<td>void</td>
 </tr>
 <tr>
-<td><strong>clickTabLink(String tabName)</strong></td>
+<td><strong>clickTab(String)</strong></td>
 <td>Click required tab by tab name</td>
 <td>void</td>
 </tr>
 <tr>
+<td><strong>tabsTitlesContainValues(List<String>)</strong></td>
+<td>Check if tabs titles contain values</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>tabIsHighlighted(int)</strong></td>
+<td>Check if tab number is highlited</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>tabPanelContainsValue(String)</strong></td>
+<td>Check if panel content value</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>clickTabLink(String)</strong></td>
+<td>Click tab-link by tab number</td>
+<td>void</td>
+</tr>
+<tr>
 <td><strong>getTabLinksCount()</strong></td>
-<td>return number of tabs</td>
+<td>Click tab-link by tab number</td>
 <td>int</td>
+</tr>
+<tr>
+<td><strong>getTabsCount()</strong></td>
+<td>Get tab link count</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>tabsLinksTitlesContainValues(List<String>)</strong></td>
+<td>Check if tab-links contain values</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>tabWithLinkIsHighlighted(String)</strong></td>
+<td>Check if tab-link number is highlited</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clear text aria</td>
+<td>void</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-tabs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a></h5><h4 id='2-2-11-datepicker'>2.2.11 Datepicker</h4><h5 id='datepicker-overview'><a href="https://material.angular.io/components/datepicker/overview" target="_blank">Datepicker overview</a></h5>

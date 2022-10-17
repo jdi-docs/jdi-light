@@ -1446,46 +1446,49 @@ Element that can be represented with one or more clickable buttons aiming to cho
 
 Radio buttons locates in the following classes:
 
-- __Java__:  com.epam.jdi.light.angular.elements.complex;
+- __Java__:  _com.epam.jdi.light.angular.elements.complex.RadioButtons.java_
 
 There are two different radio buttons types in Angular: Basic radios and Radios with NGmodel.
 
 ```java 
-    //FindBy(id = "basic-radio-group") 
+    //FindBy(id = "basic-radio-group")
+    @UI("basic-radio-group")
     public static RadioButtons basicRadioGroup;
 
     //FindBy(id = "season-radio-group")
+    @UI("season-radio-group")
     public static RadioButtons seasonRadioGroup;
 
     //FindBy(id = "your-favorit-season-text") 
+    @UI("your-favorit-season-text") 
     public static Text yourFavoriteSeasonText;
 
     @Test
-     public void basicRadioButtonsTest() {
-         basicRadioGroup.is().displayed();
-         basicRadioGroup.click("2");
-         basicRadioGroup.click("1");
-         basicRadioGroup.click("2");
-         
-         basicRadioGroup.is().checked("2");
-         basicRadioGroup.is().notChecked("1");
-     }   
-    
-     @Test
-     public void seasonsRadioButtonsTest() {
+    public void basicRadioButtonsTest() {
+        basicRadioGroup.is().displayed();
+        basicRadioGroup.click("2");
+        basicRadioGroup.click("1");
+        basicRadioGroup.click("2");
+
+        basicRadioGroup.is().checked("2");
+        basicRadioGroup.is().notChecked("1");
+    }
+
+    @Test
+    public void seasonsRadioButtonsTest() {
         seasonRadioGroup.is().displayed();
         seasonRadioGroup.click(SUMMER);
         seasonRadioGroup.click(WINTER);
         seasonRadioGroup.click(AUTUMN);
-    
+
         seasonRadioGroup.click(SPRING);
         seasonRadioGroup.is().checked(SPRING);
-        yourFavoriteSeasonText.has().text(String.format("Your favorite season is: %s", SPRING));
-    
+        yourFavoriteSeasonText.has().text(format("Your favorite season is: %s", SPRING));
+
         seasonRadioGroup.is().notChecked(WINTER);
         seasonRadioGroup.is().notChecked(SUMMER);
         seasonRadioGroup.is().notChecked(AUTUMN);
-     }
+    }
 ```
 
 ![Basic radios](../../images/angular/basic_radios.png)
@@ -1506,15 +1509,11 @@ There are two different radio buttons types in Angular: Basic radios and Radios 
   </mat-radio-button>
 </mat-radio-group>
 ```
-
-|Method | Description | Return Type
---- | --- | ---
-**click()** | Click the button by value | void
-**is()** | Assert action | TextAssert
-**has()** | assert that element has attribute | TextAssert
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert
-**displayed()** | Check that element is displayed | TextAssert
-**text()** | Assert that element has presented text | TextAssert
+|Method | Description                                                                  | Return Type
+--- |------------------------------------------------------------------------------| ---
+**click(String)** | Click the button by value         | void
+**isChecked(String)** | Checks if radio button contain value         | boolean
+**is()** | Assert action                | RadioButtonsAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RadioButtonTests.java" target="_blank">Here you can find Radio Button tests</a>
 
@@ -1524,6 +1523,10 @@ There are two different radio buttons types in Angular: Basic radios and Radios 
 
 List is a container component that wraps and formats a series of line items.
 
+List is located in the following classes:
+
+- __Java__: com.epam.jdi.light.elements.complex.JList.java
+
 There are two different lists in Angular: Basic list and List with sections.
 
 See an example with HTML code describing basic list element.
@@ -1532,40 +1535,39 @@ See an example with HTML code describing basic list element.
 
 ```java 
 
-//@FindBy(css = "#basic-list mat-list-item")
-@UI("#basic-list mat-list-item") 
-public JList<Label> basicList; 
+  //@FindBy(css = "#basic-list mat-list-item")
+  @UI("#basic-list mat-list-item") 
+  public JList<Label> basicList; 
+  
+  //@FindBy(css = "#list-with-sections mat-list-item")
+  @UI("#list-with-sections mat-list-item") 
+  public JList<Label> listWithSection; 
 
-//@FindBy(css = "#list-with-sections mat-list-item")
-@UI("#list-with-sections mat-list-item") 
-public JList<Label> listWithSection; 
+  @Test
+  public void basicListBasicTest() {
+      listSection.basicList.is().displayed();
+  }
 
-@Test 
-public void basicListBasicTest() { 
-    listSection.basicList.is().displayed(); 
-} 
+  @Test
+  public void basicListTextTest() {
+      listSection.basicList.get(1).is().text("Item 1");
+      listSection.basicList.get(2).is().text("Item 2");
+      listSection.basicList.get(3).is().text("Item 3");
+  }
 
-@Test 
-public void basicListTextTest() { 
-    listSection.basicList.get(1).is().text("Item 1"); 
-}
+  @Test
+  public void listWithSectionsBasicTest() {
+      listSection.listWithSection.is().displayed();
+  }
 
-@Test
-public void listWithSectionsBasicTest() {
-    listSection.listWithSection.is().displayed();
-}
-
-@Test
-public void listWithSectionsIconTest() {
-    listSection.listWithSection.get(1).children().get(3).is().text("folder");
-    listSection.listWithSection.get(5).children().get(3).is().text("note");
-}
-
-@Test 
-public void listWithSectionsTextTest() { 
-    listSection.listWithSection.get(1).is().text("folder\nPhotos\nJan 1, 2016"); 
-} 
-
+  @Test
+  public void listWithSectionsIconTest() {
+      listSection.listWithSection.get(1).children().get(3).is().text("folder");
+      listSection.listWithSection.get(2).children().get(3).is().text("folder");
+      listSection.listWithSection.get(3).children().get(3).is().text("folder");
+      listSection.listWithSection.get(4).children().get(3).is().text("note");
+      listSection.listWithSection.get(5).children().get(3).is().text("note");
+  }
 ``` 
 
 ```html 
@@ -1601,13 +1603,12 @@ See an example with HTML code describing list with sections element.
 </mat-list> 
 ``` 
 
-|Method | Description | Return Type
---- | --- | --- 
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**get(int index)** | Select label by index | Label
-**show()** | Scroll to element | void
-**text(String text)** | Check whether a text matches a pattern | TextAssert
+|Method | Description                   | Return Type
+--- |-------------------------------| --- 
+**is()** | Assert action                 | UISelectAssert<UISelectAssert<?,?>, JList<T>>
+**is(Matcher<? super List<T>>)** | Assert action meets condition | UISelectAssert<UISelectAssert<?,?>, JList<T>>
+**assertThat(Matcher<? super List<T>>)** | Assert action                 | UISelectAssert<UISelectAssert<?,?>, JList<T>>
+**wait(JFunc1<JList<T>, Boolean>)** | wait with condition           | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ListTests.java" target="_blank">List java tests examples</a>
 
@@ -1617,6 +1618,10 @@ See an example with HTML code describing list with sections element.
 
 Grid list is a two-dimensional list view that arranges cells into grid-based layout.
 
+Grid list is located in the following classes:
+
+- __Java__: com.epam.jdi.light.elements.complex.JList.java
+
 There are two different grid lists in Angular: Basic grid list and Dynamic grid list.
 
 See an example with HTML code describing basic grid list element.
@@ -1625,47 +1630,55 @@ See an example with HTML code describing basic grid list element.
 
 ```java 
 
-//@FindBy(css = "#basic-grid-list mat-grid-tile")
-@UI("#basic-grid-list mat-grid-tile") 
-public JList<Label> basicGridList; 
+  //@FindBy(css = "#basic-grid-list mat-grid-tile")
+  @UI("#basic-grid-list mat-grid-tile") 
+  public JList<Label> basicGridList; 
+  
+  //@FindBy(css = "#dynamic-grid-list mat-grid-tile")
+  @UI("#dynamic-grid-list mat-grid-tile") 
+  public JList<Label> dynamicGridList; 
 
-//@FindBy(css = "#dynamic-grid-list mat-grid-tile")
-@UI("#dynamic-grid-list mat-grid-tile") 
-public JList<Label> dynamicGridList; 
+  @Test
+  public void basicGridListBasicTest() {
+      gridListSection.basicGridList.is().displayed();
+  }
 
-@Test 
-public void basicGridListBasicTest() { 
-    gridListSection.basicGridList.is().displayed(); 
-} 
+  @Test
+  public void basicGridListTextTest() {
+      gridListSection.basicGridList.get(1).is().text("1");
+  }
 
-@Test 
-public void basicGridListTextTest() { 
-    gridListSection.basicGridList.get(1).is().text("1"); 
-} 
+  @Test
+  public void basicGridListColorTest() {
+      gridListSection.basicGridList.get(1)
+               .has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)");
+  }
 
-@Test 
-public void basicGridListColorTest() { 
-    gridListSection.basicGridList.get(1) 
-        .has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
-} 
+  @Test
+  public void dynamicGridListBasicTest() {
+      gridListSection.dynamicGridList.is().displayed();
+  }
 
-@Test 
-public void dynamicGridListBasicTest() { 
-    gridListSection.dynamicGridList.is().displayed(); 
-} 
+  @Test
+  public void dynamicGridListTextTest() {
+      gridListSection.dynamicGridList.get(1).is().text("One");
+  }
 
-@Test 
-public void dynamicGridListTextTest() { 
-    gridListSection.dynamicGridList.get(1).is().text("One"); 
-} 
-
-@Test 
-public void dynamicGridListColorTest() { 
-    gridListSection.dynamicGridList.get(1) 
-        .has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
-} 
-
+  @Test
+  public void dynamicGridListColorTest() {
+      gridListSection.dynamicGridList.get(1)
+           .has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)");
+      gridListSection.dynamicGridList.get(2)
+           .has().css("background-color", "rgba(" + 144 + ", " + 238 + ", " + 144 + ", 1)");
+      gridListSection.dynamicGridList.get(3)
+           .has().css("background-color", "rgba(" + 255 + ", " + 182 + ", " + 193 + ", 1)");
+      gridListSection.dynamicGridList.get(4)
+               .has().css("background-color", "rgba(" + 221 + ", " + 189 + ", " + 241 + ", 1)");
+  }
 ``` 
+See an example with HTML code describing dynamic grid list element.
+
+![Grid list examples](../../images/angular/basic_grid_list.png)
 
 ```html 
 <mat-grid-list
@@ -1694,15 +1707,13 @@ id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"
 </mat-grid-tile> 
 </mat-grid-list> 
 ``` 
-|Method | Description | Return Type
---- | --- | --- 
-**is()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**get(int index)** | Select label by index | Label
-**show()** | Scroll to element | void
-**text(String text)** | Check whether a text matches a pattern | TextAssert
-**has()** | Assert that element has attribute | TextAssert
-**css(String css, String value)** | Match passed value with the element css | IsAssert
+|Method | Description                   | Return Type
+--- |-------------------------------| --- 
+**is()** | Assert action                 | UISelectAssert<UISelectAssert<?,?>, JList<T>>
+**is(Matcher<? super List<T>>)** | Assert action meets condition | UISelectAssert<UISelectAssert<?,?>, JList<T>>
+**assertThat(Matcher<? super List<T>>)** | Assert action                 | UISelectAssert<UISelectAssert<?,?>, JList<T>>
+**wait(JFunc1<JList<T>, Boolean>)** | wait with condition           | boolean
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
 
 #### 2.2.4 Card
@@ -1713,67 +1724,66 @@ Card is a content container for text, photos, and actions in the context of a si
 
 Card is located in the following classes:
 
-- __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.Card
+- __Java__: com.epam.jdi.light.angular.elements.complex.Card
 
 ```java 
 
-    //FindBy(id = "simple-card") public static RadioButtons basicRadioButtons;
+    //FindBy(id = "simple-card")
     @UI("#simple-card")
     public static Card simpleCard;
 
-    //FindBy(id = "example-card") public static Card card;
+    //FindBy(id = "example-card")
     @UI("#example-card")
     public static Card card;
 
     @Test
     public void displayedBasicCardTest() {
-        cardSection.simpleCard.is().displayed();
-        cardSection.card.is().displayed();
+        simpleCard.is().displayed();
+        card.is().displayed();
     }
 
     @Test
     public void attributeCardTest() {
-        cardSection.simpleCard.is().assertCardText("Simple card");
-        cardSection.card.is().assertAltImageAttribute("Photo of a Shiba Inu");
-        cardSection.card.is().assertSrcImageAttribute("https://material.angular.io/assets/img/examples/shiba2.jpg");
+        simpleCard.is().assertCardText("Simple card");
+        card.is().assertAltImageAttribute("Photo of a Shiba Inu");
+        card.is().assertSrcImageAttribute("https://material.angular.io/assets/img/examples/shiba2.jpg");
     }
 
     @Test
     public void displayedCardTest() {
-        cardSection.card.getHeader().is().displayed();
-        cardSection.card.getHeaderText().is().displayed();
-        cardSection.card.getAvatar().is().displayed();
-        cardSection.card.getTitle().is().displayed();
-        cardSection.card.getTitle().is().text("Shiba Inu");
-        cardSection.card.getSubtitle().is().displayed();
-        cardSection.card.getSubtitle().is().text("Dog Breed");
-        cardSection.card.getImage().is().displayed();
-        cardSection.card.getContent().is().displayed();
-        cardSection.card.getContent().is().displayed();
+        card.getHeader().is().displayed();
+        card.getHeaderText().is().displayed();
+        card.getAvatar().is().displayed();
+        card.getTitle().is().displayed();
+        card.getTitle().is().text("Shiba Inu");
+        card.getSubtitle().is().displayed();
+        card.getSubtitle().is().text("Dog Breed");
+        card.getImage().is().displayed();
+        card.getContent().is().displayed();
+        card.getContent().is().displayed();
     }
 ```
 
 ![Card](../../images/angular/card.png)
 
 ```html 
-<mat-card class="mat-card mat-focus-indicator">Simple card</mat-card>
+<mat-card id="simple-card" class="mat-card mat-focus-indicator">Simple card</mat-card>
 ```
 
 |Method | Description | Return Type
 --- | --- | ---
-**getHeader** | Get header | UIElement
-**getAvatar** | Get avatar | UIElement
-**getHeaderText** | Get header text | UIElement
-**getTitle** | Get title | UIElement
-**getSubtitle** | Get subtitle | UIElement
-**getImage** | Get image | UIElement
-**getContent** | Get content | UIElement
-**getButtons** | Get buttons | UIElement
-**getCardText** | Get card text | UIElement
-**getButtonByText** | Get button by text | UIElement
-**getButtonByNumber** | Get button by number | UIElement
+**getHeader()** | Get header | UIElement
+**getAvatar()** | Get avatar | UIElement
+**getHeaderText()** | Get header text | UIElement
+**getTitle()** | Get title | UIElement
+**getSubtitle()** | Get subtitle | UIElement
+**getImage()** | Get image | UIElement
+**getContent()** | Get content | UIElement
+**getButtons()** | Get buttons | UIElement
+**getCardText()** | Get card text | UIElement
+**getButtonByText(String)** | Get button by text | UIElement
+**getButtonByNumber(int)** | Get button by number | UIElement
 **is()** | Assert action | CardAssert
-**displayed()** | Check that element is displayed | TextAssert
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/CardTests.java" target="_blank">Card java tests examples</a>
 
 #### 2.2.5 Select
@@ -1794,38 +1804,49 @@ Angular Material also supports use of the native ```<select>``` element inside o
 control has several performance, accessibility, and usability advantages.
 
 ```java 
-//@FindBy(css = "#basic-mat-select")
-public static MaterialSelector basicMatSelect;
+  //@FindBy(css = "#basic-mat-select")
+  @UI("#basic-mat-select")
+  public static MaterialSelector basicMatSelect;
 
-@Test
-public void checkLabelValue() {
-    basicMatSelect.label().has().value("Favorite food");
-}
-@Test
-public void checkPreselectedValue() {
-    basicNativeSelect.verify().selected(matchesPattern("[a-zA-Z]+"));
-}
-@Test
-public void checkOptionCanBeSelectedByIndex() {
-    basicMatSelect.select(2);
-    basicMatSelect.is().selected(PIZZA);
-}
+  @Test
+  public void checkLabelValue() {
+      basicMatSelect.label().has().value("Favorite food");
+  }
 
-//@FindBy(css = "#basic-native-select")
-public static NativeSelector basicNativeSelect;
+  @Test
+  public void checkSelectorExpanded() {
+      basicMatSelect.expand();
+      basicMatSelect.is().expanded();
+      basicMatSelect.collapse();
+      basicMatSelect.is().collapsed();
+  }
 
-@Test
-public void checkListDisabledOptions() {
-    basicNativeSelect.has().listDisabled(Collections.EMPTY_LIST);
-}
-@Test
-public void checkListEnabledOptions() {
-    basicNativeSelect.has().listEnabled(Arrays.asList(VOLVO, SAAB, MERCEDES, AUDI));
-}
-@Test
-public void checkAvailableOptions() {
-    basicNativeSelect.assertThat().values(hasItem(AUDI)).values(hasItems(AUDI, VOLVO, SAAB, MERCEDES));
-}
+  @Test
+  public void checkSelectorCollapsed() {
+      basicMatSelect.collapse();
+      basicMatSelect.is().collapsed();
+  }
+
+  //@FindBy(css = "#basic-native-select")
+  @UI("#basic-native-select")
+  public static NativeSelector basicNativeSelect;
+
+  @Test
+  public void checkPreselectedValue() {
+      basicNativeSelect.verify().selected(matchesPattern("[a-zA-Z]+"));
+  }
+
+  @Test
+  public void checkOptionCanBeSelectedByName() {
+      basicNativeSelect.select(SAAB);
+      basicNativeSelect.is().selected(SAAB);
+  }
+
+  @Test
+  public void checkListDisabledOptions() {
+      basicNativeSelect.has().listDisabled(Collections.EMPTY_LIST);
+  }
+
 ```
 
 See examples with HTML code describing select elements.
@@ -1833,57 +1854,132 @@ See examples with HTML code describing select elements.
 ![Basic Select](../../images/angular/basic_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Favorite food</mat-label>
-  <mat-select id="basic-mat-select">
-    <mat-option *ngFor="let food of foods" [value]="food.value" id="basic-mat-select-list">
-      {{food.viewValue}}
-    </mat-option>
-  </mat-select>
+<mat-form-field _ngcontent-nsg-c244="" class="mat-form-field ng-tns-c95-6 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder">
+	<div class="mat-form-field-wrapper ng-tns-c95-6">
+		<div class="mat-form-field-flex ng-tns-c95-6">
+			<div class="mat-form-field-infix ng-tns-c95-6">
+				<mat-select _ngcontent-nsg-c244="" role="listbox" id="basic-mat-select" class="mat-select ng-tns-c171-7 ng-tns-c95-6 ng-star-inserted mat-select-empty" tabindex="0" aria-labelledby="mat-form-field-label-13" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false">
+					<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-7">
+						<div class="mat-select-value ng-tns-c171-7">
+							<span class="mat-select-placeholder ng-tns-c171-7 ng-star-inserted">&nbsp;</span>
+						</div>
+						<div class="mat-select-arrow-wrapper ng-tns-c171-7">
+							<div class="mat-select-arrow ng-tns-c171-7"/>
+						</div>
+					</div>
+				</mat-select>
+				<span class="mat-form-field-label-wrapper ng-tns-c95-6">
+					<label class="mat-form-field-label ng-tns-c95-6 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-13" for="basic-mat-select" aria-owns="basic-mat-select">
+						<mat-label _ngcontent-nsg-c244="" class="ng-tns-c95-6 ng-star-inserted">Favorite food</mat-label>
+					</label>
+				</span>
+			</div>
+		</div>
+		<div class="mat-form-field-underline ng-tns-c95-6 ng-star-inserted">
+			<span class="mat-form-field-ripple ng-tns-c95-6"/>
+		</div>
+		<div class="mat-form-field-subscript-wrapper ng-tns-c95-6">
+			<div class="mat-form-field-hint-wrapper ng-tns-c95-6 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+				<div class="mat-form-field-hint-spacer ng-tns-c95-6"/>
+			</div>
+		</div>
+	</div>
 </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Cars</mat-label>
-  <select matNativeControl required id="basic-native-select">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
+<mat-form-field _ngcontent-nsg-c244="" class="mat-form-field ng-tns-c95-8 mat-primary mat-form-field-type-mat-native-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label">
+	<div class="mat-form-field-wrapper ng-tns-c95-8">
+		<div class="mat-form-field-flex ng-tns-c95-8">
+			<div class="mat-form-field-infix ng-tns-c95-8">
+				<select _ngcontent-nsg-c244="" matnativecontrol="" required="" id="basic-native-select" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-8 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="true">
+					<option _ngcontent-nsg-c244="" value="volvo">Volvo</option>
+					<option _ngcontent-nsg-c244="" value="saab">Saab</option>
+					<option _ngcontent-nsg-c244="" value="mercedes">Mercedes</option>
+					<option _ngcontent-nsg-c244="" value="audi">Audi</option>
+				</select>
+				<span class="mat-form-field-label-wrapper ng-tns-c95-8">
+					<label class="mat-form-field-label ng-tns-c95-8 ng-star-inserted" id="mat-form-field-label-15" for="basic-native-select" aria-owns="basic-native-select">
+						<mat-label _ngcontent-nsg-c244="" class="ng-tns-c95-8 ng-star-inserted">Cars</mat-label>
+						<span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c95-8 ng-star-inserted"> *</span>
+					</label>
+				</span>
+			</div>
+		</div>
+		<div class="mat-form-field-underline ng-tns-c95-8 ng-star-inserted">
+			<span class="mat-form-field-ripple ng-tns-c95-8"/>
+		</div>
+		<div class="mat-form-field-subscript-wrapper ng-tns-c95-8">
+			<div class="mat-form-field-hint-wrapper ng-tns-c95-8 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+				<div class="mat-form-field-hint-spacer ng-tns-c95-8"/>
+			</div>
+		</div>
+	</div>
 </mat-form-field>
 ```
 The ```<mat-select>``` supports 2-way binding to the value property without the need for Angular forms.
 
 ```java 
-//@FindBy(css = "#two-binding-select")
-public static MaterialSelector twoBindingSelect;
-//@FindBy(css = "#select-binding-confirm")
-public static Text selectBindingConfirm;
+  //@FindBy(css = "#two-binding-select")
+  @UI("#two-binding-select")
+  public static MaterialSelector twoBindingSelect;
 
-@Test
-public void checkOptionCanBeSelectedByNameAndConfirmMessageWillAppear() {
-    twoBindingSelect.select(OPTION_1);
-    twoBindingSelect.is().selected(OPTION_1);
-    selectBindingConfirm.assertThat().text("You selected: option1");
-}
-@Test
-public void checkNoneOptionCanBeSelectedByNameAndConfirmMessageWillBeEmpty() {
-    twoBindingSelect.select(NONE);
-    twoBindingSelect.is().selected(matchesPattern("\\W+"));
-    selectBindingConfirm.assertThat().text("You selected:");
-}
+  //@FindBy(css = "#select-binding-confirm")
+  @UI("#select-binding-confirm")
+  public static Text selectBindingConfirm;
+
+  @Test
+  public void checkLabelValue() {
+      twoBindingSelect.label().has().value("Select an option");
+  }
+
+  @Test
+  public void checkOptionCanBeSelectedByNameAndConfirmMessageWillAppear() {
+      twoBindingSelect.select(OPTION_1);
+      twoBindingSelect.is().selected(OPTION_1);
+      selectBindingConfirm.assertThat().text("You selected: option1");
+  }
+
+  @Test
+  public void checkNoneOptionCanBeSelectedByNameAndConfirmMessageWillBeEmpty() {
+      twoBindingSelect.select(NONE);
+      twoBindingSelect.is().selected(matchesPattern("\\W+"));
+      selectBindingConfirm.assertThat().text("You selected:");
+  }
 ```
 ![Two Binding Select](../../images/angular/two_binding_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Select an option</mat-label>
-  <mat-select [(value)]="selected" id="two-binding-select">
-    <mat-option>None</mat-option>
-    <mat-option value="option1">Option 1</mat-option>
-    <mat-option value="option2">Option 2</mat-option>
-    <mat-option value="option3">Option 3</mat-option>
-  </mat-select>
+<mat-form-field _ngcontent-nsg-c245="" class="mat-form-field ng-tns-c95-9 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-should-float">
+	<div class="mat-form-field-wrapper ng-tns-c95-9">
+		<div class="mat-form-field-flex ng-tns-c95-9">
+			<div class="mat-form-field-infix ng-tns-c95-9">
+				<mat-select _ngcontent-nsg-c245="" role="listbox" id="two-binding-select" class="mat-select ng-tns-c171-10 ng-tns-c95-9 ng-star-inserted" tabindex="0" aria-labelledby="mat-form-field-label-17" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false">
+					<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-10">
+						<div class="mat-select-value ng-tns-c171-10">
+							<span class="mat-select-value-text ng-tns-c171-10 ng-star-inserted">
+								<span class="ng-tns-c171-10 ng-star-inserted">Option 2</span>
+							</span>
+						</div>
+						<div class="mat-select-arrow-wrapper ng-tns-c171-10">
+							<div class="mat-select-arrow ng-tns-c171-10"/>
+						</div>
+					</div>
+				</mat-select>
+				<span class="mat-form-field-label-wrapper ng-tns-c95-9">
+					<label class="mat-form-field-label ng-tns-c95-9 ng-star-inserted" id="mat-form-field-label-17" for="two-binding-select" aria-owns="two-binding-select">
+						<mat-label _ngcontent-nsg-c245="" class="ng-tns-c95-9 ng-star-inserted">Select an option</mat-label>
+					</label>
+				</span>
+			</div>
+		</div>
+		<div class="mat-form-field-underline ng-tns-c95-9 ng-star-inserted">
+			<span class="mat-form-field-ripple ng-tns-c95-9"/>
+		</div>
+		<div class="mat-form-field-subscript-wrapper ng-tns-c95-9">
+			<div class="mat-form-field-hint-wrapper ng-tns-c95-9 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+				<div class="mat-form-field-hint-spacer ng-tns-c95-9"/>
+			</div>
+		</div>
+	</div>
 </mat-form-field>
 <p id="select-binding-confirm">You selected: {{selected}}</p>
 ```
@@ -1891,351 +1987,632 @@ Both ```<mat-select>``` and ```<select>``` support all of the form directives fr
 ReactiveFormsModule (FormControl, FormGroup, etc.)
 
 ```java 
-//@FindBy(css = "#form-mat-select")
-public static MaterialSelector formMatSelect;
-//@FindBy(css = "#form-mat-select-confirm")
-public static Text formMatSelectConfirm;
+  //@FindBy(css = "#form-mat-select")
+  @UI("#form-mat-select")
+  public static MaterialSelector formMatSelect;
+  
+  //@FindBy(css = "#form-mat-select-confirm")
+  @UI("#form-mat-select-confirm")
+  public static Text formMatSelectConfirm;
 
-@Test
-public void checkOptionCanBeSelectedByIndexAndConfirmMessageWillAppear() {
-    formMatSelect.select(3);
-    formMatSelect.is().selected(TACOS);
-    formMatSelectConfirm.assertThat().text("Selected food: tacos-2");
-}
-@Test
-public void checkListEnabledOptions() {
-    formMatSelect.has().listEnabled(Arrays.asList(STEAK, PIZZA, TACOS));
-}
+  @Test
+  public void checkLabelValue() {
+      formMatSelect.label().has().value("Favorite food");
+  }
 
-//@FindBy(css = "#form-native-select")
-public static NativeSelector formNativeSelect;
-//@FindBy(css = "#form-native-select-confirm")
-public static Text formNativeSelectConfirm;
+  @Test
+  public void checkOptionCanBeSelectedByIndexAndConfirmMessageWillAppear() {
+      formMatSelect.select(ELEMENT.startIndex + 2);
+      formMatSelect.is().selected(TACOS);
+      formMatSelectConfirm.assertThat().text("Selected food: tacos-2");
+  }
 
-@Test
-public void checkOptionCanBeSelectedByNameAndConfirmMessageWillAppear() {
-    formNativeSelect.select(VOLVO);
-    formNativeSelect.is().selected(containsString(VOLVO));
-    formNativeSelectConfirm.assertThat().text("Selected car: volvo");
-}
-@Test
-public void checkAvailableOptions() {
-    formNativeSelect.assertThat().values(hasItem(VOLVO)).values(hasItems(VOLVO, SAAB, MERCEDES));
-}
+  //@FindBy(css = "#form-native-select")
+  @UI("#form-native-select")
+  public static NativeSelector formNativeSelect;
+  
+  //@FindBy(css = "#form-native-select-confirm")
+  @UI("#form-native-select-confirm")
+  public static Text formNativeSelectConfirm;
+
+  @Test
+  public void checkLabelValue() {
+      formMatSelect.label().has().value("Favorite food");
+  }
+
+  @Test
+  public void checkOptionCanBeSelectedByIndexAndConfirmMessageWillAppear() {
+      formMatSelect.select(ELEMENT.startIndex + 2);
+      formMatSelect.is().selected(TACOS);
+      formMatSelectConfirm.assertThat().text("Selected food: tacos-2");
+  }
 ```
 ![Form Select](../../images/angular/form_select.png)
 
 ```html 
-<mat-form-field>
-    <mat-label>Favorite food</mat-label>
-    <mat-select [(ngModel)]="selectedValue" name="food" id="form-mat-select">
-      <mat-option *ngFor="let food of foods" [value]="food.value" id="form-mat-select-list">
-        {{food.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <p id="form-mat-select-confirm"> Selected food: {{selectedValue}} </p>
-
-  <mat-form-field>
-    <mat-label>Favorite car</mat-label>
-    <select matNativeControl [(ngModel)]="selectedCar" name="car" id="form-native-select">
-      <option value="" selected></option>
-      <option *ngFor="let car of cars" [value]="car.value">
-        {{car.viewValue}}
-      </option>
-    </select>
-  </mat-form-field>
-  <p id="form-native-select-confirm"> Selected car: {{selectedCar}} </p>
+<select-form-example _nghost-nsg-c246="" ng-version="9.1.0">
+	<h2 _ngcontent-nsg-c246="" class="example-h2">
+		<a _ngcontent-nsg-c246="" href="https://material.angular.io/components/select/overview#getting-and-setting-the-select-value"> Select in a form </a>
+	</h2>
+	<form _ngcontent-nsg-c246="" novalidate="" class="ng-valid ng-touched ng-dirty">
+		<h4 _ngcontent-nsg-c246="">mat-select</h4>
+		<mat-form-field _ngcontent-nsg-c246="" class="mat-form-field ng-tns-c95-11 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-valid mat-form-field-should-float ng-touched ng-dirty">
+			<div class="mat-form-field-wrapper ng-tns-c95-11">
+				<div class="mat-form-field-flex ng-tns-c95-11">
+					<div class="mat-form-field-infix ng-tns-c95-11">
+						<mat-select _ngcontent-nsg-c246="" role="listbox" name="food" id="form-mat-select" class="mat-select ng-tns-c171-12 ng-tns-c95-11 ng-star-inserted ng-valid ng-touched ng-dirty" tabindex="0" aria-labelledby="mat-form-field-label-19" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false">
+							<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-12">
+								<div class="mat-select-value ng-tns-c171-12">
+									<span class="mat-select-value-text ng-tns-c171-12 ng-star-inserted">
+										<span class="ng-tns-c171-12 ng-star-inserted">Tacos</span>
+									</span>
+								</div>
+								<div class="mat-select-arrow-wrapper ng-tns-c171-12">
+									<div class="mat-select-arrow ng-tns-c171-12"/>
+								</div>
+							</div>
+						</mat-select>
+						<span class="mat-form-field-label-wrapper ng-tns-c95-11">
+							<label class="mat-form-field-label ng-tns-c95-11 ng-star-inserted" id="mat-form-field-label-19" for="form-mat-select" aria-owns="form-mat-select">
+								<mat-label _ngcontent-nsg-c246="" class="ng-tns-c95-11 ng-star-inserted">Favorite food</mat-label>
+							</label>
+						</span>
+					</div>
+				</div>
+				<div class="mat-form-field-underline ng-tns-c95-11 ng-star-inserted">
+					<span class="mat-form-field-ripple ng-tns-c95-11"/>
+				</div>
+				<div class="mat-form-field-subscript-wrapper ng-tns-c95-11">
+					<div class="mat-form-field-hint-wrapper ng-tns-c95-11 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+						<div class="mat-form-field-hint-spacer ng-tns-c95-11"/>
+					</div>
+				</div>
+			</div>
+		</mat-form-field>
+		<p _ngcontent-nsg-c246="" id="form-mat-select-confirm"> Selected food: tacos-2 </p>
+		<h4 _ngcontent-nsg-c246="">native html select</h4>
+		<mat-form-field _ngcontent-nsg-c246="" class="mat-form-field ng-tns-c95-13 mat-primary mat-form-field-type-mat-native-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-valid mat-form-field-should-float ng-dirty ng-touched">
+			<div class="mat-form-field-wrapper ng-tns-c95-13">
+				<div class="mat-form-field-flex ng-tns-c95-13">
+					<div class="mat-form-field-infix ng-tns-c95-13">
+						<select _ngcontent-nsg-c246="" matnativecontrol="" name="car" id="form-native-select" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-13 cdk-text-field-autofill-monitored ng-valid ng-dirty ng-touched" aria-invalid="false" aria-required="false">
+							<option _ngcontent-nsg-c246="" value="" selected=""/>
+							<option _ngcontent-nsg-c246="" value="volvo" class="ng-star-inserted"> Volvo </option>
+							<option _ngcontent-nsg-c246="" value="saab" class="ng-star-inserted"> Saab </option>
+							<option _ngcontent-nsg-c246="" value="mercedes" class="ng-star-inserted"> Mercedes </option>
+						</select>
+						<span class="mat-form-field-label-wrapper ng-tns-c95-13">
+							<label class="mat-form-field-label ng-tns-c95-13 ng-star-inserted" id="mat-form-field-label-21" for="form-native-select" aria-owns="form-native-select">
+								<mat-label _ngcontent-nsg-c246="" class="ng-tns-c95-13 ng-star-inserted">Favorite car</mat-label>
+							</label>
+						</span>
+					</div>
+				</div>
+				<div class="mat-form-field-underline ng-tns-c95-13 ng-star-inserted">
+					<span class="mat-form-field-ripple ng-tns-c95-13"/>
+				</div>
+				<div class="mat-form-field-subscript-wrapper ng-tns-c95-13">
+					<div class="mat-form-field-hint-wrapper ng-tns-c95-13 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+						<div class="mat-form-field-hint-spacer ng-tns-c95-13"/>
+					</div>
+				</div>
+			</div>
+		</mat-form-field>
+		<p _ngcontent-nsg-c246="" id="form-native-select-confirm"> Selected car: volvo </p>
+	</form>
+</select-form-example>
 ```
 There are a number of ```<mat-form-field>``` features that can be used with both ```<select>``` and ```<mat-select>```.
 These include error messages, hint text, prefix & suffix, and theming.
 
 ```java 
-//@FindBy(css = "#form-mat-feature-select")
-public static MaterialSelector formMatFeatureSelect;
+  //@FindBy(css = "#form-mat-feature-select")
+  @UI("#form-mat-feature-select")
+  public static MaterialSelector formMatFeatureSelect;
 
-@Test
-public void checkOptionCanBeSelectedByNameAndHintMessageWillAppear() {
-    formMatFeatureSelect.select("Fox");
-    formMatFeatureSelect.is().selected("Fox");
-    formMatFeatureSelect.hint().assertThat().text("Wa-pa-pa-pa-pa-pa-pow!");
-}
-@Test
-public void checkEmptyOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
-    formMatFeatureSelect.select("--");
-    formMatFeatureSelect.is().selected(matchesPattern("\\W+"));
-    formMatFeatureSelect.error().assertThat().text("Please choose an animal");
-}
+  @Test
+  public void checkLabelValue() {
+      formMatFeatureSelect.label().has().value("Favorite animal *");
+  }
 
-//@FindBy(css = "#form-native-feature-select")
-public static NativeSelector formNativeFeatureSelect;
+  @Test
+  public void checkOptionCanBeSelectedByNameAndHintMessageWillAppear() {
+      formMatFeatureSelect.select("Fox");
+      formMatFeatureSelect.is().selected("Fox");
+      formMatFeatureSelect.hint().assertThat().text("Wa-pa-pa-pa-pa-pa-pow!");
+  }
 
-@Test
-public void checkOptionCanBeSelectedByNameAndHintMessageWillAppear() {
-    formNativeFeatureSelect.select(MERCEDES);
-    formNativeFeatureSelect.is().selected(MERCEDES);
-    formNativeFeatureSelect.waitFor().attr(ARIA_INVALID, "false");
-    formNativeFeatureSelect.hint().assertThat().text("You can pick up your favorite car here");
-}
-@Test
-public void checkEmptyOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
-    formNativeFeatureSelect.select("");
-    formNativeFeatureSelect.core().click(0, formNativeFeatureSelect.core().getRect().getHeight() + 1);
-    formNativeFeatureSelect.core().click(0, formNativeFeatureSelect.core().getRect().getHeight() + 1);
-    formNativeFeatureSelect.is().selected("");
-    formNativeFeatureSelect.waitFor().attr(ARIA_INVALID, "true");
-    formNativeFeatureSelect.error().assertThat().text("This field is required");
-}
+  @Test
+  public void checkEmptyOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
+      formMatFeatureSelect.select("--");
+      formMatFeatureSelect.is().selected(matchesPattern("\\W+"));
+      formMatFeatureSelect.error().assertThat().text("Please choose an animal");
+  }
 ```
 ![Form Feature Select](../../images/angular/form_feature_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Favorite animal</mat-label>
-  <mat-select [formControl]="animalControl" required id="form-mat-feature-select">
-    <mat-option id="form-mat-feature-list">--</mat-option>
-    <mat-option *ngFor="let animal of animals" [value]="animal" id="form-mat-feature-list">
-      {{animal.name}}
-    </mat-option>
-  </mat-select>
-  <mat-error *ngIf="animalControl.hasError('required')" id="form-mat-feature-error">Please choose an animal</mat-error>
-  <mat-hint id="form-mat-feature-hint">{{animalControl.value?.sound}}</mat-hint>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Select your car (required)</mat-label>
-  <select matNativeControl required [formControl]="selectFormControl" id="form-native-feature-select">
-    <option label="--select something--"></option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
-  <mat-error *ngIf="selectFormControl.hasError('required')" id="form-native-feature-error">
-    This field is required
-  </mat-error>
-  <mat-hint id="form-native-feature-hint">You can pick up your favorite car here</mat-hint>
-</mat-form-field>
+<select-hint-error-example _nghost-nsg-c247="" ng-version="9.1.0">
+	<h2 _ngcontent-nsg-c247="" class="example-h2">
+		<a _ngcontent-nsg-c247="" href="https://material.angular.io/components/select/overview#form-field-features"> Select with form field features </a>
+	</h2>
+	<h4 _ngcontent-nsg-c247="">mat select</h4>
+	<mat-form-field _ngcontent-nsg-c247="" class="mat-form-field ng-tns-c95-14 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-should-float ng-touched ng-dirty ng-valid">
+		<div class="mat-form-field-wrapper ng-tns-c95-14">
+			<div class="mat-form-field-flex ng-tns-c95-14">
+				<div class="mat-form-field-infix ng-tns-c95-14">
+					<mat-select _ngcontent-nsg-c247="" role="listbox" required="" id="form-mat-feature-select" class="mat-select ng-tns-c171-15 ng-tns-c95-14 ng-star-inserted mat-select-required ng-touched ng-dirty ng-valid" tabindex="0" aria-labelledby="mat-form-field-label-23" aria-required="true" aria-disabled="false" aria-invalid="false" aria-multiselectable="false" aria-describedby="form-mat-feature-hint">
+						<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-15">
+							<div class="mat-select-value ng-tns-c171-15">
+								<span class="mat-select-value-text ng-tns-c171-15 ng-star-inserted">
+									<span class="ng-tns-c171-15 ng-star-inserted">Dog</span>
+								</span>
+							</div>
+							<div class="mat-select-arrow-wrapper ng-tns-c171-15">
+								<div class="mat-select-arrow ng-tns-c171-15"/>
+							</div>
+						</div>
+					</mat-select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-14">
+						<label class="mat-form-field-label ng-tns-c95-14 ng-star-inserted" id="mat-form-field-label-23" for="form-mat-feature-select" aria-owns="form-mat-feature-select">
+							<mat-label _ngcontent-nsg-c247="" class="ng-tns-c95-14 ng-star-inserted">Favorite animal</mat-label>
+							<span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c95-14 ng-star-inserted"> *</span>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-14 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-14"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-14">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-14 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<mat-hint _ngcontent-nsg-c247="" id="form-mat-feature-hint" class="mat-hint ng-tns-c95-14">Woof!</mat-hint>
+					<div class="mat-form-field-hint-spacer ng-tns-c95-14"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+	<h4 _ngcontent-nsg-c247="">native html select</h4>
+	<mat-form-field _ngcontent-nsg-c247="" class="mat-form-field ng-tns-c95-16 mat-primary mat-form-field-type-mat-native-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label ng-dirty ng-valid ng-touched">
+		<div class="mat-form-field-wrapper ng-tns-c95-16">
+			<div class="mat-form-field-flex ng-tns-c95-16">
+				<div class="mat-form-field-infix ng-tns-c95-16">
+					<select _ngcontent-nsg-c247="" matnativecontrol="" required="" id="form-native-feature-select" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-16 cdk-text-field-autofill-monitored ng-dirty ng-valid ng-touched" aria-describedby="form-native-feature-hint" aria-invalid="false" aria-required="true">
+						<option _ngcontent-nsg-c247="" label="--select something--"/>
+						<option _ngcontent-nsg-c247="" value="saab">Saab</option>
+						<option _ngcontent-nsg-c247="" value="mercedes">Mercedes</option>
+						<option _ngcontent-nsg-c247="" value="audi">Audi</option>
+					</select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-16">
+						<label class="mat-form-field-label ng-tns-c95-16 ng-star-inserted" id="mat-form-field-label-25" for="form-native-feature-select" aria-owns="form-native-feature-select">
+							<mat-label _ngcontent-nsg-c247="" class="ng-tns-c95-16 ng-star-inserted">Select your car (required)</mat-label>
+							<span aria-hidden="true" class="mat-placeholder-required mat-form-field-required-marker ng-tns-c95-16 ng-star-inserted"> *</span>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-16 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-16"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-16">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-16 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<mat-hint _ngcontent-nsg-c247="" id="form-native-feature-hint" class="mat-hint ng-tns-c95-16">You can pick up your favorite car here</mat-hint>
+					<div class="mat-form-field-hint-spacer ng-tns-c95-16"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+</select-hint-error-example>
 ```
 It is possible to disable the entire select or individual options in the select by using the disabled property on the
 ```<select>``` or ```<mat-select>``` and the ```<option>``` or ```<mat-option>``` elements respectively.
 
 ```java 
-//@FindBy(css = "#disable-mat-select")
-public static MaterialSelector disableMatSelect;
-//@FindBy(css = "#disable-checkbox-select")
-public static Checkbox disableCheckboxSelect;
+  //@FindBy(css = "#disable-mat-select")
+  @UI("#disable-mat-select")
+  public static MaterialSelector disableMatSelect;
+    
+  //@FindBy(css = "#disable-checkbox-select")
+  @UI("#disable-checkbox-select")
+  public static Checkbox disableCheckboxSelect;
 
-@Test
-public void verifyCheckboxLabelValue() {
-    disableCheckboxSelect.label().has().value("Disable select");
-}
-@Test
-public void checkDisabledOptionCannotBeSelectedByName() {
-    pickDisableSelectCheckboxAsUnchecked();
-    disableMatSelect.waitFor().attr(ARIA_DISABLED, "false");
-    String preselectedValue = disableMatSelect.selected();
-    disableMatSelect.multipleSelect(OPTION_2_DISABLED);
-    disableMatSelect.is().selected(preselectedValue);
-}
+  @Test
+  public void checkLabelValue() {
+      disableMatSelect.label().has().value("Choose an option");
+  }
 
-//@FindBy(css = "#disable-native-select")
-public static NativeSelector disableNativeSelect;
+  @Test
+  public void verifyCheckboxLabelValue() {
+      disableCheckboxSelect.label().has().value("Disable select");
+  }
 
-@Test
-public void checkEnabledOptionCanBeSelectedByIndex() {
-    pickDisableSelectCheckboxAsUnchecked();
-    disableNativeSelect.waitFor().displayed();
-    disableNativeSelect.select(2);
-    disableNativeSelect.is().selected(VOLVO);
-}
-@Test
-public void checkDisabledOptionCannotBeSelectedByName() {
-    pickDisableSelectCheckboxAsUnchecked();
-    disableNativeSelect.waitFor().displayed();
-    String preselectedValue = disableNativeSelect.selected();
-    disableNativeSelect.select(SAAB);
-    disableNativeSelect.is().selected(preselectedValue);
-}
+  @Test
+  public void verifyCheckboxCanDisableSelect() {
+      pickDisableSelectCheckboxAsChecked();
+      disableMatSelect.waitFor().attr(ARIA_DISABLED, "true");
+  }
+
+  //@FindBy(css = "#disable-native-select")
+  @UI("#disable-native-select")
+  public static NativeSelector disableNativeSelect;
+
+  @Test
+  public void checkLabelValue() {
+      disableNativeSelect.label().has().value("Choose an option");
+  }
+
+  @Test
+  public void verifyCheckboxCanDisableSelect() {
+      pickDisableSelectCheckboxAsChecked();
+      disableNativeSelect.waitFor().has().attr(DISABLED);
+  }
+
+  @Test
+  public void checkEnabledOptionCanBeSelectedByIndex() {
+      pickDisableSelectCheckboxAsUnchecked();
+      disableNativeSelect.waitFor().displayed();
+      disableNativeSelect.select(ELEMENT.startIndex + 1);
+      disableNativeSelect.is().selected(VOLVO);
+  }
 ```
 ![Disabled Select](../../images/angular/disabled_select.png)
 
 ```html 
-<p>
-  <mat-checkbox [formControl]="disableSelect" id="disable-checkbox-select">Disable select</mat-checkbox>
-</p>
-
-<mat-form-field>
-  <mat-label>Choose an option</mat-label>
-  <mat-select [disabled]="disableSelect.value" id="disable-mat-select">
-    <mat-option value="option1">Option 1</mat-option>
-    <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
-    <mat-option value="option3">Option 3</mat-option>
-  </mat-select>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Choose an option</mat-label>
-  <select matNativeControl [disabled]="disableSelect.value" id="disable-native-select">
-    <option value="" selected disabled></option>
-    <option value="volvo">Volvo</option>
-    <option value="saab" disabled>Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
-</mat-form-field>
+<select-disabled-example _nghost-nsg-c248="" ng-version="9.1.0">
+	<h2 _ngcontent-nsg-c248="" class="example-h2">
+		<a _ngcontent-nsg-c248="" href="https://material.angular.io/components/select/overview#disabling-the-select-or-individual-options"> Disabled select </a>
+	</h2>
+	<p _ngcontent-nsg-c248="">
+		<mat-checkbox _ngcontent-nsg-c248="" id="disable-checkbox-select" class="mat-checkbox mat-accent ng-valid ng-dirty ng-touched mat-checkbox-checked">
+			<label class="mat-checkbox-layout" for="disable-checkbox-select-input">
+				<div class="mat-checkbox-inner-container">
+					<input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="disable-checkbox-select-input" tabindex="0" aria-checked="true">
+						<div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator">
+							<div class="mat-ripple-element mat-checkbox-persistent-ripple"/>
+						</div>
+						<div class="mat-checkbox-frame"/>
+						<div class="mat-checkbox-background">
+							<svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark">
+								<path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"/>
+							</svg>
+							<div class="mat-checkbox-mixedmark"/>
+						</div>
+					</div>
+					<span class="mat-checkbox-label">
+						<span style="display: none;">&nbsp;</span>Disable select</span>
+				</label>
+			</mat-checkbox>
+		</p>
+		<h4 _ngcontent-nsg-c248="">mat-select</h4>
+		<mat-form-field _ngcontent-nsg-c248="" class="mat-form-field ng-tns-c95-17 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder mat-form-field-disabled">
+			<div class="mat-form-field-wrapper ng-tns-c95-17">
+				<div class="mat-form-field-flex ng-tns-c95-17">
+					<div class="mat-form-field-infix ng-tns-c95-17">
+						<mat-select _ngcontent-nsg-c248="" role="listbox" id="disable-mat-select" class="mat-select ng-tns-c171-18 ng-tns-c95-17 ng-star-inserted mat-select-empty mat-select-disabled" tabindex="-1" aria-labelledby="mat-form-field-label-27" aria-required="false" aria-disabled="true" aria-invalid="false" aria-multiselectable="false">
+							<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-18">
+								<div class="mat-select-value ng-tns-c171-18">
+									<span class="mat-select-placeholder ng-tns-c171-18 ng-star-inserted">&nbsp;</span>
+								</div>
+								<div class="mat-select-arrow-wrapper ng-tns-c171-18">
+									<div class="mat-select-arrow ng-tns-c171-18"/>
+								</div>
+							</div>
+						</mat-select>
+						<span class="mat-form-field-label-wrapper ng-tns-c95-17">
+							<label class="mat-form-field-label ng-tns-c95-17 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-27" for="disable-mat-select" aria-owns="disable-mat-select">
+								<mat-label _ngcontent-nsg-c248="" class="ng-tns-c95-17 ng-star-inserted">Choose an option</mat-label>
+							</label>
+						</span>
+					</div>
+				</div>
+				<div class="mat-form-field-underline ng-tns-c95-17 ng-star-inserted">
+					<span class="mat-form-field-ripple ng-tns-c95-17"/>
+				</div>
+				<div class="mat-form-field-subscript-wrapper ng-tns-c95-17">
+					<div class="mat-form-field-hint-wrapper ng-tns-c95-17 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+						<div class="mat-form-field-hint-spacer ng-tns-c95-17"/>
+					</div>
+				</div>
+			</div>
+		</mat-form-field>
+		<h4 _ngcontent-nsg-c248="">native html select</h4>
+		<mat-form-field _ngcontent-nsg-c248="" class="mat-form-field ng-tns-c95-19 mat-primary mat-form-field-type-mat-native-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-should-float mat-form-field-disabled">
+			<div class="mat-form-field-wrapper ng-tns-c95-19">
+				<div class="mat-form-field-flex ng-tns-c95-19">
+					<div class="mat-form-field-infix ng-tns-c95-19">
+						<select _ngcontent-nsg-c248="" matnativecontrol="" id="disable-native-select" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-19 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" disabled="">
+							<option _ngcontent-nsg-c248="" value="" selected="" disabled=""/>
+							<option _ngcontent-nsg-c248="" value="volvo">Volvo</option>
+							<option _ngcontent-nsg-c248="" value="saab" disabled="">Saab</option>
+							<option _ngcontent-nsg-c248="" value="mercedes">Mercedes</option>
+							<option _ngcontent-nsg-c248="" value="audi">Audi</option>
+						</select>
+						<span class="mat-form-field-label-wrapper ng-tns-c95-19">
+							<label class="mat-form-field-label ng-tns-c95-19 ng-star-inserted" id="mat-form-field-label-29" for="disable-native-select" aria-owns="disable-native-select">
+								<mat-label _ngcontent-nsg-c248="" class="ng-tns-c95-19 ng-star-inserted">Choose an option</mat-label>
+							</label>
+						</span>
+					</div>
+				</div>
+				<div class="mat-form-field-underline ng-tns-c95-19 ng-star-inserted">
+					<span class="mat-form-field-ripple ng-tns-c95-19"/>
+				</div>
+				<div class="mat-form-field-subscript-wrapper ng-tns-c95-19">
+					<div class="mat-form-field-hint-wrapper ng-tns-c95-19 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+						<div class="mat-form-field-hint-spacer ng-tns-c95-19"/>
+					</div>
+				</div>
+			</div>
+		</mat-form-field>
+	</select-disabled-example>
 ```
 If you want one of your options to reset the select's value, you can omit specifying its value.
 
 ```java 
-//@FindBy(css = "#reset-mat-select")
-public static MaterialSelector resetMatSelect;
+  //@FindBy(css = "#reset-mat-select")
+  @UI("#reset-mat-select")
+  public static MaterialSelector resetMatSelect;
 
-@Test
-public void checkResetOptionCanBeSelectedById() {
-    resetMatSelect.select(1);
-    resetMatSelect.is().selected(matchesPattern("\\W+"));
-}
-@Test
-public void checkEnabledOptionCanBeSelectedByName() {
-    resetMatSelect.select("Montana");
-    resetMatSelect.is().selected("Montana");
-}
-@Test
-public void checkListDisabledOptions() {
-    resetMatSelect.has().listDisabled();
-}
+  @Test
+  public void checkLabelValue() {
+      resetMatSelect.label().has().value("State");
+  }
 
-//@FindBy(css = "#reset-native-select")
-public static NativeSelector resetNativeSelect;
+  @Test
+  public void checkResetOptionCanBeSelectedById() {
+      resetMatSelect.select(ELEMENT.startIndex);
+      resetMatSelect.is().selected(matchesPattern("\\W+"));
+  }
 
-@Test
-public void checkResetOptionCanBeSelectedById() {
-    resetNativeSelect.select(1);
-    resetNativeSelect.is().selected(matchesPattern("\\W*"));
-}
-@Test
-public void checkListEnabledOptions() {
-    resetNativeSelect.has().listEnabled(Arrays.asList("", VOLVO, SAAB, MERCEDES, AUDI));
-}
-@Test
-public void checkAvailableOptions() {
-    resetNativeSelect.assertThat().values(hasItem(MERCEDES)).values(hasItems(SAAB, AUDI, VOLVO));
-}
+  @Test
+  public void checkEnabledOptionCanBeSelectedByName() {
+      resetMatSelect.select("Montana");
+      resetMatSelect.is().selected("Montana");
+  }
+
+  @Test
+  public void checkListDisabledOptions() {
+      resetMatSelect.has().listDisabled();
+  }
+
+  //@FindBy(css = "#reset-native-select")
+  @UI("#reset-native-select")
+  public static NativeSelector resetNativeSelect;
+
+  @Test
+  public void checkLabelValue() {
+      resetNativeSelect.label().has().value("Select your car");
+  }
+
+  @Test
+  public void checkResetOptionCanBeSelectedById() {
+      resetNativeSelect.select(ELEMENT.startIndex);
+      resetNativeSelect.is().selected(matchesPattern("\\W*"));
+  }
+
+  @Test
+  public void checkEnabledOptionCanBeSelectedByName() {
+      resetNativeSelect.select(AUDI);
+      resetNativeSelect.is().selected(AUDI);
+  }
 ```
 ![Reset Select](../../images/angular/reset_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>State</mat-label>
-  <mat-select id="reset-mat-select">
-    <mat-option>None</mat-option>
-    <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-  </mat-select>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Select your car</mat-label>
-  <select matNativeControl id="reset-native-select">
-    <option value="" selected></option>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
-</mat-form-field>
+<select-reset-example _nghost-nsg-c249="" ng-version="9.1.0">
+	<h2 _ngcontent-nsg-c249="" class="example-h2">
+		<a _ngcontent-nsg-c249="" href="https://material.angular.io/components/select/overview#resetting-the-select-value"> Select with reset option </a>
+	</h2>
+	<h4 _ngcontent-nsg-c249="">mat-select</h4>
+	<mat-form-field _ngcontent-nsg-c249="" class="mat-form-field ng-tns-c95-20 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-should-float">
+		<div class="mat-form-field-wrapper ng-tns-c95-20">
+			<div class="mat-form-field-flex ng-tns-c95-20">
+				<div class="mat-form-field-infix ng-tns-c95-20">
+					<mat-select _ngcontent-nsg-c249="" role="listbox" id="reset-mat-select" class="mat-select ng-tns-c171-21 ng-tns-c95-20 ng-star-inserted" tabindex="0" aria-labelledby="mat-form-field-label-31" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false">
+						<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-21">
+							<div class="mat-select-value ng-tns-c171-21">
+								<span class="mat-select-value-text ng-tns-c171-21 ng-star-inserted">
+									<span class="ng-tns-c171-21 ng-star-inserted">Montana</span>
+								</span>
+							</div>
+							<div class="mat-select-arrow-wrapper ng-tns-c171-21">
+								<div class="mat-select-arrow ng-tns-c171-21"/>
+							</div>
+						</div>
+					</mat-select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-20">
+						<label class="mat-form-field-label ng-tns-c95-20 ng-star-inserted" id="mat-form-field-label-31" for="reset-mat-select" aria-owns="reset-mat-select">
+							<mat-label _ngcontent-nsg-c249="" class="ng-tns-c95-20 ng-star-inserted">State</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-20 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-20"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-20">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-20 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-20"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+	<h4 _ngcontent-nsg-c249="">native html select</h4>
+	<mat-form-field _ngcontent-nsg-c249="" class="mat-form-field ng-tns-c95-22 mat-primary mat-form-field-type-mat-native-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder">
+		<div class="mat-form-field-wrapper ng-tns-c95-22">
+			<div class="mat-form-field-flex ng-tns-c95-22">
+				<div class="mat-form-field-infix ng-tns-c95-22">
+					<select _ngcontent-nsg-c249="" matnativecontrol="" id="reset-native-select" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-22 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
+						<option _ngcontent-nsg-c249="" value="" selected=""/>
+						<option _ngcontent-nsg-c249="" value="volvo">Volvo</option>
+						<option _ngcontent-nsg-c249="" value="saab">Saab</option>
+						<option _ngcontent-nsg-c249="" value="mercedes">Mercedes</option>
+						<option _ngcontent-nsg-c249="" value="audi">Audi</option>
+					</select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-22">
+						<label class="mat-form-field-label ng-tns-c95-22 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-33" for="reset-native-select" aria-owns="reset-native-select">
+							<mat-label _ngcontent-nsg-c249="" class="ng-tns-c95-22 ng-star-inserted">Select your car</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-22 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-22"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-22">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-22 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-22"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+</select-reset-example>
 ```
 The ```<mat-optgroup>``` element can be used to group common options under a subheading. The name of the group can be
 set using the label property of ```<mat-optgroup>```.
 
 ```java 
-//@FindBy(css = "#option-groups-mat-select")
-public static MaterialSelector optionGroupsMatSelect;
+  //@FindBy(css = "#option-groups-mat-select")
+  @UI("#option-groups-mat-select")
+  public static MaterialSelector optionGroupsMatSelect;
 
-@Test
-public void checkDisabledOptionCannotBeSelectedByName() {
-    String preselectedValue = optionGroupsMatSelect.selected();
-    optionGroupsMatSelect.multipleSelect(FLAREON);
-    optionGroupsMatSelect.is().selected(preselectedValue);
-}
-@Test
-public void checkListDisabledOptions() {
-    optionGroupsMatSelect.has().listDisabled(CHARMANDER, VULPIX, FLAREON);
-}
-@Test
-public void checkAvailableGroups() {
-    optionGroupsMatSelect.has().groups(Arrays.asList(GRASS, WATER, FIRE, PSYCHIC));
-}
-@Test
-public void checkAvailableOptionsAndGroups() {
-    optionGroupsMatSelect.has().groupsAndOptions(getPokemonsMap());
-}
+  @Test
+  public void checkLabelValue() {
+      optionGroupsMatSelect.label().has().value("Pokemon");
+  }
 
-//@FindBy(css = "#option-groups-native-select")
-public static NativeSelector optionGroupsNativeSelect;
+  @Test
+  public void checkNoneOptionCanBeSelectedById() {
+      optionGroupsMatSelect.select(ELEMENT.startIndex);
+      optionGroupsMatSelect.is().selected(matchesPattern("\\W+"));
+  }
 
-@Test
-public void checkListEnabledOptions() {
-    optionGroupsNativeSelect.has().listEnabled(Arrays.asList(VOLVO, SAAB, MERCEDES, AUDI));
-}
-@Test
-public void checkAvailableOptions() {
-    optionGroupsNativeSelect.assertThat().values(MERCEDES).values(VOLVO, SAAB, AUDI, MERCEDES);
-}
-@Test
-public void checkAvailableGroups() {
-    optionGroupsNativeSelect.is().groups(Arrays.asList(SWEDISH_CARS, GERMAN_CARS));
-}
-@Test
-public void checkAvailableOptionsAndGroups() {
-    optionGroupsNativeSelect.assertThat().groupsAndOptions(getCarsMap());
-}
+  @Test
+  public void checkEnabledOptionCanBeSelectedByName() {
+      optionGroupsMatSelect.select(ODDISH);
+      optionGroupsMatSelect.is().selected(ODDISH);
+  }
+
+  //@FindBy(css = "#option-groups-native-select")
+  @UI("#option-groups-native-select")
+  public static NativeSelector optionGroupsNativeSelect;
+
+  @Test
+  public void checkLabelValue() {
+      optionGroupsNativeSelect.label().has().value("Cars");
+  }
+
+  @Test
+  public void checkEnabledOptionCanBeSelectedByName() {
+      optionGroupsNativeSelect.select(SAAB);
+      optionGroupsNativeSelect.is().selected(SAAB);
+  }
+
+  @Test
+  public void checkListDisabledOptions() {
+      optionGroupsNativeSelect.has().listDisabled();
+  }
 ```
 ![Option Groups Select](../../images/angular/option_groups_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Pokemon</mat-label>
-  <mat-select [formControl]="pokemonControl" id="option-groups-mat-select">
-    <mat-option>-- None --</mat-option>
-    <mat-optgroup *ngFor="let group of pokemonGroups" [label]="group.name"
-                  [disabled]="group.disabled">
-      <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
-        {{pokemon.viewValue}}
-      </mat-option>
-    </mat-optgroup>
-  </mat-select>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Cars</mat-label>
-  <select matNativeControl id="option-groups-native-select">
-    <optgroup label="Swedish Cars">
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-    </optgroup>
-    <optgroup label="German Cars">
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
-    </optgroup>
-  </select>
-</mat-form-field>
+<select-optgroup-example _nghost-nsg-c250="" ng-version="9.1.0">
+	<h2 _ngcontent-nsg-c250="" class="example-h2">
+		<a _ngcontent-nsg-c250="" href="https://material.angular.io/components/select/overview#creating-groups-of-options"> Select with option groups </a>
+	</h2>
+	<h4 _ngcontent-nsg-c250="">mat-select</h4>
+	<mat-form-field _ngcontent-nsg-c250="" class="mat-form-field ng-tns-c95-23 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid">
+		<div class="mat-form-field-wrapper ng-tns-c95-23">
+			<div class="mat-form-field-flex ng-tns-c95-23">
+				<div class="mat-form-field-infix ng-tns-c95-23">
+					<mat-select _ngcontent-nsg-c250="" role="listbox" id="option-groups-mat-select" class="mat-select ng-tns-c171-24 ng-tns-c95-23 ng-star-inserted mat-select-empty ng-untouched ng-pristine ng-valid" tabindex="0" aria-labelledby="mat-form-field-label-35" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false">
+						<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-24">
+							<div class="mat-select-value ng-tns-c171-24">
+								<span class="mat-select-placeholder ng-tns-c171-24 ng-star-inserted">&nbsp;</span>
+							</div>
+							<div class="mat-select-arrow-wrapper ng-tns-c171-24">
+								<div class="mat-select-arrow ng-tns-c171-24"/>
+							</div>
+						</div>
+					</mat-select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-23">
+						<label class="mat-form-field-label ng-tns-c95-23 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-35" for="option-groups-mat-select" aria-owns="option-groups-mat-select">
+							<mat-label _ngcontent-nsg-c250="" class="ng-tns-c95-23 ng-star-inserted">Pokemon</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-23 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-23"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-23">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-23 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-23"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+	<h4 _ngcontent-nsg-c250="">native html select</h4>
+	<mat-form-field _ngcontent-nsg-c250="" class="mat-form-field ng-tns-c95-25 mat-primary mat-form-field-type-mat-native-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label">
+		<div class="mat-form-field-wrapper ng-tns-c95-25">
+			<div class="mat-form-field-flex ng-tns-c95-25">
+				<div class="mat-form-field-infix ng-tns-c95-25">
+					<select _ngcontent-nsg-c250="" matnativecontrol="" id="option-groups-native-select" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-25 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
+						<optgroup _ngcontent-nsg-c250="" label="Swedish Cars">
+							<option _ngcontent-nsg-c250="" value="volvo">Volvo</option>
+							<option _ngcontent-nsg-c250="" value="saab">Saab</option>
+						</optgroup>
+						<optgroup _ngcontent-nsg-c250="" label="German Cars">
+							<option _ngcontent-nsg-c250="" value="mercedes">Mercedes</option>
+							<option _ngcontent-nsg-c250="" value="audi">Audi</option>
+						</optgroup>
+					</select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-25">
+						<label class="mat-form-field-label ng-tns-c95-25 ng-star-inserted" id="mat-form-field-label-37" for="option-groups-native-select" aria-owns="option-groups-native-select">
+							<mat-label _ngcontent-nsg-c250="" class="ng-tns-c95-25 ng-star-inserted">Cars</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-25 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-25"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-25">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-25 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-25"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+</select-optgroup-example>
 ```
 ```java 
-//@FindBy(css = "#multiple-select")
-public static MaterialSelector multipleSelect;
+  //@FindBy(css = "#multiple-select")
+  @UI("#multiple-select")
+  public static MaterialSelector multipleSelect;
 
-@Test
-public void checkSingleOptionCanBeSelectedById() {
-    multipleSelect.multipleSelect(3);
-    multipleSelect.is().selected(ONION);
-    multipleSelect.multipleSelect(3);
-}
-@Test
-public void checkThreeOptionsCanBeSelectedByName() {
-    multipleSelect.multipleSelect(EXTRA_CHEESE, PEPPERONI, TOMATO);
-    multipleSelect.is().selected(EXTRA_CHEESE + ", " + PEPPERONI + ", " + TOMATO);
-    multipleSelect.multipleSelect(EXTRA_CHEESE, PEPPERONI, TOMATO);
-}
+  @Test
+  public void checkLabelValue() {
+      multipleSelect.label().has().value("Toppings");
+  }
+
+  @Test
+  public void checkSingleOptionCanBeSelectedById() {
+      multiSelect[0] = 3;
+      multipleSelect.multipleSelect(multiSelect);
+      multipleSelect.is().selected(ONION);
+  }
+
+  @Test(enabled = false)
+  // ONION option is selected from previous test
+  // unselectAll doesn't work
+  public void checkThreeOptionsCanBeSelectedByName() {
+      multiOptions[0] = EXTRA_CHEESE;
+      multiOptions[1] = PEPPERONI;
+      multiOptions[2] = TOMATO;
+      multipleSelect.multipleSelect(multiOptions);
+      multipleSelect.is().selected(multiOptions[0] + ", " + multiOptions[1] + ", " + multiOptions[2]);
+  }
 ```
 ```<mat-select>``` defaults to single-selection mode, but can be configured to allow multiple selection by setting the
 multiple property. This will allow the user to select multiple values at once. When using the ```<mat-select>``` in
@@ -2244,100 +2621,207 @@ multiple selection mode, its value will be a sorted list of all selected values 
 ![Multiple Select](../../images/angular/multiple_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Toppings</mat-label>
-  <mat-select [formControl]="toppings" multiple id="multiple-select">
-    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-  </mat-select>
-</mat-form-field>
+<select-multiple-example _nghost-nsg-c251="" ng-version="9.1.0">
+	<h2 _ngcontent-nsg-c251="" class="example-h2">
+		<a _ngcontent-nsg-c251="" href="https://material.angular.io/components/select/overview#multiple-selection"> Select with multiple selection </a>
+	</h2>
+	<mat-form-field _ngcontent-nsg-c251="" class="mat-form-field ng-tns-c95-26 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid">
+		<div class="mat-form-field-wrapper ng-tns-c95-26">
+			<div class="mat-form-field-flex ng-tns-c95-26">
+				<div class="mat-form-field-infix ng-tns-c95-26">
+					<mat-select _ngcontent-nsg-c251="" role="listbox" multiple="" id="multiple-select" class="mat-select ng-tns-c171-27 ng-tns-c95-26 ng-star-inserted mat-select-empty ng-untouched ng-pristine ng-valid" tabindex="0" aria-labelledby="mat-form-field-label-39" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="true">
+						<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-27">
+							<div class="mat-select-value ng-tns-c171-27">
+								<span class="mat-select-placeholder ng-tns-c171-27 ng-star-inserted">&nbsp;</span>
+							</div>
+							<div class="mat-select-arrow-wrapper ng-tns-c171-27">
+								<div class="mat-select-arrow ng-tns-c171-27"/>
+							</div>
+						</div>
+					</mat-select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-26">
+						<label class="mat-form-field-label ng-tns-c95-26 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-39" for="multiple-select" aria-owns="multiple-select">
+							<mat-label _ngcontent-nsg-c251="" class="ng-tns-c95-26 ng-star-inserted">Toppings</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-26 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-26"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-26">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-26 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-26"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+</select-multiple-example>
 ```
 If you want to display a custom trigger label inside a ```<mat-select>```, you can use the ```<mat-select-trigger>```
 element.
 
 ```java 
-//@FindBy(css = "#custom-trigger-text-select")
-public static MaterialSelector customTriggerTextSelect;
+  //@FindBy(css = "#custom-trigger-text-select")
+  @UI("#custom-trigger-text-select")
+  public static MaterialSelector customTriggerTextSelect;
 
-@Test
-public void checkOptionCanBeSelectedByName() {
-    customTriggerTextSelect.multipleSelect(SAUSAGE);
-    customTriggerTextSelect.is().selected(SAUSAGE);
-    customTriggerTextSelect.multipleSelect(SAUSAGE);
-}
-@Test
-public void checkAllOptionsCanBeSelectedById() {
-    customTriggerTextSelect.multipleSelect(1, 2, 3, 4, 5, 6);
-    customTriggerTextSelect.verify().selected(EXTRA_CHEESE + " (+5 others)");
-    customTriggerTextSelect.multipleSelect(1, 2, 3, 4, 5, 6);
-}
+  @Test
+  public void checkLabelValue() {
+      customTriggerTextSelect.label().has().value("Toppings");
+  }
+
+  @Test
+  public void checkOptionCanBeSelectedByName() {
+      multiOptions[0] = SAUSAGE;
+      customTriggerTextSelect.multipleSelect(multiOptions);
+      customTriggerTextSelect.is().selected(multiOptions[0]);
+  }
+
+  @Test
+  public void checkAllOptionsCanBeSelectedById() {
+      multiSelect = new int[] {1, 2, 3, 4, 5, 6};
+      customTriggerTextSelect.multipleSelect(multiSelect);
+      customTriggerTextSelect.verify().selected(EXTRA_CHEESE + " (+5 others)");
+  }
 ```
 ![Custom Trigger Text Select](../../images/angular/custom_trigger_text_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Toppings</mat-label>
-  <mat-select [formControl]="toppings" multiple id="custom-trigger-text-select">
-    <mat-select-trigger>
-      {{toppings.value ? toppings.value[0] : ''}}
-      <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
-        (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-      </span>
-    </mat-select-trigger>
-    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-  </mat-select>
-</mat-form-field>
+<select-custom-trigger-example _nghost-nsg-c252="" ng-version="9.1.0">
+	<h2 _ngcontent-nsg-c252="" class="example-h2">
+		<a _ngcontent-nsg-c252="" href=""> Select with custom trigger text </a>
+	</h2>
+	<mat-form-field _ngcontent-nsg-c252="" class="mat-form-field ng-tns-c95-28 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-valid mat-form-field-should-float ng-dirty ng-touched">
+		<div class="mat-form-field-wrapper ng-tns-c95-28">
+			<div class="mat-form-field-flex ng-tns-c95-28">
+				<div class="mat-form-field-infix ng-tns-c95-28">
+					<mat-select _ngcontent-nsg-c252="" role="listbox" multiple="" id="custom-trigger-text-select" class="mat-select ng-tns-c171-29 ng-tns-c95-28 ng-star-inserted ng-valid ng-dirty ng-touched" tabindex="0" aria-labelledby="mat-form-field-label-41" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="true">
+						<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-29">
+							<div class="mat-select-value ng-tns-c171-29">
+								<span class="mat-select-value-text ng-tns-c171-29 ng-star-inserted">
+									<mat-select-trigger _ngcontent-nsg-c252="" class="ng-tns-c171-29 ng-star-inserted"> Extra cheese <span _ngcontent-nsg-c252="" class="example-additional-selection ng-star-inserted"> (+5 others) </span>
+									</mat-select-trigger>
+								</span>
+							</div>
+							<div class="mat-select-arrow-wrapper ng-tns-c171-29">
+								<div class="mat-select-arrow ng-tns-c171-29"/>
+							</div>
+						</div>
+					</mat-select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-28">
+						<label class="mat-form-field-label ng-tns-c95-28 ng-star-inserted" id="mat-form-field-label-41" for="custom-trigger-text-select" aria-owns="custom-trigger-text-select">
+							<mat-label _ngcontent-nsg-c252="" class="ng-tns-c95-28 ng-star-inserted">Toppings</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-28 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-28"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-28">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-28 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-28"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+</select-custom-trigger-example>
 ```
 By default, when a user clicks on a ```<mat-option>```, a ripple animation is shown. This can be disabled by setting the
 disableRipple property on ```<mat-select>```.
 
 ```java 
-//@FindBy(css = "#no-option-ripple-select")
-public static MaterialSelector noOptionRippleSelect;
+  //@FindBy(css = "#no-option-ripple-select")
+  @UI("#no-option-ripple-select")
+  public static MaterialSelector noOptionRippleSelect;
 
-@Test
-public void checkLabelValue() {
-    noOptionRippleSelect.label().has().value("Select an option");
-}
-@Test
-public void checkOptionCanBeSelectedByName() {
-    noOptionRippleSelect.select(OPTION_1);
-    noOptionRippleSelect.is().selected(OPTION_1);
-}
+  @Test
+  public void checkLabelValue() {
+      noOptionRippleSelect.label().has().value("Select an option");
+  }
+
+  @Test
+  public void checkOptionCanBeSelectedByName() {
+      noOptionRippleSelect.select(OPTION_1);
+      noOptionRippleSelect.is().selected(OPTION_1);
+  }
+
+  @Test
+  public void checkListDisabledOptions() {
+      noOptionRippleSelect.has().listDisabled();
+  }
 ```
 ![No Option Ripple Select](../../images/angular/no_option_ripple_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Select an option</mat-label>
-  <mat-select disableRipple id="no-option-ripple-select">
-    <mat-option value="1">Option 1</mat-option>
-    <mat-option value="2">Option 2</mat-option>
-    <mat-option value="3">Option 3</mat-option>
-  </mat-select>
-</mat-form-field>
+<select-no-ripple-example _nghost-nsg-c253="" ng-version="9.1.0">
+	<h2 _ngcontent-nsg-c253="" class="example-h2">
+		<a _ngcontent-nsg-c253="" href="https://material.angular.io/components/select/overview#disabling-the-ripple-effect"> Select with no option ripple </a>
+	</h2>
+	<mat-form-field _ngcontent-nsg-c253="" class="mat-form-field ng-tns-c95-30 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder">
+		<div class="mat-form-field-wrapper ng-tns-c95-30">
+			<div class="mat-form-field-flex ng-tns-c95-30">
+				<div class="mat-form-field-infix ng-tns-c95-30">
+					<mat-select _ngcontent-nsg-c253="" role="listbox" disableripple="" id="no-option-ripple-select" class="mat-select ng-tns-c171-31 ng-tns-c95-30 ng-star-inserted mat-select-empty" tabindex="0" aria-labelledby="mat-form-field-label-43" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false">
+						<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-31">
+							<div class="mat-select-value ng-tns-c171-31">
+								<span class="mat-select-placeholder ng-tns-c171-31 ng-star-inserted">&nbsp;</span>
+							</div>
+							<div class="mat-select-arrow-wrapper ng-tns-c171-31">
+								<div class="mat-select-arrow ng-tns-c171-31"/>
+							</div>
+						</div>
+					</mat-select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-30">
+						<label class="mat-form-field-label ng-tns-c95-30 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-43" for="no-option-ripple-select" aria-owns="no-option-ripple-select">
+							<mat-label _ngcontent-nsg-c253="" class="ng-tns-c95-30 ng-star-inserted">Select an option</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-30 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-30"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-30">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-30 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-30"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+</select-no-ripple-example>
 ```
 ```java 
-//@FindBy(css = "#custom-panel-styling-select")
-public static MaterialSelector customPanelStylingSelect;
+  //@FindBy(css = "#custom-panel-styling-select")
+  @UI("#custom-panel-styling-select")
+  public static MaterialSelector customPanelStylingSelect;
 
-@Test
-public void checkRedOptionCanBeSelectedByName() {
-    customPanelStylingSelect.select(RED);
-    customPanelStylingSelect.is().selected(RED);
-    customPanelStylingSelect.has().color(255, 0, 0, 0.5);
-}
-@Test
-public void checkGreenOptionCanBeSelectedByName() {
-    customPanelStylingSelect.select(GREEN);
-    customPanelStylingSelect.is().selected(GREEN);
-    customPanelStylingSelect.has().color(0, 255, 0, 0.5);
-}
-@Test
-public void checkBlueOptionCanBeSelectedByName() {
-    customPanelStylingSelect.select(BLUE);
-    customPanelStylingSelect.is().selected(BLUE);
-    customPanelStylingSelect.has().color(0, 0, 255, 0.5);
-}
+  @Test
+  public void checkLabelValue() {
+      customPanelStylingSelect.label().has().value("Panel color");
+  }
+
+  @Test
+  public void checkRedOptionCanBeSelectedByName() {
+      customPanelStylingSelect.select(RED);
+      customPanelStylingSelect.is().selected(RED);
+      customPanelStylingSelect.has().color(255, 0, 0, 0.5);
+  }
+
+  @Test
+  public void checkGreenOptionCanBeSelectedByName() {
+      customPanelStylingSelect.select(GREEN);
+      customPanelStylingSelect.is().selected(GREEN);
+      customPanelStylingSelect.has().color(0, 255, 0, 0.5);
+  }
+
+  @Test
+  public void checkBlueOptionCanBeSelectedByName() {
+      customPanelStylingSelect.select(BLUE);
+      customPanelStylingSelect.is().selected(BLUE);
+      customPanelStylingSelect.has().color(0, 0, 255, 0.5);
+  }
 ```
 In order to facilitate easily styling the dropdown panel, ```<mat-select>``` has a panelClass property which can be
 used to apply additional CSS classes to the dropdown panel.
@@ -2345,15 +2829,44 @@ used to apply additional CSS classes to the dropdown panel.
 ![Custom Panel Styling Select](../../images/angular/custom_panel_styling_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Panel color</mat-label>
-  <mat-select [formControl]="panelColor"
-              panelClass="example-panel-{{panelColor.value}}" id="custom-panel-styling-select">
-    <mat-option value="red">Red</mat-option>
-    <mat-option value="green">Green</mat-option>
-    <mat-option value="blue">Blue</mat-option>
-  </mat-select>
-</mat-form-field>
+<select-panel-class-example ng-version="9.1.0">
+	<h2 class="example-h2">
+		<a href="https://material.angular.io/components/select/overview#adding-custom-styles-to-the-dropdown-panel"> Select with custom panel styling </a>
+	</h2>
+	<mat-form-field class="mat-form-field ng-tns-c95-32 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-pristine ng-valid mat-form-field-should-float ng-touched">
+		<div class="mat-form-field-wrapper ng-tns-c95-32">
+			<div class="mat-form-field-flex ng-tns-c95-32">
+				<div class="mat-form-field-infix ng-tns-c95-32">
+					<mat-select role="listbox" id="custom-panel-styling-select" class="mat-select ng-tns-c171-33 ng-tns-c95-32 ng-star-inserted ng-pristine ng-valid ng-touched" tabindex="0" aria-labelledby="mat-form-field-label-45" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false">
+						<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-33">
+							<div class="mat-select-value ng-tns-c171-33">
+								<span class="mat-select-value-text ng-tns-c171-33 ng-star-inserted">
+									<span class="ng-tns-c171-33 ng-star-inserted">Red</span>
+								</span>
+							</div>
+							<div class="mat-select-arrow-wrapper ng-tns-c171-33">
+								<div class="mat-select-arrow ng-tns-c171-33"/>
+							</div>
+						</div>
+					</mat-select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-32">
+						<label class="mat-form-field-label ng-tns-c95-32 ng-star-inserted" id="mat-form-field-label-45" for="custom-panel-styling-select" aria-owns="custom-panel-styling-select">
+							<mat-label class="ng-tns-c95-32 ng-star-inserted">Panel color</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-32 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-32"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-32">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-32 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-32"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+</select-panel-class-example>
 ```
 The ```<mat-form-field>``` allows you to associate error messages with your ```<select>``` or ```<mat-select>```.
 By default, these error messages are shown when the control is invalid and either the user has interacted with
@@ -2362,85 +2875,121 @@ error as soon as the invalid control is dirty or when a parent form group is inv
 errorStateMatcher property of the ```<mat-select>```.
 
 ```java 
-//@FindBy(css = "#mat-error-state-matcher-select")
-public static MaterialSelector matErrorStateMatcherSelect;
+  //@FindBy(css = "#mat-error-state-matcher-select")
+  @UI("#mat-error-state-matcher-select")
+  public static MaterialSelector matErrorStateMatcherSelect;
 
-@Test
-public void checkValidOptionCanBeSelectedByNameAndHintMessageWillAppear() {
-    matErrorStateMatcherSelect.select(VALID_OPTION);
-    matErrorStateMatcherSelect.is().selected(VALID_OPTION);
-    matErrorStateMatcherSelect.hint().assertThat().text("Errors appear instantly!");
-}
-@Test
-public void checkInvalidOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
-    matErrorStateMatcherSelect.select(INVALID_OPTION);
-    matErrorStateMatcherSelect.is().selected(matchesPattern(INVALID_OPTION));
-    matErrorStateMatcherSelect.error().assertThat().text(INVALID_SELECTON);
-}
-@Test
-public void checkClearOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
-    matErrorStateMatcherSelect.select(CLEAR);
-    matErrorStateMatcherSelect.is().selected(matchesPattern("\\W+"));
-    matErrorStateMatcherSelect.error().assertThat().text(MUST_MAKE_SELECTION);
-}
+  @Test
+  public void checkLabelValue() {
+      matErrorStateMatcherSelect.label().has().value("Choose one");
+  }
 
-//@FindBy(css = "#native-error-state-matcher-select")
-public static NativeSelector nativeErrorStateMatcherSelect;
+  @Test
+  public void checkValidOptionCanBeSelectedByNameAndHintMessageWillAppear() {
+      matErrorStateMatcherSelect.select(VALID_OPTION);
+      matErrorStateMatcherSelect.is().selected(VALID_OPTION);
+      matErrorStateMatcherSelect.hint().assertThat().text("Errors appear instantly!");
+  }
 
-@Test
-public void checkValidOptionCanBeSelectedByName() {
-    nativeErrorStateMatcherSelect.select(VALID_OPTION);
-    nativeErrorStateMatcherSelect.is().selected(VALID_OPTION);
-}
-@Test
-public void checkInvalidOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
-    nativeErrorStateMatcherSelect.select(INVALID_OPTION);
-    nativeErrorStateMatcherSelect.is().selected(matchesPattern(INVALID_OPTION));
-    nativeErrorStateMatcherSelect.error().assertThat().text(INVALID_SELECTON);
-}
-@Test
-public void checkClearOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
-    nativeErrorStateMatcherSelect.select("");
-    nativeErrorStateMatcherSelect.is().selected("");
-    nativeErrorStateMatcherSelect.error().assertThat().text(MUST_MAKE_SELECTION);
-}
+  @Test
+  public void checkInvalidOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
+      matErrorStateMatcherSelect.select(INVALID_OPTION);
+      matErrorStateMatcherSelect.is().selected(matchesPattern(INVALID_OPTION));
+      matErrorStateMatcherSelect.error().assertThat().text(INVALID_SELECTION);
+  }
+
+  //@FindBy(css = "#native-error-state-matcher-select")
+  @UI("#native-error-state-matcher-select")
+  public static NativeSelector nativeErrorStateMatcherSelect;
+
+  @Test
+  public void checkLabelValue() {
+      nativeErrorStateMatcherSelect.label().has().value("Choose one");
+  }
+
+  @Test
+  public void checkValidOptionCanBeSelectedByName() {
+      nativeErrorStateMatcherSelect.select(VALID_OPTION);
+      nativeErrorStateMatcherSelect.is().selected(VALID_OPTION);
+  }
+
+  @Test
+  public void checkInvalidOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
+      nativeErrorStateMatcherSelect.select(INVALID_OPTION);
+      nativeErrorStateMatcherSelect.is().selected(matchesPattern(INVALID_OPTION));
+      nativeErrorStateMatcherSelect.error().assertThat().text(INVALID_SELECTION);
+  }
 ```
 ![Error State Matcher Select](../../images/angular/error_state_matcher_select.png)
 
 ```html 
-<mat-form-field>
-  <mat-label>Choose one</mat-label>
-  <mat-select [formControl]="selected" [errorStateMatcher]="matcher" id="mat-error-state-matcher-select">
-    <mat-option>Clear</mat-option>
-    <mat-option value="valid">Valid option</mat-option>
-    <mat-option value="invalid">Invalid option</mat-option>
-  </mat-select>
-  <mat-hint id="mat-error-state-matcher-hint">Errors appear instantly!</mat-hint>
-  <mat-error *ngIf="selected.hasError('required')" id="mat-error-state-matcher-selection">
-    You must make a selection
-  </mat-error>
-  <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')"
-             id="mat-error-state-matcher-invalid">
-    Your selection is invalid
-  </mat-error>
-</mat-form-field>
-
-<mat-form-field class="demo-full-width">
-  <mat-label>Choose one</mat-label>
-  <select matNativeControl [formControl]="nativeSelectFormControl" [errorStateMatcher]="matcher"
-          id="native-error-state-matcher-select">
-    <option value=""></option>
-    <option value="valid" selected>Valid option</option>
-    <option value="invalid">Invalid option</option>
-  </select>
-  <mat-error *ngIf="nativeSelectFormControl.hasError('required')" id="native-error-state-matcher-selection">
-    You must make a selection
-  </mat-error>
-  <mat-error *ngIf="nativeSelectFormControl.hasError('pattern') && !nativeSelectFormControl.hasError('required')"
-             id="native-error-state-matcher-invalid">
-    Your selection is invalid
-  </mat-error>
-</mat-form-field>
+<select-error-state-matcher-example _nghost-nsg-c255="" ng-version="9.1.0">
+	<h2 _ngcontent-nsg-c255="" class="example-h2">
+		<a _ngcontent-nsg-c255="" href="https://material.angular.io/components/select/overview#changing-when-error-messages-are-shown"> Select with a custom ErrorStateMatcher </a>
+	</h2>
+	<h4 _ngcontent-nsg-c255="">mat-select</h4>
+	<mat-form-field _ngcontent-nsg-c255="" class="mat-form-field ng-tns-c95-36 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float">
+		<div class="mat-form-field-wrapper ng-tns-c95-36">
+			<div class="mat-form-field-flex ng-tns-c95-36">
+				<div class="mat-form-field-infix ng-tns-c95-36">
+					<mat-select _ngcontent-nsg-c255="" role="listbox" id="mat-error-state-matcher-select" class="mat-select ng-tns-c171-37 ng-tns-c95-36 ng-star-inserted ng-untouched ng-pristine ng-valid" tabindex="0" aria-labelledby="mat-form-field-label-51" aria-required="false" aria-disabled="false" aria-invalid="false" aria-multiselectable="false" aria-describedby="mat-error-state-matcher-hint">
+						<div cdk-overlay-origin="" aria-hidden="true" class="mat-select-trigger ng-tns-c171-37">
+							<div class="mat-select-value ng-tns-c171-37">
+								<span class="mat-select-value-text ng-tns-c171-37 ng-star-inserted">
+									<span class="ng-tns-c171-37 ng-star-inserted">Valid option</span>
+								</span>
+							</div>
+							<div class="mat-select-arrow-wrapper ng-tns-c171-37">
+								<div class="mat-select-arrow ng-tns-c171-37"/>
+							</div>
+						</div>
+					</mat-select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-36">
+						<label class="mat-form-field-label ng-tns-c95-36 ng-star-inserted" id="mat-form-field-label-51" for="mat-error-state-matcher-select" aria-owns="mat-error-state-matcher-select">
+							<mat-label _ngcontent-nsg-c255="" class="ng-tns-c95-36 ng-star-inserted">Choose one</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-36 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-36"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-36">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-36 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<mat-hint _ngcontent-nsg-c255="" id="mat-error-state-matcher-hint" class="mat-hint ng-tns-c95-36">Errors appear instantly!</mat-hint>
+					<div class="mat-form-field-hint-spacer ng-tns-c95-36"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+	<h4 _ngcontent-nsg-c255="">native html select</h4>
+	<mat-form-field _ngcontent-nsg-c255="" class="mat-form-field demo-full-width ng-tns-c95-38 mat-primary mat-form-field-type-mat-native-select mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label ng-untouched ng-pristine ng-valid">
+		<div class="mat-form-field-wrapper ng-tns-c95-38">
+			<div class="mat-form-field-flex ng-tns-c95-38">
+				<div class="mat-form-field-infix ng-tns-c95-38">
+					<select _ngcontent-nsg-c255="" matnativecontrol="" id="native-error-state-matcher-select" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-38 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false">
+						<option _ngcontent-nsg-c255="" value=""/>
+						<option _ngcontent-nsg-c255="" value="valid" selected="">Valid option</option>
+						<option _ngcontent-nsg-c255="" value="invalid">Invalid option</option>
+					</select>
+					<span class="mat-form-field-label-wrapper ng-tns-c95-38">
+						<label class="mat-form-field-label ng-tns-c95-38 ng-star-inserted" id="mat-form-field-label-53" for="native-error-state-matcher-select" aria-owns="native-error-state-matcher-select">
+							<mat-label _ngcontent-nsg-c255="" class="ng-tns-c95-38 ng-star-inserted">Choose one</mat-label>
+						</label>
+					</span>
+				</div>
+			</div>
+			<div class="mat-form-field-underline ng-tns-c95-38 ng-star-inserted">
+				<span class="mat-form-field-ripple ng-tns-c95-38"/>
+			</div>
+			<div class="mat-form-field-subscript-wrapper ng-tns-c95-38">
+				<div class="mat-form-field-hint-wrapper ng-tns-c95-38 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+					<div class="mat-form-field-hint-spacer ng-tns-c95-38"/>
+				</div>
+			</div>
+		</div>
+	</mat-form-field>
+</select-error-state-matcher-example>
 ```
 List of some available **MaterialSelector** methods:
 
@@ -2451,16 +3000,18 @@ List of some available **MaterialSelector** methods:
 **collapse()** | Collapse expanded MaterialSelector list | void
 **isExpanded()** | Show that MaterialSelector expanded | boolean
 **isCollapsed()** | Show that MaterialSelector collapsed | boolean
-**select(String value/int index)** | Select an option from MaterialSelector | void
-**multipleSelect(String... values/int... indexes)** | Select multiple options from MaterialSelector | void
-**selected(String option)** | Check if option has been selected | boolean
+**select(String/int)** | Select an option from MaterialSelector | void
+**multipleSelect(String.../int...)** | Select multiple options from MaterialSelector | void
+**selected(String)** | Check if option has been selected | boolean
 **selected()** | Returns selected value as string | String
-**values()** | Returns all available MaterialSelector options | ```List<String>```
-**listEnabled()** | Returns all enable MaterialSelector options | ```List<String>```
-**listDisabled()** | Returns all disable MaterialSelector options | ```List<String>```
-**groups()** | Returns existing MaterialSelector groups | ```List<String>```
-**groupsAndOptions()** | Returns MaterialSelector map of the group and options if any | ```Map<String, List<String>>```
-**color(int r, int g, int b, double a)** | Check that rgba(red, green, blue, opacity) is the specified color | boolean
+**values()** | Returns all available MaterialSelector options | List<String>
+**listEnabled()** | Returns all enable MaterialSelector options | List<String>
+**listDisabled()** | Returns all disable MaterialSelector options | List<String>
+**groups()** | Returns existing MaterialSelector groups | List<String>
+**groupsAndOptions()** | Returns MaterialSelector map of the group and options if any | Map<String, List<String>>
+**color(int , int, int, double)** | Check that rgba(red, green, blue, opacity) is the specified color | boolean
+**hint()** | Ui hint message element. | UIElement
+**error()** | Ui error message element. | UIElement
 
 List of some available **NativeSelector** methods:
 
@@ -2468,15 +3019,19 @@ List of some available **NativeSelector** methods:
 --- | --- | --- 
 **is()** | Assert action | NativeSelectorAssert
 **list()** | Returns a WebList item representing a list of available NativeSelector options | WebList
-**select(String value/int index)** | Select an option from NativeSelector | void
-**selected(String option)** | Check if option has been selected | boolean
+**select(String/int)** | Select an option from NativeSelector | void
+**selected(String)** | Check if option has been selected | boolean
 **selected()** | Returns selected value as string | String
-**values()** | Returns all available NativeSelector options | ```List<String>```
-**values(TextTypes type)** | Returns all available NativeSelector options by text type | ```List<String>```
-**listEnabled()** | Returns all enable NativeSelector options | ```List<String>```
-**listDisabled()** | Returns all disable NativeSelector options | ```List<String>```
-**groups()** | Returns existing NativeSelector groups | ```List<String>```
-**groupsAndOptions()** | Returns NativeSelector map of the group and options if any | ```Map<String, List<String>>```
+**values()** | Returns all available NativeSelector options | List<String>
+**values(TextTypes)** | Returns all available NativeSelector options by text type | List<String>
+**listEnabled()** | Returns all enable NativeSelector options | List<String>
+**listDisabled()** | Returns all disable NativeSelector options | List<String>
+**groups()** | Returns existing NativeSelector groups | List<String>
+**groupsAndOptions()** | Returns NativeSelector map of the group and options if any | Map<String, List<String>>
+**hint()** | Ui hint message element. | UIElement
+**error()** | Ui error message element. | UIElement
+
+##### <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Here you can find the Form Field tests</a>
 
 #### 2.2.6 Form Field
 

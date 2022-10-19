@@ -755,6 +755,12 @@ There are eight different inputs in Angular:
 
 #### 2.1.7 Toolbar
 
+##### <a href="https://material.angular.io/components/toolbar/overview" target="_blank">Toolbar overview</a>
+
+"mat-toolbar" is a container for headers, titles, or actions.
+
+There is two different toolbars in Angular: Single row and Multiple row.
+
 ```java 
     /**@FindBy(id = "toolbar-basic") public static ToolbarSection toolbarSection;*/
     @UI("#toolbar-basic")
@@ -771,19 +777,19 @@ There are eight different inputs in Angular:
 
     @Test
     public void basicToolbarTest() {
-         String textForTest = "My App";
-         String classForTest = "mat-toolbar";
-         toolbarTextArea.is().displayed();
-         toolbarTable.is().hasClass(classForTest);
-         toolbarTextArea.is().text(containsString(textForTest));
-      }
+        String textForTest = "My App";
+        String classForTest = "mat-toolbar";
+        toolbarTextArea.is().displayed();
+        toolbarTable.has().cssClass(classForTest);
+        toolbarTextArea.is().text(containsString(textForTest));
+    }
 
     @Test
     public void multiRowToolbarTest() {
         String classForTest = "mat-toolbar";
         List<String> listForTest = Arrays.asList("Custom Toolbar", "Second Line", "Third Line");
         toolbarTable.is().displayed();
-        toolbarTable.is().hasClass(classForTest);
+        toolbarTable.has().cssClass(classForTest);
         toolbarRowsElementsWithText.is().values(listForTest);
     }
 
@@ -792,13 +798,7 @@ There are eight different inputs in Angular:
         String colorForTest = "primary";
         toolbarTable.has().attr("color", colorForTest);
     }
-   } 
 ```
-##### <a href="https://material.angular.io/components/toolbar/overview" target="_blank">Toolbar overview</a>
-
-"mat-toolbar" is a container for headers, titles, or actions.
-
-There is two different toolbars in Angular: Single row and Multiple row:
 
 ![Toolbar examples](../../images/angular/toolbar_examples.png)
 
@@ -830,34 +830,44 @@ Basic Button is located in the following class:
 
 The angular Button:
 
-<br>
-
 ```java 
-    //@FindBy(id="basic-buttons-label") public static Text basicButtonsLabel;
+    //@FindBy(id="basic-buttons-label")
     @UI("#basic-buttons-label")
-    public Label basicButtonsLabel;
+    public static Button basicBasicButton;
 
-    //@FindBy(id="basic-primary-button") public static Text basicPrimaryButton;
+    //@FindBy(id="basic-primary-button")
     @UI("#basic-primary-button")
-    public Button basicPrimaryButton;
+    public static Button basicPrimaryButton;
 
     @Test
     public void clickTest() {
         basicBasicButton.click();
-        basicBasicButton.is().hasClass(FOCUSED_CLASS);
+        basicBasicButton.has().cssClass(FOCUSED_CLASS);
         basicButtonsSection.basicButtonsLabel.is().has().text(containsString(BASIC_TEXT));
     }
 
     @Test
     public void clickWithMoveTest() {
         basicWarnButton.click(ElementArea.TOP_LEFT);
-        basicWarnButton.is().hasClass(FOCUSED_CLASS);
+        basicWarnButton.has().cssClass(FOCUSED_CLASS);
         basicButtonsSection.basicButtonsLabel.is().has().text(containsString(WARN_TEXT));
     }
+
     @Test
     public void disableButtonTest() {
         basicDisabledButton.is().disabled();
     }
+
+    @Test
+    public void assertValidationTest() {
+        basicBasicButton.assertThat().text(is(BASIC_TEXT));
+        basicPrimaryButton.assertThat().text(is(PRIMARY_TEXT));
+        basicAccentButton.assertThat().text(is(ACCENT_TEXT));
+        basicWarnButton.assertThat().text(is(WARN_TEXT));
+        basicDisabledButton.assertThat().text(is(DISABLED_TEXT));
+        basicLinkButton.assertThat().text(is(LINK_TEXT));
+    }
+
     @Test
     public void isValidationTest() {
         basicWarnButton.is().displayed();
@@ -870,7 +880,7 @@ The angular Button:
                 .core()
                 .css("font-size", is("14px"))
                 .and()
-                .cssClass(containsString("mat-button"))
+                .cssClass("mat-button")
                 .and()
                 .attr("type")
                 .tag(is("button"));
@@ -888,16 +898,9 @@ The angular Button:
 </button>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**show()** | Scroll to element | void
-**click()** | Click the button | void
-**clickWithMoveTest(ElementArea ea)** | Click the button | void
-**assertThat()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**enabled()** | Check that element is enabled | TextAssert
-**disabled()** | Check that element is disabled | TextAssert
-**getText()** | Get button text | String
+|Method | Description   | Return Type
+--- |---------------| ---
+**getValue()** | Returns value | String
 **is()** | Assert action | TextAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
@@ -910,10 +913,14 @@ Button toggle is based on Basic Button. Basic Button is located in the following
 
 - __Java__: _com.epam.jdi.light.ui.html.elements.common.Button_
 
+Button toggle located in the following class:
+
+- __Java__: _com.epam.jdi.light.angular.elements.complex.ButtonToggle_
+
 There are two different button toggles in Angular: Basic and Exclusive:
 
 ```java     
-    //@FindBy(id = "mat-button-toggle-group-font") public static basicButtonToggle;
+    //@FindBy(id = "mat-button-toggle-group-font")
     @UI("#mat-button-toggle-group-font")
     public static ButtonToggle basicButtonToggle;
 
@@ -921,6 +928,7 @@ There are two different button toggles in Angular: Basic and Exclusive:
     public void verifyButtonToggle() {
         basicButtonToggle.is().displayed();
         basicButtonToggle.is().enabled();
+        String ITALIC = "italic";
         basicButtonToggle.clickButtonToggleByValue(ITALIC);
         basicButtonToggle.is().assertButtonToggleIsSelected(ITALIC);
         basicButtonToggle.is().assertButtonToggleButtonIsPressed(ITALIC);
@@ -929,10 +937,10 @@ There are two different button toggles in Angular: Basic and Exclusive:
 
     @Test
     public void verifyButtonToggleCombineSelection() {
-        basicButtonToggle.clickButtonToggleByValue(ITALIC);
+        String BOLD = "bold";
         basicButtonToggle.clickButtonToggleByValue(BOLD);
+        String UNDERLINE = "underline";
         basicButtonToggle.clickButtonToggleByValue(UNDERLINE);
-        basicButtonToggle.is().assertButtonToggleIsSelected(ITALIC);
         basicButtonToggle.is().assertButtonToggleIsSelected(BOLD);
         basicButtonToggle.is().assertButtonToggleIsSelected(UNDERLINE);
         basicButtonToggle.clickButtonToggleByValue(BOLD);
@@ -952,35 +960,32 @@ There are two different button toggles in Angular: Basic and Exclusive:
 </mat-button-toggle>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**clickButtonToggleByValue()** | Click required button | void
-**is()** | Assert action | TextAssert
-**enabled()** | Check that element is enabled | TextAssert
-**disabled()** | Check that element is disabled | TextAssert
-
-<br>
+Exclusive button toggle:
 
 ```java 
     //@FindBy(id = "mat-button-toggle-group-align")
     @UI("#mat-button-toggle-group-align")  
     public static ButtonToggle basicButtonToggleAlign;
 
-     //@FindBy(css = "div.example-selected-value")
+    //@FindBy(css = "div.example-selected-value")
     @UI("div.example-selected-value")
     public static Text selectedValue;
 
     @Test
     public void verifyExclusiveButtonToggle() {
-         basicButtonToggleAlign.is().displayed();
-         basicButtonToggleAlign.is().enabled();
-         basicButtonToggleAlign.clickButtonToggleByValue(LEFT);
-         basicButtonToggleAlign.is().assertButtonToggleIsSelected(LEFT);
-         buttonToggleSection.selectedValue.has().text("Selected value: left");
+        String LEFT = "left";
+        basicButtonToggleAlign.is().displayed();
+        basicButtonToggleAlign.is().enabled();
+        basicButtonToggleAlign.clickButtonToggleByValue(LEFT);
+        basicButtonToggleAlign.is().assertButtonToggleIsSelected(LEFT);
+        selectedValue.has().text("Selected value: left");
     }
-    
+
     @Test
     public void verifyExclusiveButtonToggleSeparateSelection() {
+        String CENTER = "center";
+        String LEFT = "left";
+        String RIGHT = "right";
         basicButtonToggleAlign.clickButtonToggleByValue(CENTER);
         basicButtonToggleAlign.clickButtonToggleByValue(RIGHT);
         basicButtonToggleAlign.clickButtonToggleByValue(LEFT);
@@ -1001,15 +1006,15 @@ There are two different button toggles in Angular: Basic and Exclusive:
     <div matripple="" class="mat-ripple mat-button-toggle-ripple"></div>
 </mat-button-toggle>
 ```
+List of available methods:
 
-|Method | Description | Return Type
---- | --- | ---
-**clickButtonToggleByValue()** | Click required button | void
-**is()** | Assert action | TextAssert
-**has()** | Assert action | TextAssert
-**enabled()** | Check that element is enabled | TextAssert
-**disabled()** | Check that element is disabled | TextAssert
-**text()** | Check whether a text matches a pattern | IsAssert
+|Method | Description                            | Return Type
+--- |----------------------------------------| ---
+**clickButtonToggleByValue(String)** | Click required button                  | void
+**clickButtonToggleByValue(String)** | is button pressed                      | boolean
+**buttonToggleHasText(String)** | Does button has text                   | boolean
+**isButtonToggleSelected(String)** | Is button toggle selected              | boolean
+**is()** | Assert action                          | ButtonToggleAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ButtonToggleTests.java" target="_blank">Here you can find Button toggle tests</a>
 
@@ -1023,6 +1028,45 @@ Badge is located in the following class:
 
 ![Badge](../../images/angular/badge.PNG)
 
+```java 
+  //@FindBy(css = "#text-with-badge span") 
+  @UI("#text-with-badge span") 
+  public static Badge textWithBadge;
+      
+  //@FindBy(css = "#button-with-left-badge span:not(.mat-button-wrapper)") 
+  @UI("#button-with-left-badge span:not(.mat-button-wrapper)") 
+  public static Badge buttonWithBadge;
+  
+  //@FindBy(css = "#icon-with-badge span") 
+  @UI("#icon-with-badge span") 
+  public static Badge iconWithBadge;
+  
+  @Test
+  public void basicBadgeTest() {
+      textWithBadge.show();
+      textWithBadge.badge().is().displayed();
+      textWithBadge.badge().has().text("4");
+      textWithBadge.has().color("Violet");
+  }
+
+  @Test
+  public void buttonBadgeTest() {
+      buttonWithBadge.show();
+      buttonWithBadge.badge().is().displayed();
+      buttonWithBadge.badge().has().text("8");
+      buttonWithBadge.has().color("Yellow");
+  }
+
+  @Test
+  public void iconBadgeTest() {
+      iconWithBadge.show();
+      iconWithBadge.badge().is().displayed();
+      iconWithBadge.badge().has().text("15");
+      iconWithBadge.has().color("Red");
+  }
+```
+
+
 ```html
 <span _ngcontent-iwc-c329="" matbadge="4" matbadgeoverlap="false" id="text-with-badge" class="mat-badge mat-badge-above mat-badge-after mat-badge-medium">
     "Text with a badge"
@@ -1030,44 +1074,11 @@ Badge is located in the following class:
 </span>
 ```
 
-```java 
-@FindBy(css = "#text-with-badge span") 
-public static Badge badgeWithText;
-    
-@FindBy(css = "#button-with-left-badge span:not(.mat-button-wrapper)") 
-public static Badge badgeWithButton;
-
-@FindBy(css = "#icon-with-badge span") 
-public static Badge badgeWithIcon;
-
-@Test
-public void basicBadgeTest() {
-    badgeWithText.is().displayed();
-    badgeWithButton.is().displayed();
-    badgeWithIcon.is().displayed();
-}
-
-@Test
-public void badgeTextTest() {
-    badgeWithText.has().text("4");
-    badgeWithButton.has().text("8");
-    badgeWithIcon.has().text("15");
-}
-
-@Test
-public void iconBadgeTest() {
-    iconWithBadge.show();
-    iconWithBadge.badge().is().displayed();
-    iconWithBadge.badge().has().text("15");
-    iconWithBadge.has().color("Red");
-}
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Assert action | BadgeAssert
-**has()** | Assert action | BadgeAssert
-**color()** | Check that color is correct | boolean
+|Method | Description                 | Return Type
+--- |-----------------------------| ---
+**is()** | Assert action               | BadgeAssert
+**badge()** | Get badge                   | UIElement
+**color(String)** | Check that color is correct | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
@@ -1081,107 +1092,212 @@ Progress bar is located in the following class:
 
 There is 5 different progress bars in Angular: Buffer, Determinate, Indeterminate, Query and Configurable:
 
+Buffer progress bar:
+
+```java  
+  //@FindBy(css = "#show-buffer-progress-bar-button")
+  @UI("#show-buffer-progress-bar-button")
+  public static Button showBufferProgressBarButton;
+  
+  //@FindBy(css = "#mat-progress-bar-buffer")
+  @UI("#mat-progress-bar-buffer")
+  public static ProgressBar matProgressBarBuffer;
+  
+  @Test
+  public void verifyBufferProgressBarTest() throws Exception {
+      showBufferProgressBarButton.click();
+      matProgressBarBuffer.shouldBe().displayed();
+      matProgressBarBuffer.show();
+      matProgressBarBuffer.shouldBe().visible();
+      matProgressBarBuffer.has().mode(BUFFER);
+      matProgressBarBuffer.has().value(0);
+      matProgressBarBuffer.has().bufferValue(0.0);
+      matProgressBarBuffer.has().max(100);
+      matProgressBarBuffer.has().min(0);
+      matProgressBarBuffer.has().color(BLUE);
+      matProgressBarBuffer.is().disappear(5);
+  }
+```
 ![Buffer progress bar](../../images/angular/buffer_progress_bar.png)
 
 ```html  
-<progress-bar-buffer-example _nghost-pnn-c338="" ng-version="9.1.0"><h2 _ngcontent-pnn-c338="" class="example-h2"><a _ngcontent-pnn-c338="" href="https://material.angular.io/components/progress-bar/overview#buffer"> Buffer progress-bar </a></h2><button _ngcontent-pnn-c338="" mat-raised-button="" id="show-buffer-progress-bar-button" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper"> Show progress-bar for 5 seconds
-</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button><div _ngcontent-pnn-c338="" hidden=""><mat-progress-bar _ngcontent-pnn-c338="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-buffer" mode="buffer" class="mat-progress-bar mat-primary" aria-valuenow="0"><svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element"><defs><pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-0"><circle cx="2" cy="2" r="2"></circle></pattern></defs><rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-0')"></rect></svg><div class="mat-progress-bar-buffer mat-progress-bar-element" style="transform: scaleX(0);"></div><div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0);"></div><div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div></mat-progress-bar></div></progress-bar-buffer-example>
+<progress-bar-buffer-example _nghost-pnn-c338="" ng-version="9.1.0">
+	<h2 _ngcontent-pnn-c338="" class="example-h2">
+		<a _ngcontent-pnn-c338="" href="https://material.angular.io/components/progress-bar/overview#buffer"> Buffer progress-bar </a>
+	</h2>
+	<button _ngcontent-pnn-c338="" mat-raised-button="" id="show-buffer-progress-bar-button" class="mat-focus-indicator mat-raised-button mat-button-base">
+		<span class="mat-button-wrapper"> Show progress-bar for 5 seconds
+</span>
+		<div matripple="" class="mat-ripple mat-button-ripple"/>
+		<div class="mat-button-focus-overlay"/>
+	</button>
+	<div _ngcontent-pnn-c338="" hidden="">
+		<mat-progress-bar _ngcontent-pnn-c338="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-buffer" mode="buffer" class="mat-progress-bar mat-primary" aria-valuenow="0">
+			<svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element">
+				<defs>
+					<pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-0">
+						<circle cx="2" cy="2" r="2"/>
+					</pattern>
+				</defs>
+				<rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-0')"/>
+			</svg>
+			<div class="mat-progress-bar-buffer mat-progress-bar-element" style="transform: scaleX(0);"/>
+			<div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0);"/>
+			<div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"/>
+		</mat-progress-bar>
+	</div>
+</progress-bar-buffer-example>
 ```
 
+Determinate progress bar:
+
 ```java  
-//@FindBy(css = "#show-buffer-progress-bar-button")
-public static Button showBufferProgressBarButton;
+  //@FindBy(css = "#mat-progress-bar-determinate")
+  @UI("#mat-progress-bar-determinate")
+  public static ProgressBar matProgressBarDeterminate;
 
-//@FindBy(css = "#mat-progress-bar-buffer")
-public static ProgressBar matProgressBarBuffer;
-
-@Test
-public void verifyBufferProgressBarTest() throws Exception {
-    showBufferProgressBarButton.click();
-    matProgressBarBuffer.shouldBe().displayed();
-    matProgressBarBuffer.show();
-    matProgressBarBuffer.shouldBe().visible();
-    matProgressBarBuffer.has().mode(BUFFER);
-    matProgressBarBuffer.has().value(0);
-    matProgressBarBuffer.has().bufferValue(0.0);
-    matProgressBarBuffer.has().max(100);
-    matProgressBarBuffer.has().min(0);
-    matProgressBarBuffer.has().color(BLUE);
-    matProgressBarBuffer.is().disappear(5);
-}
+  @Test
+  public void verifyDeterminateProgressBarTest() throws Exception {
+      matProgressBarDeterminate.shouldBe().displayed();
+      matProgressBarDeterminate.show();
+      matProgressBarDeterminate.shouldBe().visible();
+      matProgressBarDeterminate.has().mode(DETERMINATE);
+      matProgressBarDeterminate.has().value(40);
+      matProgressBarDeterminate.has().max(100);
+      matProgressBarDeterminate.has().min(0);
+      matProgressBarDeterminate.has().color(BLUE);
+  }
 ```
 
 ![Determinate progress bar](../../images/angular/determinate_progress_bar.png)
 
 ```html  
-<progress-bar-determinate-example _nghost-pnn-c339="" ng-version="9.1.0"><h2 _ngcontent-pnn-c339="" class="example-h2"><a _ngcontent-pnn-c339="" href="https://material.angular.io/components/progress-bar/overview#determinate"> Determinate progress-bar </a></h2><mat-progress-bar _ngcontent-pnn-c339="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-determinate" mode="determinate" value="40" class="mat-progress-bar mat-primary" aria-valuenow="40"><svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element"><defs><pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-1"><circle cx="2" cy="2" r="2"></circle></pattern></defs><rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-1')"></rect></svg><div class="mat-progress-bar-buffer mat-progress-bar-element"></div><div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0.4);"></div><div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div></mat-progress-bar></progress-bar-determinate-example>
+<progress-bar-determinate-example _nghost-pnn-c339="" ng-version="9.1.0">
+	<h2 _ngcontent-pnn-c339="" class="example-h2">
+		<a _ngcontent-pnn-c339="" href="https://material.angular.io/components/progress-bar/overview#determinate"> Determinate progress-bar </a>
+	</h2>
+	<mat-progress-bar _ngcontent-pnn-c339="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-determinate" mode="determinate" value="40" class="mat-progress-bar mat-primary" aria-valuenow="40">
+		<svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element">
+			<defs>
+				<pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-1">
+					<circle cx="2" cy="2" r="2"/>
+				</pattern>
+			</defs>
+			<rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-1')"/>
+		</svg>
+		<div class="mat-progress-bar-buffer mat-progress-bar-element"/>
+		<div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0.4);"/>
+		<div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"/>
+	</mat-progress-bar>
+</progress-bar-determinate-example>
 ```
+
+Indeterminate progress bar:
 
 ```java  
-//@FindBy(css = "#mat-progress-bar-determinate")
-public static ProgressBar matProgressBarDeterminate;
+  //@FindBy(css = "#show-indeterminate-progress-bar-button")
+  @UI("#show-indeterminate-progress-bar-button")
+  public static Button showIndeterminateProgressBarButton;
+  
+  //@FindBy(css = "#mat-progress-bar-indeterminate")
+  @UI("#mat-progress-bar-indeterminate")
+  public static ProgressBar matProgressBarIndeterminate;
 
-@Test
-     public void verifyDeterminateProgressBarTest() throws Exception {
-         matProgressBarDeterminate.shouldBe().displayed();
-         matProgressBarDeterminate.show();
-         matProgressBarDeterminate.shouldBe().visible();
-         matProgressBarDeterminate.has().mode(DETERMINATE);
-         matProgressBarDeterminate.has().value(40);
-         matProgressBarDeterminate.has().max(100);
-         matProgressBarDeterminate.has().min(0);
-         matProgressBarDeterminate.has().color(BLUE);
-         }
+  @Test
+  public void verifyIndeterminateProgressBarTest() {
+      showIndeterminateProgressBarButton.click();
+      matProgressBarIndeterminate.shouldBe().displayed();
+      matProgressBarIndeterminate.show();
+      matProgressBarIndeterminate.shouldBe().visible();
+      matProgressBarIndeterminate.has().mode(INDETERMINATE);
+      matProgressBarIndeterminate.has().max(100);
+      matProgressBarIndeterminate.has().min(0);
+      matProgressBarIndeterminate.has().color(BLUE);
+      matProgressBarIndeterminate.is().disappear(5);
+  }
 ```
-
 ![Indeterminate progress bar](../../images/angular/indeterminate_progress_bar.png)
 
 ```html  
-<progress-bar-indeterminate-example _nghost-pnn-c340="" ng-version="9.1.0"><h2 _ngcontent-pnn-c340="" class="example-h2"><a _ngcontent-pnn-c340="" href="https://material.angular.io/components/progress-bar/overview#indeterminate"> Indeterminate progress-bar </a></h2><button _ngcontent-pnn-c340="" mat-raised-button="" id="show-indeterminate-progress-bar-button" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper"> Show progress-bar for 5 seconds
-</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button><div _ngcontent-pnn-c340="" hidden=""><mat-progress-bar _ngcontent-pnn-c340="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-indeterminate" mode="indeterminate" class="mat-progress-bar mat-primary"><svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element"><defs><pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-2"><circle cx="2" cy="2" r="2"></circle></pattern></defs><rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-2')"></rect></svg><div class="mat-progress-bar-buffer mat-progress-bar-element"></div><div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0);"></div><div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div></mat-progress-bar></div></progress-bar-indeterminate-example>
+<progress-bar-query-example class="ng-star-inserted">
+	<mat-progress-bar role="progressbar" aria-valuemin="0" aria-valuemax="100" tabindex="-1" mode="query" class="mat-progress-bar mat-primary">
+		<div aria-hidden="true">
+			<svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element">
+				<defs>
+					<pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-3">
+						<circle cx="2" cy="2" r="2"/>
+					</pattern>
+				</defs>
+				<rect width="100%" height="100%" fill="url('/components/progress-bar/overview#mat-progress-bar-3')"/>
+			</svg>
+			<div class="mat-progress-bar-buffer mat-progress-bar-element"/>
+			<div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scale3d(0, 1, 1);"/>
+			<div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"/>
+		</div>
+	</mat-progress-bar>
+</progress-bar-query-example>
 ```
 
-```java  
-//@FindBy(css = "#show-indeterminate-progress-bar-button")
-public static Button showIndeterminateProgressBarButton;
+Query progress bar:
 
-//@FindBy(css = "#mat-progress-bar-indeterminate")
-public static ProgressBar matProgressBarIndeterminate;
-
-@Test
-public void verifyIndeterminateProgressBarTest() {
-    showIndeterminateProgressBarButton.click();
-    matProgressBarIndeterminate.shouldBe().displayed();
-    matProgressBarIndeterminate.show();
-    matProgressBarIndeterminate.shouldBe().visible();
-    matProgressBarIndeterminate.has().mode(INDETERMINATE);
-    matProgressBarIndeterminate.has().max(100);
-    matProgressBarIndeterminate.has().min(0);
-    matProgressBarIndeterminate.has().color(BLUE);
-    matProgressBarIndeterminate.is().disappear(5);
-}
+```java     
+  //@FindBy(css = "#mat-progress-bar-query")
+  @UI("#mat-progress-bar-query")
+  public static ProgressBar matProgressBarQuery;
+  
+  @Test
+  public void verifyQueryProgressBarTest() {
+      matProgressBarQuery.shouldBe().displayed();
+      matProgressBarQuery.show();
+      matProgressBarQuery.shouldBe().visible();
+      matProgressBarQuery.has().mode(QUERY);
+      matProgressBarQuery.has().max(100);
+      matProgressBarQuery.has().min(0);
+      matProgressBarQuery.has().color(BLUE);
+  }
 ```
 
 ![Query progress bar](../../images/angular/query_progress_bar.png)
 
 ```html  
-<progress-bar-determinate-example _nghost-pnn-c339="" ng-version="9.1.0"><h2 _ngcontent-pnn-c339="" class="example-h2"><a _ngcontent-pnn-c339="" href="https://material.angular.io/components/progress-bar/overview#determinate"> Determinate progress-bar </a></h2><mat-progress-bar _ngcontent-pnn-c339="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-determinate" mode="determinate" value="40" class="mat-progress-bar mat-primary" aria-valuenow="40"><svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element"><defs><pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-1"><circle cx="2" cy="2" r="2"></circle></pattern></defs><rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-1')"></rect></svg><div class="mat-progress-bar-buffer mat-progress-bar-element"></div><div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0.4);"></div><div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div></mat-progress-bar></progress-bar-determinate-example>
+<progress-bar-determinate-example _nghost-pnn-c339="" ng-version="9.1.0">
+	<h2 _ngcontent-pnn-c339="" class="example-h2">
+		<a _ngcontent-pnn-c339="" href="https://material.angular.io/components/progress-bar/overview#determinate"> Determinate progress-bar </a>
+	</h2>
+	<mat-progress-bar _ngcontent-pnn-c339="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-determinate" mode="determinate" value="40" class="mat-progress-bar mat-primary" aria-valuenow="40">
+		<svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element">
+			<defs>
+				<pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-1">
+					<circle cx="2" cy="2" r="2"/>
+				</pattern>
+			</defs>
+			<rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-1')"/>
+		</svg>
+		<div class="mat-progress-bar-buffer mat-progress-bar-element"/>
+		<div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0.4);"/>
+		<div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"/>
+	</mat-progress-bar>
+</progress-bar-determinate-example>
 ```
 
-```java     
-//@FindBy(css = "#mat-progress-bar-query")
-public static ProgressBar matProgressBarQuery;
+Configurable progress bar:
 
-@Test
-public void verifyQueryProgressBarTest() {
-    matProgressBarQuery.shouldBe().displayed();
-    matProgressBarQuery.show();
-    matProgressBarQuery.shouldBe().visible();
-    matProgressBarQuery.has().mode(QUERY);
-    matProgressBarQuery.has().max(100);
-    matProgressBarQuery.has().min(0);
-    matProgressBarQuery.has().color(BLUE);
-}
+```java  
+  //@FindBy(css = "#mat-progress-bar-configurable")
+  @UI("#mat-progress-bar-configurable")
+  public static ProgressBar matProgressBarConfigurable;
+
+  @Test
+  public void verifyBasicConfigurableProgressBarTest() throws Exception {
+      matProgressBarConfigurable.shouldBe().displayed();
+      matProgressBarConfigurable.show();
+      matProgressBarConfigurable.shouldBe().visible();
+      matProgressBarConfigurable.has().mode(DETERMINATE);
+      matProgressBarConfigurable.has().value(50);
+      matProgressBarConfigurable.has().max(100);
+      matProgressBarConfigurable.has().min(0);
+      matProgressBarConfigurable.has().color(BLUE);
+  }
 ```
 
 ![Configurable progress bar](../../images/angular/query_progress_bar.png)
@@ -1190,36 +1306,18 @@ public void verifyQueryProgressBarTest() {
 <progress-bar-configurable-example _nghost-pnn-c342="" ng-version="9.1.0"><h2 _ngcontent-pnn-c342="" class="example-h2">Configurable progress bar</h2><mat-card _ngcontent-pnn-c342="" class="mat-card mat-focus-indicator"><mat-card-content _ngcontent-pnn-c342="" class="mat-card-content"><h4 _ngcontent-pnn-c342="">Progress bar configuration</h4><section _ngcontent-pnn-c342="" class="example-section"><label _ngcontent-pnn-c342="" class="example-margin">Color:</label><mat-radio-group _ngcontent-pnn-c342="" role="radiogroup" class="mat-radio-group ng-untouched ng-pristine ng-valid"><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-primary-color-radio" value="primary" class="mat-radio-button example-margin mat-accent mat-radio-checked" tabindex="-1"><label class="mat-radio-label" for="progress-bars-primary-color-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-primary-color-radio-input" tabindex="0" name="mat-radio-group-33" value="primary"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Primary </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-accent-color-radio" value="accent" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-accent-color-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-accent-color-radio-input" tabindex="0" name="mat-radio-group-33" value="accent"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Accent </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-warn-color-radio" value="warn" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-warn-color-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-warn-color-radio-input" tabindex="0" name="mat-radio-group-33" value="warn"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Warn </div></label></mat-radio-button></mat-radio-group></section><section _ngcontent-pnn-c342="" class="example-section"><label _ngcontent-pnn-c342="" class="example-margin">Mode:</label><mat-radio-group _ngcontent-pnn-c342="" role="radiogroup" class="mat-radio-group ng-untouched ng-pristine ng-valid"><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-determinate-mode-radio" value="determinate" class="mat-radio-button example-margin mat-accent mat-radio-checked" tabindex="-1"><label class="mat-radio-label" for="progress-bars-determinate-mode-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-determinate-mode-radio-input" tabindex="0" name="mat-radio-group-37" value="determinate"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Determinate </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-indeterminate-mode-radio" value="indeterminate" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-indeterminate-mode-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-indeterminate-mode-radio-input" tabindex="0" name="mat-radio-group-37" value="indeterminate"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Indeterminate </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-buffer-mode-radio" value="buffer" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-buffer-mode-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-buffer-mode-radio-input" tabindex="0" name="mat-radio-group-37" value="buffer"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Buffer </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-query-mode-radio" value="query" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-query-mode-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-query-mode-radio-input" tabindex="0" name="mat-radio-group-37" value="query"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Query </div></label></mat-radio-button></mat-radio-group></section><section _ngcontent-pnn-c342="" class="example-section ng-star-inserted"><label _ngcontent-pnn-c342="" class="example-margin">Progress:</label><mat-slider _ngcontent-pnn-c342="" role="slider" id="progress-bars-progress-slider" class="mat-slider mat-focus-indicator example-margin mat-accent mat-slider-horizontal ng-untouched ng-pristine ng-valid" tabindex="0" aria-disabled="false" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-orientation="horizontal"><div class="mat-slider-wrapper"><div class="mat-slider-track-wrapper"><div class="mat-slider-track-background" style="transform: translateX(0px) scale3d(0.5, 1, 1);"></div><div class="mat-slider-track-fill" style="transform: translateX(0px) scale3d(0.5, 1, 1);"></div></div><div class="mat-slider-ticks-container" style="transform: translateX(0%);"><div class="mat-slider-ticks" style="background-size: 0% 2px; transform: translateZ(0px) translateX(0%);"></div></div><div class="mat-slider-thumb-container" style="transform: translateX(-50%);"><div class="mat-slider-focus-ring"></div><div class="mat-slider-thumb"></div><div class="mat-slider-thumb-label"><span class="mat-slider-thumb-label-text">50</span></div></div></div></mat-slider></section><!----><!----></mat-card-content></mat-card><mat-card _ngcontent-pnn-c342="" class="mat-card mat-focus-indicator"><mat-card-content _ngcontent-pnn-c342="" class="mat-card-content"><h4 _ngcontent-pnn-c342="">Result</h4><section _ngcontent-pnn-c342="" class="example-section"><mat-progress-bar _ngcontent-pnn-c342="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-configurable" class="mat-progress-bar example-margin mat-primary" aria-valuenow="50" mode="determinate"><svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element"><defs><pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-4"><circle cx="2" cy="2" r="2"></circle></pattern></defs><rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-4')"></rect></svg><div class="mat-progress-bar-buffer mat-progress-bar-element"></div><div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0.5);"></div><div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div></mat-progress-bar></section></mat-card-content></mat-card></progress-bar-configurable-example>
 ```
 
-```java  
-//@FindBy(css = "#mat-progress-bar-configurable")
-public static ProgressBar matProgressBarConfigurable;
-
-@Test
-public void verifyBasicConfigurableProgressBarTest() throws Exception {
-    matProgressBarConfigurable.shouldBe().displayed();
-    matProgressBarConfigurable.show();
-    matProgressBarConfigurable.shouldBe().visible();
-    matProgressBarConfigurable.has().mode(DETERMINATE);
-    matProgressBarConfigurable.has().value(50);
-    matProgressBarConfigurable.has().max(100);
-    matProgressBarConfigurable.has().min(0);
-    matProgressBarConfigurable.has().color(BLUE);
-}
-```
-
 List of the available **Progress bar** methods:
 
-| Method | Description | Return Type
---- | --- | --- 
-**is()** | Assert action | ProgressBarAssert
-**has()** | Assert action | ProgressBarAssert
-**max()** | Get max limit | int
-**min()** | Get min limit | int
-**mode()** | Get mode value | String
-**value()** | Get progress value | int
-**disappear()** | Assert action | ProgressBarAssert
-**bufferValue()** | Assert action | ProgressBarAssert
-**color()** | Assert action | ProgressBarAssert
+| Method | Description                      | Return Type
+--- |----------------------------------| --- 
+**is()** | Assert action                    | ProgressBarAssert
+**max()** | Get max limit                    | int
+**min()** | Get min limit                    | int
+**mode()** | Get mode value                   | String
+**value()** | Get progress value               | int
+**getValue()** | Get progress value               | String
+**bufferValue()** | Assert action                    | double
+**isVisible()** | Check if progress bar is visible | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ProgressBarTests.java" target="_blank">Progress bar java tests examples</a>
 
@@ -1229,125 +1327,415 @@ List of the available **Progress bar** methods:
 
 Progress bar locates in the following class:
 
-- __Java__: _com.epam.jdi.light.ui.angular.elements.common.Slider_
+- __Java__: _com.epam.jdi.light.angular.elements.common.Slider_
 
 There is 3 different sliders in Angular: Basic, Slider with custom thumb label formatting and Configurable:
 
+Basic slider:
+
+```java  
+  //@FindBy(css = "#mat-slider-basic")
+  @UI("#mat-slider-basic")
+  public static Slider matSliderBasic;
+
+  @Test
+  public void sliderBasicGetValueTest() {
+      matSliderBasic.show();
+      matSliderBasic.has().value(0.0);
+      matSliderBasic.setupValue(30);
+      matSliderBasic.has().value(30.0);
+  }
+```
 ![Basic slider](../../images/angular/basic_slider.PNG)
 
 ```html  
-<slider-overview-example _nghost-ret-c263="" ng-version="9.1.0"><h2 _ngcontent-ret-c263="" class="example-h2"><a _ngcontent-ret-c263="" href="https://material.angular.io/components/slider/overview"> Basic slider </a></h2><mat-slider _ngcontent-ret-c263="" role="slider" id="mat-slider-basic" class="mat-slider mat-focus-indicator mat-accent mat-slider-horizontal mat-slider-min-value" tabindex="0" aria-disabled="false" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" aria-orientation="horizontal"><div class="mat-slider-wrapper"><div class="mat-slider-track-wrapper"><div class="mat-slider-track-background" style="transform: translateX(7px) scale3d(1, 1, 1);"></div><div class="mat-slider-track-fill" style="transform: translateX(-7px) scale3d(0, 1, 1); display: none;"></div></div><div class="mat-slider-ticks-container" style="transform: translateX(0%);"><div class="mat-slider-ticks" style="background-size: 0% 2px; transform: translateZ(0px) translateX(0%); padding-left: 7px;"></div></div><div class="mat-slider-thumb-container" style="transform: translateX(-100%);"><div class="mat-slider-focus-ring"></div><div class="mat-slider-thumb"></div><div class="mat-slider-thumb-label"><span class="mat-slider-thumb-label-text">0</span></div></div></div></mat-slider></slider-overview-example>
+<slider-overview-example _nghost-ret-c263="" ng-version="9.1.0">
+	<h2 _ngcontent-ret-c263="" class="example-h2">
+		<a _ngcontent-ret-c263="" href="https://material.angular.io/components/slider/overview"> Basic slider </a>
+	</h2>
+	<mat-slider _ngcontent-ret-c263="" role="slider" id="mat-slider-basic" class="mat-slider mat-focus-indicator mat-accent mat-slider-horizontal mat-slider-min-value" tabindex="0" aria-disabled="false" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" aria-orientation="horizontal">
+		<div class="mat-slider-wrapper">
+			<div class="mat-slider-track-wrapper">
+				<div class="mat-slider-track-background" style="transform: translateX(7px) scale3d(1, 1, 1);"/>
+				<div class="mat-slider-track-fill" style="transform: translateX(-7px) scale3d(0, 1, 1); display: none;"/>
+			</div>
+			<div class="mat-slider-ticks-container" style="transform: translateX(0%);">
+				<div class="mat-slider-ticks" style="background-size: 0% 2px; transform: translateZ(0px) translateX(0%); padding-left: 7px;"/>
+			</div>
+			<div class="mat-slider-thumb-container" style="transform: translateX(-100%);">
+				<div class="mat-slider-focus-ring"/>
+				<div class="mat-slider-thumb"/>
+				<div class="mat-slider-thumb-label">
+					<span class="mat-slider-thumb-label-text">0</span>
+				</div>
+			</div>
+		</div>
+	</mat-slider>
+</slider-overview-example>
 ```
+Slider with custom thumb label formatting:
 
 ```java  
-//@FindBy(css = "#mat-slider-basic")
-public static Slider matSliderBasic;
-
-@Test
-public void sliderBasicGetValueTest() {
-    matSliderBasic.show();
-    matSliderBasic.has().value(0.0);
-    matSliderBasic.setupValue(30);
-    matSliderBasic.has().value(30.0);
-}
+  //@FindBy(css = "#mat-slider-formatting")
+  @UI("#mat-slider-formatting")
+  public static Slider matSliderFormatting;
+  
+  @Test
+  public void sliderFormattingGetValueTest() {
+      matSliderFormatting.has().value(1.0);
+      matSliderFormatting.show();
+      matSliderFormatting.setupValue(2000);
+      matSliderFormatting.has().value(2000.0);
+  }
 ```
 
 ![Slider with custom thumb label formatting](../../images/angular/slider_with_custom_thumb_label_formatting.PNG)
 
 ```html  
-<slider-formatting-example _nghost-ret-c264="" ng-version="9.1.0"><h2 _ngcontent-ret-c264="" class="example-h2"><a _ngcontent-ret-c264="" href="https://material.angular.io/components/slider/overview#formatting-the-thumb-label"> Slider with custom thumb label formatting </a></h2><mat-slider _ngcontent-ret-c264="" role="slider" id="mat-slider-formatting" thumblabel="" tickinterval="1000" min="1" max="100000" class="mat-slider mat-focus-indicator mat-accent mat-slider-has-ticks mat-slider-horizontal mat-slider-thumb-label-showing mat-slider-min-value" tabindex="0" aria-disabled="false" aria-valuemax="100000" aria-valuemin="1" aria-valuenow="1" aria-orientation="horizontal"><div class="mat-slider-wrapper"><div class="mat-slider-track-wrapper"><div class="mat-slider-track-background" style="transform: translateX(0px) scale3d(1, 1, 1);"></div><div class="mat-slider-track-fill" style="transform: translateX(0px) scale3d(0, 1, 1); display: none;"></div></div><div class="mat-slider-ticks-container" style="transform: translateX(-0.500005%);"><div class="mat-slider-ticks" style="background-size: 1.00001% 2px; transform: translateZ(0px) translateX(0.500005%);"></div></div><div class="mat-slider-thumb-container" style="transform: translateX(-100%);"><div class="mat-slider-focus-ring"></div><div class="mat-slider-thumb"></div><div class="mat-slider-thumb-label"><span class="mat-slider-thumb-label-text">1</span></div></div></div></mat-slider></slider-formatting-example>
+<slider-formatting-example _nghost-ret-c264="" ng-version="9.1.0">
+	<h2 _ngcontent-ret-c264="" class="example-h2">
+		<a _ngcontent-ret-c264="" href="https://material.angular.io/components/slider/overview#formatting-the-thumb-label"> Slider with custom thumb label formatting </a>
+	</h2>
+	<mat-slider _ngcontent-ret-c264="" role="slider" id="mat-slider-formatting" thumblabel="" tickinterval="1000" min="1" max="100000" class="mat-slider mat-focus-indicator mat-accent mat-slider-has-ticks mat-slider-horizontal mat-slider-thumb-label-showing mat-slider-min-value" tabindex="0" aria-disabled="false" aria-valuemax="100000" aria-valuemin="1" aria-valuenow="1" aria-orientation="horizontal">
+		<div class="mat-slider-wrapper">
+			<div class="mat-slider-track-wrapper">
+				<div class="mat-slider-track-background" style="transform: translateX(0px) scale3d(1, 1, 1);"/>
+				<div class="mat-slider-track-fill" style="transform: translateX(0px) scale3d(0, 1, 1); display: none;"/>
+			</div>
+			<div class="mat-slider-ticks-container" style="transform: translateX(-0.500005%);">
+				<div class="mat-slider-ticks" style="background-size: 1.00001% 2px; transform: translateZ(0px) translateX(0.500005%);"/>
+			</div>
+			<div class="mat-slider-thumb-container" style="transform: translateX(-100%);">
+				<div class="mat-slider-focus-ring"/>
+				<div class="mat-slider-thumb"/>
+				<div class="mat-slider-thumb-label">
+					<span class="mat-slider-thumb-label-text">1</span>
+				</div>
+			</div>
+		</div>
+	</mat-slider>
+</slider-formatting-example>
 ```
 
-```java  
-//@FindBy(css = "#mat-slider-formatting")
-public static Slider matSliderFormatting;
+Configurable slider:
 
-@Test
-public void sliderFormattingGetValueTest() {
-    matSliderFormatting.has().value(1.0);
-    matSliderFormatting.show();
-    matSliderFormatting.setupValue(2000);
-    matSliderFormatting.has().value(2000.0);
-}
+```java  
+  //@FindBy(css = "#mat-slider-configurable")
+  @UI("#mat-slider-configurable")
+  public static Slider matSliderConfigurable;
+  
+  @Test
+  public void sliderConfigurableGetValueTest() {
+      matSliderConfigurable.has().value(0.0);
+      matSliderConfigurable.show();
+      matSliderConfigurable.setupValue(60);
+      matSliderConfigurable.has().value(60.0);
+  }
+  
+  @Test
+  public void sliderConfigurableSetupValueTest() {
+      matSliderConfigurable.show();
+      matSliderConfigurable.setupValue(35.5);
+      matSliderConfigurable.has().value(35.5);
+  }
 ```
 
 ![Configurable slider](../../images/angular/configurable_slider.PNG)
 
 ```html  
-<slider-configurable-example _nghost-ret-c265="" ng-version="9.1.0"><h2 _ngcontent-ret-c265="" class="example-h2">Configurable slider</h2><mat-card _ngcontent-ret-c265="" class="mat-card mat-focus-indicator"><mat-card-content _ngcontent-ret-c265="" class="mat-card-content"><h4 _ngcontent-ret-c265="">Slider configuration</h4><section _ngcontent-ret-c265="" class="example-section"><mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-55 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float"><div class="mat-form-field-wrapper ng-tns-c94-55"><div class="mat-form-field-flex ng-tns-c94-55"><!----><!----><div class="mat-form-field-infix ng-tns-c94-55"><input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-value" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-55 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c94-55"><label class="mat-form-field-label ng-tns-c94-55 ng-star-inserted" id="mat-form-field-label-85" for="slider-configurable-value" aria-owns="slider-configurable-value"><!----><mat-label _ngcontent-ret-c265="" class="ng-tns-c94-55 ng-star-inserted">Value</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c94-55 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c94-55"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c94-55"><!----><div class="mat-form-field-hint-wrapper ng-tns-c94-55 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c94-55"></div></div><!----></div></div></mat-form-field><mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-56 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float"><div class="mat-form-field-wrapper ng-tns-c94-56"><div class="mat-form-field-flex ng-tns-c94-56"><!----><!----><div class="mat-form-field-infix ng-tns-c94-56"><input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-min" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-56 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c94-56"><label class="mat-form-field-label ng-tns-c94-56 ng-star-inserted" id="mat-form-field-label-87" for="slider-configurable-min" aria-owns="slider-configurable-min"><!----><mat-label _ngcontent-ret-c265="" class="ng-tns-c94-56 ng-star-inserted">Min value</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c94-56 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c94-56"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c94-56"><!----><div class="mat-form-field-hint-wrapper ng-tns-c94-56 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c94-56"></div></div><!----></div></div></mat-form-field><mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-57 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float"><div class="mat-form-field-wrapper ng-tns-c94-57"><div class="mat-form-field-flex ng-tns-c94-57"><!----><!----><div class="mat-form-field-infix ng-tns-c94-57"><input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-max" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-57 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c94-57"><label class="mat-form-field-label ng-tns-c94-57 ng-star-inserted" id="mat-form-field-label-89" for="slider-configurable-max" aria-owns="slider-configurable-max"><!----><mat-label _ngcontent-ret-c265="" class="ng-tns-c94-57 ng-star-inserted">Max value</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c94-57 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c94-57"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c94-57"><!----><div class="mat-form-field-hint-wrapper ng-tns-c94-57 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c94-57"></div></div><!----></div></div></mat-form-field><mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-58 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float"><div class="mat-form-field-wrapper ng-tns-c94-58"><div class="mat-form-field-flex ng-tns-c94-58"><!----><!----><div class="mat-form-field-infix ng-tns-c94-58"><input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-step" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-58 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c94-58"><label class="mat-form-field-label ng-tns-c94-58 ng-star-inserted" id="mat-form-field-label-91" for="slider-configurable-step" aria-owns="slider-configurable-step"><!----><mat-label _ngcontent-ret-c265="" class="ng-tns-c94-58 ng-star-inserted">Step size</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c94-58 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c94-58"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c94-58"><!----><div class="mat-form-field-hint-wrapper ng-tns-c94-58 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c94-58"></div></div><!----></div></div></mat-form-field></section><section _ngcontent-ret-c265="" class="example-section"><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-showTicks" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-showTicks-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-showTicks-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Show ticks</span></label></mat-checkbox><!----><!----></section><section _ngcontent-ret-c265="" class="example-section"><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-thumb-label" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-thumb-label-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-thumb-label-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Show thumb label</span></label></mat-checkbox></section><section _ngcontent-ret-c265="" class="example-section"><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-vertical" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-vertical-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-vertical-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Vertical</span></label></mat-checkbox><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-invert" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-invert-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-invert-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Inverted</span></label></mat-checkbox></section><section _ngcontent-ret-c265="" class="example-section"><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-disabled" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-disabled-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-disabled-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Disabled</span></label></mat-checkbox></section></mat-card-content></mat-card><mat-card _ngcontent-ret-c265="" class="mat-card mat-focus-indicator example-result-card"><mat-card-content _ngcontent-ret-c265="" class="mat-card-content"><h4 _ngcontent-ret-c265="">Result</h4><mat-slider _ngcontent-ret-c265="" role="slider" id="mat-slider-configurable" class="mat-slider mat-focus-indicator example-margin mat-accent mat-slider-horizontal mat-slider-min-value ng-untouched ng-pristine ng-valid" tabindex="0" aria-disabled="false" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" aria-orientation="horizontal"><div class="mat-slider-wrapper"><div class="mat-slider-track-wrapper"><div class="mat-slider-track-background" style="transform: translateX(7px) scale3d(1, 1, 1);"></div><div class="mat-slider-track-fill" style="transform: translateX(-7px) scale3d(0, 1, 1); display: none;"></div></div><div class="mat-slider-ticks-container" style="transform: translateX(0%);"><div class="mat-slider-ticks" style="background-size: 0% 2px; transform: translateZ(0px) translateX(0%); padding-left: 7px;"></div></div><div class="mat-slider-thumb-container" style="transform: translateX(-100%);"><div class="mat-slider-focus-ring"></div><div class="mat-slider-thumb"></div><div class="mat-slider-thumb-label"><span class="mat-slider-thumb-label-text">0</span></div></div></div></mat-slider></mat-card-content></mat-card></slider-configurable-example>
+<slider-configurable-example _nghost-ret-c265="" ng-version="9.1.0">
+	<h2 _ngcontent-ret-c265="" class="example-h2">Configurable slider</h2>
+	<mat-card _ngcontent-ret-c265="" class="mat-card mat-focus-indicator">
+		<mat-card-content _ngcontent-ret-c265="" class="mat-card-content">
+			<h4 _ngcontent-ret-c265="">Slider configuration</h4>
+			<section _ngcontent-ret-c265="" class="example-section">
+				<mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-55 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float">
+					<div class="mat-form-field-wrapper ng-tns-c94-55">
+						<div class="mat-form-field-flex ng-tns-c94-55">
+							<div class="mat-form-field-infix ng-tns-c94-55">
+								<input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-value" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-55 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false">
+									<span class="mat-form-field-label-wrapper ng-tns-c94-55">
+										<label class="mat-form-field-label ng-tns-c94-55 ng-star-inserted" id="mat-form-field-label-85" for="slider-configurable-value" aria-owns="slider-configurable-value">
+											<mat-label _ngcontent-ret-c265="" class="ng-tns-c94-55 ng-star-inserted">Value</mat-label>
+										</label>
+									</span>
+								</div>
+							</div>
+							<div class="mat-form-field-underline ng-tns-c94-55 ng-star-inserted">
+								<span class="mat-form-field-ripple ng-tns-c94-55"/>
+							</div>
+							<div class="mat-form-field-subscript-wrapper ng-tns-c94-55">
+								<div class="mat-form-field-hint-wrapper ng-tns-c94-55 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+									<div class="mat-form-field-hint-spacer ng-tns-c94-55"/>
+								</div>
+							</div>
+						</div>
+					</mat-form-field>
+					<mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-56 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float">
+						<div class="mat-form-field-wrapper ng-tns-c94-56">
+							<div class="mat-form-field-flex ng-tns-c94-56">
+								<div class="mat-form-field-infix ng-tns-c94-56">
+									<input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-min" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-56 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false">
+										<span class="mat-form-field-label-wrapper ng-tns-c94-56">
+											<label class="mat-form-field-label ng-tns-c94-56 ng-star-inserted" id="mat-form-field-label-87" for="slider-configurable-min" aria-owns="slider-configurable-min">
+												<mat-label _ngcontent-ret-c265="" class="ng-tns-c94-56 ng-star-inserted">Min value</mat-label>
+											</label>
+										</span>
+									</div>
+								</div>
+								<div class="mat-form-field-underline ng-tns-c94-56 ng-star-inserted">
+									<span class="mat-form-field-ripple ng-tns-c94-56"/>
+								</div>
+								<div class="mat-form-field-subscript-wrapper ng-tns-c94-56">
+									<div class="mat-form-field-hint-wrapper ng-tns-c94-56 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+										<div class="mat-form-field-hint-spacer ng-tns-c94-56"/>
+									</div>
+								</div>
+							</div>
+						</mat-form-field>
+						<mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-57 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float">
+							<div class="mat-form-field-wrapper ng-tns-c94-57">
+								<div class="mat-form-field-flex ng-tns-c94-57">
+									<div class="mat-form-field-infix ng-tns-c94-57">
+										<input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-max" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-57 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false">
+											<span class="mat-form-field-label-wrapper ng-tns-c94-57">
+												<label class="mat-form-field-label ng-tns-c94-57 ng-star-inserted" id="mat-form-field-label-89" for="slider-configurable-max" aria-owns="slider-configurable-max">
+													<mat-label _ngcontent-ret-c265="" class="ng-tns-c94-57 ng-star-inserted">Max value</mat-label>
+												</label>
+											</span>
+										</div>
+									</div>
+									<div class="mat-form-field-underline ng-tns-c94-57 ng-star-inserted">
+										<span class="mat-form-field-ripple ng-tns-c94-57"/>
+									</div>
+									<div class="mat-form-field-subscript-wrapper ng-tns-c94-57">
+										<div class="mat-form-field-hint-wrapper ng-tns-c94-57 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+											<div class="mat-form-field-hint-spacer ng-tns-c94-57"/>
+										</div>
+									</div>
+								</div>
+							</mat-form-field>
+							<mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-58 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float">
+								<div class="mat-form-field-wrapper ng-tns-c94-58">
+									<div class="mat-form-field-flex ng-tns-c94-58">
+										<div class="mat-form-field-infix ng-tns-c94-58">
+											<input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-step" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-58 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false">
+												<span class="mat-form-field-label-wrapper ng-tns-c94-58">
+													<label class="mat-form-field-label ng-tns-c94-58 ng-star-inserted" id="mat-form-field-label-91" for="slider-configurable-step" aria-owns="slider-configurable-step">
+														<mat-label _ngcontent-ret-c265="" class="ng-tns-c94-58 ng-star-inserted">Step size</mat-label>
+													</label>
+												</span>
+											</div>
+										</div>
+										<div class="mat-form-field-underline ng-tns-c94-58 ng-star-inserted">
+											<span class="mat-form-field-ripple ng-tns-c94-58"/>
+										</div>
+										<div class="mat-form-field-subscript-wrapper ng-tns-c94-58">
+											<div class="mat-form-field-hint-wrapper ng-tns-c94-58 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+												<div class="mat-form-field-hint-spacer ng-tns-c94-58"/>
+											</div>
+										</div>
+									</div>
+								</mat-form-field>
+							</section>
+							<section _ngcontent-ret-c265="" class="example-section">
+								<mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-showTicks" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid">
+									<label class="mat-checkbox-layout" for="slider-configurable-showTicks-input">
+										<div class="mat-checkbox-inner-container">
+											<input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-showTicks-input" tabindex="0" aria-checked="false">
+												<div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator">
+													<div class="mat-ripple-element mat-checkbox-persistent-ripple"/>
+												</div>
+												<div class="mat-checkbox-frame"/>
+												<div class="mat-checkbox-background">
+													<svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark">
+														<path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"/>
+													</svg>
+													<div class="mat-checkbox-mixedmark"/>
+												</div>
+											</div>
+											<span class="mat-checkbox-label">
+												<span style="display: none;">&nbsp;</span>Show ticks</span>
+										</label>
+									</mat-checkbox>
+								</section>
+								<section _ngcontent-ret-c265="" class="example-section">
+									<mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-thumb-label" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid">
+										<label class="mat-checkbox-layout" for="slider-configurable-thumb-label-input">
+											<div class="mat-checkbox-inner-container">
+												<input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-thumb-label-input" tabindex="0" aria-checked="false">
+													<div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator">
+														<div class="mat-ripple-element mat-checkbox-persistent-ripple"/>
+													</div>
+													<div class="mat-checkbox-frame"/>
+													<div class="mat-checkbox-background">
+														<svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark">
+															<path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"/>
+														</svg>
+														<div class="mat-checkbox-mixedmark"/>
+													</div>
+												</div>
+												<span class="mat-checkbox-label">
+													<span style="display: none;">&nbsp;</span>Show thumb label</span>
+											</label>
+										</mat-checkbox>
+									</section>
+									<section _ngcontent-ret-c265="" class="example-section">
+										<mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-vertical" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid">
+											<label class="mat-checkbox-layout" for="slider-configurable-vertical-input">
+												<div class="mat-checkbox-inner-container">
+													<input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-vertical-input" tabindex="0" aria-checked="false">
+														<div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator">
+															<div class="mat-ripple-element mat-checkbox-persistent-ripple"/>
+														</div>
+														<div class="mat-checkbox-frame"/>
+														<div class="mat-checkbox-background">
+															<svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark">
+																<path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"/>
+															</svg>
+															<div class="mat-checkbox-mixedmark"/>
+														</div>
+													</div>
+													<span class="mat-checkbox-label">
+														<span style="display: none;">&nbsp;</span>Vertical</span>
+												</label>
+											</mat-checkbox>
+											<mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-invert" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid">
+												<label class="mat-checkbox-layout" for="slider-configurable-invert-input">
+													<div class="mat-checkbox-inner-container">
+														<input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-invert-input" tabindex="0" aria-checked="false">
+															<div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator">
+																<div class="mat-ripple-element mat-checkbox-persistent-ripple"/>
+															</div>
+															<div class="mat-checkbox-frame"/>
+															<div class="mat-checkbox-background">
+																<svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark">
+																	<path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"/>
+																</svg>
+																<div class="mat-checkbox-mixedmark"/>
+															</div>
+														</div>
+														<span class="mat-checkbox-label">
+															<span style="display: none;">&nbsp;</span>Inverted</span>
+													</label>
+												</mat-checkbox>
+											</section>
+											<section _ngcontent-ret-c265="" class="example-section">
+												<mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-disabled" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid">
+													<label class="mat-checkbox-layout" for="slider-configurable-disabled-input">
+														<div class="mat-checkbox-inner-container">
+															<input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-disabled-input" tabindex="0" aria-checked="false">
+																<div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator">
+																	<div class="mat-ripple-element mat-checkbox-persistent-ripple"/>
+																</div>
+																<div class="mat-checkbox-frame"/>
+																<div class="mat-checkbox-background">
+																	<svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark">
+																		<path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"/>
+																	</svg>
+																	<div class="mat-checkbox-mixedmark"/>
+																</div>
+															</div>
+															<span class="mat-checkbox-label">
+																<span style="display: none;">&nbsp;</span>Disabled</span>
+														</label>
+													</mat-checkbox>
+												</section>
+											</mat-card-content>
+										</mat-card>
+										<mat-card _ngcontent-ret-c265="" class="mat-card mat-focus-indicator example-result-card">
+											<mat-card-content _ngcontent-ret-c265="" class="mat-card-content">
+												<h4 _ngcontent-ret-c265="">Result</h4>
+												<mat-slider _ngcontent-ret-c265="" role="slider" id="mat-slider-configurable" class="mat-slider mat-focus-indicator example-margin mat-accent mat-slider-horizontal mat-slider-min-value ng-untouched ng-pristine ng-valid" tabindex="0" aria-disabled="false" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" aria-orientation="horizontal">
+													<div class="mat-slider-wrapper">
+														<div class="mat-slider-track-wrapper">
+															<div class="mat-slider-track-background" style="transform: translateX(7px) scale3d(1, 1, 1);"/>
+															<div class="mat-slider-track-fill" style="transform: translateX(-7px) scale3d(0, 1, 1); display: none;"/>
+														</div>
+														<div class="mat-slider-ticks-container" style="transform: translateX(0%);">
+															<div class="mat-slider-ticks" style="background-size: 0% 2px; transform: translateZ(0px) translateX(0%); padding-left: 7px;"/>
+														</div>
+														<div class="mat-slider-thumb-container" style="transform: translateX(-100%);">
+															<div class="mat-slider-focus-ring"/>
+															<div class="mat-slider-thumb"/>
+															<div class="mat-slider-thumb-label">
+																<span class="mat-slider-thumb-label-text">0</span>
+															</div>
+														</div>
+													</div>
+												</mat-slider>
+											</mat-card-content>
+										</mat-card>
+									</slider-configurable-example>
 ```
 
-```java  
-//@FindBy(css = "#mat-slider-configurable")
-public static Slider matSliderConfigurable;
 
-@Test
-public void sliderConfigurableGetValueTest() {
-    matSliderConfigurable.has().value(0.0);
-    matSliderConfigurable.show();
-    matSliderConfigurable.setupValue(60);
-    matSliderConfigurable.has().value(60.0);
-}
-
-@Test
-public void sliderConfigurableSetupValueTest() {
-    matSliderConfigurable.show();
-    matSliderConfigurable.setupValue(35.5);
-    matSliderConfigurable.has().value(35.5);
-}
-```
 List of the available **Slider** methods:
 
-| Method | Description | Return Type
---- | --- | --- 
-**is()** | Assert action | SliderAssert
-**has()** | Assert action | SliderAssert
-**value()** | Assert action | SliderAssert
-**setupValue()** |Set value| void
-**orientation()** | Assert action | SliderAssert
-**slide()** | Drag & drop based on percentage length | void
-**thumbLabelDisplayed()** | Assert action | SliderAssert
+| Method | Description                            | Return Type
+--- |----------------------------------------| --- 
+**min()** | get min limit                          | double
+**max()** | get max limit                          | double
+**value()** | get value                              | double
+**orientation()** | Returns element orientation            | String
+**isInverted()** | check if inverted                      | boolean
+**isThumbLabelDisplayed()** | is thumblabel displayed                | boolean
+**setValue(String)** | Set value                              | void
+**moveRight()** | move carriage to right                 | void
+**moveLeft()** | move carriage to left                  | void
+**isDisabled()** | Is disabled                            | boolean
+**isEnabled()** | Is enabled                             | boolean
+**getValue()** | Returns value                          | String
+**is()** | Assert action                          | SliderAssert
+**has()** | Assert action                          | SliderAssert
+**setupValue(double)** | Set value                              | void
+**slide(double)** | Drag & drop based on percentage length | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SliderTests.java" target="_blank">Slider java tests examples</a>
 
 #### 2.1.13 Tooltip
 
-```java 
-    @UI(".mat-tooltip")
-    public static Tooltip tooltip;
-        
-    @Test
-    public void basicTooltipTest() {
-        basicTooltipButton.hover();
-        tooltip.has().assertTooltipText("Petit a petit, l’oiseau fait son nid");
-    }
+The Angular Material tooltip provides a text label that is displayed when the user hovers over or longpresses an element.
 
-    @Test
-    public void customPositionTooltipTest() {
-        Map<String, Tooltip.Position> position = new HashMap<>();
-        position.put("after", Tooltip.Position.RIGHT);
-        position.put("before", Tooltip.Position.LEFT);
-        position.put("above", Tooltip.Position.ABOVE);
-        position.put("below", Tooltip.Position.BELOW);
-        position.put("left", Tooltip.Position.LEFT);
-        position.put("right", Tooltip.Position.RIGHT);
-
-        position.forEach(
-                (k, v) -> {
-                    positionTooltipSelector.click();
-                    (new CdkOverlayContainer()).select(k);
-                    positionTooltipButton.hover();
-                    tooltip.has().assertTooltipPosition(v, positionTooltipButton);
-                }
-        );
-    }	
-```
 ##### <a href="https://material.angular.io/components/tooltip/overview" target="_blank">Tooltip overview</a>
 
 Tooltip is located in the following class:
 
 - __Java__: _com.epam.jdi.light.angular.elements.common.Tooltip_
 
+```java 
+  //FindBy(css = ".mat-tooltip") 
+  @UI(".mat-tooltip")
+  public static Tooltip tooltip;
+      
+  @Test
+    public void basicTooltipTest() {
+        basicTooltipButton.hover();
+        tooltip.has().assertTooltipText("Petit a petit, l’oiseau fait son nid");
+  }
+
+  @Test
+  public void customPositionTooltipTest() {
+      Map<String, Tooltip.Position> position = new HashMap<>();
+      position.put("after", Tooltip.Position.RIGHT);
+      position.put("before", Tooltip.Position.LEFT);
+      position.put("above", Tooltip.Position.ABOVE);
+      position.put("below", Tooltip.Position.BELOW);
+      position.put("left", Tooltip.Position.LEFT);
+      position.put("right", Tooltip.Position.RIGHT);
+
+      positionTooltipButton.show();
+
+      position.forEach(
+              (k, v) -> {
+                  positionTooltipSelector.click();
+                  (new MaterialSelectorContainer()).select(k);
+                  positionTooltipButton.hover();
+                  tooltip.has().assertTooltipPosition(v, positionTooltipButton);
+              }
+      );
+  }
+```
 ![Tooltip](../../images/angular/tooltip.PNG)
 
 ```html
@@ -1363,7 +1751,7 @@ Tooltip is located in the following class:
 --- | --- | ---
 **text()** | Get text | String
 **color()** | Get color | String
-**position(UIBaseElement<?> element)** | Get position relative to element | Position
+**position(UIBaseElement<?>)** | Get position relative to element | Position
 **is()** | Assert action | TooltipAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
@@ -1381,49 +1769,55 @@ There is 2 different spinners in Angular: Basic and Configurable:
 ![Basic progress spinner](../../images/angular/basic_progress_spinner.png)
 
 ```java  
-//FindBy(css = "#basic-progress-spinner") 
-public static Spinner basicProgressSpinner;
+  //FindBy(css = "#basic-progress-spinner") 
+  @UI("#basic-progress-spinner")
+  public static Spinner basicProgressSpinner;
 
-//FindBy(css = "#show-spinner-group") 
-public static Button showSpinner;
+  //FindBy(css = "#show-spinner") 
+  @UI("#show-spinner") 
+  public static Button showSpinner;
 
-@Test
-public void baseValidationTest() {
-    showSpinner.show();
-    showSpinner.click();
-    baseValidation(basicProgressSpinner);
-}
+  @Test
+  public void disappear() {
+      showSpinner.click();
+      basicProgressSpinner.waitFor().disappear();
+  }
 
-@Test
-public void checkSpinnerHidden() {
-    showSpinner.click();
-    basicProgressSpinner.assertThat().hidden();
-}
+  @Test
+  public void baseValidationTest() {
+      showSpinner.show();
+      showSpinner.click();
+      baseValidation(basicProgressSpinner);
+  }
 
-@Test
-public void checkSpinnerAppearAndThenDisappear() {
-    showSpinner.click();
-    basicProgressSpinner.is().displayed();
-    basicProgressSpinner.waitFor().hidden();
-}
-
-@Test
-public void checkSpinnerDurationTest() {
-    refresh();
-    showSpinner.show();
-    final int DURATION = 5;
-    JAction action = () -> {
-        basicProgressSpinner.base().timer().wait(() -> basicProgressSpinner.isDisplayed());
-        basicProgressSpinner.base().timer().wait(() -> basicProgressSpinner.isHidden());
-    };
-    showSpinner.click();
-    duration(DURATION, 900, action);
-}
+  @Test
+  public void checkSpinnerHidden() {
+      showSpinner.click();
+      basicProgressSpinner.assertThat().hidden();
+  }
 ```
 
 ```html
-<progress-spinner-overview-example _nghost-pjy-c338="" ng-version="9.1.0"><h2 _ngcontent-pjy-c338="" class="example-h2"><a _ngcontent-pjy-c338="" href="https://material.angular.io/components/progress-spinner/overview"> Basic progress-spinner </a></h2><button _ngcontent-pjy-c338="" mat-raised-button="" id="show-spinner" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper"> Show progress-spinner for 5 seconds
-</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button><div _ngcontent-pjy-c338="" hidden=""><mat-spinner _ngcontent-pjy-c338="" role="progressbar" mode="indeterminate" id="basic-progress-spinner" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;"><svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;"><circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"></circle><!----><!----></svg></mat-spinner></div></progress-spinner-overview-example>
+<progress-spinner-overview-example _nghost-prk-c338="" ng-version="9.1.0">
+	<h2 _ngcontent-prk-c338="" class="example-h2">
+		<a _ngcontent-prk-c338="" href="https://material.angular.io/components/progress-spinner/overview"> Basic progress-spinner </a>
+	</h2>
+	<button _ngcontent-prk-c338="" mat-raised-button="" id="show-spinner" class="mat-focus-indicator mat-raised-button mat-button-base">
+		<span class="mat-button-wrapper"> Show progress-spinner for 5 seconds
+</span>
+		<div matripple="" class="mat-ripple mat-button-ripple"/>
+		<div class="mat-button-focus-overlay"/>
+	</button>
+	<div _ngcontent-prk-c338="" hidden="">
+		<mat-spinner _ngcontent-prk-c338="" role="progressbar" mode="indeterminate" id="basic-progress-spinner" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;">
+			<svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;">
+				<circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"/>
+				<!---->
+				<!---->
+			</svg>
+		</mat-spinner>
+	</div>
+</progress-spinner-overview-example>
 ```
 
 |Method | Description | Return Type

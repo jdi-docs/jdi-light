@@ -1,60 +1,7 @@
 ## 2. Angular elements
 ### 2.1 Angular Common elements
 
-#### 2.1.1 Divider
-
-##### <a href="https://material.angular.io/components/divider/overview" target="_blank">Divider overview</a>
-
-Divider is located in the following class:
-
-- __Java__: _com.epam.jdi.light.ui.angular.elements.common.Divider_
-- 
-```java 
-    @UI("#divider-list mat-divider")
-    public class JList<Divider> dividers;
-
-    @Test
-    public void dividerDisplayTest() {
-        dividerSection.dividers.get(1).is().displayed();
-        dividerSection.dividers.get(2).is().displayed();
-    }
-
-    @Test
-    public void dividerAttrTest() {
-        dividerSection.dividers.get(1).is().attr("aria-orientation", "horizontal");
-        dividerSection.dividers.get(2).is().attr("aria-orientation", "horizontal");
-    }
-```
-
-Divider icon:
-
-![Divider icon](../../images/angular/divider.png)
-
-```html
-<mat-list class="mat-list mat-list-base">
-  <mat-list-item class="mat-list-item mat-focus-indicator">
-    <div class="mat-list-item-content">
-      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
-      <div class="mat-list-text"></div>Item 1</div></mat-list-item>
-      <mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator">
-    <div class="mat-list-item-content">
-      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
-      <div class="mat-list-text"></div>Item 2</div></mat-list-item>
-      <mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator">
-    <div class="mat-list-item-content">
-      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
-      <div class="mat-list-text"></div>Item 3</div>
-  </mat-list-item>
-</mat-list>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**isDisplayed** | Verify state | boolean
-
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/DividerTests.java" target="_blank">Here you can find Divider tests</a>
-
-#### 2.1.2 Icons
+#### 2.1.1 Icons
 
 ##### <a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a>
 
@@ -104,7 +51,7 @@ There is two different icons in Angular: Basic icon and SVG icon:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/IconsTests.java" target="_blank">Here you can find Icons tests</a>
 
-#### 2.1.3 Progress spinner
+#### 2.1.2 Progress spinner
 
 ##### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Progress Spinner overview</a>
 
@@ -147,7 +94,7 @@ Progress Spinner is located in the following class:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SpinnerTests.java" target="_blank">Here you can find Spinner tests</a>
 
-#### 2.1.4 Slide toggle
+#### 2.1.3 Slide toggle
 
 ##### <a href="https://material.angular.io/components/slide-toggle/overview" target="_blank">Slide toggle overview</a>
 
@@ -353,7 +300,7 @@ List of some available **Slide toggle** methods:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a>
 
-#### 2.1.5 Checkbox
+#### 2.1.4 Checkbox
 
 ##### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a>
 
@@ -506,7 +453,7 @@ List of some available **Checkbox** methods:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
-#### 2.1.6 Inputs
+#### 2.1.5 Inputs
 
 ##### <a href="https://material.angular.io/components/input/overview" target="_blank">Input overview</a>
 
@@ -784,7 +731,7 @@ TextArea:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a>
 
-#### 2.1.7 Toolbar
+#### 2.1.6 Toolbar
 
 ##### <a href="https://material.angular.io/components/toolbar/overview" target="_blank">Toolbar overview</a>
 
@@ -851,7 +798,7 @@ There is two different toolbars in Angular: Single row and Multiple row.
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
 
-#### 2.1.8 Basic Button
+#### 2.1.7 Basic Button
 
 ##### <a href="https://material.angular.io/components/button/overview" target="_blank">Button overview</a>
 
@@ -936,7 +883,7 @@ The angular Button:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
 
-#### 2.1.9 Button toggle
+#### 2.1.8 Button toggle
 
 ##### <a href="https://material.angular.io/components/button-toggle/overview" target="_blank">Button toggle overview</a>
 
@@ -1049,7 +996,7 @@ List of available methods:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ButtonToggleTests.java" target="_blank">Here you can find Button toggle tests</a>
 
-#### 2.1.10 Badge
+#### 2.1.9 Badge
 
 ##### <a href="https://material.angular.io/components/badge/overview" target="_blank">Badge overview</a>
 
@@ -1113,7 +1060,7 @@ Badge is located in the following class:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
-#### 2.1.11 Progress bar
+#### 2.1.10 Progress bar
 
 ##### <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">Progress bar overview</a>
 
@@ -1352,7 +1299,7 @@ List of the available **Progress bar** methods:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ProgressBarTests.java" target="_blank">Progress bar java tests examples</a>
 
-#### 2.1.12 Slider
+#### 2.1.11 Slider
 
 ##### <a href="https://material.angular.io/components/slider/overview" target="_blank">Slider overview</a>
 
@@ -1724,7 +1671,7 @@ List of the available **Slider** methods:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SliderTests.java" target="_blank">Slider java tests examples</a>
 
-#### 2.1.13 Tooltip
+#### 2.1.12 Tooltip
 
 The Angular Material tooltip provides a text label that is displayed when the user hovers over or longpresses an element.
 
@@ -1787,7 +1734,7 @@ Tooltip is located in the following class:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
 
-#### 2.1.14 Spinner
+#### 2.1.13 Spinner
 
 ##### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Tooltip overview</a>
 

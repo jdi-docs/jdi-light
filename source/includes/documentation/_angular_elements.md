@@ -1,6 +1,14 @@
 ## 2. Angular elements
 ### 2.1 Angular Common elements
 
+#### 2.1.1 Divider
+
+##### <a href="https://material.angular.io/components/divider/overview" target="_blank">Divider overview</a>
+
+Divider is located in the following class:
+
+- __Java__: _com.epam.jdi.light.ui.angular.elements.common.Divider_
+- 
 ```java 
     @UI("#divider-list mat-divider")
     public class JList<Divider> dividers;
@@ -17,14 +25,6 @@
         dividerSection.dividers.get(2).is().attr("aria-orientation", "horizontal");
     }
 ```
-
-#### 2.1.1 Divider
-
-##### <a href="https://material.angular.io/components/divider/overview" target="_blank">Divider overview</a>
-
-Divider is located in the following class:
-
-- __Java__: _com.epam.jdi.light.ui.angular.elements.common.Divider
 
 Divider icon:
 
@@ -54,19 +54,24 @@ Divider icon:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/DividerTests.java" target="_blank">Here you can find Divider tests</a>
 
-<br>  
+#### 2.1.2 Icons
 
+##### <a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a>
+
+Icon is located in the following class:
+
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.Icon_
+
+There is two different icons in Angular: Basic icon and SVG icon:
+
+![Basic icon](../../images/angular/basic_icon.png) ![Svg icon](../../images/angular/svg_icon.png)
 
 ```java 
-    @FindBy(id="basic_icon")
-    public static Icon basicIcon;
-
+    //@FindBy(id="#basic_icon")  
     @UI("#basic_icon")
     public static Icon basicIcon;
-
-    @FindBy(id="svg_icon")
-    public static Icon svgIcon;
     
+    //@FindBy(id="#svg_icon")  
     @UI("#svg_icon")
     public static Icon svgIcon;
 
@@ -74,27 +79,15 @@ Divider icon:
     @Test
     public void checkBasicIconIsDisplayed() {
         basicIcon.show();
-        basicIcon.isDisplayed();
+        basicIcon.is().displayed();
     }
 
     @Test
     public void checkSVGIconIsDisplayed() {
         svgIcon.show();
-        svgIcon.isDisplayed();
+        svgIcon.is().displayed();
     }
 ```
-
-#### 2.1.2 Icons
-
-##### <a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a>
-
-Icon is located in the following class:
-
-- __Java__: _com.epam.jdi.light.ui.angular.elements.common.Icon_
-
-There is two different icons in Angular: Basic icon and SVG icon:
-
-![Basic icon](../../images/angular/basic_icon.png) ![Svg icon](../../images/angular/svg_icon.png)
 
 ```html
 <mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>
@@ -106,40 +99,45 @@ There is two different icons in Angular: Basic icon and SVG icon:
 
 |Method | Description | Return Type
 --- | --- | ---
-**isDisplayed** | Verify state | boolean
+**isDisplayed()** | Verify state | boolean
 **show()** | Scroll to element | void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/IconsTests.java" target="_blank">Here you can find Icons tests</a>
 
-<br>  
-
 #### 2.1.3 Progress spinner
-
-```java 
-    //@FindBy(id="basic_progress_spinner") public static Icon basicIcon;
-    
-    @UI("#basic_progress_spinner")
-    public static Spinner basicProgressSpinner;
-
-
-    @Test
-    public void checkBasicSpinnerIsDisplayed() {
-        basicProgressSpinner.show();
-        basicProgressSpinner.isDisplayed();
-    }
-```
 
 ##### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Progress Spinner overview</a>
 
 Progress Spinner is located in the following class:
 
-- __Java__: _com.epam.jdi.light.ui.angular.elements.common.Spinner_
+- __Java__: _com.epam.jdi.light.angular.elements.common.Spinner_
 
+```java 
+    //@FindBy(id="#basic-progress-spinner")    
+    @UI("#basic-progress-spinner")
+    public static Spinner basicProgressSpinner;
+    
+    //@FindBy(id="#show-spinner")    
+    @UI("#show-spinner")
+    public static Button showSpinner;
+
+
+    @Test
+    public void checkSpinnerAppearAndThenDisappear() {
+        showSpinner.click();
+        basicProgressSpinner.is().displayed();
+        basicProgressSpinner.waitFor().hidden();
+    }
+```
 
 ![Progress spinner](../../images/angular/basic_progress_spinner.png)
 
 ```html
-<mat-spinner _ngcontent-krq-c336="" role="progressbar" mode="indeterminate" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;"><svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;"><circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"></circle><!----><!----></svg></mat-spinner>
+<mat-spinner _ngcontent-krq-c336="" role="progressbar" mode="indeterminate" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;">
+  <svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;">
+    <circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"/>
+  </svg>
+</mat-spinner>
 ```
 
 |Method | Description | Return Type
@@ -149,12 +147,20 @@ Progress Spinner is located in the following class:
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SpinnerTests.java" target="_blank">Here you can find Spinner tests</a>
 
-
 #### 2.1.4 Slide toggle
 
-```java 
-    //@FindBy(id="slide-toggles-basic") public static SlideToggle basicSlideToggle;
+##### <a href="https://material.angular.io/components/slide-toggle/overview" target="_blank">Slide toggle overview</a>
 
+Slide toggle is located in the following class:
+
+- __Java__: _com.epam.jdi.light.angular.elements.common.SlideToggle_
+
+There is two different slide toggles in Angular: Basic and Configurable:
+
+Basic toggle:
+
+```java 
+    //@FindBy(id="slide-toggles-basic")
     @UI("#slide-toggles-basic")
     public static SlideToggle basicSlideToggle;
 
@@ -176,33 +182,30 @@ Progress Spinner is located in the following class:
     }
 ```
 
-##### <a href="https://material.angular.io/components/slide-toggle/overview" target="_blank">Slide toggle overview</a>
-
-Slide toggle is located in the following class:
-
-- __Java__: _com.epam.jdi.light.ui.angular.elements.common.SlideToggle_
-
-There is two different slide toggles in Angular: Basic and Configurable:
-
 ![Basic slide toggle](../../images/angular/basic_slide_toggle.png)
 
 ```html
-<mat-slide-toggle _ngcontent-bco-c235="" class="mat-slide-toggle mat-accent mat-checked" id="mat-slide-toggle-1" tabindex="-1"><label class="mat-slide-toggle-label" for="mat-slide-toggle-1-input"><div class="mat-slide-toggle-bar"><input type="checkbox" role="switch" class="mat-slide-toggle-input cdk-visually-hidden" id="mat-slide-toggle-1-input" tabindex="0" aria-checked="true"><div class="mat-slide-toggle-thumb-container"><div class="mat-slide-toggle-thumb"></div><div mat-ripple="" class="mat-ripple mat-slide-toggle-ripple mat-focus-indicator"><div class="mat-ripple-element mat-slide-toggle-persistent-ripple"></div></div></div></div><span class="mat-slide-toggle-content"><span style="display: none;">&nbsp;</span>Slide me!</span></label></mat-slide-toggle>
+<mat-slide-toggle _ngcontent-bco-c235="" class="mat-slide-toggle mat-accent mat-checked" id="mat-slide-toggle-1" tabindex="-1">
+  <label class="mat-slide-toggle-label" for="mat-slide-toggle-1-input">
+    <div class="mat-slide-toggle-bar">
+      <input type="checkbox" role="switch" class="mat-slide-toggle-input cdk-visually-hidden" id="mat-slide-toggle-1-input" tabindex="0" aria-checked="true">
+      <div class="mat-slide-toggle-thumb-container">
+        <div class="mat-slide-toggle-thumb"/>
+        <div mat-ripple="" class="mat-ripple mat-slide-toggle-ripple mat-focus-indicator">
+          <div class="mat-ripple-element mat-slide-toggle-persistent-ripple"/>
+        </div>
+      </div>
+    </div>
+    <span class="mat-slide-toggle-content">
+				<span style="display: none;">&nbsp;</span>Slide me!</span>
+  </label>
+</mat-slide-toggle>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**check()** | Check element | void
-**uncheck()** | Uncheck element | void
-**isDisplayed()** | Verify state | boolean
-**selected()** | Verify state | boolean
-**deselected()** | Verify state | boolean
-
-<br>
+Configurable slide toggle:
 
 ```java 
-    //@FindBy(id="slide-toggles-configured") public static SlideToggle resultSlideToggle;
-
+    //@FindBy(id="slide-toggles-configured") 
     @UI("#slide-toggles-configured")
     public static SlideToggle resultSlideToggle;
 
@@ -211,13 +214,13 @@ There is two different slide toggles in Angular: Basic and Configurable:
         disableCheckbox.uncheck();
         resultSlideToggle.check();
         primaryRadioButton.click();
-        resultSlideToggle.is().hasClass("mat-primary");
+        resultSlideToggle.has().cssClass("mat-primary");
         accentRadioButton.click();
-        resultSlideToggle.is().hasClass("mat-accent");
+        resultSlideToggle.has().cssClass("mat-accent");
         warningRadioButton.click();
-        resultSlideToggle.is().hasClass("mat-warn");
+        resultSlideToggle.has().cssClass("mat-warn");
     }
-    
+
     @Test
     public void resultToggleCheckedTest() {
         resultSlideToggle.uncheck();
@@ -226,7 +229,7 @@ There is two different slide toggles in Angular: Basic and Configurable:
         checkedCheckbox.uncheck();
         resultSlideToggle.is().deselected();
     }
-    
+
     @Test
     public void resultToggleDisableTest() {
         disableCheckbox.check();
@@ -239,15 +242,110 @@ There is two different slide toggles in Angular: Basic and Configurable:
 ![Configurable slide toggle](../../images/angular/configurable_slide_toggle.png)
 
 ```html
-<mat-card-content _ngcontent-noq-c236="" class="mat-card-content"><h4 _ngcontent-noq-c236="">Slider configuration</h4><section _ngcontent-noq-c236="" class="example-section"><label _ngcontent-noq-c236="" class="example-margin">Color:</label><mat-radio-group _ngcontent-noq-c236="" role="radiogroup" class="mat-radio-group ng-untouched ng-pristine ng-valid"><mat-radio-button _ngcontent-noq-c236="" value="primary" class="mat-radio-button example-margin mat-accent" tabindex="-1" id="mat-radio-13"><label class="mat-radio-label" for="mat-radio-13-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-13-input" tabindex="0" name="mat-radio-group-11" value="primary"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Primary </div></label></mat-radio-button><mat-radio-button _ngcontent-noq-c236="" value="accent" class="mat-radio-button example-margin mat-accent mat-radio-checked" tabindex="-1" id="mat-radio-14"><label class="mat-radio-label" for="mat-radio-14-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-14-input" tabindex="0" name="mat-radio-group-11" value="accent"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Accent </div></label></mat-radio-button><mat-radio-button _ngcontent-noq-c236="" value="warn" class="mat-radio-button example-margin mat-accent" tabindex="-1" id="mat-radio-15"><label class="mat-radio-label" for="mat-radio-15-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-15-input" tabindex="0" name="mat-radio-group-11" value="warn"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Warn </div></label></mat-radio-button></mat-radio-group></section><section _ngcontent-noq-c236="" class="example-section"><mat-checkbox _ngcontent-noq-c236="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-6"><label class="mat-checkbox-layout" for="mat-checkbox-6-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-6-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Checked</span></label></mat-checkbox></section><section _ngcontent-noq-c236="" class="example-section"><mat-checkbox _ngcontent-noq-c236="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-7"><label class="mat-checkbox-layout" for="mat-checkbox-7-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-7-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Disabled</span></label></mat-checkbox></section></mat-card-content>
+<mat-card-content _ngcontent-noq-c236="" class="mat-card-content">
+  <h4 _ngcontent-noq-c236="">Slider configuration</h4>
+  <section _ngcontent-noq-c236="" class="example-section">
+    <label _ngcontent-noq-c236="" class="example-margin">Color:</label>
+    <mat-radio-group _ngcontent-noq-c236="" role="radiogroup" class="mat-radio-group ng-untouched ng-pristine ng-valid">
+      <mat-radio-button _ngcontent-noq-c236="" value="primary" class="mat-radio-button example-margin mat-accent" tabindex="-1" id="mat-radio-13">
+        <label class="mat-radio-label" for="mat-radio-13-input">
+          <div class="mat-radio-container">
+            <div class="mat-radio-outer-circle"/>
+            <div class="mat-radio-inner-circle"/>
+            <input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-13-input" tabindex="0" name="mat-radio-group-11" value="primary">
+            <div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator">
+              <div class="mat-ripple-element mat-radio-persistent-ripple"/>
+            </div>
+          </div>
+          <div class="mat-radio-label-content">
+            <span style="display: none;">&nbsp;</span> Primary </div>
+        </label>
+      </mat-radio-button>
+      <mat-radio-button _ngcontent-noq-c236="" value="accent" class="mat-radio-button example-margin mat-accent mat-radio-checked" tabindex="-1" id="mat-radio-14">
+        <label class="mat-radio-label" for="mat-radio-14-input">
+          <div class="mat-radio-container">
+            <div class="mat-radio-outer-circle"/>
+            <div class="mat-radio-inner-circle"/>
+            <input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-14-input" tabindex="0" name="mat-radio-group-11" value="accent">
+            <div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator">
+              <div class="mat-ripple-element mat-radio-persistent-ripple"/>
+            </div>
+          </div>
+          <div class="mat-radio-label-content">
+            <span style="display: none;">&nbsp;</span> Accent </div>
+        </label>
+      </mat-radio-button>
+      <mat-radio-button _ngcontent-noq-c236="" value="warn" class="mat-radio-button example-margin mat-accent" tabindex="-1" id="mat-radio-15">
+        <label class="mat-radio-label" for="mat-radio-15-input">
+          <div class="mat-radio-container">
+            <div class="mat-radio-outer-circle"/>
+            <div class="mat-radio-inner-circle"/>
+            <input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-15-input" tabindex="0" name="mat-radio-group-11" value="warn">
+            <div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator">
+              <div class="mat-ripple-element mat-radio-persistent-ripple"/>
+            </div>
+          </div>
+          <div class="mat-radio-label-content">
+            <span style="display: none;">&nbsp;</span> Warn </div>
+        </label>
+      </mat-radio-button>
+    </mat-radio-group>
+  </section>
+  <section _ngcontent-noq-c236="" class="example-section">
+    <mat-checkbox _ngcontent-noq-c236="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-6">
+      <label class="mat-checkbox-layout" for="mat-checkbox-6-input">
+        <div class="mat-checkbox-inner-container">
+          <input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-6-input" tabindex="0" aria-checked="false">
+          <div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator">
+            <div class="mat-ripple-element mat-checkbox-persistent-ripple"/>
+          </div>
+          <div class="mat-checkbox-frame"/>
+          <div class="mat-checkbox-background">
+            <svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark">
+											<path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"/>
+										</svg>
+            <div class="mat-checkbox-mixedmark"/>
+          </div>
+        </div>
+        <span class="mat-checkbox-label">
+									<span style="display: none;">&nbsp;</span>Checked</span>
+      </label>
+    </mat-checkbox>
+  </section>
+  <section _ngcontent-noq-c236="" class="example-section">
+    <mat-checkbox _ngcontent-noq-c236="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-7">
+      <label class="mat-checkbox-layout" for="mat-checkbox-7-input">
+        <div class="mat-checkbox-inner-container">
+          <input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-7-input" tabindex="0" aria-checked="false">
+          <div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator">
+            <div class="mat-ripple-element mat-checkbox-persistent-ripple"/>
+          </div>
+          <div class="mat-checkbox-frame"/>
+          <div class="mat-checkbox-background">
+            <svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark">
+												<path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"/>
+											</svg>
+            <div class="mat-checkbox-mixedmark"/>
+          </div>
+        </div>
+        <span class="mat-checkbox-label">
+										<span style="display: none;">&nbsp;</span>Disabled</span>
+      </label>
+    </mat-checkbox>
+  </section>
+</mat-card-content>
 ```
+
+List of some available **Slide toggle** methods:
+
 |Method | Description | Return Type
 --- | --- | ---
-
 **check()** | Check element | void
 **uncheck()** | Uncheck element | void
 **isEnabled()** | Verify state | boolean
 **isDisabled()** | Verify state | boolean
+**isDisplayed()** | Verify state | boolean
+**isSelected()** | Verify state | boolean
 **selected()** | Verify state | boolean
 **deselected()** | Verify state | boolean
 **click()** | Click element | void
@@ -256,34 +354,39 @@ There is two different slide toggles in Angular: Basic and Configurable:
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a>
 
 #### 2.1.5 Checkbox
-```java 
-//@FindBy(id="basic-checkbox")
-public static Checkbox basicCheckbox;
 
-@Test
-public void checkLabelValue() {
-    basicCheckbox.label().has().value("Check me!");
-    resultCheckbox.label().has().value("I'm a checkbox");
-}
-@Test
-public void basicCheckboxValidation() {
-    basicCheckbox.is().displayed().and().enabled().and().deselected();
-}
-@Test
-public void checkBasicCheckbox() {
-    basicCheckbox.check();
-    basicCheckbox.is().selected();
-}
-```
 ##### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a>
 
 Checkbox is located in the following class:
 
-- __Java__: _com.epam.jdi.light.ui.angular.elements.common.Checkbox_
+- __Java__: _com.epam.jdi.light.angular.elements.common.Checkbox_
 
 There is two different checkboxes in Angular: Basic and Configurable.
 
 See examples with HTML code describing datepicker elements.
+
+```java 
+  //@FindBy(id="basic-checkbox")
+  @UI("basic-checkbox")
+  public static Checkbox basicCheckbox;
+
+  @Test
+  public void checkLabelValue() {
+      basicCheckbox.label().has().value("Check me!");
+      resultCheckbox.label().has().value("I'm a checkbox");
+  }
+
+  @Test
+  public void basicCheckboxValidation() {
+      basicCheckbox.is().displayed().and().enabled().and().deselected();
+  }
+
+  @Test
+  public void checkBasicCheckbox() {
+      basicCheckbox.check();
+      basicCheckbox.is().selected();
+  }
+```
 
 ![Basic checkbox](../../images/angular/basic_checkbox.png)
 
@@ -293,36 +396,48 @@ See examples with HTML code describing datepicker elements.
 </section>
 ```
 ```java 
-//@FindBy(id="checked-checkbox")
-public static Checkbox checkedCheckbox;
-//@FindBy(id="indeterminate-checkbox")
-public static Checkbox indeterminateCheckbox;
-//@FindBy(id="disabled-checkbox")
-public static Checkbox disabledCheckbox;
-//@FindBy(id="result-checkbox")
-public static Checkbox resultCheckbox;
+  //@FindBy(id="checked-checkbox")
+  @UI("checked-checkbox")
+  public static Checkbox checkedCheckbox;
+  
+  //@FindBy(id="indeterminate-checkbox")
+  @UI("indeterminate-checkbox")
+  public static Checkbox indeterminateCheckbox;
+  
+  //@FindBy(id="disabled-checkbox")
+  @UI("disabled-checkbox")
+  public static Checkbox disabledCheckbox;
+  
+  //@FindBy(id="result-checkbox")
+  @UI("result-checkbox")
+  public static Checkbox resultCheckbox;
+  
+  //@FindBy(id="align-before-radio-button")
+  @UI("align-before-radio-button")
+  public static Button alignBeforeRadioButton;
+  
+  //@FindBy(id="align-after-radio-button")
+  @UI("align-after-radio-button")
+  public static Button alignAfterRadioButton;
+  
+  @Test
+  public void indeterminateTest() {
+      indeterminateCheckbox.click();
+      resultCheckbox.is().indeterminate();
+  }
 
-//@FindBy(id="align-before-radio-button")
-public static Button alignBeforeRadioButton;
-//@FindBy(id="align-after-radio-button")
-public static Button alignAfterRadioButton;
+  @Test
+  public void disabledOption() {
+      disabledCheckbox.click();
+      resultCheckbox.is().disabled();
+  }
 
-@Test
-public void indeterminateTest() {
-    indeterminateCheckbox.click();
-    resultCheckbox.is().indeterminate();
-}
-@Test
-public void disabledOption() {
-    disabledCheckbox.click();
-    resultCheckbox.is().disabled();
-}
-@Test
-public void configurableCheckboxTest() {
-    indeterminateCheckbox.check();
-    alignBeforeRadioButton.click();
-    resultCheckbox.is().indeterminate().and().cssClass("mat-checkbox-label-before");
-}
+  @Test
+  public void configurableCheckboxTest() {
+      indeterminateCheckbox.check();
+      alignBeforeRadioButton.click();
+      resultCheckbox.is().indeterminate().and().cssClass("mat-checkbox-label-before");
+  }
 ```
 
 ![Configurable checkbox](../../images/angular/configurable_checkbox.png)
@@ -411,14 +526,14 @@ There are eight different inputs in Angular:
 - Input with hints
 - Input with prefixes and suffixes
 
-<br>
+Basic inputs:
 
 ```java 
-    //@FindBy(id="inputs_basic_food") public static TextField foodBasicInput;
+    //@FindBy(id="inputs_basic_food")
     @UI("#inputs_basic_food")
     public static TextField foodBasicInput;
 
-    //@FindBy(id="inputs_basic_comment") public static TextField leaveACommentBasicInput;
+    //@FindBy(id="inputs_basic_comment")
     @UI("#inputs_basic_comment")
     public static TextField leaveACommentBasicInput;
 
@@ -443,26 +558,14 @@ There are eight different inputs in Angular:
 <input _ngcontent-ohc-c255="" matinput="" id="inputs_basic_food" placeholder="Ex. Pizza" value="Sushi" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-34 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**focus()** | place cursor within the text field | void
-**sendKeys(String value)** | send text to the text field | void
-**setText(String value)** | set text | void
-**input(String value)** | set text | void
-**getText()** | returns text from the text field | String
-**getValue()** | returns text from the text field | String
-**clear()** | clears the text field | void
-**is()** | property that returns object for work with assertions | TextAssert
-**placeholder()** | returns value of placeholder attribute | String
-
-<br>
+Input with a custom ErrorStateMatcher:
 
 ```java 
-    //@FindBy(id="inputs_errorStateMatcher_email") public static TextField emailErrorStateMatcherInput;
+    //@FindBy(id="inputs_errorStateMatcher_email")
     @UI("#inputs_errorStateMatcher_email")
     public static TextField emailErrorStateMatcherInput;
 
-    //@FindBy(id="inputs_errorStateMatcher_message") public static TextField errorStateMatcherMessageInput;
+    //@FindBy(id="inputs_errorStateMatcher_message")
     @UI("#inputs_errorStateMatcher_message")
     public static Text errorStateMatcherMessageInput;
 
@@ -478,30 +581,16 @@ There are eight different inputs in Angular:
 ```html
 <input _ngcontent-ohc-c256="" matinput="" id="inputs_errorStateMatcher_email" placeholder="Ex. pat@example.com" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-39 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid" aria-describedby="mat-hint-3" aria-invalid="false" aria-required="false">
 ```
-
-|Method | Description | Return Type
---- | --- | ---
-**focus()** | place cursor within the text field | void
-**sendKeys(String value)** | send text to the text field | void
-**setText(String value)** | set text | void
-**input(String value)** | set text | void
-**getText()** | returns text from the text field | String
-**getValue()** | returns text from the text field | String
-**clear()** | clears the text field | void
-**is()** | property that returns object for work with assertions | TextAssert
-**placeholder()** | returns value of placeholder attribute | String
-
-<br>
+Auto-resizing textarea:
 
 ```java 
-    //@FindBy(id="inputs_autosize_textarea") public static TextField autoSizeTextArea;
+    //@FindBy(id="inputs_autosize_textarea")
     @UI("#inputs_autosize_textarea")
     public static TextArea autoSizeTextArea;
 
     @Test
     public void autoResizingTextAreaTest() {
         autoSizeTextArea.isDisplayed();
-        autoSizeTextArea.hasClass("cdktextareaautosize");
         autoSizeTextArea.setLines("line1", "line2");
         autoSizeTextArea.addNewLine("line3");
         autoSizeTextArea.is().text("line1\nline2\nline3");
@@ -517,30 +606,14 @@ There are eight different inputs in Angular:
 <textarea _ngcontent-ohc-c257="" rows="1" matinput="" id="inputs_autosize_textarea" cdktextareaautosize="" cdkautosizeminrows="1" cdkautosizemaxrows="5" class="mat-input-element mat-form-field-autofill-control cdk-textarea-autosize ng-tns-c94-42 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" style="min-height: 18px; max-height: 90px; height: 18px;"></textarea>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**addNewLine(String line)** | add line to the already existing | void
-**cols()** | returns value of cols attribute | int
-**rows()** | returns value of rows attribute | int
-**setText(String value)** | set text | void
-**input(String value)** | set text | void
-**getText()** | returns text from the textarea | String
-**getValue()** | returns text from the textarea | String
-**labelText()** | returns value of TextArea label | String
-**maxlength()** | returns value of maxlength attribute | int
-**minlengt()** | returns value of minlength attribute | int
-**clear()** | clears the text field | void
-**is()** | property that returns object for work with assertions | TextAssert
-**placeholder()** | returns value of placeholder attribute | String
-
-<br>
+Input with a clear button:
 
 ```java 
-    //@FindBy(id="inputs_clearable_textbox") public static TextArea clearableInput;
+    //@FindBy(id="inputs_clearable_textbox")
     @UI("#inputs_clearable_textbox")
     public static TextArea clearableInput;
     
-    //@FindBy(id="inputs_clearable_button") public static Button clearableInputButton;
+    //@FindBy(id="inputs_clearable_button")
     @UI("#inputs_clearable_button")
     public static Button clearableInputButton;
 
@@ -558,29 +631,23 @@ There are eight different inputs in Angular:
 
 ```html
 <input _ngcontent-ohc-c258="" matinput="" id="inputs_clearable_textbox" type="text" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-43 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false">
-<button _ngcontent-ohc-c258="" mat-button="" id="inputs_clearable_button" matsuffix="" mat-icon-button="" aria-label="Clear" class="mat-focus-indicator mat-button mat-icon-button mat-button-base ng-tns-c94-43 ng-star-inserted"><span class="mat-button-wrapper"><mat-icon _ngcontent-ohc-c258="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">close</mat-icon></span><div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></div><div class="mat-button-focus-overlay"></div></button>
+<button _ngcontent-ohc-c258="" mat-button="" id="inputs_clearable_button" matsuffix="" mat-icon-button="" aria-label="Clear" class="mat-focus-indicator mat-button mat-icon-button mat-button-base ng-tns-c94-43 ng-star-inserted">
+		<span class="mat-button-wrapper">
+			<mat-icon _ngcontent-ohc-c258="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">close</mat-icon>
+		</span>
+  <div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"/>
+  <div class="mat-button-focus-overlay"/>
+</button>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**focus()** | place cursor within the text field | void
-**sendKeys(String value)** | send text to the text field | void
-**setText(String value)** | set text | void
-**input(String value)** | set text | void
-**getText()** | returns text from the text field | String
-**getValue()** | returns text from the text field | String
-**clear()** | clears the text field | void
-**is()** | property that returns object for work with assertions | TextAssert
-**placeholder()** | returns value of placeholder attribute | String
-
-<br>
+Input with error messages:
 
 ```java 
-    //@FindBy(id="inputs_error_email") public static TextField emailInput;
+    //@FindBy(id="inputs_error_email")
     @UI("#inputs_error_email")
     public static TextField emailInput;
     
-    //@FindBy(id="inputs_error_message") public static Text errorMessageInput;
+    //@FindBy(id="inputs_error_message")
     @UI("#inputs_error_message")
     public static Text errorMessageInput;
 
@@ -599,35 +666,23 @@ There are eight different inputs in Angular:
 <input _ngcontent-ohc-c259="" matinput="" id="inputs_error_email" placeholder="Ex. pat@example.com" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-44 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid" aria-invalid="false" aria-required="false">
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**focus()** | place cursor within the text field | void
-**sendKeys(String value)** | send text to the text field | void
-**setText(String value)** | set text | void
-**input(String value)** | set text | void
-**getText()** | returns text from the text field | String
-**getValue()** | returns text from the text field | String
-**clear()** | clears the text field | void
-**is()** | property that returns object for work with assertions | TextAssert
-**placeholder()** | returns value of placeholder attribute | String
-
-<br>
+Inputs in a form:
 
 ```java 
-    //@FindBy(css="input-form-example form") public static InputsForm inputsForm;
+    //@FindBy(css="input-form-example form")
     @UI("input-form-example form")
     public static InputsForm inputsForm;
 
-    @Test
+     @Test
     public void inputsInAFormTest() {
         inputsForm.fill(DEFAULT_USER);
-        firstName.is().text(DEFAULT_USER.firstName);
-        lastName.is().text(DEFAULT_USER.lastName);
-        address.is().text(DEFAULT_USER.address);
-        address2.is().text(DEFAULT_USER.address2);
-        city.is().text(DEFAULT_USER.city);
-        state.is().text(DEFAULT_USER.state);
-        postalCode.is().text(DEFAULT_USER.postalCode);
+        inputsForm.firstName.is().text("Long");
+        inputsForm.lastName.is().text("Dinh");
+        inputsForm.address.is().text("259 Tran Hung Dao Street");
+        inputsForm.address2.is().text("Ward Co Giang, District 1");
+        inputsForm.city.is().text("Ho Chi Minh");
+        inputsForm.state.is().text("Ho Chi Minh");
+        inputsForm.postalCode.is().text("70000");
     }
 ```
 ![Inputs in a form](../../images/angular/inputs_in_a_form.PNG)
@@ -636,43 +691,18 @@ There are eight different inputs in Angular:
 <form _ngcontent-sod-c260="" novalidate="" class="example-form ng-untouched ng-pristine ng-valid"></form>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**add(T entity)** | fills all settable elements and clicks “add” Button or ”addButton” | void
-**back(T entity)** | fills all settable elements and clicks “back” Button or ”backButton” | void
-**cancel(T entity)** | fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
-**check(T entity)** | verifies that form has been filled correctly. If not, throws an exception | void
-**close(T entity)** | fills all settable elements and clicks “close” Button or ”closeButton” | void
-**next(T entity)** | fills all settable elements and clicks “next” Button or ”nextButton” | void
-**login(T entity)** | fills all settable elements and clicks “login” Button or ”loginButton” | void
-**publish(T entity)** | fills all settable elements and clicks “publish” Button or ”publishButton” | void
-**save(T entity)** | fills all settable elements and clicks “save” Button or ”saveButton” | void
-**select(T entity)** | fills all settable elements and clicks “select” Button or ”selectButton” | void
-**search(T entity)** | fills all settable elements and clicks “search” Button or ”searchButton” | void
-**login(T entity)** | fills all settable elements and clicks “login” Button or ”loginButton” | void
-**send(T entity)** | fills all settable elements and clicks “send” Button or ”sendButton” | void
-**submit(T entity)** | fills all settable elements and clicks “submit” Button or ”submitButton” | void
-**update(T entity)** | fills all settable elements and clicks “update” Button or ”updateButton” | void
-**fill(T entity)** | fills all settable elements of the form that can be matched with fields of the input entity | void
-**verify(T entity)** | verifies that form has been filled correctly. If not, returns a list of keys where verification has failed | List
-**fillAction(Field field, Object element, Object parent, String setValue)** | defines the specifics of how form elements will be filled | void
-**getAction(Field field, Object element, Object parent)** | defines the specifics of how form elements will be obtained for verification and checks | void
-**isDisplayed()** | check that form is displayed | boolean
-**isValid()** | check that form is valid | boolean
-**login()** | clicks “login” Button or ”loginButton” | boolean
-
-<br>
+Input with hints:
 
 ```java 
-    //@FindBy(id="inputs_hints_message") public static TextField messageHintInput;
+    //@FindBy(id="inputs_hints_message")
     @UI("#inputs_hints_message")
     public static TextField messageHintInput;
 
-    //@FindBy(id="inputs_hints_text") public static Text messageHint;
+    //@FindBy(id="inputs_hints_text")
     @UI("#inputs_hints_text")
     public static Text messageHint;
 
-    //@FindBy(id="inputs_hints_counter") public static Text messageCounterHint;
+    //@FindBy(id="inputs_hints_counter")
     @UI("#inputs_hints_counter")
     public static Text messageCounterHint;
 
@@ -693,30 +723,18 @@ There are eight different inputs in Angular:
 <mat-hint _ngcontent-ohc-c261="" id="inputs_hints_text" class="mat-hint ng-tns-c94-53"><strong _ngcontent-ohc-c261="">Don't disclose personal info</strong></mat-hint>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**focus()** | place cursor within the text field | void
-**sendKeys(String value)** | send text to the text field | void
-**setText(String value)** | set text | void
-**input(String value)** | set text | void
-**getText()** | returns text from the text field | String
-**getValue()** | returns text from the text field | String
-**clear()** | clears the text field | void
-**is()** | property that returns object for work with assertions | TextAssert
-**placeholder()** | returns value of placeholder attribute | String
-
-<br>
+Input with prefixes and suffixes:
 
 ```java 
-    //@FindBy(id="inputs_prefixes") public static Text prefixInput;
+    //@FindBy(id="inputs_prefixes")
     @UI("#inputs_prefixes")
     public static Text prefixInput;
 
-    //@FindBy(id="inputs_suffixes") public static Icon suffixInput;
+    //@FindBy(id="inputs_suffixes")
     @UI("#inputs_suffixes")
     public static Icon suffixInput;
 
-    //@FindBy(id="inputs_prefixes_suffixes_phone") public static TextField telephoneInput;
+    //@FindBy(id="inputs_prefixes_suffixes_phone")
     @UI("#inputs_prefixes_suffixes_phone")
     public static TextField telephoneInput;
 
@@ -737,19 +755,32 @@ There are eight different inputs in Angular:
 <input _ngcontent-ohc-c262="" type="tel" matinput="" id="inputs_prefixes_suffixes_phone" placeholder="555-555-1234" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-54 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
 <mat-icon _ngcontent-ohc-c262="" role="img" matsuffix="" id="inputs_suffixes" class="mat-icon notranslate material-icons mat-icon-no-color ng-tns-c94-54" aria-hidden="true">edit</mat-icon>
 ```
+List of available methods:
+
+TextField:
 
 |Method | Description | Return Type
 --- | --- | ---
-**focus()** | place cursor within the text field | void
-**sendKeys(String value)** | send text to the text field | void
-**setText(String value)** | set text | void
-**input(String value)** | set text | void
 **getText()** | returns text from the text field | String
 **getValue()** | returns text from the text field | String
-**clear()** | clears the text field | void
+**setValue(String)** | returns text from the text field | void
 **is()** | property that returns object for work with assertions | TextAssert
-**placeholder()** | returns value of placeholder attribute | String
 
+TextArea:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setLines(String...)** | Add lines as one string with '\n' delimiter | void
+**getText()** | Returns lines dividing text using '\n' | List<String>
+**addNewLine(String)** | add line to the already existing | void
+**cols()** | returns value of cols attribute | int
+**rows()** | returns value of rows attribute | int
+**getText()** | returns text from the textarea | String
+**getValue()** | returns text from the textarea | String
+**maxlength()** | returns value of maxlength attribute | int
+**minlengt()** | returns value of minlength attribute | int
+**setValue(String)** | returns text from the text field | void
+**is()** | property that returns object for work with assertions | TextAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a>
 

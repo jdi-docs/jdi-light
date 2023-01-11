@@ -2964,3 +2964,32 @@ Available methods in Java JDI Light:
 
 For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
 
+### 5.39 Aspect Ratios
+
+[Aspect Ratios Vuetify documentation page](https://vuetifyjs.com/en/components/aspect-ratios/)
+
+```java
+    @Test
+    public void aspectRatioImageTests() {
+        aspectRatiosTestsData.aspectRatiosTestData().forEach(
+                dataObject -> {
+                    getDriver().manage().window().setSize(new Dimension(dataObject.getWidth(),
+                        dataObject.getHeight()));
+                    aspectRatiosContainer.has().ratio(16, 9);
+                }
+        );
+    }
+```
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.AspectRatios.java_
+
+Aspect Ratios - the `v-responsive` component can be used to fix any section to a specific aspect ratio.
+
+![Aspect Ratios Example](../../images/vuetify/aspect_ratios.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Aspect Ratios Assert | AspectRatiosAssert
+**ratioValue(double width, double height)** | Ratio of '{name}' has width '{0}' and height '{1}' | double
+**ratio()** | Assert that '{name}' has ratio '{0} : {1}' | AspectRatiosAssert  
+
+For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AspectRatiosTests.java)

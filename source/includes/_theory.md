@@ -265,8 +265,8 @@ public WebElement acceptConditions;
 @FindBy(css = "[ui=submit-button]") 
 public WebElement submitButton; 
 ```
-With pure Selenium, Page Object elements for that will look like this: 
-</br></br></br></br></br></br></br></br></br>
+With pure Selenium, Page Object elements for that will look like this (see on the right panel) =====> 
+</br></br></br></br></br></br></br></br></br></br></br>
 
 ```java
 @UI("[ui=name]") public Textfield name;
@@ -276,7 +276,7 @@ With pure Selenium, Page Object elements for that will look like this:
 @UI("[ui=accept-conditions]") public Checkbox acceptConditions;
 @UI("[ui=submit-button]") public Button submitButton;
 ```
-In JDI Light with standard UI Objects the code gets more descriptive, but there still are duplications in locator and element names:
+In JDI Light with standard UI Objects the code gets more descriptive, but there still are duplications in locator and element names (see on the right panel) =====>
 </br></br></br></br></br></br>
 
 ```java

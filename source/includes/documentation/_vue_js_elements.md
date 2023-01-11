@@ -5,25 +5,101 @@
 [Vuetify documentation page](https://vuetifyjs.com/en/components/alerts/)
 
 ```java
-  @Test
-  public void alertsWithPropsHaveProperCssProps(){
-      redAlert.has().text("I'm an alert with a top border and red color");
-      redAlert.has().css("background-color", Colors.RED_LIGHTEN_2.value());
-      redAlert.has().cssClass("v-alert--border-top");
-  }
+@Test(dataProvider = "textAlertsTestsData",
+  dataProviderClass = AlertsTestsDataProvider.class)
+public void textAlertsTest(int index, String alertText) {
+	basicAlerts.get(index).show();
+	basicAlerts.get(index).has().text(alertText);
+}
+
+@Test(dataProvider = "colorAlertsTestsData",
+  dataProviderClass = AlertsTestsDataProvider.class)
+public void colorAlertsTest(int index, String color, String backgroundColor) {
+  basicAlerts.get(index).show();
+  basicAlerts.get(index).has().color(color)
+    .and().backgroundColor(backgroundColor);
+}
 ```
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Alert.java_
 
 ![Alerts example](../../images/vuetify/alerts.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | TextAssert
-**getValue()** | Returns element value | String
+|Method | Description                             | Return Type 
+--- |-----------------------------------------|-------------
+**is()** | Returns AlertAssert class               | TextAssert  
+**isDismissible()** | Checks that '{name}' is dismissible     | boolean     
+**isProminent()** | Checks that '{name}' is prominent       | boolean     
+**hasBorder()** | Checks that '{name}' has border         | boolean     
+**borderValue()** | Gets '{name}' border value              | String      
+**hasColoredBorder()** | Checks that '{name}' has colored border | boolean     
+**borderBackGroundColor()** | Gets '{name}' border background color   | String      
+**type()** | Gets '{name}' type                      | String
+**getText()** | Gets '{name}' text                      | String
+**icon()** | Gets '{name}' icon                      | Icon
+**hasIcon()** | Checks that '{name}' has icon           | boolean
+**color()** | Gets '{name}' color                     | String
+**backgroundColor()** | Gets '{name}' background color          | String
+**isDense()** | Checks that '{name}' is dense           | boolean
+**height()** | Gets '{name}' height                    | int
+**width()** | Gets '{name}' width                     | int
+**maxHeight()** | Gets '{name}' max height                | int
+**maxWidth()** | Gets '{name}' max width                 | int
+**minHeight** | Gets '{name}' min height                | int
+**minWidth()** | Gets '{name}' min width                 | int
+**isElevated()** | Checks that '{name}' is elevated        | boolean
+**elevation()** | Gets '{name}' elevation                 | String
+**isOutlined()** | Checks that '{name}' is outlined        | boolean
+**isRounded()** | Checks that '{name}' is rounded         | boolean
+**rounded()** | Gets '{name}' rounded value             | String
+**isShaped()** | Checks that '{name}' is shaped          | boolean
+**isTile()** | Checks that '{name}' is tile            | boolean
+**hasStyledText()** | Check that '{name}' has styled text | boolean
+**text(Matcher<String> condition)** | Assert that '{name}' has text '{0}' | AlertAssert
+**dismissible()** | Assert that '{name}' is dismissible | AlertAssert
+**notDismissible()** | Assert that '{name}' is not dismissible | AlertAssert
+**prominent()** | Assert that '{name}' is prominent | AlertAssert
+**notProminent()** | Assert that '{name}' is not prominent | AlertAssert
+**border()** | Assert that '{name}' has border | AlertAssert
+**noBorder()** | Assert that '{name}' has no border | AlertAssert
+**border(String boardValue)** | Assert that '{name}' has '{0}' border | AlertAssert
+**coloredBorder()** | Assert that '{name}' has colored border | AlertAssert
+**noColoredBorder()** | Assert that '{name}' has no colored border | AlertAssert
+**backgroundBorderColor(String borderBackgroundColor)** | Assert that '{name}' has border background color '{0}' | AlertAssert
+**type(String type)** | Assert that '{name}' has '{0}' type | AlertAssert
+**dense()** | Assert that '{name}' is dense | AlertAssert
+**notDense()** | Assert that '{name}' is not dense | AlertAssert
+**color(String color)** | Assert that '{name}' has color '{0}' | AlertAssert
+**backgroundColor(String color)** | Assert that '{name}' has background color '{0}' | AlertAssert
+**height(int height)** | Assert that '{name}' height is '{0}' | AlertAssert
+**heightLessThan(int height)** | Assert that '{name}' height is less than '{0}' | AlertAssert
+**heightGreaterThan(int height)** | Assert that '{name}' height is greater than '{0}' | AlertAssert
+**width(int width)** | Assert that '{name}' width is '{0}' | AlertAssert
+**widthLessThan(int width)** | Assert that '{name}' width is less than '{0}' | AlertAssert
+**widthGreaterThan(int width)** | Assert that '{name}' width is greater than '{0}' | AlertAssert
+**maxHeight(int height)** | Assert that '{name}' max height is '{0}' | AlertAssert
+**maxWidth(int width)** | Assert that '{name}' max width is '{0}' | AlertAssert
+**minHeight(int height)** | Assert that '{name}' min height is '{0}' | AlertAssert
+**minWidth(int width)** | Assert that '{name}' min width is '{0}' | AlertAssert
+**lightTheme()** | Assert that theme of '{name}' is light | AlertAssert
+**darkTheme()** | Assert that theme of '{name}' is dark | AlertAssert
+**tile()** | Assert that '{name}' is tile | AlertAssert
+**notTile()** | Assert that '{name}' is not tile | AlertAssert
+**styledText()** | Assert that '{name}' has styled text | AlertAssert
+**shaped()** | Assert that '{name}' is shaped | AlertAssert
+**notShaped()** | Assert that '{name}' is not shaped | AlertAssert
+**rounded()** | Assert that '{name}' is rounded | AlertAssert
+**rounded(String value)** | Assert that '{name}' has rounded value '{0}' | AlertAssert
+**rounded(int value)** | Assert that '{name}' has rounded value '{0}' | AlertAssert
+**notRounded()** | Assert that '{name}' is not rounded | AlertAssert
+**outlined()** | Assert that '{name}' is outlined | AlertAssert
+**notOutlined()** | Assert that '{name}' is not outlined | AlertAssert
+**elevation(int value)** | Assert that '{name}' has elevation value '{0}' | AlertAssert
+**elevated()** | Assert that '{name}' is elevated | AlertAssert
+**notElevated()** | Assert that '{name}' is not elevated | AlertAssert
 
-For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java)
-and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
+
+For examples of usage see: [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
 
 ### 5.2 Avatars
 

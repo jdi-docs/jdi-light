@@ -2813,8 +2813,8 @@ public void formTest(User user) {
 <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"[ui=submit-button]"</span><span class="o">)</span> 
 <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">submitButton</span><span class="o">;</span> 
 </code></pre>
-<p>With pure Selenium, Page Object elements for that will look like this: 
-</br></br></br></br></br></br></br></br></br></p>
+<p>With pure Selenium, Page Object elements for that will look like this (see on the right panel) =====&gt; 
+</br></br></br></br></br></br></br></br></br></br></br></p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=name]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Textfield</span> <span class="n">name</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=last-name]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Textfield</span> <span class="n">lastName</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=pin-code]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Textfield</span> <span class="n">pinCode</span><span class="o">;</span>
@@ -2822,7 +2822,7 @@ public void formTest(User user) {
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=accept-conditions]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Checkbox</span> <span class="n">acceptConditions</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=submit-button]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span>
 </code></pre>
-<p>In JDI Light with standard UI Objects the code gets more descriptive, but there still are duplications in locator and element names:
+<p>In JDI Light with standard UI Objects the code gets more descriptive, but there still are duplications in locator and element names (see on the right panel) =====&gt;
 </br></br></br></br></br></br></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="n">Textfield</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">pinCode</span><span class="o">,</span> <span class="n">promoCode</span><span class="o">;</span>
 <span class="kd">public</span> <span class="n">Checkbox</span> <span class="n">acceptConditions</span><span class="o">;</span>

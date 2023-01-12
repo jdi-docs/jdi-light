@@ -2964,3 +2964,98 @@ Available methods in Java JDI Light:
 
 For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
 
+### 5.41 Checkbox
+
+[Checkbox Vuetify documentation page](https://vuetifyjs.com/en/components/checkboxes/)
+
+Checkbox is located in the following class:
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Checkbox.java_
+
+```java
+    @Test(description = "Test checks checkbox labels, and array texts")
+    public void modelAsArrayCheckboxesTest() {
+        modelAsArrayCheckboxes.get(1).is().checked();
+        modelAsArrayCheckboxes.get(2).is().unchecked();
+        modelArray.has().text("[ \"" + modelAsArrayCheckboxes.get(1).labelText() + "\" ]");
+        modelAsArrayCheckboxes.get(2).check();
+        modelArray.has().text("[ \"John\", \"Jacob\" ]");
+        modelAsArrayCheckboxes.get(1).uncheck();
+        modelArray.has().text("[ \"Jacob\" ]");
+        modelAsArrayCheckboxes.get(2).uncheck();
+        modelArray.has().text("[]");
+    }
+```
+__Checkboxes__ - The `v-checkbox` component provides users the ability to choose between two distinct values.
+These are very similar to a switch and can be used in complex forms and checklists.
+A simpler version, `v-simple-checkbox` is used primarily as a lightweight alternative in data-table components to select rows or display inline boolean data.
+
+![Checkbox example](../../images/vuetify/checkbox.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description                                  | Return Type
+--- |----------------------------------------------| ---
+**is()** | Checkbox assert                              | CheckboxAssert
+**check()** | Checks '{name}'                              | void
+**uncheck()** | Unchecks '{name}'                            | void
+**isChecked()** | Checks that '{name}' is checked              | boolean
+**isUnchecked()** | Checks that '{name}' is not selected         | boolean
+**isDisabled()** | Checks that '{name}' is disabled             | boolean
+**isEnabled()** | Checks that '{name}' is enabled              | boolean
+**label()** | Gets '{name}' label                          | Label
+**labelText()** | Gets '{name}' label text                     | String
+**isIndeterminate()** | Checks that '{name}' is indeterminate        | boolean
+**isSuccess()** | Checks that '{name}' is success              | boolean
+**isError()** | Checks that '{name}' is error                | boolean
+**color()** | Gets '{name}' color                          | String
+**backgroundColor()** | Gets '{name}' background color               | String
+**labelColor()** | Gets '{name}' label color                    | String
+**isDense()** | Checks that '{name}' is dense                | boolean
+**messages()** | Gets '{name}' messages                       | List<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}' | List<UIElement>
+**messagesText()** | Gets '{name}' messages text                  | List<String>
+**messagesCount()** | Gets '{name}' messages count                 | int
+**hasErrorMessages()** | Checks that '{name}' has error messages      | boolean
+**errorMessagesText()** | Gets '{name}' error messages                 | List<String>
+**errorMessagesCount()** | Gets the number of '{name}' error messages   | int
+**hasSuccessMessages()** | Checks that '{name}' has success messages    | boolean
+**successMessagesText()** | Gets '{name}' success messages | List<String>
+**successMessagesCount()** | Get the number of '{name}' success messages | int
+**isReadOnly()** | Check that '{name}' is readonly | boolean
+**checked()** | Assert that '{name}' is checked | CheckboxAssert
+**unchecked()** | Assert that '{name}' is unchecked | CheckboxAssert
+**label(String text)** | Assert that '{name}' has '{0}' label | CheckboxAssert
+**labelContains(String text)** | Assert that '{name}' label contains '{text}' | CheckboxAssert
+**indeterminate()** | Assert that '{name}' is indeterminate | CheckboxAssert
+**notIndeterminate()** | Assert that '{name}' is not indeterminate | CheckboxAssert
+**label()** | Assert that '{name}' has label | CheckboxAssert
+**noLabel()** | Assert that '{name}' has not label | CheckboxAssert
+**success()** | Assert that '{name}' is success | CheckboxAssert
+**notSuccess()** | Assert that '{name}' is not success | CheckboxAssert
+**error()** | Assert that '{name}' is error | CheckboxAssert
+**notError()** | Assert that '{name}' is not error | CheckboxAssert
+**color(String color)** | Assert that '{name}' has color '{0}' | CheckboxAssert
+**backgroundColor(String color)** | Assert that '{name}' has background color '{0}' | CheckboxAssert
+**labelColor(String color)** | Assert that '{name}' has label color '{0}' | CheckboxAssert
+**lightTheme()** | Assert that '{name}' has light theme | CheckboxAssert
+**darkTheme()** | Assert that '{name}' has dark theme | CheckboxAssert
+**dense()** | Assert that '{name}' is dense | CheckboxAssert
+**notDense()** | Assert that '{name}' is not dense | CheckboxAssert
+**errorMessages()** | Assert that '{name}' has error messages | CheckboxAssert
+**noErrorMessages()** | Assert that '{name}' has no error messages | CheckboxAssert
+**errorMessagesCount(int count)** | Assert that number of {name} error messages is '{0}' | CheckboxAssert
+**errorMessages(List<String> errorMessages)** | Assert that '{name}' has error messages '{0}' | CheckboxAssert
+**errorMessage(String errorMessage)** | Assert that '{name}' has error messages '{0}' | CheckboxAssert
+**successMessages()** | Assert that '{name}' has success messages | CheckboxAssert
+**noSuccessMessages()** | Assert that '{name}' has no success messages | CheckboxAssert
+**successMessagesCount(int count)** | Assert that number of {name}'s success messages is '{0}' | CheckboxAssert
+**successMessages(List<String> successMessages)** | Assert that '{name}' has success messages '{0}' | CheckboxAssert
+**successMessage(String successMessage)** | Assert that '{name}' has success message '{0}' | CheckboxAssert
+**messagesText(List<String> messages)** | Assert that '{name}' has {0} messages text | CheckboxAssert
+**messageText(String message)** | Assert that '{name}' has message text '{0}' | CheckboxAssert
+**messagesCount(int count)** | Assert that '{name}' has messages '{0}' | CheckboxAssert
+**readonly()** | Assert that '{name}' is readonly | CheckboxAssert
+**notReadonly()** | Assert that '{name}' is not readonly | CheckboxAssert
+
+For examples of usage see:
+[JDI vuetify page tests for Checkboxes](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java)

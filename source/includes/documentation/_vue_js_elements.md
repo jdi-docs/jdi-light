@@ -2964,3 +2964,86 @@ Available methods in Java JDI Light:
 
 For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
 
+### 5.40 Badge
+
+[Badge Vuetify documentation page](https://vuetifyjs.com/en/components/badges/)
+
+Badge is located in the following class:
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Badge.java_
+
+```java
+    @Test
+    public void typeBadgesTest() {
+        lockUnlockAccountBadge.is().icon();
+        dotBadge.has().notIcon();
+        imageBadge.has().avatar();
+        dotBadge.has().notAvatar();
+        dotBadge.is().dot();
+        imageBadge.is().notDot();
+    }
+
+    @Test
+    public void textBadgesTest() {
+        Badge simpleBadge = simpleBadges.get(1);
+        simpleBadge.show();
+        simpleBadge.has().text("1");
+    }
+```
+
+__Badges__ - The `v-badge` component superscripts or subscripts an avatar-like icon or text onto content to highlight information to a user or to just draw attention to a specific element.
+Content within the badge usually contains numbers or icons.
+
+![Badges example](../../images/vuetify/badges.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description                       | Return Type
+--- |-----------------------------------| ---
+**is()** | Badge assert                      | BadgeAssert
+**badge()** | Gets '{name}' badge               | UIElement
+**isBordered()** | Checks that '{name}' is bordered  | boolean
+**isInline()** | Checks that '{name}' is inline    | boolean
+**isBottom()** | Checks that '{name}' is bottom    | boolean
+**isOverlap()** | Checks that '{name}' is overlap   | boolean
+**isDot()** | Checks that '{name}' is dot       | boolean
+**isAvatar()** | Checks that '{name}' is avatar    | boolean
+**backgroundColor()** | Gets '{name}' background color    | String
+**image()** | Gets '{name}' image               | Image
+**isDisplayed()** | Checks that '{name}' is displayed | boolean
+**icon()** | Gets '{name}' icon | Icon
+**hasIcon()** | Checks that '{name}' has icon     | boolean
+**getText()** | Gets '{name}' badge text          | String
+**isTile()** | Checks that '{name}' is tile | boolean
+**hasLeftAlignment()** | Checks that '{name}' has left alignment | boolean
+**hasRightAlignment()** | Checks that '{name}' has right alignment | boolean
+**color()** | Gets '{name}' color | String
+**backgroundColor()** | Gets '{name}' background color | String
+**image()** | Gets '{name}' image | Image
+**text(Matcher<String> condition)** | Assert that '{name}' has text '{0}' | BadgeAssert
+**icon(String iconName)** | Assert that '{name}' badge has icon '{0}' | BadgeAssert
+**icon()** | Assert that '{name}' is icon | BadgeAssert
+**notIcon()** | Assert that '{name}' is not icon | BadgeAssert
+**dot()** | Assert that '{name}' is dot | BadgeAssert
+**notDot()** | Assert that '{name}' is not dot | BadgeAssert
+**bordered()** | Assert that '{name}' is bordered | BadgeAssert
+**notBordered()** | Assert that '{name}' is not bordered | BadgeAssert
+**inline()** | Assert that '{name}' is inline | BadgeAssert
+**notInline()** | Assert that '{name}' is not inline | BadgeAssert
+**bottom()** | Assert that '{name}' is bottom | BadgeAssert
+**notBottom()** | Assert that '{name}' is not bottom | BadgeAssert
+**overlap()** | Assert that '{name}' is overlapped | BadgeAssert
+**notOverlap()** | Assert that '{name}' is not overlapped | BadgeAssert
+**avatar()** | Assert that '{name}' is avatar | BadgeAssert
+**notAvatar()** | Assert that '{name}' has not avatar | BadgeAssert
+**leftAlignment()** | Assert that '{name}' has left alignment | BadgeAssert
+**rightAlignment()** | Assert that '{name}' has right alignment | BadgeAssert
+**color(String color)** | Assert that '{name}' has color '{0}' | BadgeAssert
+**backgroundColor(String color)** | Assert that '{name}' has background color '{0}' | BadgeAssert
+**lightTheme()** | Assert that theme of '{name}' is light | BadgeAssert
+**darkTheme()** | Assert that theme of '{name}' is dark | BadgeAssert
+**tile()** | Assert that '{name}' is tile | BadgeAssert
+**notTile()** | Assert that '{name}' is not tile | BadgeAssert
+
+For examples of usage see:
+[JDI vuetify page tests for Badges](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/BadgesTests.java)

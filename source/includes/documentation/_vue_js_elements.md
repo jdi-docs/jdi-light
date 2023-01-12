@@ -2964,3 +2964,46 @@ Available methods in Java JDI Light:
 
 For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
 
+### 5.42 Divider
+
+[Divider Vuetify documentation page](https://vuetifyjs.com/en/components/dividers/)
+
+Divider is located in the following class:
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Divider.java_
+
+```java
+@Test
+    public void horizontalDividersTest() {
+        horizontalDividers.stream()
+                .map(Divider::is)
+                .forEach(DividerAssert::horizontal);
+    }
+
+    @Test
+    public void verticalDividersTest() {
+        verticalDividers.stream()
+                .map(Divider::is)
+                .forEach(DividerAssert::vertical);
+    }
+```
+
+__Dividers__ - The `v-divider` component is used to separate sections of lists or layouts.
+
+![Divider example](../../images/vuetify/divider.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description                   | Return Type
+--- |-------------------------------| ---
+**is()** | Divider assert                | DividerAssert
+**isInset()** | Checks that '{name}' is inset | boolean
+**isVertical()** | Checks that '{name}' is vertical | boolean
+**inset()** | Assert that '{name}' is inset | DividerAssert
+**notInset()** | Assert that '{name}' is not inset | DividerAssert
+**vertical()** | Assert that '{name}' is vertical | DividerAssert
+**horizontal()** | Assert that '{name}' is horizontal | DividerAssert
+**lightTheme()** | Assert that '{name}' has light theme | DividerAssert
+**darkTheme()** | Assert that '{name}' has dark theme | DividerAssert
+
+For examples of usage see:
+[JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)

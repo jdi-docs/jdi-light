@@ -3020,30 +3020,6 @@ Available methods in Java JDI Light:
 **color()** | Gets '{name}' color | String
 **backgroundColor()** | Gets '{name}' background color | String
 **image()** | Gets '{name}' image | Image
-**text(Matcher<String> condition)** | Assert that '{name}' has text '{0}' | BadgeAssert
-**icon(String iconName)** | Assert that '{name}' badge has icon '{0}' | BadgeAssert
-**icon()** | Assert that '{name}' is icon | BadgeAssert
-**notIcon()** | Assert that '{name}' is not icon | BadgeAssert
-**dot()** | Assert that '{name}' is dot | BadgeAssert
-**notDot()** | Assert that '{name}' is not dot | BadgeAssert
-**bordered()** | Assert that '{name}' is bordered | BadgeAssert
-**notBordered()** | Assert that '{name}' is not bordered | BadgeAssert
-**inline()** | Assert that '{name}' is inline | BadgeAssert
-**notInline()** | Assert that '{name}' is not inline | BadgeAssert
-**bottom()** | Assert that '{name}' is bottom | BadgeAssert
-**notBottom()** | Assert that '{name}' is not bottom | BadgeAssert
-**overlap()** | Assert that '{name}' is overlapped | BadgeAssert
-**notOverlap()** | Assert that '{name}' is not overlapped | BadgeAssert
-**avatar()** | Assert that '{name}' is avatar | BadgeAssert
-**notAvatar()** | Assert that '{name}' has not avatar | BadgeAssert
-**leftAlignment()** | Assert that '{name}' has left alignment | BadgeAssert
-**rightAlignment()** | Assert that '{name}' has right alignment | BadgeAssert
-**color(String color)** | Assert that '{name}' has color '{0}' | BadgeAssert
-**backgroundColor(String color)** | Assert that '{name}' has background color '{0}' | BadgeAssert
-**lightTheme()** | Assert that theme of '{name}' is light | BadgeAssert
-**darkTheme()** | Assert that theme of '{name}' is dark | BadgeAssert
-**tile()** | Assert that '{name}' is tile | BadgeAssert
-**notTile()** | Assert that '{name}' is not tile | BadgeAssert
 
 For examples of usage see:
 [JDI vuetify page tests for Badges](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/BadgesTests.java)

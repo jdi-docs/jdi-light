@@ -25,6 +25,26 @@ public void colorAlertsTest(int index, String color, String backgroundColor) {
 
 ![Alerts example](../../images/vuetify/alerts.png)
 
+__Vuetify v2.6.14__ code example:
+```html
+<template>
+  <div>
+    <v-alert
+      dense
+      type="info"
+    >
+      I'm a dense alert with a <strong>type</strong> of info
+    </v-alert>
+    <v-alert
+      dense
+      text
+      type="success"
+    >
+      I'm a dense alert with the <strong>text</strong> prop and a <strong>type</strong> of success
+    </v-alert>
+  </div>
+</template>
+```
 |Method | Description                             | Return Type 
 --- |-----------------------------------------|-------------
 **is()** | Returns AlertAssert class               | TextAssert  

@@ -55,49 +55,6 @@ public void colorAlertsTest(int index, String color, String backgroundColor) {
 **isShaped()** | Checks that '{name}' is shaped          | boolean
 **isTile()** | Checks that '{name}' is tile            | boolean
 **hasStyledText()** | Check that '{name}' has styled text | boolean
-**text(Matcher<String> condition)** | Assert that '{name}' has text '{0}' | AlertAssert
-**dismissible()** | Assert that '{name}' is dismissible | AlertAssert
-**notDismissible()** | Assert that '{name}' is not dismissible | AlertAssert
-**prominent()** | Assert that '{name}' is prominent | AlertAssert
-**notProminent()** | Assert that '{name}' is not prominent | AlertAssert
-**border()** | Assert that '{name}' has border | AlertAssert
-**noBorder()** | Assert that '{name}' has no border | AlertAssert
-**border(String boardValue)** | Assert that '{name}' has '{0}' border | AlertAssert
-**coloredBorder()** | Assert that '{name}' has colored border | AlertAssert
-**noColoredBorder()** | Assert that '{name}' has no colored border | AlertAssert
-**backgroundBorderColor(String borderBackgroundColor)** | Assert that '{name}' has border background color '{0}' | AlertAssert
-**type(String type)** | Assert that '{name}' has '{0}' type | AlertAssert
-**dense()** | Assert that '{name}' is dense | AlertAssert
-**notDense()** | Assert that '{name}' is not dense | AlertAssert
-**color(String color)** | Assert that '{name}' has color '{0}' | AlertAssert
-**backgroundColor(String color)** | Assert that '{name}' has background color '{0}' | AlertAssert
-**height(int height)** | Assert that '{name}' height is '{0}' | AlertAssert
-**heightLessThan(int height)** | Assert that '{name}' height is less than '{0}' | AlertAssert
-**heightGreaterThan(int height)** | Assert that '{name}' height is greater than '{0}' | AlertAssert
-**width(int width)** | Assert that '{name}' width is '{0}' | AlertAssert
-**widthLessThan(int width)** | Assert that '{name}' width is less than '{0}' | AlertAssert
-**widthGreaterThan(int width)** | Assert that '{name}' width is greater than '{0}' | AlertAssert
-**maxHeight(int height)** | Assert that '{name}' max height is '{0}' | AlertAssert
-**maxWidth(int width)** | Assert that '{name}' max width is '{0}' | AlertAssert
-**minHeight(int height)** | Assert that '{name}' min height is '{0}' | AlertAssert
-**minWidth(int width)** | Assert that '{name}' min width is '{0}' | AlertAssert
-**lightTheme()** | Assert that theme of '{name}' is light | AlertAssert
-**darkTheme()** | Assert that theme of '{name}' is dark | AlertAssert
-**tile()** | Assert that '{name}' is tile | AlertAssert
-**notTile()** | Assert that '{name}' is not tile | AlertAssert
-**styledText()** | Assert that '{name}' has styled text | AlertAssert
-**shaped()** | Assert that '{name}' is shaped | AlertAssert
-**notShaped()** | Assert that '{name}' is not shaped | AlertAssert
-**rounded()** | Assert that '{name}' is rounded | AlertAssert
-**rounded(String value)** | Assert that '{name}' has rounded value '{0}' | AlertAssert
-**rounded(int value)** | Assert that '{name}' has rounded value '{0}' | AlertAssert
-**notRounded()** | Assert that '{name}' is not rounded | AlertAssert
-**outlined()** | Assert that '{name}' is outlined | AlertAssert
-**notOutlined()** | Assert that '{name}' is not outlined | AlertAssert
-**elevation(int value)** | Assert that '{name}' has elevation value '{0}' | AlertAssert
-**elevated()** | Assert that '{name}' is elevated | AlertAssert
-**notElevated()** | Assert that '{name}' is not elevated | AlertAssert
-
 
 For examples of usage see: [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
 

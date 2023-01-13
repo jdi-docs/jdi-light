@@ -2990,6 +2990,5 @@ Aspect Ratios - the `v-responsive` component can be used to fix any section to a
 --- | --- | ---
 **is()** | Aspect Ratios Assert | AspectRatiosAssert
 **ratioValue(double width, double height)** | Ratio of '{name}' has width '{0}' and height '{1}' | double
-**ratio()** | Assert that '{name}' has ratio '{0} : {1}' | AspectRatiosAssert  
 
 For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AspectRatiosTests.java)

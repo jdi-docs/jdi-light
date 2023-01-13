@@ -2998,12 +2998,6 @@ Available methods in Java JDI Light:
 **is()** | Divider assert                | DividerAssert
 **isInset()** | Checks that '{name}' is inset | boolean
 **isVertical()** | Checks that '{name}' is vertical | boolean
-**inset()** | Assert that '{name}' is inset | DividerAssert
-**notInset()** | Assert that '{name}' is not inset | DividerAssert
-**vertical()** | Assert that '{name}' is vertical | DividerAssert
-**horizontal()** | Assert that '{name}' is horizontal | DividerAssert
-**lightTheme()** | Assert that '{name}' has light theme | DividerAssert
-**darkTheme()** | Assert that '{name}' has dark theme | DividerAssert
 
 For examples of usage see:
 [JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)

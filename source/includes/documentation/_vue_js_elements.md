@@ -45,6 +45,9 @@ __Vuetify v2.6.14__ code example:
   </div>
 </template>
 ```
+
+Alerts element contains following methods:
+
 |Method | Description                             | Return Type 
 --- |-----------------------------------------|-------------
 **is()** | Returns AlertAssert class               | TextAssert  

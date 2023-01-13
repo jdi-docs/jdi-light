@@ -69,30 +69,6 @@ __Avatars__ - graphical representations of users.
 **minWidth()** | Gets '{name}' min width | int
 **isRounded()** | Checks that '{name}' is rounded | boolean
 **rounded()** | Gets '{name}' rounded value | String
-**text(Matcher<String> condition)** | Assert that '{name}' text '{0}' | AvatarAssert
-**size(int size)** | Assert that '{name}' size is '{0}' px | AvatarAssert
-**icon()** | Assert that '{name}' has icon | AvatarAssert
-**leftAlignment()** | Assert that '{name}' has left alignment | AvatarAssert
-**rightAlignment()** | Assert that '{name}' has right alignment | AvatarAssert
-**color(String color)** | Assert that '{name}' has color '{0}' | AvatarAssert
-**backgroundColor(String color)** | Assert that '{name}' has background color '{0}' | AvatarAssert
-**height(int height)** | Assert that '{name}' height is '{0}' | AvatarAssert
-**heightLessThan(int height)** | Assert that '{name}' height is less than '{0}' | AvatarAssert
-**heightGreaterThan(int height)** | Assert that '{name}' height is greater than '{0}' | AvatarAssert
-**width(int width)** | Assert that '{name}' width is '{0}' | AvatarAssert
-**widthLessThan(int width)** | Assert that '{name}' width is less than '{0}' | AvatarAssert
-**widthGreaterThan(int width)** | Assert that '{name}' width is greater than '{0}' | AvatarAssert
-**maxHeight(int height)** | Assert that '{name}' max height is '{0}' | AvatarAssert
-**maxWidth(int width)** | Assert that '{name}' max width is '{0}' | AvatarAssert
-**minHeight(int height)** | Assert that '{name}' min height is '{0}' | AvatarAssert
-**minWidth(int width)** | Assert that '{name}' min width is '{0}' | AvatarAssert
-**rounded()** | Assert that '{name}' is rounded | AvatarAssert
-**rounded(String value)** | Assert that '{name}' has rounded value '{0}' | AvatarAssert
-**rounded(int value)** | Assert that '{name}' has rounded value '{0}' | AvatarAssert
-**notRounded()** | Assert that '{name}' is not rounded | AvatarAssert
-**tile()** | Assert that '{name}' is tile | AvatarAssert
-**notTile()** | Assert that '{name}' is not tile | AvatarAssert
-
 
 For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
 and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).

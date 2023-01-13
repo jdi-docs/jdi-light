@@ -1929,34 +1929,6 @@ Available methods in Java JDI Light:
 **maxWidth()** | Gets '{name}' max width                       | int
 **minHeight()** | Gets '{name}' min height                      | int
 **minWidth()** | Gets '{name}' min width                       | int
-**displayed()** | Assert that '{name}' is displayed | IconAssert
-**clickable()** | Assert that '{name}' is clickable | IconAssert
-**type(String iconType)** | Assert that '{name}' has expected type | IconAssert
-**color(String color)** | Assert that '{name}' has expected color | IconAssert
-**alertTextOnIconClick(String text)** | Assert that '{name}' has alert after clicking on it | IconAssert
-**hasLabel()** | Assert that '{name}' has label | IconAssert
-**hasNoLabel()** | Assert that '{name}' has not label | IconAssert
-**iconName(String iconName)** | Assert that '{name}' has icon name '{0}' | IconAssert
-**accessible()** | Assert that '{name}' is accessible | IconAssert
-**notAccessible()** | Assert that '{name}' is not accessible | IconAssert
-**cursorType(String cursorType)** | Assert that '{name}' cursor has type '{0}' | IconAssert
-**cursorTypeProgress()** | Assert that '{name}' cursor has type progress | IconAssert
-**cursorTypeAuto()** | Assert that '{name}' cursor has type auto | IconAssert
-**cursorTypePointer()** | Assert that '{name}' cursor has type pointer | IconAssert
-**leftAlignment()** | Assert that '{name}' has left alignment | IconAssert
-**rightAlignment()** | Assert that '{name}' has right alignment | IconAssert
-**lightTheme()** | Assert that '{name}' has light theme | IconAssert
-**darkTheme()** | Assert that '{name}' has dark theme | IconAssert
-**height(int height)** | Assert that '{name}' height is '{0}' | IconAssert
-**heightLessThan(int height)** | Assert that '{name}' height is less than '{0}' | IconAssert
-**heightGreaterThan(int height)** | Assert that '{name}' height is greater than '{0}' | IconAssert
-**width(int width)** | Assert that '{name}' width is '{0}' | IconAssert
-**widthLessThan(int width)** | Assert that '{name}' width is less than '{0}' | IconAssert
-**widthGreaterThan(int width)** | Assert that '{name}' width is greater than '{0}' | IconAssert
-**maxHeight(int height)** | Assert that '{name}' max height is '{0}' | IconAssert
-**maxWidth(int width)** | Assert that '{name}' max width is '{0}' | IconAssert
-**minHeight(int height)** | Assert that '{name}' min height is '{0}' | IconAssert
-**minWidth(int width)** | Assert that '{name}' min width is '{0}' | IconAssert
 
 For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
 

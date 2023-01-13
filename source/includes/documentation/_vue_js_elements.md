@@ -29,6 +29,7 @@ and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/avatars/)
 
+Avatar is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Avatar.java_
 
 ```java
@@ -46,6 +47,27 @@ public void sizeAvatarTest(int index, int size) {
 ```
 
 ![Avatars example](../../images/vuetify/avatars.png)
+
+__Vuetify v2.6.14__ code example:
+```html
+<template>
+  <v-row justify="space-around">
+    <v-avatar
+      color="indigo"
+      size="36"
+    >
+      <span class="white--text text-h5">36</span>
+    </v-avatar>
+
+    <v-avatar
+      color="teal"
+      size="48"
+    >
+      <span class="white--text text-h5">48</span>
+    </v-avatar>
+  </v-row>
+</template>
+```
 
 __Avatars__ - graphical representations of users.
 

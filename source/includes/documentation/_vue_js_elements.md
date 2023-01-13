@@ -2991,7 +2991,29 @@ __Dividers__ - The `v-divider` component is used to separate sections of lists o
 
 ![Divider example](../../images/vuetify/divider.png)
 
-Available methods in Java JDI Light:
+__Vuetify v2.6.14__ code example:
+```html
+<template>
+  <v-toolbar
+    color="purple"
+    dark
+  >
+    <v-toolbar-title>Title</v-toolbar-title>
+
+    <v-divider
+      class="mx-4"
+      vertical
+    ></v-divider>
+    </v-toolbar-items>
+
+    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  </v-toolbar>
+</template>
+
+
+```
+
+Dividers element contains following methods:
 
 |Method | Description                   | Return Type
 --- |-------------------------------| ---

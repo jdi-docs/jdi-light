@@ -2996,7 +2996,34 @@ Content within the badge usually contains numbers or icons.
 
 ![Badges example](../../images/vuetify/badges.png)
 
-Available methods in Java JDI Light:
+__Vuetify v2.6.14__ code example:
+```html
+<template>
+  <v-container>
+    <v-row
+      align="center"
+      justify="center"
+    >
+      <v-badge
+        bordered
+        color="error"
+        icon="mdi-lock"
+        overlap
+      >
+        <v-btn
+          class="white--text"
+          color="error"
+          depressed
+        >
+          Lock Account
+        </v-btn>
+      </v-badge>
+    </v-row>
+  </v-container>
+</template>
+```
+
+Badges element contains following methods:
 
 |Method | Description                       | Return Type
 --- |-----------------------------------| ---

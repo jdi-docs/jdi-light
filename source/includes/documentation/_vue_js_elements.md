@@ -2991,7 +2991,41 @@ A simpler version, `v-simple-checkbox` is used primarily as a lightweight altern
 
 ![Checkbox example](../../images/vuetify/checkbox.png)
 
-Available methods in Java JDI Light:
+__Vuetify v2.6.14__ code example:
+```html
+<template>
+  <v-card flat>
+    <v-card-text>
+      <v-container fluid>
+        <v-row>
+          <v-col
+            cols="12"
+            sm="4"
+            md="4"
+          >
+            <v-checkbox
+              v-model="ex4"
+              label="red"
+              color="red"
+              value="red"
+              hide-details
+            ></v-checkbox>
+            <v-checkbox
+              v-model="ex4"
+              label="red darken-3"
+              color="red darken-3"
+              value="red darken-3"
+              hide-details
+            ></v-checkbox>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-card-text>
+  </v-card>
+</template>
+```
+
+Checkbox element contains following methods:
 
 |Method | Description                                  | Return Type
 --- |----------------------------------------------| ---

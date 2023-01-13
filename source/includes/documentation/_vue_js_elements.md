@@ -3022,40 +3022,6 @@ Available methods in Java JDI Light:
 **successMessagesText()** | Gets '{name}' success messages | List<String>
 **successMessagesCount()** | Get the number of '{name}' success messages | int
 **isReadOnly()** | Check that '{name}' is readonly | boolean
-**checked()** | Assert that '{name}' is checked | CheckboxAssert
-**unchecked()** | Assert that '{name}' is unchecked | CheckboxAssert
-**label(String text)** | Assert that '{name}' has '{0}' label | CheckboxAssert
-**labelContains(String text)** | Assert that '{name}' label contains '{text}' | CheckboxAssert
-**indeterminate()** | Assert that '{name}' is indeterminate | CheckboxAssert
-**notIndeterminate()** | Assert that '{name}' is not indeterminate | CheckboxAssert
-**label()** | Assert that '{name}' has label | CheckboxAssert
-**noLabel()** | Assert that '{name}' has not label | CheckboxAssert
-**success()** | Assert that '{name}' is success | CheckboxAssert
-**notSuccess()** | Assert that '{name}' is not success | CheckboxAssert
-**error()** | Assert that '{name}' is error | CheckboxAssert
-**notError()** | Assert that '{name}' is not error | CheckboxAssert
-**color(String color)** | Assert that '{name}' has color '{0}' | CheckboxAssert
-**backgroundColor(String color)** | Assert that '{name}' has background color '{0}' | CheckboxAssert
-**labelColor(String color)** | Assert that '{name}' has label color '{0}' | CheckboxAssert
-**lightTheme()** | Assert that '{name}' has light theme | CheckboxAssert
-**darkTheme()** | Assert that '{name}' has dark theme | CheckboxAssert
-**dense()** | Assert that '{name}' is dense | CheckboxAssert
-**notDense()** | Assert that '{name}' is not dense | CheckboxAssert
-**errorMessages()** | Assert that '{name}' has error messages | CheckboxAssert
-**noErrorMessages()** | Assert that '{name}' has no error messages | CheckboxAssert
-**errorMessagesCount(int count)** | Assert that number of {name} error messages is '{0}' | CheckboxAssert
-**errorMessages(List<String> errorMessages)** | Assert that '{name}' has error messages '{0}' | CheckboxAssert
-**errorMessage(String errorMessage)** | Assert that '{name}' has error messages '{0}' | CheckboxAssert
-**successMessages()** | Assert that '{name}' has success messages | CheckboxAssert
-**noSuccessMessages()** | Assert that '{name}' has no success messages | CheckboxAssert
-**successMessagesCount(int count)** | Assert that number of {name}'s success messages is '{0}' | CheckboxAssert
-**successMessages(List<String> successMessages)** | Assert that '{name}' has success messages '{0}' | CheckboxAssert
-**successMessage(String successMessage)** | Assert that '{name}' has success message '{0}' | CheckboxAssert
-**messagesText(List<String> messages)** | Assert that '{name}' has {0} messages text | CheckboxAssert
-**messageText(String message)** | Assert that '{name}' has message text '{0}' | CheckboxAssert
-**messagesCount(int count)** | Assert that '{name}' has messages '{0}' | CheckboxAssert
-**readonly()** | Assert that '{name}' is readonly | CheckboxAssert
-**notReadonly()** | Assert that '{name}' is not readonly | CheckboxAssert
 
 For examples of usage see:
 [JDI vuetify page tests for Checkboxes](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java)

@@ -1896,17 +1896,67 @@ For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/
     }
 ```
 
-Icon component provides a large set of graphial signs to provide context for various aspects of your application.
+__Icons__ - The `v-icon` component provides a large set of glyphs to provide context to various aspects of your application.
+For a list of all available icons, visit the official [Material Design Icons page](https://materialdesignicons.com/).
+To use any of these icons simply use the `mdi-` prefix followed by the icon name.
 
 ![Icons example](../../images/vuetify/icons.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | IconAssert
-**hasType()** | Returns type of icon (mdi, svg, etc.) | String
-**hasColor()** | Returns color of icon in rgba | String
-**hasHeight()** | Returns height of icon | String
-**hasWidth()** | Returns width of icon | String
+Available methods in Java JDI Light:
+
+|Method | Description                                   | Return Type
+--- |-----------------------------------------------| ---
+**is()** | Returns Icon Assert class                     | IconAssert
+**findAll(UIBaseElement<?> rootElement)** | Finds all '{name}' icons                      | List<Icon>
+**findAll(UIElement rootElement)** | Finds all '{name}' icons                      | List<Icon>
+**toIcon(UIElement element)** | Casts '{name}' to icon                        | Icon
+**getMdiMap()** | Gets '{name}' mdi-map                         | BidiMap<String, String>
+**getMdiIconName()** | Gets '{name}' mdi name                        | String
+**getType()** | Gets '{name}' type                            | String
+**color()** | Gets '{name}' color                           | String
+**hasType()** | Gets '{name}' type                            | String
+**getAlertTextOnIconClick()** | Gets '{name}' alert text after clicking on it | String
+**dismissAlert()** | Dismiss '{name}' alert                        | void
+**isEnabled()** | Checks that '{name}' is enabled               | boolean
+**isAccessible()** | Checks that '{name}' is accessible            | boolean
+**label()** | Gets '{name}' label                           | Label
+**getCursorType()** | Gets '{name}' cursor type                     | String
+**hasLeftAlignment()** | Checks that '{name}' has left alignment       | boolean
+**hasRightAlignment()** | Checks that '{name}' has right alignment      | boolean
+**height()** | Gets '{name}' height                          | int
+**width()** | Gets '{name}' width                           | int
+**maxHeight()** | Gets '{name}' max height                      | int
+**maxWidth()** | Gets '{name}' max width                       | int
+**minHeight()** | Gets '{name}' min height                      | int
+**minWidth()** | Gets '{name}' min width                       | int
+**displayed()** | Assert that '{name}' is displayed | IconAssert
+**clickable()** | Assert that '{name}' is clickable | IconAssert
+**type(String iconType)** | Assert that '{name}' has expected type | IconAssert
+**color(String color)** | Assert that '{name}' has expected color | IconAssert
+**alertTextOnIconClick(String text)** | Assert that '{name}' has alert after clicking on it | IconAssert
+**hasLabel()** | Assert that '{name}' has label | IconAssert
+**hasNoLabel()** | Assert that '{name}' has not label | IconAssert
+**iconName(String iconName)** | Assert that '{name}' has icon name '{0}' | IconAssert
+**accessible()** | Assert that '{name}' is accessible | IconAssert
+**notAccessible()** | Assert that '{name}' is not accessible | IconAssert
+**cursorType(String cursorType)** | Assert that '{name}' cursor has type '{0}' | IconAssert
+**cursorTypeProgress()** | Assert that '{name}' cursor has type progress | IconAssert
+**cursorTypeAuto()** | Assert that '{name}' cursor has type auto | IconAssert
+**cursorTypePointer()** | Assert that '{name}' cursor has type pointer | IconAssert
+**leftAlignment()** | Assert that '{name}' has left alignment | IconAssert
+**rightAlignment()** | Assert that '{name}' has right alignment | IconAssert
+**lightTheme()** | Assert that '{name}' has light theme | IconAssert
+**darkTheme()** | Assert that '{name}' has dark theme | IconAssert
+**height(int height)** | Assert that '{name}' height is '{0}' | IconAssert
+**heightLessThan(int height)** | Assert that '{name}' height is less than '{0}' | IconAssert
+**heightGreaterThan(int height)** | Assert that '{name}' height is greater than '{0}' | IconAssert
+**width(int width)** | Assert that '{name}' width is '{0}' | IconAssert
+**widthLessThan(int width)** | Assert that '{name}' width is less than '{0}' | IconAssert
+**widthGreaterThan(int width)** | Assert that '{name}' width is greater than '{0}' | IconAssert
+**maxHeight(int height)** | Assert that '{name}' max height is '{0}' | IconAssert
+**maxWidth(int width)** | Assert that '{name}' max width is '{0}' | IconAssert
+**minHeight(int height)** | Assert that '{name}' min height is '{0}' | IconAssert
+**minWidth(int width)** | Assert that '{name}' min width is '{0}' | IconAssert
 
 For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
 
@@ -2963,4 +3013,3 @@ Available methods in Java JDI Light:
 **borderColor()** | Gets chip border color | String
 
 For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
-

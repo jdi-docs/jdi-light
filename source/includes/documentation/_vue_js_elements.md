@@ -2986,9 +2986,27 @@ Aspect Ratios - the `v-responsive` component can be used to fix any section to a
 
 ![Aspect Ratios Example](../../images/vuetify/aspect_ratios.png)
 
+
+__Vuetify v2.6.14__ code example:
+```html
+<template>
+  <div>
+    <v-card>
+      <v-responsive :aspect-ratio="16/9">
+        <v-card-text>
+          This card will always be 16:9 (unless you put more stuff in it)
+        </v-card-text>
+      </v-responsive>
+    </v-card>
+  </div>
+</template>
+```
+
+Aspect Ratios element contains following methods:
+
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Aspect Ratios Assert | AspectRatiosAssert
 **ratioValue(double width, double height)** | Ratio of '{name}' has width '{0}' and height '{1}' | double
 
-For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AspectRatiosTests.java)
+For examples of usage see: [JDI Vuetify Aspect Ratios tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AspectRatiosTests.java)

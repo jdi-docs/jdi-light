@@ -2987,6 +2987,51 @@ __Input__ - The v-input component gives you a baseline to create your own custom
 
 ![Input example](../../images/vuetify/input.png)
 
+__Vuetify v2.6.14__ code example:
+```html
+<template>
+  <v-container
+    id="input-usage"
+    fluid
+  >
+    <v-row>
+      <v-col cols="12">
+        <v-input
+          :messages="['Messages']"
+          append-icon="mdi-close"
+          prepend-icon="mdi-phone"
+        >
+          Default Slot
+        </v-input>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        text: '',
+      }
+    },
+    methods: {
+      appendIconCallback () {},
+      prependIconCallback () {},
+    },
+  }
+</script>
+
+<style>
+  #input-usage .v-input__prepend-outer,
+  #input-usage .v-input__append-outer,
+  #input-usage .v-input__slot,
+  #input-usage .v-messages {
+    border: 1px dashed rgba(0,0,0, .4);
+  }
+</style>
+```
+
 __Input__ element implements following interfaces: HasLabel, IsReadOnly, HasMessages, IsLoading, HasColor, HasTheme, HasMeasurement, IsDense, HasDetailsHidden.
 
 __Input__ element has following methods:

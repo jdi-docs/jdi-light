@@ -2073,9 +2073,10 @@ Tooltip component is useful for conveying information when a user hovers over an
 
 ![Tooltips examples](../../images/vuetify/tooltips.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | TooltipAssert
+| Method         | Description                                            | Return Type   |
+|----------------|--------------------------------------------------------|---------------|
+| **is()/has()** | Returns Assert class                                   | TooltipAssert |
+| **color()**    | Returns css attribute background-color as String Value | String        |
 
 For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
 

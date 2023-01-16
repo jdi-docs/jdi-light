@@ -756,6 +756,28 @@ __Switches__ - The `v-switch` component provides users the ability to choose bet
 
 ![Switches example](../../images/vuetify/switches.png)
 
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--switch">
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-input--selection-controls__input">
+        <input aria-checked="false" id="input-1187" role="switch" type="checkbox" aria-disabled="false" value="red">
+        <div class="v-input--selection-controls__ripple">
+        </div>
+        <div class="v-input--switch__track theme--light">
+        </div>
+        <div class="v-input--switch__thumb theme--light">
+          <!---->
+        </div>
+      </div>
+      <label for="input-1187" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">red</label>
+    </div>
+  </div>
+</div>
+```
+
 |Method | Description                                     | Return Type
 --- |-------------------------------------------------| ---
 **check()/uncheck()** | Switch element between two states               | void

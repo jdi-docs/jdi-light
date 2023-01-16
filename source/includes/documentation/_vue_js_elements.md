@@ -2693,12 +2693,16 @@ For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://
 
 The `v-parallax` component creates a 3D effect that makes an image appear to scroll slower than the window. A parallax causes a shift in a background image when the user scrolls the page.
 
+![v-parallax example](../../images/vuetify/parallax.png)
+
+v-parallax element has following methods:
+
 |Method | Description | Return Type
 --- | --- | ---
-**height()** | Returns the value of the parallax container height attribute | String
+**heightPx()** | Returns the value of the parallax container height attribute | int
 **hasContent()** | Checks if the parallax container has any elements within | boolean
 **image()** | Returns the background image of the parallax container (return type is JDI Light HTML Image) | Image
-**is()/has()** | Returns Assert class | ParallaxAssert
+**is()** | Returns Assert class | ParallaxAssert
 
 For examples of usage see: [JDI vuetify page tests for Parallax](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java).
 

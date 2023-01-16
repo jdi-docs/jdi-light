@@ -1880,6 +1880,7 @@ For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/icons/)
 
+__Icons__ is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Icon.java_
 
 ```java
@@ -1901,8 +1902,28 @@ For a list of all available icons, visit the official [Material Design Icons pag
 To use any of these icons simply use the `mdi-` prefix followed by the icon name.
 
 ![Icons example](../../images/vuetify/icons.png)
+__Vuetify v2.6.14__ code example:
+```html
+<template>
+  <v-row justify="space-around">
+    <v-icon
+      large
+      color="green darken-2"
+    >
+      mdi-domain
+    </v-icon>
 
-Available methods in Java JDI Light:
+    <v-icon
+      large
+      color="blue darken-2"
+    >
+      mdi-message-text
+    </v-icon>
+  </v-row>
+</template>
+```
+
+Icons element includes following methods:
 
 |Method | Description                                   | Return Type
 --- |-----------------------------------------------| ---
@@ -1930,7 +1951,7 @@ Available methods in Java JDI Light:
 **minHeight()** | Gets '{name}' min height                      | int
 **minWidth()** | Gets '{name}' min width                       | int
 
-For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
+Examples of usage see on the following page: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
 
 ### 5.24 Carousels
 

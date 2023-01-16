@@ -2224,6 +2224,35 @@ __Image__ - The `v-img` component is packed with features to support rich media.
 
 ![Images examples](../../images/vuetify/images.png)
 
+__Vuetify v2.6.14__ code example:
+```html
+<template>
+  <div class="d-flex flex-column justify-space-between align-center">
+    <v-slider
+      v-model="width"
+      class="align-self-stretch"
+      min="200"
+      max="500"
+      step="1"
+    ></v-slider>
+
+    <v-img
+      :aspect-ratio="16/9"
+      :width="width"
+      src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+    ></v-img>
+  </div>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      width: 300,
+    }),
+  }
+</script>
+```
+
 __Image__ element implements following interfaces: HasMeasurement, HasTheme.
 
 __Image__ element has following methods:

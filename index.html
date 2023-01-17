@@ -1102,6 +1102,11 @@
                           <li>
 								            <a href="#5-26-tooltips" class="toc-h2 h3 toc-link" data-title="5.26 Tooltips">5.26 Tooltips</a>
                           </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#java-package-com-epam-jdi-light-vuetify-elements-common-tooltip-java" class="toc-h2 toc-link" data-title="- Java: package com.epam.jdi.light.vuetify.elements.common.Tooltip.java">- <strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.Tooltip.java</em></a>
+                      <ul class="toc-list-h2">
                           <li>
 								            <a href="#5-27-progress" class="toc-h2 h3 toc-link" data-title="5.27 Progress">5.27 Progress</a>
 									            <ul class="toc-list-h2">
@@ -42787,40 +42792,41 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <h3 id='5-26-tooltips'>5.26 Tooltips</h3>
 <p><a href="https://vuetifyjs.com/en/components/tooltips/">Vuetify documentation page</a></p>
 
-<ul>
-<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.Tooltip.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code>
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tooltipsTests</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">homeIconWithTooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">buttonWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+<p>Tooltip is located in the following class:</p>
+<h2 id='java-package-com-epam-jdi-light-vuetify-elements-common-tooltip-java'>- <strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.Tooltip.java</em></h2><pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(css = "div.v-tooltip__content")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"div.v-tooltip__content"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Tooltip</span> <span class="n">tooltip</span><span class="o">;</span>
+
+  <span class="nd">@Test</span><span class="o">()</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">textTooltipsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">homeIconWithTooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">buttonWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+    <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Tooltip for \"Button\""</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"colorsTooltipsTestDataProvider"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">TooltipsTestsDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorTooltipTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">color</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">coloredButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
       <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Tooltip"</span><span class="o">);</span>
-      <span class="n">homeIconWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Tooltip"</span><span class="o">);</span>
-      <span class="n">textWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Tooltip"</span><span class="o">);</span>
-      <span class="n">toggleButtonWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-      <span class="n">toggleButtonWithTooltip</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Programmatic tooltip"</span><span class="o">);</span>
-      <span class="n">toggleButtonWithTooltip</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-      <span class="n">cartIconWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Programmatic tooltip"</span><span class="o">);</span>
-      <span class="n">cartIconWithTooltip</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
-<p>Tooltip component is useful for conveying information when a user hovers over an element. Its display can be controlled programmatically. When activated, tooltips display a text label identifying an element, such as a description of its function.</p>
+<p><strong>Tooltip</strong> - Tooltip is useful for conveying information when a user hovers over an element.
+Its display can be controlled programmatically.
+When activated, tooltips display a text label identifying an element, such as a description of its function.</p>
 
 <p><img src="images/vuetify/tooltips.png" alt="Tooltips examples" /></p>
 
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Tooltips tests</a>.</p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">data-app=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"app"</span> <span class="na">class=</span><span class="s">"v-application v-application--is-ltr theme--light"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-application--wrap"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-tooltip__content"</span> <span class="na">style=</span><span class="s">"left: 436px; top: 242px; z-index: 8; display: none;"</span><span class="nt">&gt;</span> <span class="nt">&lt;span&gt;</span>Tooltip for "Button"<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-tooltip__content"</span> <span class="na">style=</span><span class="s">"left: 313px; top: 309px; z-index: 8; display: none;"</span><span class="nt">&gt;</span> <span class="nt">&lt;span&gt;</span>Left tooltip<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -42833,9 +42839,159 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <td>Returns Assert class</td>
 <td>TooltipAssert</td>
 </tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns Assert class</td>
+<td>TooltipAssert</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Returns css attribute background-color as String Value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>classes()</strong></td>
+<td>Gets all element&#39;s classes as list</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>doubleClick()</strong></td>
+<td>Double clicks on the element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>dragAndDropTo(int x, int y)</strong></td>
+<td>Drags and drops element to certain coordinates</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>dragAndDropTo(WebElement to)</strong></td>
+<td>Drags and drops element to another element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>focus()</strong></td>
+<td>Focuses on element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getLocation()</strong></td>
+<td>Gets element location as point</td>
+<td>Point</td>
+</tr>
+<tr>
+<td><strong>getSize()</strong></td>
+<td>Gets element size</td>
+<td>Dimension</td>
+</tr>
+<tr>
+<td><strong>getTagName()</strong></td>
+<td>Gets element tag name</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Gets element text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Gets element text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasAttribute(String attrName)</strong></td>
+<td>Returns true if the element has an expected attribute</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasClass(String className)</strong></td>
+<td>Returns true if the element has an expected class</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>highlight()</strong></td>
+<td>Highlights element with red color</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>highlight(String color)</strong></td>
+<td>Scrolls view to element and highlights it with a border of specified color</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hover()</strong></td>
+<td>Hovers mouse cursor over the element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Checks that element is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Checks that element is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Checks that element exists</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isHidden()</strong></td>
+<td>Checks that element is hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotExist()</strong></td>
+<td>Checks that element does not exist</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotVisible()</strong></td>
+<td>Checks that element is not visible by user</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isVisible()</strong></td>
+<td>Checks that element is visible by user</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>jsExecute(String jsCode)</strong></td>
+<td>Executes JavaScript code</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Gets label text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>printHtml()</strong></td>
+<td>Gets element “innerHTML” attribute value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>rightClick()</strong></td>
+<td>Right clicks on the element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setAttribute(String name, String value)</strong></td>
+<td>Sets value to the specified attribute</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>show()</strong></td>
+<td>Scrolls screen view to item</td>
+<td>void</td>
+</tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Tooltips tests</a>.</p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Java test examples</a></p>
 <h3 id='5-27-progress'>5.27 Progress</h3><h4 id='5-27-1-progress-circular'>5.27.1 Progress circular</h4>
 <p><a href="https://vuetifyjs.com/en/components/progress-circular/">Vuetify documentation page</a></p>
 

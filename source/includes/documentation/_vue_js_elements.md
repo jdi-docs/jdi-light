@@ -2695,6 +2695,17 @@ The `v-parallax` component creates a 3D effect that makes an image appear to scr
 
 ![v-parallax example](../../images/vuetify/parallax.png)
 
+```html
+<div class="pa-4 v-sheet theme--light rounded">
+   <div class="v-parallax" file="v-parallax/usage" style="height: 500px;">
+     <div class="v-parallax__image-container"><img src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" alt="" class="v-parallax__image" style="display: block; opacity: 1; transform: translate(-50%, 219px);">
+     </div>
+       <div class="v-parallax__content"></div>
+    </div>
+</div>
+
+```
+
 v-parallax element has following methods:
 
 |Method | Description | Return Type

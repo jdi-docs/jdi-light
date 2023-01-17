@@ -2042,6 +2042,7 @@ Tooltip is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
 - 
 ```java
+  //@FindBy(css = "div.v-tooltip__content")
   @UI("div.v-tooltip__content")
   public static Tooltip tooltip;
 

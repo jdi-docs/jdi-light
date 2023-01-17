@@ -2036,37 +2036,84 @@ For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-tes
 
 ### 5.26 Tooltips
 
+[Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
+
+Tooltip is located in the following class:
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
+- 
 ```java
   @UI("div.v-tooltip__content")
   public static Tooltip tooltip;
 
-@Test()
-public void textTooltipsTest() {
-  homeIconWithTooltip.is().displayed();
-  buttonWithTooltip.hover();
-  tooltip.is().displayed();
-  tooltip.has().text("Tooltip for \"Button\"");
-  }
-
-  @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class)
-  public void colorTooltipTest(int index, String color) {
-    coloredButtons.get(index).hover();
+  @Test()
+  public void textTooltipsTest() {
+    homeIconWithTooltip.is().displayed();
+    buttonWithTooltip.hover();
     tooltip.is().displayed();
-    tooltip.has().color(color);
-  }
+    tooltip.has().text("Tooltip for \"Button\"");
+    }
+  
+    @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class)
+    public void colorTooltipTest(int index, String color) {
+      coloredButtons.get(index).hover();
+      tooltip.is().displayed();
+      tooltip.has().color(color);
+    }
 ```
 
-For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
-
-[Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
-
-- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
-
-**Tooltip** - is useful for conveying information when a user hovers over an element. 
-Its display can be controlled programmatically. 
+__Tooltip__ - Tooltip is useful for conveying information when a user hovers over an element.
+Its display can be controlled programmatically.
 When activated, tooltips display a text label identifying an element, such as a description of its function.
 
 ![Tooltips examples](../../images/vuetify/tooltips.png)
+
+For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<template>
+  <div class="text-center d-flex align-center justify-space-around">
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Button
+        </v-btn>
+      </template>
+      <span>Tooltip</span>
+    </v-tooltip>
+
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-icon
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          mdi-home
+        </v-icon>
+      </template>
+      <span>Tooltip</span>
+    </v-tooltip>
+
+    <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <span
+          v-bind="attrs"
+          v-on="on"
+        >This text has a tooltip</span>
+      </template>
+      <span>Tooltip</span>
+    </v-tooltip>
+  </div>
+</template>
+```
 
 ```html
 <div data-app="true" id="app" class="v-application v-application--is-ltr theme--light">

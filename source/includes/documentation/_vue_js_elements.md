@@ -2128,7 +2128,7 @@ __Vuetify v2.6.14__ code example:
 | **is()/has()** | Returns Assert class                                   | TooltipAssert |
 | **color()**    | Returns css attribute background-color as String Value | String        |
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.javas">Java test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Java test examples</a>
 
 ### 5.27 Progress
 

@@ -2083,23 +2083,23 @@ __Vuetify v2.6.14__ code example:
 | Method                                      | Description                                                                | Return Type   |
 |---------------------------------------------|----------------------------------------------------------------------------|---------------|
 | **is()**                                    | Returns Assert class                                                       | TooltipAssert |
- | **has()**                                   | Returns Assert class                                                       | TooltipAssert |
+| **has()**                                   | Returns Assert class                                                       | TooltipAssert |
 | **color()**                                 | Returns css attribute background-color as String Value                     | String        |
 | **classes()**                               | Gets all element's classes as list                                         | List<String>  | 
 | **doubleClick()**                           | Double clicks on the element                                               | void          |
 | **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void          |
- | **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void          |
- | **focus()**                                 | Focuses on element                                                         | void          |
- | **getLocation()**                           | Gets element location as point                                             | Point         |
- | **getSize()**                               | Gets element size                                                          | Dimension     |
- | **getTagName()**                            | Gets element tag name                                                      | String        |
- | **getText()**                               | Gets element text                                                          | String        |
- | **getValue()**                              | Gets element text                                                          | String        |
- | **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean       |
- | **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean       |
- | **highlight()**                             | Highlights element with red color                                          | void          |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void          |
+| **focus()**                                 | Focuses on element                                                         | void          |
+| **getLocation()**                           | Gets element location as point                                             | Point         |
+| **getSize()**                               | Gets element size                                                          | Dimension     |
+| **getTagName()**                            | Gets element tag name                                                      | String        |
+| **getText()**                               | Gets element text                                                          | String        |
+| **getValue()**                              | Gets element text                                                          | String        |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean       |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean       |
+| **highlight()**                             | Highlights element with red color                                          | void          |
 | **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void          |
- | **hover()**                                 | Hovers mouse cursor over the element                                       | void          |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void          |
 | **isDisabled()**                            | Checks that element is disabled                                            | boolean       |
 | **isDisplayed()**                           | Checks that element is displayed                                           | boolean       |
 | **isEnabled()**                             | Checks that element exists                                                 | boolean       |

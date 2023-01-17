@@ -2036,49 +2036,52 @@ For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-tes
 
 ### 5.26 Tooltips
 
+```java
+  @UI("div.v-tooltip__content")
+  public static Tooltip tooltip;
+
+@Test()
+public void textTooltipsTest() {
+  homeIconWithTooltip.is().displayed();
+  buttonWithTooltip.hover();
+  tooltip.is().displayed();
+  tooltip.has().text("Tooltip for \"Button\"");
+  }
+
+  @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class)
+  public void colorTooltipTest(int index, String color) {
+    coloredButtons.get(index).hover();
+    tooltip.is().displayed();
+    tooltip.has().color(color);
+  }
+```
+
+For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
+
 [Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
 
-```java
-
-    @Test
-    public void tooltipsTests() {
-      homeIconWithTooltip.is().displayed();
-      buttonWithTooltip.hover();
-      tooltip.is().displayed();
-      tooltip.has().text("Tooltip");
-      homeIconWithTooltip.hover();
-      tooltip.is().displayed();
-      tooltip.has().text("Tooltip");
-      textWithTooltip.hover();
-      tooltip.is().displayed();
-      tooltip.has().text("Tooltip");
-      toggleButtonWithTooltip.hover();
-      tooltip.is().hidden();
-      toggleButtonWithTooltip.click();
-      tooltip.is().displayed();
-      tooltip.has().text("Programmatic tooltip");
-      toggleButtonWithTooltip.click();
-      tooltip.is().hidden();
-      cartIconWithTooltip.hover();
-      tooltip.is().displayed();
-      tooltip.has().text("Programmatic tooltip");
-      cartIconWithTooltip.click();
-      tooltip.is().hidden();
-    }
-```
-
-Tooltip component is useful for conveying information when a user hovers over an element. Its display can be controlled programmatically. When activated, tooltips display a text label identifying an element, such as a description of its function.
+**Tooltip** - is useful for conveying information when a user hovers over an element. 
+Its display can be controlled programmatically. 
+When activated, tooltips display a text label identifying an element, such as a description of its function.
 
 ![Tooltips examples](../../images/vuetify/tooltips.png)
+
+```html
+<div data-app="true" id="app" class="v-application v-application--is-ltr theme--light">
+  <div class="v-application--wrap">...</div>
+  <div class="v-tooltip__content" style="left: 436px; top: 242px; z-index: 8; display: none;"> <span>Tooltip for "Button"</span></div>
+  <div class="v-tooltip__content" style="left: 313px; top: 309px; z-index: 8; display: none;"> <span>Left tooltip</span></div>
+</div>
+```
 
 | Method         | Description                                            | Return Type   |
 |----------------|--------------------------------------------------------|---------------|
 | **is()/has()** | Returns Assert class                                   | TooltipAssert |
 | **color()**    | Returns css attribute background-color as String Value | String        |
 
-For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.javas">Java test examples</a>
 
 ### 5.27 Progress
 

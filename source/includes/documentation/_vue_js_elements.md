@@ -2058,46 +2058,83 @@ For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-tes
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
 
+Tooltip is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
-
+- 
 ```java
+  //@FindBy(css = "div.v-tooltip__content")
+  @UI("div.v-tooltip__content")
+  public static Tooltip tooltip;
 
-    @Test
-    public void tooltipsTests() {
-      homeIconWithTooltip.is().displayed();
-      buttonWithTooltip.hover();
+  @Test()
+  public void textTooltipsTest() {
+    homeIconWithTooltip.is().displayed();
+    buttonWithTooltip.hover();
+    tooltip.is().displayed();
+    tooltip.has().text("Tooltip for \"Button\"");
+    }
+  
+    @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class)
+    public void colorTooltipTest(int index, String color) {
+      coloredButtons.get(index).hover();
       tooltip.is().displayed();
-      tooltip.has().text("Tooltip");
-      homeIconWithTooltip.hover();
-      tooltip.is().displayed();
-      tooltip.has().text("Tooltip");
-      textWithTooltip.hover();
-      tooltip.is().displayed();
-      tooltip.has().text("Tooltip");
-      toggleButtonWithTooltip.hover();
-      tooltip.is().hidden();
-      toggleButtonWithTooltip.click();
-      tooltip.is().displayed();
-      tooltip.has().text("Programmatic tooltip");
-      toggleButtonWithTooltip.click();
-      tooltip.is().hidden();
-      cartIconWithTooltip.hover();
-      tooltip.is().displayed();
-      tooltip.has().text("Programmatic tooltip");
-      cartIconWithTooltip.click();
-      tooltip.is().hidden();
+      tooltip.has().color(color);
     }
 ```
 
-Tooltip component is useful for conveying information when a user hovers over an element. Its display can be controlled programmatically. When activated, tooltips display a text label identifying an element, such as a description of its function.
+__Tooltip__ - Tooltip is useful for conveying information when a user hovers over an element.
+Its display can be controlled programmatically.
+When activated, tooltips display a text label identifying an element, such as a description of its function.
 
 ![Tooltips examples](../../images/vuetify/tooltips.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | TooltipAssert
-
 For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div data-app="true" id="app" class="v-application v-application--is-ltr theme--light">
+  <div class="v-application--wrap">...</div>
+  <div class="v-tooltip__content" style="left: 436px; top: 242px; z-index: 8; display: none;"> <span>Tooltip for "Button"</span></div>
+  <div class="v-tooltip__content" style="left: 313px; top: 309px; z-index: 8; display: none;"> <span>Left tooltip</span></div>
+</div>
+```
+
+| Method                                      | Description                                                                | Return Type   |
+|---------------------------------------------|----------------------------------------------------------------------------|---------------|
+| **is()**                                    | Returns Assert class                                                       | TooltipAssert |
+| **has()**                                   | Returns Assert class                                                       | TooltipAssert |
+| **color()**                                 | Returns css attribute background-color as String Value                     | String        |
+| **classes()**                               | Gets all element's classes as list                                         | List<String>  | 
+| **doubleClick()**                           | Double clicks on the element                                               | void          |
+| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void          |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void          |
+| **focus()**                                 | Focuses on element                                                         | void          |
+| **getLocation()**                           | Gets element location as point                                             | Point         |
+| **getSize()**                               | Gets element size                                                          | Dimension     |
+| **getTagName()**                            | Gets element tag name                                                      | String        |
+| **getText()**                               | Gets element text                                                          | String        |
+| **getValue()**                              | Gets element text                                                          | String        |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean       |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean       |
+| **highlight()**                             | Highlights element with red color                                          | void          |
+| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void          |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void          |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean       |
+| **isDisplayed()**                           | Checks that element is displayed                                           | boolean       |
+| **isEnabled()**                             | Checks that element exists                                                 | boolean       |
+| **isHidden()**                              | Checks that element is hidden                                              | boolean       |
+| **isNotExist()**                            | Checks that element does not exist                                         | boolean       |
+| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean       |
+| **isVisible()**                             | Checks that element is visible by user                                     | boolean       |
+| **jsExecute(String jsCode)**                | Executes JavaScript code                                                   | String        |
+| **labelText()**                             | Gets label text                                                            | String        |
+| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String        |
+| **rightClick()**                            | Right clicks on the element                                                | void          |
+| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void          |
+| **show()**                                  | Scrolls screen view to item                                                | void          |
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Java test examples</a>
 
 ### 5.27 Progress
 

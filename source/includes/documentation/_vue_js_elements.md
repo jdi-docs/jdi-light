@@ -1638,12 +1638,32 @@ For examples of usage see: [JDI vuetify page tests for pagination](https://githu
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
 
 ```java
-@Test
-public void incrementedRatingTest() {
-    incrementedRating.setValue(3);
-    incrementedRating.is().value(3);
-    incrementedRating.setValue(3.5);
-    incrementedRating.is().value(3.5);
+//@FindBy(css = "#IncrementedRating .v-rating .mdi-star.yellow--text")
+@JDIRating(root = "#IncrementedRating .v-rating",
+           fullIcon = ".mdi-star.yellow--text")
+public static Rating incrementedRating;
+
+@Test(description = "Test checks rating's value")
+public void valueRatingTest() {
+  incrementedRating.setValue(3);
+  incrementedRating.is().value(3);
+  incrementedRating.setValue(3.5);
+  incrementedRating.is().value(3.5);
+  incrementedRating.hoverSetValue(5);
+  incrementedRating.is().value(5);
+  incrementedRating.hoverSetValue(4.5);
+  incrementedRating.is().value(4.5);
+  incrementedRatingCard.hover();
+  incrementedRating.is().value(3.5);
+  }
+
+@Test(description = "Test checks rating's color", dataProvider = "colorRatingTestData", dataProviderClass = RatingDataProvider.class)
+public void colorRatingTest(String expectedColor, Rating rating) {
+  for (int testedValue = 1; testedValue <= rating.length(); testedValue++) {
+  rating.setValue(testedValue);
+  rating.has().value(testedValue);
+  rating.has().color(expectedColor);
+  }
   }
 ```
 

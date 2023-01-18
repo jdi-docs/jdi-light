@@ -1633,10 +1633,6 @@ For examples of usage see: [JDI vuetify page tests for pagination](https://githu
 
 ### 5.17 Ratings
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/ratings/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
-
 ```java
 //@FindBy(css = "#IncrementedRating .v-rating .mdi-star.yellow--text")
 @JDIRating(root = "#IncrementedRating .v-rating",
@@ -1656,30 +1652,63 @@ public void valueRatingTest() {
   incrementedRatingCard.hover();
   incrementedRating.is().value(3.5);
   }
+  
+//@FindBy(css = "#CardRatingsRating .v-rating")
+@JDIRating(root = "#CardRatingsRating .v-rating")
+public static Rating cardRatingsRating;
+//@FindBy(xpath = ""//*[@id='ClearableRating']/following-sibling::div[contains(@class, 'v-rating')]")
+@JDIRating(root = "//*[@id='ClearableRating']/following-sibling::div[contains(@class, 'v-rating')]")
+public static Rating clearableRating;
 
-@Test(description = "Test checks rating's color", dataProvider = "colorRatingTestData", dataProviderClass = RatingDataProvider.class)
-public void colorRatingTest(String expectedColor, Rating rating) {
-  for (int testedValue = 1; testedValue <= rating.length(); testedValue++) {
-  rating.setValue(testedValue);
-  rating.has().value(testedValue);
-  rating.has().color(expectedColor);
+@Test(description = "Test checks rating's theme : theme(dark/light)")
+public void themeRatingTest() {
+  cardRatingsRating.show();
+  cardRatingsRating.has().darkTheme();
+  clearableRating.show();
+  clearableRating.has().lightTheme();
   }
-  }
+}
 ```
 
-The rating component is a specialized but crucial piece in building user widgets. Collecting user feedback via ratings is a simple analytic that can provide a lot of feedback to your product or application.  
+[Vuetify documentation page](https://vuetifyjs.com/en/components/ratings/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
+
+__Rating__ - The rating component is a specialized but crucial piece in building user widgets. Collecting user feedback via ratings is a simple analytic that can provide a lot of feedback to your product or application.  
 
 ![Ratongs example](../../images/vuetify/ratings.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | RatingAssert
-**length()** | Get count rating buttons| int
-**size()** | Get size rating buttons| int
-**color()/ color(int)** | Get color of rating button| String
-**setValue(double)** | Set rating to 'rating' with a mouse click| void
-**hoverSetValue(double)** | Set rating to 'rating' with a mouse hover| void
-**getValue()** | Get rating| Double
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-rating">
+  <button type="button" aria-label="Rating 1 of 5" class="v-icon notranslate v-icon--link mdi mdi-star theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+  <button type="button" aria-label="Rating 2 of 5" class="v-icon notranslate v-icon--link mdi mdi-star theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+  <button type="button" aria-label="Rating 3 of 5" class="v-icon notranslate v-icon--link mdi mdi-star theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+  <button type="button" aria-label="Rating 4 of 5" class="v-icon notranslate v-icon--link mdi mdi-star theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+  <button type="button" aria-label="Rating 5 of 5" class="v-icon notranslate v-icon--link mdi mdi-star-half-full theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+</div>
+```
+
+| Method                            | Description                               | Return Type   |
+|-----------------------------------|-------------------------------------------|---------------|
+| **length()**                      | Get count rating buttons                  | int           |
+| **getRatingButtons()**            | Get count buttons                         | int           |
+| **color()**                       | Get color of rating button                | String        |       
+| **color(int)**                    | Get color of rating button                | String        |
+| **hoverSetValue(double)**         | Set rating to 'rating' with a mouse hover | void          |
+| **getValue()**                    | Get rating                                | Double        |
+| **setValue(double)**              | Set rating to 'rating' with a mouse click | void          |
+| **theme()**                       | Get theme                                 | String        |
+| **size()**                        | Get size rating buttons                   | int           |
+| **setup(Field)**                  | Setting up Rating element by Field        | void          |
+| **setup(String, String, String)** | Returns Rating element by locators        | Rating        |
+| **is()**                          | Returns object for work with assertions   | RatingAssert  | 
+| **has()**                         | Returns object for work with assertions   | RatingAssert  |
+| **waitFor()**                     | Returns object for work with assertions   | RatingAssert  |
+| **shouldBe()**                    | Returns object for work with assertions   | RatingAssert  |
+| **verify()**                      | Returns object for work with assertions   | RatingAssert  |
+| **assertThat()**                  | Returns object for work with assertions   | RatingAssert  |
 
 For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingTests.java)
 
@@ -2062,24 +2091,24 @@ Tooltip is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
 - 
 ```java
-  //@FindBy(css = "div.v-tooltip__content")
-  @UI("div.v-tooltip__content")
-  public static Tooltip tooltip;
+//@FindBy(css = "div.v-tooltip__content")
+@UI("div.v-tooltip__content")
+public static Tooltip tooltip;
 
-  @Test()
-  public void textTooltipsTest() {
-    homeIconWithTooltip.is().displayed();
-    buttonWithTooltip.hover();
+@Test()
+public void textTooltipsTest() {
+  homeIconWithTooltip.is().displayed();
+  buttonWithTooltip.hover();
+  tooltip.is().displayed();
+  tooltip.has().text("Tooltip for \"Button\"");
+  }
+
+  @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class)
+  public void colorTooltipTest(int index, String color) {
+    coloredButtons.get(index).hover();
     tooltip.is().displayed();
-    tooltip.has().text("Tooltip for \"Button\"");
-    }
-  
-    @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class)
-    public void colorTooltipTest(int index, String color) {
-      coloredButtons.get(index).hover();
-      tooltip.is().displayed();
-      tooltip.has().color(color);
-    }
+    tooltip.has().color(color);
+  }
 ```
 
 __Tooltip__ - Tooltip is useful for conveying information when a user hovers over an element.

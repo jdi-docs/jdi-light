@@ -1690,25 +1690,25 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-| Method                            | Description                               | Return Type   |
-|-----------------------------------|-------------------------------------------|---------------|
-| **length()**                      | Get count rating buttons                  | int           |
-| **getRatingButtons()**            | Get count buttons                         | int           |
-| **color()**                       | Get color of rating button                | String        |       
-| **color(int)**                    | Get color of rating button                | String        |
-| **hoverSetValue(double)**         | Set rating to 'rating' with a mouse hover | void          |
-| **getValue()**                    | Get rating                                | Double        |
-| **setValue(double)**              | Set rating to 'rating' with a mouse click | void          |
-| **theme()**                       | Get theme                                 | String        |
-| **size()**                        | Get size rating buttons                   | int           |
-| **setup(Field)**                  | Setting up Rating element by Field        | void          |
-| **setup(String, String, String)** | Returns Rating element by locators        | Rating        |
-| **is()**                          | Returns object for work with assertions   | RatingAssert  | 
-| **has()**                         | Returns object for work with assertions   | RatingAssert  |
-| **waitFor()**                     | Returns object for work with assertions   | RatingAssert  |
-| **shouldBe()**                    | Returns object for work with assertions   | RatingAssert  |
-| **verify()**                      | Returns object for work with assertions   | RatingAssert  |
-| **assertThat()**                  | Returns object for work with assertions   | RatingAssert  |
+| Method                            | Description                               | Return Type  |
+|-----------------------------------|-------------------------------------------|--------------|
+| **length()**                      | Get number of Rating buttons              | int          |
+| **getRatingButtons()**            | Get Rating buttons                        | WebList      |
+| **color()**                       | Get color of rating button                | String       |       
+| **color(int)**                    | Get color of rating button                | String       |
+| **hoverSetValue(double)**         | Set rating to 'rating' with a mouse hover | void         |
+| **getValue()**                    | Get rating                                | Double       |
+| **setValue(double)**              | Set rating to 'rating' with a mouse click | void         |
+| **theme()**                       | Get theme                                 | String       |
+| **size()**                        | Get size rating buttons                   | int          |
+| **setup(Field)**                  | Setting up Rating element by Field        | void         |
+| **setup(String, String, String)** | Returns Rating element by locators        | Rating       |
+| **is()**                          | Returns object for work with assertions   | RatingAssert | 
+| **has()**                         | Returns object for work with assertions   | RatingAssert |
+| **waitFor()**                     | Returns object for work with assertions   | RatingAssert |
+| **shouldBe()**                    | Returns object for work with assertions   | RatingAssert |
+| **verify()**                      | Returns object for work with assertions   | RatingAssert |
+| **assertThat()**                  | Returns object for work with assertions   | RatingAssert |
 
 For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingTests.java)
 

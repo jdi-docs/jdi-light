@@ -1692,7 +1692,7 @@ __Vuetify v2.6.14__ code example:
 
 | Method                            | Description                               | Return Type  |
 |-----------------------------------|-------------------------------------------|--------------|
-| **length()**                      | Get number of Rating buttons              | int          |
+| **length()**                      | Get quantity of Rating buttons            | int          |
 | **getRatingButtons()**            | Get Rating buttons                        | WebList      |
 | **color()**                       | Get color of rating button                | String       |       
 | **color(int)**                    | Get color of rating button                | String       |

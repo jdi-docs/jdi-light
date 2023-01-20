@@ -568,50 +568,119 @@ and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing
 
 ### 5.11 Footers
 
+```java
+//@FindBy(css = "#IndigoFooter")
+@UI("#IndigoFooter")
+public static IndigoFooter indigoFooter;
+
+@Test(description = "Test checks custom element indigo footer")
+public void indigoFooterTest() {
+  indigoFooter.show();
+  // footer itself does not have indigo color but inner container has
+  indigoFooter.firstChild().has().css("background-color", Colors.INDIGO_LIGHTEN_1.value());
+  indigoFooter.footerText().has().text(containsString(expectedVuetifyText));
+  indigoFooter.divider().has().darkTheme();
+  indigoFooter.descriptionText().has().text(containsString("Phasellus feugiat arcu sapien"));
+  indigoFooter.socialButtons().forEach(HasClick::click);
+}
+
+//@FindBy(css = "#PadlessFooter")
+@UI("#PadlessFooter")
+public static Footer padlessFooter;
+
+@Test(description = "Test checks if footer is padless or not")
+public void padlessFooterTest() {
+  padlessFooter.show();
+  padlessFooter.is().padless();
+  shapedFooter.show();
+  shapedFooter.is().notPadless();
+}
+```
+
 [Vuetify documentation page](https://vuetifyjs.com/en/components/footer/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Footer.java_
 
-```java
-public class IndigoFooter extends Footer { 
-    @UI("button")
-    protected List<Button> socialButtons;
-    @UI(".pt-0")
-    protected Text descriptionText;
-    @UI("hr")
-    protected Divider divider;
-    @UI("//div[contains(@class, 'v-card__text') and ./strong]")
-    protected Text footerText;
-    
-    public List<Button> socialButtons() { return socialButtons; }
-    public Text descriptionText() { return descriptionText; }
-    public Divider divider() { return divider; }
-    public Text footerText() { return footerText; }
-}
-```
-
-According to the documentation:
-"The v-footer component in its simplest form is a container".
-
-You can inherit the class and add elements inside.
-
-
-```java
-@Test
-public void indigoFooterTest() {
-    indigoFooter.is().displayed();
-    // footer itself does not have indigo color but the inner container has
-    indigoFooter.firstChild().has().css("background-color", Colors.INDIGO_LIGHTEN_1.value());
-    indigoFooter.footerText().has().text(containsString("2021 — Vuetify"));
-    indigoFooter.divider().is().darkTheme();
-    indigoFooter.descriptionText().has().text(containsString("Phasellus feugiat arcu sapien"));
-    indigoFooter.socialButtons().forEach(HasClick::click);
-}
-```
+__Footer__ - The v-footer component is used for displaying general information that a user might want to access from any page within your site.
 
 ![Footer example](../../images/vuetify/footer.png)
 
-For examples of usage see: [Vuetify Footers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java).
+__Vuetify v2.6.14__ code example:
+
+```html
+<footer class="v-footer v-sheet theme--dark v-footer--padless" id="IndigoFooter" data-booted="true">
+  <div class="indigo lighten-1 white--text text-center v-card v-card--flat v-sheet theme--dark rounded-0">
+    <div class="v-card__text">
+      <button type="button" class="mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+				<span class="v-btn__content">
+					<i aria-hidden="true" class="v-icon notranslate mdi mdi-facebook theme--dark" style="font-size: 24px;"></i>
+				</span>
+      </button>
+      <button type="button" class="mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+				<span class="v-btn__content">
+					<i aria-hidden="true" class="v-icon notranslate mdi mdi-twitter theme--dark" style="font-size: 24px;"></i>
+				</span>
+      </button>
+      <button type="button" class="mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+				<span class="v-btn__content">
+					<i aria-hidden="true" class="v-icon notranslate mdi mdi-linkedin theme--dark" style="font-size: 24px;"></i>
+				</span>
+      </button>
+      <button type="button" class="mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+				<span class="v-btn__content">
+					<i aria-hidden="true" class="v-icon notranslate mdi mdi-instagram theme--dark" style="font-size: 24px;"></i>
+				</span>
+      </button>
+    </div>
+    <div class="v-card__text white--text pt-0">Footer visible text here</div>
+    <hr role="separator" aria-orientation="horizontal" class="v-divider theme--dark">
+    <div class="v-card__text white--text">
+      2023 — <strong>Vuetify</strong>
+    </div>
+  </div>
+</footer>
+```
+
+| Method                                      | Description                                                                | Return Type  |
+|---------------------------------------------|----------------------------------------------------------------------------|--------------|
+| **is()**                                    | Returns Assert class                                                       | FooterAssert |
+| **isPadless()**                             | Checks that element is padless                                             | boolean      |
+| **isAbsolute()**                            | Checks that element is absolute                                            | boolean      |
+| **isFixed()**                               | Checks that element is fixed                                               | boolean      |
+| **has()**                                   | Returns Assert class                                                       | FooterAssert |
+| **color()**                                 | Returns css attribute background-color as String Value                     | String       |
+| **waitFor()**                               | Returns object for work with assertions                                    | FooterAssert |
+| **shouldBe()**                              | Returns object for work with assertions                                    | FooterAssert |
+| **verify()**                                | Returns object for work with assertions                                    | FooterAssert |
+| **assertThat()**                            | Returns object for work with assertions                                    | FooterAssert |
+| **classes()**                               | Gets all element's classes as list                                         | List<String> |
+| **doubleClick()**                           | Double clicks on the element                                               | void         |
+| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void         |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void         |
+| **getLocation()**                           | Gets element location as point                                             | Point        |
+| **getSize()**                               | Gets element size                                                          | Dimension    |
+| **getTagName()**                            | Gets element tag name                                                      | String       |
+| **getText()**                               | Gets element text                                                          | String       |
+| **getValue()**                              | Gets element text                                                          | String       |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean      |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean      |
+| **highlight()**                             | Highlights element with red color                                          | void         |
+| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void         |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void         |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean      |
+| **isDisplayed()**                           | Checks that element is displayed                                           | boolean      |
+| **isEnabled()**                             | Checks that element exists                                                 | boolean      |
+| **isHidden()**                              | Checks that element is hidden                                              | boolean      |
+| **isNotExist()**                            | Checks that element does not exist                                         | boolean      |
+| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean      |
+| **isVisible()**                             | Checks that element is visible by user                                     | boolean      |
+| **labelText()**                             | Gets label text                                                            | String       |
+| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String       |
+| **rightClick()**                            | Right clicks on the element                                                | void         |
+| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void         |
+| **show()**                                  | Scrolls screen view to item                                                | void         |
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java">Java test examples</a>
 
 ### 5.12 Form input & controls
 

@@ -2716,9 +2716,14 @@ For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/parallax/)
 
+Parallax is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Parallax.java_
 
-```java
+```java`
+//@FindBy(css = "#CustomHeightParallax")
+@UI("#CustomHeightParallax")
+    public static Parallax customHeightParallax;
+    
 @Test
     public void customHeightParallaxTests() {
         customHeightParallax.has().noContent();
@@ -2726,18 +2731,45 @@ For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://
         int expectedHeight = 300;
         customHeightParallax.has().height(expectedHeight);
     }
+
+@Test
+    public void contentParallaxTests() {
+        contentParallax.has().content();
+        String expectedHeader = "Vuetify";
+        String expectedSubheader = "Build your application today!";
+        	
+        contentParallax.getHeader().is().text(expectedHeader);
+        contentParallax.getSubheader().is().text(expectedSubheader);
+    }
 ```
 
 The `v-parallax` component creates a 3D effect that makes an image appear to scroll slower than the window. A parallax causes a shift in a background image when the user scrolls the page.
 
-|Method | Description | Return Type
---- | --- | ---
-**height()** | Returns the value of the parallax container height attribute | String
-**hasContent()** | Checks if the parallax container has any elements within | boolean
-**image()** | Returns the background image of the parallax container (return type is JDI Light HTML Image) | Image
-**is()/has()** | Returns Assert class | ParallaxAssert
+![v-parallax example](../../images/vuetify/parallax.png)
 
-For examples of usage see: [JDI vuetify page tests for Parallax](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java).
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-parallax" id="CustomHeightParallax" style="height: 300px;">
+  <div class="v-parallax__image-container">
+    <img src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg" alt="" class="v-parallax__image" style="display: block; opacity: 1; transform: translate(-50%, 150px);">
+  </div>
+    <div class="v-parallax__content"></div>
+</div>
+```
+v-parallax element has following methods:
+
+|Method          | Description                                                                                  | Return Type
+-----------------|----------------------------------------------------------------------------------------------|------------------
+**heightPx()**   | Returns the value of the parallax container height attribute                                 | int
+**hasContent()** | Checks if the parallax container has any elements within                                     | boolean
+**image()**      | Returns the background image of the parallax container (return type is JDI Light HTML Image) | Image
+**is()/has**     | Returns Assert class                                                                         | ParallaxAssert
+**content()**    | Checks if elements in content section is not empty                                        | ParallaxAssert
+**noContent()**  | Checks if elements in content section is empty                                            | ParallaxAssert
+
+
+<a href=https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java">Java test examples</a>
 
 ### 5.36 TreeView
 

@@ -40091,46 +40091,266 @@ They return the parts of an expansion panel. </p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/panels">Custom vuetify expansion panels examples</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTest.java">JDI vuetify page tests for expansion panels</a>.</p>
-<h3 id='5-11-footers'>5.11 Footers</h3>
+<h3 id='5-11-footers'>5.11 Footers</h3><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#IndigoFooter")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#IndigoFooter"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">IndigoFooter</span> <span class="n">indigoFooter</span><span class="o">;</span>
+
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks custom element indigo footer"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">indigoFooterTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">indigoFooter</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="c1">// footer itself does not have indigo color but inner container has</span>
+  <span class="n">indigoFooter</span><span class="o">.</span><span class="na">firstChild</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="n">Colors</span><span class="o">.</span><span class="na">INDIGO_LIGHTEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+  <span class="n">indigoFooter</span><span class="o">.</span><span class="na">footerText</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">expectedVuetifyText</span><span class="o">));</span>
+  <span class="n">indigoFooter</span><span class="o">.</span><span class="na">divider</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">darkTheme</span><span class="o">();</span>
+  <span class="n">indigoFooter</span><span class="o">.</span><span class="na">descriptionText</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Phasellus feugiat arcu sapien"</span><span class="o">));</span>
+  <span class="n">indigoFooter</span><span class="o">.</span><span class="na">socialButtons</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="nl">HasClick:</span><span class="o">:</span><span class="n">click</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//@FindBy(css = "#PadlessFooter")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#PadlessFooter"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Footer</span> <span class="n">padlessFooter</span><span class="o">;</span>
+
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks if footer is padless or not"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">padlessFooterTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">padlessFooter</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">padlessFooter</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">padless</span><span class="o">();</span>
+  <span class="n">shapedFooter</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">shapedFooter</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notPadless</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
 <p><a href="https://vuetifyjs.com/en/components/footer/">Vuetify documentation page</a></p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.composite.Footer.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndigoFooter</span> <span class="kd">extends</span> <span class="n">Footer</span> <span class="o">{</span> 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"button"</span><span class="o">)</span>
-    <span class="kd">protected</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">socialButtons</span><span class="o">;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">".pt-0"</span><span class="o">)</span>
-    <span class="kd">protected</span> <span class="n">Text</span> <span class="n">descriptionText</span><span class="o">;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"hr"</span><span class="o">)</span>
-    <span class="kd">protected</span> <span class="n">Divider</span> <span class="n">divider</span><span class="o">;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class, 'v-card__text') and ./strong]"</span><span class="o">)</span>
-    <span class="kd">protected</span> <span class="n">Text</span> <span class="n">footerText</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="nf">socialButtons</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">socialButtons</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="n">Text</span> <span class="nf">descriptionText</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">descriptionText</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="n">Divider</span> <span class="nf">divider</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">divider</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="n">Text</span> <span class="nf">footerText</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">footerText</span><span class="o">;</span> <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-<p>According to the documentation:
-&quot;The v-footer component in its simplest form is a container&quot;.</p>
+<p><strong>Footer</strong> - The v-footer component is used for displaying general information that a user might want to access from any page within your site.</p>
 
-<p>You can inherit the class and add elements inside.</p>
-<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">indigoFooterTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="c1">// footer itself does not have indigo color but the inner container has</span>
-    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">firstChild</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="n">Colors</span><span class="o">.</span><span class="na">INDIGO_LIGHTEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">footerText</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"2021 — Vuetify"</span><span class="o">));</span>
-    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">divider</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">darkTheme</span><span class="o">();</span>
-    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">descriptionText</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Phasellus feugiat arcu sapien"</span><span class="o">));</span>
-    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">socialButtons</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="nl">HasClick:</span><span class="o">:</span><span class="n">click</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre>
 <p><img src="images/vuetify/footer.png" alt="Footer example" /></p>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java">Vuetify Footers tests</a>.</p>
+<p><strong>Vuetify v2.6.14</strong> code example:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"v-footer v-sheet theme--dark v-footer--padless"</span> <span class="na">id=</span><span class="s">"IndigoFooter"</span> <span class="na">data-booted=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"indigo lighten-1 white--text text-center v-card v-card--flat v-sheet theme--dark rounded-0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-card__text"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-facebook theme--dark"</span> <span class="na">style=</span><span class="s">"font-size: 24px;"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-twitter theme--dark"</span> <span class="na">style=</span><span class="s">"font-size: 24px;"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-linkedin theme--dark"</span> <span class="na">style=</span><span class="s">"font-size: 24px;"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-instagram theme--dark"</span> <span class="na">style=</span><span class="s">"font-size: 24px;"</span><span class="nt">&gt;&lt;/i&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-card__text white--text pt-0"</span><span class="nt">&gt;</span>Footer visible text here<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;hr</span> <span class="na">role=</span><span class="s">"separator"</span> <span class="na">aria-orientation=</span><span class="s">"horizontal"</span> <span class="na">class=</span><span class="s">"v-divider theme--dark"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-card__text white--text"</span><span class="nt">&gt;</span>
+      2023 — <span class="nt">&lt;strong&gt;</span>Vuetify<span class="nt">&lt;/strong&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/footer&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>FooterAssert</td>
+</tr>
+<tr>
+<td><strong>isPadless()</strong></td>
+<td>Checks that element is padless</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isAbsolute()</strong></td>
+<td>Checks that element is absolute</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isFixed()</strong></td>
+<td>Checks that element is fixed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns Assert class</td>
+<td>FooterAssert</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Returns css attribute background-color as String Value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>waitFor()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>FooterAssert</td>
+</tr>
+<tr>
+<td><strong>shouldBe()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>FooterAssert</td>
+</tr>
+<tr>
+<td><strong>verify()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>FooterAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>FooterAssert</td>
+</tr>
+<tr>
+<td><strong>classes()</strong></td>
+<td>Gets all element&#39;s classes as list</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>doubleClick()</strong></td>
+<td>Double clicks on the element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>dragAndDropTo(int x, int y)</strong></td>
+<td>Drags and drops element to certain coordinates</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>dragAndDropTo(WebElement to)</strong></td>
+<td>Drags and drops element to another element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getLocation()</strong></td>
+<td>Gets element location as point</td>
+<td>Point</td>
+</tr>
+<tr>
+<td><strong>getSize()</strong></td>
+<td>Gets element size</td>
+<td>Dimension</td>
+</tr>
+<tr>
+<td><strong>getTagName()</strong></td>
+<td>Gets element tag name</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Gets element text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Gets element text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasAttribute(String attrName)</strong></td>
+<td>Returns true if the element has an expected attribute</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasClass(String className)</strong></td>
+<td>Returns true if the element has an expected class</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>highlight()</strong></td>
+<td>Highlights element with red color</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>highlight(String color)</strong></td>
+<td>Scrolls view to element and highlights it with a border of specified color</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hover()</strong></td>
+<td>Hovers mouse cursor over the element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Checks that element is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Checks that element is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Checks that element exists</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isHidden()</strong></td>
+<td>Checks that element is hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotExist()</strong></td>
+<td>Checks that element does not exist</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotVisible()</strong></td>
+<td>Checks that element is not visible by user</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isVisible()</strong></td>
+<td>Checks that element is visible by user</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Gets label text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>printHtml()</strong></td>
+<td>Gets element “innerHTML” attribute value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>rightClick()</strong></td>
+<td>Right clicks on the element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setAttribute(String name, String value)</strong></td>
+<td>Sets value to the specified attribute</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>show()</strong></td>
+<td>Scrolls screen view to item</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java">Java test examples</a></p>
 <h3 id='5-12-form-input-amp-controls'>5.12 Form input &amp; controls</h3><h4 id='5-12-1-overflow-buttons'>5.12.1 Overflow buttons</h4>
 <p><a href="https://vuetifyjs.com/en/components/overflow-btns/">Vuetify documentation page</a></p>
 

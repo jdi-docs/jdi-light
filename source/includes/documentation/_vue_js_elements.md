@@ -1658,11 +1658,11 @@ __Vuetify v2.6.14__ code example:
 |---------------------------|------------------------------------------|---------------|
 | **absolutePosition()**    | Returns object for work with assertions  | OverlayAssert |
 | **backgroundColor()**     | Gets background color                    | String        |
-| **has()**                 | Returns object for work with assertions  | TooltipAssert |
+| **has()**                 | Returns object for work with assertions  | OverlayAssert |
 | **hover()**               | Hovers mouse cursor over the element     | void          |
 | **isAbsolute()**          | Shows that required element is absolute  | boolean       |
 | **isDisplayed()**         | Shows that required element is displayed | boolean       |
-| **is()**                  | Returns object for work with assertions  | TooltipAssert |
+| **is()**                  | Returns object for work with assertions  | OverlayAssert |
 | **notAbsolutePosition()** | Returns object for work with assertions  | OverlayAssert |
 | **opacity()**             | Gets opacity                             | double        |
 | **show()**                | Scrolls screen view to item              | void          |

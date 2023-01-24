@@ -2996,6 +2996,22 @@ For examples of usage see: [JDI Vuetify TreeView tests](https://github.com/jdi-t
 ### 5.37 Button (VuetifyButton)
 
 ```java
+//@FindBy(css = ".elevation-2")
+@UI(".elevation-2")
+public static VuetifyButton commonButton;
+
+@Test(description = "Test checks that common button is clickable")
+public void commonButtonsTests() {
+  commonButton.has().hasNoLabel();
+  commonButton.show();
+  commonButton.is().displayed();
+  commonButton.has().elevated();
+  commonButton.has().lightTheme();
+  commonButton.click();
+  commonButtonState.has().text("Button clicked");
+  }
+  
+  
 // @FindBy(xpath = "//h2[text()='Depressed Buttons']/following-sibling::button")
 @UI("//h2[text()='Depressed Buttons']/following-sibling::button")
 public static List<VuetifyButton> depressedNormalButton;
@@ -3035,48 +3051,44 @@ class can be used to alter the background or text color.
 
 ![Button example](../../images/vuetify/buttons.png)
 
-Here is an example with provided Vuetify v2.6.2 code:
+__Vuetify v2.6.14__ code example:
 
 ```html
-<h2>Depressed Buttons</h2>
-<button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default">
-  <span class="v-btn__content">Normal</span>
-</button>
-<button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default primary">
-  <span class="v-btn__content">Primary</span>
-</button>
-<button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default error">
-  <span class="v-btn__content">Error</span>
-</button>
-<button type="button" disabled="disabled" class="ma-2 v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default">
-  <span class="v-btn__content">Disabled</span>
-</button>
-<div class="v-input v-input--is-label-active v-input--is-dirty v-input--is-readonly theme--light v-text-field v-text-field--is-booted">
-  <div class="v-input__control">
-    <div class="v-input__slot">
-      <div class="v-text-field__slot">
-        <input id="depr-buttons-state" readonly="readonly" type="text">
-      </div>
-    </div>
-    <div class="v-text-field__details">...</div>
+<div class="row align-center justify-space-around" file="v-btn/prop-depressed">
+  <button type="button" class="v-btn v-btn--has-bg theme--light v-size--default">
+    <span class="v-btn__content"> Normal </span>
+  </button>
+  <button type="button" class="v-btn v-btn--has-bg theme--light v-size--default primary">
+    <span class="v-btn__content"> Primary </span>
+  </button>
+  <button type="button" class="v-btn v-btn--has-bg theme--light v-size--default error">
+    <span class="v-btn__content"> Error </span>
+  </button>
+  <button type="button" disabled="disabled" class="v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default">
+    <span class="v-btn__content"> Disabled </span>
+  </button>
 </div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions | VuetifyButtonAssert
-**has()** | Returns object for work with assertions | VuetifyButtonAssert
-**waitFor()** | Returns object for work with assertions | VuetifyButtonAssert
-**shouldBe()** | Returns object for work with assertions | VuetifyButtonAssert
-**verify()** | Returns object for work with assertions | VuetifyButtonAssert
-**assertThat()** | Returns object for work with assertions | VuetifyButtonAssert
-**VuetifyButton(UIElement)** | Parameterized UIElement constructor | VuetifyButton
-**icon()** | Returns button's icon | Icon
-**loader()** | Returns button's loader | UIElement
-**isLoading()** | Checks that the button is loading | boolean
-**getColor()** | Returns button's background color (in RGBA) | String
+| Method          | Description                             | Return Type         |
+|-----------------|-----------------------------------------|---------------------|
+| **is()**        | Returns object for work with assertions | VuetifyButtonAssert | 
+| **has()**       | Returns object for work with assertions | VuetifyButtonAssert |
+| **ariaLabel()** | Returns attribute "aria-label"          | String              |
+| **show()**      | Scrolls screen view to item             | void                |
+| **isLoading()** | Shows that element is loading           | boolean             |
+
+ **waitFor()**                | Returns object for work with assertions     | VuetifyButtonAssert  
+ **shouldBe()**               | Returns object for work with assertions     | VuetifyButtonAssert  
+ **verify()**                 | Returns object for work with assertions     | VuetifyButtonAssert  
+ **assertThat()**             | Returns object for work with assertions     | VuetifyButtonAssert  
+ **VuetifyButton(UIElement)** | Parameterized UIElement constructor         | VuetifyButton        
+ **icon()**                   | Returns button's icon                       | Icon                 
+ **loader()**                 | Returns button's loader                     | UIElement            
+ **isLoading()**              | Checks that the button is loading           | boolean              
+ **getColor()**               | Returns button's background color (in RGBA) | String               
 
 [Here you can find Buttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/VuetifyButtonsTests.java).
 

@@ -1591,42 +1591,84 @@ For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-test
 
 ### 5.15 Overlays
 
+```java
+//@FindBy(css = "#AbsoluteOverlay button")
+@UI("#AbsoluteOverlay button")
+public static VuetifyButton absoluteOverlayButton;
+
+@Test(description = "Check that overlay position is absolute")
+public void absolutePositionOverlaysTest() {
+  absoluteOverlayButton.show();
+  absoluteOverlayButton.click();
+  absoluteOverlay.has().absolutePosition();
+  }
+
+//@FindBy(css = "#AdvancedOverlay")
+@UI("#AdvancedOverlay")
+public static UIElement advancedOverlayCard;
+
+@Test(description = "Check overlay color")
+public void colorOverlaysTest() {
+  advancedOverlayCard.show();
+  advancedOverlayCard.hover();
+  advancedOverlay.has().backgroundColor(CYAN_DARKEN_5.value());
+  }
+
+//@FindBy(css = "#ZIndexOverlay button")
+@UI("#ZIndexOverlay button")
+public static VuetifyButton zIndexOverlayButton;
+
+@Test(description = "Check overlay z-index value")
+public void zIndexOverlaysTest() {
+  zIndexOverlayButton.show();
+  zIndexOverlayButton.click();
+  zIndexOverlay.has().zIndex(0);
+  }
+```
+
 [Vuetify documentation page](https://vuetifyjs.com/en/components/overlays/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Overlay.java_
 
-```java
-@Test
-public void absoluteOverlayTest() {
-    absoluteOverlay.is().absolute();
-    absoluteOverlay.is().notActive();
-    absoluteOverlay.is().opacity(0);
-  
-    absoluteOverlayButton.click();
-    absoluteOverlay.is().absolute();
-    absoluteOverlay.is().active();
-    absoluteOverlay.is().opacity(0.46);
-  
-    absoluteOverlay.content().find("button").click();
-    absoluteOverlay.is().notActive();
-    absoluteOverlay.is().opacity(0);
-}
-```
-
-The Overlay component is used to provide emphasis on a particular element or parts of it. It signals to the user of a state change within the application and can be used for creating loaders, dialogs and more. In its simplest form, the Overlay component will add a dimmed layer over your application.
+__The Overlay__ - The v-overlay component is used to provide emphasis on a particular element or parts of it. It signals to the user of a state change within the application and can be used for creating loaders, dialogs and more.
 
 ![Overlay example](../../images/vuetify/overlayBeforeClick.png)
 ![Overlay example](../../images/vuetify/overlayAfterClick.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**isActive()** | Shows that required element is active| boolean
-**isAbsolute()** | Shows that required element is absolute| boolean
-**content()** | Get content| UIElement
-**zIndex()** | Get z-index| int
-**opacity()** | Get opacity| double
+__Vuetify v2.6.14__ code example:
 
-For examples of usage see: [JDI Vuetify Overlays tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/OverlayTests.java)
+```html
+<div id="app">
+  <v-app id="inspire">
+    <div class="text-center">
+      <v-btn
+        color="error"
+        @click="overlay = !overlay"
+      >
+        Show Overlay
+      </v-btn>
+
+      <v-overlay :value="overlay"></v-overlay>
+    </div>
+  </v-app>
+</div>
+```
+
+| Method                    | Description                              | Return Type   |
+|---------------------------|------------------------------------------|---------------|
+| **absolutePosition()**    | Returns object for work with assertions  | OverlayAssert |
+| **backgroundColor()**     | Gets background color                    | String        |
+| **has()**                 | Returns object for work with assertions  | OverlayAssert |
+| **hover()**               | Hovers mouse cursor over the element     | void          |
+| **isAbsolute()**          | Shows that required element is absolute  | boolean       |
+| **isDisplayed()**         | Shows that required element is displayed | boolean       |
+| **is()**                  | Returns object for work with assertions  | OverlayAssert |
+| **notAbsolutePosition()** | Returns object for work with assertions  | OverlayAssert |
+| **opacity()**             | Gets opacity                             | double        |
+| **show()**                | Scrolls screen view to item              | void          |
+| **zIndex()**              | Gets z-index                             | int           |
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/OverlaysTests.java">Java Overlays test examples</a>
 
 ### 5.16 Pagination
 

@@ -1095,26 +1095,21 @@ The Vuetify RadioButton component is a simple radio button. When combined with t
 | **is()**                                    | Assert action                                                              | RadioButtonAssert/RadioButtonsAssert |
 | **has()**                                   | Assert action                                                              | RadioButtonAssert/RadioButtonsAssert |
 | **label()**                                 | Returns label                                                              | UIElement                            |
-| **icon()**                                  | Returns RadioButton's icon                                                 | UIElement                                                                  |
-| **isDisabled()**                            | Checks that element is disabled                                            | boolean                                                                    |
-| **theme()**                                 | Get theme                                                                  | String                                                                     |
+| **icon()**                                  | Returns RadioButton's icon                                                 | UIElement                            |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean                              |
+| **theme()**                                 | Get theme                                                                  | String                               |
 | **color()**                                 | Returns css attribute background-color as String Value                     | String                               |
-| **labelColor()**                            || String                                                                     |
-| **isSuccess()**                             || boolean                                                                    |
-| **isError()**                               || boolean                                                                    |
-| **label()**                                 || Label                                                                      |
-| **list()**                                  || WebList                                                                    |
-| **inputSelectionControls()**                || UIElement                                                                  |
-| **radioGroup()**                            || UIElement                                                                  |
-| **radioButtons()**                          || List<RadioButton>                                                          |
-| **backgroundColor()**                       || String                                                                     |
-| **labelColor()**                            || String                                                                     |
-| **isReadOnly()**                            || boolean                                                                    |
-| **hasMessage()**                            || boolean                                                                    |
-| **getMessage()**                            || String                                                                     |
-| **isDense()**                               || boolean                                                                    |
-| **messages(String locator)**                || List<UIElement>                                                            |
-| **messagesText(String locator)**            || List<String>                                                               |
+| **labelColor()**                            | Get element label color                                                    | String                               |
+| **label()**                                 | Get element label                                                          | Label                                |
+| **list()**                                  | Returns list of elements                                                   | WebList                              |
+| **radioButtons()**                          | Returns element's radio buttons                                            | List<RadioButton>                    |
+| **backgroundColor()**                       | Returns element's background color                                         | String                               |
+| **isReadOnly()**                            | Checks that element is readonly                                            | boolean                              |
+| **hasMessage()**                            | Check that element has message                                             | boolean                              |
+| **getMessage()**                            | Returns element's message text                                             | String                               |
+| **isDense()**                               | Checks if element is dense                                                 | boolean                              |
+| **messages(String locator)**                | Get List<UIElement> messages by locator                                    | List<UIElement>                      |
+| **messagesText(String locator)**            | Get elements messages text by locator                                      | List<String>                         |
 | **select(String/int/Enum)**                 | Select radiobutton by value/index                                          | void                                 |
 | **labelText()**                             | Gets the text of a label                                                   | String                               |
 | **selected()**                              | Get selected radiobutton value                                             | String                               |
@@ -1150,7 +1145,7 @@ The Vuetify RadioButton component is a simple radio button. When combined with t
 | **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void                                 |
 | **show()**                                  | Scrolls screen view to item                                                | void                                 |
 
-For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/RadioButtonsTests.java).
+For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RadioButtonsTests.java).
 
 #### 5.12.8 Combobox
 

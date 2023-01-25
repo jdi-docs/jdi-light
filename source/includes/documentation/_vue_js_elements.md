@@ -999,27 +999,14 @@ For examples of usage see: [JDI Vuetify Text areas tests](https://github.com/jdi
 
 #### 5.12.7 Radio buttons
 
-[Vuetify documentation page](https://jdi-testing.github.io/jdi-light/vuetify/radio-buttons/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.RadioButton.java_
-
 ```java
-    @Test
-public void selectTest() {
-  colorLeftRadioButtons.select("indigo");
-  colorLeftRadioButtons.is().selected("indigo");
-  colorRightRadioButtons.select("success");
-  colorRightRadioButtons.is().selected("success");
-  }
+//@FindBy(css = "#ColorsRadioButton .col-12[1] [role=radio]")
+@UI("#ColorsRadioButton .col-12[1] [role=radio]")
+public static RadioButtons colorLeftRadioButtons;
 
-@Test
-public void getValueTest() {
-  directionRadioButtons.has().value("Option 1");
-  directionRadioButtons.has().value("Option 2");
-  }
-
-@Test
-public void selectEnumTest() {
+@Test(description = "Test checks radio button selection")
+public void selectEnumRadioButtonsTest() {
+  colorLeftRadioButtons.show();
   colorLeftRadioButtons.select(RadioTestData.indigo);
   colorLeftRadioButtons.is().selected(RadioTestData.indigo);
   colorLeftRadioButtons.select(RadioTestData.orange);
@@ -1027,19 +1014,36 @@ public void selectEnumTest() {
   colorLeftRadioButtons.select(RadioTestData.red);
   colorLeftRadioButtons.is().selected(RadioTestData.red);
   }
-
-@Test
-public void mandatoryTest() {
-  mandatoryRadioButtons.select("Radio 2");
-  mandatoryText.is().text("radio-2");
+  
+//@FindBy(css = "#DirectionRadioButton input[role = 'radio']")  
+@UI("#DirectionRadioButton input[role = 'radio']")
+public static RadioButtons directionRadioButtons;  
+  
+@Test(description = "Test checks radio button value")
+public void valueRadioButtonsTest() {
+  directionRadioButtons.show();
+  directionRadioButtons.has().value("Option 1");
+  directionRadioButtons.has().value("Option 2");
   }
 
-@Test
-public void labelTest() {
-  labelRadioButtons.has().value("Of course it's Google");
-  labelRadioButtons.has().text("Definitely Duckduckgo");
+//@FindBy(css = "#SuccessReadOnlyRadioButtonWithHint [role=radio]")
+@UI("#SuccessReadOnlyRadioButtonWithHint [role=radio]")
+public static RadioButtons successRadioButtons;
+
+@Test(description = "Test checks if radio button has messages or not")
+public void messagesRadioButtonTest() {
+  successRadioButtons.show();
+  successRadioButtons.has().messagesCount(1);
+  successRadioButtons.has().messageText("some hint");
+  successRadioButtons.has().successMessages();
+  successRadioButtons.has().noErrorMessages();
   }
 ```
+
+[Vuetify documentation page](https://jdi-testing.github.io/jdi-light/vuetify/radio-buttons/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.RadioButton.java_
+
 ![Radiobuttons example](../../images/vuetify/radiobuttons.png)
 
 Radio button -  a simple component that can be combined into groups, have different colors and html elements in a label

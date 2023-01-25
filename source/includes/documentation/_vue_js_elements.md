@@ -1040,13 +1040,55 @@ public void messagesRadioButtonTest() {
   }
 ```
 
-[Vuetify documentation page](https://jdi-testing.github.io/jdi-light/vuetify/radio-buttons/)
+[Vuetify documentation page](https://vuetifyjs.com/en/components/radio-buttons/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.RadioButton.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.radiobuttons.RadioButton.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.radiobuttons.RadioButtons.java_
+
+The Vuetify RadioButton component is a simple radio button. When combined with the v-radio-group component you can provide groupable functionality to allow users to select from a predefined set of options.
 
 ![Radiobuttons example](../../images/vuetify/radiobuttons.png)
 
-Radio button -  a simple component that can be combined into groups, have different colors and html elements in a label
+```html
+<div role="radiogroup" aria-labelledby="input-580" class="v-input--radio-group__input">
+	<div class="v-radio theme--light v-item--active">
+		<div class="v-input--selection-controls__input">
+			<span aria-hidden="true" class="v-icon notranslate theme--light primary--text">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+					<path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,7C9.24,7 7,9.24 7,12C7,14.76 9.24,17 12,17C14.76,17 17,14.76 17,12C17,9.24 14.76,7 12,7Z"></path>
+				</svg>
+			</span>
+			<input aria-checked="true" id="input-581" role="radio" type="radio" name="radio-580" value="1">
+			<div class="v-input--selection-controls__ripple primary--text"></div>
+		</div>
+		<label for="input-581" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Radio 1</label>
+	</div>
+	<div class="v-radio theme--light">
+		<div class="v-input--selection-controls__input">
+			<span aria-hidden="true" class="v-icon notranslate theme--light">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+					<path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z"></path>
+				</svg>
+			</span>
+			<input aria-checked="false" id="input-583" role="radio" type="radio" name="radio-580" value="2">
+			<div class="v-input--selection-controls__ripple"></div>
+		</div>
+		<label for="input-583" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Radio 2</label>
+	</div>
+	<div class="v-radio theme--light">
+		<div class="v-input--selection-controls__input">
+		<span aria-hidden="true" class="v-icon notranslate theme--light">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+				<path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z"></path>
+			</svg>
+		</span>
+		<input aria-checked="false" id="input-585" role="radio" type="radio" name="radio-580" value="3">
+		<div class="v-input--selection-controls__ripple"></div>
+		</div>
+		<label for="input-585" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Radio 3</label>
+	</div>
+</div>
+```
 
 |Method | Description | Return Type
 --- | --- | ---

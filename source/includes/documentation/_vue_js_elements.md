@@ -3020,23 +3020,25 @@ public static List<VuetifyButton> depressedNormalButton;
 @UI("#depr-buttons-state")
 public static Text depressedButtonState;
 
-@Test(dataProvider = "depressedButtons",
-        dataProviderClass = ButtonsDataProvider.class)
+@Test(description = "Test checks button feature: 'depressed' and colors of the buttons",
+  dataProvider = "depressedButtons",
+  dataProviderClass = ButtonsDataProvider.class)
 public void depressedButtonsTests(int index, boolean enabled, String color, String name) {
-    VuetifyButton button = depressedNormalButton.get(index);
-    button.show();
-    button.is().displayed();
-    button.has().css("background-color", color);
-    
-    if (enabled) {
-        button.is().enabled();
-        button.click();
-        depressedButtonState.has().text("Depressed button clicked: " + name);
-    } else {
-        button.is().disabled();
-    }
-    depressedButtonState.has().text("Depressed button clicked: " + name);
-}
+  VuetifyButton button = depressedNormalButton.get(index);
+  button.has().hasNoLabel();
+  button.show();
+  button.is().displayed();
+  button.has().backgroundColor(color);
+
+  if (enabled) {
+  button.is().enabled();
+  button.click();
+  depressedButtonState.has().text("Depressed button clicked: " + name);
+  } else {
+  button.is().disabled();
+  }
+  depressedButtonState.has().text("Depressed button clicked: " + name);
+  }
 ```
 
 [Button Vuetify documentation page](https://vuetifyjs.com/en/components/buttons/)

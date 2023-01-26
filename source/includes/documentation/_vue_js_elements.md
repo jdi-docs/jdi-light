@@ -568,50 +568,119 @@ and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing
 
 ### 5.11 Footers
 
+```java
+//@FindBy(css = "#IndigoFooter")
+@UI("#IndigoFooter")
+public static IndigoFooter indigoFooter;
+
+@Test(description = "Test checks custom element indigo footer")
+public void indigoFooterTest() {
+  indigoFooter.show();
+  // footer itself does not have indigo color but inner container has
+  indigoFooter.firstChild().has().css("background-color", Colors.INDIGO_LIGHTEN_1.value());
+  indigoFooter.footerText().has().text(containsString(expectedVuetifyText));
+  indigoFooter.divider().has().darkTheme();
+  indigoFooter.descriptionText().has().text(containsString("Phasellus feugiat arcu sapien"));
+  indigoFooter.socialButtons().forEach(HasClick::click);
+}
+
+//@FindBy(css = "#PadlessFooter")
+@UI("#PadlessFooter")
+public static Footer padlessFooter;
+
+@Test(description = "Test checks if footer is padless or not")
+public void padlessFooterTest() {
+  padlessFooter.show();
+  padlessFooter.is().padless();
+  shapedFooter.show();
+  shapedFooter.is().notPadless();
+}
+```
+
 [Vuetify documentation page](https://vuetifyjs.com/en/components/footer/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Footer.java_
 
-```java
-public class IndigoFooter extends Footer { 
-    @UI("button")
-    protected List<Button> socialButtons;
-    @UI(".pt-0")
-    protected Text descriptionText;
-    @UI("hr")
-    protected Divider divider;
-    @UI("//div[contains(@class, 'v-card__text') and ./strong]")
-    protected Text footerText;
-    
-    public List<Button> socialButtons() { return socialButtons; }
-    public Text descriptionText() { return descriptionText; }
-    public Divider divider() { return divider; }
-    public Text footerText() { return footerText; }
-}
-```
-
-According to the documentation:
-"The v-footer component in its simplest form is a container".
-
-You can inherit the class and add elements inside.
-
-
-```java
-@Test
-public void indigoFooterTest() {
-    indigoFooter.is().displayed();
-    // footer itself does not have indigo color but the inner container has
-    indigoFooter.firstChild().has().css("background-color", Colors.INDIGO_LIGHTEN_1.value());
-    indigoFooter.footerText().has().text(containsString("2021 — Vuetify"));
-    indigoFooter.divider().is().darkTheme();
-    indigoFooter.descriptionText().has().text(containsString("Phasellus feugiat arcu sapien"));
-    indigoFooter.socialButtons().forEach(HasClick::click);
-}
-```
+__Footer__ - The v-footer component is used for displaying general information that a user might want to access from any page within your site.
 
 ![Footer example](../../images/vuetify/footer.png)
 
-For examples of usage see: [Vuetify Footers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java).
+__Vuetify v2.6.14__ code example:
+
+```html
+<footer class="v-footer v-sheet theme--dark v-footer--padless" id="IndigoFooter" data-booted="true">
+  <div class="indigo lighten-1 white--text text-center v-card v-card--flat v-sheet theme--dark rounded-0">
+    <div class="v-card__text">
+      <button type="button" class="mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+				<span class="v-btn__content">
+					<i aria-hidden="true" class="v-icon notranslate mdi mdi-facebook theme--dark" style="font-size: 24px;"></i>
+				</span>
+      </button>
+      <button type="button" class="mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+				<span class="v-btn__content">
+					<i aria-hidden="true" class="v-icon notranslate mdi mdi-twitter theme--dark" style="font-size: 24px;"></i>
+				</span>
+      </button>
+      <button type="button" class="mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+				<span class="v-btn__content">
+					<i aria-hidden="true" class="v-icon notranslate mdi mdi-linkedin theme--dark" style="font-size: 24px;"></i>
+				</span>
+      </button>
+      <button type="button" class="mx-4 white--text v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+				<span class="v-btn__content">
+					<i aria-hidden="true" class="v-icon notranslate mdi mdi-instagram theme--dark" style="font-size: 24px;"></i>
+				</span>
+      </button>
+    </div>
+    <div class="v-card__text white--text pt-0">Footer visible text here</div>
+    <hr role="separator" aria-orientation="horizontal" class="v-divider theme--dark">
+    <div class="v-card__text white--text">
+      2023 — <strong>Vuetify</strong>
+    </div>
+  </div>
+</footer>
+```
+
+| Method                                      | Description                                                                | Return Type  |
+|---------------------------------------------|----------------------------------------------------------------------------|--------------|
+| **is()**                                    | Returns Assert class                                                       | FooterAssert |
+| **isPadless()**                             | Checks that element is padless                                             | boolean      |
+| **isAbsolute()**                            | Checks that element is absolute                                            | boolean      |
+| **isFixed()**                               | Checks that element is fixed                                               | boolean      |
+| **has()**                                   | Returns Assert class                                                       | FooterAssert |
+| **color()**                                 | Returns css attribute background-color as String Value                     | String       |
+| **waitFor()**                               | Returns object for work with assertions                                    | FooterAssert |
+| **shouldBe()**                              | Returns object for work with assertions                                    | FooterAssert |
+| **verify()**                                | Returns object for work with assertions                                    | FooterAssert |
+| **assertThat()**                            | Returns object for work with assertions                                    | FooterAssert |
+| **classes()**                               | Gets all element's classes as list                                         | List<String> |
+| **doubleClick()**                           | Double clicks on the element                                               | void         |
+| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void         |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void         |
+| **getLocation()**                           | Gets element location as point                                             | Point        |
+| **getSize()**                               | Gets element size                                                          | Dimension    |
+| **getTagName()**                            | Gets element tag name                                                      | String       |
+| **getText()**                               | Gets element text                                                          | String       |
+| **getValue()**                              | Gets element text                                                          | String       |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean      |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean      |
+| **highlight()**                             | Highlights element with red color                                          | void         |
+| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void         |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void         |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean      |
+| **isDisplayed()**                           | Checks that element is displayed                                           | boolean      |
+| **isEnabled()**                             | Checks that element exists                                                 | boolean      |
+| **isHidden()**                              | Checks that element is hidden                                              | boolean      |
+| **isNotExist()**                            | Checks that element does not exist                                         | boolean      |
+| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean      |
+| **isVisible()**                             | Checks that element is visible by user                                     | boolean      |
+| **labelText()**                             | Gets label text                                                            | String       |
+| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String       |
+| **rightClick()**                            | Right clicks on the element                                                | void         |
+| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void         |
+| **show()**                                  | Scrolls screen view to item                                                | void         |
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java">Java test examples</a>
 
 ### 5.12 Form input & controls
 
@@ -1522,42 +1591,84 @@ For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-test
 
 ### 5.15 Overlays
 
+```java
+//@FindBy(css = "#AbsoluteOverlay button")
+@UI("#AbsoluteOverlay button")
+public static VuetifyButton absoluteOverlayButton;
+
+@Test(description = "Check that overlay position is absolute")
+public void absolutePositionOverlaysTest() {
+  absoluteOverlayButton.show();
+  absoluteOverlayButton.click();
+  absoluteOverlay.has().absolutePosition();
+  }
+
+//@FindBy(css = "#AdvancedOverlay")
+@UI("#AdvancedOverlay")
+public static UIElement advancedOverlayCard;
+
+@Test(description = "Check overlay color")
+public void colorOverlaysTest() {
+  advancedOverlayCard.show();
+  advancedOverlayCard.hover();
+  advancedOverlay.has().backgroundColor(CYAN_DARKEN_5.value());
+  }
+
+//@FindBy(css = "#ZIndexOverlay button")
+@UI("#ZIndexOverlay button")
+public static VuetifyButton zIndexOverlayButton;
+
+@Test(description = "Check overlay z-index value")
+public void zIndexOverlaysTest() {
+  zIndexOverlayButton.show();
+  zIndexOverlayButton.click();
+  zIndexOverlay.has().zIndex(0);
+  }
+```
+
 [Vuetify documentation page](https://vuetifyjs.com/en/components/overlays/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Overlay.java_
 
-```java
-@Test
-public void absoluteOverlayTest() {
-    absoluteOverlay.is().absolute();
-    absoluteOverlay.is().notActive();
-    absoluteOverlay.is().opacity(0);
-  
-    absoluteOverlayButton.click();
-    absoluteOverlay.is().absolute();
-    absoluteOverlay.is().active();
-    absoluteOverlay.is().opacity(0.46);
-  
-    absoluteOverlay.content().find("button").click();
-    absoluteOverlay.is().notActive();
-    absoluteOverlay.is().opacity(0);
-}
-```
-
-The Overlay component is used to provide emphasis on a particular element or parts of it. It signals to the user of a state change within the application and can be used for creating loaders, dialogs and more. In its simplest form, the Overlay component will add a dimmed layer over your application.
+__The Overlay__ - The v-overlay component is used to provide emphasis on a particular element or parts of it. It signals to the user of a state change within the application and can be used for creating loaders, dialogs and more.
 
 ![Overlay example](../../images/vuetify/overlayBeforeClick.png)
 ![Overlay example](../../images/vuetify/overlayAfterClick.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**isActive()** | Shows that required element is active| boolean
-**isAbsolute()** | Shows that required element is absolute| boolean
-**content()** | Get content| UIElement
-**zIndex()** | Get z-index| int
-**opacity()** | Get opacity| double
+__Vuetify v2.6.14__ code example:
 
-For examples of usage see: [JDI Vuetify Overlays tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/OverlayTests.java)
+```html
+<div id="app">
+  <v-app id="inspire">
+    <div class="text-center">
+      <v-btn
+        color="error"
+        @click="overlay = !overlay"
+      >
+        Show Overlay
+      </v-btn>
+
+      <v-overlay :value="overlay"></v-overlay>
+    </div>
+  </v-app>
+</div>
+```
+
+| Method                    | Description                              | Return Type   |
+|---------------------------|------------------------------------------|---------------|
+| **absolutePosition()**    | Returns object for work with assertions  | OverlayAssert |
+| **backgroundColor()**     | Gets background color                    | String        |
+| **has()**                 | Returns object for work with assertions  | OverlayAssert |
+| **hover()**               | Hovers mouse cursor over the element     | void          |
+| **isAbsolute()**          | Shows that required element is absolute  | boolean       |
+| **isDisplayed()**         | Shows that required element is displayed | boolean       |
+| **is()**                  | Returns object for work with assertions  | OverlayAssert |
+| **notAbsolutePosition()** | Returns object for work with assertions  | OverlayAssert |
+| **opacity()**             | Gets opacity                             | double        |
+| **show()**                | Scrolls screen view to item              | void          |
+| **zIndex()**              | Gets z-index                             | int           |
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/OverlaysTests.java">Java Overlays test examples</a>
 
 ### 5.16 Pagination
 
@@ -1633,33 +1744,82 @@ For examples of usage see: [JDI vuetify page tests for pagination](https://githu
 
 ### 5.17 Ratings
 
+```java
+//@FindBy(css = "#IncrementedRating .v-rating .mdi-star.yellow--text")
+@JDIRating(root = "#IncrementedRating .v-rating",
+           fullIcon = ".mdi-star.yellow--text")
+public static Rating incrementedRating;
+
+@Test(description = "Test checks rating's value")
+public void valueRatingTest() {
+  incrementedRating.setValue(3);
+  incrementedRating.is().value(3);
+  incrementedRating.setValue(3.5);
+  incrementedRating.is().value(3.5);
+  incrementedRating.hoverSetValue(5);
+  incrementedRating.is().value(5);
+  incrementedRating.hoverSetValue(4.5);
+  incrementedRating.is().value(4.5);
+  incrementedRatingCard.hover();
+  incrementedRating.is().value(3.5);
+  }
+  
+//@FindBy(css = "#CardRatingsRating .v-rating")
+@JDIRating(root = "#CardRatingsRating .v-rating")
+public static Rating cardRatingsRating;
+//@FindBy(xpath = ""//*[@id='ClearableRating']/following-sibling::div[contains(@class, 'v-rating')]")
+@JDIRating(root = "//*[@id='ClearableRating']/following-sibling::div[contains(@class, 'v-rating')]")
+public static Rating clearableRating;
+
+@Test(description = "Test checks rating's theme : theme(dark/light)")
+public void themeRatingTest() {
+  cardRatingsRating.show();
+  cardRatingsRating.has().darkTheme();
+  clearableRating.show();
+  clearableRating.has().lightTheme();
+  }
+}
+```
+
 [Vuetify documentation page](https://vuetifyjs.com/en/components/ratings/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
 
-```java
-@Test
-public void incrementedRatingTest() {
-    incrementedRating.setValue(3);
-    incrementedRating.is().value(3);
-    incrementedRating.setValue(3.5);
-    incrementedRating.is().value(3.5);
-  }
-```
-
-The rating component is a specialized but crucial piece in building user widgets. Collecting user feedback via ratings is a simple analytic that can provide a lot of feedback to your product or application.  
+__Rating__ - The rating component is a specialized but crucial piece in building user widgets. Collecting user feedback via ratings is a simple analytic that can provide a lot of feedback to your product or application.  
 
 ![Ratongs example](../../images/vuetify/ratings.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | RatingAssert
-**length()** | Get count rating buttons| int
-**size()** | Get size rating buttons| int
-**color()/ color(int)** | Get color of rating button| String
-**setValue(double)** | Set rating to 'rating' with a mouse click| void
-**hoverSetValue(double)** | Set rating to 'rating' with a mouse hover| void
-**getValue()** | Get rating| Double
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-rating">
+  <button type="button" aria-label="Rating 1 of 5" class="v-icon notranslate v-icon--link mdi mdi-star theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+  <button type="button" aria-label="Rating 2 of 5" class="v-icon notranslate v-icon--link mdi mdi-star theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+  <button type="button" aria-label="Rating 3 of 5" class="v-icon notranslate v-icon--link mdi mdi-star theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+  <button type="button" aria-label="Rating 4 of 5" class="v-icon notranslate v-icon--link mdi mdi-star theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+  <button type="button" aria-label="Rating 5 of 5" class="v-icon notranslate v-icon--link mdi mdi-star-half-full theme--light yellow--text text--darken-3" style="font-size: 36px;"></button>
+</div>
+```
+
+| Method                            | Description                               | Return Type  |
+|-----------------------------------|-------------------------------------------|--------------|
+| **length()**                      | Get quantity of Rating buttons            | int          |
+| **getRatingButtons()**            | Get Rating buttons                        | WebList      |
+| **color()**                       | Get color of rating button                | String       |       
+| **color(int)**                    | Get color of rating button                | String       |
+| **hoverSetValue(double)**         | Set rating to 'rating' with a mouse hover | void         |
+| **getValue()**                    | Get rating                                | Double       |
+| **setValue(double)**              | Set rating to 'rating' with a mouse click | void         |
+| **theme()**                       | Get theme                                 | String       |
+| **size()**                        | Get size rating buttons                   | int          |
+| **setup(Field)**                  | Setting up Rating element by Field        | void         |
+| **setup(String, String, String)** | Returns Rating element by locators        | Rating       |
+| **is()**                          | Returns object for work with assertions   | RatingAssert | 
+| **has()**                         | Returns object for work with assertions   | RatingAssert |
+| **waitFor()**                     | Returns object for work with assertions   | RatingAssert |
+| **shouldBe()**                    | Returns object for work with assertions   | RatingAssert |
+| **verify()**                      | Returns object for work with assertions   | RatingAssert |
+| **assertThat()**                  | Returns object for work with assertions   | RatingAssert |
 
 For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingTests.java)
 
@@ -2100,24 +2260,24 @@ For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-tes
 ### 5.26 Tooltips
 
 ```java
-  //@FindBy(css = "div.v-tooltip__content")
-  @UI("div.v-tooltip__content")
-  public static Tooltip tooltip;
+//@FindBy(css = "div.v-tooltip__content")
+@UI("div.v-tooltip__content")
+public static Tooltip tooltip;
 
-  @Test()
-  public void textTooltipsTest() {
-    homeIconWithTooltip.is().displayed();
-    buttonWithTooltip.hover();
+@Test()
+public void textTooltipsTest() {
+  homeIconWithTooltip.is().displayed();
+  buttonWithTooltip.hover();
+  tooltip.is().displayed();
+  tooltip.has().text("Tooltip for \"Button\"");
+  }
+
+  @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class)
+  public void colorTooltipTest(int index, String color) {
+    coloredButtons.get(index).hover();
     tooltip.is().displayed();
-    tooltip.has().text("Tooltip for \"Button\"");
-    }
-  
-    @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class)
-    public void colorTooltipTest(int index, String color) {
-      coloredButtons.get(index).hover();
-      tooltip.is().displayed();
-      tooltip.has().color(color);
-    }
+    tooltip.has().color(color);
+  }
 ```
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
@@ -2776,9 +2936,14 @@ For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/parallax/)
 
+Parallax is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Parallax.java_
 
-```java
+```java`
+//@FindBy(css = "#CustomHeightParallax")
+@UI("#CustomHeightParallax")
+    public static Parallax customHeightParallax;
+    
 @Test
     public void customHeightParallaxTests() {
         customHeightParallax.has().noContent();
@@ -2786,18 +2951,45 @@ For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://
         int expectedHeight = 300;
         customHeightParallax.has().height(expectedHeight);
     }
+
+@Test
+    public void contentParallaxTests() {
+        contentParallax.has().content();
+        String expectedHeader = "Vuetify";
+        String expectedSubheader = "Build your application today!";
+        	
+        contentParallax.getHeader().is().text(expectedHeader);
+        contentParallax.getSubheader().is().text(expectedSubheader);
+    }
 ```
 
 The `v-parallax` component creates a 3D effect that makes an image appear to scroll slower than the window. A parallax causes a shift in a background image when the user scrolls the page.
 
-|Method | Description | Return Type
---- | --- | ---
-**height()** | Returns the value of the parallax container height attribute | String
-**hasContent()** | Checks if the parallax container has any elements within | boolean
-**image()** | Returns the background image of the parallax container (return type is JDI Light HTML Image) | Image
-**is()/has()** | Returns Assert class | ParallaxAssert
+![v-parallax example](../../images/vuetify/parallax.png)
 
-For examples of usage see: [JDI vuetify page tests for Parallax](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java).
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-parallax" id="CustomHeightParallax" style="height: 300px;">
+  <div class="v-parallax__image-container">
+    <img src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg" alt="" class="v-parallax__image" style="display: block; opacity: 1; transform: translate(-50%, 150px);">
+  </div>
+    <div class="v-parallax__content"></div>
+</div>
+```
+v-parallax element has following methods:
+
+|Method          | Description                                                                                  | Return Type
+-----------------|----------------------------------------------------------------------------------------------|------------------
+**heightPx()**   | Returns the value of the parallax container height attribute                                 | int
+**hasContent()** | Checks if the parallax container has any elements within                                     | boolean
+**image()**      | Returns the background image of the parallax container (return type is JDI Light HTML Image) | Image
+**is()/has**     | Returns Assert class                                                                         | ParallaxAssert
+**content()**    | Checks if elements in content section is not empty                                        | ParallaxAssert
+**noContent()**  | Checks if elements in content section is empty                                            | ParallaxAssert
+
+
+<a href=https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java">Java test examples</a>
 
 ### 5.36 TreeView
 

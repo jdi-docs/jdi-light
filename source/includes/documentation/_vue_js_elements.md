@@ -1897,13 +1897,12 @@ For examples of usage see: [JDI vuetify page tests for sparklines](https://githu
 @UI("#InsetSubheader .v-subheader")
 public static Subheader insetSubheader;
 
-@Test
-public void insetTest() {
+@Test(description = "Test checks inset Subheader features: 'theme' and 'text'")
+public void insetSubheaderTest() {
   insetSubheader.is().displayed();
   insetSubheader.is().lightTheme();
   insetSubheader.is().inset();
   insetSubheader.is().text("Subheader");
-  }
 ```
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
@@ -1973,7 +1972,7 @@ __Vuetify v2.6.14__ code example:
 | **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void            |
 | **show()**                                  | Scrolls screen view to item                                                | void            |
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheadersTests.java">Java test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/data/common/SubheadersTests.java">Java test examples</a>
 
 ### 5.21 Tables
 

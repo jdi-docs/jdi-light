@@ -44862,7 +44862,23 @@ Mix and match various pre-defined options or create your own unique implementati
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TreeViewTests.java">JDI Vuetify TreeView tests</a>.</p>
-<h3 id='5-37-button-vuetifybutton'>5.37 Button (VuetifyButton)</h3><pre class="highlight java tab-java"><code><span class="c1">// @FindBy(xpath = "//h2[text()='Depressed Buttons']/following-sibling::button")</span>
+<h3 id='5-37-button-vuetifybutton'>5.37 Button (VuetifyButton)</h3><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = ".elevation-2")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">".elevation-2"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">VuetifyButton</span> <span class="n">commonButton</span><span class="o">;</span>
+
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks that common button is clickable"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">commonButtonsTests</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">commonButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hasNoLabel</span><span class="o">();</span>
+  <span class="n">commonButton</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">commonButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+  <span class="n">commonButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">elevated</span><span class="o">();</span>
+  <span class="n">commonButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">lightTheme</span><span class="o">();</span>
+  <span class="n">commonButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+  <span class="n">commonButtonState</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Button clicked"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+
+<span class="c1">// @FindBy(xpath = "//h2[text()='Depressed Buttons']/following-sibling::button")</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Depressed Buttons']/following-sibling::button"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">VuetifyButton</span><span class="o">&gt;</span> <span class="n">depressedNormalButton</span><span class="o">;</span>
 
@@ -44870,23 +44886,25 @@ Mix and match various pre-defined options or create your own unique implementati
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"#depr-buttons-state"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">depressedButtonState</span><span class="o">;</span>
 
-<span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"depressedButtons"</span><span class="o">,</span>
-        <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">ButtonsDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks button feature: 'depressed' and colors of the buttons"</span><span class="o">,</span>
+  <span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"depressedButtons"</span><span class="o">,</span>
+  <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">ButtonsDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">depressedButtonsTests</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">enabled</span><span class="o">,</span> <span class="n">String</span> <span class="n">color</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">VuetifyButton</span> <span class="n">button</span> <span class="o">=</span> <span class="n">depressedNormalButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
-    <span class="n">button</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-    <span class="n">button</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="n">button</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="n">color</span><span class="o">);</span>
+  <span class="n">VuetifyButton</span> <span class="n">button</span> <span class="o">=</span> <span class="n">depressedNormalButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+  <span class="n">button</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hasNoLabel</span><span class="o">();</span>
+  <span class="n">button</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">button</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+  <span class="n">button</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">backgroundColor</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
 
-    <span class="k">if</span> <span class="o">(</span><span class="n">enabled</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">button</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">depressedButtonState</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Depressed button clicked: "</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">button</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
-    <span class="o">}</span>
-    <span class="n">depressedButtonState</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Depressed button clicked: "</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
-<span class="o">}</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">enabled</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">button</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+  <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+  <span class="n">depressedButtonState</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Depressed button clicked: "</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+  <span class="n">button</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="n">depressedButtonState</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Depressed button clicked: "</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+  <span class="o">}</span>
 </code></pre>
 <p><a href="https://vuetifyjs.com/en/components/buttons/">Button Vuetify documentation page</a></p>
 
@@ -44902,28 +44920,20 @@ class can be used to alter the background or text color.</p>
 
 <p><img src="images/vuetify/buttons.png" alt="Button example" /></p>
 
-<p>Here is an example with provided Vuetify v2.6.2 code:</p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;h2&gt;</span>Depressed Buttons<span class="nt">&lt;/h2&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"ma-2 v-btn v-btn--has-bg theme--light v-size--default"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>Normal<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"ma-2 v-btn v-btn--has-bg theme--light v-size--default primary"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"ma-2 v-btn v-btn--has-bg theme--light v-size--default error"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>Error<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled=</span><span class="s">"disabled"</span> <span class="na">class=</span><span class="s">"ma-2 v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>Disabled<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input v-input--is-label-active v-input--is-dirty v-input--is-readonly theme--light v-text-field v-text-field--is-booted"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input__control"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input__slot"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-text-field__slot"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"depr-buttons-state"</span> <span class="na">readonly=</span><span class="s">"readonly"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-text-field__details"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<p><strong>Vuetify v2.6.14</strong> code example:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row align-center justify-space-around"</span> <span class="na">file=</span><span class="s">"v-btn/prop-depressed"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"v-btn v-btn--has-bg theme--light v-size--default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span> Normal <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"v-btn v-btn--has-bg theme--light v-size--default primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span> Primary <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"v-btn v-btn--has-bg theme--light v-size--default error"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span> Error <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled=</span><span class="s">"disabled"</span> <span class="na">class=</span><span class="s">"v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span> Disabled <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 <p>Available methods in Java JDI Light:</p>
@@ -44943,6 +44953,46 @@ class can be used to alter the background or text color.</p>
 <tr>
 <td><strong>has()</strong></td>
 <td>Returns object for work with assertions</td>
+<td>VuetifyButtonAssert</td>
+</tr>
+<tr>
+<td><strong>and()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>VuetifyButtonAssert</td>
+</tr>
+<tr>
+<td><strong>ariaLabel()</strong></td>
+<td>Returns attribute &quot;aria-label&quot;</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>show()</strong></td>
+<td>Scrolls screen view to item</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isLoading()</strong></td>
+<td>Shows that element is loading</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>element()</strong></td>
+<td>Returns VuetifyButton element</td>
+<td>VuetifyButton</td>
+</tr>
+<tr>
+<td><strong>loading()</strong></td>
+<td>Assert that element is loading</td>
+<td>VuetifyButtonAssert</td>
+</tr>
+<tr>
+<td><strong>clickable()</strong></td>
+<td>Checks that element is clickable</td>
+<td>VuetifyButtonAssert</td>
+</tr>
+<tr>
+<td><strong>icon()</strong></td>
+<td>Checks that element has icon</td>
 <td>VuetifyButtonAssert</td>
 </tr>
 <tr>
@@ -44966,11 +45016,6 @@ class can be used to alter the background or text color.</p>
 <td>VuetifyButtonAssert</td>
 </tr>
 <tr>
-<td><strong>VuetifyButton(UIElement)</strong></td>
-<td>Parameterized UIElement constructor</td>
-<td>VuetifyButton</td>
-</tr>
-<tr>
 <td><strong>icon()</strong></td>
 <td>Returns button&#39;s icon</td>
 <td>Icon</td>
@@ -44986,15 +45031,143 @@ class can be used to alter the background or text color.</p>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>getColor()</strong></td>
-<td>Returns button&#39;s background color (in RGBA)</td>
+<td><strong>color()</strong></td>
+<td>Returns css attribute background-color as String Value</td>
 <td>String</td>
+</tr>
+<tr>
+<td><strong>waitFor()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>VuetifyButtonAssert</td>
+</tr>
+<tr>
+<td><strong>classes()</strong></td>
+<td>Gets all element&#39;s classes as list</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>doubleClick()</strong></td>
+<td>Double clicks on the element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>dragAndDropTo(int x, int y)</strong></td>
+<td>Drags and drops element to certain coordinates</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>dragAndDropTo(WebElement to)</strong></td>
+<td>Drags and drops element to another element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getLocation()</strong></td>
+<td>Gets element location as point</td>
+<td>Point</td>
+</tr>
+<tr>
+<td><strong>getSize()</strong></td>
+<td>Gets element size</td>
+<td>Dimension</td>
+</tr>
+<tr>
+<td><strong>getTagName()</strong></td>
+<td>Gets element tag name</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Gets element text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Gets element text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasAttribute(String attrName)</strong></td>
+<td>Returns true if the element has an expected attribute</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasClass(String className)</strong></td>
+<td>Returns true if the element has an expected class</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>highlight()</strong></td>
+<td>Highlights element with red color</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>highlight(String color)</strong></td>
+<td>Scrolls view to element and highlights it with a border of specified color</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hover()</strong></td>
+<td>Hovers mouse cursor over the element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Checks that element is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Checks that element is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Checks that element exists</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isHidden()</strong></td>
+<td>Checks that element is hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotExist()</strong></td>
+<td>Checks that element does not exist</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotVisible()</strong></td>
+<td>Checks that element is not visible by user</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isVisible()</strong></td>
+<td>Checks that element is visible by user</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Gets label text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>printHtml()</strong></td>
+<td>Gets element “innerHTML” attribute value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>rightClick()</strong></td>
+<td>Right clicks on the element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setAttribute(String name, String value)</strong></td>
+<td>Sets value to the specified attribute</td>
+<td>void</td>
 </tr>
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/VuetifyButtonsTests.java">Here you can find Buttons tests</a>.</p>
-
-<p><br></br></p>
 <h3 id='5-38-chip'>5.38 Chip</h3>
 <p><a href="https://vuetifyjs.com/en/components/chips/">Chip Vuetify documentation page</a></p>
 

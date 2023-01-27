@@ -2353,25 +2353,30 @@ For examples of usage see: [Progress linear tests](https://github.com/jdi-testin
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/menus/)
 
+Menus located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Menu.java_
 
 ```java
+//@FindBy(css = "#OffsetXMenu")
+
+    @UI("#OffsetXMenu button")
+    public static VuetifyButton offsetXMenuButton;
+    
+    
     @Test
     public void offsetXMenuTests() {
-      Timer.waitCondition(offsetXMenuButton::isDisplayed);
-      offsetXMenuButton.show();
-      offsetXMenuButton.click();
-      activeMenu.is().displayed();
-      activeMenu.has().numberOfOptions(4);
-      activeMenu.has().optionsTitles(optionsTitles);
-      activeMenu.has().position(1190, 1132);
-      offsetXMenuButton.click();
-      activeMenu.is().hidden();
-      offsetXMenuSwitch.uncheck();
-      offsetXMenuButton.click();
-      activeMenu.has().position(1190, 1011);
-      activeMenu.click();
-      activeMenu.is().hidden();
+        waitCondition(offsetXMenuButton::isDisplayed);
+        offsetXMenuButton.show();
+        offsetXMenuButton.click();
+        activeMenu.is().displayed();
+        activeMenu.has().numberOfOptions(4);
+        activeMenu.has().optionsTitles(OPTIONS_TITLES);
+        offsetXMenuButton.press(Keys.ESCAPE);
+        activeMenu.is().hidden();
+        offsetXMenuSwitch.uncheck();
+        offsetXMenuButton.click();
+        activeMenu.click();
+        activeMenu.is().hidden();
     }
 ```
 
@@ -2379,9 +2384,28 @@ Menu component shows a menu at the position of the element that was used to acti
 
 ![Menus examples](../../images/vuetify/menus.png)
 
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="text-center" id="OffsetXMenu">
+   <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--switch primary--text">
+      <div class="v-input__control">
+         <div class="v-input__slot">
+            <div class="v-input--selection-controls__input">
+               <input aria-checked="true" id="input-144" role="switch" type="checkbox" aria-disabled="false" value="">
+               <div class="v-input--selection-controls__ripple primary--text">
+               </div>
+               <div class="v-input--switch__track theme--light primary--text"></div>
+               <div class="v-input--switch__thumb theme--light primary--text">
+                  <!---->
+               </div>
+```
+
+Menu element has following methods:
+
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns Assert class | MenuAssert
+**is()/has()** | Returns Assert class | MenuAssert
 **hasPosition()** | Returns position of menu | String
 **hasNumberOfOptions()** | Returns number of options in menu | int
 **hasOptionsTitles()** | Returns list of titles of options in menu | List<String>
@@ -2389,7 +2413,9 @@ Menu component shows a menu at the position of the element that was used to acti
 **hasLargeRadius()** | Shows that menu has large radius | boolean
 **hasCustomRadius()** | Shows that menu has custom radius | boolean
 
-For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java).
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java">Java test examples</a>
+
 
 ### 5.29 Images
 

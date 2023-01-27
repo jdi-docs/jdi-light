@@ -1548,23 +1548,12 @@ and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-ligh
 
 ### 5.14 Lists
 
-```java
-    //@FindBy(css = "#DenseList .v-list")
-    @UI("#DenseList .v-list")
-    public static VuetifyList denseList;
+[The v-list](https://vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
 
-    @Test(description = "Test checks if list is active or not")
-    public static void activeListTest() {
-      for (int i = 1; i <= denseList.size(); i++) {
-      ListItem itemDenseList = denseList.item(i);
-      itemDenseList.show();
-      itemDenseList.click();
-      itemDenseList.is().active();
-      itemDenseList.click();
-      itemDenseList.is().notActive();
-      }
-    }
-    
+#
+![Lists example](../../images/vuetify/lists.png)
+
+```java 
     //@FindBy(css = "#SubGroupList .v-list")
     @UI("#SubGroupList .v-list")
     public static VuetifyList subGroupList;
@@ -1594,134 +1583,13 @@ and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-ligh
     @UI("#ThreeLineList .v-list")
     public static VuetifyList threeLineList;
     
-    @Test(description = "Test checks list's texts")
-    public static void textListTest() {
-      ListItem item = threeLineList.item(1);
-      item.show();
-      item.title().has().text("Brunch this weekend?");
-      item.subtitle().has().text("Ali Connors —I'll be in your neighborhood doing errands this weekend. "
-      + "Do you want to hang out?");
-      twoLinesAndSubheaderList.show();
-      twoLinesAndSubheaderList.subheader(1).has().text("Folders");
-      twoLinesAndSubheaderList.subheader(2).has().text("Files");
-      twoLinesAndSubheaderList.item(1).title().has().text("Photos");
-      twoLinesAndSubheaderList.item(1).subtitle().has().text("Jan 9, 2014");
-    }
-
-    //@FindBy(css = "#ThreeLineList .v-list")
-    @UI("#ThreeLineList .v-list")
-    public static VuetifyList threeLineList;
-    
     @Test(description = "Test checks that list has dividers")
     public static void hasDividerLinesListTest() {
       threeLineList.show();
       threeLineList.divider(1).is().horizontal();
     }
 
-    //@FindBy(css = "#ThreeLineList .v-list")
-    @UI("#ThreeLineList .v-list")
-    public static VuetifyList threeLineList;
-    
-    @Test(description = "Test checks that list items has avatars")
-    public static void hasAvatarLinesListTest() {
-      threeLineList.show();
-      threeLineList.item(1).avatar().is().displayed();
-    }
-    
-    //@FindBy(css = "#ActionAndItemGroupsList .v-list[2]")
-    @UI("#ActionAndItemGroupsList .v-list[2]")
-    public static VuetifyList actionAndItemGroupsGeneralList;
-    
-    @Test(description = "Test shows how to test lists with checkboxes")
-    public static void checkboxListTest() {
-      ListItem item = actionAndItemGroupsGeneralList.item(1);
-      VueCheckbox itemCheckbox = item.checkbox();
-      item.show();
-      item.is().clickable().and().notActive();
-      itemCheckbox.is().displayed().and().enabled().and().unchecked();
-      itemCheckbox.check();
-      itemCheckbox.is().checked();
-      item.is().active();
-      item.click();
-      item.is().notActive();
-      itemCheckbox.is().unchecked();
-    }
-
-    //@FindBy(css = "#ActionStackList .v-list")
-    @UI("#ActionStackList .v-list")
-    public static VuetifyList actionStackList;  
-      
-    @Test(description = "Test checks list's icon types")
-    public static void iconsListTest() {
-      ListItem item = actionStackList.item(1);
-      item.show();
-      item.actionText().has().text("15 min");
-      item.is().clickable();
-      item.click();
-      item.is().active();
-      item.icon().has().type("mdi-star");
-      item.click();
-      item.is().notActive();
-      item.icon().has().type("mdi-star-outline");
-    }
-    
-    @UI("#DarkList .v-list")
-    public static VuetifyList darkList;
-    @UI("#ElevatedList .v-list")
-    public static List<VuetifyList> elevatedLists;
-    
-    @Test(description = "Test checks list's theme")
-    public void themeListsTest() {
-      darkList.show();
-      darkList.has().darkTheme();
-      elevatedLists.get(1).show();
-      elevatedLists.get(1).has().lightTheme();
-    }
-
-    @UI("#DisabledList .v-list")
-    public static VuetifyList disabledList;
-    @UI("#DenseList .v-list")
-    public static VuetifyList denseList;
-
-    @Test(description = "Test checks if list is dense or not")
-    public void denseListsTest() {
-      denseList.show();
-      denseList.is().dense();
-      disabledList.show();
-      disabledList.is().notDense();
-    }
-
-    @UI("#DarkList .v-list")
-    public static VuetifyList darkList;
-    @UI("#FlatList .v-list")
-    public static VuetifyList flatList;
-    
-    @Test(description = "Test checks if list is flat or not")
-    public void flatListsTest(){
-        flatList.show();
-        flatList.is().flat();
-        darkList.show();
-        darkList.is().notFlat();
-    }
-
-    @UI("#RoundedList .v-list")
-    public static VuetifyList roundedList;
-    @UI("#ShapedList .v-list")
-    public static VuetifyList shapedList;
-
-    @Test(description = "Test checks if list is rounded or not")
-    public void roundedListsTest() {
-      roundedList.show();
-      roundedList.is().rounded();
-      shapedList.show();
-      shapedList.is().notRounded();
-    }   
 ```
-
-[The v-list](https://vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
-
-#
-![Lists example](../../images/vuetify/lists.png)
 
 In JDI framework __v-lists__ are represented by the following classes:
 

@@ -738,6 +738,10 @@ Switches are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Switch.java_
 
 ```java
+//@FindBy(css = "#ColorsSwitch .v-input--switch")
+@UI("#ColorsSwitch .v-input--switch")
+public static List<Switch> colorSwitches;
+
 @Test
 public void functionalityAndCssStyleSwitchTest() {
   String red = "red";

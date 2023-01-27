@@ -367,16 +367,6 @@ Breadcrumbs is located in the following class:
         greaterSignBreadcrumbs.has().dividerType(">");
     }
     
-    
-    @Test
-    public void itemSlotBreadcrumbsTest() {
-        itemSlotsBreadcrumbs.is().displayed();
-        itemSlotsBreadcrumbs.has().size(3);
-        itemSlotsBreadcrumbs.dividers().has().size(2);
-        itemSlotsBreadcrumbs.items().has().values("DASHBOARD", "LINK 1", "LINK 2");
-        jdiAssert(itemSlotsBreadcrumbs.selected("DASHBOARD"), Matchers.is(false));
-        jdiAssert(itemSlotsBreadcrumbs.selected("LINK 2"), Matchers.is(true));
-    }
 ```
 
 Breadcrumbs can be used to specify locators for the root, links and dividers

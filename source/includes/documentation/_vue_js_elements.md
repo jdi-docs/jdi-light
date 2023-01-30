@@ -2479,47 +2479,20 @@ For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-t
 
 ```java
 //@FindBy(css = "#TimePicker")
-@JTimePicker(root = "#TimePicker")
+@JTimePicker("#TimePicker")
 public static TimePicker timePicker;
 
-@Test (description = "Test checks that enabled and disabled hours or minutes are proper")
-public void allowedTimesTimePickerTest() {
+@Test (description = "Test checks that time picker has expected disabled hours")
+public void test() {
     timePicker.show();
-    timePicker.has().disabledHoursOrMinutesNonEmptyList();
-    timePicker.has().clickableEnabledHoursOrMinutes();
-    timePicker.has().nonClickableDisabledHoursOrMinutes();
-    timePicker.has().properEnabledHoursOrMinutes("1", "3", "5", "7", "9", "11");
-    timePicker.has().properDisabledHoursOrMinutes("2", "4", "6", "8", "10", "12");
-    dialogTimePicker.selectHours(7);
-    timePicker.has().activeHoursOrMinutes("7");
-
-//@FindBy(css = "#DialogTimePicker")
-//public static DialogTimePicker dialogTimePicker;
-//@FindBy(css = "#app > div.v-dialog__content.v-dialog__content--active")
-//public static DialogTimePickerDialog dialogTimePickerDialog;
-@JTimePicker(root = "#DialogTimePickerButton", expandedRoot = "#app > div.v-dialog__content.v-dialog__content--active")
-public static DialogTimePicker dialogTimePicker;
-
-@Test (description = "Test checks time changes in dialog timepicker")
-public static void dialogTimePickerTest() {
-    dialogTimePicker.show();
-    dialogTimePicker.expand();
-    dialogTimePicker.selectHours(7);
-    dialogTimePicker.has().hours(7);
-    dialogTimePicker.selectMinutes(15);
-    dialogTimePicker.has().minutes(15);
-    dialogTimePicker.has().time("7:15 AM");
-    dialogTimePicker.has().localTime(LocalTime.of(7, 15));
-    dialogTimePicker.has().resultTime("07:15");
-    dialogTimePicker.has().resultLocalTime(LocalTime.of(7, 15));
-    dialogTimePicker.expand();
-    dialogTimePicker.switchToPM();
-    dialogTimePicker.has().time("19:15 PM");
-    dialogTimePicker.has().localTime(LocalTime.of(9, 15));
-    dialogTimePicker.clickOk();
-    dialogTimePicker.has().resultTime("19:15");
-    dialogTimePicker.has().resultLocalTime(LocalTime.of(19, 15));
-}
+    timePicker.setTime(7, 30, 12);
+    timePicker.switchToPM();
+    timePicker.has().title("7:30:12PM")
+    timePicker.has().time(LocalTime.of(19, 30, 12))
+    timePicker.switchToHours();
+    timePicker.has().enabledNumbers(1, 3, 5, 7, 9, 11);
+    timePicker.has().disabledNumbers(2, 4, 6, 8, 10, 12);
+    timePicker.has().selectedNumber(7);
 ```
 
 The v-time-picker is stand-alone component that can be utilized in many existing Vuetify components.
@@ -2529,49 +2502,33 @@ It offers the user a visual representation for selecting the time.
 
 | Method | Description | Return Type |
 | :--- | :--- | :--- | 
-**expand()** | Opens Dialog time picker |TimePicker void
-**switchToAM()** | Switches time picker to AM | void
-**switchToPM()** | Switches time picker to PM | void
-**getTime()** | Returns string representation of time in title | String
-**getTimeWithSeconds()** | Returns string representation of time in title | String [](will fail if there are no seconds)
-**getTimeWithoutSeconds()** | Returns string representation of time in title | String
-**getLocalTime()** | Returns time in title as LocalTime object | LocalTime [](will fail if there are no seconds or hour is 00)
-**getLocalTimeWithSeconds()** | Returns time in title as LocalTime object | LocalTime [](will fail if there are no seconds or hour is 00)
-**getLocalTimeWithoutSeconds()** | Returns time in title as LocalTime object | LocalTime [](will fail if hour is 00)
-**getHours()** | Returns title houres value | String
-**getMinutes()** | Returns title minutes value | String
-**getSeconds()** | Returns title seconds value | String
-**fieldBackgroundColor()** | Returns background color of the TimePicker title (hex) | String
-**getEnabledHoursOrMinutes()** | Returns enabled numbers on the Clock face | List<String>
-**getDisabledClockFaceNumbers()** | Returns disabled numbers on the Clock face | List<String>
-**getEnabledClockFaceNumbers()** | Returns enabled numbers on the Clock face | List<UIElement>
-**getDisabledHoursOrMinutesElements()**| Returns disabled numbers on the Clock face | List<UIElement>
-**getAllHoursElements()** | Returns all numbers on the Clock face | List<UIElement>
-**getActiveHoursMinutes()** | Returns curently selected number on the Clock face | String
-**getTitleElement()** | Returns title | UIElement
-**amPmStatus()** | Returns currently selected AM or PM status | String
-**selectHours(int hours)** | Switches the TimePicker to selecting hours and selects number from the Clock face | void
-**selectHours(String hours)** | Switches the TimePicker to selecting hours and selects number from the Clock face | void
+**setTime(String time)** | Sets TimePicker to provided time as string in ISO-8601 extended local time) | void
+**setTime(LocalTime time)** | Sets TimePicker to provided time | void
+**setTime(int hours, int minutes)** | Sets TimePicker to provided hours and minutes | void
+**setTime(int hours, int minutes, int seconds)** | Sets TimePicker to provided hours, minutes, seconds | void
+**setHours(int hours)** | Sets TimePicker hours to provided number | void
+**setMinutes(int minutes)** | Sets TimePicker minutes to provided number | void
+**setSeconds(int seconds)** | Sets TimePicker seconds to provided number | void
 **selectMinutes(int minutes)** | Switches the TimePicker to selecting minutes and selects number from the Clock face | void
 **selectMinutes(String minutes)** | Switches the TimePicker to selecting minutes and selects number from the Clock face | void
-**selectSeconds(int seconds)** | Switches the TimePicker to selecting seconds and selects number from the Clock face | void
-**selectSeconds(String seconds)** | Switches the TimePicker to selecting seconds and selects number from the Clock face | void
-**selectTime(String time)** | Sets the TimePicker to provided time in ISO format | void [](no input validation)
-**clickTitleHours()** | Clicks on hours in title to switch the Clock face to selecting hours | void
-**clickTitleMinutes()** | Clicks on minutes in title to switch the Clock face to selecting minutes | void
-**clickTitleSeconds()** | Clicks on seconds in title to switch the Clock face to selecting seconds | void [](not implemented)
-**width()** | Retruns width of the TimePicker | int
-**height()** | Retruns height of the TimePicker | int
-**getResultTime()** | Returns value of the TimePicker expandable actuator or empty string if this TimePicker is not expandable | String [](will fail if time was not yet set)
-**getResultLocalTime()** | Returns value of the TimePicker expandable actuator | LocalTime [](will fail if time was not yet set or seconds present)
-**clickCancel()** | Clicks on the Cancel button in the expanded TimePicker | void
-**clickOk()** | Clicks on the OK button in the expanded TimePicker | void
-**readOnly()** | Checks if the TimePicker is read only | boolean [](Is not checking actual condition of the element checks AM/PM selector status)
-**isLandscape()** | Checks if the TimePicker displaid in landscape mode | boolean
-**scrollOnClock(int wheelScrolls)** | Emulates mouse whell scroll on the Clock face | boolean
-~~**theme()**~~ | Get value of elevation | String [](implemented in HasTheme interface should be removed from class)
-~~**isElevated()**~~ | Checks if element is elevated or not | boolean [](implemented in HasElevation interface should be removed from class)
-~~**elevation()**~~ | Get value of elevation | String [](implemented in HasElevation interface should be removed from class)
+**scrollOnClock(int mouseWheelTicks)** | Emulates mouse wheel scroll on the Clock face | boolean
+**switchToAM()** | Switches time picker to AM | void
+**switchToPM()** | Switches time picker to PM | void
+**title()** | Returns TimePicker time from title as is, without formatting ('17:01', '5:01:08PM') | String
+**time()** | Returns TimePicker time from title as LocalTime object | LocalTime
+**titleHours()** | Returns TimePicker time hours | int
+**titleMinutes()** | Returns TimePicker time minutes | int
+**titleSeconds()** | Returns TimePicker time seconds | int
+**amPmStatus()** | Returns currently selected AM/PM status | String
+**clockFaceNumbers()** | Returns all numbers shown on the clock face | List<Integer>
+**enabledClockFaceNumbers()** | Returns enabled numbers on the Clock face | List<Integer>
+**disabledClockFaceNumbers()**| Returns disabled numbers on the Clock face | List<Integer>
+**selectedNumber()** | Returns currently selected number on the Clock face | int
+**isReadOnly()** | Checks if the TimePicker is read-only | boolean [](overridden method)
+**isDisabled()** | Checks if the TimePicker is disabled | boolean
+**titleBackgroundColor()** | Returns background color of the TimePicker title (hex) | String
+**clockFaceBackgroundColor()** | Returns background color of the TimePicker clock face (hex) | String
+**isLandscape()** | Checks if the TimePicker displayed in landscape mode | boolean
 
 TimePicker also have basic JDI elements methods.
 

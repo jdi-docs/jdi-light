@@ -2509,13 +2509,14 @@ It offers the user a visual representation for selecting the time.
 **setHours(int hours)** | Sets TimePicker hours to provided number | void
 **setMinutes(int minutes)** | Sets TimePicker minutes to provided number | void
 **setSeconds(int seconds)** | Sets TimePicker seconds to provided number | void
-**selectMinutes(int minutes)** | Switches the TimePicker to selecting minutes and selects number from the Clock face | void
-**selectMinutes(String minutes)** | Switches the TimePicker to selecting minutes and selects number from the Clock face | void
-**scrollOnClock(int mouseWheelTicks)** | Emulates mouse wheel scroll on the Clock face | boolean
+**hasSeconds()** | Returns true if TimePicker configured to show seconds | boolean
 **switchToAM()** | Switches time picker to AM | void
 **switchToPM()** | Switches time picker to PM | void
-**title()** | Returns TimePicker time from title as is, without formatting ('17:01', '5:01:08PM') | String
-**time()** | Returns TimePicker time from title as LocalTime object | LocalTime
+**switchToHours()** | Switches time picker to Hours | void
+**switchToMinutes()** | Switches time picker to Minutes | void
+**switchToSeconds()** | Switches time picker to Seconds | void
+**titleText()** | Returns TimePicker time from title as is, without formatting ('17:01', '5:01:08PM') | String
+**titleTime()** | Returns TimePicker time from title as LocalTime object | LocalTime
 **titleHours()** | Returns TimePicker time hours | int
 **titleMinutes()** | Returns TimePicker time minutes | int
 **titleSeconds()** | Returns TimePicker time seconds | int
@@ -2529,6 +2530,8 @@ It offers the user a visual representation for selecting the time.
 **titleBackgroundColor()** | Returns background color of the TimePicker title (hex) | String
 **clockFaceBackgroundColor()** | Returns background color of the TimePicker clock face (hex) | String
 **isLandscape()** | Checks if the TimePicker displayed in landscape mode | boolean
+
+**scrollOnClock(int mouseWheelTicks)** | Emulates mouse wheel scroll on the Clock face | boolean
 
 TimePicker also have basic JDI elements methods.
 

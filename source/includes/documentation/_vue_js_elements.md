@@ -999,27 +999,14 @@ For examples of usage see: [JDI Vuetify Text areas tests](https://github.com/jdi
 
 #### 5.12.7 Radio buttons
 
-[Vuetify documentation page](https://jdi-testing.github.io/jdi-light/vuetify/radio-buttons/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.RadioButton.java_
-
 ```java
-    @Test
-public void selectTest() {
-  colorLeftRadioButtons.select("indigo");
-  colorLeftRadioButtons.is().selected("indigo");
-  colorRightRadioButtons.select("success");
-  colorRightRadioButtons.is().selected("success");
-  }
+//@FindBy(css = "#ColorsRadioButton .col-12[1] [role=radio]")
+@UI("#ColorsRadioButton .col-12[1] [role=radio]")
+public static RadioButtons colorLeftRadioButtons;
 
-@Test
-public void getValueTest() {
-  directionRadioButtons.has().value("Option 1");
-  directionRadioButtons.has().value("Option 2");
-  }
-
-@Test
-public void selectEnumTest() {
+@Test(description = "Test checks radio button selection")
+public void selectEnumRadioButtonsTest() {
+  colorLeftRadioButtons.show();
   colorLeftRadioButtons.select(RadioTestData.indigo);
   colorLeftRadioButtons.is().selected(RadioTestData.indigo);
   colorLeftRadioButtons.select(RadioTestData.orange);
@@ -1027,33 +1014,138 @@ public void selectEnumTest() {
   colorLeftRadioButtons.select(RadioTestData.red);
   colorLeftRadioButtons.is().selected(RadioTestData.red);
   }
-
-@Test
-public void mandatoryTest() {
-  mandatoryRadioButtons.select("Radio 2");
-  mandatoryText.is().text("radio-2");
+  
+//@FindBy(css = "#DirectionRadioButton input[role = 'radio']")  
+@UI("#DirectionRadioButton input[role = 'radio']")
+public static RadioButtons directionRadioButtons;  
+  
+@Test(description = "Test checks radio button value")
+public void valueRadioButtonsTest() {
+  directionRadioButtons.show();
+  directionRadioButtons.has().value("Option 1");
+  directionRadioButtons.has().value("Option 2");
   }
 
-@Test
-public void labelTest() {
-  labelRadioButtons.has().value("Of course it's Google");
-  labelRadioButtons.has().text("Definitely Duckduckgo");
+//@FindBy(css = "#SuccessReadOnlyRadioButtonWithHint [role=radio]")
+@UI("#SuccessReadOnlyRadioButtonWithHint [role=radio]")
+public static RadioButtons successRadioButtons;
+
+@Test(description = "Test checks if radio button has messages or not")
+public void messagesRadioButtonTest() {
+  successRadioButtons.show();
+  successRadioButtons.has().messagesCount(1);
+  successRadioButtons.has().messageText("some hint");
+  successRadioButtons.has().successMessages();
+  successRadioButtons.has().noErrorMessages();
   }
 ```
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/radio-buttons/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.radiobuttons.RadioButton.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.radiobuttons.RadioButtons.java_
+
+The Vuetify RadioButton component is a simple radio button. When combined with the v-radio-group component you can provide groupable functionality to allow users to select from a predefined set of options.
+
 ![Radiobuttons example](../../images/vuetify/radiobuttons.png)
 
-Radio button -  a simple component that can be combined into groups, have different colors and html elements in a label
+```html
+<div role="radiogroup" aria-labelledby="input-580" class="v-input--radio-group__input">
+	<div class="v-radio theme--light v-item--active">
+		<div class="v-input--selection-controls__input">
+			<span aria-hidden="true" class="v-icon notranslate theme--light primary--text">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+					<path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,7C9.24,7 7,9.24 7,12C7,14.76 9.24,17 12,17C14.76,17 17,14.76 17,12C17,9.24 14.76,7 12,7Z"></path>
+				</svg>
+			</span>
+			<input aria-checked="true" id="input-581" role="radio" type="radio" name="radio-580" value="1">
+			<div class="v-input--selection-controls__ripple primary--text"></div>
+		</div>
+		<label for="input-581" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Radio 1</label>
+	</div>
+	<div class="v-radio theme--light">
+		<div class="v-input--selection-controls__input">
+			<span aria-hidden="true" class="v-icon notranslate theme--light">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+					<path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z"></path>
+				</svg>
+			</span>
+			<input aria-checked="false" id="input-583" role="radio" type="radio" name="radio-580" value="2">
+			<div class="v-input--selection-controls__ripple"></div>
+		</div>
+		<label for="input-583" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Radio 2</label>
+	</div>
+	<div class="v-radio theme--light">
+		<div class="v-input--selection-controls__input">
+		<span aria-hidden="true" class="v-icon notranslate theme--light">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+				<path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z"></path>
+			</svg>
+		</span>
+		<input aria-checked="false" id="input-585" role="radio" type="radio" name="radio-580" value="3">
+		<div class="v-input--selection-controls__ripple"></div>
+		</div>
+		<label for="input-585" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Radio 3</label>
+	</div>
+</div>
+```
 
-|Method | Description | Return Type
---- | --- | ---
-**select(String/int/Enum)** | Select radiobutton by value/index | void
-**labelText()** | Gets the text of a label | String
-**selected()** | Get selected radiobutton value | String
-**values()** | Returns list of values | List
-**is()** | Assert action | UISelectAssert
-**has()** | Assert action | UISelectAssert
+| Method                                      | Description                                                                | Return Type                          |
+|---------------------------------------------|----------------------------------------------------------------------------|--------------------------------------|
+| **is()**                                    | Assert action                                                              | RadioButtonAssert/RadioButtonsAssert |
+| **has()**                                   | Assert action                                                              | RadioButtonAssert/RadioButtonsAssert |
+| **label()**                                 | Returns label                                                              | UIElement                            |
+| **icon()**                                  | Returns RadioButton's icon                                                 | UIElement                            |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean                              |
+| **theme()**                                 | Get theme                                                                  | String                               |
+| **color()**                                 | Returns css attribute background-color as String Value                     | String                               |
+| **labelColor()**                            | Get element label color                                                    | String                               |
+| **label()**                                 | Get element label                                                          | Label                                |
+| **list()**                                  | Returns list of elements                                                   | WebList                              |
+| **radioButtons()**                          | Returns element's radio buttons                                            | List<RadioButton>                    |
+| **backgroundColor()**                       | Returns element's background color                                         | String                               |
+| **isReadOnly()**                            | Checks that element is readonly                                            | boolean                              |
+| **hasMessage()**                            | Check that element has message                                             | boolean                              |
+| **getMessage()**                            | Returns element's message text                                             | String                               |
+| **isDense()**                               | Checks if element is dense                                                 | boolean                              |
+| **messages(String locator)**                | Get List<UIElement> messages by locator                                    | List<UIElement>                      |
+| **messagesText(String locator)**            | Get elements messages text by locator                                      | List<String>                         |
+| **select(String/int/Enum)**                 | Select radiobutton by value/index                                          | void                                 |
+| **labelText()**                             | Gets the text of a label                                                   | String                               |
+| **selected()**                              | Get selected radiobutton value                                             | String                               |
+| **values()**                                | Returns list of values                                                     | List                                 |
+| **waitFor()**                               | Returns object for work with assertions                                    | RadioButtonsAssert                   |
+| **shouldBe()**                              | Returns object for work with assertions                                    | RadioButtonsAssert                   |
+| **verify()**                                | Returns object for work with assertions                                    | RadioButtonsAssert                   |
+| **assertThat()**                            | Returns object for work with assertions                                    | RadioButtonsAssert                   |
+| **classes()**                               | Gets all element's classes as list                                         | List<String>                         |
+| **doubleClick()**                           | Double clicks on the element                                               | void                                 |
+| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void                                 |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void                                 |
+| **getLocation()**                           | Gets element location as point                                             | Point                                |
+| **getSize()**                               | Gets element size                                                          | Dimension                            |
+| **getTagName()**                            | Gets element tag name                                                      | String                               |
+| **getText()**                               | Gets element text                                                          | String                               |
+| **getValue()**                              | Gets element text                                                          | String                               |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean                              |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean                              |
+| **highlight()**                             | Highlights element with red color                                          | void                                 |
+| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void                                 |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void                                 |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean                              |
+| **isDisplayed()**                           | Checks that element is displayed                                           | boolean                              |
+| **isEnabled()**                             | Checks that element exists                                                 | boolean                              |
+| **isHidden()**                              | Checks that element is hidden                                              | boolean                              |
+| **isNotExist()**                            | Checks that element does not exist                                         | boolean                              |
+| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean                              |
+| **isVisible()**                             | Checks that element is visible by user                                     | boolean                              |
+| **labelText()**                             | Gets label text                                                            | String                               |
+| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String                               |
+| **rightClick()**                            | Right clicks on the element                                                | void                                 |
+| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void                                 |
+| **show()**                                  | Scrolls screen view to item                                                | void                                 |
 
-For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/RadioButtonsTests.java).
+For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RadioButtonsTests.java).
 
 #### 5.12.8 Combobox
 

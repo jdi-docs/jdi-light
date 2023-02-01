@@ -2506,9 +2506,10 @@ It offers the user a visual representation for selecting the time.
 **setTime(LocalTime time)** | Sets TimePicker to provided time | void
 **setTime(int hours, int minutes)** | Sets TimePicker to provided hours and minutes | void
 **setTime(int hours, int minutes, int seconds)** | Sets TimePicker to provided hours, minutes, seconds | void
-**setHours(int hours)** | Sets TimePicker hours to provided number | void
-**setMinutes(int minutes)** | Sets TimePicker minutes to provided number | void
-**setSeconds(int seconds)** | Sets TimePicker seconds to provided number | void
+**select(int number)** | Selects number on a currently shown clock face | void
+**setHours(int hours)** | Switches TimePicker to hours and selects provided number | void
+**setMinutes(int minutes)** | Switches TimePicker to minutes and selects provided number | void
+**setSeconds(int seconds)** | Switches TimePicker to seconds and selects provided number | void
 **hasSeconds()** | Returns true if TimePicker configured to show seconds | boolean
 **switchToAM()** | Switches time picker to AM | void
 **switchToPM()** | Switches time picker to PM | void
@@ -2520,17 +2521,17 @@ It offers the user a visual representation for selecting the time.
 **titleHours()** | Returns TimePicker time hours | int
 **titleMinutes()** | Returns TimePicker time minutes | int
 **titleSeconds()** | Returns TimePicker time seconds | int
-**amPmStatus()** | Returns currently selected AM/PM status | String
-**clockFaceNumbers()** | Returns all numbers shown on the clock face | List<Integer>
-**enabledClockFaceNumbers()** | Returns enabled numbers on the Clock face | List<Integer>
-**disabledClockFaceNumbers()**| Returns disabled numbers on the Clock face | List<Integer>
+**isAmPM()** |Returns true if TimePicker is 12h or false if 24h | boolean
+**amPmPeriod()** | Returns currently selected AM/PM period | String
+**clockNumbers()** | Returns all numbers shown on the clock face | List<Integer>
+**enabledClockNumbers()** | Returns enabled numbers on the Clock face | List<Integer>
+**disabledClockNumbers()**| Returns disabled numbers on the Clock face | List<Integer>
 **selectedNumber()** | Returns currently selected number on the Clock face | int
 **isReadOnly()** | Checks if the TimePicker is read-only | boolean [](overridden method)
-**isDisabled()** | Checks if the TimePicker is disabled | boolean
+**isDisabled()** | Checks if the TimePicker is disabled | boolean [](overridden method)
 **titleBackgroundColor()** | Returns background color of the TimePicker title (hex) | String
 **clockFaceBackgroundColor()** | Returns background color of the TimePicker clock face (hex) | String
-**isLandscape()** | Checks if the TimePicker displayed in landscape mode | boolean
-
+**isLandscape()** | Checks if the TimePicker displayed in landscape mode | boolean-
 **scrollOnClock(int mouseWheelTicks)** | Emulates mouse wheel scroll on the Clock face | boolean
 
 TimePicker also have basic JDI elements methods.

@@ -42211,33 +42211,87 @@ or extend a class that already implemented it.</strong></p>
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/windows">Custom vuetify windows examples</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java">JDI vuetify page tests for windows</a>.</p>
 <h3 id='5-14-lists'>5.14 Lists</h3>
-<p><a href="https://vuetifyjs.com/en/components/lists/">Vuetify documentation page</a></p>
+<p><a href="https://vuetifyjs.com/en/components/lists/">The v-list</a> - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.</p>
+
+<p><img src="images/vuetify/lists.png" alt="Lists example" /></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#SubGroupList .v-list")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#SubGroupList .v-list"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">VuetifyList</span> <span class="n">subGroupList</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test shows how to test list with subgroups"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">subGroupListTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">ListItem</span> <span class="n">adminItem</span> <span class="o">=</span> <span class="n">subGroupList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"Admin"</span><span class="o">);</span>
+      <span class="n">ListItem</span> <span class="n">actionsItem</span> <span class="o">=</span> <span class="n">subGroupList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"Actions"</span><span class="o">);</span>
+      <span class="n">ListItem</span> <span class="n">usersItem</span> <span class="o">=</span> <span class="n">subGroupList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"Users"</span><span class="o">);</span>
+      <span class="n">subGroupList</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+
+      <span class="n">subGroupList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+      <span class="n">usersItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
+      <span class="n">adminItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
+      <span class="n">actionsItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">subGroupList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"Management"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">subGroupList</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="s">"Settings"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+
+      <span class="n">usersItem</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">usersItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
+      <span class="n">adminItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+      <span class="n">actionsItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+      <span class="n">subGroupList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//@FindBy(css = "#ThreeLineList .v-list")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#ThreeLineList .v-list"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">VuetifyList</span> <span class="n">threeLineList</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks that list has dividers"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hasDividerLinesListTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">threeLineList</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+      <span class="n">threeLineList</span><span class="o">.</span><span class="na">divider</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">horizontal</span><span class="o">();</span>
+    <span class="o">}</span>
+
+</code></pre>
+<p>In JDI framework <strong>v-lists</strong> are represented by the following classes:</p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Lists.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">denseListTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">denseList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasIcon</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasTitle</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Real-Time"</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
 
-        <span class="n">denseList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasIcon</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasTitle</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Audience"</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+<p><strong>Vuetify v2.6.14</strong> code example:</p>
+<pre class="highlight html tab-html"><code> <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;v-app</span> <span class="na">id=</span><span class="s">"inspire"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;v-card</span>
+      <span class="na">class=</span><span class="s">"mx-auto"</span>
+      <span class="na">max-width=</span><span class="s">"400"</span>
+      <span class="na">tile</span>
+    <span class="nt">&gt;</span>
+      <span class="nt">&lt;v-list-item&gt;</span>
+        <span class="nt">&lt;v-list-item-content&gt;</span>
+          <span class="nt">&lt;v-list-item-title&gt;</span>Single-line item<span class="nt">&lt;/v-list-item-title&gt;</span>
+        <span class="nt">&lt;/v-list-item-content&gt;</span>
+      <span class="nt">&lt;/v-list-item&gt;</span>
 
-        <span class="n">denseList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasIcon</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasTitle</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Conversions"</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
-     <span class="o">}</span>
+      <span class="nt">&lt;v-list-item</span> <span class="na">two-line</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;v-list-item-content&gt;</span>
+          <span class="nt">&lt;v-list-item-title&gt;</span>Two-line item<span class="nt">&lt;/v-list-item-title&gt;</span>
+          <span class="nt">&lt;v-list-item-subtitle&gt;</span>Secondary text<span class="nt">&lt;/v-list-item-subtitle&gt;</span>
+        <span class="nt">&lt;/v-list-item-content&gt;</span>
+      <span class="nt">&lt;/v-list-item&gt;</span>
+
+      <span class="nt">&lt;v-list-item</span> <span class="na">three-line</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;v-list-item-content&gt;</span>
+          <span class="nt">&lt;v-list-item-title&gt;</span>Three-line item<span class="nt">&lt;/v-list-item-title&gt;</span>
+          <span class="nt">&lt;v-list-item-subtitle&gt;</span>
+            Secondary line text Lorem ipsum dolor sit amet,
+          <span class="nt">&lt;/v-list-item-subtitle&gt;</span>
+          <span class="nt">&lt;v-list-item-subtitle&gt;</span>
+            consectetur adipiscing elit.
+          <span class="nt">&lt;/v-list-item-subtitle&gt;</span>
+        <span class="nt">&lt;/v-list-item-content&gt;</span>
+      <span class="nt">&lt;/v-list-item&gt;</span>
+    <span class="nt">&lt;/v-card&gt;</span>
+  <span class="nt">&lt;/v-app&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </code></pre>
-<p><img src="images/vuetify/lists.png" alt="Lists example" /></p>
-
-<p>Lists - a specific collection of items, which can contains an avatar, content, actions, subheaders etc. You can inherit the <code>Lists</code> class and customize it the way you need.</p>
-
 <table><thead>
 <tr>
 <th>Method</th>
@@ -42246,48 +42300,53 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>select(String)/select(int)</strong></td>
-<td>Finds required element by its name or index and selects</td>
-<td>void</td>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>VuetifyListAssert</td>
 </tr>
 <tr>
-<td><strong>get(String)/get(int)</strong></td>
-<td>Finds required element by its name or index and returns it</td>
-<td>UIElement</td>
+<td><strong>item(int)/item(String)</strong></td>
+<td>Gets specific item of a list by its index and title</td>
+<td>ListItem</td>
 </tr>
 <tr>
-<td><strong>isActive(int)</strong></td>
-<td>Shows that required element is active</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>isInactivate(int)</strong></td>
-<td>Shows that required element is inactive</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>hasIcon(int)</strong></td>
-<td>Shows that required element has icon</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>hasTitle(int, String)</strong></td>
-<td>Shows that required element has expected title</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>getSubList(int)</strong></td>
-<td>Returns required element&#39;s sublist</td>
+<td><strong>itemsWebList()</strong></td>
+<td>Gets list of items. Each element of the list is a UIElement</td>
 <td>WebList</td>
 </tr>
 <tr>
-<td><strong>isExpanded(int)</strong></td>
-<td>Shows that required element&#39;s sublist is expanded</td>
+<td><strong>subheader(int)</strong></td>
+<td>Gets the subheader of a list using the subheader index</td>
+<td>Subheader</td>
+</tr>
+<tr>
+<td><strong>divider(int)</strong></td>
+<td>Gets the divider of a list using the divider index</td>
+<td>Divider</td>
+</tr>
+<tr>
+<td><strong>items()</strong></td>
+<td>Gets list of items. Each element of the list is a ListItem</td>
+<td>List&lt; ListItem &gt;</td>
+</tr>
+<tr>
+<td><strong>size()</strong></td>
+<td>Gets size of a list (i.e. amount of its items)</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Checks if a list is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isRounded()</strong></td>
+<td>Checks if a list is rounded</td>
 <td>boolean</td>
 </tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListsTests.java">JDI Vuetify Lists tests</a>.</p>
+<p>For more examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ListsTests.java">JDI Vuetify Lists tests</a>.</p>
 <h3 id='5-15-overlays'>5.15 Overlays</h3><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#AbsoluteOverlay button")</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"#AbsoluteOverlay button"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">VuetifyButton</span> <span class="n">absoluteOverlayButton</span><span class="o">;</span>

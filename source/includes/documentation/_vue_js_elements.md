@@ -1640,47 +1640,111 @@ and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-ligh
 
 ### 5.14 Lists
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/lists/)
+[The v-list](https://vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
+
+#
+![Lists example](../../images/vuetify/lists.png)
+
+```java 
+    //@FindBy(css = "#SubGroupList .v-list")
+    @UI("#SubGroupList .v-list")
+    public static VuetifyList subGroupList;
+    
+    @Test(description = "Test shows how to test list with subgroups")
+    public static void subGroupListTest() {
+      ListItem adminItem = subGroupList.item("Admin");
+      ListItem actionsItem = subGroupList.item("Actions");
+      ListItem usersItem = subGroupList.item("Users");
+      subGroupList.show();
+    
+      subGroupList.has().size(6);
+      usersItem.is().expanded();
+      adminItem.is().displayed().and().expanded();
+      actionsItem.is().displayed();
+      subGroupList.item("Management").is().displayed();
+      subGroupList.item("Settings").is().displayed();
+    
+      usersItem.click();
+      usersItem.is().collapsed();
+      adminItem.is().hidden();
+      actionsItem.is().hidden();
+      subGroupList.has().size(2);
+    }
+
+    //@FindBy(css = "#ThreeLineList .v-list")
+    @UI("#ThreeLineList .v-list")
+    public static VuetifyList threeLineList;
+    
+    @Test(description = "Test checks that list has dividers")
+    public static void hasDividerLinesListTest() {
+      threeLineList.show();
+      threeLineList.divider(1).is().horizontal();
+    }
+
+```
+
+In JDI framework __v-lists__ are represented by the following classes:
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Lists.java_
 
-```java
-    @Test
-    public static void denseListTest() {
-        denseList.select(1);
-        jdiAssert(denseList.isActive(1), Matchers.is(true));
-        jdiAssert(denseList.hasIcon(1), Matchers.is(true));
-        jdiAssert(denseList.hasTitle(1, "Real-Time"), Matchers.is(true));
 
-        denseList.select(2);
-        jdiAssert(denseList.isActive(2), Matchers.is(true));
-        jdiAssert(denseList.hasIcon(2), Matchers.is(true));
-        jdiAssert(denseList.hasTitle(2, "Audience"), Matchers.is(true));
 
-        denseList.select(3);
-        jdiAssert(denseList.isActive(3), Matchers.is(true));
-        jdiAssert(denseList.hasIcon(3), Matchers.is(true));
-        jdiAssert(denseList.hasTitle(3, "Conversions"), Matchers.is(true));
-     }
-```
+__Vuetify v2.6.14__ code example:
 
-![Lists example](../../images/vuetify/lists.png)
+```html
+ <div id="app">
+  <v-app id="inspire">
+    <v-card
+      class="mx-auto"
+      max-width="400"
+      tile
+    >
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title>Single-line item</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
 
-Lists - a specific collection of items, which can contains an avatar, content, actions, subheaders etc. You can inherit the `Lists` class and customize it the way you need.
+      <v-list-item two-line>
+        <v-list-item-content>
+          <v-list-item-title>Two-line item</v-list-item-title>
+          <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
 
-|Method | Description | Return Type
---- | --- | ---
-**select(String)/select(int)** | Finds required element by its name or index and selects | void
-**get(String)/get(int)** | Finds required element by its name or index and returns it | UIElement
-**isActive(int)** | Shows that required element is active | boolean
-**isInactivate(int)** | Shows that required element is inactive | boolean
-**hasIcon(int)** | Shows that required element has icon | boolean
-**hasTitle(int, String)** | Shows that required element has expected title | boolean
-**getSubList(int)** | Returns required element's sublist | WebList
-**isExpanded(int)** | Shows that required element's sublist is expanded | boolean
+      <v-list-item three-line>
+        <v-list-item-content>
+          <v-list-item-title>Three-line item</v-list-item-title>
+          <v-list-item-subtitle>
+            Secondary line text Lorem ipsum dolor sit amet,
+          </v-list-item-subtitle>
+          <v-list-item-subtitle>
+            consectetur adipiscing elit.
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+    </v-card>
+  </v-app>
+</div>
+ ```
 
-For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListsTests.java).
 
+
+
+| Method                     | Description                                                 | Return Type       |
+|----------------------------|-------------------------------------------------------------|-------------------|
+| **is()**                   | Assert action                                               | VuetifyListAssert |
+| **item(int)/item(String)** | Gets specific item of a list by its index and title         | ListItem          |
+| **itemsWebList()**         | Gets list of items. Each element of the list is a UIElement | WebList           |
+| **subheader(int)**         | Gets the subheader of a list using the subheader index      | Subheader         |
+| **divider(int)**           | Gets the divider of a list using the divider index          | Divider           |
+| **items()**                | Gets list of items. Each element of the list is a ListItem  | List< ListItem >  |
+| **size()**                 | Gets size of a list (i.e. amount of its items)              | int               |
+| **isDisabled()**           | Checks if a list is disabled                                | boolean           |
+| **isRounded()**            | Checks if a list is rounded                                 | boolean           |
+
+For more examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ListsTests.java).
+   
 ### 5.15 Overlays
 
 ```java

@@ -2502,27 +2502,27 @@ It offers the user a visual representation for selecting the time.
 
 | Method | Description | Return Type |
 | :--- | :--- | :--- | 
-**setTime(String time)** | Sets TimePicker to provided time as string in ISO-8601 extended local time) | void
+**setTime(String time)** | Sets TimePicker to provided time (time string in ISO-8601 extended local time format) | void
 **setTime(LocalTime time)** | Sets TimePicker to provided time | void
 **setTime(int hours, int minutes)** | Sets TimePicker to provided hours and minutes | void
 **setTime(int hours, int minutes, int seconds)** | Sets TimePicker to provided hours, minutes, seconds | void
 **select(int number)** | Selects number on a currently shown clock face | void
-**setHours(int hours)** | Switches TimePicker to hours and selects provided number | void
-**setMinutes(int minutes)** | Switches TimePicker to minutes and selects provided number | void
-**setSeconds(int seconds)** | Switches TimePicker to seconds and selects provided number | void
+**setHours(int hours)** | Switches TimePicker to hours (selects AM/PM if needed) and set hours (0-23)| void
+**setMinutes(int minutes)** | Switches TimePicker to minutes and sets minutes (0-59) | void
+**setSeconds(int seconds)** | Switches TimePicker to seconds and sets seconds (0-59) | void
 **hasSeconds()** | Returns true if TimePicker configured to show seconds | boolean
 **switchToAM()** | Switches time picker to AM | void
 **switchToPM()** | Switches time picker to PM | void
-**switchToHours()** | Switches time picker to Hours | void
-**switchToMinutes()** | Switches time picker to Minutes | void
-**switchToSeconds()** | Switches time picker to Seconds | void
+**switchToHours()** | Switches time picker to hours selector | void
+**switchToMinutes()** | Switches time picker to minutes selector | void
+**switchToSeconds()** | Switches time picker to seconds selector | void
 **titleText()** | Returns TimePicker time from title as is, without formatting ('17:01', '5:01:08PM') | String
 **titleTime()** | Returns TimePicker time from title as LocalTime object | LocalTime
 **titleHours()** | Returns TimePicker time hours | int
 **titleMinutes()** | Returns TimePicker time minutes | int
 **titleSeconds()** | Returns TimePicker time seconds | int
-**isAmPM()** |Returns true if TimePicker is 12h or false if 24h | boolean
-**amPmPeriod()** | Returns currently selected AM/PM period | String
+**is12h()** | Returns true if TimePicker is 12h or false if 24h | boolean
+**amPmPeriod()** | Returns currently selected AM/PM period "AM" or "PM" | String
 **clockNumbers()** | Returns all numbers shown on the clock face | List<Integer>
 **enabledClockNumbers()** | Returns enabled numbers on the Clock face | List<Integer>
 **disabledClockNumbers()**| Returns disabled numbers on the Clock face | List<Integer>
@@ -2530,9 +2530,10 @@ It offers the user a visual representation for selecting the time.
 **isReadOnly()** | Checks if the TimePicker is read-only | boolean [](overridden method)
 **isDisabled()** | Checks if the TimePicker is disabled | boolean [](overridden method)
 **titleBackgroundColor()** | Returns background color of the TimePicker title (hex) | String
-**clockFaceBackgroundColor()** | Returns background color of the TimePicker clock face (hex) | String
-**isLandscape()** | Checks if the TimePicker displayed in landscape mode | boolean-
-**scrollOnClock(int mouseWheelTicks)** | Emulates mouse wheel scroll on the Clock face | boolean
+**isLandscape()** | Checks if the TimePicker displayed in landscape mode | boolean
+**scroll(int mouseWheelTicks)** | Emulates mouse wheel scroll on the Clock face | void [](overridden method)
+**title()** | Returns JDI UIElement representing title | UIElement
+**clock()** | Returns JDI UIElement representing clock face | UIElement
 
 TimePicker also have basic JDI elements methods.
 

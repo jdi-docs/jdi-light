@@ -742,7 +742,7 @@ Switches are located in the following class:
 @UI("#ColorsSwitch .v-input--switch")
 public static List<Switch> colorSwitches;
 
-@Test
+@Test(description = "Test checks parameters of switch: color, text, functionality")
 public void functionalityAndCssStyleSwitchTest() {
   String red = "red";
   final Switch redSwitch = colorSwitches.get(1);
@@ -754,7 +754,7 @@ public void functionalityAndCssStyleSwitchTest() {
   redSwitch.has().detailsHidden();
   redSwitch.uncheck();
   redSwitch.is().unchecked();
-}
+  }
 ```
 __Switches__ - The `v-switch` component provides users the ability to choose between two distinct values.
 
@@ -807,7 +807,7 @@ __Vuetify v2.6.14__ code example:
 **hasRipple()** | Check that switch has ripple                    | boolean
 **is()** | Switch assert                                   | SwitchAssert
 
-For examples of usage see: [JDI Vuetify Switch tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchTests.java).
+For examples of usage see: [JDI Vuetify Switch tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchesTests.java).
 
 #### 5.12.5 Text fields
 

@@ -2485,20 +2485,26 @@ public static TimePicker timePicker;
 @Test (description = "Test checks that time picker has expected disabled hours")
 public void test() {
     timePicker.show();
-    timePicker.setTime(7, 30, 12);
-    timePicker.switchToPM();
-    timePicker.has().title("7:30:12PM")
-    timePicker.has().time(LocalTime.of(19, 30, 12))
-    timePicker.switchToHours();
-    timePicker.has().enabledNumbers(1, 3, 5, 7, 9, 11);
-    timePicker.has().disabledNumbers(2, 4, 6, 8, 10, 12);
-    timePicker.has().selectedNumber(7);
+    timePicker.setTime("14:53:48");
+    timePicker.has()
+        .title("2:53:48PM")
+        .time(LocalTime.parse("14:53:48"))
+        .hours(2)
+        .minutes(53)
+        .pmPeriod()
+        .format12()
+        .darkTheme();
+    timePicker.switchToMinutes();
+    timePicker.has().selectedNumber(53);
+    timePicker.scroll(13);
+    timePicker.has().selectedNumber(40);
 ```
 
 The v-time-picker is stand-alone component that can be utilized in many existing Vuetify components.
 It offers the user a visual representation for selecting the time.
 
-![TimePickers example](../../images/vuetify/time_pickers.png)
+![TimePickers example_1](../../images/vuetify/time_picker_h_24.png)
+![TimePickers example_2](../../images/vuetify/time_picker_v_AMPM.png)
 
 | Method | Description | Return Type |
 | :--- | :--- | :--- | 

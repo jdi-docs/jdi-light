@@ -754,7 +754,7 @@ public void functionalityAndCssStyleSwitchTest() {
   redSwitch.has().detailsHidden();
   redSwitch.uncheck();
   redSwitch.is().unchecked();
-  }
+}
 ```
 __Switches__ - The `v-switch` component provides users the ability to choose between two distinct values.
 

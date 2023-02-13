@@ -2538,7 +2538,7 @@ __Vuetify v2.6.14__ code example:
         <span class="v-time-picker-clock__item" style="left: 75%; top: 6.69873%;">
           <span>05</span>
         </span>
-        <!-- clock face numbers 10 - 45 are omitted-->  
+        <!-- clock face numbers 10 .. 45 -->  
         <span class="v-time-picker-clock__item" style="left: 6.69873%; top: 25%;">
           <span>50</span>
         </span>

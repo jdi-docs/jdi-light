@@ -2506,6 +2506,51 @@ It offers the user a visual representation for selecting the time.
 ![TimePickers example_1](../../images/vuetify/time_picker_h_24.png)
 ![TimePickers example_2](../../images/vuetify/time_picker_v_AMPM.png)
 
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-picker v-card v-picker--time theme--light">
+  <div class="v-picker__title primary">
+    <div class="v-time-picker-title">
+      <div class="v-time-picker-title__time">
+        <div class="v-picker__title__btn">2</div>
+        <span>:</span>
+        <div class="v-picker__title__btn v-picker__title__btn--active">53</div>
+        <span>:</span>
+        <div class="v-picker__title__btn">48</div>
+      </div>
+      <div class="v-time-picker-title__ampm v-time-picker-title__ampm--readonly">
+        <div class="v-picker__title__btn v-picker__title__btn--active">PM</div>
+      </div>
+    </div>
+  </div>
+  <div class="v-picker__body theme--light" style="width: 290px;">
+    <div class="v-time-picker-clock__container">
+      <div class="v-time-picker-clock__ampm primary--text">
+        <div class="v-picker__title__btn v-picker__title__btn--active">PM</div>
+        <div class="v-picker__title__btn">PM</div>
+      </div>
+      <div class="v-time-picker-clock theme--light">
+        <div class="v-time-picker-clock__inner">
+        <div class="v-time-picker-clock__hand accent" style="transform: rotate(318deg) scaleY(1);"></div>
+        <span class="v-time-picker-clock__item" style="left: 50%; top: 0%;">
+          <span>00</span>
+        </span>
+        <span class="v-time-picker-clock__item" style="left: 75%; top: 6.69873%;">
+          <span>05</span>
+        </span>
+        <!-- clock face numbers 10 - 45 are omitted-->  
+        <span class="v-time-picker-clock__item" style="left: 6.69873%; top: 25%;">
+          <span>50</span>
+        </span>
+        <span class="v-time-picker-clock__item" style="left: 25%; top: 6.69873%;">
+          <span>55</span>
+        </span></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 | Method | Description | Return Type |
 | :--- | :--- | :--- | 
 **setTime(String time)** | Sets TimePicker to provided time (time string in ISO-8601 extended local time format) | void

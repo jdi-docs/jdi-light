@@ -2,28 +2,62 @@
 
 ### 5.1 Alerts
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/alerts/)
-
-```java
-  @Test
-  public void alertsWithPropsHaveProperCssProps(){
-      redAlert.has().text("I'm an alert with a top border and red color");
-      redAlert.has().css("background-color", Colors.RED_LIGHTEN_2.value());
-      redAlert.has().cssClass("v-alert--border-top");
-  }
-```
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/alerts/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Alert.java_
 
+```java
+    //@FindBy(css = ".v-alert")
+    @UI(".v-alert")
+    public static Alert alert;
+
+    @Test
+    public void alertTest(){
+        alert.show()
+        alert.has().text("I'm an alert with a top border and red color")
+            .has().color("rgba(255, 255, 255, 1)")
+            .has().backgroundColor("rgba(255, 82, 82, 1)")
+            .is().dense()
+            .has().type("warning");
+    }
+```
+
+The Alert component is used to convey important information to the user through the use of contextual types, icons, and colors.
+There are four default types: success, info, warning, and error. Border, icon, and color of the alert could be customized.
+
 ![Alerts example](../../images/vuetify/alerts.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | TextAssert
-**getValue()** | Returns element value | String
+__Vuetify v2.6.14__ code example:
+```html
+<div role="alert" class="v-alert v-sheet theme--light elevation-2 v-alert--border v-alert--border-bottom">
+  <div class="v-alert__wrapper">
+    <span aria-hidden="true" class="v-icon notranslate v-alert__icon theme--light warning--text">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+        <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path>
+      </svg>
+    </span>
+    <div class="v-alert__content"> Fusce commodo aliquam arcu. </div>
+    <div class="v-alert__border v-alert__border--bottom warning v-alert__border--has-color"></div>
+  </div>
+</div>
+```
 
-For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java)
-and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**closeButton()** | Returns close button object | VuetifyButton
+**hasCloseButton()** | Returns true if alert has close button | boolean 
+**isDismissible()** | Returns true if alert has close button | boolean [](the same as previous!)
+**isProminent()** | Returns true if alert is prominent and has halo for icon and increased height | boolean 
+**hasBorder()** | Returns true if alert has border | boolean
+**borderValue()** | Returns border side (top, right, bottom or left) | String
+**hasColoredBorder()** | Returns true if alert border has color | boolean
+**borderBackGroundColor()** | Returns border background color | boolean
+**type()** | Returns alert type (info, success, warning, error) or empty string if type is undefined | String 
+
+Alert also have basic JDI elements methods for Color, Elevation, Measurements, Theme and others
+
+For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/alerts/IconAlert.java)
+and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
 
 ### 5.2 Avatars
 

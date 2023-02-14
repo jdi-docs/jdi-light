@@ -699,7 +699,7 @@ public void padlessFooterTest() {
 }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/footer/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/footer/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Footer.java_
 
@@ -1857,7 +1857,7 @@ and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-ligh
 
 ### 5.14 Lists
 
-[The v-list](https://vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
+[The v-list](https://v2.vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
 
 #
 ![Lists example](../../images/vuetify/lists.png)
@@ -1999,7 +1999,7 @@ public void zIndexOverlaysTest() {
   }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/overlays/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/overlays/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Overlay.java_
 
@@ -2154,7 +2154,7 @@ public void themeRatingTest() {
 }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/ratings/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/ratings/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
 
@@ -2278,7 +2278,7 @@ public void insetSubheaderTest() {
   insetSubheader.is().text("Subheader");
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/subheaders/)
 
 __Java__: _com.epam.jdi.light.vuetify.elements.common.Subheader.java_
 
@@ -2681,7 +2681,7 @@ public void textTooltipsTest() {
   }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/tooltips/)
 
 __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
 
@@ -3495,12 +3495,12 @@ For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://
 
 ### 5.35 Parallax
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/parallax/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/parallax/)
 
 Parallax is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Parallax.java_
 
-```java`
+```java
 //@FindBy(css = "#CustomHeightParallax")
 @UI("#CustomHeightParallax")
     public static Parallax customHeightParallax;
@@ -3704,7 +3704,7 @@ public void depressedButtonsTests(int index, boolean enabled, String color, Stri
   }
 ```
 
-[Button Vuetify documentation page](https://vuetifyjs.com/en/components/buttons/)
+[Button Vuetify documentation page](https://v2.vuetifyjs.com/en/components/buttons/)
 
 Button is located in the following class:
 

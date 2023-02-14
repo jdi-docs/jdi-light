@@ -4256,7 +4256,6 @@ __Vuetify v2.6.14__ code example:
 
 | Method | Description | Return Type | 
 |:---| :--- |:---|
-
 **borderRadius()** | Returns sheet border radius in px | int
 **color()** | Returns sheet color (the same as backgroundColour()) | [](overridden method)
 

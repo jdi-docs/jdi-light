@@ -43864,24 +43864,46 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Java test examples</a></p>
-<h3 id='5-27-progress'>5.27 Progress</h3><h4 id='5-27-1-progress-circular'>5.27.1 Progress circular</h4>
+<h3 id='5-27-progress'>5.27 Progress</h3><h4 id='5-27-1-progress-circular'>5.27.1 Progress circular</h4><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#ColorProgress .v-progress-circular" </span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#ColorProgress .v-progress-circular"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ProgressCircular</span><span class="o">&gt;</span> <span class="n">colorProgressCirculars</span><span class="o">;</span>
+
+<span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"colorProgressCircularsTestsDataProvider"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">ProgressCircularDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+  <span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks parameters of progress circular"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorProgressCircularsTests</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">color</span><span class="o">,</span> <span class="kt">int</span> <span class="n">height</span><span class="o">,</span> <span class="kt">int</span> <span class="n">width</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">colorProgressCirculars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">displayed</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">notSpinning</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">color</span><span class="o">(</span><span class="n">color</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">height</span><span class="o">(</span><span class="n">height</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">width</span><span class="o">(</span><span class="n">width</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">value</span><span class="o">(</span><span class="n">value</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">index</span><span class="o">));</span>
+  <span class="o">}</span>
+
+<span class="c1">//@FindBy(css = "#SizeWidthProgress .v-progress-circular"</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#SizeWidthProgress .v-progress-circular"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ProgressCircular</span><span class="o">&gt;</span> <span class="n">sizeWidthProgressCirculars</span><span class="o">;</span>
+
+<span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"sizeWidthProgressCircularsTestsDataProvider"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">ProgressCircularDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+  <span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks size and width of progress circular"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sizeWidthProgressCircularsTests</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">color</span><span class="o">,</span> <span class="kt">int</span> <span class="n">height</span><span class="o">,</span> <span class="kt">int</span> <span class="n">width</span><span class="o">,</span> <span class="kt">int</span> <span class="n">thickness</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">sizeWidthProgressCirculars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">displayed</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">spinning</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">color</span><span class="o">(</span><span class="n">color</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">height</span><span class="o">(</span><span class="n">height</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">width</span><span class="o">(</span><span class="n">width</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">thickness</span><span class="o">(</span><span class="n">thickness</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
 <p><a href="https://vuetifyjs.com/en/components/progress-circular/">Vuetify documentation page</a></p>
 
 <ul>
-<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.ProgressSpinner.java</em></li>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.ProgressCircular.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"sizeWidthProgressSpinnersTestsDataProvider"</span><span class="o">,</span>
-      <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">ProgressSpinnersDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sizeWidthProgressCircularsTests</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">color</span><span class="o">,</span> <span class="n">String</span> <span class="n">height</span><span class="o">,</span> <span class="n">String</span> <span class="n">width</span><span class="o">)</span> <span class="o">{</span>
-      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">spinning</span><span class="o">();</span>
-      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
-      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="n">height</span><span class="o">);</span>
-      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
-    <span class="o">}</span>
 
-</code></pre>
-<p>Progress circular component is used to convey data circularly to users. It also can be put into an indeterminate state to portray loading.</p>
+<p><strong>Progress circular</strong> - The v-progress-circular component is used to convey data circularly to users. It also can be put into an indeterminate state to portray loading.</p>
 
 <p><img src="images/vuetify/progress-circular.png" alt="Progress Circular example" /></p>
 
@@ -43895,7 +43917,42 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <tr>
 <td><strong>is()</strong></td>
 <td>Returns Assert class</td>
-<td>ProgressSpinnerAssert</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns Asserts class</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>getRotate()</strong></td>
+<td>Returns value of the element&#39;s start angle</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns element text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getThickness()</strong></td>
+<td>Returns value element&#39;s line thickness</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Returns element value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Asserts that element is displayed</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Asserts that element has expected color</td>
+<td>ProgressCircularAssert</td>
 </tr>
 <tr>
 <td><strong>hasColor()</strong></td>
@@ -43903,23 +43960,63 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>hasHeight()</strong></td>
+<td><strong>hasNoLabel()</strong></td>
+<td>Asserts that element has no label</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>height()</strong></td>
 <td>Returns height of the element</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>hasWidth()</strong></td>
-<td>Returns width of the element</td>
-<td>String</td>
+<td><strong>height()</strong></td>
+<td>Asserts that element has expected height</td>
+<td>ProgressCircularAssert</td>
 </tr>
 <tr>
 <td><strong>isSpinning()</strong></td>
 <td>Shows that element is spinning</td>
 <td>boolean</td>
 </tr>
+<tr>
+<td><strong>notSpinning()</strong></td>
+<td>Asserts that element is not spinning</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>spinning()</strong></td>
+<td>Asserts that element is spinning</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>rotate()</strong></td>
+<td>Asserts that element has expected start angle</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Asserts that element has expected text</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>thickness()</strong></td>
+<td>Asserts that element has expected line thickness</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Asserts that element has expected value</td>
+<td>ProgressCircularAssert</td>
+</tr>
+<tr>
+<td><strong>width()</strong></td>
+<td>Asserts that element has expected width</td>
+<td>String</td>
+</tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressSpinnersTests.java">Progress circular tests</a>.</p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/613ebaacccbec711dd00bd3e350728c5ebdc4095/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressCircularTests.java">Java Progress Circular test examples</a></p>
 <h4 id='5-27-2-progress-linear'>5.27.2 Progress linear</h4>
 <p><a href="https://vuetifyjs.com/en/components/progress-linear/">Vuetify documentation page</a></p>
 

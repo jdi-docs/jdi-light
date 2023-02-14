@@ -2473,7 +2473,7 @@ For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-t
 
 #### 5.31.1 Time pickers
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/time-pickers/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/time-pickers/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.TimePicker.java_
 

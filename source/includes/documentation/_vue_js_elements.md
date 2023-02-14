@@ -2495,36 +2495,73 @@ __Vuetify v2.6.14__ code example:
 
 #### 5.27.1 Progress circular
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/progress-circular/)
-
-- __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressSpinner.java_
-
 ```java
-    @Test(dataProvider = "sizeWidthProgressSpinnersTestsDataProvider",
-      dataProviderClass = ProgressSpinnersDataProvider.class)
-    public void sizeWidthProgressCircularsTests(int index, String color, String height, String width) {
-      sizeWidthProgressSpinners.get(index).is().displayed();
-      sizeWidthProgressSpinners.get(index).is().spinning();
-      sizeWidthProgressSpinners.get(index).has().color(color);
-      sizeWidthProgressSpinners.get(index).has().height(height);
-      sizeWidthProgressSpinners.get(index).has().width(width);
-    }
+//@FindBy(css = "#ColorProgress .v-progress-circular" 
+@UI("#ColorProgress .v-progress-circular")
+public static List<ProgressCircular> colorProgressCirculars;
 
+@Test(dataProvider = "colorProgressCircularsTestsDataProvider", dataProviderClass = ProgressCircularDataProvider.class,
+  description = "Test checks parameters of progress circular")
+public void colorProgressCircularsTests(int index, String color, int height, int width, int value) {
+  colorProgressCirculars.get(index).is()
+  .displayed()
+  .notSpinning()
+  .color(color)
+  .height(height)
+  .width(width)
+  .value(value)
+  .text(String.valueOf(index));
+  }
+
+//@FindBy(css = "#SizeWidthProgress .v-progress-circular"
+@UI("#SizeWidthProgress .v-progress-circular")
+public static List<ProgressCircular> sizeWidthProgressCirculars;
+
+@Test(dataProvider = "sizeWidthProgressCircularsTestsDataProvider", dataProviderClass = ProgressCircularDataProvider.class,
+  description = "Test checks size and width of progress circular")
+public void sizeWidthProgressCircularsTests(int index, String color, int height, int width, int thickness) {
+  sizeWidthProgressCirculars.get(index).is()
+  .displayed()
+  .spinning()
+  .color(color)
+  .height(height)
+  .width(width)
+  .thickness(thickness);
+  }
 ```
 
-Progress circular component is used to convey data circularly to users. It also can be put into an indeterminate state to portray loading.
+[Vuetify documentation page](https://vuetifyjs.com/en/components/progress-circular/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressCircular.java_
+
+__Progress circular__ - The v-progress-circular component is used to convey data circularly to users. It also can be put into an indeterminate state to portray loading.
 
 ![Progress Circular example](../../images/vuetify/progress-circular.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | ProgressSpinnerAssert 
-**hasColor()** | Returns color of the element in rgba | String
-**hasHeight()** | Returns height of the element | String
-**hasWidth()** | Returns width of the element | String
-**isSpinning()** | Shows that element is spinning | boolean
+| Method             | Description                                      | Return Type            |
+|--------------------|--------------------------------------------------|------------------------|
+| **is()**           | Returns Assert class                             | ProgressCircularAssert |
+| **has()**          | Returns Asserts class                            | ProgressCircularAssert |
+| **getRotate()**    | Returns value of the element's start angle       | int                    |
+| **getText()**      | Returns element text                             | String                 |
+| **getThickness()** | Returns value element's line thickness           | int                    |
+| **getValue()**     | Returns element value                            | int                    |
+| **displayed()**    | Asserts that element is displayed                | ProgressCircularAssert |
+| **color()**        | Asserts that element has expected color          | ProgressCircularAssert |
+| **hasColor()**     | Returns color of the element in rgba             | String                 |
+| **hasNoLabel()**   | Asserts that element has no label                | ProgressCircularAssert |
+| **height()**       | Returns height of the element                    | String                 |
+| **height()**       | Asserts that element has expected height         | ProgressCircularAssert |
+| **isSpinning()**   | Shows that element is spinning                   | boolean                |
+| **notSpinning()**  | Asserts that element is not spinning             | ProgressCircularAssert |
+| **spinning()**     | Asserts that element is spinning                 | ProgressCircularAssert |
+| **rotate()**       | Asserts that element has expected start angle    | ProgressCircularAssert |
+| **text()**         | Asserts that element has expected text           | ProgressCircularAssert |
+| **thickness()**    | Asserts that element has expected line thickness | ProgressCircularAssert |
+| **value()**        | Asserts that element has expected value          | ProgressCircularAssert |
+| **width()**        | Asserts that element has expected width          | String                 |
 
-For examples of usage see: [Progress circular tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressSpinnersTests.java).
+<a href="https://github.com/jdi-testing/jdi-light/blob/613ebaacccbec711dd00bd3e350728c5ebdc4095/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressCircularTests.java">Java Progress Circular test examples</a>
 
 #### 5.27.2 Progress linear
 

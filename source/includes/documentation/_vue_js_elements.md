@@ -2500,9 +2500,9 @@ __Vuetify v2.6.14__ code example:
 @UI("#ColorProgress .v-progress-circular")
 public static List<ProgressCircular> colorProgressCirculars;
 
-@Test(dataProvider = "colorProgressCircularsTestsDataProvider",
-dataProviderClass = ProgressCircularDataProvider.class)
-public void colorProgressCircularsTests(int index, String color, String height, String width, int value) {
+@Test(dataProvider = "colorProgressCircularsTestsDataProvider", dataProviderClass = ProgressCircularDataProvider.class,
+  description = "Test checks parameters of progress circular")
+public void colorProgressCircularsTests(int index, String color, int height, int width, int value) {
   colorProgressCirculars.get(index).is()
   .displayed()
   .notSpinning()
@@ -2517,9 +2517,9 @@ public void colorProgressCircularsTests(int index, String color, String height, 
 @UI("#SizeWidthProgress .v-progress-circular")
 public static List<ProgressCircular> sizeWidthProgressCirculars;
 
-@Test(dataProvider = "sizeWidthProgressCircularsTestsDataProvider",
-dataProviderClass = ProgressCircularDataProvider.class)
-public void sizeWidthProgressCircularsTests(int index, String color, String height, String width, int thickness) {
+@Test(dataProvider = "sizeWidthProgressCircularsTestsDataProvider", dataProviderClass = ProgressCircularDataProvider.class,
+  description = "Test checks size and width of progress circular")
+public void sizeWidthProgressCircularsTests(int index, String color, int height, int width, int thickness) {
   sizeWidthProgressCirculars.get(index).is()
   .displayed()
   .spinning()

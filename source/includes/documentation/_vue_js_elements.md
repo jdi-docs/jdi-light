@@ -999,27 +999,14 @@ For examples of usage see: [JDI Vuetify Text areas tests](https://github.com/jdi
 
 #### 5.12.7 Radio buttons
 
-[Vuetify documentation page](https://jdi-testing.github.io/jdi-light/vuetify/radio-buttons/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.RadioButton.java_
-
 ```java
-    @Test
-public void selectTest() {
-  colorLeftRadioButtons.select("indigo");
-  colorLeftRadioButtons.is().selected("indigo");
-  colorRightRadioButtons.select("success");
-  colorRightRadioButtons.is().selected("success");
-  }
+//@FindBy(css = "#ColorsRadioButton .col-12[1] [role=radio]")
+@UI("#ColorsRadioButton .col-12[1] [role=radio]")
+public static RadioButtons colorLeftRadioButtons;
 
-@Test
-public void getValueTest() {
-  directionRadioButtons.has().value("Option 1");
-  directionRadioButtons.has().value("Option 2");
-  }
-
-@Test
-public void selectEnumTest() {
+@Test(description = "Test checks radio button selection")
+public void selectEnumRadioButtonsTest() {
+  colorLeftRadioButtons.show();
   colorLeftRadioButtons.select(RadioTestData.indigo);
   colorLeftRadioButtons.is().selected(RadioTestData.indigo);
   colorLeftRadioButtons.select(RadioTestData.orange);
@@ -1027,33 +1014,138 @@ public void selectEnumTest() {
   colorLeftRadioButtons.select(RadioTestData.red);
   colorLeftRadioButtons.is().selected(RadioTestData.red);
   }
-
-@Test
-public void mandatoryTest() {
-  mandatoryRadioButtons.select("Radio 2");
-  mandatoryText.is().text("radio-2");
+  
+//@FindBy(css = "#DirectionRadioButton input[role = 'radio']")  
+@UI("#DirectionRadioButton input[role = 'radio']")
+public static RadioButtons directionRadioButtons;  
+  
+@Test(description = "Test checks radio button value")
+public void valueRadioButtonsTest() {
+  directionRadioButtons.show();
+  directionRadioButtons.has().value("Option 1");
+  directionRadioButtons.has().value("Option 2");
   }
 
-@Test
-public void labelTest() {
-  labelRadioButtons.has().value("Of course it's Google");
-  labelRadioButtons.has().text("Definitely Duckduckgo");
+//@FindBy(css = "#SuccessReadOnlyRadioButtonWithHint [role=radio]")
+@UI("#SuccessReadOnlyRadioButtonWithHint [role=radio]")
+public static RadioButtons successRadioButtons;
+
+@Test(description = "Test checks if radio button has messages or not")
+public void messagesRadioButtonTest() {
+  successRadioButtons.show();
+  successRadioButtons.has().messagesCount(1);
+  successRadioButtons.has().messageText("some hint");
+  successRadioButtons.has().successMessages();
+  successRadioButtons.has().noErrorMessages();
   }
 ```
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/radio-buttons/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.radiobuttons.RadioButton.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.radiobuttons.RadioButtons.java_
+
+The Vuetify RadioButton component is a simple radio button. When combined with the v-radio-group component you can provide groupable functionality to allow users to select from a predefined set of options.
+
 ![Radiobuttons example](../../images/vuetify/radiobuttons.png)
 
-Radio button -  a simple component that can be combined into groups, have different colors and html elements in a label
+```html
+<div role="radiogroup" aria-labelledby="input-580" class="v-input--radio-group__input">
+	<div class="v-radio theme--light v-item--active">
+		<div class="v-input--selection-controls__input">
+			<span aria-hidden="true" class="v-icon notranslate theme--light primary--text">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+					<path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,7C9.24,7 7,9.24 7,12C7,14.76 9.24,17 12,17C14.76,17 17,14.76 17,12C17,9.24 14.76,7 12,7Z"></path>
+				</svg>
+			</span>
+			<input aria-checked="true" id="input-581" role="radio" type="radio" name="radio-580" value="1">
+			<div class="v-input--selection-controls__ripple primary--text"></div>
+		</div>
+		<label for="input-581" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Radio 1</label>
+	</div>
+	<div class="v-radio theme--light">
+		<div class="v-input--selection-controls__input">
+			<span aria-hidden="true" class="v-icon notranslate theme--light">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+					<path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z"></path>
+				</svg>
+			</span>
+			<input aria-checked="false" id="input-583" role="radio" type="radio" name="radio-580" value="2">
+			<div class="v-input--selection-controls__ripple"></div>
+		</div>
+		<label for="input-583" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Radio 2</label>
+	</div>
+	<div class="v-radio theme--light">
+		<div class="v-input--selection-controls__input">
+		<span aria-hidden="true" class="v-icon notranslate theme--light">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+				<path d="M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z"></path>
+			</svg>
+		</span>
+		<input aria-checked="false" id="input-585" role="radio" type="radio" name="radio-580" value="3">
+		<div class="v-input--selection-controls__ripple"></div>
+		</div>
+		<label for="input-585" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Radio 3</label>
+	</div>
+</div>
+```
 
-|Method | Description | Return Type
---- | --- | ---
-**select(String/int/Enum)** | Select radiobutton by value/index | void
-**labelText()** | Gets the text of a label | String
-**selected()** | Get selected radiobutton value | String
-**values()** | Returns list of values | List
-**is()** | Assert action | UISelectAssert
-**has()** | Assert action | UISelectAssert
+| Method                                      | Description                                                                | Return Type                          |
+|---------------------------------------------|----------------------------------------------------------------------------|--------------------------------------|
+| **is()**                                    | Assert action                                                              | RadioButtonAssert/RadioButtonsAssert |
+| **has()**                                   | Assert action                                                              | RadioButtonAssert/RadioButtonsAssert |
+| **label()**                                 | Returns label                                                              | UIElement                            |
+| **icon()**                                  | Returns RadioButton's icon                                                 | UIElement                            |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean                              |
+| **theme()**                                 | Get theme                                                                  | String                               |
+| **color()**                                 | Returns css attribute background-color as String Value                     | String                               |
+| **labelColor()**                            | Get element label color                                                    | String                               |
+| **label()**                                 | Get element label                                                          | Label                                |
+| **list()**                                  | Returns list of elements                                                   | WebList                              |
+| **radioButtons()**                          | Returns element's radio buttons                                            | List<RadioButton>                    |
+| **backgroundColor()**                       | Returns element's background color                                         | String                               |
+| **isReadOnly()**                            | Checks that element is readonly                                            | boolean                              |
+| **hasMessage()**                            | Check that element has message                                             | boolean                              |
+| **getMessage()**                            | Returns element's message text                                             | String                               |
+| **isDense()**                               | Checks if element is dense                                                 | boolean                              |
+| **messages(String locator)**                | Get List<UIElement> messages by locator                                    | List<UIElement>                      |
+| **messagesText(String locator)**            | Get elements messages text by locator                                      | List<String>                         |
+| **select(String/int/Enum)**                 | Select radiobutton by value/index                                          | void                                 |
+| **labelText()**                             | Gets the text of a label                                                   | String                               |
+| **selected()**                              | Get selected radiobutton value                                             | String                               |
+| **values()**                                | Returns list of values                                                     | List                                 |
+| **waitFor()**                               | Returns object for work with assertions                                    | RadioButtonsAssert                   |
+| **shouldBe()**                              | Returns object for work with assertions                                    | RadioButtonsAssert                   |
+| **verify()**                                | Returns object for work with assertions                                    | RadioButtonsAssert                   |
+| **assertThat()**                            | Returns object for work with assertions                                    | RadioButtonsAssert                   |
+| **classes()**                               | Gets all element's classes as list                                         | List<String>                         |
+| **doubleClick()**                           | Double clicks on the element                                               | void                                 |
+| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void                                 |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void                                 |
+| **getLocation()**                           | Gets element location as point                                             | Point                                |
+| **getSize()**                               | Gets element size                                                          | Dimension                            |
+| **getTagName()**                            | Gets element tag name                                                      | String                               |
+| **getText()**                               | Gets element text                                                          | String                               |
+| **getValue()**                              | Gets element text                                                          | String                               |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean                              |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean                              |
+| **highlight()**                             | Highlights element with red color                                          | void                                 |
+| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void                                 |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void                                 |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean                              |
+| **isDisplayed()**                           | Checks that element is displayed                                           | boolean                              |
+| **isEnabled()**                             | Checks that element exists                                                 | boolean                              |
+| **isHidden()**                              | Checks that element is hidden                                              | boolean                              |
+| **isNotExist()**                            | Checks that element does not exist                                         | boolean                              |
+| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean                              |
+| **isVisible()**                             | Checks that element is visible by user                                     | boolean                              |
+| **labelText()**                             | Gets label text                                                            | String                               |
+| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String                               |
+| **rightClick()**                            | Right clicks on the element                                                | void                                 |
+| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void                                 |
+| **show()**                                  | Scrolls screen view to item                                                | void                                 |
 
-For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/RadioButtonsTests.java).
+For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RadioButtonsTests.java).
 
 #### 5.12.8 Combobox
 
@@ -1548,47 +1640,111 @@ and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-ligh
 
 ### 5.14 Lists
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/lists/)
+[The v-list](https://vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
+
+#
+![Lists example](../../images/vuetify/lists.png)
+
+```java 
+    //@FindBy(css = "#SubGroupList .v-list")
+    @UI("#SubGroupList .v-list")
+    public static VuetifyList subGroupList;
+    
+    @Test(description = "Test shows how to test list with subgroups")
+    public static void subGroupListTest() {
+      ListItem adminItem = subGroupList.item("Admin");
+      ListItem actionsItem = subGroupList.item("Actions");
+      ListItem usersItem = subGroupList.item("Users");
+      subGroupList.show();
+    
+      subGroupList.has().size(6);
+      usersItem.is().expanded();
+      adminItem.is().displayed().and().expanded();
+      actionsItem.is().displayed();
+      subGroupList.item("Management").is().displayed();
+      subGroupList.item("Settings").is().displayed();
+    
+      usersItem.click();
+      usersItem.is().collapsed();
+      adminItem.is().hidden();
+      actionsItem.is().hidden();
+      subGroupList.has().size(2);
+    }
+
+    //@FindBy(css = "#ThreeLineList .v-list")
+    @UI("#ThreeLineList .v-list")
+    public static VuetifyList threeLineList;
+    
+    @Test(description = "Test checks that list has dividers")
+    public static void hasDividerLinesListTest() {
+      threeLineList.show();
+      threeLineList.divider(1).is().horizontal();
+    }
+
+```
+
+In JDI framework __v-lists__ are represented by the following classes:
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Lists.java_
 
-```java
-    @Test
-    public static void denseListTest() {
-        denseList.select(1);
-        jdiAssert(denseList.isActive(1), Matchers.is(true));
-        jdiAssert(denseList.hasIcon(1), Matchers.is(true));
-        jdiAssert(denseList.hasTitle(1, "Real-Time"), Matchers.is(true));
 
-        denseList.select(2);
-        jdiAssert(denseList.isActive(2), Matchers.is(true));
-        jdiAssert(denseList.hasIcon(2), Matchers.is(true));
-        jdiAssert(denseList.hasTitle(2, "Audience"), Matchers.is(true));
 
-        denseList.select(3);
-        jdiAssert(denseList.isActive(3), Matchers.is(true));
-        jdiAssert(denseList.hasIcon(3), Matchers.is(true));
-        jdiAssert(denseList.hasTitle(3, "Conversions"), Matchers.is(true));
-     }
-```
+__Vuetify v2.6.14__ code example:
 
-![Lists example](../../images/vuetify/lists.png)
+```html
+ <div id="app">
+  <v-app id="inspire">
+    <v-card
+      class="mx-auto"
+      max-width="400"
+      tile
+    >
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title>Single-line item</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
 
-Lists - a specific collection of items, which can contains an avatar, content, actions, subheaders etc. You can inherit the `Lists` class and customize it the way you need.
+      <v-list-item two-line>
+        <v-list-item-content>
+          <v-list-item-title>Two-line item</v-list-item-title>
+          <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
 
-|Method | Description | Return Type
---- | --- | ---
-**select(String)/select(int)** | Finds required element by its name or index and selects | void
-**get(String)/get(int)** | Finds required element by its name or index and returns it | UIElement
-**isActive(int)** | Shows that required element is active | boolean
-**isInactivate(int)** | Shows that required element is inactive | boolean
-**hasIcon(int)** | Shows that required element has icon | boolean
-**hasTitle(int, String)** | Shows that required element has expected title | boolean
-**getSubList(int)** | Returns required element's sublist | WebList
-**isExpanded(int)** | Shows that required element's sublist is expanded | boolean
+      <v-list-item three-line>
+        <v-list-item-content>
+          <v-list-item-title>Three-line item</v-list-item-title>
+          <v-list-item-subtitle>
+            Secondary line text Lorem ipsum dolor sit amet,
+          </v-list-item-subtitle>
+          <v-list-item-subtitle>
+            consectetur adipiscing elit.
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+    </v-card>
+  </v-app>
+</div>
+ ```
 
-For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListsTests.java).
 
+
+
+| Method                     | Description                                                 | Return Type       |
+|----------------------------|-------------------------------------------------------------|-------------------|
+| **is()**                   | Assert action                                               | VuetifyListAssert |
+| **item(int)/item(String)** | Gets specific item of a list by its index and title         | ListItem          |
+| **itemsWebList()**         | Gets list of items. Each element of the list is a UIElement | WebList           |
+| **subheader(int)**         | Gets the subheader of a list using the subheader index      | Subheader         |
+| **divider(int)**           | Gets the divider of a list using the divider index          | Divider           |
+| **items()**                | Gets list of items. Each element of the list is a ListItem  | List< ListItem >  |
+| **size()**                 | Gets size of a list (i.e. amount of its items)              | int               |
+| **isDisabled()**           | Checks if a list is disabled                                | boolean           |
+| **isRounded()**            | Checks if a list is rounded                                 | boolean           |
+
+For more examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ListsTests.java).
+   
 ### 5.15 Overlays
 
 ```java
@@ -1892,25 +2048,87 @@ For examples of usage see: [JDI vuetify page tests for sparklines](https://githu
 
 ### 5.20 Subheaders
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.Subheader.java_
-
 ```java
-  @Test
-  public void insetTest(){
-      insetSubheader.is().displayed();
-      insetSubheader.is().lightTheme();
-      insetSubheader.is().inset();
-      insetSubheader.is().text("Subheader");
-  }
+//@FindBy(css = "#InsetSubheader .v-subheader")
+@UI("#InsetSubheader .v-subheader")
+public static Subheader insetSubheader;
+
+@Test(description = "Test checks inset Subheader features: 'theme' and 'text'")
+public void insetSubheaderTest() {
+  insetSubheader.is().displayed();
+  insetSubheader.is().lightTheme();
+  insetSubheader.is().inset();
+  insetSubheader.is().text("Subheader");
 ```
 
-The Subheader component is used to separate sections of lists.
+[Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
+
+__Java__: _com.epam.jdi.light.vuetify.elements.common.Subheader.java_
+
+__Subheader__ - The Subheader component is used to separate sections of lists.
 
 ![Subheaders example](../../images/vuetify/subheader.png)
 
-For examples of usage see: [JDI vuetify page tests for subheaders](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java)
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-card v-sheet theme--light">
+  <div class="v-subheader v-subheader--inset theme--light"> Subheader </div>
+  <div role="list" class="v-list v-sheet theme--light">
+    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+      <div class="v-list-item__action">
+        <i aria-hidden="true" class="v-icon notranslate mdi mdi-label theme--light"></i>
+      </div>
+      <div class="v-list-item__content">
+        <div class="v-list-item__title">List item 1</div>
+      </div>
+    </div>
+    <hr role="separator" aria-orientation="horizontal" class="v-divider v-divider--inset theme--light">
+    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+      <div class="v-list-item__action">
+        <i aria-hidden="true" class="v-icon notranslate mdi mdi-label theme--light"></i>
+      </div>
+      <div class="v-list-item__content">
+        <div class="v-list-item__title">List item 2</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+| Method                                      | Description                                                                | Return Type     |
+|---------------------------------------------|----------------------------------------------------------------------------|-----------------|
+| **is()**                                    | Returns Assert class                                                       | SubheaderAssert |
+| **isInset()**                               | Checks if element has "v-subheader--inset" class                           | boolean         |
+| **has()**                                   | Returns Assert class                                                       | SubheaderAssert |
+| **classes()**                               | Gets all element's classes as list                                         | List<String>    |
+| **doubleClick()**                           | Double clicks on the element                                               | void            |
+| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void            |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void            |
+| **getLocation()**                           | Gets element location as point                                             | Point           |
+| **getSize()**                               | Gets element size                                                          | Dimension       |
+| **getTagName()**                            | Gets element tag name                                                      | String          |
+| **getText()**                               | Gets element text                                                          | String          |
+| **getValue()**                              | Gets element text                                                          | String          |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean         |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean         |
+| **highlight()**                             | Highlights element with red color                                          | void            |
+| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void            |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void            |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean         |
+| **isDisplayed()**                           | Checks that element is displayed                                           | boolean         |
+| **isEnabled()**                             | Checks that element exists                                                 | boolean         |
+| **isHidden()**                              | Checks that element is hidden                                              | boolean         |
+| **isNotExist()**                            | Checks that element does not exist                                         | boolean         |
+| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean         |
+| **isVisible()**                             | Checks that element is visible by user                                     | boolean         |
+| **labelText()**                             | Gets label text                                                            | String          |
+| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String          |
+| **rightClick()**                            | Right clicks on the element                                                | void            |
+| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void            |
+| **show()**                                  | Scrolls screen view to item                                                | void            |
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/data/common/SubheadersTests.java">Java test examples</a>
 
 ### 5.21 Tables
 
@@ -2196,11 +2414,6 @@ For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-tes
 
 ### 5.26 Tooltips
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
-
-Tooltip is located in the following class:
-- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
-- 
 ```java
 //@FindBy(css = "div.v-tooltip__content")
 @UI("div.v-tooltip__content")
@@ -2222,9 +2435,11 @@ public void textTooltipsTest() {
   }
 ```
 
-__Tooltip__ - Tooltip is useful for conveying information when a user hovers over an element.
-Its display can be controlled programmatically.
-When activated, tooltips display a text label identifying an element, such as a description of its function.
+[Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
+
+__Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
+
+__Tooltip__ - Tooltip is useful for conveying information when a user hovers over an element. Its display can be controlled programmatically. When activated, tooltips display a text label identifying an element, such as a description of its function.
 
 ![Tooltips examples](../../images/vuetify/tooltips.png)
 
@@ -3075,6 +3290,22 @@ For examples of usage see: [JDI Vuetify TreeView tests](https://github.com/jdi-t
 ### 5.37 Button (VuetifyButton)
 
 ```java
+//@FindBy(css = ".elevation-2")
+@UI(".elevation-2")
+public static VuetifyButton commonButton;
+
+@Test(description = "Test checks that common button is clickable")
+public void commonButtonsTests() {
+  commonButton.has().hasNoLabel();
+  commonButton.show();
+  commonButton.is().displayed();
+  commonButton.has().elevated();
+  commonButton.has().lightTheme();
+  commonButton.click();
+  commonButtonState.has().text("Button clicked");
+  }
+  
+  
 // @FindBy(xpath = "//h2[text()='Depressed Buttons']/following-sibling::button")
 @UI("//h2[text()='Depressed Buttons']/following-sibling::button")
 public static List<VuetifyButton> depressedNormalButton;
@@ -3083,23 +3314,25 @@ public static List<VuetifyButton> depressedNormalButton;
 @UI("#depr-buttons-state")
 public static Text depressedButtonState;
 
-@Test(dataProvider = "depressedButtons",
-        dataProviderClass = ButtonsDataProvider.class)
+@Test(description = "Test checks button feature: 'depressed' and colors of the buttons",
+  dataProvider = "depressedButtons",
+  dataProviderClass = ButtonsDataProvider.class)
 public void depressedButtonsTests(int index, boolean enabled, String color, String name) {
-    VuetifyButton button = depressedNormalButton.get(index);
-    button.show();
-    button.is().displayed();
-    button.has().css("background-color", color);
-    
-    if (enabled) {
-        button.is().enabled();
-        button.click();
-        depressedButtonState.has().text("Depressed button clicked: " + name);
-    } else {
-        button.is().disabled();
-    }
-    depressedButtonState.has().text("Depressed button clicked: " + name);
-}
+  VuetifyButton button = depressedNormalButton.get(index);
+  button.has().hasNoLabel();
+  button.show();
+  button.is().displayed();
+  button.has().backgroundColor(color);
+
+  if (enabled) {
+  button.is().enabled();
+  button.click();
+  depressedButtonState.has().text("Depressed button clicked: " + name);
+  } else {
+  button.is().disabled();
+  }
+  depressedButtonState.has().text("Depressed button clicked: " + name);
+  }
 ```
 
 [Button Vuetify documentation page](https://vuetifyjs.com/en/components/buttons/)
@@ -3114,52 +3347,75 @@ class can be used to alter the background or text color.
 
 ![Button example](../../images/vuetify/buttons.png)
 
-Here is an example with provided Vuetify v2.6.2 code:
+__Vuetify v2.6.14__ code example:
 
 ```html
-<h2>Depressed Buttons</h2>
-<button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default">
-  <span class="v-btn__content">Normal</span>
-</button>
-<button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default primary">
-  <span class="v-btn__content">Primary</span>
-</button>
-<button type="button" class="ma-2 v-btn v-btn--has-bg theme--light v-size--default error">
-  <span class="v-btn__content">Error</span>
-</button>
-<button type="button" disabled="disabled" class="ma-2 v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default">
-  <span class="v-btn__content">Disabled</span>
-</button>
-<div class="v-input v-input--is-label-active v-input--is-dirty v-input--is-readonly theme--light v-text-field v-text-field--is-booted">
-  <div class="v-input__control">
-    <div class="v-input__slot">
-      <div class="v-text-field__slot">
-        <input id="depr-buttons-state" readonly="readonly" type="text">
-      </div>
-    </div>
-    <div class="v-text-field__details">...</div>
+<div class="row align-center justify-space-around" file="v-btn/prop-depressed">
+  <button type="button" class="v-btn v-btn--has-bg theme--light v-size--default">
+    <span class="v-btn__content"> Normal </span>
+  </button>
+  <button type="button" class="v-btn v-btn--has-bg theme--light v-size--default primary">
+    <span class="v-btn__content"> Primary </span>
+  </button>
+  <button type="button" class="v-btn v-btn--has-bg theme--light v-size--default error">
+    <span class="v-btn__content"> Error </span>
+  </button>
+  <button type="button" disabled="disabled" class="v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default">
+    <span class="v-btn__content"> Disabled </span>
+  </button>
 </div>
 ```
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions | VuetifyButtonAssert
-**has()** | Returns object for work with assertions | VuetifyButtonAssert
-**waitFor()** | Returns object for work with assertions | VuetifyButtonAssert
-**shouldBe()** | Returns object for work with assertions | VuetifyButtonAssert
-**verify()** | Returns object for work with assertions | VuetifyButtonAssert
-**assertThat()** | Returns object for work with assertions | VuetifyButtonAssert
-**VuetifyButton(UIElement)** | Parameterized UIElement constructor | VuetifyButton
-**icon()** | Returns button's icon | Icon
-**loader()** | Returns button's loader | UIElement
-**isLoading()** | Checks that the button is loading | boolean
-**getColor()** | Returns button's background color (in RGBA) | String
+| Method                                      | Description                                                                | Return Type         |
+|---------------------------------------------|----------------------------------------------------------------------------|---------------------|
+| **is()**                                    | Returns object for work with assertions                                    | VuetifyButtonAssert | 
+| **has()**                                   | Returns object for work with assertions                                    | VuetifyButtonAssert |
+| **and()**                                   | Returns object for work with assertions                                    | VuetifyButtonAssert |
+| **ariaLabel()**                             | Returns attribute "aria-label"                                             | String              |
+| **show()**                                  | Scrolls screen view to item                                                | void                |
+| **isLoading()**                             | Shows that element is loading                                              | boolean             |
+| **element()**                               | Returns VuetifyButton element                                              | VuetifyButton       |
+| **loading()**                               | Assert that element is loading                                             | VuetifyButtonAssert |
+| **clickable()**                             | Checks that element is clickable                                           | VuetifyButtonAssert |
+| **icon()**                                  | Checks that element has icon                                               | VuetifyButtonAssert |
+| **waitFor()**                               | Returns object for work with assertions                                    | VuetifyButtonAssert |
+| **shouldBe()**                              | Returns object for work with assertions                                    | VuetifyButtonAssert |
+| **verify()**                                | Returns object for work with assertions                                    | VuetifyButtonAssert | 
+| **assertThat()**                            | Returns object for work with assertions                                    | VuetifyButtonAssert |  
+| **icon()**                                  | Returns button's icon                                                      | Icon                |           
+| **loader()**                                | Returns button's loader                                                    | UIElement           |            
+| **isLoading()**                             | Checks that the button is loading                                          | boolean             |       
+| **color()**                                 | Returns css attribute background-color as String Value                     | String              |
+| **waitFor()**                               | Returns object for work with assertions                                    | VuetifyButtonAssert |
+| **classes()**                               | Gets all element's classes as list                                         | List<String>        |
+| **doubleClick()**                           | Double clicks on the element                                               | void                |
+| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void                |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void                |
+| **getLocation()**                           | Gets element location as point                                             | Point               |
+| **getSize()**                               | Gets element size                                                          | Dimension           |
+| **getTagName()**                            | Gets element tag name                                                      | String              |
+| **getText()**                               | Gets element text                                                          | String              |
+| **getValue()**                              | Gets element text                                                          | String              |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean             |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean             |
+| **highlight()**                             | Highlights element with red color                                          | void                |
+| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void                |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void                |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean             |
+| **isDisplayed()**                           | Checks that element is displayed                                           | boolean             |
+| **isEnabled()**                             | Checks that element exists                                                 | boolean             |
+| **isHidden()**                              | Checks that element is hidden                                              | boolean             |
+| **isNotExist()**                            | Checks that element does not exist                                         | boolean             |
+| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean             |
+| **isVisible()**                             | Checks that element is visible by user                                     | boolean             |
+| **labelText()**                             | Gets label text                                                            | String              |
+| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String              |
+| **rightClick()**                            | Right clicks on the element                                                | void                |
+| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void                |
 
 [Here you can find Buttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/VuetifyButtonsTests.java).
-
-<br></br>
 
 ### 5.38 Chip
 

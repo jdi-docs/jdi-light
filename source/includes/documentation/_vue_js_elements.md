@@ -2919,49 +2919,49 @@ Image is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Image.java_
 
 ```java
-    @Test(dataProvider = "measurementImagesDataProvider", dataProviderClass = ImagesTestsDataProvider.class)
-    public void measurementImagesTest(int sliderValue, int width, int height) {
-        aspectRatioImage.is().displayed();
-        slider.slideHorizontalTo(String.valueOf(sliderValue));
-        aspectRatioImage.has().width(width);
-        aspectRatioImage.has().height(height);
-    }
-
+    //@FindBy(css = "#GradientsImage .v-image")
+    @UI("#GradientsImage")
+    public static Image gradientsImage;
+    
     @Test
-    public void gradientsImagesTest() {
-        gradientsImages.forEach(gradientsImage -> {
-            gradientsImage.show();
-            gradientsImage.has().gradient();
-        });
-        aspectRatioImage.has().noGradient();
-  }
+    public void gradientsImagesTests() {
+        gradientsImage.show();
+        gradientsImage.is().displayed()
+            .has().sourcePath("https://cdn.vuetifyjs.com/images/parallax/material2.jpg");
+            .has().width(516.984);
+            .has().height(290.797);
+            .has().gradient();
+    }
 ```
 
-__Image__ - The `v-img` component is packed with features to support rich media. Combined with the [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader), you can add dynamic progressive images to provide a better user experience.
+__Image__ - The `v-img` component is packed with features to support rich media.
+Combined with the [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader), you can add dynamic progressive images to provide a better user experience.
 
 ![Images examples](../../images/vuetify/images.png)
 
-__Image__ element implements following interfaces: HasMeasurement, HasTheme.
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-image v-responsive theme--light" aria-label="alternate-text-here" role="img" >
+  <div class="v-responsive__sizer" style="padding-bottom: 60%;"></div>
+  <div class="v-image__image v-image__image--cover" style="background-image: url(&quot;https://source.for.image/goes?here&quot;); background-position: center center;"></div>
+  <div class="v-image__placeholder">
+  <div class="v-responsive__content style="width: 1600px;">
+    <div data-v-6b11fdaf="" class="fill-height repeating-gradient"></div>
+  </div>
+</div>
+```
 
-__Image__ element has following methods:
+| Method | Description | Return Type | 
+|:---| :--- |:---|
+**alternateText()** | Returns image alternate text if present | String
+**getSourcePath()** | Returns path to source image | String
+**isContain()** | Returns true if image is set to preserve its original aspect ratio | boolean
+**hasGradient()** | Shows that image has gradient | boolean
+**hasPlaceholder()** | Shows that image has placeholder (shown while image is loading) | boolean 
 
-|Method | Description                          | Return Type
---- |--------------------------------------| ---
-**is()** | Returns Assert class                 | ImageAssert
-**getJDIImage()** | Casts vuetify Image to HTML Image    | com.epam.jdi.light.ui.html.elements.common.Image
-**alternateText()** | Gets '{name}' alternate image text   | String
-**isContain()** | Checks that '{name}' is contain      | boolean
-**getSourcePath()** | Gets '{name}' image source path      | String
-**hasGradient()** | Checks that '{name}' has gradient    | boolean
-**hasPlaceholder()** | Checks that '{name}' has placeholder | boolean
-**height()** | Gets '{name}' height                 | int
-**width()** | Gets '{name}' width                  | int
-**maxHeight()** | Gets '{name}' max height             | int
-**maxWidth()** | Gets '{name}' max width              | int
-**minHeight()** | Gets '{name}' min height             | int
-**minWidth()** | Gets '{name}' min width              | int
+Image also have basic JDI elements methods for Measurements and Theme
 
-Examples of usage see on the following page: [Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
+For examples of usage see: [JDI Vuetify Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
 
 ### 5.30 Timelines
 

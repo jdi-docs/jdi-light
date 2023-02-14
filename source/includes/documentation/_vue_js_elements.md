@@ -2913,7 +2913,7 @@ For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-ligh
 
 ### 5.29 Images
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/images/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/images/)
 
 Image is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Image.java_
@@ -2927,9 +2927,9 @@ Image is located in the following class:
     public void gradientsImagesTests() {
         gradientsImage.show();
         gradientsImage.is().displayed()
-            .has().sourcePath("https://cdn.vuetifyjs.com/images/parallax/material2.jpg");
-            .has().width(516.984);
-            .has().height(290.797);
+            .has().sourcePath("https://cdn.vuetifyjs.com/images/parallax/material2.jpg")
+            .has().width(516.984)
+            .has().height(290.797)
             .has().gradient();
     }
 ```

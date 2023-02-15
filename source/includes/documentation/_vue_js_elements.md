@@ -2923,7 +2923,7 @@ Image is located in the following class:
     @UI("#GradientsImage")
     public static Image gradientsImage;
     
-    @Test
+    @Test(description = "Check shown image has gradient")
     public void gradientsImagesTests() {
         gradientsImage.show();
         gradientsImage.is().displayed()
@@ -2959,7 +2959,20 @@ __Vuetify v2.6.14__ code example:
 **hasGradient()** | Shows that image has gradient | boolean
 **hasPlaceholder()** | Shows that image has placeholder (shown while image is loading) | boolean 
 
-Image also have basic JDI elements methods for Measurements and Theme
+| Assert method | Description |
+| :--- | :--- |
+
+**altText(String expectedText)** | Assert if image has expected alternate test 
+**contain()** | Assert if image is set to preserve its original aspect ratio
+**notContain()** | Assert if image is not set to preserve its original aspect ratio
+**displayed()** | Assert if image is displayed
+**sourcePath(String expectedSourcePath)** | Assert if image has expected source path
+**gradient()** | Assert if image has gradient over
+**noGradient()** | Assert if image has no gradient over
+**placeholder()** | Assert if image has loader placeholder (loader overlay) 
+**noPlaceholder()** | Assert if image has no loader placeholder (loader overlay) 
+
+Image also have basic JDI elements methods and asserts for Measurements and Theme
 
 For examples of usage see: [JDI Vuetify Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
 

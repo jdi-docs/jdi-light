@@ -4228,7 +4228,7 @@ Examples of usage see on the following page:
     @UI("#RoundedSheet")
     public static Sheet roundedSheet;
     
-    @Test
+    @Test(description = "Check that expected sheet is present")
     public void roundedSheetTest() {
         roundedSheet.show();
         roundedSheet.is().displayed()
@@ -4259,6 +4259,10 @@ __Vuetify v2.6.14__ code example:
 **borderRadius()** | Returns sheet border radius in px | int
 **color()** | Returns sheet color (the same as backgroundColour()) | [](overridden method)
 
-Sheet also have basic JDI elements methods for Color, Elevation, Measurements, Theme and others
+| Assert method | Description |
+| :--- | :--- |
+ **borderRadius(int value)** | Asserts if sheet has expected border radius
 
-For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SheetsTests.java).
+Sheet also have basic JDI elements methods and asserts for Text, Color, Elevation, Measurements, Theme and others
+
+For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SheetsTests.java)

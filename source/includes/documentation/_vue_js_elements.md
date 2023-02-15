@@ -2961,7 +2961,6 @@ __Vuetify v2.6.14__ code example:
 
 | Assert method | Description |
 | :--- | :--- |
-
 **altText(String expectedText)** | Assert if image has expected alternate test 
 **contain()** | Assert if image is set to preserve its original aspect ratio
 **notContain()** | Assert if image is not set to preserve its original aspect ratio

@@ -2553,41 +2553,57 @@ __Vuetify v2.6.14__ code example:
 
 | Method | Description | Return Type |
 | :--- | :--- | :--- | 
-**setTime(String time)** | Sets TimePicker to provided time (time string in ISO-8601 extended local time format) | void
-**setTime(LocalTime time)** | Sets TimePicker to provided time | void
-**setTime(int hours, int minutes)** | Sets TimePicker to provided hours and minutes | void
-**setTime(int hours, int minutes, int seconds)** | Sets TimePicker to provided hours, minutes, seconds | void
+**setTime(String time)** | Sets Time Picker to provided time (time string in ISO-8601 extended local time format) | void
+**setTime(LocalTime time)** | Sets Time Picker to provided time | void
+**setTime(int hours, int minutes)** | Sets Time Picker to provided hours and minutes | void
+**setTime(int hours, int minutes, int seconds)** | Sets Time Picker to provided hours, minutes, seconds | void
 **select(int number)** | Selects number on a currently shown clock face | void
-**setHours(int hours)** | Switches TimePicker to hours (selects AM/PM if needed) and set hours (0-23)| void
-**setMinutes(int minutes)** | Switches TimePicker to minutes and sets minutes (0-59) | void
-**setSeconds(int seconds)** | Switches TimePicker to seconds and sets seconds (0-59) | void
-**hasSeconds()** | Returns true if TimePicker configured to show seconds | boolean
-**switchToAM()** | Switches time picker to AM | void
-**switchToPM()** | Switches time picker to PM | void
-**switchToHours()** | Switches time picker to hours selector | void
-**switchToMinutes()** | Switches time picker to minutes selector | void
-**switchToSeconds()** | Switches time picker to seconds selector | void
-**titleText()** | Returns TimePicker time from title as is, without formatting ('17:01', '5:01:08PM') | String
-**titleTime()** | Returns TimePicker time from title as LocalTime object | LocalTime
-**titleHours()** | Returns TimePicker time hours | int
-**titleMinutes()** | Returns TimePicker time minutes | int
-**titleSeconds()** | Returns TimePicker time seconds | int
-**is12h()** | Returns true if TimePicker is 12h or false if 24h | boolean
+**setHours(int hours)** | Switches Time Picker to hours (selects AM/PM if needed) and set hours (0-23)| void
+**setMinutes(int minutes)** | Switches TimeP icker to minutes and sets minutes (0-59) | void
+**setSeconds(int seconds)** | Switches Time Picker to seconds and sets seconds (0-59) | void
+**hasSeconds()** | Returns true if Time Picker configured to show seconds | boolean
+**switchToAM()** | Switches Time picker to AM | void
+**switchToPM()** | Switches Time Picker to PM | void
+**switchToHours()** | Switches Time Picker to hours selector | void
+**switchToMinutes()** | Switches Time Picker to minutes selector | void
+**switchToSeconds()** | Switches Time Picker to seconds selector | void
+**titleText()** | Returns Time Picker time from title as is, without formatting ('17:01', '5:01:08PM') | String
+**titleTime()** | Returns Time Picker time from title as LocalTime object | LocalTime
+**titleHours()** | Returns Time Picker time hours | int
+**titleMinutes()** | Returns Time Picker time minutes | int
+**titleSeconds()** | Returns Time Picker time seconds | int
+**is12h()** | Returns true if Time Picker is 12h or false if 24h | boolean
 **amPmPeriod()** | Returns currently selected AM/PM period "AM" or "PM" | String
 **clockNumbers()** | Returns all numbers shown on the clock face | List<Integer>
 **enabledClockNumbers()** | Returns enabled numbers on the Clock face | List<Integer>
 **disabledClockNumbers()**| Returns disabled numbers on the Clock face | List<Integer>
 **selectedNumber()** | Returns currently selected number on the Clock face | int
-**isReadOnly()** | Checks if the TimePicker is read-only | boolean [](overridden method)
-**isDisabled()** | Checks if the TimePicker is disabled | boolean [](overridden method)
-**titleBackgroundColor()** | Returns background color of the TimePicker title (hex) | String
-**isLandscape()** | Checks if the TimePicker displayed in landscape mode | boolean
+**isReadOnly()** | Checks if the Time Picker is read-only | boolean [](overridden method)
+**isDisabled()** | Checks if the Time Picker is disabled | boolean [](overridden method)
+**titleBackgroundColor()** | Returns background color of the Time Picker title (hex) | String
+**isLandscape()** | Checks if the Time Picker displayed in landscape mode | boolean
 **scroll(int mouseWheelTicks)** | Emulates mouse wheel scroll on the Clock face | void [](overridden method)
 **title()** | Returns JDI UIElement representing title | UIElement
 **clock()** | Returns JDI UIElement representing clock face | UIElement
 
-TimePicker also have basic JDI elements methods.
+| Assert method | Description |
+| :--- | :--- |
+**title(String titleTime)** | Asserts that title has expected text  
+**time(LocalTime time)** | Asserts that title has expected title 
+**hours(int hours)** | Asserts that title has expected hours 
+**minutes(int minutes)** | Asserts that title has expected minutes 
+**seconds(int seconds)** | Asserts that title has expected seconds 
+**disabledNumbers(Integer... expectedDisabledNumbers)** | Asserts that clock face has expected disabled numbers (only shown) 
+**enabledNumbers(Integer... expectedEnabledNumbers)** | Asserts that clock face has expected enabled numbers (only shown) 
+**selectedNumber(int expectedSelectedNumber)** |  Asserts that clock face has expected selected number (or clock hand points to expected number)
+**format12()** | Asserts that clock has 12h format
+**format24()** | Asserts that clock has 24h format
+**amPeriod()** | Asserts that 12h format clock is set to AM
+**pmPeriod()** | Asserts that 24h format clock is set to PM
+**landscape()** | Asserts that Time Picker is in landscape orientation
+**notLandscape()** | Asserts that Time Picker is not in landscape orientation
 
+Time Picker also have basic JDI elements methods and asserts for Color, Theme, Elevation, Measurements and others.
 For examples of usage see: [JDI Vuetify TimePickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java).
 
 #### 5.31.2 Date pickers

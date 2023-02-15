@@ -4228,7 +4228,7 @@ Examples of usage see on the following page:
     @UI("#RoundedSheet")
     public static Sheet roundedSheet;
     
-    @Test(description = "Check that expected sheet is present")
+    @Test(description = "Check that sheet with expected attributes is present")
     public void roundedSheetTest() {
         roundedSheet.show();
         roundedSheet.is().displayed()

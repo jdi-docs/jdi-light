@@ -11,8 +11,8 @@
     @UI(".v-alert")
     public static Alert alert;
 
-    @Test
-    public void alertTest(){
+    @Test(description = "Check that warning alert is shown")
+    public void warningAlertTest(){
         alert.show()
         alert.has().text("I'm an alert with a top border and red color")
             .has().color("rgba(255, 255, 255, 1)")
@@ -54,7 +54,22 @@ __Vuetify v2.6.14__ code example:
 **borderBackGroundColor()** | Returns border background color | boolean
 **type()** | Returns alert type (info, success, warning, error) or empty string if type is undefined | String 
 
-Alert also have basic JDI elements methods for Color, Elevation, Measurements, Theme and others
+| Assert method | Description |
+| :--- | :--- |
+**text(Matcher<String condition)** | Asserts if alert text matches provided matcher
+**dismissible()** or **hasCloseButton()** | Asserts if alert has close button
+**notDismissible()** or **hasNotCloseButton()** | Asserts if alert has no close button
+**prominent()** | Asserts if alert is prominent and has halo for icon
+**prominent()** | Asserts if alert is not prominent and has no halo for icon
+**border()** | Asserts if alert is prominent and has halo for icon
+**noBorder()** | Asserts if alert is not prominent and has no halo for icon
+**border(String borderValue)** | Asserts if alert has expected border side (top, right, bottom or left)
+**coloredBorder()** | Asserts if alert has colored border
+**noColoredBorder()** | Asserts if alert has not colored border
+**backgroundBorderColor(String borderBackgroundColor)** | Asserts if alert has expected border background color
+**type()** | Asserts if alert has expected type (info, success, warning, error)
+
+Alert also have basic JDI elements methods and asserts for Text, Color, Elevation, Outline, Measurements, Theme and others
 
 For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/alerts/IconAlert.java)
 and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).

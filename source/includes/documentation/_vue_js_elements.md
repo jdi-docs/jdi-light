@@ -337,49 +337,78 @@ For examples of usage see: [Vuetify Bottom sheets tests](https://github.com/jdi-
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/breadcrumbs/)
 
+Breadcrumbs is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Breadcrumbs.java_
 
 ```java
+//@FindBy(css = "#differentDividersBreadcrumbs')
     @JDIBreadcrumbs(
             root = "#differentDividersBreadcrumbs > ul:nth-child(2)",
             items = ".v-breadcrumbs__item",
             dividers = ".v-breadcrumbs__divider"
     )
     public static Breadcrumbs forwardSlashedBreadcrumbs;
-```
+    
+     @JDIBreadcrumbs(root = "#itemSlotBreadcrumbs > ul")
+    public static Breadcrumbs itemSlotsBreadcrumbs;
 
-You can specify locators for the root, links and dividers
-explicitly through a `JDIBreadcrumbs` annotation:
 
-```java
-    @JDIBreadcrumbs(root = "#largeBreadcrumbs > ul")
-    public static Breadcrumbs largeBreadcrumbs;
-```
-
-```java
-    @Test
-    public void itemSlotBreadcrumbsTest() {
-        itemSlotsBreadcrumbs.is().displayed();
-        itemSlotsBreadcrumbs.has().size(3);
-        itemSlotsBreadcrumbs.dividers().has().size(2);
-        itemSlotsBreadcrumbs.items().has().values("DASHBOARD", "LINK 1", "LINK 2");
-        jdiAssert(itemSlotsBreadcrumbs.selected("DASHBOARD"), Matchers.is(false));
-        jdiAssert(itemSlotsBreadcrumbs.selected("LINK 2"), Matchers.is(true));
+    @Test(description = "Test checks dividers types")
+    public void dividersTypeTest() {
+        dashedBreadcrumbs.show();
+        dashedBreadcrumbs.has().dividerType("-");
+        forwardSlashedBreadcrumbs.show();
+        forwardSlashedBreadcrumbs.has().dividerType("/");
+        dottedBreadcrumbs.show();
+        dottedBreadcrumbs.has().dividerType(".");
+        semicolonBreadcrumbs.show();
+        semicolonBreadcrumbs.has().dividerType(";");
+        greaterSignBreadcrumbs.show();
+        greaterSignBreadcrumbs.has().dividerType(">");
     }
+    
 ```
+
+Breadcrumbs can be used to specify locators for the root, links and dividers
+explicitly through a `JDIBreadcrumbs` annotation.It is **necessary** to specify **the root** of an element.
 
 ![Breadcrumbs example](../../images/vuetify/breadcrumbs.png)
 
-It is **necessary** to specify **the root** of an element
+__Vuetify v2.6.14__ code example:
 
-|Method | Description | Return Type
---- | --- | ---
-**selected()** | Returns selected element | String
-**selected(String)** | Shows that required element is selected | String
-**dividers()** | Returns element's dividers | WebList
-**items()** | Returns element's items | WebList
+```html
+<div id="differentDividersBreadcrumbs">
+   <ul class="v-breadcrumbs theme--light">
+      <li>
+         <a href="#dashboard" class="v-breadcrumbs__item">Dashboard</a>
+      </li>
+       <li class="v-breadcrumbs__divider">-</li>
+      <li>
+         <a href="#link1" class="v-breadcrumbs__item">Link 1</a>
+      </li>
+      <li class="v-breadcrumbs__divider">-</li>
+      <li><a href="#link2" class="v-breadcrumbs__item v-breadcrumbs__item--disabled">Link 2</a>
+      </li>
+   </ul>
+```
+Breadcrumbs has the following methods:
 
-For examples of usage see: [Vuetify Breadcrumbs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java).
+|Method                           | Description                      | Return Type
+----------------------------------| ------------------------ --------|-----------------------------------
+**selected()**                    | Returns selected element                       | String
+**selected(String)**              | Shows that required element is selected        | String
+**dividers()**                    | Returns element's dividers                     | WebList
+**items()**                       | Returns element's items                        | WebList
+**isLarge()**                     | Check if element is large                      | boolean
+**setup(Field)**                  | Setting up Breadcrumbs element by Field        | void         
+**setup(String, String, String)** | Returns Breadcrumbs element by locators        | Breadcrumbs       
+**is()**                          | Returns object for work with assertions        | BreadcrumbsAssert  
+**isDisabled()**                  | Check that breadcrumb is disabled              | boolean
+**isEnabled()**                   | Check that breadcrumb is not disabled          | boolean
+
+
+
+<a href=https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java">Java test examples</a>
 
 ### 5.8 Cards
 

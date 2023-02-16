@@ -44491,75 +44491,318 @@ element by using generic. <strong>That classes must implement <code>ICoreElement
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimelinesTests.java">JDI Vuetify TimeLine tests</a>.</p>
 <h3 id='5-31-pickers'>5.31 Pickers</h3><h4 id='5-31-1-time-pickers'>5.31.1 Time pickers</h4>
-<p><a href="https://vuetifyjs.com/en/components/time-pickers/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/time-pickers/">Vuetify documentation page</a></p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.TimePickers.java</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.TimePicker.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>  <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">allowedTimesTimePickerTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">24</span><span class="o">);</span>
-      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"9"</span><span class="o">);</span>
-      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"30"</span><span class="o">);</span>
-      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"30"</span><span class="o">);</span>
-      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"00"</span><span class="o">,</span> <span class="s">"05"</span><span class="o">,</span> <span class="s">"10"</span><span class="o">,</span> <span class="s">"15"</span><span class="o">,</span> <span class="s">"20"</span><span class="o">,</span> <span class="s">"25"</span><span class="o">);</span>
-      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">elementDisabled</span><span class="o">(</span><span class="s">"55"</span><span class="o">);</span>
-  <span class="o">}</span>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#TimePicker")</span>
+<span class="nd">@JTimePicker</span><span class="o">(</span><span class="s">"#TimePicker"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">TimePicker</span> <span class="n">timePicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span> <span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks that time picker has expected disabled hours"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">timePicker</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">timePicker</span><span class="o">.</span><span class="na">setTime</span><span class="o">(</span><span class="s">"14:53:48"</span><span class="o">);</span>
+    <span class="n">timePicker</span><span class="o">.</span><span class="na">has</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">title</span><span class="o">(</span><span class="s">"2:53:48PM"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">time</span><span class="o">(</span><span class="n">LocalTime</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"14:53:48"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">hours</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">minutes</span><span class="o">(</span><span class="mi">53</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">pmPeriod</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">format12</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">darkTheme</span><span class="o">();</span>
+    <span class="n">timePicker</span><span class="o">.</span><span class="na">switchToMinutes</span><span class="o">();</span>
+    <span class="n">timePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selectedNumber</span><span class="o">(</span><span class="mi">53</span><span class="o">);</span>
+    <span class="n">timePicker</span><span class="o">.</span><span class="na">scroll</span><span class="o">(</span><span class="mi">13</span><span class="o">);</span>
+    <span class="n">timePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selectedNumber</span><span class="o">(</span><span class="mi">40</span><span class="o">);</span>
 </code></pre>
 <p>The v-time-picker is stand-alone component that can be utilized in many existing Vuetify components.
 It offers the user a visual representation for selecting the time.</p>
 
-<p><img src="images/vuetify/time_pickers.png" alt="TimePickers example" /></p>
+<p><img src="images/vuetify/time_picker_h_24.png" alt="TimePickers example_1" />
+<img src="images/vuetify/time_picker_v_AMPM.png" alt="TimePickers example_2" /></p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;v-picker v-card v-picker--time theme--light&quot;&gt;
+  &lt;div class=&quot;v-picker__title primary&quot;&gt;
+    &lt;div class=&quot;v-time-picker-title&quot;&gt;
+      &lt;div class=&quot;v-time-picker-title__time&quot;&gt;
+        &lt;div class=&quot;v-picker__title__btn&quot;&gt;2&lt;/div&gt;
+        &lt;span&gt;:&lt;/span&gt;
+        &lt;div class=&quot;v-picker__title__btn v-picker__title__btn--active&quot;&gt;53&lt;/div&gt;
+        &lt;span&gt;:&lt;/span&gt;
+        &lt;div class=&quot;v-picker__title__btn&quot;&gt;48&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;v-time-picker-title__ampm v-time-picker-title__ampm--readonly&quot;&gt;
+        &lt;div class=&quot;v-picker__title__btn v-picker__title__btn--active&quot;&gt;PM&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;v-picker__body theme--light&quot; style=&quot;width: 290px;&quot;&gt;
+    &lt;div class=&quot;v-time-picker-clock__container&quot;&gt;
+      &lt;div class=&quot;v-time-picker-clock__ampm primary--text&quot;&gt;
+        &lt;div class=&quot;v-picker__title__btn v-picker__title__btn--active&quot;&gt;PM&lt;/div&gt;
+        &lt;div class=&quot;v-picker__title__btn&quot;&gt;PM&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;v-time-picker-clock theme--light&quot;&gt;
+        &lt;div class=&quot;v-time-picker-clock__inner&quot;&gt;
+        &lt;div class=&quot;v-time-picker-clock__hand accent&quot; style=&quot;transform: rotate(318deg) scaleY(1);&quot;&gt;&lt;/div&gt;
+        &lt;span class=&quot;v-time-picker-clock__item&quot; style=&quot;left: 50%; top: 0%;&quot;&gt;
+          &lt;span&gt;00&lt;/span&gt;
+        &lt;/span&gt;
+        &lt;span class=&quot;v-time-picker-clock__item&quot; style=&quot;left: 75%; top: 6.69873%;&quot;&gt;
+          &lt;span&gt;05&lt;/span&gt;
+        &lt;/span&gt;
+        &lt;!-- clock face numbers 10 .. 45 --&gt;  
+        &lt;span class=&quot;v-time-picker-clock__item&quot; style=&quot;left: 6.69873%; top: 25%;&quot;&gt;
+          &lt;span&gt;50&lt;/span&gt;
+        &lt;/span&gt;
+        &lt;span class=&quot;v-time-picker-clock__item&quot; style=&quot;left: 25%; top: 6.69873%;&quot;&gt;
+          &lt;span&gt;55&lt;/span&gt;
+        &lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
 
 <table><thead>
 <tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
+<th style="text-align: left">Method</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Return Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>select()</strong></td>
-<td>Select time</td>
-<td>void</td>
+<td style="text-align: left"><strong>setTime(String time)</strong></td>
+<td style="text-align: left">Sets Time Picker to provided time (time string in ISO-8601 extended local time format)</td>
+<td style="text-align: left">void</td>
 </tr>
 <tr>
-<td><strong>enabled()/disabled()</strong></td>
-<td>Returns true/false whether TimePicker is enabled</td>
-<td>boolean</td>
+<td style="text-align: left"><strong>setTime(LocalTime time)</strong></td>
+<td style="text-align: left">Sets Time Picker to provided time</td>
+<td style="text-align: left">void</td>
 </tr>
 <tr>
-<td><strong>elementEnabled()/elementDisabled()</strong></td>
-<td>Returns true/false whether time is enabled/disabled</td>
-<td>boolean</td>
+<td style="text-align: left"><strong>setTime(int hours, int minutes)</strong></td>
+<td style="text-align: left">Sets Time Picker to provided hours and minutes</td>
+<td style="text-align: left">void</td>
 </tr>
 <tr>
-<td><strong>is()/has()</strong></td>
-<td>Returns Assert class</td>
-<td>TimePickersAssert</td>
+<td style="text-align: left"><strong>setTime(int hours, int minutes, int seconds)</strong></td>
+<td style="text-align: left">Sets Time Picker to provided hours, minutes, seconds</td>
+<td style="text-align: left">void</td>
 </tr>
 <tr>
-<td><strong>enabled()/disabled()</strong></td>
-<td>Assert that TimePicker is enabled</td>
-<td>TimePickersAssert</td>
+<td style="text-align: left"><strong>select(int number)</strong></td>
+<td style="text-align: left">Selects number on a currently shown clock face</td>
+<td style="text-align: left">void</td>
 </tr>
 <tr>
-<td><strong>elementEnabled()/elementDisabled()</strong></td>
-<td>Assert that <em>time</em> in TimePicker is enabled</td>
-<td>TimePickersAssert</td>
+<td style="text-align: left"><strong>setHours(int hours)</strong></td>
+<td style="text-align: left">Switches Time Picker to hours (selects AM/PM if needed) and set hours (0-23)</td>
+<td style="text-align: left">void</td>
 </tr>
 <tr>
-<td><strong>selected()</strong></td>
-<td>Assert that <em>time</em> in TimePicker is selected</td>
-<td>TimePickersAssert</td>
+<td style="text-align: left"><strong>setMinutes(int minutes)</strong></td>
+<td style="text-align: left">Switches TimeP icker to minutes and sets minutes (0-59)</td>
+<td style="text-align: left">void</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>setSeconds(int seconds)</strong></td>
+<td style="text-align: left">Switches Time Picker to seconds and sets seconds (0-59)</td>
+<td style="text-align: left">void</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>hasSeconds()</strong></td>
+<td style="text-align: left">Returns true if Time Picker configured to show seconds</td>
+<td style="text-align: left">boolean</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>switchToAM()</strong></td>
+<td style="text-align: left">Switches Time picker to AM</td>
+<td style="text-align: left">void</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>switchToPM()</strong></td>
+<td style="text-align: left">Switches Time Picker to PM</td>
+<td style="text-align: left">void</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>switchToHours()</strong></td>
+<td style="text-align: left">Switches Time Picker to hours selector</td>
+<td style="text-align: left">void</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>switchToMinutes()</strong></td>
+<td style="text-align: left">Switches Time Picker to minutes selector</td>
+<td style="text-align: left">void</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>switchToSeconds()</strong></td>
+<td style="text-align: left">Switches Time Picker to seconds selector</td>
+<td style="text-align: left">void</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>titleText()</strong></td>
+<td style="text-align: left">Returns Time Picker time from title as is, without formatting (&#39;17:01&#39;, &#39;5:01:08PM&#39;)</td>
+<td style="text-align: left">String</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>titleTime()</strong></td>
+<td style="text-align: left">Returns Time Picker time from title as LocalTime object</td>
+<td style="text-align: left">LocalTime</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>titleHours()</strong></td>
+<td style="text-align: left">Returns Time Picker time hours</td>
+<td style="text-align: left">int</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>titleMinutes()</strong></td>
+<td style="text-align: left">Returns Time Picker time minutes</td>
+<td style="text-align: left">int</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>titleSeconds()</strong></td>
+<td style="text-align: left">Returns Time Picker time seconds</td>
+<td style="text-align: left">int</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>is12h()</strong></td>
+<td style="text-align: left">Returns true if Time Picker is 12h or false if 24h</td>
+<td style="text-align: left">boolean</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>amPmPeriod()</strong></td>
+<td style="text-align: left">Returns currently selected AM/PM period &quot;AM&quot; or &quot;PM&quot;</td>
+<td style="text-align: left">String</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>clockNumbers()</strong></td>
+<td style="text-align: left">Returns all numbers shown on the clock face</td>
+<td style="text-align: left">List<Integer></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>enabledClockNumbers()</strong></td>
+<td style="text-align: left">Returns enabled numbers on the Clock face</td>
+<td style="text-align: left">List<Integer></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>disabledClockNumbers()</strong></td>
+<td style="text-align: left">Returns disabled numbers on the Clock face</td>
+<td style="text-align: left">List<Integer></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>selectedNumber()</strong></td>
+<td style="text-align: left">Returns currently selected number on the Clock face</td>
+<td style="text-align: left">int</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>isReadOnly()</strong></td>
+<td style="text-align: left">Checks if the Time Picker is read-only</td>
+<td style="text-align: left">boolean <a href="overridden%20method"></a></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>isDisabled()</strong></td>
+<td style="text-align: left">Checks if the Time Picker is disabled</td>
+<td style="text-align: left">boolean <a href="overridden%20method"></a></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>titleBackgroundColor()</strong></td>
+<td style="text-align: left">Returns background color of the Time Picker title (hex)</td>
+<td style="text-align: left">String</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>isLandscape()</strong></td>
+<td style="text-align: left">Checks if the Time Picker displayed in landscape mode</td>
+<td style="text-align: left">boolean</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>scroll(int mouseWheelTicks)</strong></td>
+<td style="text-align: left">Emulates mouse wheel scroll on the Clock face</td>
+<td style="text-align: left">void <a href="overridden%20method"></a></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>title()</strong></td>
+<td style="text-align: left">Returns JDI UIElement representing title</td>
+<td style="text-align: left">UIElement</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>clock()</strong></td>
+<td style="text-align: left">Returns JDI UIElement representing clock face</td>
+<td style="text-align: left">UIElement</td>
 </tr>
 </tbody></table>
 
-<p>TimePickers have also a lot of list-based JDI elements methods.</p>
+<table><thead>
+<tr>
+<th style="text-align: left">Assert method</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>title(String titleTime)</strong></td>
+<td style="text-align: left">Asserts that title has expected text</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>time(LocalTime time)</strong></td>
+<td style="text-align: left">Asserts that title has expected title</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>hours(int hours)</strong></td>
+<td style="text-align: left">Asserts that title has expected hours</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>minutes(int minutes)</strong></td>
+<td style="text-align: left">Asserts that title has expected minutes</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>seconds(int seconds)</strong></td>
+<td style="text-align: left">Asserts that title has expected seconds</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>disabledNumbers(Integer... expectedDisabledNumbers)</strong></td>
+<td style="text-align: left">Asserts that clock face has expected disabled numbers (only shown)</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>enabledNumbers(Integer... expectedEnabledNumbers)</strong></td>
+<td style="text-align: left">Asserts that clock face has expected enabled numbers (only shown)</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>selectedNumber(int expectedSelectedNumber)</strong></td>
+<td style="text-align: left">Asserts that clock face has expected selected number (or clock hand points to expected number)</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>format12()</strong></td>
+<td style="text-align: left">Asserts that clock has 12h format</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>format24()</strong></td>
+<td style="text-align: left">Asserts that clock has 24h format</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>amPeriod()</strong></td>
+<td style="text-align: left">Asserts that 12h format clock is set to AM</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>pmPeriod()</strong></td>
+<td style="text-align: left">Asserts that 24h format clock is set to PM</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>landscape()</strong></td>
+<td style="text-align: left">Asserts that Time Picker is in landscape orientation</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>notLandscape()</strong></td>
+<td style="text-align: left">Asserts that Time Picker is not in landscape orientation</td>
+</tr>
+</tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java">JDI Vuetify TimePickers tests</a>.</p>
+<p>Time Picker also have basic JDI elements methods and asserts for Color, Theme, Elevation, Measurements and others.
+For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java">JDI Vuetify TimePickers tests</a>.</p>
 <h4 id='5-31-2-date-pickers'>5.31.2 Date pickers</h4>
 <p><a href="https://vuetifyjs.com/en/components/date-pickers/">Vuetify documentation page</a></p>
 

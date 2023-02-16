@@ -40599,32 +40599,51 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java">JDI Vuetify Sliders tests</a></p>
 <h4 id='5-12-4-switches'>5.12.4 Switches</h4>
-<p><a href="https://vuetifyjs.com/en/components/switches/">Vuetify documentation page</a></p>
+<p><a href="https://vuetifyjs.com/en/components/switches/">Switches Vuetify documentation page</a></p>
 
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Switch.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorTest</span><span class="o">()</span> <span class="o">{</span>
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nl">Switch:</span><span class="o">:</span><span class="n">isDisabled</span><span class="o">);</span>
+<p>Switches are located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Switch.java</em></p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#ColorsSwitch .v-input--switch")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#ColorsSwitch .v-input--switch"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Switch</span><span class="o">&gt;</span> <span class="n">colorSwitches</span><span class="o">;</span>
 
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">RED</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">BLACK_TRANSPARENT_087</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">ORANGE_DARKEN_3</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">BLACK_TRANSPARENT_087</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">12</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">RED_ACCENT_2</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">12</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
-  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">12</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">BLACK_TRANSPARENT_087</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-  <span class="o">}</span>
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks parameters of switch: color, text, functionality"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">functionalityAndCssStyleSwitchTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">String</span> <span class="n">red</span> <span class="o">=</span> <span class="s">"red"</span><span class="o">;</span>
+  <span class="kd">final</span> <span class="n">Switch</span> <span class="n">redSwitch</span> <span class="o">=</span> <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+  <span class="n">redSwitch</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">redSwitch</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+  <span class="n">redSwitch</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">red</span><span class="o">);</span>
+  <span class="n">redSwitch</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">red</span><span class="o">);</span>
+  <span class="n">redSwitch</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">RED</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+  <span class="n">redSwitch</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">detailsHidden</span><span class="o">();</span>
+  <span class="n">redSwitch</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+  <span class="n">redSwitch</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
+<span class="o">}</span>
 </code></pre>
-<p><img src="images/vuetify/switches.png" alt="Lists example" /></p>
+<p><strong>Switches</strong> - The <code>v-switch</code> component provides users the ability to choose between two distinct values.</p>
 
-<p>The Switch - component provides users the ability to choose between two distinct values.</p>
+<p><img src="images/vuetify/switches.png" alt="Switches example" /></p>
 
+<p><strong>Vuetify v2.6.14</strong> code example:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input v-input--hide-details theme--light v-input--selection-controls v-input--switch"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input__control"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input__slot"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input--selection-controls__input"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">aria-checked=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"input-1187"</span> <span class="na">role=</span><span class="s">"switch"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span> <span class="na">value=</span><span class="s">"red"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input--selection-controls__ripple"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input--switch__track theme--light"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-input--switch__thumb theme--light"</span><span class="nt">&gt;</span>
+          <span class="c">&lt;!----&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"input-1187"</span> <span class="na">class=</span><span class="s">"v-label theme--light"</span> <span class="na">style=</span><span class="s">"left: 0px; right: auto; position: relative;"</span><span class="nt">&gt;</span>red<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -40638,43 +40657,113 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 <td>void</td>
 </tr>
 <tr>
-<td><strong>getInputColor()</strong></td>
-<td>Get color in RGBA format</td>
+<td><strong>value()</strong></td>
+<td>Get switch value</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>getLabelText()</strong></td>
-<td>Get label text</td>
+<td><strong>lable()</strong></td>
+<td>Get switch label</td>
+<td>Lable</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Get switch color in RGBA format</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>getLabelHTML()</strong></td>
-<td>Get label HTML element</td>
-<td>boolean</td>
+<td><strong>backgroundColor()</strong></td>
+<td>Get switch background color in RGBA format</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>slotsBackgroundColor()</strong></td>
+<td>Get switch slot background color in RGBA format</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getMessages()</strong></td>
+<td>Get switch messages</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>getErrorMessages()</strong></td>
+<td>Get switch error messages</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>getNumberErrorMessages()</strong></td>
+<td>Get the number of switch error messages</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td><strong>getSuccessMessages()</strong></td>
+<td>Get switch success messages</td>
+<td>List<String></td>
 </tr>
 <tr>
 <td><strong>isChecked()/isNotChecked()</strong></td>
-<td>Shows that required element is selected/not selected</td>
+<td>Check if switch is selected/not selected</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isDisabled()/isEnabled()</strong></td>
-<td>Shows that required element is disabled/enabled</td>
+<td><strong>isEnabled()</strong></td>
+<td>Check if switch is enabled</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>hasLabel()</strong></td>
-<td>Shows that required element has label</td>
+<td><strong>isFlat()</strong></td>
+<td>Checks that switch is flat</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>hasInputProgressBar()</strong></td>
-<td>Shows that required element has Progress bar</td>
+<td><strong>isInset()</strong></td>
+<td>Checks that switch is inset</td>
 <td>boolean</td>
+</tr>
+<tr>
+<td><strong>isReadonly()</strong></td>
+<td>Checks that switch is readonly</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasMessages()</strong></td>
+<td>Check that switch has messages</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasErrorMessage()</strong></td>
+<td>Check that switch has error messages</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasSuccessMessage()</strong></td>
+<td>Check that switch has success messages</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasIconAppend()</strong></td>
+<td>Check that switch has icon-append</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasIconPrepend()</strong></td>
+<td>Check that switch has icon-prepend</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasRipple()</strong></td>
+<td>Check that switch has ripple</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Switch assert</td>
+<td>SwitchAssert</td>
 </tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchTests.java">JDI Vuetify Lists tests</a>.</p>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchesTests.java">JDI Vuetify Switch tests</a>.</p>
 <h4 id='5-12-5-text-fields'>5.12.5 Text fields</h4>
 <p><a href="https://vuetifyjs.com/en/components/text-fields/">Vuetify documentation page</a></p>
 

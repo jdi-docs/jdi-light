@@ -2833,41 +2833,137 @@ For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-t
 
 #### 5.31.1 Time pickers
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/time-pickers/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/time-pickers/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.TimePickers.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.TimePicker.java_
 
 ```java
-  @Test
-  public static void allowedTimesTimePickerTest() {
-      allowedTimesTimePicker.is().enabled();
-      allowedTimesTimePicker.has().size(24);
-      allowedTimesTimePicker.select("9");
-      allowedTimesTimePicker.select("30");
-      allowedTimesTimePicker.is().selected("30");
-      allowedTimesTimePicker.has().values("00", "05", "10", "15", "20", "25");
-      allowedTimesTimePicker.is().displayed();
-      allowedTimesTimePicker.has().elementDisabled("55");
-  }
+//@FindBy(css = "#TimePicker")
+@JTimePicker("#TimePicker")
+public static TimePicker timePicker;
+
+@Test (description = "Test checks that time picker has expected disabled hours")
+public void test() {
+    timePicker.show();
+    timePicker.setTime("14:53:48");
+    timePicker.has()
+        .title("2:53:48PM")
+        .time(LocalTime.parse("14:53:48"))
+        .hours(2)
+        .minutes(53)
+        .pmPeriod()
+        .format12()
+        .darkTheme();
+    timePicker.switchToMinutes();
+    timePicker.has().selectedNumber(53);
+    timePicker.scroll(13);
+    timePicker.has().selectedNumber(40);
 ```
 
 The v-time-picker is stand-alone component that can be utilized in many existing Vuetify components.
 It offers the user a visual representation for selecting the time.
 
-![TimePickers example](../../images/vuetify/time_pickers.png)
+![TimePickers example_1](../../images/vuetify/time_picker_h_24.png)
+![TimePickers example_2](../../images/vuetify/time_picker_v_AMPM.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**select()** | Select time | void
-**enabled()/disabled()** | Returns true/false whether TimePicker is enabled | boolean
-**elementEnabled()/elementDisabled()** | Returns true/false whether time is enabled/disabled | boolean
-**is()/has()** | Returns Assert class | TimePickersAssert
-**enabled()/disabled()** |  Assert that TimePicker is enabled | TimePickersAssert
-**elementEnabled()/elementDisabled()** | Assert that _time_ in TimePicker is enabled | TimePickersAssert
-**selected()** | Assert that _time_ in TimePicker is selected | TimePickersAssert
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-picker v-card v-picker--time theme--light">
+  <div class="v-picker__title primary">
+    <div class="v-time-picker-title">
+      <div class="v-time-picker-title__time">
+        <div class="v-picker__title__btn">2</div>
+        <span>:</span>
+        <div class="v-picker__title__btn v-picker__title__btn--active">53</div>
+        <span>:</span>
+        <div class="v-picker__title__btn">48</div>
+      </div>
+      <div class="v-time-picker-title__ampm v-time-picker-title__ampm--readonly">
+        <div class="v-picker__title__btn v-picker__title__btn--active">PM</div>
+      </div>
+    </div>
+  </div>
+  <div class="v-picker__body theme--light" style="width: 290px;">
+    <div class="v-time-picker-clock__container">
+      <div class="v-time-picker-clock__ampm primary--text">
+        <div class="v-picker__title__btn v-picker__title__btn--active">PM</div>
+        <div class="v-picker__title__btn">PM</div>
+      </div>
+      <div class="v-time-picker-clock theme--light">
+        <div class="v-time-picker-clock__inner">
+        <div class="v-time-picker-clock__hand accent" style="transform: rotate(318deg) scaleY(1);"></div>
+        <span class="v-time-picker-clock__item" style="left: 50%; top: 0%;">
+          <span>00</span>
+        </span>
+        <span class="v-time-picker-clock__item" style="left: 75%; top: 6.69873%;">
+          <span>05</span>
+        </span>
+        <!-- clock face numbers 10 .. 45 -->  
+        <span class="v-time-picker-clock__item" style="left: 6.69873%; top: 25%;">
+          <span>50</span>
+        </span>
+        <span class="v-time-picker-clock__item" style="left: 25%; top: 6.69873%;">
+          <span>55</span>
+        </span></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
 
-TimePickers have also a lot of list-based JDI elements methods.
+| Method | Description | Return Type |
+| :--- | :--- | :--- | 
+**setTime(String time)** | Sets Time Picker to provided time (time string in ISO-8601 extended local time format) | void
+**setTime(LocalTime time)** | Sets Time Picker to provided time | void
+**setTime(int hours, int minutes)** | Sets Time Picker to provided hours and minutes | void
+**setTime(int hours, int minutes, int seconds)** | Sets Time Picker to provided hours, minutes, seconds | void
+**select(int number)** | Selects number on a currently shown clock face | void
+**setHours(int hours)** | Switches Time Picker to hours (selects AM/PM if needed) and set hours (0-23)| void
+**setMinutes(int minutes)** | Switches TimeP icker to minutes and sets minutes (0-59) | void
+**setSeconds(int seconds)** | Switches Time Picker to seconds and sets seconds (0-59) | void
+**hasSeconds()** | Returns true if Time Picker configured to show seconds | boolean
+**switchToAM()** | Switches Time picker to AM | void
+**switchToPM()** | Switches Time Picker to PM | void
+**switchToHours()** | Switches Time Picker to hours selector | void
+**switchToMinutes()** | Switches Time Picker to minutes selector | void
+**switchToSeconds()** | Switches Time Picker to seconds selector | void
+**titleText()** | Returns Time Picker time from title as is, without formatting ('17:01', '5:01:08PM') | String
+**titleTime()** | Returns Time Picker time from title as LocalTime object | LocalTime
+**titleHours()** | Returns Time Picker time hours | int
+**titleMinutes()** | Returns Time Picker time minutes | int
+**titleSeconds()** | Returns Time Picker time seconds | int
+**is12h()** | Returns true if Time Picker is 12h or false if 24h | boolean
+**amPmPeriod()** | Returns currently selected AM/PM period "AM" or "PM" | String
+**clockNumbers()** | Returns all numbers shown on the clock face | List<Integer>
+**enabledClockNumbers()** | Returns enabled numbers on the Clock face | List<Integer>
+**disabledClockNumbers()**| Returns disabled numbers on the Clock face | List<Integer>
+**selectedNumber()** | Returns currently selected number on the Clock face | int
+**isReadOnly()** | Checks if the Time Picker is read-only | boolean [](overridden method)
+**isDisabled()** | Checks if the Time Picker is disabled | boolean [](overridden method)
+**titleBackgroundColor()** | Returns background color of the Time Picker title (hex) | String
+**isLandscape()** | Checks if the Time Picker displayed in landscape mode | boolean
+**scroll(int mouseWheelTicks)** | Emulates mouse wheel scroll on the Clock face | void [](overridden method)
+**title()** | Returns JDI UIElement representing title | UIElement
+**clock()** | Returns JDI UIElement representing clock face | UIElement
 
+| Assert method | Description |
+| :--- | :--- |
+**title(String titleTime)** | Asserts that title has expected text  
+**time(LocalTime time)** | Asserts that title has expected title 
+**hours(int hours)** | Asserts that title has expected hours 
+**minutes(int minutes)** | Asserts that title has expected minutes 
+**seconds(int seconds)** | Asserts that title has expected seconds 
+**disabledNumbers(Integer... expectedDisabledNumbers)** | Asserts that clock face has expected disabled numbers (only shown) 
+**enabledNumbers(Integer... expectedEnabledNumbers)** | Asserts that clock face has expected enabled numbers (only shown) 
+**selectedNumber(int expectedSelectedNumber)** |  Asserts that clock face has expected selected number (or clock hand points to expected number)
+**format12()** | Asserts that clock has 12h format
+**format24()** | Asserts that clock has 24h format
+**amPeriod()** | Asserts that 12h format clock is set to AM
+**pmPeriod()** | Asserts that 24h format clock is set to PM
+**landscape()** | Asserts that Time Picker is in landscape orientation
+**notLandscape()** | Asserts that Time Picker is not in landscape orientation
+
+Time Picker also have basic JDI elements methods and asserts for Color, Theme, Elevation, Measurements and others.
 For examples of usage see: [JDI Vuetify TimePickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java).
 
 #### 5.31.2 Date pickers

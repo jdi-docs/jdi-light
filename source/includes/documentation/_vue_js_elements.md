@@ -801,45 +801,82 @@ For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-te
 
 #### 5.12.4 Switches
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/switches/)
+[Switches Vuetify documentation page](https://vuetifyjs.com/en/components/switches/)
 
+Switches are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Switch.java_
 
 ```java
-    @Test
-public void colorTest() {
-  colorSwitches.forEach(Switch::isDisabled);
+//@FindBy(css = "#ColorsSwitch .v-input--switch")
+@UI("#ColorsSwitch .v-input--switch")
+public static List<Switch> colorSwitches;
 
-  colorSwitches.get(1).is().inputColor(Colors.RED.value());
-  colorSwitches.get(1).uncheck();
-  colorSwitches.get(1).is().inputColor(Colors.BLACK_TRANSPARENT_087.value());
+@Test(description = "Test checks parameters of switch: color, text, functionality")
+public void functionalityAndCssStyleSwitchTest() {
+  String red = "red";
+  final Switch redSwitch = colorSwitches.get(1);
+  redSwitch.show();
+  redSwitch.is().checked();
+  redSwitch.label().has().text(red);
+  redSwitch.has().value(red);
+  redSwitch.has().color(RED.value());
+  redSwitch.has().detailsHidden();
+  redSwitch.uncheck();
+  redSwitch.is().unchecked();
+}
+```
+__Switches__ - The `v-switch` component provides users the ability to choose between two distinct values.
 
-  colorSwitches.get(6).is().inputColor(Colors.ORANGE_DARKEN_3.value());
-  colorSwitches.get(6).uncheck();
-  colorSwitches.get(6).is().inputColor(Colors.BLACK_TRANSPARENT_087.value());
+![Switches example](../../images/vuetify/switches.png)
 
-  colorSwitches.get(12).is().inputColor(Colors.RED_ACCENT_2.value());
-  colorSwitches.get(12).uncheck();
-  colorSwitches.get(12).is().inputColor(Colors.BLACK_TRANSPARENT_087.value());
-  }
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--switch">
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-input--selection-controls__input">
+        <input aria-checked="false" id="input-1187" role="switch" type="checkbox" aria-disabled="false" value="red">
+        <div class="v-input--selection-controls__ripple">
+        </div>
+        <div class="v-input--switch__track theme--light">
+        </div>
+        <div class="v-input--switch__thumb theme--light">
+          <!---->
+        </div>
+      </div>
+      <label for="input-1187" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">red</label>
+    </div>
+  </div>
+</div>
 ```
 
-![Lists example](../../images/vuetify/switches.png)
+|Method | Description                                     | Return Type
+--- |-------------------------------------------------| ---
+**check()/uncheck()** | Switch element between two states               | void
+**value()** | Get switch value                                | String
+**lable()** | Get switch label                                | Lable
+**color()** | Get switch color in RGBA format                 | String
+**backgroundColor()** | Get switch background color in RGBA format      | String
+**slotsBackgroundColor()** | Get switch slot background color in RGBA format | String
+**getMessages()** | Get switch messages                             | List<String>
+**getErrorMessages()** | Get switch error messages                       | List<String>
+**getNumberErrorMessages()** | Get the number of switch error messages         | Integer
+**getSuccessMessages()** | Get switch success messages                     | List<String>
+**isChecked()/isNotChecked()** | Check if switch is selected/not selected        | boolean
+**isEnabled()** | Check if switch is enabled                      | boolean
+**isFlat()** | Checks that switch is flat                      | boolean
+**isInset()** | Checks that switch is inset                     | boolean
+**isReadonly()** | Checks that switch is readonly                  | boolean
+**hasMessages()** | Check that switch has messages                  | boolean
+**hasErrorMessage()** | Check that switch has error messages            | boolean
+**hasSuccessMessage()** | Check that switch has success messages          | boolean
+**hasIconAppend()** | Check that switch has icon-append               | boolean
+**hasIconPrepend()** | Check that switch has icon-prepend              | boolean
+**hasRipple()** | Check that switch has ripple                    | boolean
+**is()** | Switch assert                                   | SwitchAssert
 
-The Switch - component provides users the ability to choose between two distinct values.
-
-|Method | Description | Return Type
---- | --- | ---
-**check()/uncheck()** | Switch element between two states | void
-**getInputColor()** | Get color in RGBA format | String
-**getLabelText()** | Get label text  | String
-**getLabelHTML()** | Get label HTML element | boolean
-**isChecked()/isNotChecked()** | Shows that required element is selected/not selected | boolean
-**isDisabled()/isEnabled()** | Shows that required element is disabled/enabled | boolean
-**hasLabel()** | Shows that required element has label | boolean
-**hasInputProgressBar()** | Shows that required element has Progress bar | boolean
-
-For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchTests.java).
+For examples of usage see: [JDI Vuetify Switch tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchesTests.java).
 
 #### 5.12.5 Text fields
 

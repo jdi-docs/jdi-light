@@ -1166,6 +1166,9 @@
 								            <a href="#5-38-chip" class="toc-h2 h3 toc-link" data-title="5.38 Chip">5.38 Chip</a>
                           </li>
                           <li>
+								            <a href="#5-40-badge" class="toc-h2 h3 toc-link" data-title="5.40 Badge">5.40 Badge</a>
+                          </li>
+                          <li>
 								            <a href="#5-41-checkbox" class="toc-h2 h3 toc-link" data-title="5.41 Checkbox">5.41 Checkbox</a>
                           </li>
                           <li>
@@ -46442,6 +46445,175 @@ This component is used by the <code>v-chip-group</code> for advanced selection o
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java">JDI Vuetify Chip tests</a>.</p>
+<h3 id='5-40-badge'>5.40 Badge</h3>
+<p><a href="https://v2.vuetifyjs.com/en/components/badges/">Badge Vuetify documentation page</a></p>
+
+<p>Badge is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Badge.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#simpleBadges .v-badge")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#simpleBadges .v-badge"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Badge</span><span class="o">&gt;</span> <span class="n">simpleBadges</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(css = "#customBadges .v-badge--icon")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#customBadges .v-badge--icon"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">lockUnlockAccountBadge</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(css = "#customBadges .v-badge--dot")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#customBadges .v-badge--dot"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">dotBadge</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(css = "#customBadges .v-badge--avatar")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#customBadges .v-badge--avatar"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">imageBadge</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks different types of badges"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">typeBadgesTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">lockUnlockAccountBadge</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">icon</span><span class="o">();</span>
+        <span class="n">dotBadge</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">notIcon</span><span class="o">();</span>
+        <span class="n">imageBadge</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">avatar</span><span class="o">();</span>
+        <span class="n">dotBadge</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">notAvatar</span><span class="o">();</span>
+        <span class="n">dotBadge</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">dot</span><span class="o">();</span>
+        <span class="n">imageBadge</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notDot</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks that badge has text"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">textBadgesTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Badge</span> <span class="n">simpleBadge</span> <span class="o">=</span> <span class="n">simpleBadges</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">simpleBadge</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">simpleBadge</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p><strong>Badges</strong> - The <code>v-badge</code> component superscripts or subscripts an avatar-like icon or text onto content to highlight information to a user or to just draw attention to a specific element.
+Content within the badge usually contains numbers or icons.</p>
+
+<p><img src="images/vuetify/badges.png" alt="Badges example" /></p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;span class=&quot;v-badge theme--light&quot;&gt;
+  &lt;i aria-hidden=&quot;true&quot; class=&quot;v-icon notranslate mdi mdi-email theme--light&quot; style=&quot;font-size: 36px;&quot;&gt;&lt;/i&gt;
+  &lt;span class=&quot;v-badge__wrapper&quot;&gt;
+    &lt;span aria-atomic=&quot;true&quot; aria-label=&quot;Badge&quot; aria-live=&quot;polite&quot; role=&quot;status&quot; class=&quot;v-badge__badge primary&quot; style=&quot;inset: auto auto calc(100% - 4px) calc(100% - 4px);&quot;&gt;1&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/span&gt;
+</code></p>
+
+<p>Badges element contains following methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Badge assert</td>
+<td>BadgeAssert</td>
+</tr>
+<tr>
+<td><strong>badge()</strong></td>
+<td>Gets &#39;{name}&#39; badge</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>isBordered()</strong></td>
+<td>Checks that &#39;{name}&#39; is bordered</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isInline()</strong></td>
+<td>Checks that &#39;{name}&#39; is inline</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isBottom()</strong></td>
+<td>Checks that &#39;{name}&#39; is bottom</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isOverlap()</strong></td>
+<td>Checks that &#39;{name}&#39; is overlap</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDot()</strong></td>
+<td>Checks that &#39;{name}&#39; is dot</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isAvatar()</strong></td>
+<td>Checks that &#39;{name}&#39; is avatar</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Gets &#39;{name}&#39; background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>image()</strong></td>
+<td>Gets &#39;{name}&#39; image</td>
+<td>Image</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Checks that &#39;{name}&#39; is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>icon()</strong></td>
+<td>Gets &#39;{name}&#39; icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>hasIcon()</strong></td>
+<td>Checks that &#39;{name}&#39; has icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Gets &#39;{name}&#39; badge text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isTile()</strong></td>
+<td>Checks that &#39;{name}&#39; is tile</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasLeftAlignment()</strong></td>
+<td>Checks that &#39;{name}&#39; has left alignment</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasRightAlignment()</strong></td>
+<td>Checks that &#39;{name}&#39; has right alignment</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Gets &#39;{name}&#39; color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Gets &#39;{name}&#39; background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>image()</strong></td>
+<td>Gets &#39;{name}&#39; image</td>
+<td>Image</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see:
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/BadgesTests.java">JDI vuetify page tests for Badges</a></p>
 <h3 id='5-41-checkbox'>5.41 Checkbox</h3>
 <p><a href="https://v2.vuetifyjs.com/en/components/checkboxes/">Checkbox Vuetify documentation page</a></p>
 

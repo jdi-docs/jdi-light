@@ -2639,7 +2639,6 @@ Progress linear is located in the following class:
 ```java
 @Test(description = "Test checks absolute value of progress linear and checks if it is hidden : value")
 public void absoluteValueHiddenProgressLinearTests() {
-  refresh();
   queryProgressLinear.show();
   Timer.waitCondition(() -> queryProgressLinear.getValue() == 25);
   queryProgressLinear.has().value(25.0);

@@ -2966,20 +2966,28 @@ For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testi
 
 ### 5.42 Divider
 
-[Divider Vuetify documentation page](https://vuetifyjs.com/en/components/dividers/)
+[Divider Vuetify documentation page](https://v2.vuetifyjs.com/en/components/dividers/)
 
 Divider is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Divider.java_
 
 ```java
-@Test
+    //@FindBy(css = ".v-divider--inset")
+    @UI(".v-divider--inset")
+    public static List<Divider> horizontalDividers;
+    
+    //@FindBy(css = ".v-divider--vertical")
+    @UI(".v-divider--vertical")
+    public static List<Divider> verticalDividers;
+
+    @Test(description = "Test checks horizontal dividers")
     public void horizontalDividersTest() {
         horizontalDividers.stream()
                 .map(Divider::is)
                 .forEach(DividerAssert::horizontal);
     }
 
-    @Test
+    @Test(description = "Test checks vertical dividers")
     public void verticalDividersTest() {
         verticalDividers.stream()
                 .map(Divider::is)
@@ -2993,24 +3001,8 @@ __Dividers__ - The `v-divider` component is used to separate sections of lists o
 
 __Vuetify v2.6.14__ code example:
 ```html
-<template>
-  <v-toolbar
-    color="purple"
-    dark
-  >
-    <v-toolbar-title>Title</v-toolbar-title>
-
-    <v-divider
-      class="mx-4"
-      vertical
-    ></v-divider>
-    </v-toolbar-items>
-
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
-  </v-toolbar>
-</template>
-
-
+<hr role="separator" aria-orientation="horizontal" 
+    class="v-divider v-divider--inset theme--light">
 ```
 
 Dividers element contains following methods:

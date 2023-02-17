@@ -1905,23 +1905,8 @@ To use any of these icons simply use the `mdi-` prefix followed by the icon name
 ![Icons example](../../images/vuetify/icons.png)
 __Vuetify v2.6.14__ code example:
 ```html
-<template>
-  <v-row justify="space-around">
-    <v-icon
-      large
-      color="green darken-2"
-    >
-      mdi-domain
-    </v-icon>
-
-    <v-icon
-      large
-      color="blue darken-2"
-    >
-      mdi-message-text
-    </v-icon>
-  </v-row>
-</template>
+<i aria-hidden="true" class="v-icon notranslate mdi mdi-domain theme--light green--text text--darken-2" 
+   style="font-size: 36px;"></i>
 ```
 
 Icons element includes following methods:

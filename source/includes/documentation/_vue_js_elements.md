@@ -1267,7 +1267,7 @@ For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-t
 
 #### 5.12.9 Selects
 
-[Selects Vuetify documentation page](https://vuetifyjs.com/en/components/selects/)
+[Selects Vuetify documentation page](https://v2.vuetifyjs.com/en/components/selects/)
 
 Selects are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Select.java_

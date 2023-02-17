@@ -1267,36 +1267,76 @@ For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-t
 
 #### 5.12.9 Selects
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/selects/)
+[Selects Vuetify documentation page](https://v2.vuetifyjs.com/en/components/selects/)
 
+Selects are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Select.java_
 
 ```java
-    @Test
+@Test(description = "Test checks basic functionality of simple select")
 public void basicFunctionalityTest() {
-  standardDenseSelect.expand();
-  standardDenseSelect.is().expanded();
-  standardDenseSelect.close();
-  standardDenseSelect.is().collapsed();
-  standardDenseSelect.select("Bar");
-  standardDenseSelect.is().selected("Bar");
-  standardDenseSelect.is().displayed();
-  }
+  customSelect.show();
+  customSelect.is().displayed();
+  customSelect.expand();
+  customSelect.is().expanded();
+
+  customSelect.select("New York");
+  customSelect.is().selected("New York");
+
+  customSelect.is().collapsed();
+}
 ```
-![Select example](../../images/vuetify/select.png)
 
 Select components are used for collecting user provided information from a list of options.
 
-|Method | Description | Return Type
---- | --- | ---
-**expand()/close()** | Open/close list of values | void
-**select()** | Select option from list of value | void
-**labelText()** | Return label text | String
-**messageText()** |Return message text | String
-**selected()** | Returns selected value | String
-**is()** | Assert action | DropdownAssert()
+![Select example](../../images/vuetify/select.png)
 
-For examples of usage see: [JDI Vuetify Select tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectTests.java).
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-input v-input--is-label-active v-input--is-dirty v-input--dense theme--light v-text-field v-text-field--is-booted v-select">
+  <div class="v-input__control">
+    <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-160" class="v-input__slot">
+      <div class="v-select__slot">
+        <label for="input-160" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Standard</label>
+        <div class="v-select__selections">
+          <div class="v-select__selection v-select__selection--comma">Foo</div>
+          <input id="input-160" readonly="readonly" type="text" aria-readonly="false" autocomplete="off">
+        </div>
+        <div class="v-input__append-inner">
+          <div class="v-input__icon v-input__icon--append">
+            <i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light">
+            </i>
+          </div>
+        </div>
+        <input type="hidden" value="Foo">
+      </div>
+      <div class="v-menu">
+      </div>
+    </div>
+    <div class="v-text-field__details">
+      <div class="v-messages theme--light">
+        <div class="v-messages__wrapper">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+| Method                                     | Description                      | Return Type      
+--------------------------------------------|----------------------------------|------------------
+ **expand()/close()**                       | Open/close list of values        | void             
+ **select(String value)/select(int index)** | Select option from list of value | void             
+ **selected()**                             | Returns selected value           | String           
+ **label()**                                | Get element label                | Label            
+ **labelText()**                            | Return label text                | String           
+ **messageText()**                          | Return message text              | String           
+ **getText()**                              | Returns selected value           | String           
+ **isDisplayed()**                          | Checks that element is displayed | boolean          
+ **isEnabled()**                            | Checks that element exists       | boolean          
+ **is()**                                   | Assert action                    | DropdownAssert() 
+
+For examples of usage see: [JDI Vuetify Select tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectsTests.java).
 
 #### 5.12.10 File inputs
 

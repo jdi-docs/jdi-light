@@ -2966,14 +2966,30 @@ For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testi
 
 ### 5.40 Badge
 
-[Badge Vuetify documentation page](https://vuetifyjs.com/en/components/badges/)
+[Badge Vuetify documentation page](https://v2.vuetifyjs.com/en/components/badges/)
 
 Badge is located in the following class:
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Badge.java_
 
 ```java
-    @Test
+    //@FindBy(css = "#simpleBadges .v-badge")
+    @UI("#simpleBadges .v-badge")
+    public static List<Badge> simpleBadges;
+
+    //@FindBy(css = "#customBadges .v-badge--icon")
+    @UI("#customBadges .v-badge--icon")
+    public static Badge lockUnlockAccountBadge;
+
+    //@FindBy(css = "#customBadges .v-badge--dot")
+    @UI("#customBadges .v-badge--dot")
+    public static Badge dotBadge;
+
+    //@FindBy(css = "#customBadges .v-badge--avatar")
+    @UI("#customBadges .v-badge--avatar")
+    public static Badge imageBadge;
+	
+    @Test(description = "Test checks different types of badges")
     public void typeBadgesTest() {
         lockUnlockAccountBadge.is().icon();
         dotBadge.has().notIcon();
@@ -2983,7 +2999,7 @@ Badge is located in the following class:
         imageBadge.is().notDot();
     }
 
-    @Test
+    @Test(description = "Test checks that badge has text")
     public void textBadgesTest() {
         Badge simpleBadge = simpleBadges.get(1);
         simpleBadge.show();

@@ -41618,25 +41618,58 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTest.java">JDI Vuetify Combobox tests</a>.</p>
 <h4 id='5-12-9-selects'>5.12.9 Selects</h4>
-<p><a href="https://vuetifyjs.com/en/components/selects/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/selects/">Selects Vuetify documentation page</a></p>
 
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Select.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+<p>Selects are located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Select.java</em></p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks basic functionality of simple select"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicFunctionalityTest</span><span class="o">()</span> <span class="o">{</span>
-  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
-  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
-  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
-  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Bar"</span><span class="o">);</span>
-  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Bar"</span><span class="o">);</span>
-  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-  <span class="o">}</span>
+  <span class="n">customSelect</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">customSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+  <span class="n">customSelect</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+  <span class="n">customSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
+
+  <span class="n">customSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"New York"</span><span class="o">);</span>
+  <span class="n">customSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"New York"</span><span class="o">);</span>
+
+  <span class="n">customSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
+<span class="o">}</span>
 </code></pre>
+<p>Select components are used for collecting user provided information from a list of options.</p>
+
 <p><img src="images/vuetify/select.png" alt="Select example" /></p>
 
-<p>Select components are used for collecting user provided information from a list of options.</p>
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;v-input v-input--is-label-active v-input--is-dirty v-input--dense theme--light v-text-field v-text-field--is-booted v-select&quot;&gt;
+  &lt;div class=&quot;v-input__control&quot;&gt;
+    &lt;div role=&quot;button&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-owns=&quot;list-160&quot; class=&quot;v-input__slot&quot;&gt;
+      &lt;div class=&quot;v-select__slot&quot;&gt;
+        &lt;label for=&quot;input-160&quot; class=&quot;v-label v-label--active theme--light&quot; style=&quot;left: 0px; right: auto; position: absolute;&quot;&gt;Standard&lt;/label&gt;
+        &lt;div class=&quot;v-select__selections&quot;&gt;
+          &lt;div class=&quot;v-select__selection v-select__selection--comma&quot;&gt;Foo&lt;/div&gt;
+          &lt;input id=&quot;input-160&quot; readonly=&quot;readonly&quot; type=&quot;text&quot; aria-readonly=&quot;false&quot; autocomplete=&quot;off&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;v-input__append-inner&quot;&gt;
+          &lt;div class=&quot;v-input__icon v-input__icon--append&quot;&gt;
+            &lt;i aria-hidden=&quot;true&quot; class=&quot;v-icon notranslate mdi mdi-menu-down theme--light&quot;&gt;
+            &lt;/i&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;input type=&quot;hidden&quot; value=&quot;Foo&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;v-menu&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;v-text-field__details&quot;&gt;
+      &lt;div class=&quot;v-messages theme--light&quot;&gt;
+        &lt;div class=&quot;v-messages__wrapper&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
 
 <table><thead>
 <tr>
@@ -41651,9 +41684,19 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 <td>void</td>
 </tr>
 <tr>
-<td><strong>select()</strong></td>
+<td><strong>select(String value)/select(int index)</strong></td>
 <td>Select option from list of value</td>
 <td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Returns selected value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>label()</strong></td>
+<td>Get element label</td>
+<td>Label</td>
 </tr>
 <tr>
 <td><strong>labelText()</strong></td>
@@ -41666,9 +41709,19 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 <td>String</td>
 </tr>
 <tr>
-<td><strong>selected()</strong></td>
+<td><strong>getText()</strong></td>
 <td>Returns selected value</td>
 <td>String</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Checks that element is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Checks that element exists</td>
+<td>boolean</td>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
@@ -41677,7 +41730,7 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 </tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectTests.java">JDI Vuetify Select tests</a>.</p>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectsTests.java">JDI Vuetify Select tests</a>.</p>
 <h4 id='5-12-10-file-inputs'>5.12.10 File inputs</h4>
 <p><a href="https://vuetifyjs.com/en/components/file-inputs/">Vuetify documentation page</a></p>
 

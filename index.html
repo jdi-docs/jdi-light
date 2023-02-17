@@ -1165,6 +1165,9 @@
                           <li>
 								            <a href="#5-38-chip" class="toc-h2 h3 toc-link" data-title="5.38 Chip">5.38 Chip</a>
                           </li>
+                          <li>
+								            <a href="#5-42-divider" class="toc-h2 h3 toc-link" data-title="5.42 Divider">5.42 Divider</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -46255,6 +46258,71 @@ This component is used by the <code>v-chip-group</code> for advanced selection o
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java">JDI Vuetify Chip tests</a>.</p>
+<h3 id='5-42-divider'>5.42 Divider</h3>
+<p><a href="https://v2.vuetifyjs.com/en/components/dividers/">Divider Vuetify documentation page</a></p>
+
+<p>Divider is located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Divider.java</em></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = ".v-divider--inset")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".v-divider--inset"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Divider</span><span class="o">&gt;</span> <span class="n">horizontalDividers</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(css = ".v-divider--vertical")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".v-divider--vertical"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Divider</span><span class="o">&gt;</span> <span class="n">verticalDividers</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks horizontal dividers"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">horizontalDividersTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">horizontalDividers</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">Divider:</span><span class="o">:</span><span class="n">is</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nl">DividerAssert:</span><span class="o">:</span><span class="n">horizontal</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks vertical dividers"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verticalDividersTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">verticalDividers</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">Divider:</span><span class="o">:</span><span class="n">is</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nl">DividerAssert:</span><span class="o">:</span><span class="n">vertical</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p><strong>Dividers</strong> - The <code>v-divider</code> component is used to separate sections of lists or layouts.</p>
+
+<p><img src="images/vuetify/divider.png" alt="Divider example" /></p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;hr role=&quot;separator&quot; aria-orientation=&quot;horizontal&quot; 
+    class=&quot;v-divider v-divider--inset theme--light&quot;&gt;
+</code></p>
+
+<p>Dividers element contains following methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Divider assert</td>
+<td>DividerAssert</td>
+</tr>
+<tr>
+<td><strong>isInset()</strong></td>
+<td>Checks that &#39;{name}&#39; is inset</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isVertical()</strong></td>
+<td>Checks that &#39;{name}&#39; is vertical</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see:
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java">JDI vuetify page tests for Dividers</a></p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-locator-aliases-as-parameters'>Using locator aliases as parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

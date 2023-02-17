@@ -3648,3 +3648,54 @@ Available methods in Java JDI Light:
 
 For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
 
+### 5.42 Divider
+
+[Divider Vuetify documentation page](https://v2.vuetifyjs.com/en/components/dividers/)
+
+Divider is located in the following class:
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Divider.java_
+
+```java
+    //@FindBy(css = ".v-divider--inset")
+    @UI(".v-divider--inset")
+    public static List<Divider> horizontalDividers;
+    
+    //@FindBy(css = ".v-divider--vertical")
+    @UI(".v-divider--vertical")
+    public static List<Divider> verticalDividers;
+
+    @Test(description = "Test checks horizontal dividers")
+    public void horizontalDividersTest() {
+        horizontalDividers.stream()
+                .map(Divider::is)
+                .forEach(DividerAssert::horizontal);
+    }
+
+    @Test(description = "Test checks vertical dividers")
+    public void verticalDividersTest() {
+        verticalDividers.stream()
+                .map(Divider::is)
+                .forEach(DividerAssert::vertical);
+    }
+```
+
+__Dividers__ - The `v-divider` component is used to separate sections of lists or layouts.
+
+![Divider example](../../images/vuetify/divider.png)
+
+__Vuetify v2.6.14__ code example:
+```html
+<hr role="separator" aria-orientation="horizontal" 
+    class="v-divider v-divider--inset theme--light">
+```
+
+Dividers element contains following methods:
+
+|Method | Description                   | Return Type
+--- |-------------------------------| ---
+**is()** | Divider assert                | DividerAssert
+**isInset()** | Checks that '{name}' is inset | boolean
+**isVertical()** | Checks that '{name}' is vertical | boolean
+
+For examples of usage see:
+[JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)

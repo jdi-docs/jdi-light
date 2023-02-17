@@ -1878,18 +1878,20 @@ For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/
 
 ### 5.23 Icons
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/icons/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/icons/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Icon.java_
 
 ```java
-    @Test
+    //@FindBy(css = "#ClickIcon .v-icon")
+    @UI("#ClickIcon .v-icon")
+    public static Icon clickIcon;
+
+    @Test(description = "Test checks that Icons are clickable")
     public void clickIconTests() {
-      clickIcon.is().displayed();
-      clickIcon.is().clickable();
-      clickIcon.has().type("mdi-chevron-right");
-      clickIcon.has().height(36);
-      clickIcon.has().width(36);
+      clickIcon.is().displayed().and().clickable();
+      clickIcon.has().type("mdi-chevron-right").and()
+          .height(36).and().width(36);
       clickIcon.click();
       clickIcon.has().alertOnIconClick("You clicked next!");
       clickIcon.handleAlert();

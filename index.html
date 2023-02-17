@@ -1166,6 +1166,9 @@
 								            <a href="#5-38-chip" class="toc-h2 h3 toc-link" data-title="5.38 Chip">5.38 Chip</a>
                           </li>
                           <li>
+								            <a href="#5-41-checkbox" class="toc-h2 h3 toc-link" data-title="5.41 Checkbox">5.41 Checkbox</a>
+                          </li>
+                          <li>
 								            <a href="#5-42-divider" class="toc-h2 h3 toc-link" data-title="5.42 Divider">5.42 Divider</a>
                           </li>
                       </ul>
@@ -46311,6 +46314,199 @@ This component is used by the <code>v-chip-group</code> for advanced selection o
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java">JDI Vuetify Chip tests</a>.</p>
+<h3 id='5-41-checkbox'>5.41 Checkbox</h3>
+<p><a href="https://v2.vuetifyjs.com/en/components/checkboxes/">Checkbox Vuetify documentation page</a></p>
+
+<p>Checkbox is located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Checkbox.java</em></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#ModelArrayCheckboxes .v-input--checkbox")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#ModelArrayCheckboxes &gt; .v-input--checkbox"</span><span class="o">)</span>
+    <span class="nd">@WaitAfterAction</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">VueCheckbox</span><span class="o">&gt;</span> <span class="n">modelAsArrayCheckboxes</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks checkbox labels, and array texts"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">modelAsArrayCheckboxesTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">modelAsArrayCheckboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+        <span class="n">modelAsArrayCheckboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
+        <span class="n">modelArray</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"[ \""</span> <span class="o">+</span> <span class="n">modelAsArrayCheckboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">labelText</span><span class="o">()</span> <span class="o">+</span> <span class="s">"\" ]"</span><span class="o">);</span>
+        <span class="n">modelAsArrayCheckboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">check</span><span class="o">();</span>
+        <span class="n">modelArray</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"[ \"John\", \"Jacob\" ]"</span><span class="o">);</span>
+        <span class="n">modelAsArrayCheckboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
+        <span class="n">modelArray</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"[ \"Jacob\" ]"</span><span class="o">);</span>
+        <span class="n">modelAsArrayCheckboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
+        <span class="n">modelArray</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"[]"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p><strong>Checkboxes</strong> - The <code>v-checkbox</code> component provides users the ability to choose between two distinct values.
+These are very similar to a switch and can be used in complex forms and checklists.
+A simpler version, <code>v-simple-checkbox</code> is used primarily as a lightweight alternative in data-table components to select rows or display inline boolean data.</p>
+
+<p><img src="images/vuetify/checkbox.png" alt="Checkbox example" /></p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox red--text&quot;&gt;
+  &lt;div class=&quot;v-input__control&quot;&gt;
+    &lt;div class=&quot;v-input__slot&quot;&gt;
+      &lt;div class=&quot;v-input--selection-controls__input&quot;&gt;
+        &lt;i aria-hidden=&quot;true&quot; class=&quot;v-icon notranslate mdi mdi-checkbox-marked theme--light red--text&quot;&gt;&lt;/i&gt;
+        &lt;input aria-checked=&quot;true&quot; id=&quot;input-661&quot; role=&quot;checkbox&quot; type=&quot;checkbox&quot; value=&quot;red&quot;&gt;
+        &lt;div class=&quot;v-input--selection-controls__ripple red--text&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;label for=&quot;input-661&quot; class=&quot;v-label theme--light&quot; style=&quot;left: 0px; right: auto; position: relative;&quot;&gt;red&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
+
+<p>Checkbox element contains following methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Checkbox assert</td>
+<td>CheckboxAssert</td>
+</tr>
+<tr>
+<td><strong>check()</strong></td>
+<td>Checks &#39;{name}&#39;</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck()</strong></td>
+<td>Unchecks &#39;{name}&#39;</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isChecked()</strong></td>
+<td>Checks that &#39;{name}&#39; is checked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isUnchecked()</strong></td>
+<td>Checks that &#39;{name}&#39; is not selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Checks that &#39;{name}&#39; is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Checks that &#39;{name}&#39; is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>label()</strong></td>
+<td>Gets &#39;{name}&#39; label</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Gets &#39;{name}&#39; label text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isIndeterminate()</strong></td>
+<td>Checks that &#39;{name}&#39; is indeterminate</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isSuccess()</strong></td>
+<td>Checks that &#39;{name}&#39; is success</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isError()</strong></td>
+<td>Checks that &#39;{name}&#39; is error</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Gets &#39;{name}&#39; color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Gets &#39;{name}&#39; background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>labelColor()</strong></td>
+<td>Gets &#39;{name}&#39; label color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isDense()</strong></td>
+<td>Checks that &#39;{name}&#39; is dense</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>messages()</strong></td>
+<td>Gets &#39;{name}&#39; messages</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>messagesText(String locator)</strong></td>
+<td>Gets &#39;{name}&#39; messages text by locator &#39;{0}&#39;</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>messagesText()</strong></td>
+<td>Gets &#39;{name}&#39; messages text</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>messagesCount()</strong></td>
+<td>Gets &#39;{name}&#39; messages count</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>hasErrorMessages()</strong></td>
+<td>Checks that &#39;{name}&#39; has error messages</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>errorMessagesText()</strong></td>
+<td>Gets &#39;{name}&#39; error messages</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>errorMessagesCount()</strong></td>
+<td>Gets the number of &#39;{name}&#39; error messages</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>hasSuccessMessages()</strong></td>
+<td>Checks that &#39;{name}&#39; has success messages</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>successMessagesText()</strong></td>
+<td>Gets &#39;{name}&#39; success messages</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>successMessagesCount()</strong></td>
+<td>Get the number of &#39;{name}&#39; success messages</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>isReadOnly()</strong></td>
+<td>Check that &#39;{name}&#39; is readonly</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see:
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java">JDI vuetify page tests for Checkboxes</a></p>
 <h3 id='5-42-divider'>5.42 Divider</h3>
 <p><a href="https://v2.vuetifyjs.com/en/components/dividers/">Divider Vuetify documentation page</a></p>
 

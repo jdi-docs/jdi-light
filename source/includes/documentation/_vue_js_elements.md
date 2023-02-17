@@ -2998,36 +2998,18 @@ A simpler version, `v-simple-checkbox` is used primarily as a lightweight altern
 
 __Vuetify v2.6.14__ code example:
 ```html
-<template>
-  <v-card flat>
-    <v-card-text>
-      <v-container fluid>
-        <v-row>
-          <v-col
-            cols="12"
-            sm="4"
-            md="4"
-          >
-            <v-checkbox
-              v-model="ex4"
-              label="red"
-              color="red"
-              value="red"
-              hide-details
-            ></v-checkbox>
-            <v-checkbox
-              v-model="ex4"
-              label="red darken-3"
-              color="red darken-3"
-              value="red darken-3"
-              hide-details
-            ></v-checkbox>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card-text>
-  </v-card>
-</template>
+<div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox red--text">
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-input--selection-controls__input">
+        <i aria-hidden="true" class="v-icon notranslate mdi mdi-checkbox-marked theme--light red--text"></i>
+        <input aria-checked="true" id="input-661" role="checkbox" type="checkbox" value="red">
+        <div class="v-input--selection-controls__ripple red--text"></div>
+      </div>
+      <label for="input-661" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">red</label>
+    </div>
+  </div>
+</div>
 ```
 
 Checkbox element contains following methods:

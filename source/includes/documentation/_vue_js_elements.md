@@ -3014,29 +3014,12 @@ Content within the badge usually contains numbers or icons.
 
 __Vuetify v2.6.14__ code example:
 ```html
-<template>
-  <v-container>
-    <v-row
-      align="center"
-      justify="center"
-    >
-      <v-badge
-        bordered
-        color="error"
-        icon="mdi-lock"
-        overlap
-      >
-        <v-btn
-          class="white--text"
-          color="error"
-          depressed
-        >
-          Lock Account
-        </v-btn>
-      </v-badge>
-    </v-row>
-  </v-container>
-</template>
+<span class="v-badge theme--light">
+  <i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--light" style="font-size: 36px;"></i>
+  <span class="v-badge__wrapper">
+    <span aria-atomic="true" aria-label="Badge" aria-live="polite" role="status" class="v-badge__badge primary" style="inset: auto auto calc(100% - 4px) calc(100% - 4px);">1</span>
+  </span>
+</span>
 ```
 
 Badges element contains following methods:

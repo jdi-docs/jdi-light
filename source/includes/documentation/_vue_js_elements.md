@@ -2966,12 +2966,17 @@ For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testi
 
 ### 5.41 Checkbox
 
-[Checkbox Vuetify documentation page](https://vuetifyjs.com/en/components/checkboxes/)
+[Checkbox Vuetify documentation page](https://v2.vuetifyjs.com/en/components/checkboxes/)
 
 Checkbox is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Checkbox.java_
 
 ```java
+    //@FindBy(css = "#ModelArrayCheckboxes .v-input--checkbox")
+    @UI("#ModelArrayCheckboxes > .v-input--checkbox")
+    @WaitAfterAction(1)
+    public static List<VueCheckbox> modelAsArrayCheckboxes;
+
     @Test(description = "Test checks checkbox labels, and array texts")
     public void modelAsArrayCheckboxesTest() {
         modelAsArrayCheckboxes.get(1).is().checked();

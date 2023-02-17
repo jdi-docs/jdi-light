@@ -2671,7 +2671,7 @@ __Vuetify v2.6.14__ code example:
 
 |Method | Description                          | Return Type
 --- |--------------------------------------| ---
-**is()** | Returns Assert class                 | ProgressBarAssert
+**is()** | Returns Assert class                 | ProgressLinearAssert
 **hasBarColor()** | Returns color of the bar in rgba     | String
 **backgroundColor()** | Returns background bar color in rgba | String
 **isDeterminate()** | Shows that bar is determinate        | boolean

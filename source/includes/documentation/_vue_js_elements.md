@@ -3722,6 +3722,92 @@ Available methods in Java JDI Light:
 
 For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
 
+### 5.40 Badge
+
+[Badge Vuetify documentation page](https://v2.vuetifyjs.com/en/components/badges/)
+
+Badge is located in the following class:
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Badge.java_
+
+```java
+    //@FindBy(css = "#simpleBadges .v-badge")
+    @UI("#simpleBadges .v-badge")
+    public static List<Badge> simpleBadges;
+
+    //@FindBy(css = "#customBadges .v-badge--icon")
+    @UI("#customBadges .v-badge--icon")
+    public static Badge lockUnlockAccountBadge;
+
+    //@FindBy(css = "#customBadges .v-badge--dot")
+    @UI("#customBadges .v-badge--dot")
+    public static Badge dotBadge;
+
+    //@FindBy(css = "#customBadges .v-badge--avatar")
+    @UI("#customBadges .v-badge--avatar")
+    public static Badge imageBadge;
+	
+    @Test(description = "Test checks different types of badges")
+    public void typeBadgesTest() {
+        lockUnlockAccountBadge.is().icon();
+        dotBadge.has().notIcon();
+        imageBadge.has().avatar();
+        dotBadge.has().notAvatar();
+        dotBadge.is().dot();
+        imageBadge.is().notDot();
+    }
+
+    @Test(description = "Test checks that badge has text")
+    public void textBadgesTest() {
+        Badge simpleBadge = simpleBadges.get(1);
+        simpleBadge.show();
+        simpleBadge.has().text("1");
+    }
+```
+
+__Badges__ - The `v-badge` component superscripts or subscripts an avatar-like icon or text onto content to highlight information to a user or to just draw attention to a specific element.
+Content within the badge usually contains numbers or icons.
+
+![Badges example](../../images/vuetify/badges.png)
+
+__Vuetify v2.6.14__ code example:
+```html
+<span class="v-badge theme--light">
+  <i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--light" style="font-size: 36px;"></i>
+  <span class="v-badge__wrapper">
+    <span aria-atomic="true" aria-label="Badge" aria-live="polite" role="status" class="v-badge__badge primary" style="inset: auto auto calc(100% - 4px) calc(100% - 4px);">1</span>
+  </span>
+</span>
+```
+
+Badges element contains following methods:
+
+|Method | Description                       | Return Type
+--- |-----------------------------------| ---
+**is()** | Badge assert                      | BadgeAssert
+**badge()** | Gets '{name}' badge               | UIElement
+**isBordered()** | Checks that '{name}' is bordered  | boolean
+**isInline()** | Checks that '{name}' is inline    | boolean
+**isBottom()** | Checks that '{name}' is bottom    | boolean
+**isOverlap()** | Checks that '{name}' is overlap   | boolean
+**isDot()** | Checks that '{name}' is dot       | boolean
+**isAvatar()** | Checks that '{name}' is avatar    | boolean
+**backgroundColor()** | Gets '{name}' background color    | String
+**image()** | Gets '{name}' image               | Image
+**isDisplayed()** | Checks that '{name}' is displayed | boolean
+**icon()** | Gets '{name}' icon | Icon
+**hasIcon()** | Checks that '{name}' has icon     | boolean
+**getText()** | Gets '{name}' badge text          | String
+**isTile()** | Checks that '{name}' is tile | boolean
+**hasLeftAlignment()** | Checks that '{name}' has left alignment | boolean
+**hasRightAlignment()** | Checks that '{name}' has right alignment | boolean
+**color()** | Gets '{name}' color | String
+**backgroundColor()** | Gets '{name}' background color | String
+**image()** | Gets '{name}' image | Image
+
+For examples of usage see:
+[JDI vuetify page tests for Badges](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/BadgesTests.java)
+
 ### 5.41 Checkbox
 
 [Checkbox Vuetify documentation page](https://v2.vuetifyjs.com/en/components/checkboxes/)
@@ -3856,3 +3942,4 @@ Dividers element contains following methods:
 
 For examples of usage see:
 [JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)
+

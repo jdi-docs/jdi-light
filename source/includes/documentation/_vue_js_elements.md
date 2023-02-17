@@ -2362,37 +2362,66 @@ For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/
 
 ### 5.23 Icons
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/icons/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/icons/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Icon.java_
 
 ```java
-    @Test
+    //@FindBy(css = "#ClickIcon .v-icon")
+    @UI("#ClickIcon .v-icon")
+    public static Icon clickIcon;
+
+    @Test(description = "Test checks that Icons are clickable")
     public void clickIconTests() {
-      clickIcon.is().displayed();
-      clickIcon.is().clickable();
-      clickIcon.has().type("mdi-chevron-right");
-      clickIcon.has().height(36);
-      clickIcon.has().width(36);
+      clickIcon.is().displayed().and().clickable();
+      clickIcon.has().type("mdi-chevron-right").and()
+          .height(36).and().width(36);
       clickIcon.click();
       clickIcon.has().alertOnIconClick("You clicked next!");
       clickIcon.handleAlert();
     }
 ```
 
-Icon component provides a large set of graphial signs to provide context for various aspects of your application.
+__Icons__ - The `v-icon` component provides a large set of glyphs to provide context to various aspects of your application.
+For a list of all available icons, visit the official [Material Design Icons page](https://materialdesignicons.com/).
+To use any of these icons simply use the `mdi-` prefix followed by the icon name.
 
 ![Icons example](../../images/vuetify/icons.png)
+__Vuetify v2.6.14__ code example:
+```html
+<i aria-hidden="true" class="v-icon notranslate mdi mdi-domain theme--light green--text text--darken-2" 
+   style="font-size: 36px;"></i>
+```
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | IconAssert
-**hasType()** | Returns type of icon (mdi, svg, etc.) | String
-**hasColor()** | Returns color of icon in rgba | String
-**hasHeight()** | Returns height of icon | String
-**hasWidth()** | Returns width of icon | String
+Icons element includes following methods:
 
-For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
+|Method | Description                                   | Return Type
+--- |-----------------------------------------------| ---
+**is()** | Returns Icon Assert class                     | IconAssert
+**findAll(UIBaseElement<?> rootElement)** | Finds all '{name}' icons                      | List<Icon>
+**findAll(UIElement rootElement)** | Finds all '{name}' icons                      | List<Icon>
+**toIcon(UIElement element)** | Casts '{name}' to icon                        | Icon
+**getMdiMap()** | Gets '{name}' mdi-map                         | BidiMap<String, String>
+**getMdiIconName()** | Gets '{name}' mdi name                        | String
+**getType()** | Gets '{name}' type                            | String
+**color()** | Gets '{name}' color                           | String
+**hasType()** | Gets '{name}' type                            | String
+**getAlertTextOnIconClick()** | Gets '{name}' alert text after clicking on it | String
+**dismissAlert()** | Dismiss '{name}' alert                        | void
+**isEnabled()** | Checks that '{name}' is enabled               | boolean
+**isAccessible()** | Checks that '{name}' is accessible            | boolean
+**label()** | Gets '{name}' label                           | Label
+**getCursorType()** | Gets '{name}' cursor type                     | String
+**hasLeftAlignment()** | Checks that '{name}' has left alignment       | boolean
+**hasRightAlignment()** | Checks that '{name}' has right alignment      | boolean
+**height()** | Gets '{name}' height                          | int
+**width()** | Gets '{name}' width                           | int
+**maxHeight()** | Gets '{name}' max height                      | int
+**maxWidth()** | Gets '{name}' max width                       | int
+**minHeight()** | Gets '{name}' min height                      | int
+**minWidth()** | Gets '{name}' min width                       | int
+
+Examples of usage see on the following page: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
 
 ### 5.24 Carousels
 
@@ -2753,48 +2782,53 @@ For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-ligh
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/images/)
 
+Image is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Image.java_
 
 ```java
-    @Test
-    public void gradientsImagesTests() {
-      for(Image image : gradientsImages) {
-      image.is().displayed();
-      image.has().sourcePath("https://cdn.vuetifyjs.com/images/parallax/material2.jpg");
-      image.has().width(516.984);
-      image.has().height(290.797);
-      image.has().gradient();
-      }
+    @Test(dataProvider = "measurementImagesDataProvider", dataProviderClass = ImagesTestsDataProvider.class)
+    public void measurementImagesTest(int sliderValue, int width, int height) {
+        aspectRatioImage.is().displayed();
+        slider.slideHorizontalTo(String.valueOf(sliderValue));
+        aspectRatioImage.has().width(width);
+        aspectRatioImage.has().height(height);
     }
 
     @Test
-    public void heightImagesTests() {
-      for(Image image : heightImages) {
-      image.is().displayed();
-      image.has().sourcePath("https://picsum.photos/350/165?random");
-      image.has().limitedHeight();
-      image.has().width(775.5);
-      image.has().height(125);
-      }
-    }
-
+    public void gradientsImagesTest() {
+        gradientsImages.forEach(gradientsImage -> {
+            gradientsImage.show();
+            gradientsImage.has().gradient();
+        });
+        aspectRatioImage.has().noGradient();
+  }
 ```
 
-Image component is packed with features to support wide variety of media files. By combining it with loader, you can add dynamic progressive images to provide better user experience.
+__Image__ - The `v-img` component is packed with features to support rich media. Combined with the [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader), you can add dynamic progressive images to provide a better user experience.
 
 ![Images examples](../../images/vuetify/images.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | ImageAssert
-**hasSourcePath()** | Returns image's source path | String
-**hasHeight()** | Returns image's height | String
-**hasWidth()** | Returns image's width | String
-**hasGradient()** | Shows that image has gradient | boolean
-**hasLimitedHeight()** | Shows that image has limited height | boolean
-**isLoading()** | Shows that image is loading | boolean
+__Image__ element implements following interfaces: HasMeasurement, HasTheme.
 
-For examples of usage see: [Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
+__Image__ element has following methods:
+
+|Method | Description                          | Return Type
+--- |--------------------------------------| ---
+**is()** | Returns Assert class                 | ImageAssert
+**getJDIImage()** | Casts vuetify Image to HTML Image    | com.epam.jdi.light.ui.html.elements.common.Image
+**alternateText()** | Gets '{name}' alternate image text   | String
+**isContain()** | Checks that '{name}' is contain      | boolean
+**getSourcePath()** | Gets '{name}' image source path      | String
+**hasGradient()** | Checks that '{name}' has gradient    | boolean
+**hasPlaceholder()** | Checks that '{name}' has placeholder | boolean
+**height()** | Gets '{name}' height                 | int
+**width()** | Gets '{name}' width                  | int
+**maxHeight()** | Gets '{name}' max height             | int
+**maxWidth()** | Gets '{name}' max width              | int
+**minHeight()** | Gets '{name}' min height             | int
+**minWidth()** | Gets '{name}' min width              | int
+
+Examples of usage see on the following page: [Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
 
 ### 5.30 Timelines
 
@@ -3773,6 +3807,89 @@ Badges element contains following methods:
 
 For examples of usage see:
 [JDI vuetify page tests for Badges](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/BadgesTests.java)
+
+### 5.41 Checkbox
+
+[Checkbox Vuetify documentation page](https://v2.vuetifyjs.com/en/components/checkboxes/)
+
+Checkbox is located in the following class:
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Checkbox.java_
+
+```java
+    //@FindBy(css = "#ModelArrayCheckboxes .v-input--checkbox")
+    @UI("#ModelArrayCheckboxes > .v-input--checkbox")
+    @WaitAfterAction(1)
+    public static List<VueCheckbox> modelAsArrayCheckboxes;
+
+    @Test(description = "Test checks checkbox labels, and array texts")
+    public void modelAsArrayCheckboxesTest() {
+        modelAsArrayCheckboxes.get(1).is().checked();
+        modelAsArrayCheckboxes.get(2).is().unchecked();
+        modelArray.has().text("[ \"" + modelAsArrayCheckboxes.get(1).labelText() + "\" ]");
+        modelAsArrayCheckboxes.get(2).check();
+        modelArray.has().text("[ \"John\", \"Jacob\" ]");
+        modelAsArrayCheckboxes.get(1).uncheck();
+        modelArray.has().text("[ \"Jacob\" ]");
+        modelAsArrayCheckboxes.get(2).uncheck();
+        modelArray.has().text("[]");
+    }
+```
+__Checkboxes__ - The `v-checkbox` component provides users the ability to choose between two distinct values.
+These are very similar to a switch and can be used in complex forms and checklists.
+A simpler version, `v-simple-checkbox` is used primarily as a lightweight alternative in data-table components to select rows or display inline boolean data.
+
+![Checkbox example](../../images/vuetify/checkbox.png)
+
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox red--text">
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-input--selection-controls__input">
+        <i aria-hidden="true" class="v-icon notranslate mdi mdi-checkbox-marked theme--light red--text"></i>
+        <input aria-checked="true" id="input-661" role="checkbox" type="checkbox" value="red">
+        <div class="v-input--selection-controls__ripple red--text"></div>
+      </div>
+      <label for="input-661" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">red</label>
+    </div>
+  </div>
+</div>
+```
+
+Checkbox element contains following methods:
+
+|Method | Description                                  | Return Type
+--- |----------------------------------------------| ---
+**is()** | Checkbox assert                              | CheckboxAssert
+**check()** | Checks '{name}'                              | void
+**uncheck()** | Unchecks '{name}'                            | void
+**isChecked()** | Checks that '{name}' is checked              | boolean
+**isUnchecked()** | Checks that '{name}' is not selected         | boolean
+**isDisabled()** | Checks that '{name}' is disabled             | boolean
+**isEnabled()** | Checks that '{name}' is enabled              | boolean
+**label()** | Gets '{name}' label                          | Label
+**labelText()** | Gets '{name}' label text                     | String
+**isIndeterminate()** | Checks that '{name}' is indeterminate        | boolean
+**isSuccess()** | Checks that '{name}' is success              | boolean
+**isError()** | Checks that '{name}' is error                | boolean
+**color()** | Gets '{name}' color                          | String
+**backgroundColor()** | Gets '{name}' background color               | String
+**labelColor()** | Gets '{name}' label color                    | String
+**isDense()** | Checks that '{name}' is dense                | boolean
+**messages()** | Gets '{name}' messages                       | List<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}' | List<UIElement>
+**messagesText()** | Gets '{name}' messages text                  | List<String>
+**messagesCount()** | Gets '{name}' messages count                 | int
+**hasErrorMessages()** | Checks that '{name}' has error messages      | boolean
+**errorMessagesText()** | Gets '{name}' error messages                 | List<String>
+**errorMessagesCount()** | Gets the number of '{name}' error messages   | int
+**hasSuccessMessages()** | Checks that '{name}' has success messages    | boolean
+**successMessagesText()** | Gets '{name}' success messages | List<String>
+**successMessagesCount()** | Get the number of '{name}' success messages | int
+**isReadOnly()** | Check that '{name}' is readonly | boolean
+
+For examples of usage see:
+[JDI vuetify page tests for Checkboxes](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java)
 
 ### 5.42 Divider
 

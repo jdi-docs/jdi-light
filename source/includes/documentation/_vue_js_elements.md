@@ -2362,37 +2362,66 @@ For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/
 
 ### 5.23 Icons
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/icons/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/icons/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Icon.java_
 
 ```java
-    @Test
+    //@FindBy(css = "#ClickIcon .v-icon")
+    @UI("#ClickIcon .v-icon")
+    public static Icon clickIcon;
+
+    @Test(description = "Test checks that Icons are clickable")
     public void clickIconTests() {
-      clickIcon.is().displayed();
-      clickIcon.is().clickable();
-      clickIcon.has().type("mdi-chevron-right");
-      clickIcon.has().height(36);
-      clickIcon.has().width(36);
+      clickIcon.is().displayed().and().clickable();
+      clickIcon.has().type("mdi-chevron-right").and()
+          .height(36).and().width(36);
       clickIcon.click();
       clickIcon.has().alertOnIconClick("You clicked next!");
       clickIcon.handleAlert();
     }
 ```
 
-Icon component provides a large set of graphial signs to provide context for various aspects of your application.
+__Icons__ - The `v-icon` component provides a large set of glyphs to provide context to various aspects of your application.
+For a list of all available icons, visit the official [Material Design Icons page](https://materialdesignicons.com/).
+To use any of these icons simply use the `mdi-` prefix followed by the icon name.
 
 ![Icons example](../../images/vuetify/icons.png)
+__Vuetify v2.6.14__ code example:
+```html
+<i aria-hidden="true" class="v-icon notranslate mdi mdi-domain theme--light green--text text--darken-2" 
+   style="font-size: 36px;"></i>
+```
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | IconAssert
-**hasType()** | Returns type of icon (mdi, svg, etc.) | String
-**hasColor()** | Returns color of icon in rgba | String
-**hasHeight()** | Returns height of icon | String
-**hasWidth()** | Returns width of icon | String
+Icons element includes following methods:
 
-For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
+|Method | Description                                   | Return Type
+--- |-----------------------------------------------| ---
+**is()** | Returns Icon Assert class                     | IconAssert
+**findAll(UIBaseElement<?> rootElement)** | Finds all '{name}' icons                      | List<Icon>
+**findAll(UIElement rootElement)** | Finds all '{name}' icons                      | List<Icon>
+**toIcon(UIElement element)** | Casts '{name}' to icon                        | Icon
+**getMdiMap()** | Gets '{name}' mdi-map                         | BidiMap<String, String>
+**getMdiIconName()** | Gets '{name}' mdi name                        | String
+**getType()** | Gets '{name}' type                            | String
+**color()** | Gets '{name}' color                           | String
+**hasType()** | Gets '{name}' type                            | String
+**getAlertTextOnIconClick()** | Gets '{name}' alert text after clicking on it | String
+**dismissAlert()** | Dismiss '{name}' alert                        | void
+**isEnabled()** | Checks that '{name}' is enabled               | boolean
+**isAccessible()** | Checks that '{name}' is accessible            | boolean
+**label()** | Gets '{name}' label                           | Label
+**getCursorType()** | Gets '{name}' cursor type                     | String
+**hasLeftAlignment()** | Checks that '{name}' has left alignment       | boolean
+**hasRightAlignment()** | Checks that '{name}' has right alignment      | boolean
+**height()** | Gets '{name}' height                          | int
+**width()** | Gets '{name}' width                           | int
+**maxHeight()** | Gets '{name}' max height                      | int
+**maxWidth()** | Gets '{name}' max width                       | int
+**minHeight()** | Gets '{name}' min height                      | int
+**minWidth()** | Gets '{name}' min width                       | int
+
+Examples of usage see on the following page: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
 
 ### 5.24 Carousels
 
@@ -2753,48 +2782,53 @@ For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-ligh
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/images/)
 
+Image is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Image.java_
 
 ```java
-    @Test
-    public void gradientsImagesTests() {
-      for(Image image : gradientsImages) {
-      image.is().displayed();
-      image.has().sourcePath("https://cdn.vuetifyjs.com/images/parallax/material2.jpg");
-      image.has().width(516.984);
-      image.has().height(290.797);
-      image.has().gradient();
-      }
+    @Test(dataProvider = "measurementImagesDataProvider", dataProviderClass = ImagesTestsDataProvider.class)
+    public void measurementImagesTest(int sliderValue, int width, int height) {
+        aspectRatioImage.is().displayed();
+        slider.slideHorizontalTo(String.valueOf(sliderValue));
+        aspectRatioImage.has().width(width);
+        aspectRatioImage.has().height(height);
     }
 
     @Test
-    public void heightImagesTests() {
-      for(Image image : heightImages) {
-      image.is().displayed();
-      image.has().sourcePath("https://picsum.photos/350/165?random");
-      image.has().limitedHeight();
-      image.has().width(775.5);
-      image.has().height(125);
-      }
-    }
-
+    public void gradientsImagesTest() {
+        gradientsImages.forEach(gradientsImage -> {
+            gradientsImage.show();
+            gradientsImage.has().gradient();
+        });
+        aspectRatioImage.has().noGradient();
+  }
 ```
 
-Image component is packed with features to support wide variety of media files. By combining it with loader, you can add dynamic progressive images to provide better user experience.
+__Image__ - The `v-img` component is packed with features to support rich media. Combined with the [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader), you can add dynamic progressive images to provide a better user experience.
 
 ![Images examples](../../images/vuetify/images.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | ImageAssert
-**hasSourcePath()** | Returns image's source path | String
-**hasHeight()** | Returns image's height | String
-**hasWidth()** | Returns image's width | String
-**hasGradient()** | Shows that image has gradient | boolean
-**hasLimitedHeight()** | Shows that image has limited height | boolean
-**isLoading()** | Shows that image is loading | boolean
+__Image__ element implements following interfaces: HasMeasurement, HasTheme.
 
-For examples of usage see: [Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
+__Image__ element has following methods:
+
+|Method | Description                          | Return Type
+--- |--------------------------------------| ---
+**is()** | Returns Assert class                 | ImageAssert
+**getJDIImage()** | Casts vuetify Image to HTML Image    | com.epam.jdi.light.ui.html.elements.common.Image
+**alternateText()** | Gets '{name}' alternate image text   | String
+**isContain()** | Checks that '{name}' is contain      | boolean
+**getSourcePath()** | Gets '{name}' image source path      | String
+**hasGradient()** | Checks that '{name}' has gradient    | boolean
+**hasPlaceholder()** | Checks that '{name}' has placeholder | boolean
+**height()** | Gets '{name}' height                 | int
+**width()** | Gets '{name}' width                  | int
+**maxHeight()** | Gets '{name}' max height             | int
+**maxWidth()** | Gets '{name}' max width              | int
+**minHeight()** | Gets '{name}' min height             | int
+**minWidth()** | Gets '{name}' min width              | int
+
+Examples of usage see on the following page: [Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
 
 ### 5.30 Timelines
 

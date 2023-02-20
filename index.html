@@ -39085,41 +39085,160 @@ It supports standard, outlined and filled styling.</p>
 <h5 id='here-you-can-find-alert-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/AlertTests.java"  target="_blank">Here you can find Alert tests</a></h5>
 <p><br></br><br></br></p>
 <h2 id='5-vue-js-elements'>5. Vue.js elements</h2><h3 id='5-1-alerts'>5.1 Alerts</h3>
-<p><a href="https://vuetifyjs.com/en/components/alerts/">Vuetify documentation page</a></p>
-<pre class="highlight java tab-java"><code>  <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">alertsWithPropsHaveProperCssProps</span><span class="o">(){</span>
-      <span class="n">redAlert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"I'm an alert with a top border and red color"</span><span class="o">);</span>
-      <span class="n">redAlert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="n">Colors</span><span class="o">.</span><span class="na">RED_LIGHTEN_2</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">redAlert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="s">"v-alert--border-top"</span><span class="o">);</span>
-  <span class="o">}</span>
-</code></pre>
+<p><a href="https://v2.vuetifyjs.com/en/components/alerts/">Vuetify documentation page</a></p>
+
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Alert.java</em></li>
 </ul>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#tileAlert .v-alert")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tileAlert .v-alert"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Alert</span> <span class="n">tileAlert</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Check that tile alert is shown as expected"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tileAlertTest</span><span class="o">(){</span>
+        <span class="n">tileAlert</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">tileAlert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Tile Alert"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="s">"rgba(255, 255, 255, 1)"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">backgroundColor</span><span class="o">(</span><span class="s">"rgba(76, 175, 80, 1)"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notDense</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">tile</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">type</span><span class="o">(</span><span class="s">"success"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p>The Alert component is used to convey important information to the user through the use of contextual types, icons, and colors.
+There are four default types: success, info, warning, and error. Border, icon, and color of the alert could be customized.</p>
 
 <p><img src="images/vuetify/alerts.png" alt="Alerts example" /></p>
 
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div role=&quot;alert&quot; class=&quot;v-alert v-sheet theme--light elevation-2 v-alert--border v-alert--border-bottom&quot;&gt;
+  &lt;div class=&quot;v-alert__wrapper&quot;&gt;
+    &lt;span aria-hidden=&quot;true&quot; class=&quot;v-icon notranslate v-alert__icon theme--light warning--text&quot;&gt;
+      &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot; class=&quot;v-icon__svg&quot;&gt;
+        &lt;path d=&quot;M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16&quot;&gt;&lt;/path&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;div class=&quot;v-alert__content&quot;&gt; Fusce commodo aliquam arcu. &lt;/div&gt;
+    &lt;div class=&quot;v-alert__border v-alert__border--bottom warning v-alert__border--has-color&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
+
 <table><thead>
 <tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
+<th style="text-align: left">Method</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Return Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Returns Assert class</td>
-<td>TextAssert</td>
+<td style="text-align: left"><strong>closeButton()</strong></td>
+<td style="text-align: left">Returns close button object</td>
+<td style="text-align: left">VuetifyButton</td>
 </tr>
 <tr>
-<td><strong>getValue()</strong></td>
-<td>Returns element value</td>
-<td>String</td>
+<td style="text-align: left"><strong>hasCloseButton()</strong></td>
+<td style="text-align: left">Returns true if alert has close button</td>
+<td style="text-align: left">boolean</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>isDismissible()</strong></td>
+<td style="text-align: left">Returns true if alert has close button</td>
+<td style="text-align: left">boolean <a href="the%20same%20as%20previous!"></a></td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>isProminent()</strong></td>
+<td style="text-align: left">Returns true if alert is prominent and has halo for icon and increased height</td>
+<td style="text-align: left">boolean</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>hasBorder()</strong></td>
+<td style="text-align: left">Returns true if alert has border</td>
+<td style="text-align: left">boolean</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>borderValue()</strong></td>
+<td style="text-align: left">Returns border side (top, right, bottom or left)</td>
+<td style="text-align: left">String</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>hasColoredBorder()</strong></td>
+<td style="text-align: left">Returns true if alert border has color</td>
+<td style="text-align: left">boolean</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>borderBackGroundColor()</strong></td>
+<td style="text-align: left">Returns border background color</td>
+<td style="text-align: left">boolean</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>type()</strong></td>
+<td style="text-align: left">Returns alert type (info, success, warning, error) or empty string if type is undefined</td>
+<td style="text-align: left">String</td>
 </tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java">Custom vuetify alert example</a>
-and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java">JDI vuetify page tests for alerts</a>.</p>
+<table><thead>
+<tr>
+<th style="text-align: left">Assert method</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>text(Matcher&lt;String condition)</strong></td>
+<td style="text-align: left">Asserts if alert text matches provided matcher</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>dismissible()</strong> or <strong>hasCloseButton()</strong></td>
+<td style="text-align: left">Asserts if alert has close button</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>notDismissible()</strong> or <strong>hasNotCloseButton()</strong></td>
+<td style="text-align: left">Asserts if alert has no close button</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>prominent()</strong></td>
+<td style="text-align: left">Asserts if alert is prominent and has halo for icon</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>prominent()</strong></td>
+<td style="text-align: left">Asserts if alert is not prominent and has no halo for icon</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>border()</strong></td>
+<td style="text-align: left">Asserts if alert is prominent and has halo for icon</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>noBorder()</strong></td>
+<td style="text-align: left">Asserts if alert is not prominent and has no halo for icon</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>border(String borderValue)</strong></td>
+<td style="text-align: left">Asserts if alert has expected border side (top, right, bottom or left)</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>coloredBorder()</strong></td>
+<td style="text-align: left">Asserts if alert has colored border</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>noColoredBorder()</strong></td>
+<td style="text-align: left">Asserts if alert has not colored border</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>backgroundBorderColor(String borderBackgroundColor)</strong></td>
+<td style="text-align: left">Asserts if alert has expected border background color</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>type()</strong></td>
+<td style="text-align: left">Asserts if alert has expected type (info, success, warning, error)</td>
+</tr>
+</tbody></table>
+
+<p>Alert also have basic JDI elements methods and asserts for Text, Color, Elevation, Outline, Measurements, Theme and others</p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/alerts/IconAlert.java">Custom vuetify alert example</a>
+and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java">JDI vuetify page tests for alerts</a>.</p>
 <h3 id='5-2-avatars'>5.2 Avatars</h3>
 <p><a href="https://v2.vuetifyjs.com/en/components/avatars/">Vuetify documentation page</a></p>
 

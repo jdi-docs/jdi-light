@@ -27,32 +27,55 @@ and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light
 
 ### 5.2 Avatars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/avatars/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/avatars/)
 
+Avatar is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Avatar.java_
 
 ```java
-    @Test
-    public void avatarsWithSizeTests() {
-      avatarsWithSize.forEach(avatar -> avatar.is().displayed());
-      avatarsWithSize.get(1).has().text("36");
-      avatarsWithSize.get(2).has().text("48");
-      avatarsWithSize.get(3).has().text("62");
-      avatarsWithSize.get(1).has().size(36);
-      avatarsWithSize.get(2).has().size(48);
-      avatarsWithSize.get(3).has().size(62);
-    }
+//@FindBy(css = "#avatarsWithSize .v-avatar")
+@UI("#avatarsWithSize .v-avatar")
+public static List<Avatar> sizeAvatars;
+
+@Test
+public void avatarTest() {
+  sizeAvatars.get(1).show();
+  sizeAvatars.get(1).has().size(36).and().text("36")
+        .and().backgroundColor(INDIGO.value());
+}
 ```
 
 ![Avatars example](../../images/vuetify/avatars.png)
 
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-avatar indigo" style="height: 36px; min-width: 36px; width: 36px;">
+  <span class="white--text text-h5">36</span>
+</div>
+```
+
 __Avatars__ - graphical representations of users.
 
-Avatar element implements the following interfaces: HasIcon, HasImage and IsText. Therefore, you have access to default methods of these interfaces.
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | AvatarAssert
+|Method | Description   | Return Type
+--- |---------------| ---
+**is()** | Avatar Assert | AvatarAssert
+**getText()** | Gets '{name}' text | String
+**isTile()** | Checks that '{name}' is tile | boolean
+**hasLeftAlignment()** | Checks that '{name}' has left alignment | boolean
+**hasRightAlignment()** | Check that '{name}' has right alignment | boolean
+**color()** | Gets '{name}' color | String
+**backgroundColor()** | Gets '{name}' background color | String
+**icon()** | Gets '{name}' icon | Icon
+**hasIcon()** | Checks that '{name}' has icon | boolean
+**image()** | Gets '{name}' image | Image
+**height()** | Gets '{name}' height | int
+**width()** | Gets '{name}' width | int
+**maxHeight()** | Gets '{name}' max height | int
+**maxWidth()** | Gets '{name}' max width | int
+**minHeight()** | Gets '{name}' min height | int
+**minWidth()** | Gets '{name}' min width | int
+**isRounded()** | Checks that '{name}' is rounded | boolean
+**rounded()** | Gets '{name}' rounded value | String
 
 For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
 and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).

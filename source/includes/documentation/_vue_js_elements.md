@@ -2966,18 +2966,15 @@ For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testi
 
 ### 5.39 Aspect Ratios
 
-[Aspect Ratios Vuetify documentation page](https://vuetifyjs.com/en/components/aspect-ratios/)
+[Aspect Ratios Vuetify documentation page](https://v2.vuetifyjs.com/en/components/aspect-ratios/)
 
 ```java
-    @Test
+    //@FindBy(css = ".v-responsive")
+    @UI(".v-responsive")
+    public static AspectRatios aspectRatiosContainer;
+    @Test(description = "Test checks aspect ration of an element")
     public void aspectRatioImageTests() {
-        aspectRatiosTestsData.aspectRatiosTestData().forEach(
-                dataObject -> {
-                    getDriver().manage().window().setSize(new Dimension(dataObject.getWidth(),
-                        dataObject.getHeight()));
-                    aspectRatiosContainer.has().ratio(16, 9);
-                }
-        );
+        aspectRatiosContainer.has().ratio(16, 9);
     }
 ```
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.AspectRatios.java_
@@ -2989,17 +2986,15 @@ Aspect Ratios - the `v-responsive` component can be used to fix any section to a
 
 __Vuetify v2.6.14__ code example:
 ```html
-<template>
-  <div>
-    <v-card>
-      <v-responsive :aspect-ratio="16/9">
-        <v-card-text>
-          This card will always be 16:9 (unless you put more stuff in it)
-        </v-card-text>
-      </v-responsive>
-    </v-card>
+<div class="v-responsive">
+  <div class="v-responsive__sizer" style="padding-bottom: 56.25%;">
   </div>
-</template>
+  <div class="v-responsive__content">
+    <div class="v-card__text">
+      This card will always be 16:9 (unless you put more stuff in it)
+    </div>
+  </div>
+</div>
 ```
 
 Aspect Ratios element contains following methods:

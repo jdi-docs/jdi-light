@@ -2637,6 +2637,10 @@ Progress linear is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressBar.java_
 
 ```java
+//@FindBy(css = "#QueryProgress .v-progress-linear")
+@UI("#QueryProgress .v-progress-linear")
+public static ProgressLinear queryProgressLinear;
+
 @Test(description = "Test checks absolute value of progress linear and checks if it is hidden : value")
 public void absoluteValueHiddenProgressLinearTests() {
   queryProgressLinear.show();

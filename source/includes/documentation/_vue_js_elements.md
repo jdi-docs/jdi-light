@@ -7,18 +7,19 @@
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Alert.java_
 
 ```java
-    //@FindBy(css = ".v-alert")
-    @UI(".v-alert")
-    public static Alert alert;
+    //@FindBy(css = "#tileAlert .v-alert")
+    @UI("#tileAlert .v-alert")
+    public static Alert tileAlert;
 
-    @Test(description = "Check that warning alert is shown")
-    public void warningAlertTest(){
-        alert.show()
-        alert.has().text("I'm an alert with a top border and red color")
+    @Test(description = "Check that tile alert is shown as expected")
+    public void tileAlertTest(){
+        tileAlert.show();
+        tileAlert.has().text("Tile Alert")
             .has().color("rgba(255, 255, 255, 1)")
-            .has().backgroundColor("rgba(255, 82, 82, 1)")
-            .is().dense()
-            .has().type("warning");
+            .has().backgroundColor("rgba(76, 175, 80, 1)")
+            .is().notDense()
+            .is().tile()
+            .has().type("success");
     }
 ```
 

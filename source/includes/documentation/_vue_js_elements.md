@@ -4006,3 +4006,102 @@ Dividers element contains following methods:
 
 For examples of usage see:
 [JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)
+
+### 5.43 Inputs
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/images/)
+
+Input is located in the following class:
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Input.java_
+
+```java
+    @FindBy(xpath = "//form[@id='HideDetailsInput']/div[2]")
+    @UI("//form[@id='HideDetailsInput']/div[2]")
+    public static Input hideDetailsAnotherInput;
+    @Test(description = "Test checks type text feature")
+    public void typeTextInputTest() {
+        String textToType = "Some text";
+        hideDetailsAnotherInput.show();
+        hideDetailsAnotherInput.hasTextField();
+        hideDetailsAnotherInput.typeText(textToType);
+        hideDetailsAnotherInput.has().typedText();
+        hideDetailsAnotherInput.has().typedText(textToType);
+    }
+```
+
+__Input__ - The v-input component gives you a baseline to create your own custom inputs. It consists of a prepend/append slot, messages, and a default slot.
+
+![Input example](../../images/vuetify/input.png)
+
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-input v-input--has-state theme--light error--text" id="ErrorCountInput2" errors="">
+  <div class="v-input__control">
+    <div class="v-input__slot">Input</div>
+    <div class="v-messages theme--light error--text" role="alert">
+      <div class="v-messages__wrapper">
+        <div class="v-messages__message">error1</div>
+        <div class="v-messages__message">error2</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+__Input__ element implements following interfaces: HasLabel, IsReadOnly, HasMessages, IsLoading, HasColor, HasTheme, HasMeasurement, IsDense, HasDetailsHidden.
+
+__Input__ element has following methods:
+
+|Method | Description                                           | Return Type
+--- |-------------------------------------------------------| ---
+**is()** | Input Assert                                          | InputAssert
+**hasTextField()** | Checks that '{name}' has text field                   | boolean
+**typeText(String text)** | Types text into '{name}' input field                  | void
+**clearAndTypeText(String text)** | Clears '{name}' text field and type text into it      | void
+**hasTypedText()** | Checks that '{name}' has typed text in the text field | boolean
+**getTypedText()** | Gets '{name}' typed text                              | String
+**hasTextInSlot()** | Checks that '{name}' has text in slot                 | boolean
+**getTextInSlot()** | Gets '{name}' text from slot                          | String
+**clearTextField()** | Clears '{name}' text field                            | void
+**isFocused()** | Checks that '{name}' is focused                       | boolean
+**hasPrependOuterIcon()** | Checks that '{name}' has prepend outer icon           | boolean
+**clickOnPrependOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
+**hasPrependInnerIcon()** | Checks that '{name}' has prepend inner icon           | boolean
+**clickOnPrependInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
+**hasAppendOuterIcon()** | Checks that '{name}' has append outer icon            | boolean
+**clickOnAppendOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
+**hasAppendInnerIcon()** | Checks that '{name}' has append inner icon            | boolean
+**clickOnAppendInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
+**hasSwitch()** | Checks that '{name}' has switch                       | boolean
+**switchIsChecked()** | Checks that '{name}' switch is checked                | boolean
+**checkSwitch()** | Checks '{name}' switch                                | void
+**uncheckSwitch()** | Unchecks '{name}' switch                              | void
+**label()** | Gets '{name}' label                                   | Label
+**hasLabel()** | Checks that '{name}' has label                        | Boolean
+**labelText()** | Gets '{name}' label text                              | String
+**isDisabled()** | Checks that '{name}' is disabled                      | boolean
+**isReadOnly()** | Checks that '{name}' is readonly                      | boolean
+**messages()** | Gets '{name}' messages                                | List<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}'          | List<UIElement>
+**messagesText()** | Gets '{name}' messages text                           | List<String>
+**messagesCount()** | Gets '{name}' messages count                          | int
+**hasErrorMessages()** | Checks that '{name}' has error messages               | boolean
+**errorMessagesText()** | Gets '{name}' error messages                          | List<String>
+**errorMessagesCount()** | Gets the number of '{name}' error messages            | int
+**hasSuccessMessages()** | Checks that '{name}' has success messages             | boolean
+**successMessagesText()** | Gets '{name}' success messages                        | List<String>
+**successMessagesCount()** | Gets the number of '{name}' success messages          | int
+**isLoading()** | Check that '{name}' is loading                        | boolean
+**color()** | Get '{name}' color                                    | String
+**backgroundColor()** | Get '{name}' background color                         | String
+**height()** | Gets '{name}' height                                  | int
+**width()** | Gets '{name}' width                                   | int
+**maxHeight()** | Gets '{name}' max height                              | int
+**maxWidth()** | Gets '{name}' max width                               | int
+**minHeight()** | Gets '{name}' min height                              | int
+**minWidth()** | Gets '{name}' min width                               | int
+**isDense()** | Checks that '{name}' is dense                         | boolean
+**hasDetailsHidden()** | Checks that '{name}' has details hidden               | boolean
+
+Examples of usage see on the following page:
+[Input tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)

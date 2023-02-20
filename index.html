@@ -39121,27 +39121,31 @@ It supports standard, outlined and filled styling.</p>
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java">Custom vuetify alert example</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java">JDI vuetify page tests for alerts</a>.</p>
 <h3 id='5-2-avatars'>5.2 Avatars</h3>
-<p><a href="https://vuetifyjs.com/en/components/avatars/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/avatars/">Vuetify documentation page</a></p>
 
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Avatar.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarsWithSizeTests</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">avatar</span> <span class="o">-&gt;</span> <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">());</span>
-      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"36"</span><span class="o">);</span>
-      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"48"</span><span class="o">);</span>
-      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"62"</span><span class="o">);</span>
-      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">36</span><span class="o">);</span>
-      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">48</span><span class="o">);</span>
-      <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">62</span><span class="o">);</span>
-    <span class="o">}</span>
+<p>Avatar is located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Avatar.java</em></p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#avatarsWithSize .v-avatar")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#avatarsWithSize .v-avatar"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">sizeAvatars</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">sizeAvatars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">sizeAvatars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">36</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"36"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">backgroundColor</span><span class="o">(</span><span class="n">INDIGO</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+<span class="o">}</span>
 </code></pre>
 <p><img src="images/vuetify/avatars.png" alt="Avatars example" /></p>
 
-<p><strong>Avatars</strong> - graphical representations of users.</p>
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;v-avatar indigo&quot; style=&quot;height: 36px; min-width: 36px; width: 36px;&quot;&gt;
+  &lt;span class=&quot;white--text text-h5&quot;&gt;36&lt;/span&gt;
+&lt;/div&gt;
+</code></p>
 
-<p>Avatar element implements the following interfaces: HasIcon, HasImage and IsText. Therefore, you have access to default methods of these interfaces.</p>
+<p><strong>Avatars</strong> - graphical representations of users.</p>
 
 <table><thead>
 <tr>
@@ -39152,8 +39156,93 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts
 </thead><tbody>
 <tr>
 <td><strong>is()</strong></td>
-<td>Returns Assert class</td>
+<td>Avatar Assert</td>
 <td>AvatarAssert</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Gets &#39;{name}&#39; text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isTile()</strong></td>
+<td>Checks that &#39;{name}&#39; is tile</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasLeftAlignment()</strong></td>
+<td>Checks that &#39;{name}&#39; has left alignment</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasRightAlignment()</strong></td>
+<td>Check that &#39;{name}&#39; has right alignment</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Gets &#39;{name}&#39; color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Gets &#39;{name}&#39; background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>icon()</strong></td>
+<td>Gets &#39;{name}&#39; icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>hasIcon()</strong></td>
+<td>Checks that &#39;{name}&#39; has icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>image()</strong></td>
+<td>Gets &#39;{name}&#39; image</td>
+<td>Image</td>
+</tr>
+<tr>
+<td><strong>height()</strong></td>
+<td>Gets &#39;{name}&#39; height</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>width()</strong></td>
+<td>Gets &#39;{name}&#39; width</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>maxHeight()</strong></td>
+<td>Gets &#39;{name}&#39; max height</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>maxWidth()</strong></td>
+<td>Gets &#39;{name}&#39; max width</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>minHeight()</strong></td>
+<td>Gets &#39;{name}&#39; min height</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>minWidth()</strong></td>
+<td>Gets &#39;{name}&#39; min width</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>isRounded()</strong></td>
+<td>Checks that &#39;{name}&#39; is rounded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>rounded()</strong></td>
+<td>Gets &#39;{name}&#39; rounded value</td>
+<td>String</td>
 </tr>
 </tbody></table>
 

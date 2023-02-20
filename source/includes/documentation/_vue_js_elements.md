@@ -2966,12 +2966,15 @@ For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testi
 
 ### 5.43 Inputs
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/images/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/images/)
 
 Input is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Input.java_
 
 ```java
+    @FindBy(xpath = "//form[@id='HideDetailsInput']/div[2]")
+    @UI("//form[@id='HideDetailsInput']/div[2]")
+    public static Input hideDetailsAnotherInput;
     @Test(description = "Test checks type text feature")
     public void typeTextInputTest() {
         String textToType = "Some text";
@@ -2989,47 +2992,17 @@ __Input__ - The v-input component gives you a baseline to create your own custom
 
 __Vuetify v2.6.14__ code example:
 ```html
-<template>
-  <v-container
-    id="input-usage"
-    fluid
-  >
-    <v-row>
-      <v-col cols="12">
-        <v-input
-          :messages="['Messages']"
-          append-icon="mdi-close"
-          prepend-icon="mdi-phone"
-        >
-          Default Slot
-        </v-input>
-      </v-col>
-    </v-row>
-  </v-container>
-</template>
-
-<script>
-  export default {
-    data () {
-      return {
-        text: '',
-      }
-    },
-    methods: {
-      appendIconCallback () {},
-      prependIconCallback () {},
-    },
-  }
-</script>
-
-<style>
-  #input-usage .v-input__prepend-outer,
-  #input-usage .v-input__append-outer,
-  #input-usage .v-input__slot,
-  #input-usage .v-messages {
-    border: 1px dashed rgba(0,0,0, .4);
-  }
-</style>
+<div class="v-input v-input--has-state theme--light error--text" id="ErrorCountInput2" errors="">
+  <div class="v-input__control">
+    <div class="v-input__slot">Input</div>
+    <div class="v-messages theme--light error--text" role="alert">
+      <div class="v-messages__wrapper">
+        <div class="v-messages__message">error1</div>
+        <div class="v-messages__message">error2</div>
+      </div>
+    </div>
+  </div>
+</div>
 ```
 
 __Input__ element implements following interfaces: HasLabel, IsReadOnly, HasMessages, IsLoading, HasColor, HasTheme, HasMeasurement, IsDense, HasDetailsHidden.

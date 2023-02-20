@@ -1177,6 +1177,9 @@
                           <li>
 								            <a href="#5-42-divider" class="toc-h2 h3 toc-link" data-title="5.42 Divider">5.42 Divider</a>
                           </li>
+                          <li>
+								            <a href="#5-43-inputs" class="toc-h2 h3 toc-link" data-title="5.43 Inputs">5.43 Inputs</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -46956,6 +46959,298 @@ A simpler version, <code>v-simple-checkbox</code> is used primarily as a lightwe
 
 <p>For examples of usage see:
 <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java">JDI vuetify page tests for Dividers</a></p>
+<h3 id='5-43-inputs'>5.43 Inputs</h3>
+<p><a href="https://v2.vuetifyjs.com/en/components/images/">Vuetify documentation page</a></p>
+
+<p>Input is located in the following class:
+- <strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.Input.java</em></p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">xpath</span> <span class="o">=</span> <span class="s">"//form[@id='HideDetailsInput']/div[2]"</span><span class="o">)</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//form[@id='HideDetailsInput']/div[2]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Input</span> <span class="n">hideDetailsAnotherInput</span><span class="o">;</span>
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks type text feature"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">typeTextInputTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">textToType</span> <span class="o">=</span> <span class="s">"Some text"</span><span class="o">;</span>
+        <span class="n">hideDetailsAnotherInput</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">hideDetailsAnotherInput</span><span class="o">.</span><span class="na">hasTextField</span><span class="o">();</span>
+        <span class="n">hideDetailsAnotherInput</span><span class="o">.</span><span class="na">typeText</span><span class="o">(</span><span class="n">textToType</span><span class="o">);</span>
+        <span class="n">hideDetailsAnotherInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">typedText</span><span class="o">();</span>
+        <span class="n">hideDetailsAnotherInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">typedText</span><span class="o">(</span><span class="n">textToType</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p><strong>Input</strong> - The v-input component gives you a baseline to create your own custom inputs. It consists of a prepend/append slot, messages, and a default slot.</p>
+
+<p><img src="images/vuetify/input.png" alt="Input example" /></p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;v-input v-input--has-state theme--light error--text&quot; id=&quot;ErrorCountInput2&quot; errors=&quot;&quot;&gt;
+  &lt;div class=&quot;v-input__control&quot;&gt;
+    &lt;div class=&quot;v-input__slot&quot;&gt;Input&lt;/div&gt;
+    &lt;div class=&quot;v-messages theme--light error--text&quot; role=&quot;alert&quot;&gt;
+      &lt;div class=&quot;v-messages__wrapper&quot;&gt;
+        &lt;div class=&quot;v-messages__message&quot;&gt;error1&lt;/div&gt;
+        &lt;div class=&quot;v-messages__message&quot;&gt;error2&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
+
+<p><strong>Input</strong> element implements following interfaces: HasLabel, IsReadOnly, HasMessages, IsLoading, HasColor, HasTheme, HasMeasurement, IsDense, HasDetailsHidden.</p>
+
+<p><strong>Input</strong> element has following methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Input Assert</td>
+<td>InputAssert</td>
+</tr>
+<tr>
+<td><strong>hasTextField()</strong></td>
+<td>Checks that &#39;{name}&#39; has text field</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>typeText(String text)</strong></td>
+<td>Types text into &#39;{name}&#39; input field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clearAndTypeText(String text)</strong></td>
+<td>Clears &#39;{name}&#39; text field and type text into it</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hasTypedText()</strong></td>
+<td>Checks that &#39;{name}&#39; has typed text in the text field</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getTypedText()</strong></td>
+<td>Gets &#39;{name}&#39; typed text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasTextInSlot()</strong></td>
+<td>Checks that &#39;{name}&#39; has text in slot</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getTextInSlot()</strong></td>
+<td>Gets &#39;{name}&#39; text from slot</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clearTextField()</strong></td>
+<td>Clears &#39;{name}&#39; text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isFocused()</strong></td>
+<td>Checks that &#39;{name}&#39; is focused</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasPrependOuterIcon()</strong></td>
+<td>Checks that &#39;{name}&#39; has prepend outer icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>clickOnPrependOuterIcon()</strong></td>
+<td>Clicks on &#39;{name}&#39; prepend outer icon</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hasPrependInnerIcon()</strong></td>
+<td>Checks that &#39;{name}&#39; has prepend inner icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>clickOnPrependInnerIcon()</strong></td>
+<td>Clicks on &#39;{name}&#39; prepend inner icon</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hasAppendOuterIcon()</strong></td>
+<td>Checks that &#39;{name}&#39; has append outer icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>clickOnAppendOuterIcon()</strong></td>
+<td>Clicks on &#39;{name}&#39; prepend outer icon</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hasAppendInnerIcon()</strong></td>
+<td>Checks that &#39;{name}&#39; has append inner icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>clickOnAppendInnerIcon()</strong></td>
+<td>Clicks on &#39;{name}&#39; prepend inner icon</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hasSwitch()</strong></td>
+<td>Checks that &#39;{name}&#39; has switch</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>switchIsChecked()</strong></td>
+<td>Checks that &#39;{name}&#39; switch is checked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>checkSwitch()</strong></td>
+<td>Checks &#39;{name}&#39; switch</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheckSwitch()</strong></td>
+<td>Unchecks &#39;{name}&#39; switch</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>label()</strong></td>
+<td>Gets &#39;{name}&#39; label</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>hasLabel()</strong></td>
+<td>Checks that &#39;{name}&#39; has label</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Gets &#39;{name}&#39; label text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Checks that &#39;{name}&#39; is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isReadOnly()</strong></td>
+<td>Checks that &#39;{name}&#39; is readonly</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>messages()</strong></td>
+<td>Gets &#39;{name}&#39; messages</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>messagesText(String locator)</strong></td>
+<td>Gets &#39;{name}&#39; messages text by locator &#39;{0}&#39;</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>messagesText()</strong></td>
+<td>Gets &#39;{name}&#39; messages text</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>messagesCount()</strong></td>
+<td>Gets &#39;{name}&#39; messages count</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>hasErrorMessages()</strong></td>
+<td>Checks that &#39;{name}&#39; has error messages</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>errorMessagesText()</strong></td>
+<td>Gets &#39;{name}&#39; error messages</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>errorMessagesCount()</strong></td>
+<td>Gets the number of &#39;{name}&#39; error messages</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>hasSuccessMessages()</strong></td>
+<td>Checks that &#39;{name}&#39; has success messages</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>successMessagesText()</strong></td>
+<td>Gets &#39;{name}&#39; success messages</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>successMessagesCount()</strong></td>
+<td>Gets the number of &#39;{name}&#39; success messages</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>isLoading()</strong></td>
+<td>Check that &#39;{name}&#39; is loading</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Get &#39;{name}&#39; color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Get &#39;{name}&#39; background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>height()</strong></td>
+<td>Gets &#39;{name}&#39; height</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>width()</strong></td>
+<td>Gets &#39;{name}&#39; width</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>maxHeight()</strong></td>
+<td>Gets &#39;{name}&#39; max height</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>maxWidth()</strong></td>
+<td>Gets &#39;{name}&#39; max width</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>minHeight()</strong></td>
+<td>Gets &#39;{name}&#39; min height</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>minWidth()</strong></td>
+<td>Gets &#39;{name}&#39; min width</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>isDense()</strong></td>
+<td>Checks that &#39;{name}&#39; is dense</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasDetailsHidden()</strong></td>
+<td>Checks that &#39;{name}&#39; has details hidden</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>Examples of usage see on the following page:
+<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java">Input tests</a></p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-locator-aliases-as-parameters'>Using locator aliases as parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

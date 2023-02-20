@@ -4225,19 +4225,18 @@ Examples of usage see on the following page:
 
 ```java
     //@FindBy(css = "#RoundedSheet")
-    @UI("#RoundedSheet")
-    public static Sheet roundedSheet;
+    @UI("#ElevationSheet .v-sheet div")
+    public static Sheet elevatedSheet;
     
     @Test(description = "Check that sheet with expected attributes is present")
-    public void roundedSheetTest() {
-        roundedSheet.show();
-        roundedSheet.is().displayed()
-            .is().rounded().is().shaped()
-            .has().borderRadius(4).and().elevation(4)
-            .has().color("rgba(253, 216, 53, 1)")
-            .has().height(150).and().has().width(150)
-            .has().gradient();
-    }
+    public void elevatedSheetTest() {
+        elevatedSheet.show();
+        elevatedSheet.is().displayed()
+            .is().notRounded()
+            .is().notShaped()
+            .has().elevation(12)
+            .has().color("rgba(255, 255, 255, 1)")
+            .has().height(100).and().has().width(100);
 ```
 
 The Sheet component is a transformable "piece of paper" that provides a basic foundation for Vuetify features.

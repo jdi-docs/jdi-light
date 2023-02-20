@@ -2700,41 +2700,63 @@ __Progress circular__ - The v-progress-circular component is used to convey data
 
 #### 5.27.2 Progress linear
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/progress-linear/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/progress-linear/)
 
+Progress linear is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressBar.java_
 
 ```java
-    @Test(dataProvider = "bufferValueProgressBarsTestsDataProvider",
-      dataProviderClass = ProgressBarsDataProvider.class)
-    public void bufferValueProgressBarsTests(int index, String color) {
-      bufferValueProgressBars.get(index).is().displayed();
-      bufferValueProgressBars.get(index).is().reactive();
-      bufferValueProgressBars.get(index).is().determinate();
-      bufferValueProgressBars.get(index).has().color(color);
-      bufferValueProgressBars.get(index).click();
-      bufferValueProgressBars.get(index).has().value(50.0);
-    }
+//@FindBy(css = "#QueryProgress .v-progress-linear")
+@UI("#QueryProgress .v-progress-linear")
+public static ProgressLinear queryProgressLinear;
 
+@Test(description = "Test checks absolute value of progress linear and checks if it is hidden : value")
+public void absoluteValueHiddenProgressLinearTests() {
+  queryProgressLinear.show();
+  Timer.waitCondition(() -> queryProgressLinear.getValue() == 25);
+  queryProgressLinear.has().value(25.0);
+  Timer.waitCondition(() -> queryProgressLinear.getValue() == 50);
+  queryProgressLinear.has().value(50.0);
+  Timer.waitCondition(() -> queryProgressLinear.getValue() == 75);
+  queryProgressLinear.has().value(75.0);
+  Timer.waitCondition(() -> queryProgressLinear.getValue() == 100);
+  queryProgressLinear.has().value(100.0);
+  Timer.waitCondition(queryProgressLinear::isHidden);
+  queryProgressLinear.is().hidden();
+  Timer.waitCondition(queryProgressLinear::isDisplayed);
+  queryProgressLinear.has().valueMax(100.0);
+  }
 ```
 
 Progress linear component is used to convey data circularly to users. They can also represent an indeterminate amount, such as loading or processing.
 
 ![Progress Linear example](../../images/vuetify/progress-linear.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | ProgressBarAssert
-**hasBarColor()** | Returns color of the bar in rgba | String
-**isDeterminate()** | Shows that bar is determinate | boolean
-**isIndeterminate()** | Shows that bar is indeterminate | boolean
-**isReactive()** | Shows that bar is reactive | boolean
-**isRounded()** | Shows that bar is rounded | boolean
-**isStriped()** | Shows that bar is striped | boolean
-**hasValue()** | Returns bar's value | Double
-**hasStream()** | Shows that bar has stream | boolean
+__Vuetify v2.6.14__ code example:
+```html
+<div role="progressbar" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" class="v-progress-linear v-progress-linear--visible theme--light" style="height: 4px;">
+  <div class="v-progress-linear__stream red--text text--lighten-2" style="width: 100%;"></div>
+  <div class="v-progress-linear__background red lighten-2" style="opacity: 0.3; left: 0%; width: 0%;"></div>
+  <div class="v-progress-linear__buffer" style="width: 0%;"></div>
+  <div class="v-progress-linear__determinate red lighten-2" style="width: 0%;"></div>
+</div>
+```
 
-For examples of usage see: [Progress linear tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressBarsTests.java).
+|Method | Description                          | Return Type
+--- |--------------------------------------| ---
+**is()** | Returns Assert class                 | ProgressLinearAssert
+**hasBarColor()** | Returns color of the bar in rgba     | String
+**backgroundColor()** | Returns background bar color in rgba | String
+**isDeterminate()** | Shows that bar is determinate        | boolean
+**isIndeterminate()** | Shows that bar is indeterminate      | boolean
+**isReactive()** | Shows that bar is reactive           | boolean
+**isRounded()** | Shows that bar is rounded            | boolean
+**isStriped()** | Shows that bar is striped            | boolean
+**getValue()** | Returns bar's value                  | Double
+**getMaxValue()** | Returns bar's max value              | Double
+**hasStream()** | Shows that bar has stream            | boolean
+
+For examples of usage see: [Progress linear tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressLinearTests.java).
 
 ### 5.28 Menus
 

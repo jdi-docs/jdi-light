@@ -1166,6 +1166,9 @@
 								            <a href="#5-38-chip" class="toc-h2 h3 toc-link" data-title="5.38 Chip">5.38 Chip</a>
                           </li>
                           <li>
+								            <a href="#5-39-aspect-ratios" class="toc-h2 h3 toc-link" data-title="5.39 Aspect Ratios">5.39 Aspect Ratios</a>
+                          </li>
+                          <li>
 								            <a href="#5-40-badge" class="toc-h2 h3 toc-link" data-title="5.40 Badge">5.40 Badge</a>
                           </li>
                           <li>
@@ -46445,6 +46448,59 @@ This component is used by the <code>v-chip-group</code> for advanced selection o
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java">JDI Vuetify Chip tests</a>.</p>
+<h3 id='5-39-aspect-ratios'>5.39 Aspect Ratios</h3>
+<p><a href="https://v2.vuetifyjs.com/en/components/aspect-ratios/">Aspect Ratios Vuetify documentation page</a></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = ".v-responsive")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".v-responsive"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">AspectRatios</span> <span class="n">aspectRatiosContainer</span><span class="o">;</span>
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks aspect ration of an element"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">aspectRatioImageTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">aspectRatiosContainer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">ratio</span><span class="o">(</span><span class="mi">16</span><span class="o">,</span> <span class="mi">9</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.AspectRatios.java</em></li>
+</ul>
+
+<p>Aspect Ratios - the <code>v-responsive</code> component can be used to fix any section to a specific aspect ratio.</p>
+
+<p><img src="images/vuetify/aspect_ratios.png" alt="Aspect Ratios Example" /></p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;v-responsive&quot;&gt;
+  &lt;div class=&quot;v-responsive__sizer&quot; style=&quot;padding-bottom: 56.25%;&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;v-responsive__content&quot;&gt;
+    &lt;div class=&quot;v-card__text&quot;&gt;
+      This card will always be 16:9 (unless you put more stuff in it)
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
+
+<p>Aspect Ratios element contains following methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Aspect Ratios Assert</td>
+<td>AspectRatiosAssert</td>
+</tr>
+<tr>
+<td><strong>ratioValue(double width, double height)</strong></td>
+<td>Ratio of &#39;{name}&#39; has width &#39;{0}&#39; and height &#39;{1}&#39;</td>
+<td>double</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AspectRatiosTests.java">JDI Vuetify Aspect Ratios tests</a></p>
 <h3 id='5-40-badge'>5.40 Badge</h3>
 <p><a href="https://v2.vuetifyjs.com/en/components/badges/">Badge Vuetify documentation page</a></p>
 

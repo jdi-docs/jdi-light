@@ -2920,16 +2920,16 @@ Image is located in the following class:
 
 ```java
     //@FindBy(css = "#GradientsImage .v-image")
-    @UI("#GradientsImage")
-    public static Image gradientsImage;
+    @UI("#GradientsImage .v-image")
+    public static Image gradientImage;
     
     @Test(description = "Check shown image has gradient")
     public void gradientsImagesTests() {
-        gradientsImage.show();
-        gradientsImage.is().displayed()
+        gradientImage.show();
+        gradientImage.is().displayed()
             .has().sourcePath("https://cdn.vuetifyjs.com/images/parallax/material2.jpg")
-            .has().width(516.984)
-            .has().height(290.797)
+            .has().width(517)
+            .has().height(291)
             .has().gradient();
     }
 ```

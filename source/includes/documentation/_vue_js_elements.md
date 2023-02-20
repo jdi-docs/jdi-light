@@ -27,7 +27,7 @@ and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light
 
 ### 5.2 Avatars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/avatars/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/avatars/)
 
 Avatar is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Avatar.java_

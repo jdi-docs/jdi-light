@@ -44280,26 +44280,44 @@ To use any of these icons simply use the <code>mdi-</code> prefix followed by th
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/613ebaacccbec711dd00bd3e350728c5ebdc4095/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressCircularTests.java">Java Progress Circular test examples</a></p>
 <h4 id='5-27-2-progress-linear'>5.27.2 Progress linear</h4>
-<p><a href="https://vuetifyjs.com/en/components/progress-linear/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/progress-linear/">Vuetify documentation page</a></p>
 
-<ul>
-<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.ProgressBar.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"bufferValueProgressBarsTestsDataProvider"</span><span class="o">,</span>
-      <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">ProgressBarsDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">bufferValueProgressBarsTests</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">color</span><span class="o">)</span> <span class="o">{</span>
-      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">reactive</span><span class="o">();</span>
-      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">determinate</span><span class="o">();</span>
-      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
-      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mf">50.0</span><span class="o">);</span>
-    <span class="o">}</span>
+<p>Progress linear is located in the following class:
+- <strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.ProgressBar.java</em></p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#QueryProgress .v-progress-linear")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#QueryProgress .v-progress-linear"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ProgressLinear</span> <span class="n">queryProgressLinear</span><span class="o">;</span>
 
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks absolute value of progress linear and checks if it is hidden : value"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">absoluteValueHiddenProgressLinearTests</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="mi">25</span><span class="o">);</span>
+  <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mf">25.0</span><span class="o">);</span>
+  <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="mi">50</span><span class="o">);</span>
+  <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mf">50.0</span><span class="o">);</span>
+  <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="mi">75</span><span class="o">);</span>
+  <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mf">75.0</span><span class="o">);</span>
+  <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="mi">100</span><span class="o">);</span>
+  <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mf">100.0</span><span class="o">);</span>
+  <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(</span><span class="nl">queryProgressLinear:</span><span class="o">:</span><span class="n">isHidden</span><span class="o">);</span>
+  <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+  <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(</span><span class="nl">queryProgressLinear:</span><span class="o">:</span><span class="n">isDisplayed</span><span class="o">);</span>
+  <span class="n">queryProgressLinear</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">valueMax</span><span class="o">(</span><span class="mf">100.0</span><span class="o">);</span>
+  <span class="o">}</span>
 </code></pre>
 <p>Progress linear component is used to convey data circularly to users. They can also represent an indeterminate amount, such as loading or processing.</p>
 
 <p><img src="images/vuetify/progress-linear.png" alt="Progress Linear example" /></p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div role=&quot;progressbar&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;0&quot; aria-valuenow=&quot;0&quot; class=&quot;v-progress-linear v-progress-linear--visible theme--light&quot; style=&quot;height: 4px;&quot;&gt;
+  &lt;div class=&quot;v-progress-linear__stream red--text text--lighten-2&quot; style=&quot;width: 100%;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;v-progress-linear__background red lighten-2&quot; style=&quot;opacity: 0.3; left: 0%; width: 0%;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;v-progress-linear__buffer&quot; style=&quot;width: 0%;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;v-progress-linear__determinate red lighten-2&quot; style=&quot;width: 0%;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></p>
 
 <table><thead>
 <tr>
@@ -44311,11 +44329,16 @@ To use any of these icons simply use the <code>mdi-</code> prefix followed by th
 <tr>
 <td><strong>is()</strong></td>
 <td>Returns Assert class</td>
-<td>ProgressBarAssert</td>
+<td>ProgressLinearAssert</td>
 </tr>
 <tr>
 <td><strong>hasBarColor()</strong></td>
 <td>Returns color of the bar in rgba</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Returns background bar color in rgba</td>
 <td>String</td>
 </tr>
 <tr>
@@ -44344,8 +44367,13 @@ To use any of these icons simply use the <code>mdi-</code> prefix followed by th
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>hasValue()</strong></td>
+<td><strong>getValue()</strong></td>
 <td>Returns bar&#39;s value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>getMaxValue()</strong></td>
+<td>Returns bar&#39;s max value</td>
 <td>Double</td>
 </tr>
 <tr>
@@ -44355,7 +44383,7 @@ To use any of these icons simply use the <code>mdi-</code> prefix followed by th
 </tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressBarsTests.java">Progress linear tests</a>.</p>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressLinearTests.java">Progress linear tests</a>.</p>
 <h3 id='5-28-menus'>5.28 Menus</h3>
 <p><a href="https://vuetifyjs.com/en/components/menus/">Vuetify documentation page</a></p>
 

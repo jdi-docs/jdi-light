@@ -33,40 +33,25 @@ Avatar is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Avatar.java_
 
 ```java
-@Test(dataProvider = "sizeAvatarsTestData", dataProviderClass = AvatarsTestsDataProvider.class)
-public void sizeAvatarTest(int index, int size) {
-  sizeAvatars.get(index).show();
-  sizeAvatars.get(index).has().size(size)
-        .and().has().height(size)
-        .and().has().heightGreaterThan(size - 10)
-        .and().has().heightLessThan(size + 10)
-        .and().has().width(size)
-        .and().has().widthGreaterThan(size - 10)
-        .and().has().widthLessThan(size + 10);
-  }
+//@FindBy(css = "#avatarsWithSize .v-avatar")
+@UI("#avatarsWithSize .v-avatar")
+public static List<Avatar> sizeAvatars;
+
+@Test
+public void avatarTest() {
+  sizeAvatars.get(1).show();
+  sizeAvatars.get(1).has().size(36).and().text("36")
+        .and().backgroundColor(INDIGO.value());
+}
 ```
 
 ![Avatars example](../../images/vuetify/avatars.png)
 
 __Vuetify v2.6.14__ code example:
 ```html
-<template>
-  <v-row justify="space-around">
-    <v-avatar
-      color="indigo"
-      size="36"
-    >
-      <span class="white--text text-h5">36</span>
-    </v-avatar>
-
-    <v-avatar
-      color="teal"
-      size="48"
-    >
-      <span class="white--text text-h5">48</span>
-    </v-avatar>
-  </v-row>
-</template>
+<div class="v-avatar indigo" style="height: 36px; min-width: 36px; width: 36px;">
+  <span class="white--text text-h5">36</span>
+</div>
 ```
 
 __Avatars__ - graphical representations of users.

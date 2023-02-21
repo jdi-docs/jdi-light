@@ -1430,16 +1430,17 @@ public static FileInput smallChipsFileInput;
 
 @Test(description = "Test checks that multiple files can be uploaded one by one and at once")
 public void uploadMultipleFilesFileInputTest() {
-  chipsFileInput.show();
-  chipsFileInput.is().multiple();
-  chipsFileInput.uploadFiles(asList(pathTXT.toString(), pathPNG.toString()));
-  chipsFileInput.has().files(asList(pathTXT.getFileName().toString(), pathPNG.getFileName().toString()));
-  smallChipsFileInput.show();
-  smallChipsFileInput.is().multiple();
-  smallChipsFileInput.uploadFile(pathTXT.toString());
-  smallChipsFileInput.has().file(pathTXT.getFileName().toString());
-  smallChipsFileInput.uploadFile(pathPNG.toString());
-  smallChipsFileInput.has().files(asList(pathTXT.getFileName().toString(), pathPNG.getFileName().toString()));
+        chipsFileInput.show();
+        chipsFileInput.is().multiple();
+        chipsFileInput.uploadFiles(asList(pathTXT.toString(),pathPNG.toString()));
+        chipsFileInput.has().files(asList(pathTXT.getFileName().toString(),pathPNG.getFileName().toString()));
+        smallChipsFileInput.show();
+        smallChipsFileInput.is().multiple();
+        smallChipsFileInput.uploadFile(pathTXT.toString());
+        smallChipsFileInput.has().file(pathTXT.getFileName().toString());
+        smallChipsFileInput.uploadFile(pathPNG.toString());
+        smallChipsFileInput.has().files(asList(pathTXT.getFileName().toString(),pathPNG.getFileName().toString()));
+    }
 ```
 
 ![File input example](../../images/vuetify/fileInput.png)

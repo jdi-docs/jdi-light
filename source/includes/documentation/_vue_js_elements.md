@@ -4237,6 +4237,7 @@ Examples of usage see on the following page:
             .has().elevation(12)
             .has().color("rgba(255, 255, 255, 1)")
             .has().height(100).and().has().width(100);
+    }
 ```
 
 The Sheet component is a transformable "piece of paper" that provides a basic foundation for Vuetify features.

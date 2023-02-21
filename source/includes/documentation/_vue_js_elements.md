@@ -2198,36 +2198,63 @@ For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-t
 
 ### 5.18 Snackbars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/snackbars/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/snackbars/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Snackbar.java_
 
 ```java
-    @Test
-    public static void simpleSnackbarTest() {
-        simpleSnackbarOpen.click();
-        simpleSnackbar.is().visible();
-        simpleSnackbar.is().text("Hello, I'm a snackbar");
-        simpleSnackbar.close();
-        simpleSnackbar.is().closed();
-  }
+    @UI(".v-card--flat .v-snack--absolute")
+    public static Snackbar snackbar;
+
+    @Test(description = "Test checks that Snackbar has all expected attributes")
+    public static void snackbarTest() {
+        snackbar.show();
+        snackbar.has().leftAlignment()
+            .is().shaped().and().notElevated()
+            .has().color("rgba(255, 255, 255, 0.87)")
+            .has().top();
+    }
 ```
 
-![Snackbars example](../../images/vuetify/snackbars.png)
+__Snackbar__ component is used to display a quick message to a user. Snackbars support positioning, removal delay, and callbacks.
 
-The snackbar component is used to display a quick message to a user.
+![Snackbars example](../../images/vuetify/snackbar.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | SnackbarAssert
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-snack v-snack--active v-snack--bottom v-snack--has-background v-snack--multi-line">
+  <div class="v-snack__wrapper v-sheet theme--dark" style="">
+    <div role="status" aria-live="polite" class="v-snack__content"> I'm a multi-line snackbar. </div>
+    <div class="v-snack__action ">
+      <button type="button" class="v-btn v-btn--text theme--dark v-size--default red--text v-snack__btn">
+        <span class="v-btn__content"> Close </span>
+      </button>
+    </div>
+  </div>
+</div>
+```
+
+| Method  | Description | Return Type |
+| :--- | :--- | :--- |
 **text()** | Returns snackbar's text | String
-**close()** | Closes snackbar | void
-**isOpen()** | Shows that snackbar is open | boolean
-**isClosed()** | Shows that snackbar is closed | boolean
-**isLeft()** | Shows that snackbar has left position | boolean
-**isRight()** | Shows that snackbar has right position | boolean
-**isCentered()** | Shows that snackbar is centered | boolean
-**isVertical()** | Shows that snackbar is vertical | boolean
+**isOpen()** | Returns true if snackbar is shown | boolean
+**isClosed()** | Shows true if snackbar is not shown | boolean
+**isTop()** | Returns true if snackbar is positioned at the top | boolean
+**isBottom()** | Returns true if snackbar is positioned at the bottom | boolean
+**isMultiLine()** | Returns true if snackbar is configured to display multiple lines of text message | boolean
+**wrapperLocator()** | Returns ".v-snack__wrapper" string | String
+
+| Assert method | Description |
+| :--- | :--- |
+**visible()** | Asserts if snackbar is present on the page
+**closed()** | Asserts if snackbar is not present on the page
+**text(Matcher<String condition)** | Asserts if alert text matches provided matcher
+**centered()** | Asserts if snackbar is positioned at the center
+**top()** | Asserts if snackbar is positioned at the top
+**bottom()** | Asserts if snackbar is positioned at the bottom
+**multiline()** | Asserts if snackbar is configured to display multiple lines of text
+
+Snackbar also have basic JDI elements methods and asserts for Text, Color, Elevation, Outline, Measurements, Orientation, Alignment, Theme and others
 
 For examples of usage see: [JDI vuetify page tests for snackbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java).
 

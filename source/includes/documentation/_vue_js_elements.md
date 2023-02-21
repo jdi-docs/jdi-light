@@ -2,57 +2,130 @@
 
 ### 5.1 Alerts
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/alerts/)
-
-```java
-  @Test
-  public void alertsWithPropsHaveProperCssProps(){
-      redAlert.has().text("I'm an alert with a top border and red color");
-      redAlert.has().css("background-color", Colors.RED_LIGHTEN_2.value());
-      redAlert.has().cssClass("v-alert--border-top");
-  }
-```
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/alerts/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Alert.java_
 
+```java
+    //@FindBy(css = "#tileAlert .v-alert")
+    @UI("#tileAlert .v-alert")
+    public static Alert tileAlert;
+
+    @Test(description = "Check that tile alert is shown as expected")
+    public void tileAlertTest(){
+        tileAlert.show();
+        tileAlert.has().text("Tile Alert")
+            .has().color("rgba(255, 255, 255, 1)")
+            .has().backgroundColor("rgba(76, 175, 80, 1)")
+            .is().notDense()
+            .is().tile()
+            .has().type("success");
+    }
+```
+
+The Alert component is used to convey important information to the user through the use of contextual types, icons, and colors.
+There are four default types: success, info, warning, and error. Border, icon, and color of the alert could be customized.
+
 ![Alerts example](../../images/vuetify/alerts.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | TextAssert
-**getValue()** | Returns element value | String
+__Vuetify v2.6.14__ code example:
+```html
+<div role="alert" class="v-alert v-sheet theme--light elevation-2 v-alert--border v-alert--border-bottom">
+  <div class="v-alert__wrapper">
+    <span aria-hidden="true" class="v-icon notranslate v-alert__icon theme--light warning--text">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+        <path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path>
+      </svg>
+    </span>
+    <div class="v-alert__content"> Fusce commodo aliquam arcu. </div>
+    <div class="v-alert__border v-alert__border--bottom warning v-alert__border--has-color"></div>
+  </div>
+</div>
+```
 
-For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java)
-and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**closeButton()** | Returns close button object | VuetifyButton
+**hasCloseButton()** | Returns true if alert has close button | boolean 
+**isDismissible()** | Returns true if alert has close button | boolean [](the same as previous!)
+**isProminent()** | Returns true if alert is prominent and has halo for icon and increased height | boolean 
+**hasBorder()** | Returns true if alert has border | boolean
+**borderValue()** | Returns border side (top, right, bottom or left) | String
+**hasColoredBorder()** | Returns true if alert border has color | boolean
+**borderBackGroundColor()** | Returns border background color | boolean
+**type()** | Returns alert type (info, success, warning, error) or empty string if type is undefined | String 
+
+| Assert method | Description |
+| :--- | :--- |
+**text(Matcher<String condition)** | Asserts if alert text matches provided matcher
+**dismissible()** or **hasCloseButton()** | Asserts if alert has close button
+**notDismissible()** or **hasNotCloseButton()** | Asserts if alert has no close button
+**prominent()** | Asserts if alert is prominent and has halo for icon
+**prominent()** | Asserts if alert is not prominent and has no halo for icon
+**border()** | Asserts if alert is prominent and has halo for icon
+**noBorder()** | Asserts if alert is not prominent and has no halo for icon
+**border(String borderValue)** | Asserts if alert has expected border side (top, right, bottom or left)
+**coloredBorder()** | Asserts if alert has colored border
+**noColoredBorder()** | Asserts if alert has not colored border
+**backgroundBorderColor(String borderBackgroundColor)** | Asserts if alert has expected border background color
+**type()** | Asserts if alert has expected type (info, success, warning, error)
+
+Alert also have basic JDI elements methods and asserts for Text, Color, Elevation, Outline, Measurements, Theme and others
+
+For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/alerts/IconAlert.java)
+and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
 
 ### 5.2 Avatars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/avatars/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/avatars/)
 
+Avatar is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Avatar.java_
 
 ```java
-    @Test
-    public void avatarsWithSizeTests() {
-      avatarsWithSize.forEach(avatar -> avatar.is().displayed());
-      avatarsWithSize.get(1).has().text("36");
-      avatarsWithSize.get(2).has().text("48");
-      avatarsWithSize.get(3).has().text("62");
-      avatarsWithSize.get(1).has().size(36);
-      avatarsWithSize.get(2).has().size(48);
-      avatarsWithSize.get(3).has().size(62);
-    }
+//@FindBy(css = "#avatarsWithSize .v-avatar")
+@UI("#avatarsWithSize .v-avatar")
+public static List<Avatar> sizeAvatars;
+
+@Test
+public void avatarTest() {
+  sizeAvatars.get(1).show();
+  sizeAvatars.get(1).has().size(36).and().text("36")
+        .and().backgroundColor(INDIGO.value());
+}
 ```
 
 ![Avatars example](../../images/vuetify/avatars.png)
 
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-avatar indigo" style="height: 36px; min-width: 36px; width: 36px;">
+  <span class="white--text text-h5">36</span>
+</div>
+```
+
 __Avatars__ - graphical representations of users.
 
-Avatar element implements the following interfaces: HasIcon, HasImage and IsText. Therefore, you have access to default methods of these interfaces.
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | AvatarAssert
+|Method | Description   | Return Type
+--- |---------------| ---
+**is()** | Avatar Assert | AvatarAssert
+**getText()** | Gets '{name}' text | String
+**isTile()** | Checks that '{name}' is tile | boolean
+**hasLeftAlignment()** | Checks that '{name}' has left alignment | boolean
+**hasRightAlignment()** | Check that '{name}' has right alignment | boolean
+**color()** | Gets '{name}' color | String
+**backgroundColor()** | Gets '{name}' background color | String
+**icon()** | Gets '{name}' icon | Icon
+**hasIcon()** | Checks that '{name}' has icon | boolean
+**image()** | Gets '{name}' image | Image
+**height()** | Gets '{name}' height | int
+**width()** | Gets '{name}' width | int
+**maxHeight()** | Gets '{name}' max height | int
+**maxWidth()** | Gets '{name}' max width | int
+**minHeight()** | Gets '{name}' min height | int
+**minWidth()** | Gets '{name}' min width | int
+**isRounded()** | Checks that '{name}' is rounded | boolean
+**rounded()** | Gets '{name}' rounded value | String
 
 For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
 and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).
@@ -795,17 +868,22 @@ For examples of usage see: [JDI Vuetify Range sliders tests](https://github.com/
 
 #### 5.12.3 Slider
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/sliders/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sliders/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Slider.java_
 
 ```java
-  @Test
-  public void minAndMaxSliderTest() {
-    minAndMaxSlider.slideHorizontalTo(90);
-    minAndMaxSlider.is().value(90);
-    minAndMaxSlider.slideHorizontalTo(-50);
-    minAndMaxSlider.is().value(-50);
+  //@FindBy(css = "#AdjustableSlider .v-slider")
+  @UI("#AdjustableSlider .v-slider")
+  public static Slider adjustableSlider;
+
+  @Test(description = "Test shows how to work with slider")
+  public void sliderTest() {
+    adjustableSlider.show();
+    adjustableSlider.has().minValue(0).and().has().maxValue(100);
+    adjustableSlider.is().horizontal();
+    adjustableSlider.setValue(30);
+    adjustableSlider.has().value(30);
   }
 ```
 
@@ -813,20 +891,53 @@ The Slider component is a better visualization of the number input. It is used f
 
 ![Slider example](../../images/vuetify/slider.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**isDisabled()** | Shows that required element is disabled| boolean
-**isReadonly()** | Shows that required element is readonly| boolean
-**isThumbLabelDisplayed()** | Shows that thumb label of required element is displayed| boolean
-**isAlwaysShow()** | Shows that ticks of required element is always show| boolean
-**isVertical()** | Shows that required element is vertical| boolean
-**slideHorizontalTo(int value)** | Set in horizontal slider thumb to value| void
-**slideVerticalTo(int value)** | Set in vertical slider thumb to value| void
-**getThumbLabelValue()** | Get thumb label| String
-**getValue()** | Get value| Integer
-**getTickLabel()** | Get tick label| String
+__Vuetify v2.6.14__ code example:
 
-For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java)
+```html
+<div class="v-slider v-slider--horizontal theme--light">
+  <input value="25" id="input-885" disabled="disabled" readonly="readonly" tabindex="-1">
+  <div class="v-slider__track-container">
+    <div class="v-slider__track-background primary lighten-3" style="right: 0px; width: calc(75%);">
+    </div>
+    <div class="v-slider__track-fill orange darken-3" style="left: 0px; right: auto; width: 25%;">
+    </div>
+  </div>
+  <div role="slider" tabindex="0" aria-label="color" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" aria-readonly="false" aria-orientation="horizontal" class="v-slider__thumb-container orange--text text--darken-3" style="left: 25%;">
+    <div class="v-slider__thumb orange darken-3">
+    </div>
+  </div>
+</div>
+```
+
+| Method                                              | Description                                           | Return Type    
+-----------------------------------------------------|-------------------------------------------------------|----------------
+ **track()**                                         | Get track                                             | UIElement      
+ **thumb()**                                         | Get thumb                                             | UIElement      
+ **ticks()**                                         | Get ticks                                             | WebList        
+ **tickLabel(int index)**                            | Get tick label value                                  | String         
+ **thumbLabel()**                                    | Get thumb label                                       | Label          
+ **prependOuterIcon()**                              | Get slider prepend outer icon                         | Icon           
+ **appendOuterIcon()**                               | Get slider prepend append icon                        | Icon           
+ **loader()**                                        | Get loader                                            | ProgressLinear 
+ **label()**                                         | Get label                                             | Label          
+ **value()**                                         | Get value                                             | double         
+ **minValue()**                                      | Get min value                                         | double         
+ **maxValue()**                                      | Get max value                                         | double         
+ **setValue(Integer value)/ setValue(Double value)** | Set slider to value                                   | void           
+ **ticksSize()**                                     | Get ticks size                                        | int            
+ **thumbSize()**                                     | Get thumb size                                        | int            
+ **backgroundColor()**                               | Get background color                                  | String         
+ **thumbColor()**                                    | Get thumb color                                       | String         
+ **trackFillColor()**                                | Get track fill color                                  | String         
+ **trackBackgroundColor()**                          | Get track background color                            | String         
+ **clickOutsideOfSlider()**                          | Clicking outside the sheet                            | void           
+ **isAlwaysShow()**                                  | Check that ticks of required element is always show   | boolean        
+ **isError()**                                       | Check that required element is error                  | boolean        
+ **isSuccess()**                                     | Check that required element is success                | boolean        
+ **hasThumbLabel()**                                 | Check that thumb label of required element is existed | boolean        
+ **hasInverseLabel()**                               | Check that required element has inverse label         | boolean        
+
+For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SlidersTests.java)
 
 #### 5.12.4 Switches
 
@@ -2700,41 +2811,63 @@ __Progress circular__ - The v-progress-circular component is used to convey data
 
 #### 5.27.2 Progress linear
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/progress-linear/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/progress-linear/)
 
+Progress linear is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressBar.java_
 
 ```java
-    @Test(dataProvider = "bufferValueProgressBarsTestsDataProvider",
-      dataProviderClass = ProgressBarsDataProvider.class)
-    public void bufferValueProgressBarsTests(int index, String color) {
-      bufferValueProgressBars.get(index).is().displayed();
-      bufferValueProgressBars.get(index).is().reactive();
-      bufferValueProgressBars.get(index).is().determinate();
-      bufferValueProgressBars.get(index).has().color(color);
-      bufferValueProgressBars.get(index).click();
-      bufferValueProgressBars.get(index).has().value(50.0);
-    }
+//@FindBy(css = "#QueryProgress .v-progress-linear")
+@UI("#QueryProgress .v-progress-linear")
+public static ProgressLinear queryProgressLinear;
 
+@Test(description = "Test checks absolute value of progress linear and checks if it is hidden : value")
+public void absoluteValueHiddenProgressLinearTests() {
+  queryProgressLinear.show();
+  Timer.waitCondition(() -> queryProgressLinear.getValue() == 25);
+  queryProgressLinear.has().value(25.0);
+  Timer.waitCondition(() -> queryProgressLinear.getValue() == 50);
+  queryProgressLinear.has().value(50.0);
+  Timer.waitCondition(() -> queryProgressLinear.getValue() == 75);
+  queryProgressLinear.has().value(75.0);
+  Timer.waitCondition(() -> queryProgressLinear.getValue() == 100);
+  queryProgressLinear.has().value(100.0);
+  Timer.waitCondition(queryProgressLinear::isHidden);
+  queryProgressLinear.is().hidden();
+  Timer.waitCondition(queryProgressLinear::isDisplayed);
+  queryProgressLinear.has().valueMax(100.0);
+  }
 ```
 
 Progress linear component is used to convey data circularly to users. They can also represent an indeterminate amount, such as loading or processing.
 
 ![Progress Linear example](../../images/vuetify/progress-linear.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | ProgressBarAssert
-**hasBarColor()** | Returns color of the bar in rgba | String
-**isDeterminate()** | Shows that bar is determinate | boolean
-**isIndeterminate()** | Shows that bar is indeterminate | boolean
-**isReactive()** | Shows that bar is reactive | boolean
-**isRounded()** | Shows that bar is rounded | boolean
-**isStriped()** | Shows that bar is striped | boolean
-**hasValue()** | Returns bar's value | Double
-**hasStream()** | Shows that bar has stream | boolean
+__Vuetify v2.6.14__ code example:
+```html
+<div role="progressbar" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" class="v-progress-linear v-progress-linear--visible theme--light" style="height: 4px;">
+  <div class="v-progress-linear__stream red--text text--lighten-2" style="width: 100%;"></div>
+  <div class="v-progress-linear__background red lighten-2" style="opacity: 0.3; left: 0%; width: 0%;"></div>
+  <div class="v-progress-linear__buffer" style="width: 0%;"></div>
+  <div class="v-progress-linear__determinate red lighten-2" style="width: 0%;"></div>
+</div>
+```
 
-For examples of usage see: [Progress linear tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressBarsTests.java).
+|Method | Description                          | Return Type
+--- |--------------------------------------| ---
+**is()** | Returns Assert class                 | ProgressLinearAssert
+**hasBarColor()** | Returns color of the bar in rgba     | String
+**backgroundColor()** | Returns background bar color in rgba | String
+**isDeterminate()** | Shows that bar is determinate        | boolean
+**isIndeterminate()** | Shows that bar is indeterminate      | boolean
+**isReactive()** | Shows that bar is reactive           | boolean
+**isRounded()** | Shows that bar is rounded            | boolean
+**isStriped()** | Shows that bar is striped            | boolean
+**getValue()** | Returns bar's value                  | Double
+**getMaxValue()** | Returns bar's max value              | Double
+**hasStream()** | Shows that bar has stream            | boolean
+
+For examples of usage see: [Progress linear tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressLinearTests.java).
 
 ### 5.28 Menus
 
@@ -4008,3 +4141,102 @@ Dividers element contains following methods:
 
 For examples of usage see:
 [JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)
+
+### 5.43 Inputs
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/images/)
+
+Input is located in the following class:
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Input.java_
+
+```java
+    @FindBy(xpath = "//form[@id='HideDetailsInput']/div[2]")
+    @UI("//form[@id='HideDetailsInput']/div[2]")
+    public static Input hideDetailsAnotherInput;
+    @Test(description = "Test checks type text feature")
+    public void typeTextInputTest() {
+        String textToType = "Some text";
+        hideDetailsAnotherInput.show();
+        hideDetailsAnotherInput.hasTextField();
+        hideDetailsAnotherInput.typeText(textToType);
+        hideDetailsAnotherInput.has().typedText();
+        hideDetailsAnotherInput.has().typedText(textToType);
+    }
+```
+
+__Input__ - The v-input component gives you a baseline to create your own custom inputs. It consists of a prepend/append slot, messages, and a default slot.
+
+![Input example](../../images/vuetify/input.png)
+
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-input v-input--has-state theme--light error--text" id="ErrorCountInput2" errors="">
+  <div class="v-input__control">
+    <div class="v-input__slot">Input</div>
+    <div class="v-messages theme--light error--text" role="alert">
+      <div class="v-messages__wrapper">
+        <div class="v-messages__message">error1</div>
+        <div class="v-messages__message">error2</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+__Input__ element implements following interfaces: HasLabel, IsReadOnly, HasMessages, IsLoading, HasColor, HasTheme, HasMeasurement, IsDense, HasDetailsHidden.
+
+__Input__ element has following methods:
+
+|Method | Description                                           | Return Type
+--- |-------------------------------------------------------| ---
+**is()** | Input Assert                                          | InputAssert
+**hasTextField()** | Checks that '{name}' has text field                   | boolean
+**typeText(String text)** | Types text into '{name}' input field                  | void
+**clearAndTypeText(String text)** | Clears '{name}' text field and type text into it      | void
+**hasTypedText()** | Checks that '{name}' has typed text in the text field | boolean
+**getTypedText()** | Gets '{name}' typed text                              | String
+**hasTextInSlot()** | Checks that '{name}' has text in slot                 | boolean
+**getTextInSlot()** | Gets '{name}' text from slot                          | String
+**clearTextField()** | Clears '{name}' text field                            | void
+**isFocused()** | Checks that '{name}' is focused                       | boolean
+**hasPrependOuterIcon()** | Checks that '{name}' has prepend outer icon           | boolean
+**clickOnPrependOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
+**hasPrependInnerIcon()** | Checks that '{name}' has prepend inner icon           | boolean
+**clickOnPrependInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
+**hasAppendOuterIcon()** | Checks that '{name}' has append outer icon            | boolean
+**clickOnAppendOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
+**hasAppendInnerIcon()** | Checks that '{name}' has append inner icon            | boolean
+**clickOnAppendInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
+**hasSwitch()** | Checks that '{name}' has switch                       | boolean
+**switchIsChecked()** | Checks that '{name}' switch is checked                | boolean
+**checkSwitch()** | Checks '{name}' switch                                | void
+**uncheckSwitch()** | Unchecks '{name}' switch                              | void
+**label()** | Gets '{name}' label                                   | Label
+**hasLabel()** | Checks that '{name}' has label                        | Boolean
+**labelText()** | Gets '{name}' label text                              | String
+**isDisabled()** | Checks that '{name}' is disabled                      | boolean
+**isReadOnly()** | Checks that '{name}' is readonly                      | boolean
+**messages()** | Gets '{name}' messages                                | List<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}'          | List<UIElement>
+**messagesText()** | Gets '{name}' messages text                           | List<String>
+**messagesCount()** | Gets '{name}' messages count                          | int
+**hasErrorMessages()** | Checks that '{name}' has error messages               | boolean
+**errorMessagesText()** | Gets '{name}' error messages                          | List<String>
+**errorMessagesCount()** | Gets the number of '{name}' error messages            | int
+**hasSuccessMessages()** | Checks that '{name}' has success messages             | boolean
+**successMessagesText()** | Gets '{name}' success messages                        | List<String>
+**successMessagesCount()** | Gets the number of '{name}' success messages          | int
+**isLoading()** | Check that '{name}' is loading                        | boolean
+**color()** | Get '{name}' color                                    | String
+**backgroundColor()** | Get '{name}' background color                         | String
+**height()** | Gets '{name}' height                                  | int
+**width()** | Gets '{name}' width                                   | int
+**maxHeight()** | Gets '{name}' max height                              | int
+**maxWidth()** | Gets '{name}' max width                               | int
+**minHeight()** | Gets '{name}' min height                              | int
+**minWidth()** | Gets '{name}' min width                               | int
+**isDense()** | Checks that '{name}' is dense                         | boolean
+**hasDetailsHidden()** | Checks that '{name}' has details hidden               | boolean
+
+Examples of usage see on the following page:
+[Input tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)

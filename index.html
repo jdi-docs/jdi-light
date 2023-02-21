@@ -40751,23 +40751,43 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RangeSliderTests.java">JDI Vuetify Range sliders tests</a></p>
 <h4 id='5-12-3-slider'>5.12.3 Slider</h4>
-<p><a href="https://vuetifyjs.com/en/components/sliders/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/sliders/">Vuetify documentation page</a></p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Slider.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>  <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minAndMaxSliderTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">minAndMaxSlider</span><span class="o">.</span><span class="na">slideHorizontalTo</span><span class="o">(</span><span class="mi">90</span><span class="o">);</span>
-    <span class="n">minAndMaxSlider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">90</span><span class="o">);</span>
-    <span class="n">minAndMaxSlider</span><span class="o">.</span><span class="na">slideHorizontalTo</span><span class="o">(-</span><span class="mi">50</span><span class="o">);</span>
-    <span class="n">minAndMaxSlider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(-</span><span class="mi">50</span><span class="o">);</span>
+<pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(css = "#AdjustableSlider .v-slider")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#AdjustableSlider .v-slider"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Slider</span> <span class="n">adjustableSlider</span><span class="o">;</span>
+
+  <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test shows how to work with slider"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sliderTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">adjustableSlider</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">adjustableSlider</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">minValue</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">maxValue</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">adjustableSlider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">horizontal</span><span class="o">();</span>
+    <span class="n">adjustableSlider</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="mi">30</span><span class="o">);</span>
+    <span class="n">adjustableSlider</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">30</span><span class="o">);</span>
   <span class="o">}</span>
 </code></pre>
 <p>The Slider component is a better visualization of the number input. It is used for gathering numerical user data.</p>
 
 <p><img src="images/vuetify/slider.png" alt="Slider example" /></p>
 
+<p><strong>Vuetify v2.6.14</strong> code example:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-slider v-slider--horizontal theme--light"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">value=</span><span class="s">"25"</span> <span class="na">id=</span><span class="s">"input-885"</span> <span class="na">disabled=</span><span class="s">"disabled"</span> <span class="na">readonly=</span><span class="s">"readonly"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-slider__track-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-slider__track-background primary lighten-3"</span> <span class="na">style=</span><span class="s">"right: 0px; width: calc(75%);"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-slider__track-fill orange darken-3"</span> <span class="na">style=</span><span class="s">"left: 0px; right: auto; width: 25%;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"slider"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-label=</span><span class="s">"color"</span> <span class="na">aria-valuemin=</span><span class="s">"0"</span> <span class="na">aria-valuemax=</span><span class="s">"100"</span> <span class="na">aria-valuenow=</span><span class="s">"25"</span> <span class="na">aria-readonly=</span><span class="s">"false"</span> <span class="na">aria-orientation=</span><span class="s">"horizontal"</span> <span class="na">class=</span><span class="s">"v-slider__thumb-container orange--text text--darken-3"</span> <span class="na">style=</span><span class="s">"left: 25%;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-slider__thumb orange darken-3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -40776,58 +40796,133 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>isDisabled()</strong></td>
-<td>Shows that required element is disabled</td>
-<td>boolean</td>
+<td><strong>track()</strong></td>
+<td>Get track</td>
+<td>UIElement</td>
 </tr>
 <tr>
-<td><strong>isReadonly()</strong></td>
-<td>Shows that required element is readonly</td>
-<td>boolean</td>
+<td><strong>thumb()</strong></td>
+<td>Get thumb</td>
+<td>UIElement</td>
 </tr>
 <tr>
-<td><strong>isThumbLabelDisplayed()</strong></td>
-<td>Shows that thumb label of required element is displayed</td>
-<td>boolean</td>
+<td><strong>ticks()</strong></td>
+<td>Get ticks</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>tickLabel(int index)</strong></td>
+<td>Get tick label value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>thumbLabel()</strong></td>
+<td>Get thumb label</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>prependOuterIcon()</strong></td>
+<td>Get slider prepend outer icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>appendOuterIcon()</strong></td>
+<td>Get slider prepend append icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>loader()</strong></td>
+<td>Get loader</td>
+<td>ProgressLinear</td>
+</tr>
+<tr>
+<td><strong>label()</strong></td>
+<td>Get label</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Get value</td>
+<td>double</td>
+</tr>
+<tr>
+<td><strong>minValue()</strong></td>
+<td>Get min value</td>
+<td>double</td>
+</tr>
+<tr>
+<td><strong>maxValue()</strong></td>
+<td>Get max value</td>
+<td>double</td>
+</tr>
+<tr>
+<td><strong>setValue(Integer value)/ setValue(Double value)</strong></td>
+<td>Set slider to value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>ticksSize()</strong></td>
+<td>Get ticks size</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>thumbSize()</strong></td>
+<td>Get thumb size</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Get background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>thumbColor()</strong></td>
+<td>Get thumb color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>trackFillColor()</strong></td>
+<td>Get track fill color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>trackBackgroundColor()</strong></td>
+<td>Get track background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clickOutsideOfSlider()</strong></td>
+<td>Clicking outside the sheet</td>
+<td>void</td>
 </tr>
 <tr>
 <td><strong>isAlwaysShow()</strong></td>
-<td>Shows that ticks of required element is always show</td>
+<td>Check that ticks of required element is always show</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isVertical()</strong></td>
-<td>Shows that required element is vertical</td>
+<td><strong>isError()</strong></td>
+<td>Check that required element is error</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>slideHorizontalTo(int value)</strong></td>
-<td>Set in horizontal slider thumb to value</td>
-<td>void</td>
+<td><strong>isSuccess()</strong></td>
+<td>Check that required element is success</td>
+<td>boolean</td>
 </tr>
 <tr>
-<td><strong>slideVerticalTo(int value)</strong></td>
-<td>Set in vertical slider thumb to value</td>
-<td>void</td>
+<td><strong>hasThumbLabel()</strong></td>
+<td>Check that thumb label of required element is existed</td>
+<td>boolean</td>
 </tr>
 <tr>
-<td><strong>getThumbLabelValue()</strong></td>
-<td>Get thumb label</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>getValue()</strong></td>
-<td>Get value</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td><strong>getTickLabel()</strong></td>
-<td>Get tick label</td>
-<td>String</td>
+<td><strong>hasInverseLabel()</strong></td>
+<td>Check that required element has inverse label</td>
+<td>boolean</td>
 </tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java">JDI Vuetify Sliders tests</a></p>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SlidersTests.java">JDI Vuetify Sliders tests</a></p>
 <h4 id='5-12-4-switches'>5.12.4 Switches</h4>
 <p><a href="https://vuetifyjs.com/en/components/switches/">Switches Vuetify documentation page</a></p>
 

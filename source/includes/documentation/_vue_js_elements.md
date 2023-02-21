@@ -868,17 +868,22 @@ For examples of usage see: [JDI Vuetify Range sliders tests](https://github.com/
 
 #### 5.12.3 Slider
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/sliders/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sliders/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Slider.java_
 
 ```java
-  @Test
-  public void minAndMaxSliderTest() {
-    minAndMaxSlider.slideHorizontalTo(90);
-    minAndMaxSlider.is().value(90);
-    minAndMaxSlider.slideHorizontalTo(-50);
-    minAndMaxSlider.is().value(-50);
+  //@FindBy(css = "#AdjustableSlider .v-slider")
+  @UI("#AdjustableSlider .v-slider")
+  public static Slider adjustableSlider;
+
+  @Test(description = "Test shows how to work with slider")
+  public void sliderTest() {
+    adjustableSlider.show();
+    adjustableSlider.has().minValue(0).and().has().maxValue(100);
+    adjustableSlider.is().horizontal();
+    adjustableSlider.setValue(30);
+    adjustableSlider.has().value(30);
   }
 ```
 
@@ -886,20 +891,53 @@ The Slider component is a better visualization of the number input. It is used f
 
 ![Slider example](../../images/vuetify/slider.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**isDisabled()** | Shows that required element is disabled| boolean
-**isReadonly()** | Shows that required element is readonly| boolean
-**isThumbLabelDisplayed()** | Shows that thumb label of required element is displayed| boolean
-**isAlwaysShow()** | Shows that ticks of required element is always show| boolean
-**isVertical()** | Shows that required element is vertical| boolean
-**slideHorizontalTo(int value)** | Set in horizontal slider thumb to value| void
-**slideVerticalTo(int value)** | Set in vertical slider thumb to value| void
-**getThumbLabelValue()** | Get thumb label| String
-**getValue()** | Get value| Integer
-**getTickLabel()** | Get tick label| String
+__Vuetify v2.6.14__ code example:
 
-For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java)
+```html
+<div class="v-slider v-slider--horizontal theme--light">
+  <input value="25" id="input-885" disabled="disabled" readonly="readonly" tabindex="-1">
+  <div class="v-slider__track-container">
+    <div class="v-slider__track-background primary lighten-3" style="right: 0px; width: calc(75%);">
+    </div>
+    <div class="v-slider__track-fill orange darken-3" style="left: 0px; right: auto; width: 25%;">
+    </div>
+  </div>
+  <div role="slider" tabindex="0" aria-label="color" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" aria-readonly="false" aria-orientation="horizontal" class="v-slider__thumb-container orange--text text--darken-3" style="left: 25%;">
+    <div class="v-slider__thumb orange darken-3">
+    </div>
+  </div>
+</div>
+```
+
+| Method                                              | Description                                           | Return Type    
+-----------------------------------------------------|-------------------------------------------------------|----------------
+ **track()**                                         | Get track                                             | UIElement      
+ **thumb()**                                         | Get thumb                                             | UIElement      
+ **ticks()**                                         | Get ticks                                             | WebList        
+ **tickLabel(int index)**                            | Get tick label value                                  | String         
+ **thumbLabel()**                                    | Get thumb label                                       | Label          
+ **prependOuterIcon()**                              | Get slider prepend outer icon                         | Icon           
+ **appendOuterIcon()**                               | Get slider prepend append icon                        | Icon           
+ **loader()**                                        | Get loader                                            | ProgressLinear 
+ **label()**                                         | Get label                                             | Label          
+ **value()**                                         | Get value                                             | double         
+ **minValue()**                                      | Get min value                                         | double         
+ **maxValue()**                                      | Get max value                                         | double         
+ **setValue(Integer value)/ setValue(Double value)** | Set slider to value                                   | void           
+ **ticksSize()**                                     | Get ticks size                                        | int            
+ **thumbSize()**                                     | Get thumb size                                        | int            
+ **backgroundColor()**                               | Get background color                                  | String         
+ **thumbColor()**                                    | Get thumb color                                       | String         
+ **trackFillColor()**                                | Get track fill color                                  | String         
+ **trackBackgroundColor()**                          | Get track background color                            | String         
+ **clickOutsideOfSlider()**                          | Clicking outside the sheet                            | void           
+ **isAlwaysShow()**                                  | Check that ticks of required element is always show   | boolean        
+ **isError()**                                       | Check that required element is error                  | boolean        
+ **isSuccess()**                                     | Check that required element is success                | boolean        
+ **hasThumbLabel()**                                 | Check that thumb label of required element is existed | boolean        
+ **hasInverseLabel()**                               | Check that required element has inverse label         | boolean        
+
+For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SlidersTests.java)
 
 #### 5.12.4 Switches
 

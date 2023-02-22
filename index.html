@@ -44811,32 +44811,51 @@ To use any of these icons simply use the <code>mdi-</code> prefix followed by th
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressLinearTests.java">Progress linear tests</a>.</p>
 <h3 id='5-28-menus'>5.28 Menus</h3>
-<p><a href="https://vuetifyjs.com/en/components/menus/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/menus/">Vuetify documentation page</a></p>
 
-<ul>
-<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.complex.Menu.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">offsetXMenuTests</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(</span><span class="nl">offsetXMenuButton:</span><span class="o">:</span><span class="n">isDisplayed</span><span class="o">);</span>
-      <span class="n">offsetXMenuButton</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-      <span class="n">offsetXMenuButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">activeMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">activeMenu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">numberOfOptions</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-      <span class="n">activeMenu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">optionsTitles</span><span class="o">(</span><span class="n">optionsTitles</span><span class="o">);</span>
-      <span class="n">activeMenu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="mi">1190</span><span class="o">,</span> <span class="mi">1132</span><span class="o">);</span>
-      <span class="n">offsetXMenuButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">activeMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-      <span class="n">offsetXMenuSwitch</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
-      <span class="n">offsetXMenuButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">activeMenu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="mi">1190</span><span class="o">,</span> <span class="mi">1011</span><span class="o">);</span>
-      <span class="n">activeMenu</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">activeMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-    <span class="o">}</span>
+<p>Menus are located in the following class:
+- <strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.complex.Menu.java</em></p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "div.menuable__content__active")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"div.menuable__content__active"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">activeMenu</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks that active menu appears after hover upon the button"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">openOnHoverMenuTests</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">waitCondition</span><span class="o">(</span><span class="nl">openOnHoverMenuButton:</span><span class="o">:</span><span class="n">isDisplayed</span><span class="o">);</span>
+  <span class="n">openOnHoverMenuButton</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">openOnHoverMenuButton</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+  <span class="n">activeMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">countOfOptions</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">optionsTitles</span><span class="o">(</span><span class="n">OPTIONS_TITLES</span><span class="o">);</span>
+  <span class="n">openOnHoverMenuButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+  <span class="n">activeMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+  <span class="n">offsetXMenuButton</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+  <span class="n">activeMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+  <span class="o">}</span>
 </code></pre>
 <p>Menu component shows a menu at the position of the element that was used to activate it.</p>
 
 <p><img src="images/vuetify/menus.png" alt="Menus examples" /></p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div role=&quot;menu&quot; class=&quot;v-menu__content theme--light menuable__content__active&quot; style=&quot;min-width: 121px; top: 767px; left: 562px; transform-origin: left top; z-index: 8;&quot;&gt;
+  &lt;div class=&quot;v-list v-sheet theme--light&quot;&gt;
+    &lt;div tabindex=&quot;-1&quot; id=&quot;list-item-196&quot; class=&quot;v-list-item theme--light&quot;&gt;
+      &lt;div class=&quot;v-list-item__title&quot;&gt;Click Me&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div tabindex=&quot;-1&quot; id=&quot;list-item-197&quot; class=&quot;v-list-item theme--light&quot;&gt;
+      &lt;div class=&quot;v-list-item__title&quot;&gt;Click Me&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div tabindex=&quot;-1&quot; id=&quot;list-item-198&quot; class=&quot;v-list-item theme--light&quot;&gt;
+      &lt;div class=&quot;v-list-item__title&quot;&gt;Click Me&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div tabindex=&quot;-1&quot; id=&quot;list-item-199&quot; class=&quot;v-list-item theme--light&quot;&gt;
+      &lt;div class=&quot;v-list-item__title&quot;&gt;Click Me 2&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
 
 <table><thead>
 <tr>
@@ -44851,19 +44870,39 @@ To use any of these icons simply use the <code>mdi-</code> prefix followed by th
 <td>MenuAssert</td>
 </tr>
 <tr>
-<td><strong>hasPosition()</strong></td>
-<td>Returns position of menu</td>
-<td>String</td>
+<td><strong>has()</strong></td>
+<td>Returns Assert class</td>
+<td>MenuAssert</td>
 </tr>
 <tr>
-<td><strong>hasNumberOfOptions()</strong></td>
+<td><strong>close()</strong></td>
+<td>Closes menu</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>topPosition()</strong></td>
+<td>Returns amount of pixels from top</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>leftPosition()</strong></td>
+<td>Returns amount of pixels from left</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>countOfOptions()</strong></td>
 <td>Returns number of options in menu</td>
 <td>int</td>
 </tr>
 <tr>
-<td><strong>hasOptionsTitles()</strong></td>
+<td><strong>optionsTitles()</strong></td>
 <td>Returns list of titles of options in menu</td>
-<td>List<String></td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>items()</strong></td>
+<td>Returns items list</td>
+<td>List&lt;String&gt;</td>
 </tr>
 <tr>
 <td><strong>hasRemovedRadius()</strong></td>
@@ -44875,14 +44914,9 @@ To use any of these icons simply use the <code>mdi-</code> prefix followed by th
 <td>Shows that menu has large radius</td>
 <td>boolean</td>
 </tr>
-<tr>
-<td><strong>hasCustomRadius()</strong></td>
-<td>Shows that menu has custom radius</td>
-<td>boolean</td>
-</tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java">Menus tests</a>.</p>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java">Menus tests</a>.</p>
 <h3 id='5-29-images'>5.29 Images</h3>
 <p><a href="https://vuetifyjs.com/en/components/images/">Vuetify documentation page</a></p>
 

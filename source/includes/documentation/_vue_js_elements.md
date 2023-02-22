@@ -1451,28 +1451,34 @@ For examples of usage see: [JDI Vuetify Select tests](https://github.com/jdi-tes
 
 #### 5.12.10 File inputs
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/file-inputs/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/file-inputs/)
 
+File inputs are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.FileInput.java_
 
 ```java
-@Test
-public void acceptFileInput() {
-    acceptFileInput.uploadFile(pathTXT.toString());
-    acceptFileInput.has().file(pathTXT.getFileName().toString());
-}
 
-@Test
-public void chipsFileInputTest() {
-    chipsFileInput.is().multiply();
-    chipsFileInput.uploadFiles(asList(pathTXT.toString(), pathPNG.toString()));
-    chipsFileInput.has().files(asList(pathTXT.getFileName().toString(), pathPNG.getFileName().toString()));
-}
+//@FindBy(css = "#ChipsFileInput .v-file-input[1]")
+@JDIFileInput(root = "#ChipsFileInput .v-file-input[1]")
+public static FileInput chipsFileInput;
 
-@Test
-public void validationFileInputTest() {
-    validationFileInput.is().accept(containsString("image/png, image/jpeg, image/bmp"));
-}
+//@FindBy(css = "#ChipsFileInput .v-file-input[2]")
+@JDIFileInput(root = "#ChipsFileInput .v-file-input[2]")
+public static FileInput smallChipsFileInput;
+
+@Test(description = "Test checks that multiple files can be uploaded one by one and at once")
+public void uploadMultipleFilesFileInputTest() {
+        chipsFileInput.show();
+        chipsFileInput.is().multiple();
+        chipsFileInput.uploadFiles(asList(pathTXT.toString(),pathPNG.toString()));
+        chipsFileInput.has().files(asList(pathTXT.getFileName().toString(),pathPNG.getFileName().toString()));
+        smallChipsFileInput.show();
+        smallChipsFileInput.is().multiple();
+        smallChipsFileInput.uploadFile(pathTXT.toString());
+        smallChipsFileInput.has().file(pathTXT.getFileName().toString());
+        smallChipsFileInput.uploadFile(pathPNG.toString());
+        smallChipsFileInput.has().files(asList(pathTXT.getFileName().toString(),pathPNG.getFileName().toString()));
+    }
 ```
 
 ![File input example](../../images/vuetify/fileInput.png)
@@ -1480,38 +1486,73 @@ public void validationFileInputTest() {
 The File input component is a specialized input that provides a clean interface for
 selecting files, showing detailed selection information and upload progress.
 
-|Method | Description | Return Type
---- | --- | ---
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-input theme--light v-text-field v-text-field--is-booted v-file-input" id="MultipleFileInput">
+  <div class="v-input__prepend-outer">
+    <div class="v-input__icon v-input__icon--prepend">
+      <button type="button" aria-label="prepend icon" class="v-icon notranslate v-icon--link mdi mdi-paperclip theme--light"></button>
+    </div>
+  </div>
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-text-field__slot">
+        <label for="input-145" class="v-label theme--light" style="left: 0px; right: auto; position: absolute;">File input</label>
+        <div class="v-file-input__text"></div>
+        <input id="input-145" type="file" multiple="multiple">
+      </div>
+      <div class="v-input__append-inner"><div>
+      </div>
+      </div>
+    </div>
+    <div class="v-text-field__details">
+      <div class="v-messages theme--light">
+        <div class="v-messages__wrapper"></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+|Method | Description                                | Return Type
+--- |--------------------------------------------| ---
 **isMultiply()** | Shows that element can take multiply files | boolean
-**textInputField()** | Returns text input area | UIElement
-**message()** |  Returns message | UIElement
-**counter()** |  Returns counter | UIElement
-**prefix()** |  Return prefix | UIElement
-**suffix()** |  Returns suffix | UIElement
-**prependOuterIcons()** | Returns list of prepend outer icons | List\<Icon>
-**prependInnerIcons()** | Returns list of prepend inner icons | List\<Icon>
-**appendInnerIcons()** | Returns list of append inner icons | List\<Icon>
-**appendOuterIcons()** | Returns list of append outer icons | List\<Icon>
-**getPrependOuterIcon()** | Returns first prepend outer icon | Icon
-**getPrependInnerIcon()** | Returns first prepend inner icon | Icon
-**getAppendInnerIcon()** | Returns first append inner icon | Icon
-**getAppendOuterIcon()** | Returns first append outer icon | Icon
-**getText()** | Returns text | String
-**getLines()** | Returns lines dividing text using '\\n'  | List\<String>
-**label()** |  Returns label | Label
-**labelText()** | Returns label text | String
-**placeholder()** | Returns placeholder text| String
-**setText(String text)** | Set text| void
-**input(String text)** | Set text| void
-**sendKeys(String text)** | Add text| void
-**setLines(String... lines)** | Add lines as one string with '\n' delimiter| void
-**setLines(List<String> lines)** | Add lines as one string with '\n' delimiter| void
-**addNewLine(String line)** | Add text on a new line| void
-**clear()** | Clear text area| void
-**focus()** | Set mouse to text area| void
+**textInputField()** | Returns text input area                    | UIElement
+**counter()** | Returns counter                            | UIElement
+**prefix()** | Returns prefix                             | UIElement
+**suffix()** | Returns suffix                             | UIElement
+**prependOuterIcons()** | Returns list of prepend outer icons        | List\<Icon>
+**prependInnerIcons()** | Returns list of prepend inner icons        | List\<Icon>
+**appendInnerIcons()** | Returns list of append inner icons         | List\<Icon>
+**appendOuterIcons()** | Returns list of append outer icons         | List\<Icon>
+**getPrependOuterIcon()** | Returns first prepend outer icon           | Icon
+**getPrependInnerIcon()** | Returns first prepend inner icon           | Icon
+**getAppendInnerIcon()** | Returns first append inner icon            | Icon
+**getAppendOuterIcon()** | Returns first append outer icon            | Icon
+**getText()** | Returns text                               | String
+**label()** | Returns label                              | Label
+**placeholder()** | Returns placeholder text                   | String
+**setText(String text)** | Set text                                   | void
+**sendKeys(CharSequence... value)** | Add text                                   | void
+**clear()** | Clear text area                            | void
+**focus()** | Set mouse to text area                     | void
+**isDisplayed()** | Check if element is displayed              | boolean
+**isDisabled()** | Check if element is disabled               | boolean
+**files()** | Returns files list                         | WebList
+**getIconByLocator(String locator)** | Returns list of Icons                      | List\<Icon>
+**accept()** | Get accepted types                         | String
+**getFiles()** | Returns files name list                    | List\<String>
+**uploadFile(String path)** | Upload file                                | void
+**uploadFiles(List\<String> paths)** | Upload files                               | void
+**setup(Field field)** | Set up annotation                          | void
+**setup(String root, String files)** | Set up and return input                    | FileInput
+**backgroundColor()** | Returns background color                   | String
+**labelColor()** | Returns label color                        | String
+**isAutofocus()** | Checks if autofocus is enabled             | boolean
+**getLoaderHeight()** | Returns loader height                      | int
+**is()** | Returns assert class                           | FileInputAssert
 
-For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputTest.java).
-
+For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputsTests.java).
 
 ### 5.13 Groups 
 

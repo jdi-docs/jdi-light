@@ -2939,45 +2939,69 @@ For examples of usage see: [Progress linear tests](https://github.com/jdi-testin
 
 ### 5.28 Menus
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/menus/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/menus/)
 
+Menus are located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Menu.java_
 
 ```java
-    @Test
-    public void offsetXMenuTests() {
-      Timer.waitCondition(offsetXMenuButton::isDisplayed);
-      offsetXMenuButton.show();
-      offsetXMenuButton.click();
-      activeMenu.is().displayed();
-      activeMenu.has().numberOfOptions(4);
-      activeMenu.has().optionsTitles(optionsTitles);
-      activeMenu.has().position(1190, 1132);
-      offsetXMenuButton.click();
-      activeMenu.is().hidden();
-      offsetXMenuSwitch.uncheck();
-      offsetXMenuButton.click();
-      activeMenu.has().position(1190, 1011);
-      activeMenu.click();
-      activeMenu.is().hidden();
-    }
+//@FindBy(css = "div.menuable__content__active")
+@UI("div.menuable__content__active")
+public static Menu activeMenu;
+
+    @Test(description = "Test checks that active menu appears after hover upon the button")
+public void openOnHoverMenuTests() {
+  waitCondition(openOnHoverMenuButton::isDisplayed);
+  openOnHoverMenuButton.show();
+  openOnHoverMenuButton.hover();
+  activeMenu.is().displayed()
+  .and().countOfOptions(4)
+  .and().optionsTitles(OPTIONS_TITLES);
+  openOnHoverMenuButton.click();
+  activeMenu.is().displayed();
+  offsetXMenuButton.hover();
+  activeMenu.is().hidden();
+  }
 ```
 
 Menu component shows a menu at the position of the element that was used to activate it.
 
 ![Menus examples](../../images/vuetify/menus.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | MenuAssert
-**hasPosition()** | Returns position of menu | String
-**hasNumberOfOptions()** | Returns number of options in menu | int
-**hasOptionsTitles()** | Returns list of titles of options in menu | List<String>
-**hasRemovedRadius()** | Shows that menu has removed radius | boolean
-**hasLargeRadius()** | Shows that menu has large radius | boolean
-**hasCustomRadius()** | Shows that menu has custom radius | boolean
+__Vuetify v2.6.14__ code example:
+```html
+<div role="menu" class="v-menu__content theme--light menuable__content__active" style="min-width: 121px; top: 767px; left: 562px; transform-origin: left top; z-index: 8;">
+  <div class="v-list v-sheet theme--light">
+    <div tabindex="-1" id="list-item-196" class="v-list-item theme--light">
+      <div class="v-list-item__title">Click Me</div>
+    </div>
+    <div tabindex="-1" id="list-item-197" class="v-list-item theme--light">
+      <div class="v-list-item__title">Click Me</div>
+    </div>
+    <div tabindex="-1" id="list-item-198" class="v-list-item theme--light">
+      <div class="v-list-item__title">Click Me</div>
+    </div>
+    <div tabindex="-1" id="list-item-199" class="v-list-item theme--light">
+      <div class="v-list-item__title">Click Me 2</div>
+    </div>
+  </div>
+</div>
+```
 
-For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java).
+|Method | Description                                     | Return Type
+--- |-------------------------------------------------| ---
+**is()** | Returns Assert class                            | MenuAssert
+**has()** | Returns Assert class                            | MenuAssert
+**close()** | Closes menu                                     | void
+**topPosition()** | Returns amount of pixels from top               | int
+**leftPosition()** | Returns amount of pixels from left              | int
+**countOfOptions()** | Returns number of options in menu               | int
+**optionsTitles()** | Returns list of titles of options in menu       | List\<String>
+**items()** | Returns items list | List\<String>
+**hasRemovedRadius()** | Shows that menu has removed radius              | boolean
+**hasLargeRadius()** | Shows that menu has large radius                | boolean
+
+For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java).
 
 ### 5.29 Images
 

@@ -43291,79 +43291,124 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingTests.java">JDI Vuetify Ratingss tests</a></p>
 <h3 id='5-18-snackbars'>5.18 Snackbars</h3>
-<p><a href="https://vuetifyjs.com/en/components/snackbars/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/snackbars/">Vuetify documentation page</a></p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Snackbar.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">simpleSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">simpleSnackbarOpen</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Hello, I'm a snackbar"</span><span class="o">);</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">closed</span><span class="o">();</span>
-  <span class="o">}</span>
-</code></pre>
-<p><img src="images/vuetify/snackbars.png" alt="Snackbars example" /></p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".v-card--flat .v-snack--absolute"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Snackbar</span> <span class="n">snackbar</span><span class="o">;</span>
 
-<p>The snackbar component is used to display a quick message to a user.</p>
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks that Snackbar has all expected attributes"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">snackbarTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">snackbar</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">snackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">leftAlignment</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">shaped</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">notElevated</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="s">"rgba(255, 255, 255, 0.87)"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">top</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p><strong>Snackbar</strong> component is used to display a quick message to a user. Snackbars support positioning, removal delay, and callbacks.</p>
+
+<p><img src="images/vuetify/snackbar.png" alt="Snackbars example" /></p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;v-snack v-snack--active v-snack--bottom v-snack--has-background v-snack--multi-line&quot;&gt;
+  &lt;div class=&quot;v-snack__wrapper v-sheet theme--dark&quot; style=&quot;&quot;&gt;
+    &lt;div role=&quot;status&quot; aria-live=&quot;polite&quot; class=&quot;v-snack__content&quot;&gt; I&#39;m a multi-line snackbar. &lt;/div&gt;
+    &lt;div class=&quot;v-snack__action &quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;v-btn v-btn--text theme--dark v-size--default red--text v-snack__btn&quot;&gt;
+        &lt;span class=&quot;v-btn__content&quot;&gt; Close &lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
 
 <table><thead>
 <tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
+<th style="text-align: left">Method</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Return Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Returns Assert class</td>
-<td>SnackbarAssert</td>
+<td style="text-align: left"><strong>text()</strong></td>
+<td style="text-align: left">Returns snackbar&#39;s text</td>
+<td style="text-align: left">String</td>
 </tr>
 <tr>
-<td><strong>text()</strong></td>
-<td>Returns snackbar&#39;s text</td>
-<td>String</td>
+<td style="text-align: left"><strong>isOpen()</strong></td>
+<td style="text-align: left">Returns true if snackbar is shown</td>
+<td style="text-align: left">boolean</td>
 </tr>
 <tr>
-<td><strong>close()</strong></td>
-<td>Closes snackbar</td>
-<td>void</td>
+<td style="text-align: left"><strong>isClosed()</strong></td>
+<td style="text-align: left">Shows true if snackbar is not shown</td>
+<td style="text-align: left">boolean</td>
 </tr>
 <tr>
-<td><strong>isOpen()</strong></td>
-<td>Shows that snackbar is open</td>
-<td>boolean</td>
+<td style="text-align: left"><strong>isTop()</strong></td>
+<td style="text-align: left">Returns true if snackbar is positioned at the top</td>
+<td style="text-align: left">boolean</td>
 </tr>
 <tr>
-<td><strong>isClosed()</strong></td>
-<td>Shows that snackbar is closed</td>
-<td>boolean</td>
+<td style="text-align: left"><strong>isBottom()</strong></td>
+<td style="text-align: left">Returns true if snackbar is positioned at the bottom</td>
+<td style="text-align: left">boolean</td>
 </tr>
 <tr>
-<td><strong>isLeft()</strong></td>
-<td>Shows that snackbar has left position</td>
-<td>boolean</td>
+<td style="text-align: left"><strong>isMultiLine()</strong></td>
+<td style="text-align: left">Returns true if snackbar is configured to display multiple lines of text message</td>
+<td style="text-align: left">boolean</td>
 </tr>
 <tr>
-<td><strong>isRight()</strong></td>
-<td>Shows that snackbar has right position</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>isCentered()</strong></td>
-<td>Shows that snackbar is centered</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>isVertical()</strong></td>
-<td>Shows that snackbar is vertical</td>
-<td>boolean</td>
+<td style="text-align: left"><strong>wrapperLocator()</strong></td>
+<td style="text-align: left">Returns &quot;.v-snack__wrapper&quot; string</td>
+<td style="text-align: left">String</td>
 </tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java">JDI vuetify page tests for snackbars</a>.</p>
+<table><thead>
+<tr>
+<th style="text-align: left">Assert method</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>visible()</strong></td>
+<td style="text-align: left">Asserts if snackbar is present on the page</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>closed()</strong></td>
+<td style="text-align: left">Asserts if snackbar is not present on the page</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>text(Matcher&lt;String condition)</strong></td>
+<td style="text-align: left">Asserts if alert text matches provided matcher</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>centered()</strong></td>
+<td style="text-align: left">Asserts if snackbar is positioned at the center</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>top()</strong></td>
+<td style="text-align: left">Asserts if snackbar is positioned at the top</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>bottom()</strong></td>
+<td style="text-align: left">Asserts if snackbar is positioned at the bottom</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>multiline()</strong></td>
+<td style="text-align: left">Asserts if snackbar is configured to display multiple lines of text</td>
+</tr>
+</tbody></table>
+
+<p>Snackbar also have basic JDI elements methods and asserts for Text, Color, Elevation, Outline, Measurements, Orientation, Alignment, Theme and others</p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java">JDI vuetify page tests for snackbars</a>.</p>
 <h3 id='5-19-sparklines'>5.19 Sparklines</h3>
 <p><a href="https://vuetifyjs.com/en/components/sparklines/">Vuetify documentation page</a></p>
 

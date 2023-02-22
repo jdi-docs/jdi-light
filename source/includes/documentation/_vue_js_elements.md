@@ -2877,17 +2877,9 @@ Menus are located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Menu.java_
 
 ```java
-//@FindBy(css = "#OpenOnHoverMenu button")
-@UI("#OpenOnHoverMenu button")
-public static VuetifyButton openOnHoverMenuButton;
-
 //@FindBy(css = "div.menuable__content__active")
 @UI("div.menuable__content__active")
 public static Menu activeMenu;
-
-//@FindBy(css = "#OffsetXMenu button")
-@UI("#OffsetXMenu button")
-public static VuetifyButton offsetXMenuButton;
 
     @Test(description = "Test checks that active menu appears after hover upon the button")
 public void openOnHoverMenuTests() {
@@ -2910,13 +2902,21 @@ Menu component shows a menu at the position of the element that was used to acti
 
 __Vuetify v2.6.14__ code example:
 ```html
-<div class="text-center" id="OpenOnHoverMenu">
-  <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--dark v-size--default primary" aria-haspopup="true" aria-expanded="false">
-    <span class="v-btn__content">
-        Dropdown
-      </span>
-  </button>
-  <div class="v-menu"></div>
+<div role="menu" class="v-menu__content theme--light menuable__content__active" style="min-width: 121px; top: 767px; left: 562px; transform-origin: left top; z-index: 8;">
+  <div class="v-list v-sheet theme--light">
+    <div tabindex="-1" id="list-item-196" class="v-list-item theme--light">
+      <div class="v-list-item__title">Click Me</div>
+    </div>
+    <div tabindex="-1" id="list-item-197" class="v-list-item theme--light">
+      <div class="v-list-item__title">Click Me</div>
+    </div>
+    <div tabindex="-1" id="list-item-198" class="v-list-item theme--light">
+      <div class="v-list-item__title">Click Me</div>
+    </div>
+    <div tabindex="-1" id="list-item-199" class="v-list-item theme--light">
+      <div class="v-list-item__title">Click Me 2</div>
+    </div>
+  </div>
 </div>
 ```
 

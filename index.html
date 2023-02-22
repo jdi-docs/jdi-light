@@ -42050,33 +42050,65 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectsTests.java">JDI Vuetify Select tests</a>.</p>
 <h4 id='5-12-10-file-inputs'>5.12.10 File inputs</h4>
-<p><a href="https://vuetifyjs.com/en/components/file-inputs/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/file-inputs/">Vuetify documentation page</a></p>
 
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.FileInput.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">acceptFileInput</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">acceptFileInput</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-    <span class="n">acceptFileInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">file</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
-<span class="o">}</span>
+<p>File inputs are located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.FileInput.java</em></p>
+<pre class="highlight java tab-java"><code>
+<span class="c1">//@FindBy(css = "#ChipsFileInput .v-file-input[1]")</span>
+<span class="nd">@JDIFileInput</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#ChipsFileInput .v-file-input[1]"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">chipsFileInput</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">chipsFileInputTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">multiply</span><span class="o">();</span>
-    <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">uploadFiles</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">toString</span><span class="o">(),</span> <span class="n">pathPNG</span><span class="o">.</span><span class="na">toString</span><span class="o">()));</span>
-    <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">files</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">(),</span> <span class="n">pathPNG</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">()));</span>
-<span class="o">}</span>
+<span class="c1">//@FindBy(css = "#ChipsFileInput .v-file-input[2]")</span>
+<span class="nd">@JDIFileInput</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#ChipsFileInput .v-file-input[2]"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">smallChipsFileInput</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">validationFileInputTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">validationFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">accept</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"image/png, image/jpeg, image/bmp"</span><span class="o">));</span>
-<span class="o">}</span>
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks that multiple files can be uploaded one by one and at once"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">uploadMultipleFilesFileInputTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">multiple</span><span class="o">();</span>
+        <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">uploadFiles</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">toString</span><span class="o">(),</span><span class="n">pathPNG</span><span class="o">.</span><span class="na">toString</span><span class="o">()));</span>
+        <span class="n">chipsFileInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">files</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">(),</span><span class="n">pathPNG</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">()));</span>
+        <span class="n">smallChipsFileInput</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">smallChipsFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">multiple</span><span class="o">();</span>
+        <span class="n">smallChipsFileInput</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="n">smallChipsFileInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">file</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+        <span class="n">smallChipsFileInput</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">pathPNG</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="n">smallChipsFileInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">files</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span><span class="n">pathTXT</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">(),</span><span class="n">pathPNG</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">()));</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/vuetify/fileInput.png" alt="File input example" /></p>
 
 <p>The File input component is a specialized input that provides a clean interface for
 selecting files, showing detailed selection information and upload progress.</p>
+
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;v-input theme--light v-text-field v-text-field--is-booted v-file-input&quot; id=&quot;MultipleFileInput&quot;&gt;
+  &lt;div class=&quot;v-input__prepend-outer&quot;&gt;
+    &lt;div class=&quot;v-input__icon v-input__icon--prepend&quot;&gt;
+      &lt;button type=&quot;button&quot; aria-label=&quot;prepend icon&quot; class=&quot;v-icon notranslate v-icon--link mdi mdi-paperclip theme--light&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;v-input__control&quot;&gt;
+    &lt;div class=&quot;v-input__slot&quot;&gt;
+      &lt;div class=&quot;v-text-field__slot&quot;&gt;
+        &lt;label for=&quot;input-145&quot; class=&quot;v-label theme--light&quot; style=&quot;left: 0px; right: auto; position: absolute;&quot;&gt;File input&lt;/label&gt;
+        &lt;div class=&quot;v-file-input__text&quot;&gt;&lt;/div&gt;
+        &lt;input id=&quot;input-145&quot; type=&quot;file&quot; multiple=&quot;multiple&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;v-input__append-inner&quot;&gt;&lt;div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;v-text-field__details&quot;&gt;
+      &lt;div class=&quot;v-messages theme--light&quot;&gt;
+        &lt;div class=&quot;v-messages__wrapper&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
 
 <table><thead>
 <tr>
@@ -42096,18 +42128,13 @@ selecting files, showing detailed selection information and upload progress.</p>
 <td>UIElement</td>
 </tr>
 <tr>
-<td><strong>message()</strong></td>
-<td>Returns message</td>
-<td>UIElement</td>
-</tr>
-<tr>
 <td><strong>counter()</strong></td>
 <td>Returns counter</td>
 <td>UIElement</td>
 </tr>
 <tr>
 <td><strong>prefix()</strong></td>
-<td>Return prefix</td>
+<td>Returns prefix</td>
 <td>UIElement</td>
 </tr>
 <tr>
@@ -42161,19 +42188,9 @@ selecting files, showing detailed selection information and upload progress.</p>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>getLines()</strong></td>
-<td>Returns lines dividing text using &#39;\n&#39;</td>
-<td>List&lt;String&gt;</td>
-</tr>
-<tr>
 <td><strong>label()</strong></td>
 <td>Returns label</td>
 <td>Label</td>
-</tr>
-<tr>
-<td><strong>labelText()</strong></td>
-<td>Returns label text</td>
-<td>String</td>
 </tr>
 <tr>
 <td><strong>placeholder()</strong></td>
@@ -42186,28 +42203,8 @@ selecting files, showing detailed selection information and upload progress.</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>input(String text)</strong></td>
-<td>Set text</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>sendKeys(String text)</strong></td>
+<td><strong>sendKeys(CharSequence... value)</strong></td>
 <td>Add text</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>setLines(String... lines)</strong></td>
-<td>Add lines as one string with &#39;\n&#39; delimiter</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>setLines(List<String> lines)</strong></td>
-<td>Add lines as one string with &#39;\n&#39; delimiter</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>addNewLine(String line)</strong></td>
-<td>Add text on a new line</td>
 <td>void</td>
 </tr>
 <tr>
@@ -42220,9 +42217,84 @@ selecting files, showing detailed selection information and upload progress.</p>
 <td>Set mouse to text area</td>
 <td>void</td>
 </tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Check if element is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Check if element is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>files()</strong></td>
+<td>Returns files list</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>getIconByLocator(String locator)</strong></td>
+<td>Returns list of Icons</td>
+<td>List&lt;Icon&gt;</td>
+</tr>
+<tr>
+<td><strong>accept()</strong></td>
+<td>Get accepted types</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getFiles()</strong></td>
+<td>Returns files name list</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>uploadFile(String path)</strong></td>
+<td>Upload file</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uploadFiles(List&lt;String&gt; paths)</strong></td>
+<td>Upload files</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setup(Field field)</strong></td>
+<td>Set up annotation</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setup(String root, String files)</strong></td>
+<td>Set up and return input</td>
+<td>FileInput</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Returns background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>labelColor()</strong></td>
+<td>Returns label color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isAutofocus()</strong></td>
+<td>Checks if autofocus is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getLoaderHeight()</strong></td>
+<td>Returns loader height</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns assert class</td>
+<td>FileInputAssert</td>
+</tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputTest.java">JDI Vuetify File inputs tests</a>.</p>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputsTests.java">JDI Vuetify File inputs tests</a>.</p>
 <h3 id='5-13-groups'>5.13 Groups</h3><h4 id='5-13-1-button-groups'>5.13.1 Button Groups</h4><pre class="highlight java tab-java"><code><span class="nd">@JDIButtonGroup</span><span class="o">(</span>
         <span class="n">root</span> <span class="o">=</span> <span class="s">"#RoundedButtonGroup .v-item-group"</span><span class="o">,</span> <span class="n">buttons</span> <span class="o">=</span> <span class="s">"//*[@type = 'button']"</span>
 <span class="o">)</span> <span class="c1">// buttons search strategy is custom</span>

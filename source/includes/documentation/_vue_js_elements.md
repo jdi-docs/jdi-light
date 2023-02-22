@@ -699,7 +699,7 @@ public void padlessFooterTest() {
 }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/footer/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/footer/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Footer.java_
 
@@ -1857,7 +1857,7 @@ and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-ligh
 
 ### 5.14 Lists
 
-[The v-list](https://vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
+[The v-list](https://v2.vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
 
 #
 ![Lists example](../../images/vuetify/lists.png)
@@ -1999,7 +1999,7 @@ public void zIndexOverlaysTest() {
   }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/overlays/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/overlays/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Overlay.java_
 
@@ -2154,7 +2154,7 @@ public void themeRatingTest() {
 }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/ratings/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/ratings/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
 
@@ -2278,7 +2278,7 @@ public void insetSubheaderTest() {
   insetSubheader.is().text("Subheader");
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/subheaders/)
 
 __Java__: _com.epam.jdi.light.vuetify.elements.common.Subheader.java_
 
@@ -2681,7 +2681,7 @@ public void textTooltipsTest() {
   }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/tooltips/)
 
 __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
 
@@ -3495,12 +3495,12 @@ For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://
 
 ### 5.35 Parallax
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/parallax/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/parallax/)
 
 Parallax is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Parallax.java_
 
-```java`
+```java
 //@FindBy(css = "#CustomHeightParallax")
 @UI("#CustomHeightParallax")
     public static Parallax customHeightParallax;
@@ -3704,7 +3704,7 @@ public void depressedButtonsTests(int index, boolean enabled, String color, Stri
   }
 ```
 
-[Button Vuetify documentation page](https://vuetifyjs.com/en/components/buttons/)
+[Button Vuetify documentation page](https://v2.vuetifyjs.com/en/components/buttons/)
 
 Button is located in the following class:
 
@@ -4216,3 +4216,53 @@ __Input__ element has following methods:
 
 Examples of usage see on the following page:
 [Input tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)
+
+### 5.44 Sheets
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sheets/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.Sheet.java_
+
+```java
+    //@FindBy(css = "#RoundedSheet")
+    @UI("#ElevationSheet .v-sheet div")
+    public static Sheet elevatedSheet;
+    
+    @Test(description = "Check that sheet with expected attributes is present")
+    public void elevatedSheetTest() {
+        elevatedSheet.show();
+        elevatedSheet.is().displayed()
+            .is().notRounded()
+            .is().notShaped()
+            .has().elevation(12)
+            .has().color("rgba(255, 255, 255, 1)")
+            .has().height(100).and().has().width(100);
+    }
+```
+
+The Sheet component is a transformable "piece of paper" that provides a basic foundation for Vuetify features.
+For example, properties such as rounded and shaped modify the border-radius property while elevation increases/decreases box-shadow.
+
+![Sheets examples](../../images/vuetify/sheets.png)
+
+__Vuetify v2.6.14__ code example:
+```html
+<div class="d-flex v-sheet theme--light elevation-4 rounded yellow lighten-3" style="height: 150px; width: 150px;">
+  <div class="mt-auto align-center justify-center d-flex px-2 v-sheet theme--dark" style="height: 50px; background-color: rgba(0, 0, 0, 0.36); border-color: rgba(0, 0, 0, 0.36);">
+    Rounded XL, Elevation 4
+  </div>
+</div>
+```
+
+| Method | Description | Return Type | 
+|:---| :--- |:---|
+**borderRadius()** | Returns sheet border radius in px | int
+**color()** | Returns sheet color (the same as backgroundColour()) | [](overridden method)
+
+| Assert method | Description |
+| :--- | :--- |
+ **borderRadius(int value)** | Asserts if sheet has expected border radius
+
+Sheet also have basic JDI elements methods and asserts for Text, Color, Elevation, Measurements, Theme and others
+
+For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SheetsTests.java)

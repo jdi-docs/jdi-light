@@ -2392,7 +2392,7 @@ __Vuetify v2.6.14__ code example:
 
 #### 5.21.1 Simple Tables
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/simple-tables/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/simple-tables/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.SimpleTable.java_
 
@@ -2425,7 +2425,7 @@ For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-t
 
 #### 5.21.2 Data Tables
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/data-tables/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/data-tables/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataTable.java_
 
@@ -2482,6 +2482,14 @@ The Data Table component is used for displaying tabular data and to extend the S
 **expand()** | Expands required element| void
 
 For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
+
+#### 5.21.2 Data Iterators
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/data-iterators/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataIterator.java_
+
+![Data Table example](../../images/vuetify/data_iterator.png)
 
 ### 5.22 Tabs
 

@@ -699,7 +699,7 @@ public void padlessFooterTest() {
 }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/footer/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/footer/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Footer.java_
 
@@ -1451,28 +1451,34 @@ For examples of usage see: [JDI Vuetify Select tests](https://github.com/jdi-tes
 
 #### 5.12.10 File inputs
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/file-inputs/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/file-inputs/)
 
+File inputs are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.FileInput.java_
 
 ```java
-@Test
-public void acceptFileInput() {
-    acceptFileInput.uploadFile(pathTXT.toString());
-    acceptFileInput.has().file(pathTXT.getFileName().toString());
-}
 
-@Test
-public void chipsFileInputTest() {
-    chipsFileInput.is().multiply();
-    chipsFileInput.uploadFiles(asList(pathTXT.toString(), pathPNG.toString()));
-    chipsFileInput.has().files(asList(pathTXT.getFileName().toString(), pathPNG.getFileName().toString()));
-}
+//@FindBy(css = "#ChipsFileInput .v-file-input[1]")
+@JDIFileInput(root = "#ChipsFileInput .v-file-input[1]")
+public static FileInput chipsFileInput;
 
-@Test
-public void validationFileInputTest() {
-    validationFileInput.is().accept(containsString("image/png, image/jpeg, image/bmp"));
-}
+//@FindBy(css = "#ChipsFileInput .v-file-input[2]")
+@JDIFileInput(root = "#ChipsFileInput .v-file-input[2]")
+public static FileInput smallChipsFileInput;
+
+@Test(description = "Test checks that multiple files can be uploaded one by one and at once")
+public void uploadMultipleFilesFileInputTest() {
+        chipsFileInput.show();
+        chipsFileInput.is().multiple();
+        chipsFileInput.uploadFiles(asList(pathTXT.toString(),pathPNG.toString()));
+        chipsFileInput.has().files(asList(pathTXT.getFileName().toString(),pathPNG.getFileName().toString()));
+        smallChipsFileInput.show();
+        smallChipsFileInput.is().multiple();
+        smallChipsFileInput.uploadFile(pathTXT.toString());
+        smallChipsFileInput.has().file(pathTXT.getFileName().toString());
+        smallChipsFileInput.uploadFile(pathPNG.toString());
+        smallChipsFileInput.has().files(asList(pathTXT.getFileName().toString(),pathPNG.getFileName().toString()));
+    }
 ```
 
 ![File input example](../../images/vuetify/fileInput.png)
@@ -1480,38 +1486,73 @@ public void validationFileInputTest() {
 The File input component is a specialized input that provides a clean interface for
 selecting files, showing detailed selection information and upload progress.
 
-|Method | Description | Return Type
---- | --- | ---
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-input theme--light v-text-field v-text-field--is-booted v-file-input" id="MultipleFileInput">
+  <div class="v-input__prepend-outer">
+    <div class="v-input__icon v-input__icon--prepend">
+      <button type="button" aria-label="prepend icon" class="v-icon notranslate v-icon--link mdi mdi-paperclip theme--light"></button>
+    </div>
+  </div>
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-text-field__slot">
+        <label for="input-145" class="v-label theme--light" style="left: 0px; right: auto; position: absolute;">File input</label>
+        <div class="v-file-input__text"></div>
+        <input id="input-145" type="file" multiple="multiple">
+      </div>
+      <div class="v-input__append-inner"><div>
+      </div>
+      </div>
+    </div>
+    <div class="v-text-field__details">
+      <div class="v-messages theme--light">
+        <div class="v-messages__wrapper"></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+|Method | Description                                | Return Type
+--- |--------------------------------------------| ---
 **isMultiply()** | Shows that element can take multiply files | boolean
-**textInputField()** | Returns text input area | UIElement
-**message()** |  Returns message | UIElement
-**counter()** |  Returns counter | UIElement
-**prefix()** |  Return prefix | UIElement
-**suffix()** |  Returns suffix | UIElement
-**prependOuterIcons()** | Returns list of prepend outer icons | List\<Icon>
-**prependInnerIcons()** | Returns list of prepend inner icons | List\<Icon>
-**appendInnerIcons()** | Returns list of append inner icons | List\<Icon>
-**appendOuterIcons()** | Returns list of append outer icons | List\<Icon>
-**getPrependOuterIcon()** | Returns first prepend outer icon | Icon
-**getPrependInnerIcon()** | Returns first prepend inner icon | Icon
-**getAppendInnerIcon()** | Returns first append inner icon | Icon
-**getAppendOuterIcon()** | Returns first append outer icon | Icon
-**getText()** | Returns text | String
-**getLines()** | Returns lines dividing text using '\\n'  | List\<String>
-**label()** |  Returns label | Label
-**labelText()** | Returns label text | String
-**placeholder()** | Returns placeholder text| String
-**setText(String text)** | Set text| void
-**input(String text)** | Set text| void
-**sendKeys(String text)** | Add text| void
-**setLines(String... lines)** | Add lines as one string with '\n' delimiter| void
-**setLines(List<String> lines)** | Add lines as one string with '\n' delimiter| void
-**addNewLine(String line)** | Add text on a new line| void
-**clear()** | Clear text area| void
-**focus()** | Set mouse to text area| void
+**textInputField()** | Returns text input area                    | UIElement
+**counter()** | Returns counter                            | UIElement
+**prefix()** | Returns prefix                             | UIElement
+**suffix()** | Returns suffix                             | UIElement
+**prependOuterIcons()** | Returns list of prepend outer icons        | List\<Icon>
+**prependInnerIcons()** | Returns list of prepend inner icons        | List\<Icon>
+**appendInnerIcons()** | Returns list of append inner icons         | List\<Icon>
+**appendOuterIcons()** | Returns list of append outer icons         | List\<Icon>
+**getPrependOuterIcon()** | Returns first prepend outer icon           | Icon
+**getPrependInnerIcon()** | Returns first prepend inner icon           | Icon
+**getAppendInnerIcon()** | Returns first append inner icon            | Icon
+**getAppendOuterIcon()** | Returns first append outer icon            | Icon
+**getText()** | Returns text                               | String
+**label()** | Returns label                              | Label
+**placeholder()** | Returns placeholder text                   | String
+**setText(String text)** | Set text                                   | void
+**sendKeys(CharSequence... value)** | Add text                                   | void
+**clear()** | Clear text area                            | void
+**focus()** | Set mouse to text area                     | void
+**isDisplayed()** | Check if element is displayed              | boolean
+**isDisabled()** | Check if element is disabled               | boolean
+**files()** | Returns files list                         | WebList
+**getIconByLocator(String locator)** | Returns list of Icons                      | List\<Icon>
+**accept()** | Get accepted types                         | String
+**getFiles()** | Returns files name list                    | List\<String>
+**uploadFile(String path)** | Upload file                                | void
+**uploadFiles(List\<String> paths)** | Upload files                               | void
+**setup(Field field)** | Set up annotation                          | void
+**setup(String root, String files)** | Set up and return input                    | FileInput
+**backgroundColor()** | Returns background color                   | String
+**labelColor()** | Returns label color                        | String
+**isAutofocus()** | Checks if autofocus is enabled             | boolean
+**getLoaderHeight()** | Returns loader height                      | int
+**is()** | Returns assert class                           | FileInputAssert
 
-For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputTest.java).
-
+For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputsTests.java).
 
 ### 5.13 Groups 
 
@@ -1857,7 +1898,7 @@ and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-ligh
 
 ### 5.14 Lists
 
-[The v-list](https://vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
+[The v-list](https://v2.vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
 
 #
 ![Lists example](../../images/vuetify/lists.png)
@@ -1999,7 +2040,7 @@ public void zIndexOverlaysTest() {
   }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/overlays/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/overlays/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Overlay.java_
 
@@ -2154,7 +2195,7 @@ public void themeRatingTest() {
 }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/ratings/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/ratings/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
 
@@ -2198,38 +2239,65 @@ For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-t
 
 ### 5.18 Snackbars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/snackbars/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/snackbars/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Snackbar.java_
 
 ```java
-    @Test
-    public static void simpleSnackbarTest() {
-        simpleSnackbarOpen.click();
-        simpleSnackbar.is().visible();
-        simpleSnackbar.is().text("Hello, I'm a snackbar");
-        simpleSnackbar.close();
-        simpleSnackbar.is().closed();
-  }
+    @UI(".v-card--flat .v-snack--absolute")
+    public static Snackbar snackbar;
+
+    @Test(description = "Test checks that Snackbar has all expected attributes")
+    public static void snackbarTest() {
+        snackbar.show();
+        snackbar.has().leftAlignment()
+            .is().shaped().and().notElevated()
+            .has().color("rgba(255, 255, 255, 0.87)")
+            .has().top();
+    }
 ```
 
-![Snackbars example](../../images/vuetify/snackbars.png)
+__Snackbar__ component is used to display a quick message to a user. Snackbars support positioning, removal delay, and callbacks.
 
-The snackbar component is used to display a quick message to a user.
+![Snackbars example](../../images/vuetify/snackbar.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | SnackbarAssert
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-snack v-snack--active v-snack--bottom v-snack--has-background v-snack--multi-line">
+  <div class="v-snack__wrapper v-sheet theme--dark" style="">
+    <div role="status" aria-live="polite" class="v-snack__content"> I'm a multi-line snackbar. </div>
+    <div class="v-snack__action ">
+      <button type="button" class="v-btn v-btn--text theme--dark v-size--default red--text v-snack__btn">
+        <span class="v-btn__content"> Close </span>
+      </button>
+    </div>
+  </div>
+</div>
+```
+
+| Method  | Description | Return Type |
+| :--- | :--- | :--- |
 **text()** | Returns snackbar's text | String
-**close()** | Closes snackbar | void
-**isOpen()** | Shows that snackbar is open | boolean
-**isClosed()** | Shows that snackbar is closed | boolean
-**isLeft()** | Shows that snackbar has left position | boolean
-**isRight()** | Shows that snackbar has right position | boolean
-**isCentered()** | Shows that snackbar is centered | boolean
-**isVertical()** | Shows that snackbar is vertical | boolean
+**isOpen()** | Returns true if snackbar is shown | boolean
+**isClosed()** | Shows true if snackbar is not shown | boolean
+**isTop()** | Returns true if snackbar is positioned at the top | boolean
+**isBottom()** | Returns true if snackbar is positioned at the bottom | boolean
+**isMultiLine()** | Returns true if snackbar is configured to display multiple lines of text message | boolean
+**wrapperLocator()** | Returns ".v-snack__wrapper" string | String
 
-For examples of usage see: [JDI vuetify page tests for snackbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java).
+| Assert method | Description |
+| :--- | :--- |
+**visible()** | Asserts if snackbar is present on the page
+**closed()** | Asserts if snackbar is not present on the page
+**text(Matcher<String condition)** | Asserts if alert text matches provided matcher
+**centered()** | Asserts if snackbar is positioned at the center
+**top()** | Asserts if snackbar is positioned at the top
+**bottom()** | Asserts if snackbar is positioned at the bottom
+**multiline()** | Asserts if snackbar is configured to display multiple lines of text
+
+Snackbar also have basic JDI elements methods and asserts for Text, Color, Elevation, Outline, Measurements, Orientation, Alignment, Theme and others
+
+For examples of usage see: [JDI vuetify page tests for snackbars](https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java).
 
 ### 5.19 Sparklines
 
@@ -2278,7 +2346,7 @@ public void insetSubheaderTest() {
   insetSubheader.is().text("Subheader");
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/subheaders/)
 
 __Java__: _com.epam.jdi.light.vuetify.elements.common.Subheader.java_
 
@@ -2681,7 +2749,7 @@ public void textTooltipsTest() {
   }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/tooltips/)
 
 __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
 
@@ -3519,12 +3587,12 @@ For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://
 
 ### 5.35 Parallax
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/parallax/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/parallax/)
 
 Parallax is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Parallax.java_
 
-```java`
+```java
 //@FindBy(css = "#CustomHeightParallax")
 @UI("#CustomHeightParallax")
     public static Parallax customHeightParallax;
@@ -3728,7 +3796,7 @@ public void depressedButtonsTests(int index, boolean enabled, String color, Stri
   }
 ```
 
-[Button Vuetify documentation page](https://vuetifyjs.com/en/components/buttons/)
+[Button Vuetify documentation page](https://v2.vuetifyjs.com/en/components/buttons/)
 
 Button is located in the following class:
 
@@ -4240,3 +4308,53 @@ __Input__ element has following methods:
 
 Examples of usage see on the following page:
 [Input tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)
+
+### 5.44 Sheets
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sheets/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.Sheet.java_
+
+```java
+    //@FindBy(css = "#RoundedSheet")
+    @UI("#ElevationSheet .v-sheet div")
+    public static Sheet elevatedSheet;
+    
+    @Test(description = "Check that sheet with expected attributes is present")
+    public void elevatedSheetTest() {
+        elevatedSheet.show();
+        elevatedSheet.is().displayed()
+            .is().notRounded()
+            .is().notShaped()
+            .has().elevation(12)
+            .has().color("rgba(255, 255, 255, 1)")
+            .has().height(100).and().has().width(100);
+    }
+```
+
+The Sheet component is a transformable "piece of paper" that provides a basic foundation for Vuetify features.
+For example, properties such as rounded and shaped modify the border-radius property while elevation increases/decreases box-shadow.
+
+![Sheets examples](../../images/vuetify/sheets.png)
+
+__Vuetify v2.6.14__ code example:
+```html
+<div class="d-flex v-sheet theme--light elevation-4 rounded yellow lighten-3" style="height: 150px; width: 150px;">
+  <div class="mt-auto align-center justify-center d-flex px-2 v-sheet theme--dark" style="height: 50px; background-color: rgba(0, 0, 0, 0.36); border-color: rgba(0, 0, 0, 0.36);">
+    Rounded XL, Elevation 4
+  </div>
+</div>
+```
+
+| Method | Description | Return Type | 
+|:---| :--- |:---|
+**borderRadius()** | Returns sheet border radius in px | int
+**color()** | Returns sheet color (the same as backgroundColour()) | [](overridden method)
+
+| Assert method | Description |
+| :--- | :--- |
+ **borderRadius(int value)** | Asserts if sheet has expected border radius
+
+Sheet also have basic JDI elements methods and asserts for Text, Color, Elevation, Measurements, Theme and others
+
+For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SheetsTests.java)

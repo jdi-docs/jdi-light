@@ -2301,33 +2301,57 @@ For examples of usage see: [JDI vuetify page tests for snackbars](https://github
 
 ### 5.19 Sparklines
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/sparklines/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sparklines/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Sparkline.java_
 
 ```java
+    //@FindBy(css = "#HeartRateSparkline svg")
+    @UI("#HeartRateSparkline svg")
+    public static Sparkline heartRateSparkline;
+
     @Test
     public void heartRateSparklineTests() {
-        String initialHeartRatePathShape = heartRateSparkline.getPathShape();
-        heartRateSparkline.has().pathShapeEqualTo(initialHeartRatePathShape);
-        heartRateRefreshButton.click();
-        waitCondition(() -> heartRateRefreshButton.hasAttribute("red--text"));
-        heartRateSparkline.has().pathShapeNotEqualTo(initialHeartRatePathShape);
+      heartRateSparkline.show();
+      heartRateSparkline.is().trendline().and().has().lineWidth(3);
     }
 ```
 
-The sparkline component can be used to create simple graphs, like GitHub’s contribution chart.
+The Sparkline component can be used to create simple graphs, like GitHub’s contribution chart.
 
 ![Sparkline example](../../images/vuetify/sparkline.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()/has()** | Returns Assert class | SparklineAssert
-**getLineWidth()** | Returns sparkline stroke line width | double
-**isFilled()** | Shows that sparkline is filled | boolean
-**getPathShape()** | Returns sparkline SVG path definition | String
-**getLabelTexts()** | Returns sparkline data point label texts | List\<String>
-**getLinearGradientMap()** | Returns map representation of sparkline linear gradient | Map\<String, String>
+__Vuetify v2.6.14__ code example:
+
+```html
+<svg display="block" stroke-width="3.3" viewBox="0 0 300 75" class="primary--text">
+  <defs>
+    <linearGradient id="1095" gradientUnits="userSpaceOnUse" x1="0" y1="100%" x2="0" y2="0">
+      <stop offset="0" stop-color="violet">
+      </stop>
+      <stop offset="1" stop-color="purple">
+      </stop>
+    </linearGradient>
+  </defs>
+  <path d="M13 64 L13 62L22.785714285714285 57.1S32.57142857142857 52.2 41.3219935257291 45.6274953737407L42.35714285714286 44.85S52.142857142857146 37.5 60.79052164855101 28.839711166560598L61.92857142857144 27.699999999999996S71.71428571428572 17.9 81.5 27.7L81.5 27.7S91.28571428571429 37.5 99.92954132377821 26.679442795416325L101.49505322540635 24.719696144838043S110.85714285714286 13 118.29104441586853 26.02831944708051L125.00481795208934 37.79457511165435S130.42857142857144 47.3 140.21428571428572 42.4L140.21428571428572 42.4S150 37.5 156.83055402148378 46.05065704149245L163.46377962120047 54.354293467415175S169.57142857142858 62 179.3571428571429 62L179.3571428571429 62S189.14285714285717 62 198.6355787299902 59.623355106287136L198.92857142857144 59.55S208.71428571428572 57.1 213.7137085096145 48.33823786015738L220.85181272698864 35.82831944708051S228.2857142857143 22.799999999999997 236.59781456911125 35.28635210454809L239.54504257374595 39.71364789545191S247.8571428571429 52.2 255.29104441586856 39.17168055291948L259.9946698698458 30.928319447080515S267.42857142857144 17.9 273.5132300039538 31.610467899419984L287 62L287 64 Z" fill="url(#1095)" stroke="none" style="transform-origin: center bottom; transition: transform 2000ms ease 0s; transform: scaleY(1);">
+  </path>
+</svg>
+```
+
+| Method                     | Description                                                 | Return Type          
+----------------------------|-------------------------------------------------------------|----------------------
+ **getPathShape()**         | Get SVG-specific path shape definition                      | String               
+ **getLabelTexts()**        | Get data point label texts                                  | List\<String>        
+ **getLinearGradientMap()** | Get map representation (keys: offsets, values: stop-colors) | Map\<String, String> 
+ **lineWidth()**            | Get line width                                              | int                  
+ **labelFontSize()**        | Get label font size                                         | int                  
+ **bars()**                 | Get bars                                                    | List\<UIElement>     
+ **getBarsWidths()**        | Get bars width                                              | List\<Integer>       
+ **getBarsHeights()**       | Get bars height                                             | List\<Integer>       
+ **isBar()**                | Shows that sparkline has type bar                           | boolean              
+ **isTrendline()**          | Shows that sparkline has type trendline                     | boolean              
+ **hasLabels()**            | Shows that sparkline has visible labels                     | boolean              
+ **isFilled()**             | Shows that sparkline is filled                              | boolean              
 
 For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SparklinesTests.java)
 

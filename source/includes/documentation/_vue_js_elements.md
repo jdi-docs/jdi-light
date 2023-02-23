@@ -2414,7 +2414,6 @@ The Simple Table component is a simple wrapper component around the table elemen
 
 __Vuetify v2.6.14__ code example:
 ```html
-
 <div class="v-data-table theme--light" file="v-simple-table/usage">
     <div class="v-data-table__wrapper">
         <table>
@@ -2490,15 +2489,19 @@ For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-t
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataTable.java_
 
 ```java
-    @Test
-    public static void searchTableTest() {
-        searchTable.search(TableTestData.DONUT);
-        searchTable.has().firstColumnHasElement(1, TableTestData.DONUT);
-        searchTable.clear();
-        searchTable.search(TableTestData.ECLAIR_CALORIES);
-        searchTable.has().firstColumnHasElement(1, TableTestData.ECLAIR);
-    }
+//@FindBy(css = "#CustomFilterTable .v-data-table")
+@UI("#CustomFilterTable .v-data-table")
+public static DataTable customFilterTable;
 
+@Test(description = "Check that tile alert is shown as expected")
+public void customFilterTableTest() {
+  customFilterTable.show();
+  customFilterTable.has()
+  .footer(true)
+  .header(true)
+  .nextPageButton(false)
+  .elementValue(1, 1, FROZEN_YOGURT.value());
+  }
 ```
 
 The Data Table component is used for displaying tabular data and to extend the Simple Table element
@@ -2697,6 +2700,34 @@ For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-tes
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/data-iterators/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataIterator.java_
+
+```java
+//@FindBy(css = "#FilterTable .v-data-iterator")
+@UI("#FilterTable .v-data-iterator")
+    public static DataIterator filterDataIterator;
+
+    @Test(description = "Check that Filter Data Iterator Table is shown as expected")
+    public void filterDataIteratorTest1() {
+        filterDataIterator.show();
+        filterDataIterator.nextPage.click();
+        filterDataIterator.nextPage.click();
+        filterDataIterator.item(1).has().title(KITKAT.value());
+        filterDataIterator.previousPage.click();
+        filterDataIterator.item(2).has().title(HONEYCOMB.value());
+        filterDataIterator.previousPage.click();
+
+        filterDataIterator.item(1).has().title(CUPCAKE.value());
+        filterDataIterator.filterDataSearchField.clearAndTypeText(FROZEN_YOGURT.value());
+        filterDataIterator.item(1).has().title(FROZEN_YOGURT.value());
+        filterDataIterator.filterDataSearchField.clear();
+        filterDataIterator.filterSortSelect.select("Carbs");
+        filterDataIterator.sortDesc();
+        filterDataIterator.item(1).has().title(LOLLIPOP.value());
+
+        filterDataIterator.itemsPerPage.select("12");
+        filterDataIterator.has().numberOfElements(10);
+    }
+```
 
 The  Data iterators component is used for displaying data, and shares a majority of its functionality with 
 the Data Tables component. Features include sorting, searching, pagination, and selection.

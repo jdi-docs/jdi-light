@@ -2396,16 +2396,19 @@ __Vuetify v2.6.14__ code example:
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.SimpleTable.java_
 
-
 ```java
-    @Test
-    public static void darkTableTests() {
-        darkTable.is().firstColumnHasElement(ECLAIR);
-        darkTable.is().secondColumnHasElement(1, FROZEN_YOGURT_CALORIES);
-        darkTable.is().dark();
-        darkTable.is().columnTitle(1, "Name");
-  }
+//@FindBy(css = "#HeightTable")
+@UI("#HeightTable")
+public static SimpleTable heightTable;
 
+@Test(description = "Check that Height Simple Table is shown as expected")
+public void heightSimpleTableTest(){
+  heightTable.show();
+  heightTable.hasFixedHeader();
+  heightTable.is().columnTitle(0,"Name");
+  heightTable.has().cellValue(1,1,FROZEN_YOGURT.value());
+  fixedHeaderTable.has().fixedHeader().and().height(300);
+  }
 ```
 
 The Simple Table component is a simple wrapper component around the table element.
@@ -2704,10 +2707,10 @@ For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-tes
 ```java
 //@FindBy(css = "#FilterTable .v-data-iterator")
 @UI("#FilterTable .v-data-iterator")
-    public static DataIterator filterDataIterator;
+    public static FilterDataIterator filterDataIterator;
 
     @Test(description = "Check that Filter Data Iterator Table is shown as expected")
-    public void filterDataIteratorTest1() {
+    public void filterDataIteratorTest() {
         filterDataIterator.show();
         filterDataIterator.nextPage.click();
         filterDataIterator.nextPage.click();

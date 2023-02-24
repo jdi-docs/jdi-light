@@ -2310,7 +2310,7 @@ For examples of usage see: [JDI vuetify page tests for snackbars](https://github
     @UI("#HeartRateSparkline svg")
     public static Sparkline heartRateSparkline;
 
-    @Test
+    @Test(description = "Test shows how to work with sparkline")
     public void heartRateSparklineTests() {
       heartRateSparkline.show();
       heartRateSparkline.is().trendline().and().has().lineWidth(3);

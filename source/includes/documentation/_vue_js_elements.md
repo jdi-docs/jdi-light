@@ -2402,16 +2402,30 @@ __Vuetify v2.6.14__ code example:
 public static SimpleTable heightTable;
 
 @Test(description = "Check that Height Simple Table is shown as expected")
-public void heightSimpleTableTest(){
+public void heightSimpleTableTest() {
   heightTable.show();
   heightTable.hasFixedHeader();
-  heightTable.is().columnTitle(0,"Name");
-  heightTable.has().cellValue(1,1,FROZEN_YOGURT.value());
-  fixedHeaderTable.has().fixedHeader().and().height(300);
+  heightTable.is().columnTitle(0, "Name");
+  heightTable.has().cellValue(1, 1, FROZEN_YOGURT.value());
+  heightTable.has().fixedHeight().and().height(300);
   }
 ```
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**hasFixedHeader()** | Get if Simple Table has fixed header | boolean
+**is()** | Returns Assert class | SubheaderAssert
+**has()** | Returns Assert class | SubheaderAssert
+**height()** | Get Simple Table's height | int
 
-The Simple Table component is a simple wrapper component around the table element.
+| Assert method | Description |
+| :--- | :--- |
+**dark()** | Assert that Simple Table is dark theme
+**light()** | Assert that Simple Table is light theme
+**fixedHeader()** | Assert that Simple Table has fixed header
+**fixedHeight()** | Assert that Simple Table has fixed height
+**cellValue(int colNum, int rowNum, String data)** | Assert that Simple Table's first column has required element
+**columnTitle(int colNum, String reqTitle)** | Assert that Simple Table's column has title
+**height(int height)** | Assert that Simple Table has required height
 
 ![Simple Table example](../../images/vuetify/simple_table.png)
 
@@ -2473,16 +2487,6 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**has()/is()** | Returns Assert class | SimpleTableAssert
-**firstColumnElement(int/String)** | Returns required element from first column | String
-**secondColumnElement(int?String)** | Returns required element from second column | String
-**columnTitle(int)** | Returns column title | String
-**isDark()** | Shows that table has dark theme | boolean
-**isLight()** | Shows that table has light theme | boolean
-**hasFixedHeight()** | Shows that table has fixed height | boolean
-
 For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java#L40).
 
 #### 5.21.2 Data Tables
@@ -2504,7 +2508,12 @@ public void customFilterTableTest() {
   .header(true)
   .nextPageButton(false)
   .elementValue(1, 1, FROZEN_YOGURT.value());
-  }
+  customFilterTable.selectNumberOfRowsPerPage("5");
+  customFilterTable.nextPage();
+  customFilterTable.has().elementValue(1, 1, JELLY_BEAN.value());
+  customFilterTable.previousPage();
+  customFilterTable.sortDescBy("Carbs (g)");
+  customFilterTable.has().elementValue(1, 1, LOLLIPOP.value());
 ```
 
 The Data Table component is used for displaying tabular data and to extend the Simple Table element
@@ -2659,6 +2668,8 @@ __Vuetify v2.6.14__ code example:
     </div>
 </div>
 ```
+ CHOOSE BETWEEN 2672-2707 AND 2708-2714!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+THE FIRST ONE IS PREVIOUS. tHE SECOND IS THE METHODS THAT I HAVE USED IN MY TEST
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2695,6 +2706,45 @@ __Vuetify v2.6.14__ code example:
 **confirm()** | Confirms changes in element | void
 **cancel()** | Cancels changes in element| void
 **expand()** | Expands required element| void
+
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**has()** | Returns Assert class | SubheaderAssert
+**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page | void
+**nextPage()** | Switch Data Table to the next page | void
+**previousPage()** | Switch Data Table to the previous page | void
+**sortDescBy(String value)** | Sort Data Table by value in descending order | void
+
+| Assert method | Description |
+| :--- | :--- |
+**elementName(int elNum, String elName)** | Assert that Data Table's element has required name
+**elementValue(int colNum, int elNum, String elName)** | Assert that Data Table has required value
+**sortedBy(String column)** | Assert that Data Table columns are sorted by column's value
+**notSortedBy(String value)** | Assert that Data Table columns aren't sorted by coulmn's value
+**cellSelected(int colNum, int elNum)** | Assert that Data Table element is selected
+**cellNotSelected(int colNum, int elNum)** | Assert that Data Table element isn't selected
+**header(int colNum, String value)** | Assert that Data Table column header has required number
+**rowExpanded(int elNum)** | Assert that Data Table element is expanded
+**rowCollapsed(int elNum)** | Assert that Data Table element is collapsed
+**groupCollapsed(String groupName)** | Assert that Data Table group is collapsed
+**groupExpanded(String groupName)** | Assert that Data Table group is expanded
+**group(String groupName)** | Assert that Data Table has group
+**numberOfRowsPerPageInput(boolean enabled)** | Assert that Data Table has number of rows per page input field
+**firstPageButton(boolean enabled)** | Assert that Data Table has first page button
+**previousPageButton(boolean enabled)** | Assert that Data Table has previous page button
+**nextPageButton(boolean enabled)** | Assert that Data Table has next page button
+**lastPageButton(boolean enabled)** | Assert that Data Table has last page button
+**currentPage(int expectedCurrentPage)** | Assert Data Table current page
+**footer(boolean isDisplayed)** | Assert that Data Table has footer
+**header(boolean isDisplayed)** | Assert that Data Table has header
+**rowWithValues(int rowNumber, String... values)** | Assert that Data Table row has values
+**sortEnabled(String column, boolean isEnabled)** | Assert that Data Table sort is enabled for column
+**sortRequired(boolean isRequired)** | Assert that Data Table sort is required for the table
+**loading()** | Assert that Data Table group has size
+**groupSize(String groupName, int expectedSize)** | Assert that Data Table group has size
+**fixedHeader(boolean isFixedHeader)** | Assert that Data Table has fixed header
+**noRowInColumn(int columnNum, String rowValue)** | Assert that Data Table do not have specific row
+**rowInColumn(int columnNum, String rowValue)** | Assert that Data Table do not have specific row
 
 For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
 
@@ -3160,6 +3210,18 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**item(int childIndex)** | Gets a Card From Filter Data Iterator Table by required index | SubheaderAssert
+**has()** | Returns Assert class | SubheaderAssert
+**sortDesc()** | Sorting Table Cards by Cards names alphabet descending  | void
+
+
+| Assert method | Description |
+| :--- | :--- |
+**numberOfElements(int n)** | Assert that Data Iterator Table has required number of columns per page
+**text(String value)** | Assert that Data Iterator Table has required text inside
+**text(Matcher validation)** | Assert that Data Iterator Table has required text inside
 
 For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataIteratorsTests.java).
 

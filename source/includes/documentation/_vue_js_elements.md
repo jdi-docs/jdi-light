@@ -2482,6 +2482,8 @@ __Vuetify v2.6.14__ code example:
 **isLight()** | Shows that table has light theme | boolean
 **hasFixedHeight()** | Shows that table has fixed height | boolean
 
+In addition, SimpleTable class implements IsDense, HasTheme
+
 | Assert method | Description |
 | :--- | :--- |
 **dark()** | Assert that Simple Table is dark theme
@@ -2705,7 +2707,7 @@ __Vuetify v2.6.14__ code example:
 **selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page                             | void
 **isFixedHeader()** | Check if Data Table has fixed header                                    | boolean
 
-
+In addition, DataTable class implements HasTheme, IsLoading, HasMeasurement.
 
 | Assert method | Description |
 | :--- | :--- |
@@ -3202,11 +3204,14 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-| Method | Description | Return Type |
-| :--- | :--- | :--- |
-**item(int childIndex)** | Gets a Card From Filter Data Iterator Table by required index | SubheaderAssert
-**has()** | Returns Assert class | SubheaderAssert
-**sortDesc()** | Sorting Table Cards by Cards names alphabet descending  | void
+| Method | Description                                            | Return Type |
+| :--- |:-------------------------------------------------------| :--- |
+**item(int childIndex)** | Gets a Card From Data Iterator Table by required index | SubheaderAssert
+**headers()** | Gets Data Iterator Table's header                      | List<ToolBar>
+**has()/is()** | Returns Data Iterator Assert class            | DataIteratorAssert
+
+In addition, there are methods sortDesc(),sortAsc() inside FilterDataIterator.java. 
+Also, DataIterator class implements IsContainer, ISetup.
 
 | Assert method | Description |
 | :--- | :--- |

@@ -2392,9 +2392,11 @@ __Vuetify v2.6.14__ code example:
 
 #### 5.21.1 Simple Tables
 
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/simple-tables/)
+[Simple Tables overview](https://v2.vuetifyjs.com/en/components/simple-tables/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.SimpleTable.java_
+
+The Simple Tables component is a simple wrapper component around the <table> element.
 
 ```java
 //@FindBy(css = "#HeightTable")
@@ -2410,22 +2412,6 @@ public void heightSimpleTableTest() {
   heightTable.has().fixedHeight().and().height(300);
   }
 ```
-| Method | Description | Return Type |
-| :--- | :--- | :--- |
-**hasFixedHeader()** | Get if Simple Table has fixed header | boolean
-**is()** | Returns Assert class | SubheaderAssert
-**has()** | Returns Assert class | SubheaderAssert
-**height()** | Get Simple Table's height | int
-
-| Assert method | Description |
-| :--- | :--- |
-**dark()** | Assert that Simple Table is dark theme
-**light()** | Assert that Simple Table is light theme
-**fixedHeader()** | Assert that Simple Table has fixed header
-**fixedHeight()** | Assert that Simple Table has fixed height
-**cellValue(int colNum, int rowNum, String data)** | Assert that Simple Table's first column has required element
-**columnTitle(int colNum, String reqTitle)** | Assert that Simple Table's column has title
-**height(int height)** | Assert that Simple Table has required height
 
 ![Simple Table example](../../images/vuetify/simple_table.png)
 
@@ -2487,11 +2473,28 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java#L40).
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**hasFixedHeader()** | Get if Simple Table has fixed header | boolean
+**is()** | Returns Assert class | SubheaderAssert
+**has()** | Returns Assert class | SubheaderAssert
+**height()** | Get Simple Table's height | int
+
+| Assert method | Description |
+| :--- | :--- |
+**dark()** | Assert that Simple Table is dark theme
+**light()** | Assert that Simple Table is light theme
+**fixedHeader()** | Assert that Simple Table has fixed header
+**fixedHeight()** | Assert that Simple Table has fixed height
+**cellValue(int colNum, int rowNum, String data)** | Assert that Simple Table's first column has required element
+**columnTitle(int colNum, String reqTitle)** | Assert that Simple Table's column has title
+**height(int height)** | Assert that Simple Table has required height
+
+For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java).
 
 #### 5.21.2 Data Tables
 
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/data-tables/)
+[Data Tables overviw](https://v2.vuetifyjs.com/en/components/data-tables/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataTable.java_
 
@@ -2501,19 +2504,20 @@ For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-t
 public static DataTable customFilterTable;
 
 @Test(description = "Check that tile alert is shown as expected")
-public void customFilterTableTest() {
-  customFilterTable.show();
-  customFilterTable.has()
-  .footer(true)
-  .header(true)
-  .nextPageButton(false)
-  .elementValue(1, 1, FROZEN_YOGURT.value());
-  customFilterTable.selectNumberOfRowsPerPage("5");
-  customFilterTable.nextPage();
-  customFilterTable.has().elementValue(1, 1, JELLY_BEAN.value());
-  customFilterTable.previousPage();
-  customFilterTable.sortDescBy("Carbs (g)");
-  customFilterTable.has().elementValue(1, 1, LOLLIPOP.value());
+public void customFilterTableTest(){
+        customFilterTable.show();
+        customFilterTable.has()
+        .footer(true)
+        .header(true)
+        .nextPageButton(false)
+        .elementValue(1,1,FROZEN_YOGURT.value());
+        customFilterTable.selectNumberOfRowsPerPage("5");
+        customFilterTable.nextPage();
+        customFilterTable.has().elementValue(1,1,JELLY_BEAN.value());
+        customFilterTable.previousPage();
+        customFilterTable.sortDescBy("Carbs (g)");
+        customFilterTable.has().elementValue(1,1,LOLLIPOP.value());
+        }
 ```
 
 The Data Table component is used for displaying tabular data and to extend the Simple Table element
@@ -2748,9 +2752,9 @@ THE FIRST ONE IS PREVIOUS. tHE SECOND IS THE METHODS THAT I HAVE USED IN MY TEST
 
 For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
 
-#### 5.21.2 Data Iterators
+#### 5.21.3 Data Iterators
 
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/data-iterators/)
+[Data Iterators overview](https://v2.vuetifyjs.com/en/components/data-iterators/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataIterator.java_
 
@@ -3215,7 +3219,6 @@ __Vuetify v2.6.14__ code example:
 **item(int childIndex)** | Gets a Card From Filter Data Iterator Table by required index | SubheaderAssert
 **has()** | Returns Assert class | SubheaderAssert
 **sortDesc()** | Sorting Table Cards by Cards names alphabet descending  | void
-
 
 | Assert method | Description |
 | :--- | :--- |

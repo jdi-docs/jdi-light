@@ -43410,24 +43410,39 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java">JDI vuetify page tests for snackbars</a>.</p>
 <h3 id='5-19-sparklines'>5.19 Sparklines</h3>
-<p><a href="https://vuetifyjs.com/en/components/sparklines/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/sparklines/">Vuetify documentation page</a></p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Sparkline.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#HeartRateSparkline svg")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#HeartRateSparkline svg"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Sparkline</span> <span class="n">heartRateSparkline</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test shows how to work with sparkline"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">heartRateSparklineTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">String</span> <span class="n">initialHeartRatePathShape</span> <span class="o">=</span> <span class="n">heartRateSparkline</span><span class="o">.</span><span class="na">getPathShape</span><span class="o">();</span>
-        <span class="n">heartRateSparkline</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">pathShapeEqualTo</span><span class="o">(</span><span class="n">initialHeartRatePathShape</span><span class="o">);</span>
-        <span class="n">heartRateRefreshButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">waitCondition</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">heartRateRefreshButton</span><span class="o">.</span><span class="na">hasAttribute</span><span class="o">(</span><span class="s">"red--text"</span><span class="o">));</span>
-        <span class="n">heartRateSparkline</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">pathShapeNotEqualTo</span><span class="o">(</span><span class="n">initialHeartRatePathShape</span><span class="o">);</span>
+      <span class="n">heartRateSparkline</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+      <span class="n">heartRateSparkline</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">trendline</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">lineWidth</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
-<p>The sparkline component can be used to create simple graphs, like GitHub’s contribution chart.</p>
+<p>The Sparkline component can be used to create simple graphs, like GitHub’s contribution chart.</p>
 
 <p><img src="images/vuetify/sparkline.png" alt="Sparkline example" /></p>
 
+<p><strong>Vuetify v2.6.14</strong> code example:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;svg</span> <span class="na">display=</span><span class="s">"block"</span> <span class="na">stroke-width=</span><span class="s">"3.3"</span> <span class="na">viewBox=</span><span class="s">"0 0 300 75"</span> <span class="na">class=</span><span class="s">"primary--text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;defs&gt;</span>
+    <span class="nt">&lt;linearGradient</span> <span class="na">id=</span><span class="s">"1095"</span> <span class="na">gradientUnits=</span><span class="s">"userSpaceOnUse"</span> <span class="na">x1=</span><span class="s">"0"</span> <span class="na">y1=</span><span class="s">"100%"</span> <span class="na">x2=</span><span class="s">"0"</span> <span class="na">y2=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;stop</span> <span class="na">offset=</span><span class="s">"0"</span> <span class="na">stop-color=</span><span class="s">"violet"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/stop&gt;</span>
+      <span class="nt">&lt;stop</span> <span class="na">offset=</span><span class="s">"1"</span> <span class="na">stop-color=</span><span class="s">"purple"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/stop&gt;</span>
+    <span class="nt">&lt;/linearGradient&gt;</span>
+  <span class="nt">&lt;/defs&gt;</span>
+  <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M13 64 L13 62L22.785714285714285 57.1S32.57142857142857 52.2 41.3219935257291 45.6274953737407L42.35714285714286 44.85S52.142857142857146 37.5 60.79052164855101 28.839711166560598L61.92857142857144 27.699999999999996S71.71428571428572 17.9 81.5 27.7L81.5 27.7S91.28571428571429 37.5 99.92954132377821 26.679442795416325L101.49505322540635 24.719696144838043S110.85714285714286 13 118.29104441586853 26.02831944708051L125.00481795208934 37.79457511165435S130.42857142857144 47.3 140.21428571428572 42.4L140.21428571428572 42.4S150 37.5 156.83055402148378 46.05065704149245L163.46377962120047 54.354293467415175S169.57142857142858 62 179.3571428571429 62L179.3571428571429 62S189.14285714285717 62 198.6355787299902 59.623355106287136L198.92857142857144 59.55S208.71428571428572 57.1 213.7137085096145 48.33823786015738L220.85181272698864 35.82831944708051S228.2857142857143 22.799999999999997 236.59781456911125 35.28635210454809L239.54504257374595 39.71364789545191S247.8571428571429 52.2 255.29104441586856 39.17168055291948L259.9946698698458 30.928319447080515S267.42857142857144 17.9 273.5132300039538 31.610467899419984L287 62L287 64 Z"</span> <span class="na">fill=</span><span class="s">"url(#1095)"</span> <span class="na">stroke=</span><span class="s">"none"</span> <span class="na">style=</span><span class="s">"transform-origin: center bottom; transition: transform 2000ms ease 0s; transform: scaleY(1);"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/path&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -43436,34 +43451,64 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()/has()</strong></td>
-<td>Returns Assert class</td>
-<td>SparklineAssert</td>
+<td><strong>getPathShape()</strong></td>
+<td>Get SVG-specific path shape definition</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>getLineWidth()</strong></td>
-<td>Returns sparkline stroke line width</td>
-<td>double</td>
+<td><strong>getLabelTexts()</strong></td>
+<td>Get data point label texts</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>getLinearGradientMap()</strong></td>
+<td>Get map representation (keys: offsets, values: stop-colors)</td>
+<td>Map&lt;String, String&gt;</td>
+</tr>
+<tr>
+<td><strong>lineWidth()</strong></td>
+<td>Get line width</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>labelFontSize()</strong></td>
+<td>Get label font size</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>bars()</strong></td>
+<td>Get bars</td>
+<td>List&lt;UIElement&gt;</td>
+</tr>
+<tr>
+<td><strong>getBarsWidths()</strong></td>
+<td>Get bars width</td>
+<td>List&lt;Integer&gt;</td>
+</tr>
+<tr>
+<td><strong>getBarsHeights()</strong></td>
+<td>Get bars height</td>
+<td>List&lt;Integer&gt;</td>
+</tr>
+<tr>
+<td><strong>isBar()</strong></td>
+<td>Shows that sparkline has type bar</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isTrendline()</strong></td>
+<td>Shows that sparkline has type trendline</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasLabels()</strong></td>
+<td>Shows that sparkline has visible labels</td>
+<td>boolean</td>
 </tr>
 <tr>
 <td><strong>isFilled()</strong></td>
 <td>Shows that sparkline is filled</td>
 <td>boolean</td>
-</tr>
-<tr>
-<td><strong>getPathShape()</strong></td>
-<td>Returns sparkline SVG path definition</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>getLabelTexts()</strong></td>
-<td>Returns sparkline data point label texts</td>
-<td>List&lt;String&gt;</td>
-</tr>
-<tr>
-<td><strong>getLinearGradientMap()</strong></td>
-<td>Returns map representation of sparkline linear gradient</td>
-<td>Map&lt;String, String&gt;</td>
 </tr>
 </tbody></table>
 

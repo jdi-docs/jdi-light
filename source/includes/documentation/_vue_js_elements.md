@@ -2680,7 +2680,7 @@ __Vuetify v2.6.14__ code example:
 | Method | Description                                                             | Return Type |
 | :--- |:------------------------------------------------------------------------| :--- |
 **has()/is()** | Returns Assert class                                                    | DataTableAssert
-**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page                             | void
+**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page       | void
 **nextPage()** | Switch Data Table to the next page                                      | void
 **previousPage()** | Switch Data Table to the previous page                                  | void
 **sortDescBy(String value)** | Sort Data Table by value in descending order                            | void
@@ -2692,19 +2692,19 @@ __Vuetify v2.6.14__ code example:
 **currentPage()** | Get Data Table's page number                                            | void
 **sortAscBy(String value)** | Sorts elements by the required value in ascending order                 | void
 **removeSort(String value)** | Turn off Data Table sort                                                | void
-**isSortedBy(String value)** | Shows that elements sorted by the value                                 | boolean
-**collapseGroup(String groupName)** | Collapses the required group                                            | void
-**isGroupExpanded(String groupName)** | Get if required group is expanded in Data Table                         | boolean
-**expandGroup(String groupName)** | Expands the required group                                              | void
-**groupBy(String colName)** | Group Data Table by required column                                     | void
-**removeGroups()** | Remove all groups                                                       | void
-**hasGroup()** | Shows that Data Table has required group                                | boolean
-**isLoading()** | Get if Data Table is loading                                            | boolean
-**isSelected(int colNum, int elNum)** | Get if required element in required Data Table's column is selected     | boolean
+**isSortedBy(String value)** | Shows that elements sorted by the value          | boolean
+**collapseGroup(String groupName)** | Collapses the required group                            | void
+**isGroupExpanded(String groupName)** | Get if required group is expanded in Data Table           | boolean
+**expandGroup(String groupName)** | Expands the required group             | void
+**groupBy(String colName)** | Group Data Table by required column        | void
+**removeGroups()** | Remove all groups                        | void
+**hasGroup()** | Shows that Data Table has required group           | boolean
+**isLoading()** | Get if Data Table is loading               | boolean
+**isSelected(int colNum, int elNum)** | Get if required element in required Data Table's column is selected  | boolean
 **expandRow(int numEl)** | Expand row Data Table's element                                         | void
 **isRowExpanded(int numEl)** | Get if required Data Table's element is expanded                        | boolean
 **collapseRow(int rowNumber)** | Collapse Data Table's required row                                      | void
-**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page                             | void
+**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page        | void
 **isFixedHeader()** | Check if Data Table has fixed header                                    | boolean
 
 In addition, DataTable class implements HasTheme, IsLoading, HasMeasurement.

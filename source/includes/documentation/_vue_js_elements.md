@@ -1627,14 +1627,8 @@ __Vuetify v2.6.14__ code example:
 **selected(int)** | Returns true if item is selected   | boolean
 **is()/has()** | Returns element assert             | ButtonGroupAssert
 **size(int)** | Asserts element's size            | ButtonGroupAssert
-**icon()** | Asserts that element has icon      | ButtonGroupAssert
-**width(int)** | Gets element's width               | int
-**isShaped()** | Asserts that element is shaped     | boolean
-**isRounded()** | Asserts that element is rounded    | boolean
-**isDense()** | Asserts that element is dense      | boolean
-**theme()** | Gets element's theme               | String
-**isTile()** | Asserts that element is tile       | boolean
-**backgroundColor()** | Returns element background color   | String
+
+ButtonGroup also has basic JDI elements methods and asserts for ISetup, HasClick, HasIcon, HasColor, HasTheme, HasRounded, IsShaped, HasMeasurement, IsDense, IsTile
 
 For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VuetifyButtonGroupsTests.java).
 

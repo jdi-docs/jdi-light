@@ -2476,9 +2476,11 @@ __Vuetify v2.6.14__ code example:
 | Method | Description | Return Type |
 | :--- | :--- | :--- |
 **hasFixedHeader()** | Get if Simple Table has fixed header | boolean
-**is()** | Returns Assert class | SubheaderAssert
-**has()** | Returns Assert class | SubheaderAssert
+**has()/is()** | Returns Assert class | SimpleTableAssert
 **height()** | Get Simple Table's height | int
+**isDark()** | Shows that table has dark theme | boolean
+**isLight()** | Shows that table has light theme | boolean
+**hasFixedHeight()** | Shows that table has fixed height | boolean
 
 | Assert method | Description |
 | :--- | :--- |
@@ -2672,52 +2674,38 @@ __Vuetify v2.6.14__ code example:
     </div>
 </div>
 ```
- CHOOSE BETWEEN 2672-2707 AND 2708-2714!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-THE FIRST ONE IS PREVIOUS. tHE SECOND IS THE METHODS THAT I HAVE USED IN MY TEST
 
-|Method | Description | Return Type
---- | --- | ---
-**has()/is()** | Returns Assert class | DataTableAssert
-**columnElement()** | Returns required element from required column | String
-**search()** | Searches required element in table | void
-**clear()** | Clears search field | void
-**rowsPerPage()** | Shows the required value of rows in table | void
-**itemsPerPage()** | Shows the required value of elements in table | void
-**elementsInColumn()** | Returns size of the required column | Integer
-**previousPage()** | Switches to the previous page | void
-**firstPage()** | Switches to the first page | void
-**secondPage()** | Switches to the second page | void
-**nextPage()** | Switches to the next page | void
-**sortAscBy()** | Sorts elements by the required value in ascending order | void
-**sortDescBy()** | Sorts elements by the required value in descending order | void
-**sortOff()** | Turns off the sort | void
-**isSortedBy()** | Shows that elements sorted by the value | boolean
-**collapseGroup()** | Collapses the required group | void
-**expandGroup()** | Expands the required group | void
-**sortGroup()** | Sorts elements by required group | void
-**removeGroups()** | Remove all groups | void
-**hasGroup()** | Shows that elements required by the required group | boolean
-**isLoading()** | Shows that table is loading | boolean
-**isSelected()** | Shows that required element in required column is selected | boolean
-**singleSelectOn()** | Turns on single select | void
-**singleSelectOff()** | Turns off single select | void
-**elIsGreen()** | Shows that the required element is green | boolean
-**elIsOrange()** | Shows that the required element is orange | boolean
-**elIsRed()** | Shows that the required element is red | boolean
-**createWithSave()** | Creates new element with required values and save it | void
-**createWithoutSave()** | Creates new element with required values without save| void
-**editElement()** | Changes required element name to required value | void
-**confirm()** | Confirms changes in element | void
-**cancel()** | Cancels changes in element| void
-**expand()** | Expands required element| void
+| Method | Description                                                             | Return Type |
+| :--- |:------------------------------------------------------------------------| :--- |
+**has()/is()** | Returns Assert class                                                    | DataTableAssert
+**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page                             | void
+**nextPage()** | Switch Data Table to the next page                                      | void
+**previousPage()** | Switch Data Table to the previous page                                  | void
+**sortDescBy(String value)** | Sort Data Table by value in descending order                            | void
+**groupedData()** | Get Data Table groups list with the list of content of the first column | Map<String, List<String>>
+**previousPage()** | Switches to the previous page                                           | void
+**nextPage()** | Switches to the next page                                               | void
+**firstPage()** | Switches to the first page                                              | void
+**lastPage()** | Switch Data Table to the last page                                      | void
+**currentPage()** | Get Data Table's page number                                            | void
+**sortAscBy(String value)** | Sorts elements by the required value in ascending order                 | void
+**removeSort(String value)** | Turn off Data Table sort                                                | void
+**isSortedBy(String value)** | Shows that elements sorted by the value                                 | boolean
+**collapseGroup(String groupName)** | Collapses the required group                                            | void
+**isGroupExpanded(String groupName)** | Get if required group is expanded in Data Table                         | boolean
+**expandGroup(String groupName)** | Expands the required group                                              | void
+**groupBy(String colName)** | Group Data Table by required column                                     | void
+**removeGroups()** | Remove all groups                                                       | void
+**hasGroup()** | Shows that Data Table has required group                                | boolean
+**isLoading()** | Get if Data Table is loading                                            | boolean
+**isSelected(int colNum, int elNum)** | Get if required element in required Data Table's column is selected     | boolean
+**expandRow(int numEl)** | Expand row Data Table's element                                         | void
+**isRowExpanded(int numEl)** | Get if required Data Table's element is expanded                        | boolean
+**collapseRow(int rowNumber)** | Collapse Data Table's required row                                      | void
+**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page                             | void
+**isFixedHeader()** | Check if Data Table has fixed header                                    | boolean
 
-| Method | Description | Return Type |
-| :--- | :--- | :--- |
-**has()** | Returns Assert class | SubheaderAssert
-**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page | void
-**nextPage()** | Switch Data Table to the next page | void
-**previousPage()** | Switch Data Table to the previous page | void
-**sortDescBy(String value)** | Sort Data Table by value in descending order | void
+
 
 | Assert method | Description |
 | :--- | :--- |

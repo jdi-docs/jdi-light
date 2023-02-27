@@ -511,6 +511,24 @@ __Card__ component is a versatile component that can be used for anything from a
 
 ![Cards example](../../images/vuetify/cards.png)
 
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="grow v-card v-sheet theme--light elevation-2" file="v-card/usage">
+  <div class="v-card__title">Card title</div>
+  <div class="v-card__subtitle">Subtitle text</div>
+  <div class="v-card__text"> Greyhound divisively hello coldly wonderfully marginally far upon excluding. </div>
+  <div class="v-card__actions">
+    <button type="button" class="v-btn v-btn--text theme--light v-size--default primary--text">
+      <span class="v-btn__content"> Action 1 </span>
+    </button>
+    <button type="button" class="v-btn v-btn--text theme--light v-size--default primary--text">
+      <span class="v-btn__content"> Action 2 </span>
+    </button>
+  </div>
+</div>
+```
+
 Cards may contain anything, you can inherit the `Card` class and customize it the way you want.
 
 Basically, you have 4 methods: `title`, `subtitle`, `content` and `actions`.
@@ -547,7 +565,7 @@ The `content` method returns a card `text` element, but the `text` method is inh
 Card also have basic JDI elements methods and asserts for Color, Elevation, Tile, Loading, Shape, Measurements, Alignment, Theme and others
 
 For examples of usage see: [Custom vuetify card examples](https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards)
-and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).
+and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).`
 
 ### 5.9 Dialogs
 

@@ -2919,18 +2919,19 @@ Image is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Image.java_
 
 ```java
+    //@FindBy(xpath = "//*[contains(text(), 'Placeholder image')]")
+    @WithText("Placeholder image")
+    public static UIElement placeholderImageContainer;
+
     //@FindBy(css = "#GradientsImage .v-image")
     @UI("#GradientsImage .v-image")
     public static Image gradientImage;
     
-    @Test(description = "Check shown image has gradient")
-    public void gradientsImagesTests() {
-        gradientImage.show();
-        gradientImage.is().displayed()
-            .has().sourcePath("https://cdn.vuetifyjs.com/images/parallax/material2.jpg")
-            .has().width(517)
-            .has().height(291)
-            .has().gradient();
+    @Test(description = "Test checks image max height and width, and expected source")
+    public void maxMeasurementImageTest() {
+        placeholderImageContainer.show();
+        placeholderImage.has().maxHeight(300).and().maxWidth(500);
+        placeholderImage.has().sourcePath("https://jdi-testing.github.io/jdi-light/vuetify/pictures/placeholder_60.jpeg");
     }
 ```
 

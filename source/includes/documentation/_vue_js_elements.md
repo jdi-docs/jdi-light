@@ -132,31 +132,72 @@ and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-ligh
 
 ### 5.3 Banners
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/banners/)
+[Banners overview](https://v2.vuetifyjs.com/en/components/banners/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Banner.java_
 
 ```java
-    @Test
-    public void singleBannerTests() {
-        singleBanner.is().displayed();
-        singleBanner.has().text("We can't save your edits");
-    }
+//@FindBy(css = "#SingleBanner .v-banner")
+@UI("#SingleBanner .v-banner")
+public static Banner singleBanner;
+
+@Test
+public void bannerTest() {
+  singleBanner.show();
+  singleBanner.is().displayed();
+  singleBanner.is().singleLine();
+  singleBanner.has().text("We can't save your edits while you are in offline mode.");
+  singleBanner.has().notIcon();
+  singleBanner.has().notSticky();
+  singleBannerSwitch.check();
+  singleBanner.is().sticky();
+  }
 ```
 
 ![Banners example](../../images/vuetify/banners.png)
 
-Banners may contain anything, you can inherit the `Banner` class and customize it
-the way you want.
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-banner v-sheet theme--light v-banner--single-line">
+    <div class="v-banner__wrapper">
+        <div class="v-banner__content">
+            <div class="v-banner__text">
+                We can't save your edits while you are in offline mode.
 
-Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).
+            </div>
+        </div>
+        <div class="v-banner__actions">
+            <button type="button"
+                    class="v-btn v-btn--text theme--light v-size--default deep-purple--text text--accent-4"><span
+                    class="v-btn__content">
+        Get Online
+      </span></button>
+        </div>
+    </div>
+</div>
+```
 
-|Method | Description | Return Type
-        --- | --- | ---
-**is()** | Returns Assert class | BannerAssert
-**buttons()** | Returns button group containing in the element | ButtonGroup
-**icon()** | Returns icon containing in the element | Icon
-**getText()** | Returns text content of the element | Text
+The banner component is used as middle-interruptive message to user with 1-2 actions. It comes in 2 variations 
+single-line and multi-line (implicit). These can have icons which you can use with your message and actions.
+
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**bannerContent()** | Get Banner content element | UIElement
+**getIconsFromContent()** | Get Banner's icons | List<UIElement>
+**bannerActions()** | Get Banner's actions element | UIElement
+**isSticky()** | Get if Banner is sticky | boolean
+
+| Assert method | Description |
+| :--- | :--- |
+**text(Matcher<String> text)** | Assert that Banner's element has expected text
+**sticky()** | Assert that Banner is sticky
+**notSticky()** | Assert that Banner is not sticky
+**icon()** | Assert that Banner has icon
+**notIcon()** | Assert that Banner has not icon
+**numberOfButtons(int n)** | Assert that Banner's number of buttons equals to required number
+
+In addition, Banner class implements IsText, HasRounded, IsTile, IsShaped, IsOutlined, HasTheme, HasElevation,
+HasColor, IsSingleLine, HasIcon, MayContainButtons.
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 

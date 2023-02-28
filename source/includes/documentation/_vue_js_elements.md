@@ -2530,6 +2530,7 @@ The Data Table component is used for displaying tabular data and to extend the S
 
 __Vuetify v2.6.14__ code example:
 ```html
+
 <div class="v-data-table elevation-1 v-data-table--has-bottom theme--light" file="v-data-table/usage">
     <div class="v-data-table__wrapper">
         <table>
@@ -2597,36 +2598,7 @@ __Vuetify v2.6.14__ code example:
                 <td class="text-start">1</td>
             </tr>
             <tr class="">
-                <td class="text-start">Ice cream sandwich</td>
-                <td class="text-start">237</td>
-                <td class="text-start">9</td>
-                <td class="text-start">37</td>
-                <td class="text-start">4.3</td>
-                <td class="text-start">1</td>
-            </tr>
-            <tr class="">
-                <td class="text-start">Eclair</td>
-                <td class="text-start">262</td>
-                <td class="text-start">16</td>
-                <td class="text-start">23</td>
-                <td class="text-start">6</td>
-                <td class="text-start">7</td>
-            </tr>
-            <tr class="">
-                <td class="text-start">Cupcake</td>
-                <td class="text-start">305</td>
-                <td class="text-start">3.7</td>
-                <td class="text-start">67</td>
-                <td class="text-start">4.3</td>
-                <td class="text-start">8</td>
-            </tr>
-            <tr class="">
-                <td class="text-start">Gingerbread</td>
-                <td class="text-start">356</td>
-                <td class="text-start">16</td>
-                <td class="text-start">49</td>
-                <td class="text-start">3.9</td>
-                <td class="text-start">16</td>
+                <...>
             </tr>
             </tbody>
         </table>
@@ -2783,422 +2755,157 @@ the Data Tables component. Features include sorting, searching, pagination, and 
 
 __Vuetify v2.6.14__ code example:
 ```html
-<div class="v-data-iterator" file="v-data-iterator/usage">
-    <header class="mb-1 v-sheet theme--dark v-toolbar blue darken-3" style="height: 64px;">
-        <div class="v-toolbar__content" style="height: 64px;">
-            <div class="v-input v-input--hide-details theme--dark v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--solo-flat v-text-field--is-booted v-text-field--enclosed">
-                <div class="v-input__control">
-                    <div class="v-input__slot">
-                        <div class="v-input__prepend-inner">
-                            <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true"
-                                                                                       class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
+<div class="container container--fluid" id="FilterTable">
+    <div class="v-data-iterator">
+        <header class="mb-1 v-sheet theme--dark v-toolbar blue darken-3" style="height: 64px;">
+            <div class="v-toolbar__content" style="height: 64px;">
+                <div class="v-input v-input--hide-details theme--dark v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--solo-flat v-text-field--is-booted v-text-field--enclosed">
+                    <div class="v-input__control">
+                        <div class="v-input__slot">
+                            <div class="v-input__prepend-inner">
+                                <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true"
+                                                                                           class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="v-text-field__slot"><label for="input-2080" class="v-label theme--dark"
-                                                               style="left: 0px; right: auto; position: absolute;">Search</label><input
-                                id="input-2080" type="text"></div>
-                        <div class="v-input__append-inner">
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="spacer"></div>
-            <div class="v-input mx-2 v-input--hide-details theme--dark v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--solo-flat v-text-field--is-booted v-text-field--enclosed v-select">
-                <div class="v-input__control">
-                    <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-2082"
-                         class="v-input__slot">
-                        <div class="v-input__prepend-inner">
-                            <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true"
-                                                                                       class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
-                            </div>
-                        </div>
-                        <div class="v-select__slot"><label for="input-2082" class="v-label theme--dark"
-                                                           style="left: 0px; right: auto; position: absolute;">Sort
-                            by</label>
-                            <div class="v-select__selections"><input id="input-2082" readonly="readonly" type="text"
-                                                                     aria-readonly="false" autocomplete="off"></div>
+                            <div class="v-text-field__slot"><label for="input-1019" class="v-label theme--dark"
+                                                                   style="left: 0px; right: auto; position: absolute;">Search</label><input
+                                    id="input-1019" type="text"></div>
                             <div class="v-input__append-inner">
-                                <div class="v-input__icon v-input__icon--append"><span aria-hidden="true"
-                                                                                       class="v-icon notranslate theme--dark"><svg
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img"
-                                        aria-hidden="true" class="v-icon__svg"><path
-                                        d="M7,10L12,15L17,10H7Z"></path></svg></span></div>
+                                <div></div>
                             </div>
-                            <input type="hidden" value="name"></div>
-                        <div class="v-menu"><!----></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div class="v-input v-input--hide-details theme--dark v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--solo-flat v-text-field--is-booted v-text-field--enclosed v-select">
+                    <div class="v-input__control">
+                        <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-1021"
+                             class="v-input__slot">
+                            <div class="v-input__prepend-inner">
+                                <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true"
+                                                                                           class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
+                                </div>
+                            </div>
+                            <div class="v-select__slot"><label for="input-1021" class="v-label theme--dark"
+                                                               style="left: 0px; right: auto; position: absolute;">Sort
+                                by</label>
+                                <div class="v-select__selections"><input id="input-1021" readonly="readonly" type="text"
+                                                                         aria-readonly="false" autocomplete="off"></div>
+                                <div class="v-input__append-inner">
+                                    <div class="v-input__icon v-input__icon--append"><i aria-hidden="true"
+                                                                                        class="v-icon notranslate mdi mdi-menu-down theme--dark"></i>
+                                    </div>
+                                </div>
+                                <input type="hidden" value="name"></div>
+                            <div class="v-menu"><!----></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div class="v-item-group theme--dark v-btn-toggle">
+                    <button type="button" value="false"
+                            class="v-btn v-item--active v-btn--active v-btn--has-bg theme--dark v-size--large blue"><span
+                            class="v-btn__content"><i aria-hidden="true"
+                                                      class="v-icon notranslate mdi mdi-arrow-up theme--dark"></i></span>
+                    </button>
+                    <button type="button" value="true" class="v-btn v-btn--has-bg theme--dark v-size--large blue"><span
+                            class="v-btn__content"><i aria-hidden="true"
+                                                      class="v-icon notranslate mdi mdi-arrow-down theme--dark"></i></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+                <div class="v-card v-sheet theme--light">
+                    <div class="v-card__title subheading font-weight-bold">
+                        Cupcake
+                    </div>
+                    <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+                    <div role="list" class="v-list v-sheet theme--light v-list--dense">
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Calories:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                305
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Fat:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                3.7
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Carbs:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                67
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Protein:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                4.3
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Sodium:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                413
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Calcium:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                3%
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Iron:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                8%
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+                <...>
+            </div>
+        </div>
+        <div class="row mt-2 align-center justify-center"><span class="grey--text">Items per page</span>
+            <div class="v-menu"><!----></div>
+            <button type="button" class="ml-2 v-btn v-btn--text theme--dark v-size--default primary--text" role="button"
+                    aria-haspopup="true" aria-expanded="false"><span class="v-btn__content">
+              4
+              <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--dark"></i></span></button>
             <div class="spacer"></div>
-            <div class="v-item-group theme--dark v-btn-toggle">
-                <button type="button" value="false"
-                        class="v-btn v-item--active v-btn--active v-btn--has-bg theme--dark v-size--large blue"><span
-                        class="v-btn__content"><i aria-hidden="true"
-                                                  class="v-icon notranslate mdi mdi-arrow-up theme--dark"></i></span>
-                </button>
-                <button type="button" value="true" class="v-btn v-btn--has-bg theme--dark v-size--large blue"><span
-                        class="v-btn__content"><i aria-hidden="true"
-                                                  class="v-icon notranslate mdi mdi-arrow-down theme--dark"></i></span>
-                </button>
-            </div>
-        </div>
-    </header>
-    <div class="row">
-        <div class="col-sm-6 col-12">
-            <div class="v-card v-sheet theme--light">
-                <div class="v-card__title"><h5>Cupcake</h5></div>
-                <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
-                <div role="list" class="v-list v-sheet theme--light v-list--dense">
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Calories:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">305</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Fat:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">3.7</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Carbs:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">67</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Protein:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">4.3</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Sodium:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">413</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Calcium:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">3%</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Iron:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">8%</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-12">
-            <div class="v-card v-sheet theme--light">
-                <div class="v-card__title"><h5>Donut</h5></div>
-                <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
-                <div role="list" class="v-list v-sheet theme--light v-list--dense">
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Calories:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">452</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Fat:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">25</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Carbs:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">51</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Protein:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">4.9</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Sodium:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">326</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Calcium:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">2%</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Iron:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">22%</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-12">
-            <div class="v-card v-sheet theme--light">
-                <div class="v-card__title"><h5>Eclair</h5></div>
-                <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
-                <div role="list" class="v-list v-sheet theme--light v-list--dense">
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Calories:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">262</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Fat:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">16</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Carbs:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">23</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Protein:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">6</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Sodium:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">337</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Calcium:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">6%</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Iron:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">7%</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-12">
-            <div class="v-card v-sheet theme--light">
-                <div class="v-card__title"><h5>Frozen Yogurt</h5></div>
-                <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
-                <div role="list" class="v-list v-sheet theme--light v-list--dense">
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Calories:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">159</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Fat:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">6</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Carbs:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">24</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Protein:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">4</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Sodium:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">87</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Calcium:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">14%</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
-                        <div class="row justify-space-between">
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">Iron:</div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="v-list-item__content">1%</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="v-data-footer">
-        <div class="v-data-footer__select">Items per page:
-            <div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select">
-                <div class="v-input__control">
-                    <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-2132"
-                         class="v-input__slot">
-                        <div class="v-select__slot">
-                            <div class="v-select__selections">
-                                <div class="v-select__selection v-select__selection--comma">4</div>
-                                <input aria-label="Items per page:" id="input-2132" readonly="readonly" type="text"
-                                       aria-readonly="false" autocomplete="off"></div>
-                            <div class="v-input__append-inner">
-                                <div class="v-input__icon v-input__icon--append"><span aria-hidden="true"
-                                                                                       class="v-icon notranslate theme--light"><svg
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img"
-                                        aria-hidden="true" class="v-icon__svg"><path
-                                        d="M7,10L12,15L17,10H7Z"></path></svg></span></div>
-                            </div>
-                            <input type="hidden" value="4"></div>
-                        <div class="v-menu"><!----></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="v-data-footer__pagination">1-4 of 10</div>
-        <div class="v-data-footer__icons-before">
-            <button type="button" disabled="disabled"
-                    class="v-btn v-btn--disabled v-btn--icon v-btn--round v-btn--text theme--light v-size--default"
-                    aria-label="Previous page"><span class="v-btn__content"><span aria-hidden="true"
-                                                                                  class="v-icon notranslate theme--light"><svg
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                    class="v-icon__svg"><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"></path></svg></span></span>
+            <span class="mr-4 grey--text">
+          Page 1 of 3
+        </span>
+            <button type="button"
+                    class="mr-1 v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--dark v-size--default blue darken-3">
+            <span class="v-btn__content"><i aria-hidden="true"
+                                            class="v-icon notranslate mdi mdi-chevron-left theme--dark"></i></span>
             </button>
-        </div>
-        <div class="v-data-footer__icons-after">
-            <button type="button" class="v-btn v-btn--icon v-btn--round v-btn--text theme--light v-size--default"
-                    aria-label="Next page"><span class="v-btn__content"><span aria-hidden="true"
-                                                                              class="v-icon notranslate theme--light"><svg
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                    class="v-icon__svg"><path
-                    d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg></span></span></button>
+            <button type="button"
+                    class="ml-1 v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--dark v-size--default blue darken-3">
+            <span class="v-btn__content"><i aria-hidden="true"
+                                            class="v-icon notranslate mdi mdi-chevron-right theme--dark"></i></span>
+            </button>
         </div>
     </div>
 </div>

@@ -42381,37 +42381,62 @@ selecting files, showing detailed selection information and upload progress.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputsTests.java">JDI Vuetify File inputs tests</a>.</p>
-<h3 id='5-13-groups'>5.13 Groups</h3><h4 id='5-13-1-button-groups'>5.13.1 Button Groups</h4><pre class="highlight java tab-java"><code><span class="nd">@JDIButtonGroup</span><span class="o">(</span>
-        <span class="n">root</span> <span class="o">=</span> <span class="s">"#RoundedButtonGroup .v-item-group"</span><span class="o">,</span> <span class="n">buttons</span> <span class="o">=</span> <span class="s">"//*[@type = 'button']"</span>
-<span class="o">)</span> <span class="c1">// buttons search strategy is custom</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonGroup</span> <span class="n">roundedButtonGroup</span><span class="o">;</span>
+<h3 id='5-13-groups'>5.13 Groups</h3><h4 id='5-13-1-button-groups'>5.13.1 Button Groups</h4><pre class="highlight java tab-java"><code><span class="c1">//@FindBy("#MandatoryButtonGroup .v-item-group")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#MandatoryButtonGroup .v-item-group"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonGroup</span> <span class="n">mandatoryButtonGroup</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks button group feature: 'mandatory'"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mandatoryButtonGroupTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"width"</span><span class="o">,</span> <span class="s">"197px"</span><span class="o">);</span>
-    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"width"</span><span class="o">,</span> <span class="s">"50px"</span><span class="o">);</span>
-    <span class="n">assertSelected</span><span class="o">(</span><span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
     <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-    <span class="n">assertSelected</span><span class="o">(</span><span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
-    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getAllButtons</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="nl">HasClick:</span><span class="o">:</span><span class="n">click</span><span class="o">);</span>
-    <span class="n">assertSelected</span><span class="o">(</span><span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">4</span><span class="o">));</span>
-<span class="o">}</span>
+    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getAllButtons</span><span class="o">().</span><span class="na">stream</span><span class="o">().</span><span class="na">forEachOrdered</span><span class="o">(</span><span class="nl">HasClick:</span><span class="o">:</span><span class="n">click</span><span class="o">);</span>
+    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
-<p><a href="https://vuetifyjs.com/en/components/button-groups/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/button-groups/">Vuetify documentation page</a></p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.ButtonGroup.java</em></li>
 </ul>
 
-<p>Button group is a complex container for buttons.</p>
-
-<p>When you are using the <code>@UI</code> annotation, provide
-a selector not for the list of buttons, but for the container.
-See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ButtonGroupsPage.java">different examples</a> of using <code>@UI</code> and <code>@JDIButtonGroup</code> annotations together and separately.</p>
+<p>Button group is a complex container for buttons (wrapper for v-item-group built specifically to work with v-btn).</p>
 
 <p><img src="images/vuetify/button-group.png" alt="Button group example" /></p>
 
+<p><strong>Vuetify v2.6.14</strong> code example:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-item-group theme--light v-btn-toggle"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"v-btn v-item--active v-btn--active v-btn--is-elevated v-btn--has-bg theme--light v-size--default"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-format-align-left theme--light"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/i&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-format-align-center theme--light"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/i&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-format-align-right theme--light"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/i&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-format-align-justify theme--light"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;/i&gt;</span>
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -42425,8 +42450,13 @@ See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <td>VuetifyButton</td>
 </tr>
 <tr>
-<td><strong>getButtonByText()</strong></td>
+<td><strong>getButtonByText(text)</strong></td>
 <td>Returns button with required text</td>
+<td>VuetifyButton</td>
+</tr>
+<tr>
+<td><strong>getButtonWithText(text)</strong></td>
+<td>Returns button with partial text</td>
 <td>VuetifyButton</td>
 </tr>
 <tr>
@@ -42439,9 +42469,26 @@ See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <td>Returns all buttons as WebList</td>
 <td>WebList</td>
 </tr>
+<tr>
+<td><strong>selected(int)</strong></td>
+<td>Returns true if item is selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()/has()</strong></td>
+<td>Returns element assert</td>
+<td>ButtonGroupAssert</td>
+</tr>
+<tr>
+<td><strong>size(int)</strong></td>
+<td>Asserts element&#39;s size</td>
+<td>ButtonGroupAssert</td>
+</tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java">Vuetify Button groups tests</a>.</p>
+<p>ButtonGroup also has basic JDI elements methods and asserts for ISetup, HasClick, HasIcon, HasColor, HasTheme, HasRounded, IsShaped, HasMeasurement, IsDense, IsTile</p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VuetifyButtonGroupsTests.java">Vuetify Button groups tests</a>.</p>
 <h4 id='5-13-2-chip-groups'>5.13.2 Chip Groups</h4>
 <p><a href="https://vuetifyjs.com/en/components/chip-groups/">Vuetify documentation page</a></p>
 

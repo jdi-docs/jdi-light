@@ -1586,44 +1586,78 @@ For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jd
 #### 5.13.1 Button Groups
 
 ```java
-@JDIButtonGroup(
-        root = "#RoundedButtonGroup .v-item-group", buttons = "//*[@type = 'button']"
-) // buttons search strategy is custom
-public static ButtonGroup roundedButtonGroup;
+//@FindBy("#MandatoryButtonGroup .v-item-group")
+@UI("#MandatoryButtonGroup .v-item-group")
+public static ButtonGroup mandatoryButtonGroup;
 
-@Test
+@Test(description = "Test checks button group feature: 'mandatory'")
 public void mandatoryButtonGroupTest() {
     mandatoryButtonGroup.is().displayed();
-    mandatoryButtonGroup.has().css("width", "197px");
-    mandatoryButtonGroup.getButtonByIndex(1).has().css("width", "50px");
-    assertSelected(mandatoryButtonGroup.getButtonByIndex(1));
+    mandatoryButtonGroup.is().selected(1);
     mandatoryButtonGroup.getButtonByIndex(2).click();
-    assertSelected(mandatoryButtonGroup.getButtonByIndex(2));
-    mandatoryButtonGroup.getAllButtons().forEach(HasClick::click);
-    assertSelected(mandatoryButtonGroup.getButtonByIndex(4));
-}
+    mandatoryButtonGroup.is().selected(2);
+    mandatoryButtonGroup.getAllButtons().stream().forEachOrdered(HasClick::click);
+    mandatoryButtonGroup.is().selected(4);
+    }
 ```
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/button-groups/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/button-groups/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.ButtonGroup.java_
 
-Button group is a complex container for buttons.
-
-When you are using the `@UI` annotation, provide
-a selector not for the list of buttons, but for the container.
-See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ButtonGroupsPage.java) of using `@UI` and `@JDIButtonGroup` annotations together and separately.
+Button group is a complex container for buttons (wrapper for v-item-group built specifically to work with v-btn).
 
 ![Button group example](../../images/vuetify/button-group.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**getButtonByIndex(int)** | Returns button with required index | VuetifyButton
-**getButtonByText()** | Returns button with required text | VuetifyButton
-**getAllButtons()** | Returns all buttons | List<VuetifyButton>
-**list()** | Returns all buttons as WebList | WebList
+__Vuetify v2.6.14__ code example:
 
-For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java).
+```html
+<div class="v-item-group theme--light v-btn-toggle">
+    <button type="button" class="v-btn v-item--active v-btn--active v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
+        <span class="v-btn__content">
+            <i aria-hidden="true" class="v-icon notranslate mdi mdi-format-align-left theme--light">
+                
+            </i>
+        </span>
+    </button>
+    <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
+        <span class="v-btn__content">
+            <i aria-hidden="true" class="v-icon notranslate mdi mdi-format-align-center theme--light">
+                
+            </i>
+        </span>
+    </button>
+    <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
+        <span class="v-btn__content">
+            <i aria-hidden="true" class="v-icon notranslate mdi mdi-format-align-right theme--light">
+                
+            </i>
+        </span>
+    </button>
+    <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
+        <span class="v-btn__content">
+            <i aria-hidden="true" class="v-icon notranslate mdi mdi-format-align-justify theme--light">
+                
+            </i>
+        </span>
+    </button>
+</div>
+```
+
+|Method | Description                        | Return Type
+--- |------------------------------------| ---
+**getButtonByIndex(int)** | Returns button with required index | VuetifyButton
+**getButtonByText(text)** | Returns button with required text  | VuetifyButton
+**getButtonWithText(text)** | Returns button with partial text   | VuetifyButton
+**getAllButtons()** | Returns all buttons                | List<VuetifyButton>
+**list()** | Returns all buttons as WebList     | WebList
+**selected(int)** | Returns true if item is selected   | boolean
+**is()/has()** | Returns element assert             | ButtonGroupAssert
+**size(int)** | Asserts element's size            | ButtonGroupAssert
+
+ButtonGroup also has basic JDI elements methods and asserts for ISetup, HasClick, HasIcon, HasColor, HasTheme, HasRounded, IsShaped, HasMeasurement, IsDense, IsTile
+
+For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VuetifyButtonGroupsTests.java).
 
 #### 5.13.2 Chip Groups
 [Vuetify documentation page](https://vuetifyjs.com/en/components/chip-groups/)

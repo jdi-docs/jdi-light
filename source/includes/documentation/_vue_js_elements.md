@@ -2495,7 +2495,6 @@ The Data Table component is used for displaying tabular data and to extend the S
 
 __Vuetify v2.6.14__ code example:
 ```html
-
 <div class="v-data-table elevation-1 v-data-table--has-bottom theme--light" file="v-data-table/usage">
     <div class="v-data-table__wrapper">
         <table>
@@ -2519,37 +2518,7 @@ __Vuetify v2.6.14__ code example:
                         class="v-icon__svg" style="font-size: 18px; height: 18px; width: 18px;"><path
                         d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path></svg></span>
                 </th>
-                <th role="columnheader" scope="col" aria-label="Fat (g): Not sorted. Activate to sort ascending."
-                    aria-sort="none" class="text-start sortable"><span>Fat (g)</span><span aria-hidden="true"
-                                                                                           class="v-icon notranslate v-data-table-header__icon theme--light"
-                                                                                           style="font-size: 18px; height: 18px; width: 18px;"><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                        class="v-icon__svg" style="font-size: 18px; height: 18px; width: 18px;"><path
-                        d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path></svg></span>
-                </th>
-                <th role="columnheader" scope="col" aria-label="Carbs (g): Not sorted. Activate to sort ascending."
-                    aria-sort="none" class="text-start sortable"><span>Carbs (g)</span><span aria-hidden="true"
-                                                                                             class="v-icon notranslate v-data-table-header__icon theme--light"
-                                                                                             style="font-size: 18px; height: 18px; width: 18px;"><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                        class="v-icon__svg" style="font-size: 18px; height: 18px; width: 18px;"><path
-                        d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path></svg></span>
-                </th>
-                <th role="columnheader" scope="col" aria-label="Protein (g): Not sorted. Activate to sort ascending."
-                    aria-sort="none" class="text-start sortable"><span>Protein (g)</span><span aria-hidden="true"
-                                                                                               class="v-icon notranslate v-data-table-header__icon theme--light"
-                                                                                               style="font-size: 18px; height: 18px; width: 18px;"><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                        class="v-icon__svg" style="font-size: 18px; height: 18px; width: 18px;"><path
-                        d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path></svg></span>
-                </th>
-                <th role="columnheader" scope="col" aria-label="Iron (%): Not sorted. Activate to sort ascending."
-                    aria-sort="none" class="text-start sortable"><span>Iron (%)</span><span aria-hidden="true"
-                                                                                            class="v-icon notranslate v-data-table-header__icon theme--light"
-                                                                                            style="font-size: 18px; height: 18px; width: 18px;"><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                        class="v-icon__svg" style="font-size: 18px; height: 18px; width: 18px;"><path
-                        d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path></svg></span>
+                <th> <...>
                 </th>
             </tr>
             </thead>
@@ -2616,7 +2585,6 @@ __Vuetify v2.6.14__ code example:
 
 | Method | Description                                                             | Return Type |
 | :--- |:------------------------------------------------------------------------| :--- |
-**has()/is()** | Returns Assert class                                                    | DataTableAssert
 **selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page       | void
 **nextPage()** | Switch Data Table to the next page                                      | void
 **previousPage()** | Switch Data Table to the previous page                                  | void

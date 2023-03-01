@@ -1353,55 +1353,121 @@ For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/j
 
 #### 5.12.8 Combobox
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/combobox/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/combobox/)
 
+Comboboxes are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Combobox.java_
 
 ```java
-    @Test
+//@FindBy(css = "#DenseCombobox div[role ='combobox']")
+@JDICombobox(
+  root = "#DenseCombobox div[role ='combobox']",
+  listItems = "//ancestor::div[@id = 'app']//div[contains(@class, 'v-autocomplete__content')]//div[@class='v-list-item__title']")
+public static Combobox denseCombobox;
+
+@Test(description = "Test checks combobox base functionality")
 public void baseFunctionalityTest() {
   List<String> testValueList = Arrays.asList("Programming", "Design", "Vue", "Vuetify");
-
   denseCombobox.expand();
   denseCombobox.is().expanded();
   denseCombobox.close();
   denseCombobox.is().closed();
-  denseCombobox.is().label("Combobox");
+  denseCombobox.has().label("Combobox");
   denseCombobox.select("Design");
   denseCombobox.select("Vue");
   denseCombobox.is().selected(testValueList);
   denseCombobox.unselect(testValueList);
   denseCombobox.is().notSelected(testValueList);
   }
-
-@Test
-public void noDataWithChipsComboboxTest() {
-  List<String> list = Arrays.asList("Gaming", "Programming", "Vue");
-  String message = "Maximum of 5 tags";
-  String firstTestWord = "Test";
-  String secondTestWord = "Not to add";
-
-  noDataWithChipsCombobox.is().message(message);
-  noDataWithChipsCombobox.select(list);
-  noDataWithChipsCombobox.sendKeys(firstTestWord);
-  noDataWithChipsCombobox.sendKeys(secondTestWord);
-  noDataWithChipsCombobox.is().notSelected(secondTestWord);
-  }
 ```
 ![Combobox example](../../images/vuetify/combobox.png)
 
 The combobox component allows the user to enter values that do not exist within the provided items.
 
-|Method | Description | Return Type
---- | --- | ---
-**select(String/List<String>)** | Select values from list | void
-**unselect(String/List<String>)** | Unselect values from list | void
-**sendKeys(String keys)** | Enter values that do not exist in list | void
-**isExpanded()** | Returns true if list of values is open | boolean
-**isSelected(String, list<String>)** | Returns true if values is selected | boolean
-**is()** | Assert action | ComboboxAssert
+__Vuetify v2.6.14__ code example:
+```html
+<div class="container container--fluid" id="DenseCombobox">
+  <div class="row">
+    <div class="col col-12">
+      <div class="v-input v-input--is-label-active v-input--is-dirty v-input--is-focused v-input--dense theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined v-select v-select--is-menu-active v-select--is-multi v-autocomplete primary--text">
+        <div class="v-input__control">
+          <div role="combobox" aria-haspopup="listbox" aria-expanded="true" aria-owns="list-244" class="v-input__slot">
+            <fieldset aria-hidden="true">
+              <legend style="width: 64.5px;">
+                <span class="notranslate">​</span>
+              </legend>
+            </fieldset>
+            <div class="v-select__slot">
+              <label for="input-244" class="v-label v-label--active theme--light primary--text" style="left: 0px; right: auto; position: absolute;">Combobox</label>
+              <div class="v-select__selections">
+                <div class="v-select__selection v-select__selection--comma">Vuetify, </div>
+                <div class="v-select__selection v-select__selection--comma">Programming</div>
+                <input id="input-244" type="text" autocomplete="off" aria-activedescendant="list-item-661-0">
+              </div>
+              <div class="v-input__append-inner">
+                <div class="v-input__icon v-input__icon--append">
+                  <i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light primary--text"></i>
+                </div>
+              </div>
+              <input type="hidden" value="Vuetify,Programming"></div>
+            <div class="v-menu"></div>
+          </div>
+          <div class="v-text-field__details">
+            <div class="v-messages theme--light primary--text">
+              <div class="v-messages__wrapper"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+|Method | Description                              | Return Type
+--- |------------------------------------------| ---
+**setup(Field field)** | Set up combobox                          | void
+**setup(String comboboxLocator, String listItemsLocator)** | Set up and return combobox               | Combobox
+**selectedChips()** | Returns list of selected chips           | List\<Chip>
+**selectedValues()** | Returns list of selected values          | List\<String>
+**select()** | Returns select element                   | UIElement
+**input()** | Returns select input                     | UIElement
+**expander()** | Returns expander element                 | UIElement
+**counter()** | Returns counter element                  | UIElement
+**prefix()** | Returns prefix element                   | UIElement
+**suffix()** | Returns suffix element                   | UIElement
+**list()** | Returns list element                     | WebList
+**label()** | Returns label                            | Label
+**isError()** | Checks if combobox has error status      | boolean
+**isSuccess()** | Checks if combobox has error success     | boolean
+**expand()** | Expand combobox                          | void
+**close()** | Close combobox                           | void
+**select(String value)** | Select value from combobox               | void
+**select(List\<String> values)** | Select values from combobox              | void
+**unselect(String values)** | Unselect value from combobox             | void
+**unselect(List\<String> values)** | Unselect values from combobox            | void
+**sendKeys(String keys)** | Send keys                                | void
+**isExpanded()** | Returns true if list of values is open   | boolean
+**isSelected(String value)** | Returns true if value is selected        | boolean
+**isSelected(List\<String> values)** | Returns true if values is selected       | boolean
+**isLoading()** | Returns true if combobox is loading      | boolean
+**hasChips()** | Returns true if combobox has chips       | boolean
+**hasSmallChips()** | Returns true if combobox has small chips | boolean
+**hasPlaceholder()** | Returns true if combobox has placeholder | boolean
+**placeholder()** | Returns placeholder                      | String
+**isAutofocus()** | Returns true if combobox is autofocused  | boolean
+**hasCounter()** | Returns true if combobox has counter     | boolean
+**hasPrefix()** | Returns true if combobox has prefix      | boolean
+**hasSuffix()** | Returns true if combobox has suffix      | boolean
+**hasCounterValue()** | Returns counter value                    | String
+**getPrefixText()** | Returns prefix                           | String
+**getSuffixText()** | Returns suffix                           | String
+**clear()** | Clears combobox                          | void
+**is()** | Assert action                            | ComboboxAssert
 
-For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTest.java).
+Element also has overridden methods from Interfaces: (HasMessages, IsReadOnly, IsDense, IsOutlined, IsSolo, IsFullWidth,
+HasTheme, ICoreElement, IsFlat, HasRounded, IsShaped, HasDetailsHidden) 
+
+For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTests.java).
 
 #### 5.12.9 Selects
 

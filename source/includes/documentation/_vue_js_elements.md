@@ -141,7 +141,7 @@ and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-ligh
 @UI("#SingleBanner .v-banner")
 public static Banner singleBanner;
 
-@Test
+@Test(description = "Check that Single Banner is shown as expected and toggle switch 'Sticky' works")
 public void bannerTest() {
   singleBanner.show();
   singleBanner.is().displayed();

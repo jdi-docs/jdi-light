@@ -2848,7 +2848,6 @@ __Vuetify v2.6.14__ code example:
 | :--- |:-------------------------------------------------------| :--- |
 **item(int childIndex)** | Gets a Card From Data Iterator Table by required index | SubheaderAssert
 **headers()** | Gets Data Iterator Table's header                      | List<ToolBar>
-**has()/is()** | Returns Data Iterator Assert class            | DataIteratorAssert
 
 In addition, there are methods sortDesc(),sortAsc() inside FilterDataIterator.java. 
 Also, DataIterator class implements IsContainer, ISetup.

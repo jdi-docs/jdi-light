@@ -2432,40 +2432,7 @@ __Vuetify v2.6.14__ code example:
                 <td>159</td>
             </tr>
             <tr>
-                <td>Ice cream sandwich</td>
-                <td>237</td>
-            </tr>
-            <tr>
-                <td>Eclair</td>
-                <td>262</td>
-            </tr>
-            <tr>
-                <td>Cupcake</td>
-                <td>305</td>
-            </tr>
-            <tr>
-                <td>Gingerbread</td>
-                <td>356</td>
-            </tr>
-            <tr>
-                <td>Jelly bean</td>
-                <td>375</td>
-            </tr>
-            <tr>
-                <td>Lollipop</td>
-                <td>392</td>
-            </tr>
-            <tr>
-                <td>Honeycomb</td>
-                <td>408</td>
-            </tr>
-            <tr>
-                <td>Donut</td>
-                <td>452</td>
-            </tr>
-            <tr>
-                <td>KitKat</td>
-                <td>518</td>
+                <...>
             </tr>
             </tbody>
         </table>
@@ -2476,8 +2443,6 @@ __Vuetify v2.6.14__ code example:
 | Method | Description | Return Type |
 | :--- | :--- | :--- |
 **hasFixedHeader()** | Get if Simple Table has fixed header | boolean
-**has()/is()** | Returns Assert class | SimpleTableAssert
-**height()** | Get Simple Table's height | int
 **isDark()** | Shows that table has dark theme | boolean
 **isLight()** | Shows that table has light theme | boolean
 **hasFixedHeight()** | Shows that table has fixed height | boolean

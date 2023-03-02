@@ -42006,85 +42006,119 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RadioButtonsTests.java">JDI Vuetify Radiobuttons tests</a>.</p>
 <h4 id='5-12-8-combobox'>5.12.8 Combobox</h4>
-<p><a href="https://vuetifyjs.com/en/components/combobox/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/combobox/">Vuetify documentation page</a></p>
 
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Combobox.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+<p>Comboboxes are located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Combobox.java</em></p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#DenseCombobox div[role ='combobox']")</span>
+<span class="nd">@JDICombobox</span><span class="o">(</span>
+  <span class="n">root</span> <span class="o">=</span> <span class="s">"#DenseCombobox div[role ='combobox']"</span><span class="o">,</span>
+  <span class="n">listItems</span> <span class="o">=</span> <span class="s">"//ancestor::div[@id = 'app']//div[contains(@class, 'v-autocomplete__content')]//div[@class='v-list-item__title']"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Combobox</span> <span class="n">denseCombobox</span><span class="o">;</span>
+
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks combobox base functionality"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseFunctionalityTest</span><span class="o">()</span> <span class="o">{</span>
   <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">testValueList</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Programming"</span><span class="o">,</span> <span class="s">"Design"</span><span class="o">,</span> <span class="s">"Vue"</span><span class="o">,</span> <span class="s">"Vuetify"</span><span class="o">);</span>
-
   <span class="n">denseCombobox</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
   <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
   <span class="n">denseCombobox</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
   <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">closed</span><span class="o">();</span>
-  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="s">"Combobox"</span><span class="o">);</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="s">"Combobox"</span><span class="o">);</span>
   <span class="n">denseCombobox</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Design"</span><span class="o">);</span>
   <span class="n">denseCombobox</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Vue"</span><span class="o">);</span>
   <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">testValueList</span><span class="o">);</span>
   <span class="n">denseCombobox</span><span class="o">.</span><span class="na">unselect</span><span class="o">(</span><span class="n">testValueList</span><span class="o">);</span>
   <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notSelected</span><span class="o">(</span><span class="n">testValueList</span><span class="o">);</span>
   <span class="o">}</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">noDataWithChipsComboboxTest</span><span class="o">()</span> <span class="o">{</span>
-  <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Gaming"</span><span class="o">,</span> <span class="s">"Programming"</span><span class="o">,</span> <span class="s">"Vue"</span><span class="o">);</span>
-  <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"Maximum of 5 tags"</span><span class="o">;</span>
-  <span class="n">String</span> <span class="n">firstTestWord</span> <span class="o">=</span> <span class="s">"Test"</span><span class="o">;</span>
-  <span class="n">String</span> <span class="n">secondTestWord</span> <span class="o">=</span> <span class="s">"Not to add"</span><span class="o">;</span>
-
-  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">message</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
-  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">firstTestWord</span><span class="o">);</span>
-  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">secondTestWord</span><span class="o">);</span>
-  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notSelected</span><span class="o">(</span><span class="n">secondTestWord</span><span class="o">);</span>
-  <span class="o">}</span>
 </code></pre>
 <p><img src="images/vuetify/combobox.png" alt="Combobox example" /></p>
 
 <p>The combobox component allows the user to enter values that do not exist within the provided items.</p>
 
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>select(String/List<String>)</strong></td>
-<td>Select values from list</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>unselect(String/List<String>)</strong></td>
-<td>Unselect values from list</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>sendKeys(String keys)</strong></td>
-<td>Enter values that do not exist in list</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>isExpanded()</strong></td>
-<td>Returns true if list of values is open</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>isSelected(String, list<String>)</strong></td>
-<td>Returns true if values is selected</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>ComboboxAssert</td>
-</tr>
-</tbody></table>
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;container container--fluid&quot; id=&quot;DenseCombobox&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col col-12&quot;&gt;
+      &lt;div class=&quot;v-input v-input--is-label-active v-input--is-dirty v-input--is-focused v-input--dense theme--light v-text-field v-text-field--is-booted v-text-field--enclosed v-text-field--outlined v-select v-select--is-menu-active v-select--is-multi v-autocomplete primary--text&quot;&gt;
+        &lt;div class=&quot;v-input__control&quot;&gt;
+          &lt;div role=&quot;combobox&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;true&quot; aria-owns=&quot;list-244&quot; class=&quot;v-input__slot&quot;&gt;
+            &lt;fieldset aria-hidden=&quot;true&quot;&gt;
+              &lt;legend style=&quot;width: 64.5px;&quot;&gt;
+                &lt;span class=&quot;notranslate&quot;&gt;​&lt;/span&gt;
+              &lt;/legend&gt;
+            &lt;/fieldset&gt;
+            &lt;div class=&quot;v-select__slot&quot;&gt;
+              &lt;label for=&quot;input-244&quot; class=&quot;v-label v-label--active theme--light primary--text&quot; style=&quot;left: 0px; right: auto; position: absolute;&quot;&gt;Combobox&lt;/label&gt;
+              &lt;div class=&quot;v-select__selections&quot;&gt;
+                &lt;div class=&quot;v-select__selection v-select__selection--comma&quot;&gt;Vuetify, &lt;/div&gt;
+                &lt;div class=&quot;v-select__selection v-select__selection--comma&quot;&gt;Programming&lt;/div&gt;
+                &lt;input id=&quot;input-244&quot; type=&quot;text&quot; autocomplete=&quot;off&quot; aria-activedescendant=&quot;list-item-661-0&quot;&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;v-input__append-inner&quot;&gt;
+                &lt;div class=&quot;v-input__icon v-input__icon--append&quot;&gt;
+                  &lt;i aria-hidden=&quot;true&quot; class=&quot;v-icon notranslate mdi mdi-menu-down theme--light primary--text&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;input type=&quot;hidden&quot; value=&quot;Vuetify,Programming&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;v-menu&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;v-text-field__details&quot;&gt;
+            &lt;div class=&quot;v-messages theme--light primary--text&quot;&gt;
+              &lt;div class=&quot;v-messages__wrapper&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+|Method | Description                              | Return Type
+--- |------------------------------------------| ---
+<strong>setup(Field field)</strong> | Set up combobox                          | void
+<strong>setup(String comboboxLocator, String listItemsLocator)</strong> | Set up and return combobox               | Combobox
+<strong>selectedChips()</strong> | Returns list of selected chips           | List&lt;Chip&gt;
+<strong>selectedValues()</strong> | Returns list of selected values          | List&lt;String&gt;
+<strong>select()</strong> | Returns select element                   | UIElement
+<strong>input()</strong> | Returns select input                     | UIElement
+<strong>expander()</strong> | Returns expander element                 | UIElement
+<strong>counter()</strong> | Returns counter element                  | UIElement
+<strong>prefix()</strong> | Returns prefix element                   | UIElement
+<strong>suffix()</strong> | Returns suffix element                   | UIElement
+<strong>list()</strong> | Returns list element                     | WebList
+<strong>label()</strong> | Returns label                            | Label
+<strong>isError()</strong> | Checks if combobox has error status      | boolean
+<strong>isSuccess()</strong> | Checks if combobox has error success     | boolean
+<strong>expand()</strong> | Expand combobox                          | void
+<strong>close()</strong> | Close combobox                           | void
+<strong>select(String value)</strong> | Select value from combobox               | void
+<strong>select(List&lt;String&gt; values)</strong> | Select values from combobox              | void
+<strong>unselect(String values)</strong> | Unselect value from combobox             | void
+<strong>unselect(List&lt;String&gt; values)</strong> | Unselect values from combobox            | void
+<strong>sendKeys(String keys)</strong> | Send keys                                | void
+<strong>isExpanded()</strong> | Returns true if list of values is open   | boolean
+<strong>isSelected(String value)</strong> | Returns true if value is selected        | boolean
+<strong>isSelected(List&lt;String&gt; values)</strong> | Returns true if values is selected       | boolean
+<strong>isLoading()</strong> | Returns true if combobox is loading      | boolean
+<strong>hasChips()</strong> | Returns true if combobox has chips       | boolean
+<strong>hasSmallChips()</strong> | Returns true if combobox has small chips | boolean
+<strong>hasPlaceholder()</strong> | Returns true if combobox has placeholder | boolean
+<strong>placeholder()</strong> | Returns placeholder                      | String
+<strong>isAutofocus()</strong> | Returns true if combobox is autofocused  | boolean
+<strong>hasCounter()</strong> | Returns true if combobox has counter     | boolean
+<strong>hasPrefix()</strong> | Returns true if combobox has prefix      | boolean
+<strong>hasSuffix()</strong> | Returns true if combobox has suffix      | boolean
+<strong>hasCounterValue()</strong> | Returns counter value                    | String
+<strong>getPrefixText()</strong> | Returns prefix                           | String
+<strong>getSuffixText()</strong> | Returns suffix                           | String
+<strong>clear()</strong> | Clears combobox                          | void
+<strong>is()</strong> | Assert action                            | ComboboxAssert</p>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTest.java">JDI Vuetify Combobox tests</a>.</p>
+<p>Element also has overridden methods from Interfaces: (HasMessages, IsReadOnly, IsDense, IsOutlined, IsSolo, IsFullWidth,
+HasTheme, ICoreElement, IsFlat, HasRounded, IsShaped, HasDetailsHidden) </p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTests.java">JDI Vuetify Combobox tests</a>.</p>
 <h4 id='5-12-9-selects'>5.12.9 Selects</h4>
 <p><a href="https://v2.vuetifyjs.com/en/components/selects/">Selects Vuetify documentation page</a></p>
 

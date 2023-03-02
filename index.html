@@ -45096,110 +45096,123 @@ To use any of these icons simply use the <code>mdi-</code> prefix followed by th
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java">Menus tests</a>.</p>
 <h3 id='5-29-images'>5.29 Images</h3>
-<p><a href="https://vuetifyjs.com/en/components/images/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/images/">Vuetify documentation page</a></p>
 
 <p>Image is located in the following class:
 - <strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.Image.java</em></p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"measurementImagesDataProvider"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">ImagesTestsDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">measurementImagesTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">sliderValue</span><span class="o">,</span> <span class="kt">int</span> <span class="n">width</span><span class="o">,</span> <span class="kt">int</span> <span class="n">height</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">aspectRatioImage</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">slider</span><span class="o">.</span><span class="na">slideHorizontalTo</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">sliderValue</span><span class="o">));</span>
-        <span class="n">aspectRatioImage</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
-        <span class="n">aspectRatioImage</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="n">height</span><span class="o">);</span>
-    <span class="o">}</span>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(xpath = "//*[contains(text(), 'Placeholder image')]")</span>
+    <span class="nd">@WithText</span><span class="o">(</span><span class="s">"Placeholder image"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">placeholderImageContainer</span><span class="o">;</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gradientsImagesTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">gradientsImages</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">gradientsImage</span> <span class="o">-&gt;</span> <span class="o">{</span>
-            <span class="n">gradientsImage</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-            <span class="n">gradientsImage</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">gradient</span><span class="o">();</span>
-        <span class="o">});</span>
-        <span class="n">aspectRatioImage</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">noGradient</span><span class="o">();</span>
-  <span class="o">}</span>
+    <span class="c1">//@FindBy(css = "#GradientsImage .v-image")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#GradientsImage .v-image"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Image</span> <span class="n">gradientImage</span><span class="o">;</span>
+
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Test checks image max height and width, and expected source"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxMeasurementImageTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">placeholderImageContainer</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">placeholderImage</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">maxHeight</span><span class="o">(</span><span class="mi">300</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">maxWidth</span><span class="o">(</span><span class="mi">500</span><span class="o">);</span>
+        <span class="n">placeholderImage</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">sourcePath</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/vuetify/pictures/placeholder_60.jpeg"</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
-<p><strong>Image</strong> - The <code>v-img</code> component is packed with features to support rich media. Combined with the <a href="https://github.com/vuetifyjs/vuetify-loader">vuetify-loader</a>, you can add dynamic progressive images to provide a better user experience.</p>
+<p><strong>Image</strong> - The <code>v-img</code> component is packed with features to support rich media.
+Combined with the <a href="https://github.com/vuetifyjs/vuetify-loader">vuetify-loader</a>, you can add dynamic progressive images to provide a better user experience.</p>
 
 <p><img src="images/vuetify/images.png" alt="Images examples" /></p>
 
-<p><strong>Image</strong> element implements following interfaces: HasMeasurement, HasTheme.</p>
-
-<p><strong>Image</strong> element has following methods:</p>
+<p><strong>Vuetify v2.6.14</strong> code example:
+<code>html
+&lt;div class=&quot;v-image v-responsive theme--light&quot; aria-label=&quot;alternate-text-here&quot; role=&quot;img&quot; &gt;
+  &lt;div class=&quot;v-responsive__sizer&quot; style=&quot;padding-bottom: 60%;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;v-image__image v-image__image--cover&quot; style=&quot;background-image: url(&amp;quot;https://source.for.image/goes?here&amp;quot;); background-position: center center;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;v-image__placeholder&quot;&gt;
+  &lt;div class=&quot;v-responsive__content style=&quot;width: 1600px;&quot;&gt;
+    &lt;div data-v-6b11fdaf=&quot;&quot; class=&quot;fill-height repeating-gradient&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
 
 <table><thead>
 <tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
+<th style="text-align: left">Method</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Return Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Returns Assert class</td>
-<td>ImageAssert</td>
+<td style="text-align: left"><strong>alternateText()</strong></td>
+<td style="text-align: left">Returns image alternate text if present</td>
+<td style="text-align: left">String</td>
 </tr>
 <tr>
-<td><strong>getJDIImage()</strong></td>
-<td>Casts vuetify Image to HTML Image</td>
-<td>com.epam.jdi.light.ui.html.elements.common.Image</td>
+<td style="text-align: left"><strong>getSourcePath()</strong></td>
+<td style="text-align: left">Returns path to source image</td>
+<td style="text-align: left">String</td>
 </tr>
 <tr>
-<td><strong>alternateText()</strong></td>
-<td>Gets &#39;{name}&#39; alternate image text</td>
-<td>String</td>
+<td style="text-align: left"><strong>isContain()</strong></td>
+<td style="text-align: left">Returns true if image is set to preserve its original aspect ratio</td>
+<td style="text-align: left">boolean</td>
 </tr>
 <tr>
-<td><strong>isContain()</strong></td>
-<td>Checks that &#39;{name}&#39; is contain</td>
-<td>boolean</td>
+<td style="text-align: left"><strong>hasGradient()</strong></td>
+<td style="text-align: left">Shows that image has gradient</td>
+<td style="text-align: left">boolean</td>
 </tr>
 <tr>
-<td><strong>getSourcePath()</strong></td>
-<td>Gets &#39;{name}&#39; image source path</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>hasGradient()</strong></td>
-<td>Checks that &#39;{name}&#39; has gradient</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>hasPlaceholder()</strong></td>
-<td>Checks that &#39;{name}&#39; has placeholder</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>height()</strong></td>
-<td>Gets &#39;{name}&#39; height</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>width()</strong></td>
-<td>Gets &#39;{name}&#39; width</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>maxHeight()</strong></td>
-<td>Gets &#39;{name}&#39; max height</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>maxWidth()</strong></td>
-<td>Gets &#39;{name}&#39; max width</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>minHeight()</strong></td>
-<td>Gets &#39;{name}&#39; min height</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>minWidth()</strong></td>
-<td>Gets &#39;{name}&#39; min width</td>
-<td>int</td>
+<td style="text-align: left"><strong>hasPlaceholder()</strong></td>
+<td style="text-align: left">Shows that image has placeholder (shown while image is loading)</td>
+<td style="text-align: left">boolean</td>
 </tr>
 </tbody></table>
 
-<p>Examples of usage see on the following page: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java">Images tests</a>.</p>
+<table><thead>
+<tr>
+<th style="text-align: left">Assert method</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>altText(String expectedText)</strong></td>
+<td style="text-align: left">Assert if image has expected alternate test</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>contain()</strong></td>
+<td style="text-align: left">Assert if image is set to preserve its original aspect ratio</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>notContain()</strong></td>
+<td style="text-align: left">Assert if image is not set to preserve its original aspect ratio</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>displayed()</strong></td>
+<td style="text-align: left">Assert if image is displayed</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>sourcePath(String expectedSourcePath)</strong></td>
+<td style="text-align: left">Assert if image has expected source path</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>gradient()</strong></td>
+<td style="text-align: left">Assert if image has gradient over</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>noGradient()</strong></td>
+<td style="text-align: left">Assert if image has no gradient over</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>placeholder()</strong></td>
+<td style="text-align: left">Assert if image has loader placeholder (loader overlay)</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>noPlaceholder()</strong></td>
+<td style="text-align: left">Assert if image has no loader placeholder (loader overlay)</td>
+</tr>
+</tbody></table>
+
+<p>Image also have basic JDI elements methods and asserts for Measurements and Theme</p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java">JDI Vuetify Images tests</a>.</p>
 <h3 id='5-30-timelines'>5.30 Timelines</h3>
 <p><a href="https://vuetifyjs.com/en/components/timelines/">Vuetify documentation page</a></p>
 

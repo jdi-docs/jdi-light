@@ -2689,55 +2689,90 @@ Examples of usage see on the following page: [Vuetify Icon tests](https://github
 
 ### 5.24 Carousels
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/carousels/)
+[Carousels overview](https://v2.vuetifyjs.com/en/components/carousels/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Carousel.java_
 
 ```java
-    @Test
-    public void customizedArrowsCarouselTests() {
-      customizedArrowsCarousel.is().displayed();
-      customizedArrowsCarousel.nextButton().is().notVisible();
-      customizedArrowsCarousel.previousButton().is().notVisible();
-      customizedArrowsCarousel.hover();
-      customizedArrowsCarousel.nextButton().is().visible();
-      customizedArrowsCarousel.previousButton().is().visible();
-      customizedArrowsCarousel.previousButton().has().text("PREVIOUS SLIDE");
-      customizedArrowsCarousel.previousButton().has().color(GREEN.value());
-      customizedArrowsCarousel.nextButton().has().text("NEXT SLIDE");
-      customizedArrowsCarousel.nextButton().has().color(BLUE.value());
-      customizedArrowsCarousel.delimiters().have().size(5);
-      customizedArrowsCarousel.getDelimitersIcons().forEach(icon -> icon.has().type("mdi-circle"));
-      customizedArrowsCarousel.goToSlide(1);
-      customizedArrowsCarousel.has().currentSlideColor(INDIGO.value());
-      customizedArrowsCarousel.has().currentSlideText("First Slide");
-      customizedArrowsCarousel.goToSlide(2);
-      customizedArrowsCarousel.has().currentSlideText("Second Slide");
-      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
-      customizedArrowsCarousel.nextButton().click();
-      customizedArrowsCarousel.has().currentSlideText("Third Slide");
-      customizedArrowsCarousel.has().currentSlideColor(PINK_DARKEN_2.value());
-      customizedArrowsCarousel.previousButton().click();
-      customizedArrowsCarousel.has().currentSlideText("Second Slide");
-      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
-      customizedArrowsCarousel.goToSlide(5);
-      customizedArrowsCarousel.has().currentSlideText("Fifth Slide");
-      customizedArrowsCarousel.has().currentSlideColor(DEEP_PURPLE_ACCENT_4.value());
-      customizedArrowsCarousel.goToSlide(4);
-      customizedArrowsCarousel.has().currentSlideText("Fourth Slide");
-      customizedArrowsCarousel.has().currentSlideColor(RED_LIGHTEN_1.value());
-      customizedArrowsCarousel.goToSlide(1);
-      customizedArrowsCarousel.has().currentSlideColor(INDIGO.value());
-      customizedArrowsCarousel.has().currentSlideText("First Slide");
-      customizedArrowsCarousel.waitUntilSlideChange("Second Slide", ORANGE_DARKEN_1.value());
-      customizedArrowsCarousel.has().currentSlideText("Second Slide");
-      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
-    }
+//@FindBy(css = ".v-carousel#VerticalCarousel")
+@UI(".v-carousel#VerticalCarousel")
+public static Carousel verticalCarousel;
+
+@Test(description = "Check if Vertical Carousel looks as expected and if it is possible to navigate through slides")
+public void verticalDelimitersCarouselTest() {
+  verticalCarousel.show();
+  verticalCarousel.is().loading().and().has().loaderHeightPx(4);
+  verticalCarousel.progressBar().has().barColor(BLUE.value());
+  verticalCarousel.hasVerticalDelimiters();
+  verticalCarousel.has().contentText("First Slide");
+  verticalCarousel.goToSlide(4);
+  verticalCarousel.has().contentText("Fourth Slide");
+  }
 ```
 
 Carousel component is used to display large numbers of visual content on a rotating timer.
 
 ![Carousels examples](../../images/vuetify/carousels.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-window v-item-group theme--dark v-carousel v-carousel--vertical-delimiters" carousel-dot-margin="8px"
+     id="VerticalCarousel" style="height: 400px;">
+    <div class="v-window__container">
+        <div class="v-window-item" style="">
+            <div class="v-image v-responsive v-carousel__item theme--light" style="height: 400px;">
+                <div class="v-responsive__content">
+                    <div class="v-sheet theme--light indigo" style="height: 100%;">
+                        <div class="row fill-height align-center justify-center">
+                            <div class="text-h2">
+                                First Slide
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="v-window-item" style="display: none;">
+            <div class="v-image v-responsive v-carousel__item theme--light" style="height: 400px;">
+                <div class="v-responsive__content">
+                    <div class="v-sheet theme--light warning" style="height: 100%;">
+                        <div class="row fill-height align-center justify-center">
+                            <div class="text-h2">
+                                Second Slide
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <...>
+    </div>
+    <div class="v-carousel__controls" style="left: auto; right: auto;">
+        <div class="v-item-group theme--dark">
+            <button type="button" value="0"
+                    class="v-carousel__controls__item v-btn v-item--active v-btn--active v-btn--icon v-btn--round theme--dark v-size--small"
+                    aria-label="Carousel slide 1 of 5"><span class="v-btn__content"><i aria-hidden="true"
+                                                                                       class="v-icon notranslate mdi mdi-circle theme--dark"
+                                                                                       style="font-size: 18px;"></i></span>
+            </button>
+            <button type="button" value="1"
+                    class="v-carousel__controls__item v-btn v-btn--icon v-btn--round theme--dark v-size--small"
+                    aria-label="Carousel slide 2 of 5"><span class="v-btn__content"><i aria-hidden="true"
+                                                                                       class="v-icon notranslate mdi mdi-circle theme--dark"
+                                                                                       style="font-size: 18px;"></i></span>
+            </button>
+            <...>
+        </div>
+    </div>
+    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"
+         class="v-progress-linear v-carousel__progress v-progress-linear--visible theme--dark" style="height: 4px;">
+        <div class="v-progress-linear__background blue" style="opacity: 0.3; left: 20%; width: 80%;"></div>
+        <div class="v-progress-linear__buffer"></div>
+        <div class="v-progress-linear__determinate blue" style="width: 20%;"></div>
+    </div>
+</div>
+```
 
 |Method | Description | Return Type
 --- | --- | ---

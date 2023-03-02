@@ -39371,52 +39371,116 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java">Custom vuetify avatar example (profile card)</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java">JDI vuetify page tests for avatars</a>.</p>
 <h3 id='5-3-banners'>5.3 Banners</h3>
-<p><a href="https://vuetifyjs.com/en/components/banners/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/banners/">Banners overview</a></p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Banner.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">singleBannerTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">singleBanner</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">singleBanner</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"We can't save your edits"</span><span class="o">);</span>
-    <span class="o">}</span>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#SingleBanner .v-banner")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#SingleBanner .v-banner"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Banner</span> <span class="n">singleBanner</span><span class="o">;</span>
+
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Check that Single Banner is shown as expected and toggle switch 'Sticky' works"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">bannerTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">singleBanner</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">singleBanner</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+  <span class="n">singleBanner</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">singleLine</span><span class="o">();</span>
+  <span class="n">singleBanner</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"We can't save your edits while you are in offline mode."</span><span class="o">);</span>
+  <span class="n">singleBanner</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">notIcon</span><span class="o">();</span>
+  <span class="n">singleBanner</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">notSticky</span><span class="o">();</span>
+  <span class="n">singleBannerSwitch</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+  <span class="n">singleBanner</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">sticky</span><span class="o">();</span>
+  <span class="o">}</span>
 </code></pre>
 <p><img src="images/vuetify/banners.png" alt="Banners example" /></p>
 
-<p>Banners may contain anything, you can inherit the <code>Banner</code> class and customize it
-the way you want.</p>
+<p><strong>Vuetify v2.6.14</strong> code example:
+```html
+<div class="v-banner v-sheet theme--light v-banner--single-line">
+    <div class="v-banner__wrapper">
+        <div class="v-banner__content">
+            <div class="v-banner__text">
+                We can&#39;t save your edits while you are in offline mode.</p>
 
-<p>Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).</p>
+<p></div>
+        </div>
+        <div class="v-banner__actions">
+            <button type="button"
+                    class="v-btn v-btn--text theme--light v-size--default deep-purple--text text--accent-4"><span
+                    class="v-btn__content">
+        Get Online
+      </span></button>
+        </div>
+    </div>
+</div>
+```</p>
+
+<p>The banner component is used as middle-interruptive message to user with 1-2 actions. It comes in 2 variations 
+single-line and multi-line (implicit). These can have icons which you can use with your message and actions.</p>
 
 <table><thead>
 <tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
+<th style="text-align: left">Method</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Return Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Returns Assert class</td>
-<td>BannerAssert</td>
+<td style="text-align: left"><strong>bannerContent()</strong></td>
+<td style="text-align: left">Get Banner content element</td>
+<td style="text-align: left">UIElement</td>
 </tr>
 <tr>
-<td><strong>buttons()</strong></td>
-<td>Returns button group containing in the element</td>
-<td>ButtonGroup</td>
+<td style="text-align: left"><strong>getIconsFromContent()</strong></td>
+<td style="text-align: left">Get Banner&#39;s icons</td>
+<td style="text-align: left">List<UIElement></td>
 </tr>
 <tr>
-<td><strong>icon()</strong></td>
-<td>Returns icon containing in the element</td>
-<td>Icon</td>
+<td style="text-align: left"><strong>bannerActions()</strong></td>
+<td style="text-align: left">Get Banner&#39;s actions element</td>
+<td style="text-align: left">UIElement</td>
 </tr>
 <tr>
-<td><strong>getText()</strong></td>
-<td>Returns text content of the element</td>
-<td>Text</td>
+<td style="text-align: left"><strong>isSticky()</strong></td>
+<td style="text-align: left">Get if Banner is sticky</td>
+<td style="text-align: left">boolean</td>
 </tr>
 </tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Assert method</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>text(Matcher<String> text)</strong></td>
+<td style="text-align: left">Assert that Banner&#39;s element has expected text</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>sticky()</strong></td>
+<td style="text-align: left">Assert that Banner is sticky</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>notSticky()</strong></td>
+<td style="text-align: left">Assert that Banner is not sticky</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>icon()</strong></td>
+<td style="text-align: left">Assert that Banner has icon</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>notIcon()</strong></td>
+<td style="text-align: left">Assert that Banner has not icon</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>numberOfButtons(int n)</strong></td>
+<td style="text-align: left">Assert that Banner&#39;s number of buttons equals to required number</td>
+</tr>
+</tbody></table>
+
+<p>In addition, Banner class implements IsText, HasRounded, IsTile, IsShaped, IsOutlined, HasTheme, HasElevation,
+HasColor, IsSingleLine, HasIcon, MayContainButtons.</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java">JDI vuetify page tests for banners</a>.</p>
 <h3 id='5-4-bars'>5.4 Bars</h3><h4 id='5-4-1-basic-bar'>5.4.1 Basic bar</h4>

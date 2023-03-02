@@ -2774,24 +2774,36 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | CarouselAssert
-**delimiters()** | Returns group of delimiter buttons containing in the element | ButtonGroup
-**nextButton()** | Returns 'next' button containing in the element | VuetifyButton
-**previousButton()** | Returns 'previous' button containing in the element | VuetifyButton
-**plusButton()** | Returns 'plus' button containing in the element | VuetifyButton
-**minusButton()** | Returns 'minus' button containing in the element | VuetifyButton
-**getSwitch()** | Returns switch containing in the element | Switch
-**getDelimitersIcons()** | Returns list of icons of delimiters | List<Icons>
-**currentSlideImage()** | Returns image of current slide | Image
-**getCurrentSlideColor()** | Returns color of current slide (in RGBA format) | String
-**getCurrentSlideText()** | Returns text of current slide | String
-**slideCounter()** | Returns slide counter | Text
-**goToSlide()** | Clicks on selected delimiter | void
-**waitUntilSlideChange()** | Waits until slide is changed to targeted | void
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**delimiters()** | Get Carousel's delimiters | ButtonGroup
+**nextButton()** | Get Carousel's 'next' button | VuetifyButton
+**previousButton()** | Get Carousel's 'previous' button | VuetifyButton
+**progressBar()** | Get Carousel's progress bar | VuetifyButton
+**getDelimitersIcons()** | Get Carousel delimiter's icons | List<Icon>
+**slideCounter()** | Get Carousel's slide counter | Text
+**goToSlide(int slideNumber)** | Go to slide number| void
+**getAllSlides()** | Get all Carousel's slides| List<WebElement>
+**plusButton()** | Get Carousel's 'plus' button| VuetifyButton
+**minusButton()** | Get Carousel's 'minus' button| VuetifyButton
+**showArrowsOnHover()** | Get if Carousel shows arrows on hover| boolean
+**hideDelimiters()** | Get if Carousel hides delimiters| boolean
+**getLoaderHeight()** | Get Carousel loader's height| int
 
-For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java).
+In addition, Carousel  implements IsText, HasImage, HasColor, HasTheme, IsLoading, HasMeasurement.
+
+| Assert method | Description |
+| :--- | :--- |
+**contentText(String text)** | Assert that Carousel has required text
+**showArrowsOnHover()** | Assert that Carousel shows arrows on hover
+**notShowArrowsOnHover()** | Assert that Carousel doesn't show arrows on hover
+**delimitersHidden()** | Assert that Carousel hides delimiters
+**notDelimitersHidden()** | Assert that Carousel does not hides delimiters
+**verticalDelimiters()** | Assert that Carousel has vertical delimiters
+**horizontalDelimiters()** | Assert that Carousel has horizontal delimiters
+**loaderHeightPx(int height)** | Assert that Carousel has expected loader height
+
+For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java).
 
 ### 5.25 Navigation Drawers
 

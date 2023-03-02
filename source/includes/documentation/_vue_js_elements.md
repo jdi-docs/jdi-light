@@ -3090,55 +3090,68 @@ For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-ligh
 
 ### 5.29 Images
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/images/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/images/)
 
 Image is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Image.java_
 
 ```java
-    @Test(dataProvider = "measurementImagesDataProvider", dataProviderClass = ImagesTestsDataProvider.class)
-    public void measurementImagesTest(int sliderValue, int width, int height) {
-        aspectRatioImage.is().displayed();
-        slider.slideHorizontalTo(String.valueOf(sliderValue));
-        aspectRatioImage.has().width(width);
-        aspectRatioImage.has().height(height);
-    }
+    //@FindBy(xpath = "//*[contains(text(), 'Placeholder image')]")
+    @WithText("Placeholder image")
+    public static UIElement placeholderImageContainer;
 
-    @Test
-    public void gradientsImagesTest() {
-        gradientsImages.forEach(gradientsImage -> {
-            gradientsImage.show();
-            gradientsImage.has().gradient();
-        });
-        aspectRatioImage.has().noGradient();
-  }
+    //@FindBy(css = "#GradientsImage .v-image")
+    @UI("#GradientsImage .v-image")
+    public static Image gradientImage;
+    
+    @Test(description = "Test checks image max height and width, and expected source")
+    public void maxMeasurementImageTest() {
+        placeholderImageContainer.show();
+        placeholderImage.has().maxHeight(300).and().maxWidth(500);
+        placeholderImage.has().sourcePath("https://jdi-testing.github.io/jdi-light/vuetify/pictures/placeholder_60.jpeg");
+    }
 ```
 
-__Image__ - The `v-img` component is packed with features to support rich media. Combined with the [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader), you can add dynamic progressive images to provide a better user experience.
+__Image__ - The `v-img` component is packed with features to support rich media.
+Combined with the [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader), you can add dynamic progressive images to provide a better user experience.
 
 ![Images examples](../../images/vuetify/images.png)
 
-__Image__ element implements following interfaces: HasMeasurement, HasTheme.
+__Vuetify v2.6.14__ code example:
+```html
+<div class="v-image v-responsive theme--light" aria-label="alternate-text-here" role="img" >
+  <div class="v-responsive__sizer" style="padding-bottom: 60%;"></div>
+  <div class="v-image__image v-image__image--cover" style="background-image: url(&quot;https://source.for.image/goes?here&quot;); background-position: center center;"></div>
+  <div class="v-image__placeholder">
+  <div class="v-responsive__content style="width: 1600px;">
+    <div data-v-6b11fdaf="" class="fill-height repeating-gradient"></div>
+  </div>
+</div>
+```
 
-__Image__ element has following methods:
+| Method | Description | Return Type | 
+|:---| :--- |:---|
+**alternateText()** | Returns image alternate text if present | String
+**getSourcePath()** | Returns path to source image | String
+**isContain()** | Returns true if image is set to preserve its original aspect ratio | boolean
+**hasGradient()** | Shows that image has gradient | boolean
+**hasPlaceholder()** | Shows that image has placeholder (shown while image is loading) | boolean 
 
-|Method | Description                          | Return Type
---- |--------------------------------------| ---
-**is()** | Returns Assert class                 | ImageAssert
-**getJDIImage()** | Casts vuetify Image to HTML Image    | com.epam.jdi.light.ui.html.elements.common.Image
-**alternateText()** | Gets '{name}' alternate image text   | String
-**isContain()** | Checks that '{name}' is contain      | boolean
-**getSourcePath()** | Gets '{name}' image source path      | String
-**hasGradient()** | Checks that '{name}' has gradient    | boolean
-**hasPlaceholder()** | Checks that '{name}' has placeholder | boolean
-**height()** | Gets '{name}' height                 | int
-**width()** | Gets '{name}' width                  | int
-**maxHeight()** | Gets '{name}' max height             | int
-**maxWidth()** | Gets '{name}' max width              | int
-**minHeight()** | Gets '{name}' min height             | int
-**minWidth()** | Gets '{name}' min width              | int
+| Assert method | Description |
+| :--- | :--- |
+**altText(String expectedText)** | Assert if image has expected alternate test 
+**contain()** | Assert if image is set to preserve its original aspect ratio
+**notContain()** | Assert if image is not set to preserve its original aspect ratio
+**displayed()** | Assert if image is displayed
+**sourcePath(String expectedSourcePath)** | Assert if image has expected source path
+**gradient()** | Assert if image has gradient over
+**noGradient()** | Assert if image has no gradient over
+**placeholder()** | Assert if image has loader placeholder (loader overlay) 
+**noPlaceholder()** | Assert if image has no loader placeholder (loader overlay) 
 
-Examples of usage see on the following page: [Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
+Image also have basic JDI elements methods and asserts for Measurements and Theme
+
+For examples of usage see: [JDI Vuetify Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
 
 ### 5.30 Timelines
 

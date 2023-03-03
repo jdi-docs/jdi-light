@@ -610,55 +610,78 @@ and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/
 
 ### 5.9 Dialogs
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/dialogs/)
+[Dialogs overview](https://v2.vuetifyjs.com/en/components/dialogs/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Dialog.java_
 
 ```java
-    @Test
-    public static void formDialogTest() {
-        formDialog.open();
-        formDialog.is().opened();
-        formDialog.has().title("User Profile");
-        formDialog.fillTheForm("John", "Hadley", "Chase", "john@hadley.com",
-                "12345", 4, "Soccer", "Skiing", "Writing");
-        formDialog.save();
-        formDialog.is().closed();
-    }
+    //@FindBy(css = "#scrollableDialog")
+@UI("#scrollableDialog")
+public static ScrollableDialog scrollableDialog;
 
+@Test(description = "Check if scrollable dialog could be scrolled and option could be selected ")
+public static void scrollableDialogTest(){
+  scrollableDialogButton.show();
+  scrollableDialogButton.click();
+  scrollableDialog.is().opened().and().scrollable();
+  scrollableDialog.radiogroup().is().selected("");
+  scrollableDialog.radiogroup().select("Bahrain");
+  scrollableDialog.saveButton().click();
+  scrollableDialog.is().closed();
+  scrollableDialogButton.click();
+  scrollableDialog.is().opened();
+  scrollableDialog.radiogroup().is().selected("Bahrain");
+  scrollableDialog.closeButton().click();
+  scrollableDialog.is().closed();
+  }
 ```
 
 ![Dialogs example](../../images/vuetify/dialogs1.png)
 ![Dialogs example](../../images/vuetify/dialogs2.png)
 
-The Dialog component inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+The Dialog component inform users about a specific task and may contain critical information, require decisions, or 
+involve multiple tasks.
 
-|Method | Description | Return Type
---- | --- | ---
-**open()** | Opens required dialog| void
-**isOpened()** | Shows that dialog is opened| boolean[
-**openMenu()** | Opens menu in dialog| void
-**selectMenuElement()** | Selects required menu's in element| void
-**openNestedDialog()** | Opens nested dialog| boolean
-**nestedDialogIsOpen()** | Shows that shows that nested dialog is opened| boolean
-**closeNestedDialog()** | Closes nested dialog| void
-**openTooltip()** | Opens the tooltip in dialog| void
-**tooltipIsOpened()** | Shows that tooltip is open| boolean
-**getTitle()** | Gets dialog title| String
-**elementText()** | Gets required dialog's element text| String
-**cardText()** | Gets dialog text| String
-**checkElement()** | Checks required dialog's element| void
-**uncheckElement()** | Unchecks required dialog's element| void
-**selectRadiobutton()** | Selects required dialog's radiobutton| void
-**isSelected()** | Shows that button is selected| boolean
-**isNotSelected()** | Shows that button is not selected| boolean
-**fillTheForm()** | Fills dialog's form with required value| void
-**save()** | Closes dialog and saves changes| void
-**cancel()** | Closes dialog without saves changes| void
-**isLoading()** | Shows that dialog is loading| boolean
+__Vuetify v2.6.14__ code example:
 
-For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogTests.java).
+```html
+НЕ ПОНЯТНО КАКОЙ БРАТЬ ЭЛЕМЕНТ. ТАМ ЕСТЬ ОТДЕЛЬНО КНОПКА, ОТКРЫВАЮЩАЯ ОКНО И САМО ОКНО ДИАЛОГА
+```
 
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**content()** | Get Dialog content | Card
+**isActive()** | Get if Dialog is active | boolean
+**isOpened()** | Get if Dialog is opened | boolean
+**isClosed()** | Get if Dialog is closed | boolean
+**isFullscreen()** | Get if Dialog is fullscreen | boolean
+**isPersistent()** | Get if Dialog is persistent | boolean
+**isScrollable()** | Get if Dialog is scrollable | boolean
+**ihasVisibleContent(UIElement element)** | Get if Dialog has visible required element in dialog content | boolean
+**close()** | Close Dialog | void
+**close(String closeButtonName)** | Close Dialog with required button | void
+**maxWidthPx()** | Get Dialog's max-width | int
+**marginPx()** | Get Dialog's margin | int
+
+| Assert method | Description |
+| :--- | :--- |
+**opened()** | Assert that Dialog is opened
+**closed()** | Assert that Dialog is closed
+**active()** | Assert that Dialog is active
+**notActive()** | Assert that Dialog is not active
+**fullscreen()** | Assert that Dialog is fullscreen
+**notFullscreen()** | Assert that Dialog is not fullscreen
+**persistent()** | Assert that Dialog is persistent
+**notPersistent()** | Assert that Dialog is not persistent
+**scrollable()** | Assert that Dialog is scrollable
+**notScrollable()** | Assert that Dialog is not scrollable
+**visibleContent(UIElement element)** | Assert that Dialog has visible required element in dialog content
+**notVisibleContent(UIElement element)** | Assert that Dialog has not visible required element in dialog content
+**maxWidthPx(int width)** | Assert that Dialog has required width
+**marginPx(int margin)** | Assert that Dialog has margin with required px
+
+For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogsTests.java).
+// https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogsTests.java
 ### 5.10 Expansion Panels
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/expansion-panels/)

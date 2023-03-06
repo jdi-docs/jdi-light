@@ -2459,7 +2459,7 @@ In addition, SimpleTable class implements IsDense, HasTheme
 **columnTitle(int colNum, String reqTitle)** | Assert that Simple Table's column has title
 **height(int height)** | Assert that Simple Table has required height
 
-For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java).
+For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java).
 
 #### 5.21.2 Data Tables
 
@@ -2645,7 +2645,7 @@ In addition, DataTable class implements HasTheme, IsLoading, HasMeasurement.
 **noRowInColumn(int columnNum, String rowValue)** | Assert that Data Table do not have specific row
 **rowInColumn(int columnNum, String rowValue)** | Assert that Data Table do not have specific row
 
-For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
+For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
 
 #### 5.21.3 Data Iterators
 
@@ -2858,7 +2858,7 @@ Also, DataIterator class implements IsContainer, ISetup.
 **text(String value)** | Assert that Data Iterator Table has required text inside
 **text(Matcher validation)** | Assert that Data Iterator Table has required text inside
 
-For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataIteratorsTests.java).
+For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataIteratorsTests.java).
 
 ### 5.22 Tabs
 

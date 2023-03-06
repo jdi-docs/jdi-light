@@ -615,8 +615,8 @@ and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Dialog.java_
 
 ```java
-    //@FindBy(css = "#scrollableDialog")
-@UI("#scrollableDialog")
+    //@FindBy(css = ".v-dialog--scrollable")
+@UI(".v-dialog--scrollable")
 public static ScrollableDialog scrollableDialog;
 
 @Test(description = "Check if scrollable dialog could be scrolled and option could be selected ")
@@ -645,7 +645,59 @@ involve multiple tasks.
 __Vuetify v2.6.14__ code example:
 
 ```html
-НЕ ПОНЯТНО КАКОЙ БРАТЬ ЭЛЕМЕНТ. ТАМ ЕСТЬ ОТДЕЛЬНО КНОПКА, ОТКРЫВАЮЩАЯ ОКНО И САМО ОКНО ДИАЛОГА
+
+<div class="v-dialog v-dialog--active v-dialog--scrollable" style="transform-origin: center center; max-width: 300px;"
+     tabindex="0">
+    <div class="v-card v-sheet theme--light">
+        <div class="v-card__title">Select Country</div>
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <div class="v-card__text" style="height: 300px;">
+            <div class="v-input theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column">
+                <div class="v-input__control">
+                    <div class="v-input__slot" style="height: auto;">
+                        <div role="radiogroup" aria-labelledby="input-163" class="v-input--radio-group__input">
+                            <div class="v-radio theme--light">
+                                <div class="v-input--selection-controls__input"><i aria-hidden="true"
+                                                                                   class="v-icon notranslate mdi mdi-radiobox-blank theme--light"></i><input
+                                        aria-checked="false" id="input-164" role="radio" type="radio" name="radio-163"
+                                        value="bahamas">
+                                    <div class="v-input--selection-controls__ripple"></div>
+                                </div>
+                                <label for="input-164" class="v-label theme--light"
+                                       style="left: 0px; right: auto; position: relative;">Bahamas,
+                                    The</label></div>
+                            <div class="v-radio theme--light">
+                                <div class="v-input--selection-controls__input"><i aria-hidden="true"
+                                                                                   class="v-icon notranslate mdi mdi-radiobox-blank theme--light"></i><input
+                                        aria-checked="false" id="input-166" role="radio" type="radio" name="radio-163"
+                                        value="bahrain">
+                                    <div class="v-input--selection-controls__ripple"></div>
+                                </div>
+                                <label for="input-166" class="v-label theme--light"
+                                       style="left: 0px; right: auto; position: relative;">Bahrain</label>
+                            </div>
+                            <...>
+                        </div>
+                    </div>
+                    <div class="v-messages theme--light">
+                        <div class="v-messages__wrapper"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <div class="v-card__actions">
+            <button type="button" class="v-btn v-btn--text theme--light v-size--default blue--text text--darken-1"><span
+                    class="v-btn__content">
+                    Close
+                </span></button>
+            <button type="button" class="v-btn v-btn--text theme--light v-size--default blue--text text--darken-1"><span
+                    class="v-btn__content">
+                    Save
+                </span></button>
+        </div>
+    </div>
+</div>
 ```
 
 | Method | Description | Return Type |
@@ -680,8 +732,8 @@ __Vuetify v2.6.14__ code example:
 **maxWidthPx(int width)** | Assert that Dialog has required width
 **marginPx(int margin)** | Assert that Dialog has margin with required px
 
-For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogsTests.java).
-// https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogsTests.java
+For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogsTests.java).
+
 ### 5.10 Expansion Panels
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/expansion-panels/)

@@ -44386,135 +44386,204 @@ To use any of these icons simply use the <code>mdi-</code> prefix followed by th
 
 <p>Examples of usage see on the following page: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java">Vuetify Icon tests</a>.</p>
 <h3 id='5-24-carousels'>5.24 Carousels</h3>
-<p><a href="https://vuetifyjs.com/en/components/carousels/">Vuetify documentation page</a></p>
+<p><a href="https://v2.vuetifyjs.com/en/components/carousels/">Carousels overview</a></p>
 
 <ul>
 <li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.complex.Carousel.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customizedArrowsCarouselTests</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"PREVIOUS SLIDE"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">GREEN</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"NEXT SLIDE"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">BLUE</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">delimiters</span><span class="o">().</span><span class="na">have</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">getDelimitersIcons</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">icon</span> <span class="o">-&gt;</span> <span class="n">icon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">type</span><span class="o">(</span><span class="s">"mdi-circle"</span><span class="o">));</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">INDIGO</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"First Slide"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Second Slide"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">ORANGE_DARKEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">nextButton</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Third Slide"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">PINK_DARKEN_2</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">previousButton</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Second Slide"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">ORANGE_DARKEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Fifth Slide"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">DEEP_PURPLE_ACCENT_4</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Fourth Slide"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">RED_LIGHTEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">INDIGO</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"First Slide"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">waitUntilSlideChange</span><span class="o">(</span><span class="s">"Second Slide"</span><span class="o">,</span> <span class="n">ORANGE_DARKEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideText</span><span class="o">(</span><span class="s">"Second Slide"</span><span class="o">);</span>
-      <span class="n">customizedArrowsCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideColor</span><span class="o">(</span><span class="n">ORANGE_DARKEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
-    <span class="o">}</span>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = ".v-carousel#VerticalCarousel")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">".v-carousel#VerticalCarousel"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Carousel</span> <span class="n">verticalCarousel</span><span class="o">;</span>
+
+<span class="nd">@Test</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"Check if Vertical Carousel looks as expected and if it is possible to navigate through slides"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verticalDelimitersCarouselTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">verticalCarousel</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+  <span class="n">verticalCarousel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">loading</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">loaderHeightPx</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+  <span class="n">verticalCarousel</span><span class="o">.</span><span class="na">progressBar</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">barColor</span><span class="o">(</span><span class="n">BLUE</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+  <span class="n">verticalCarousel</span><span class="o">.</span><span class="na">hasVerticalDelimiters</span><span class="o">();</span>
+  <span class="n">verticalCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">contentText</span><span class="o">(</span><span class="s">"First Slide"</span><span class="o">);</span>
+  <span class="n">verticalCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+  <span class="n">verticalCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">contentText</span><span class="o">(</span><span class="s">"Fourth Slide"</span><span class="o">);</span>
+  <span class="o">}</span>
 </code></pre>
 <p>Carousel component is used to display large numbers of visual content on a rotating timer.</p>
 
 <p><img src="images/vuetify/carousels.png" alt="Carousels examples" /></p>
 
+<p><strong>Vuetify v2.6.14</strong> code example:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-window v-item-group theme--dark v-carousel v-carousel--vertical-delimiters"</span> <span class="na">carousel-dot-margin=</span><span class="s">"8px"</span>
+     <span class="na">id=</span><span class="s">"VerticalCarousel"</span> <span class="na">style=</span><span class="s">"height: 400px;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-window__container"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-window-item"</span> <span class="na">style=</span><span class="s">""</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-image v-responsive v-carousel__item theme--light"</span> <span class="na">style=</span><span class="s">"height: 400px;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-responsive__content"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-sheet theme--light indigo"</span> <span class="na">style=</span><span class="s">"height: 100%;"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row fill-height align-center justify-center"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-h2"</span><span class="nt">&gt;</span>
+                                First Slide
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-window-item"</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-image v-responsive v-carousel__item theme--light"</span> <span class="na">style=</span><span class="s">"height: 400px;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-responsive__content"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-sheet theme--light warning"</span> <span class="na">style=</span><span class="s">"height: 100%;"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row fill-height align-center justify-center"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-h2"</span><span class="nt">&gt;</span>
+                                Second Slide
+                            <span class="nt">&lt;/div&gt;</span>
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/div&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="err">&lt;</span>...&gt;
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-carousel__controls"</span> <span class="na">style=</span><span class="s">"left: auto; right: auto;"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-item-group theme--dark"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"0"</span>
+                    <span class="na">class=</span><span class="s">"v-carousel__controls__item v-btn v-item--active v-btn--active v-btn--icon v-btn--round theme--dark v-size--small"</span>
+                    <span class="na">aria-label=</span><span class="s">"Carousel slide 1 of 5"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span>
+                                                                                       <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-circle theme--dark"</span>
+                                                                                       <span class="na">style=</span><span class="s">"font-size: 18px;"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"1"</span>
+                    <span class="na">class=</span><span class="s">"v-carousel__controls__item v-btn v-btn--icon v-btn--round theme--dark v-size--small"</span>
+                    <span class="na">aria-label=</span><span class="s">"Carousel slide 2 of 5"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"v-btn__content"</span><span class="nt">&gt;&lt;i</span> <span class="na">aria-hidden=</span><span class="s">"true"</span>
+                                                                                       <span class="na">class=</span><span class="s">"v-icon notranslate mdi mdi-circle theme--dark"</span>
+                                                                                       <span class="na">style=</span><span class="s">"font-size: 18px;"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/button&gt;</span>
+            <span class="err">&lt;</span>...&gt;
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"progressbar"</span> <span class="na">aria-valuemin=</span><span class="s">"0"</span> <span class="na">aria-valuemax=</span><span class="s">"100"</span> <span class="na">aria-valuenow=</span><span class="s">"20"</span>
+         <span class="na">class=</span><span class="s">"v-progress-linear v-carousel__progress v-progress-linear--visible theme--dark"</span> <span class="na">style=</span><span class="s">"height: 4px;"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-progress-linear__background blue"</span> <span class="na">style=</span><span class="s">"opacity: 0.3; left: 20%; width: 80%;"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-progress-linear__buffer"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"v-progress-linear__determinate blue"</span> <span class="na">style=</span><span class="s">"width: 20%;"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
+<th style="text-align: left">Method</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Return Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Returns Assert class</td>
-<td>CarouselAssert</td>
+<td style="text-align: left"><strong>delimiters()</strong></td>
+<td style="text-align: left">Get Carousel&#39;s delimiters</td>
+<td style="text-align: left">ButtonGroup</td>
 </tr>
 <tr>
-<td><strong>delimiters()</strong></td>
-<td>Returns group of delimiter buttons containing in the element</td>
-<td>ButtonGroup</td>
+<td style="text-align: left"><strong>nextButton()</strong></td>
+<td style="text-align: left">Get Carousel&#39;s &#39;next&#39; button</td>
+<td style="text-align: left">VuetifyButton</td>
 </tr>
 <tr>
-<td><strong>nextButton()</strong></td>
-<td>Returns &#39;next&#39; button containing in the element</td>
-<td>VuetifyButton</td>
+<td style="text-align: left"><strong>previousButton()</strong></td>
+<td style="text-align: left">Get Carousel&#39;s &#39;previous&#39; button</td>
+<td style="text-align: left">VuetifyButton</td>
 </tr>
 <tr>
-<td><strong>previousButton()</strong></td>
-<td>Returns &#39;previous&#39; button containing in the element</td>
-<td>VuetifyButton</td>
+<td style="text-align: left"><strong>progressBar()</strong></td>
+<td style="text-align: left">Get Carousel&#39;s progress bar</td>
+<td style="text-align: left">VuetifyButton</td>
 </tr>
 <tr>
-<td><strong>plusButton()</strong></td>
-<td>Returns &#39;plus&#39; button containing in the element</td>
-<td>VuetifyButton</td>
+<td style="text-align: left"><strong>getDelimitersIcons()</strong></td>
+<td style="text-align: left">Get Carousel delimiter&#39;s icons</td>
+<td style="text-align: left">List<Icon></td>
 </tr>
 <tr>
-<td><strong>minusButton()</strong></td>
-<td>Returns &#39;minus&#39; button containing in the element</td>
-<td>VuetifyButton</td>
+<td style="text-align: left"><strong>slideCounter()</strong></td>
+<td style="text-align: left">Get Carousel&#39;s slide counter</td>
+<td style="text-align: left">Text</td>
 </tr>
 <tr>
-<td><strong>getSwitch()</strong></td>
-<td>Returns switch containing in the element</td>
-<td>Switch</td>
+<td style="text-align: left"><strong>goToSlide(int slideNumber)</strong></td>
+<td style="text-align: left">Go to slide number</td>
+<td style="text-align: left">void</td>
 </tr>
 <tr>
-<td><strong>getDelimitersIcons()</strong></td>
-<td>Returns list of icons of delimiters</td>
-<td>List<Icons></td>
+<td style="text-align: left"><strong>getAllSlides()</strong></td>
+<td style="text-align: left">Get all Carousel&#39;s slides</td>
+<td style="text-align: left">List<WebElement></td>
 </tr>
 <tr>
-<td><strong>currentSlideImage()</strong></td>
-<td>Returns image of current slide</td>
-<td>Image</td>
+<td style="text-align: left"><strong>plusButton()</strong></td>
+<td style="text-align: left">Get Carousel&#39;s &#39;plus&#39; button</td>
+<td style="text-align: left">VuetifyButton</td>
 </tr>
 <tr>
-<td><strong>getCurrentSlideColor()</strong></td>
-<td>Returns color of current slide (in RGBA format)</td>
-<td>String</td>
+<td style="text-align: left"><strong>minusButton()</strong></td>
+<td style="text-align: left">Get Carousel&#39;s &#39;minus&#39; button</td>
+<td style="text-align: left">VuetifyButton</td>
 </tr>
 <tr>
-<td><strong>getCurrentSlideText()</strong></td>
-<td>Returns text of current slide</td>
-<td>String</td>
+<td style="text-align: left"><strong>showArrowsOnHover()</strong></td>
+<td style="text-align: left">Get if Carousel shows arrows on hover</td>
+<td style="text-align: left">boolean</td>
 </tr>
 <tr>
-<td><strong>slideCounter()</strong></td>
-<td>Returns slide counter</td>
-<td>Text</td>
+<td style="text-align: left"><strong>hideDelimiters()</strong></td>
+<td style="text-align: left">Get if Carousel hides delimiters</td>
+<td style="text-align: left">boolean</td>
 </tr>
 <tr>
-<td><strong>goToSlide()</strong></td>
-<td>Clicks on selected delimiter</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>waitUntilSlideChange()</strong></td>
-<td>Waits until slide is changed to targeted</td>
-<td>void</td>
+<td style="text-align: left"><strong>getLoaderHeight()</strong></td>
+<td style="text-align: left">Get Carousel loader&#39;s height</td>
+<td style="text-align: left">int</td>
 </tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java">Vuetify Carousel tests</a>.</p>
+<p>In addition, Carousel  implements IsText, HasImage, HasColor, HasTheme, IsLoading, HasMeasurement.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Assert method</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>contentText(String text)</strong></td>
+<td style="text-align: left">Assert that Carousel has required text</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>showArrowsOnHover()</strong></td>
+<td style="text-align: left">Assert that Carousel shows arrows on hover</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>notShowArrowsOnHover()</strong></td>
+<td style="text-align: left">Assert that Carousel doesn&#39;t show arrows on hover</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>delimitersHidden()</strong></td>
+<td style="text-align: left">Assert that Carousel hides delimiters</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>notDelimitersHidden()</strong></td>
+<td style="text-align: left">Assert that Carousel does not hides delimiters</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>verticalDelimiters()</strong></td>
+<td style="text-align: left">Assert that Carousel has vertical delimiters</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>horizontalDelimiters()</strong></td>
+<td style="text-align: left">Assert that Carousel has horizontal delimiters</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>loaderHeightPx(int height)</strong></td>
+<td style="text-align: left">Assert that Carousel has expected loader height</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java">Vuetify Carousel tests</a>.</p>
 <h3 id='5-25-navigation-drawers'>5.25 Navigation Drawers</h3>
 <p><a href="https://vuetifyjs.com/en/components/navigation-drawers/">Vuetify documentation page</a></p>
 

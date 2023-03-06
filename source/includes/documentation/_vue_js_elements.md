@@ -157,6 +157,7 @@ public void bannerTest() {
 ![Banners example](../../images/vuetify/banners.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-banner v-sheet theme--light v-banner--single-line">
     <div class="v-banner__wrapper">

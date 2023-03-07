@@ -29,6 +29,7 @@ There are four default types: success, info, warning, and error. Border, icon, a
 ![Alerts example](../../images/vuetify/alerts.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div role="alert" class="v-alert v-sheet theme--light elevation-2 v-alert--border v-alert--border-bottom">
   <div class="v-alert__wrapper">
@@ -98,6 +99,7 @@ public void avatarTest() {
 ![Avatars example](../../images/vuetify/avatars.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-avatar indigo" style="height: 36px; min-width: 36px; width: 36px;">
   <span class="white--text text-h5">36</span>
@@ -1454,6 +1456,7 @@ public void baseFunctionalityTest() {
 The combobox component allows the user to enter values that do not exist within the provided items.
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="container container--fluid" id="DenseCombobox">
   <div class="row">
@@ -1492,6 +1495,7 @@ __Vuetify v2.6.14__ code example:
   </div>
 </div>
 ```
+
 |Method | Description                              | Return Type
 --- |------------------------------------------| ---
 **setup(Field field)** | Set up combobox                          | void
@@ -1565,6 +1569,7 @@ Select components are used for collecting user provided information from a list 
 ![Select example](../../images/vuetify/select.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-input v-input--is-label-active v-input--is-dirty v-input--dense theme--light v-text-field v-text-field--is-booted v-select">
   <div class="v-input__control">
@@ -1649,6 +1654,7 @@ The File input component is a specialized input that provides a clean interface 
 selecting files, showing detailed selection information and upload progress.
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-input theme--light v-text-field v-text-field--is-booted v-file-input" id="MultipleFileInput">
   <div class="v-input__prepend-outer">
@@ -2458,6 +2464,7 @@ __Snackbar__ component is used to display a quick message to a user. Snackbars s
 ![Snackbars example](../../images/vuetify/snackbar.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-snack v-snack--active v-snack--bottom v-snack--has-background v-snack--multi-line">
   <div class="v-snack__wrapper v-sheet theme--dark" style="">
@@ -2786,9 +2793,11 @@ For a list of all available icons, visit the official [Material Design Icons pag
 To use any of these icons simply use the `mdi-` prefix followed by the icon name.
 
 ![Icons example](../../images/vuetify/icons.png)
+
 __Vuetify v2.6.14__ code example:
+
 ```html
-<i aria-hidden="true" class="v-icon notranslate mdi mdi-domain theme--light green--text text--darken-2" 
+<i aria-hidden="true" class="v-icon notranslate mdi mdi-domain theme--light green--text text--darken-2"
    style="font-size: 36px;"></i>
 ```
 
@@ -3179,6 +3188,7 @@ Progress linear component is used to convey data circularly to users. They can a
 ![Progress Linear example](../../images/vuetify/progress-linear.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div role="progressbar" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" class="v-progress-linear v-progress-linear--visible theme--light" style="height: 4px;">
   <div class="v-progress-linear__stream red--text text--lighten-2" style="width: 100%;"></div>
@@ -3236,6 +3246,7 @@ Menu component shows a menu at the position of the element that was used to acti
 ![Menus examples](../../images/vuetify/menus.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div role="menu" class="v-menu__content theme--light menuable__content__active" style="min-width: 121px; top: 767px; left: 562px; transform-origin: left top; z-index: 8;">
   <div class="v-list v-sheet theme--light">
@@ -3300,6 +3311,7 @@ Combined with the [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader),
 ![Images examples](../../images/vuetify/images.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-image v-responsive theme--light" aria-label="alternate-text-here" role="img" >
   <div class="v-responsive__sizer" style="padding-bottom: 60%;"></div>
@@ -3446,6 +3458,7 @@ It offers the user a visual representation for selecting the time.
 ![TimePickers example_2](../../images/vuetify/time_picker_v_AMPM.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-picker v-card v-picker--time theme--light">
   <div class="v-picker__title primary">
@@ -4248,6 +4261,7 @@ Aspect Ratios - the `v-responsive` component can be used to fix any section to a
 
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-responsive">
   <div class="v-responsive__sizer" style="padding-bottom: 56.25%;">
@@ -4318,6 +4332,7 @@ Content within the badge usually contains numbers or icons.
 ![Badges example](../../images/vuetify/badges.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <span class="v-badge theme--light">
   <i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--light" style="font-size: 36px;"></i>
@@ -4388,6 +4403,7 @@ A simpler version, `v-simple-checkbox` is used primarily as a lightweight altern
 ![Checkbox example](../../images/vuetify/checkbox.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox red--text">
   <div class="v-input__control">
@@ -4474,6 +4490,7 @@ __Dividers__ - The `v-divider` component is used to separate sections of lists o
 ![Divider example](../../images/vuetify/divider.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <hr role="separator" aria-orientation="horizontal" 
     class="v-divider v-divider--inset theme--light">
@@ -4517,6 +4534,7 @@ __Input__ - The v-input component gives you a baseline to create your own custom
 ![Input example](../../images/vuetify/input.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-input v-input--has-state theme--light error--text" id="ErrorCountInput2" errors="">
   <div class="v-input__control">
@@ -4618,6 +4636,7 @@ For example, properties such as rounded and shaped modify the border-radius prop
 ![Sheets examples](../../images/vuetify/sheets.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="d-flex v-sheet theme--light elevation-4 rounded yellow lighten-3" style="height: 150px; width: 150px;">
   <div class="mt-auto align-center justify-center d-flex px-2 v-sheet theme--dark" style="height: 50px; background-color: rgba(0, 0, 0, 0.36); border-color: rgba(0, 0, 0, 0.36);">

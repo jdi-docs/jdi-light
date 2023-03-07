@@ -2640,11 +2640,10 @@ In addition, DataTable class implements HasTheme, IsLoading, HasMeasurement.
 **rowWithValues(int rowNumber, String... values)** | Assert that Data Table row has values
 **sortEnabled(String column, boolean isEnabled)** | Assert that Data Table sort is enabled for column
 **sortRequired(boolean isRequired)** | Assert that Data Table sort is required for the table
-**loading()** | Assert that Data Table group has size
 **groupSize(String groupName, int expectedSize)** | Assert that Data Table group has size
 **fixedHeader(boolean isFixedHeader)** | Assert that Data Table has fixed header
 **noRowInColumn(int columnNum, String rowValue)** | Assert that Data Table do not have specific row
-**rowInColumn(int columnNum, String rowValue)** | Assert that Data Table do not have specific row
+**rowInColumn(int columnNum, String rowValue)** | Assert that Data Table have specific row
 
 For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
 

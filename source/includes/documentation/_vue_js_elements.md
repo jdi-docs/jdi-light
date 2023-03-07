@@ -2416,6 +2416,7 @@ public void heightSimpleTableTest() {
 ![Simple Table example](../../images/vuetify/simple_table.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-data-table theme--light" file="v-simple-table/usage">
     <div class="v-data-table__wrapper">

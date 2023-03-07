@@ -2457,7 +2457,6 @@ In addition, SimpleTable class implements IsDense, HasTheme
 **fixedHeight()** | Assert that Simple Table has fixed height
 **cellValue(int colNum, int rowNum, String data)** | Assert that Simple Table's first column has required element
 **columnTitle(int colNum, String reqTitle)** | Assert that Simple Table's column has title
-**height(int height)** | Assert that Simple Table has required height
 
 For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java).
 
@@ -2494,6 +2493,7 @@ The Data Table component is used for displaying tabular data and to extend the S
 ![Data Table example](../../images/vuetify/data_table.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-data-table elevation-1 v-data-table--has-bottom theme--light" file="v-data-table/usage">
     <div class="v-data-table__wrapper">
@@ -2687,6 +2687,7 @@ the Data Tables component. Features include sorting, searching, pagination, and 
 ![Data Table example](../../images/vuetify/data_iterator.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="container container--fluid" id="FilterTable">
     <div class="v-data-iterator">

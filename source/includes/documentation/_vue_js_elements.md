@@ -399,54 +399,6 @@ This name contains a WebList of buttons and provides access to them by index.
 **getButtonWight()** | Return Button Wight  | String
 **getButtonText** | Return Button Text | String
 
-### 5.6 Bottom sheets
-
-[Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-sheets/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.composite.BottomSheet.java_
-
-```java
-public class TextBottomSheet extends BottomSheet {
-  @UI(".text-center > div")
-  protected Text text;
-  @UI("button")
-  protected Button button;
-  public void close() { button.click(); }
-  public Text sheetText() { return text; }
-}
-```
-
-Bottom sheet is a form of dialog that appears at the bottom of a page.
-You can inherit the class and define the inner content of the sheet.
-
-
-```java
-@Test
-public void checkInsetSheetCssProps() {
-    insetBottomSheet.is().hidden();
-    insetBottomSheetButton.click();
-    insetBottomSheet.is().displayed();
-    insetBottomSheet.sheetText().has().text(containsString("the inset prop"));
-    insetBottomSheet.close();
-    insetBottomSheet.is().hidden();
-}
-```
-
-![Bottom sheet example](../../images/vuetify/bottom-sheet.png)
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | BottomNavigationAssert
-**getBackgroundColor()** | Returns element's background color | String
-**getClassAttribute()** | Returns element's class attribute | String
-**getTransform()** | Returns element's transform | String
-**bottomNavigationButtonList()** | Returns element's buttons | WebList
-**getButtonColor(int)** | Returns color of required element's button | String
-**getButtonWight(int)** | Returns width of required element's button | String
-**getButtonDirection(int)** | Returns direction of required element's button | String
-**getButtonText(int)** | Returns text of required element's button | String
-
-For examples of usage see: [Vuetify Bottom sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/BottomSheetsTests.java).
 
 ### 5.7 Breadcrumbs
 

@@ -273,7 +273,7 @@ For examples of usage see: [JDI vuetify page tests for app bars](https://github.
 
 #### 5.4.3 System bars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/system-bars/)
+[System bars overview](https://v2.vuetifyjs.com/en/components/system-bars/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.SystemBar.java_
 
@@ -334,7 +334,7 @@ For examples of usage see: [JDI vuetify page tests for system bars](https://gith
 
 #### 5.4.4 Toolbars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/toolbars/)
+[Toolbars overview](https://v2.vuetifyjs.com/en/components/toolbars/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.ToolBar.java_
 

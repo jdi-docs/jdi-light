@@ -222,29 +222,29 @@ Basic bar is an abstract class that contains methods that are common for its spe
 
 #### 5.4.2 App Bars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/app-bars/)
+[App bars overview](https://v2.vuetifyjs.com/en/components/app-bars/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.AppBar.java_
 
+// в jdi light AppBarsPage.java в селекторах указаны не v-app-bar, а .v-toolbar. нужно испраивть? но в доме тулбар тоже
+есть, но нужно бы указать другое
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```java
-    @Test
-    public void collapsibleBarTests() {
-      collapsibleBar.is().displayed();
-      collapsibleBar.menuButton().is().displayed();
-      collapsibleBar.has().title();
-      collapsibleBar.has().textInTitle("Collapsing Bar");
-      collapsibleBar.scrollBarToBottom();
-      collapsibleBar.has().hiddenTitle();
-      collapsibleBar.scrollBarToTop();
-      collapsibleBar.has().title();
-      collapsibleBar.checkbox().is().displayed();
-      collapsibleBar.checkbox().is().checked();
-      collapsibleBar.checkbox().uncheck();
-      collapsibleBar.checkbox().is().unchecked();
-      collapsibleBar.has().hiddenTitle();
-      collapsibleBar.checkbox().check();
-      collapsibleBar.has().title();
-    }
+    //@FindBy(css = "#scrollThresholdBar .v-toolbar")
+@UI("#scrollThresholdBar .v-toolbar")
+public static AppBarWithImageThresholdOnly thresholdBar;
+
+@Test(description = "Test checks if app bar has image threshold or not")
+public void thresholdBarTest(){
+  thresholdBar.show();
+  thresholdBar.has().imageFadingOnScroll();
+  thresholdBar.scrollBarToBottom();
+  thresholdBar.image().has().attr("style","opacity: 0;");
+  thresholdBar.is().onBottomPosition();
+  thresholdBar.scrollBarToTop();
+  thresholdBar.image().has().attr("style","opacity: 1;");
+  thresholdBar.is().onTopPosition();
+  }
 ```
 
 ![App bars example](../../images/vuetify/app-bars.png)
@@ -267,7 +267,7 @@ App bar component extends abstract class Basic Bar. It is pivotal to any graphic
 **scrollBarToBottom()** | Scrolls element to bottom | void
 **scrollBarToTop()** | Scrolls element to top | void
 
-For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java).
+For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/bars/AppBarsTests.java).
 
 #### 5.4.3 System bars
 
@@ -306,7 +306,7 @@ System bar component extends abstract class Basic Bar. It can be used for displa
 **blankCheckboxIcon()** | Returns 'Blank Checkbox' icon containing in the element | Icon
 **closeIcon()** | Returns 'Close' icon containing in the element | Icon
 
-For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SystemBarsTests.java).
+For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/bars/SystemBarsTests.java).
 
 #### 5.4.4 Toolbars
 
@@ -352,7 +352,7 @@ Toolbar component extends abstract class Basic Bar. It is pivotal to any gui, as
 **hasDenseHeader()** | Returns true if element has dense header | boolean
 **hasExtendedHeader()** | Returns true if element extended header | boolean
 
-For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
+For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/bars/ToolBarsTests.java).
 
 
 ### 5.5 Bottom navigation

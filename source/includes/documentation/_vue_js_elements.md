@@ -249,7 +249,9 @@ public void thresholdBarTest(){
 
 ![App bars example](../../images/vuetify/app-bars.png)
 
-App bar component extends abstract class Basic Bar. It is pivotal to any graphical user interface (GUI), as it generally is the primary source of site navigation.
+The App bars component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site
+navigation. The App bars component works great in conjunction with a Navigation Drawers for providing site navigation 
+in your application.
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -276,21 +278,43 @@ For examples of usage see: [JDI vuetify page tests for app bars](https://github.
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.SystemBar.java_
 
 ```java
-    @Test
-    public void systemBarColoredPrimaryTests() {
-      systemBarColoredPrimary.is().displayed();
-      systemBarColoredPrimary.has().text("System bar color 1");
-      systemBarColoredPrimary.wiFiIcon().is().displayed();
-      systemBarColoredPrimary.signalIcon().is().displayed();
-      systemBarColoredPrimary.batteryIcon().is().displayed();
-      systemBarColoredPrimary.has().time("12:30");
-      systemBarColoredPrimary.has().backgroundColor(BLUE_DARKEN_2.value());
-    }
+    //@FindBy(css = "#AppSystemBar .v-system-bar")
+@UI("#AppSystemBar .v-system-bar")
+public static SystemBar appSystemBar;
+
+@Test(description = "Test checks if app system bar appears as expected")
+public void appSystemBarTest(){
+  appSystemBar.show();
+  appSystemBar.has().text("App system bar title");
+  appSystemBar.is().notWindow();
+  appSystemBar.has().height(30);
+  }
 ```
 
 ![System bars example](../../images/vuetify/system-bars.png)
 
-System bar component extends abstract class Basic Bar. It can be used for displaying statuses to the user. It looks like the Android system bar and can contain icons, spacers, and some text.
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-system-bar v-system-bar--fixed theme--light green" id="system-bar-app" style="height: 30px;">
+  <button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+    class="v-btn__content"><i aria-hidden="true"
+                              class="v-icon notranslate mdi mdi-menu theme--light"></i></span>
+  </button>
+  <div class="v-toolbar__title">App system bar title</div>
+  <div class="spacer"></div>
+  <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+    class="v-btn__content"><i aria-hidden="true"
+                              class="v-icon notranslate mdi mdi-heart theme--light"></i></span>
+  </button>
+  <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+    class="v-btn__content"><i aria-hidden="true"
+                              class="v-icon notranslate mdi mdi-dots-vertical theme--light"></i></span></button>
+</div>
+```
+
+The System bar component can be used for displaying statuses to the user. It looks like the Android system bar and can 
+contain icons, spacers, and some text.
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -315,23 +339,50 @@ For examples of usage see: [JDI vuetify page tests for system bars](https://gith
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.ToolBar.java_
 
 ```java
-    @Test
-    public void denseToolbarTests() {
-      denseToolbar.is().displayed();
-      denseToolbar.menuButton().is().displayed();
-      denseToolbar.has().title();
-      denseToolbar.has().textInTitle("Title");
-      denseToolbar.searchButton().is().displayed();
-      denseToolbar.heartButton().is().displayed();
-      denseToolbar.verticalDotsButton().is().displayed();
-      denseToolbar.has().denseHeader();
-      denseToolbar.has().heightOfHeader(48);
-    }
+    //@FindBy(css = "#denseToolbar .v-toolbar")
+@UI("#denseToolbar .v-toolbar")
+public static ToolBar denseToolbar;
+
+@Test(description = "Check if dense toolbar looks as expected")
+public void denseToolBarTest(){
+  denseToolbar.show();
+  denseToolbar.is().dense();
+  denseToolbar.is().notBackgroundImage();
+  denseToolbar.is().notFlat();
+  }
 ```
 
 ![Toolbars example](../../images/vuetify/toolbars.png)
 
-Toolbar component extends abstract class Basic Bar. It is pivotal to any gui, as it generally is the primary source of site navigation.
+__Vuetify v2.6.14__ code example:
+
+```html
+<header class="v-sheet theme--light v-toolbar v-toolbar--dense" style="height: 48px;">
+    <div class="v-toolbar__content" style="height: 48px;">
+        <button type="button"
+                class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+                class="v-btn__content"><i aria-hidden="true"
+                                          class="v-icon notranslate mdi mdi-menu theme--light"></i></span>
+        </button>
+        <div class="v-toolbar__title">Title</div>
+        <div class="spacer"></div>
+        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+                class="v-btn__content"><i aria-hidden="true"
+                                          class="v-icon notranslate mdi mdi-magnify theme--light"></i></span>
+        </button>
+        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+                class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--light"></i></span>
+        </button>
+        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+                class="v-btn__content"><i aria-hidden="true"
+                                          class="v-icon notranslate mdi mdi-dots-vertical theme--light"></i></span>
+        </button>
+    </div>
+</header>
+```
+
+The Toolbar component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site 
+navigation. The toolbar component works great in conjunction with Navigation drawer and Cards.
 
 |Method | Description | Return Type
 --- | --- | ---

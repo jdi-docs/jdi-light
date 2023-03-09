@@ -4085,7 +4085,7 @@ Available methods in Java JDI Light:
 
 ### 5.38 Chips
 
-[Chips Vuetify documentation page](https://vuetifyjs.com/en/components/chips/)
+[Chips Vuetify documentation page](https://v2.vuetifyjs.com/en/components/chips/)
 
 Chips are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Chip.java_
@@ -4173,7 +4173,10 @@ Available methods in Java JDI Light:
 **isRemovable()** | Checks if the chip is revomable               | boolean
 **isPill()** | Checks if the chip is pill                      | boolean
 
-For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
+Chip class implement following interfaces: HasClick, HasColor, HasIcon, HasImage,
+HasTheme, IsOutlined, HasMeasurement.
+
+For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
 
 ### 5.39 Aspect Ratios
 

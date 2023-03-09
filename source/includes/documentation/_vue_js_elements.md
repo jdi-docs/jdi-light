@@ -29,6 +29,7 @@ There are four default types: success, info, warning, and error. Border, icon, a
 ![Alerts example](../../images/vuetify/alerts.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div role="alert" class="v-alert v-sheet theme--light elevation-2 v-alert--border v-alert--border-bottom">
   <div class="v-alert__wrapper">
@@ -98,6 +99,7 @@ public void avatarTest() {
 ![Avatars example](../../images/vuetify/avatars.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-avatar indigo" style="height: 36px; min-width: 36px; width: 36px;">
   <span class="white--text text-h5">36</span>
@@ -157,6 +159,7 @@ public void bannerTest() {
 ![Banners example](../../images/vuetify/banners.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-banner v-sheet theme--light v-banner--single-line">
     <div class="v-banner__wrapper">
@@ -398,54 +401,6 @@ This name contains a WebList of buttons and provides access to them by index.
 **getButtonWight()** | Return Button Wight  | String
 **getButtonText** | Return Button Text | String
 
-### 5.6 Bottom sheets
-
-[Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-sheets/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.composite.BottomSheet.java_
-
-```java
-public class TextBottomSheet extends BottomSheet {
-  @UI(".text-center > div")
-  protected Text text;
-  @UI("button")
-  protected Button button;
-  public void close() { button.click(); }
-  public Text sheetText() { return text; }
-}
-```
-
-Bottom sheet is a form of dialog that appears at the bottom of a page.
-You can inherit the class and define the inner content of the sheet.
-
-
-```java
-@Test
-public void checkInsetSheetCssProps() {
-    insetBottomSheet.is().hidden();
-    insetBottomSheetButton.click();
-    insetBottomSheet.is().displayed();
-    insetBottomSheet.sheetText().has().text(containsString("the inset prop"));
-    insetBottomSheet.close();
-    insetBottomSheet.is().hidden();
-}
-```
-
-![Bottom sheet example](../../images/vuetify/bottom-sheet.png)
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | BottomNavigationAssert
-**getBackgroundColor()** | Returns element's background color | String
-**getClassAttribute()** | Returns element's class attribute | String
-**getTransform()** | Returns element's transform | String
-**bottomNavigationButtonList()** | Returns element's buttons | WebList
-**getButtonColor(int)** | Returns color of required element's button | String
-**getButtonWight(int)** | Returns width of required element's button | String
-**getButtonDirection(int)** | Returns direction of required element's button | String
-**getButtonText(int)** | Returns text of required element's button | String
-
-For examples of usage see: [Vuetify Bottom sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/BottomSheetsTests.java).
 
 ### 5.7 Breadcrumbs
 
@@ -610,54 +565,129 @@ and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/
 
 ### 5.9 Dialogs
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/dialogs/)
+[Dialogs overview](https://v2.vuetifyjs.com/en/components/dialogs/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Dialog.java_
 
 ```java
-    @Test
-    public static void formDialogTest() {
-        formDialog.open();
-        formDialog.is().opened();
-        formDialog.has().title("User Profile");
-        formDialog.fillTheForm("John", "Hadley", "Chase", "john@hadley.com",
-                "12345", 4, "Soccer", "Skiing", "Writing");
-        formDialog.save();
-        formDialog.is().closed();
-    }
+    //@FindBy(css = ".v-dialog--scrollable")
+@UI(".v-dialog--scrollable")
+public static ScrollableDialog scrollableDialog;
 
+@Test(description = "Check if scrollable dialog could be scrolled and option could be selected ")
+public static void scrollableDialogTest(){
+  scrollableDialogButton.show();
+  scrollableDialogButton.click();
+  scrollableDialog.is().opened().and().scrollable();
+  scrollableDialog.radiogroup().is().selected("");
+  scrollableDialog.radiogroup().select("Bahrain");
+  scrollableDialog.saveButton().click();
+  scrollableDialog.is().closed();
+  scrollableDialogButton.click();
+  scrollableDialog.is().opened();
+  scrollableDialog.radiogroup().is().selected("Bahrain");
+  scrollableDialog.closeButton().click();
+  scrollableDialog.is().closed();
+  }
 ```
 
 ![Dialogs example](../../images/vuetify/dialogs1.png)
 ![Dialogs example](../../images/vuetify/dialogs2.png)
 
-The Dialog component inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+The Dialog component inform users about a specific task and may contain critical information, require decisions, or 
+involve multiple tasks.
 
-|Method | Description | Return Type
---- | --- | ---
-**open()** | Opens required dialog| void
-**isOpened()** | Shows that dialog is opened| boolean[
-**openMenu()** | Opens menu in dialog| void
-**selectMenuElement()** | Selects required menu's in element| void
-**openNestedDialog()** | Opens nested dialog| boolean
-**nestedDialogIsOpen()** | Shows that shows that nested dialog is opened| boolean
-**closeNestedDialog()** | Closes nested dialog| void
-**openTooltip()** | Opens the tooltip in dialog| void
-**tooltipIsOpened()** | Shows that tooltip is open| boolean
-**getTitle()** | Gets dialog title| String
-**elementText()** | Gets required dialog's element text| String
-**cardText()** | Gets dialog text| String
-**checkElement()** | Checks required dialog's element| void
-**uncheckElement()** | Unchecks required dialog's element| void
-**selectRadiobutton()** | Selects required dialog's radiobutton| void
-**isSelected()** | Shows that button is selected| boolean
-**isNotSelected()** | Shows that button is not selected| boolean
-**fillTheForm()** | Fills dialog's form with required value| void
-**save()** | Closes dialog and saves changes| void
-**cancel()** | Closes dialog without saves changes| void
-**isLoading()** | Shows that dialog is loading| boolean
+__Vuetify v2.6.14__ code example:
 
-For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogTests.java).
+```html
+
+<div class="v-dialog v-dialog--active v-dialog--scrollable" style="transform-origin: center center; max-width: 300px;"
+     tabindex="0">
+    <div class="v-card v-sheet theme--light">
+        <div class="v-card__title">Select Country</div>
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <div class="v-card__text" style="height: 300px;">
+            <div class="v-input theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--column">
+                <div class="v-input__control">
+                    <div class="v-input__slot" style="height: auto;">
+                        <div role="radiogroup" aria-labelledby="input-163" class="v-input--radio-group__input">
+                            <div class="v-radio theme--light">
+                                <div class="v-input--selection-controls__input"><i aria-hidden="true"
+                                                                                   class="v-icon notranslate mdi mdi-radiobox-blank theme--light"></i><input
+                                        aria-checked="false" id="input-164" role="radio" type="radio" name="radio-163"
+                                        value="bahamas">
+                                    <div class="v-input--selection-controls__ripple"></div>
+                                </div>
+                                <label for="input-164" class="v-label theme--light"
+                                       style="left: 0px; right: auto; position: relative;">Bahamas,
+                                    The</label></div>
+                            <div class="v-radio theme--light">
+                                <div class="v-input--selection-controls__input"><i aria-hidden="true"
+                                                                                   class="v-icon notranslate mdi mdi-radiobox-blank theme--light"></i><input
+                                        aria-checked="false" id="input-166" role="radio" type="radio" name="radio-163"
+                                        value="bahrain">
+                                    <div class="v-input--selection-controls__ripple"></div>
+                                </div>
+                                <label for="input-166" class="v-label theme--light"
+                                       style="left: 0px; right: auto; position: relative;">Bahrain</label>
+                            </div>
+                            <...>
+                        </div>
+                    </div>
+                    <div class="v-messages theme--light">
+                        <div class="v-messages__wrapper"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <div class="v-card__actions">
+            <button type="button" class="v-btn v-btn--text theme--light v-size--default blue--text text--darken-1"><span
+                    class="v-btn__content">
+                    Close
+                </span></button>
+            <button type="button" class="v-btn v-btn--text theme--light v-size--default blue--text text--darken-1"><span
+                    class="v-btn__content">
+                    Save
+                </span></button>
+        </div>
+    </div>
+</div>
+```
+
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**content()** | Get Dialog content | Card
+**isActive()** | Get if Dialog is active | boolean
+**isOpened()** | Get if Dialog is opened | boolean
+**isClosed()** | Get if Dialog is closed | boolean
+**isFullscreen()** | Get if Dialog is fullscreen | boolean
+**isPersistent()** | Get if Dialog is persistent | boolean
+**isScrollable()** | Get if Dialog is scrollable | boolean
+**ihasVisibleContent(UIElement element)** | Get if Dialog has visible required element in dialog content | boolean
+**close()** | Close Dialog | void
+**close(String closeButtonName)** | Close Dialog with required button | void
+**maxWidthPx()** | Get Dialog's max-width | int
+**marginPx()** | Get Dialog's margin | int
+
+| Assert method | Description |
+| :--- | :--- |
+**opened()** | Assert that Dialog is opened
+**closed()** | Assert that Dialog is closed
+**active()** | Assert that Dialog is active
+**notActive()** | Assert that Dialog is not active
+**fullscreen()** | Assert that Dialog is fullscreen
+**notFullscreen()** | Assert that Dialog is not fullscreen
+**persistent()** | Assert that Dialog is persistent
+**notPersistent()** | Assert that Dialog is not persistent
+**scrollable()** | Assert that Dialog is scrollable
+**notScrollable()** | Assert that Dialog is not scrollable
+**visibleContent(UIElement element)** | Assert that Dialog has visible required element in dialog content
+**notVisibleContent(UIElement element)** | Assert that Dialog has not visible required element in dialog content
+**maxWidthPx(int width)** | Assert that Dialog has required width
+**marginPx(int margin)** | Assert that Dialog has margin with required px
+
+For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogsTests.java).
 
 ### 5.10 Expansion Panels
 
@@ -1426,6 +1456,7 @@ public void baseFunctionalityTest() {
 The combobox component allows the user to enter values that do not exist within the provided items.
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="container container--fluid" id="DenseCombobox">
   <div class="row">
@@ -1464,6 +1495,7 @@ __Vuetify v2.6.14__ code example:
   </div>
 </div>
 ```
+
 |Method | Description                              | Return Type
 --- |------------------------------------------| ---
 **setup(Field field)** | Set up combobox                          | void
@@ -1537,6 +1569,7 @@ Select components are used for collecting user provided information from a list 
 ![Select example](../../images/vuetify/select.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-input v-input--is-label-active v-input--is-dirty v-input--dense theme--light v-text-field v-text-field--is-booted v-select">
   <div class="v-input__control">
@@ -1621,6 +1654,7 @@ The File input component is a specialized input that provides a clean interface 
 selecting files, showing detailed selection information and upload progress.
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-input theme--light v-text-field v-text-field--is-booted v-file-input" id="MultipleFileInput">
   <div class="v-input__prepend-outer">
@@ -2430,6 +2464,7 @@ __Snackbar__ component is used to display a quick message to a user. Snackbars s
 ![Snackbars example](../../images/vuetify/snackbar.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-snack v-snack--active v-snack--bottom v-snack--has-background v-snack--multi-line">
   <div class="v-snack__wrapper v-sheet theme--dark" style="">
@@ -2758,9 +2793,11 @@ For a list of all available icons, visit the official [Material Design Icons pag
 To use any of these icons simply use the `mdi-` prefix followed by the icon name.
 
 ![Icons example](../../images/vuetify/icons.png)
+
 __Vuetify v2.6.14__ code example:
+
 ```html
-<i aria-hidden="true" class="v-icon notranslate mdi mdi-domain theme--light green--text text--darken-2" 
+<i aria-hidden="true" class="v-icon notranslate mdi mdi-domain theme--light green--text text--darken-2"
    style="font-size: 36px;"></i>
 ```
 
@@ -2796,74 +2833,121 @@ Examples of usage see on the following page: [Vuetify Icon tests](https://github
 
 ### 5.24 Carousels
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/carousels/)
+[Carousels overview](https://v2.vuetifyjs.com/en/components/carousels/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Carousel.java_
 
 ```java
-    @Test
-    public void customizedArrowsCarouselTests() {
-      customizedArrowsCarousel.is().displayed();
-      customizedArrowsCarousel.nextButton().is().notVisible();
-      customizedArrowsCarousel.previousButton().is().notVisible();
-      customizedArrowsCarousel.hover();
-      customizedArrowsCarousel.nextButton().is().visible();
-      customizedArrowsCarousel.previousButton().is().visible();
-      customizedArrowsCarousel.previousButton().has().text("PREVIOUS SLIDE");
-      customizedArrowsCarousel.previousButton().has().color(GREEN.value());
-      customizedArrowsCarousel.nextButton().has().text("NEXT SLIDE");
-      customizedArrowsCarousel.nextButton().has().color(BLUE.value());
-      customizedArrowsCarousel.delimiters().have().size(5);
-      customizedArrowsCarousel.getDelimitersIcons().forEach(icon -> icon.has().type("mdi-circle"));
-      customizedArrowsCarousel.goToSlide(1);
-      customizedArrowsCarousel.has().currentSlideColor(INDIGO.value());
-      customizedArrowsCarousel.has().currentSlideText("First Slide");
-      customizedArrowsCarousel.goToSlide(2);
-      customizedArrowsCarousel.has().currentSlideText("Second Slide");
-      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
-      customizedArrowsCarousel.nextButton().click();
-      customizedArrowsCarousel.has().currentSlideText("Third Slide");
-      customizedArrowsCarousel.has().currentSlideColor(PINK_DARKEN_2.value());
-      customizedArrowsCarousel.previousButton().click();
-      customizedArrowsCarousel.has().currentSlideText("Second Slide");
-      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
-      customizedArrowsCarousel.goToSlide(5);
-      customizedArrowsCarousel.has().currentSlideText("Fifth Slide");
-      customizedArrowsCarousel.has().currentSlideColor(DEEP_PURPLE_ACCENT_4.value());
-      customizedArrowsCarousel.goToSlide(4);
-      customizedArrowsCarousel.has().currentSlideText("Fourth Slide");
-      customizedArrowsCarousel.has().currentSlideColor(RED_LIGHTEN_1.value());
-      customizedArrowsCarousel.goToSlide(1);
-      customizedArrowsCarousel.has().currentSlideColor(INDIGO.value());
-      customizedArrowsCarousel.has().currentSlideText("First Slide");
-      customizedArrowsCarousel.waitUntilSlideChange("Second Slide", ORANGE_DARKEN_1.value());
-      customizedArrowsCarousel.has().currentSlideText("Second Slide");
-      customizedArrowsCarousel.has().currentSlideColor(ORANGE_DARKEN_1.value());
-    }
+//@FindBy(css = ".v-carousel#VerticalCarousel")
+@UI(".v-carousel#VerticalCarousel")
+public static Carousel verticalCarousel;
+
+@Test(description = "Check if Vertical Carousel looks as expected and if it is possible to navigate through slides")
+public void verticalDelimitersCarouselTest() {
+  verticalCarousel.show();
+  verticalCarousel.is().loading().and().has().loaderHeightPx(4);
+  verticalCarousel.progressBar().has().barColor(BLUE.value());
+  verticalCarousel.hasVerticalDelimiters();
+  verticalCarousel.has().contentText("First Slide");
+  verticalCarousel.goToSlide(4);
+  verticalCarousel.has().contentText("Fourth Slide");
+  }
 ```
 
 Carousel component is used to display large numbers of visual content on a rotating timer.
 
 ![Carousels examples](../../images/vuetify/carousels.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | CarouselAssert
-**delimiters()** | Returns group of delimiter buttons containing in the element | ButtonGroup
-**nextButton()** | Returns 'next' button containing in the element | VuetifyButton
-**previousButton()** | Returns 'previous' button containing in the element | VuetifyButton
-**plusButton()** | Returns 'plus' button containing in the element | VuetifyButton
-**minusButton()** | Returns 'minus' button containing in the element | VuetifyButton
-**getSwitch()** | Returns switch containing in the element | Switch
-**getDelimitersIcons()** | Returns list of icons of delimiters | List<Icons>
-**currentSlideImage()** | Returns image of current slide | Image
-**getCurrentSlideColor()** | Returns color of current slide (in RGBA format) | String
-**getCurrentSlideText()** | Returns text of current slide | String
-**slideCounter()** | Returns slide counter | Text
-**goToSlide()** | Clicks on selected delimiter | void
-**waitUntilSlideChange()** | Waits until slide is changed to targeted | void
+__Vuetify v2.6.14__ code example:
 
-For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java).
+```html
+<div class="v-window v-item-group theme--dark v-carousel v-carousel--vertical-delimiters" carousel-dot-margin="8px"
+     id="VerticalCarousel" style="height: 400px;">
+    <div class="v-window__container">
+        <div class="v-window-item" style="">
+            <div class="v-image v-responsive v-carousel__item theme--light" style="height: 400px;">
+                <div class="v-responsive__content">
+                    <div class="v-sheet theme--light indigo" style="height: 100%;">
+                        <div class="row fill-height align-center justify-center">
+                            <div class="text-h2">
+                                First Slide
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="v-window-item" style="display: none;">
+            <div class="v-image v-responsive v-carousel__item theme--light" style="height: 400px;">
+                <div class="v-responsive__content">
+                    <div class="v-sheet theme--light warning" style="height: 100%;">
+                        <div class="row fill-height align-center justify-center">
+                            <div class="text-h2">
+                                Second Slide
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <...>
+    </div>
+    <div class="v-carousel__controls" style="left: auto; right: auto;">
+        <div class="v-item-group theme--dark">
+            <button type="button" value="0"
+                    class="v-carousel__controls__item v-btn v-item--active v-btn--active v-btn--icon v-btn--round theme--dark v-size--small"
+                    aria-label="Carousel slide 1 of 5"><span class="v-btn__content"><i aria-hidden="true"
+                                                                                       class="v-icon notranslate mdi mdi-circle theme--dark"
+                                                                                       style="font-size: 18px;"></i></span>
+            </button>
+            <button type="button" value="1"
+                    class="v-carousel__controls__item v-btn v-btn--icon v-btn--round theme--dark v-size--small"
+                    aria-label="Carousel slide 2 of 5"><span class="v-btn__content"><i aria-hidden="true"
+                                                                                       class="v-icon notranslate mdi mdi-circle theme--dark"
+                                                                                       style="font-size: 18px;"></i></span>
+            </button>
+            <...>
+        </div>
+    </div>
+    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"
+         class="v-progress-linear v-carousel__progress v-progress-linear--visible theme--dark" style="height: 4px;">
+        <div class="v-progress-linear__background blue" style="opacity: 0.3; left: 20%; width: 80%;"></div>
+        <div class="v-progress-linear__buffer"></div>
+        <div class="v-progress-linear__determinate blue" style="width: 20%;"></div>
+    </div>
+</div>
+```
+
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**delimiters()** | Get Carousel's delimiters | ButtonGroup
+**nextButton()** | Get Carousel's 'next' button | VuetifyButton
+**previousButton()** | Get Carousel's 'previous' button | VuetifyButton
+**progressBar()** | Get Carousel's progress bar | VuetifyButton
+**getDelimitersIcons()** | Get Carousel delimiter's icons | List<Icon>
+**slideCounter()** | Get Carousel's slide counter | Text
+**goToSlide(int slideNumber)** | Go to slide number| void
+**getAllSlides()** | Get all Carousel's slides| List<WebElement>
+**plusButton()** | Get Carousel's 'plus' button| VuetifyButton
+**minusButton()** | Get Carousel's 'minus' button| VuetifyButton
+**showArrowsOnHover()** | Get if Carousel shows arrows on hover| boolean
+**hideDelimiters()** | Get if Carousel hides delimiters| boolean
+**getLoaderHeight()** | Get Carousel loader's height| int
+
+In addition, Carousel  implements IsText, HasImage, HasColor, HasTheme, IsLoading, HasMeasurement.
+
+| Assert method | Description |
+| :--- | :--- |
+**contentText(String text)** | Assert that Carousel has required text
+**showArrowsOnHover()** | Assert that Carousel shows arrows on hover
+**notShowArrowsOnHover()** | Assert that Carousel doesn't show arrows on hover
+**delimitersHidden()** | Assert that Carousel hides delimiters
+**notDelimitersHidden()** | Assert that Carousel does not hides delimiters
+**verticalDelimiters()** | Assert that Carousel has vertical delimiters
+**horizontalDelimiters()** | Assert that Carousel has horizontal delimiters
+**loaderHeightPx(int height)** | Assert that Carousel has expected loader height
+
+For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java).
 
 ### 5.25 Navigation Drawers
 
@@ -3104,6 +3188,7 @@ Progress linear component is used to convey data circularly to users. They can a
 ![Progress Linear example](../../images/vuetify/progress-linear.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div role="progressbar" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" class="v-progress-linear v-progress-linear--visible theme--light" style="height: 4px;">
   <div class="v-progress-linear__stream red--text text--lighten-2" style="width: 100%;"></div>
@@ -3161,6 +3246,7 @@ Menu component shows a menu at the position of the element that was used to acti
 ![Menus examples](../../images/vuetify/menus.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div role="menu" class="v-menu__content theme--light menuable__content__active" style="min-width: 121px; top: 767px; left: 562px; transform-origin: left top; z-index: 8;">
   <div class="v-list v-sheet theme--light">
@@ -3225,6 +3311,7 @@ Combined with the [vuetify-loader](https://github.com/vuetifyjs/vuetify-loader),
 ![Images examples](../../images/vuetify/images.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-image v-responsive theme--light" aria-label="alternate-text-here" role="img" >
   <div class="v-responsive__sizer" style="padding-bottom: 60%;"></div>
@@ -3371,6 +3458,7 @@ It offers the user a visual representation for selecting the time.
 ![TimePickers example_2](../../images/vuetify/time_picker_v_AMPM.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-picker v-card v-picker--time theme--light">
   <div class="v-picker__title primary">
@@ -4199,6 +4287,7 @@ Aspect Ratios - the `v-responsive` component can be used to fix any section to a
 
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-responsive">
   <div class="v-responsive__sizer" style="padding-bottom: 56.25%;">
@@ -4269,6 +4358,7 @@ Content within the badge usually contains numbers or icons.
 ![Badges example](../../images/vuetify/badges.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <span class="v-badge theme--light">
   <i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--light" style="font-size: 36px;"></i>
@@ -4339,6 +4429,7 @@ A simpler version, `v-simple-checkbox` is used primarily as a lightweight altern
 ![Checkbox example](../../images/vuetify/checkbox.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox red--text">
   <div class="v-input__control">
@@ -4425,6 +4516,7 @@ __Dividers__ - The `v-divider` component is used to separate sections of lists o
 ![Divider example](../../images/vuetify/divider.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <hr role="separator" aria-orientation="horizontal" 
     class="v-divider v-divider--inset theme--light">
@@ -4468,6 +4560,7 @@ __Input__ - The v-input component gives you a baseline to create your own custom
 ![Input example](../../images/vuetify/input.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="v-input v-input--has-state theme--light error--text" id="ErrorCountInput2" errors="">
   <div class="v-input__control">
@@ -4569,6 +4662,7 @@ For example, properties such as rounded and shaped modify the border-radius prop
 ![Sheets examples](../../images/vuetify/sheets.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="d-flex v-sheet theme--light elevation-4 rounded yellow lighten-3" style="height: 150px; width: 150px;">
   <div class="mt-auto align-center justify-center d-flex px-2 v-sheet theme--dark" style="height: 50px; background-color: rgba(0, 0, 0, 0.36); border-color: rgba(0, 0, 0, 0.36);">

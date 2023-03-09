@@ -2444,16 +2444,12 @@ __Vuetify v2.6.14__ code example:
 | Method | Description | Return Type |
 | :--- | :--- | :--- |
 **hasFixedHeader()** | Get if Simple Table has fixed header | boolean
-**isDark()** | Shows that table has dark theme | boolean
-**isLight()** | Shows that table has light theme | boolean
 **hasFixedHeight()** | Shows that table has fixed height | boolean
 
 In addition, SimpleTable class implements IsDense, HasTheme
 
 | Assert method | Description |
 | :--- | :--- |
-**dark()** | Assert that Simple Table is dark theme
-**light()** | Assert that Simple Table is light theme
 **fixedHeader()** | Assert that Simple Table has fixed header
 **fixedHeight()** | Assert that Simple Table has fixed height
 **cellValue(int colNum, int rowNum, String data)** | Assert that Simple Table's first column has required element

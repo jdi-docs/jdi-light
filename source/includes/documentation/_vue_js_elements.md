@@ -3857,15 +3857,20 @@ For examples of usage see: [JDI vuetify page tests for Virtual Scroller](https:/
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.SkeletonLoader.java_
 
 ```java
-@Test
-public void tableImageSkeletonLoaderTest() {
-    tableImageSkeletonLoader.is().displayed();
-    tableImageSkeletonLoader.headingBoilerplate().is().displayed();
-    tableImageSkeletonLoader.textBoilerplate().is().displayed();
-    tableImageSkeletonLoader.imageBoilerplate().is().displayed();
-    tableImageSkeletonLoader.avatarBoilerplate().is().displayed();
+//@FindBy(css = "#DarkAnimationSkeletonLoader > .v-skeleton-loader")
+@UI("#DarkAnimationSkeletonLoader > .v-skeleton-loader")
+public static SkeletonLoader darkSkeletonLoader
+
+@Test(description = "Check if dark Skeleton loader looks as expected")
+public void darkSkeletonLoaderTest() {
+  darkSkeletonLoader.show();
+  darkSkeletonLoader.has().darkTheme();
+  darkSkeletonLoader.is().notBoilerplate();
+  darkSkeletonLoader.is().elevated();
+  darkSkeletonLoader.is().tile();
   }
 ```
+
 The `v-skeleton-loader` component is a versatile tool that can fill many roles within a project. 
 At its heart, the component provides an indication to the user that something is coming but not yet available. 
 There are over 30 pre-defined options available that can be combined to make custom examples.
@@ -3873,6 +3878,32 @@ There are over 30 pre-defined options available that can be combined to make cus
 ####Boilerplate component
 The `v-skeleton-loader` can be used as boilerplate designs when creating mockups. 
 Mix and match various pre-defined options or create your own unique implementations.
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-skeleton-loader v-skeleton-loader--boilerplate v-skeleton-loader--is-loading theme--light mb-6">
+  <div class="v-skeleton-loader__card-avatar v-skeleton-loader__bone">
+    <div class="v-skeleton-loader__image v-skeleton-loader__bone"></div>
+    <div class="v-skeleton-loader__list-item-avatar v-skeleton-loader__bone">
+      <div class="v-skeleton-loader__avatar v-skeleton-loader__bone"></div>
+      <div class="v-skeleton-loader__text v-skeleton-loader__bone"></div>
+    </div>
+  </div>
+  <div class="v-skeleton-loader__article v-skeleton-loader__bone">
+    <div class="v-skeleton-loader__heading v-skeleton-loader__bone"></div>
+    <div class="v-skeleton-loader__paragraph v-skeleton-loader__bone">
+      <div class="v-skeleton-loader__text v-skeleton-loader__bone"></div>
+      <div class="v-skeleton-loader__text v-skeleton-loader__bone"></div>
+      <div class="v-skeleton-loader__text v-skeleton-loader__bone"></div>
+    </div>
+  </div>
+  <div class="v-skeleton-loader__actions v-skeleton-loader__bone">
+    <div class="v-skeleton-loader__button v-skeleton-loader__bone"></div>
+    <div class="v-skeleton-loader__button v-skeleton-loader__bone"></div>
+  </div>
+</div>
+```
 
 ![Skeleton Loader example](../../images/vuetify/skeleton_loaders.png)
 

@@ -287,21 +287,40 @@ The App bars component is pivotal to any graphical user interface (GUI), as it g
 navigation. The App bars component works great in conjunction with a Navigation Drawers for providing site navigation 
 in your application.
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | AppBarAssert
-**checkbox()** | Returns checkbox containing in the element | Checkbox
-**menu()** | Returns menu containing in the element | Menu
-**hasClickableTabs()** | Returns true if element has clickable tabs | boolean
-**hasHiddenHeader()** | Returns true if element's header is hidden | boolean
-**hasVisibleHeader()** | Returns true if element's header is visible | boolean
-**getHeaderHeight()** | Returns element's header's height | String
-**getHeaderOpacity()** | Returns element's header's opacity | Integer
-**hasHiddenHeaderShadow()** | Returns true if element's header's shadow is hidden | boolean
-**hasVisibleHeaderShadow()** | Returns true if element's header's shadow is visible | boolean
-**hasNavigationMenu()** | Returns true if element contains navigation menu | boolean
-**scrollBarToBottom()** | Scrolls element to bottom | void
-**scrollBarToTop()** | Scrolls element to top | void
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**hasBackgroundImage()** | Get if App bar is scrolled | boolean
+**backgroundImage()** | Get App bar's image | Image
+**scrollBarToBottom()** | Scroll App bar to bottom | void
+**scrollBarToTop()** | Scroll App bar to top | void
+**isCollapsible()** | Get if App bar is collapsible | boolean
+**hasImageFadingOnScroll()** | Get if App bar has image fading on scroll | boolean
+**isOnTopPosition()** | Get if App bar is on top position | boolean
+**isOnBottomPosition()** | Get if App bar is on bottom position | boolean
+**isElevateOnScroll()** | Get if App bar is elevate on scroll | boolean
+**isScrolled()** | Get if App bar is scrolled | boolean
+**isShrinkOnScroll()** | Get if App bar shrinks on scroll | boolean
+**isBarShort()** | Get if App bar is short | boolean
+**isBarUsualSize() ** | Get if App bar has usual size | boolean
+
+| Assert method | Description |
+| :--- | :--- |
+**collapsible()** | Assert that App bar is collapsible
+**notCollapsible()** | Assert that App bar is not collapsible
+**imageFadingOnScroll()** | Assert that App bar has image fading on scroll
+**onTopPosition()** | Assert that App bar is on top position
+**onBottomPosition()** | Assert that App bar is on bottom position
+**noImageFadingOnScroll()** | Assert that App bar has no image fading on scroll
+**elevateOnScroll()** | Assert that App bar is elevate on scroll
+**notElevateOnScroll()** | Assert that App bar is not elevate on scroll
+**scrolled()** | Assert that App bar is scrolled
+**notScrolled()** | Assert that App bar is not scrolled
+**backgroundImage()** | Assert that App bar has background image
+**noBackgroundImage()** | Assert that App bar has no background image
+**shrinkOnScroll()** | Assert that App bar shrinks on scroll
+**notShrinkOnScroll()** | Assert that App bar doesn't shrink on scroll
+**isShort()** | Assert that App bar bar is short
+**isUsualSize()** | Assert that App bar bar has usual size
 
 For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/bars/AppBarsTests.java).
 

@@ -357,50 +357,79 @@ For examples of usage see: [JDI vuetify page tests for toolbars](https://github.
 
 ### 5.5 Bottom navigation
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-navigation/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/bottom-navigation/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.composite.BottomNavigation.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.BottomNavigation.java_
 
 ```java
-    @UI("#colorBottomNavigation")
-    public static BottomNavigation bottomNavigationColor;
+    //@FindBy(css = "#scrollThresholdBottomNavigation .v-bottom-navigation")
+    @UI("#scrollThresholdBottomNavigation .v-bottom-navigation")
+    public static BottomNavigation bottomNavigationScrollThreshold;
 
-    @UI("#growBottomNavigation")
-    public static BottomNavigation bottomNavigationGrow;
+    //@FindBy(css = "#fixedBottomNavigation .v-bottom-navigation")
+    @UI("#fixedBottomNavigation .v-bottom-navigation")
+    public static BottomNavigation bottomNavigationFixed;
 
 
 
-    @Test
-    public void colorTest() {
-        bottomNavigationColor.is().displayed();
-        bottomNavigationColor.is().buttonColor(1, "rgba(0, 0, 0, 0.6)");
-        bottomNavigationColor.bottomNavigationButtonList().get(1).click();
-        bottomNavigationColor.is().buttonColor(1, Colors.BLUE_DARKEN_2.value());
+@Test(description = "Test checks bottom navigation position")
+public void positionBottomNavigationTest() {
+    cardWithBottomNavigationScrollThreshold.show();
+    cardWithBottomNavigationScrollThreshold.scroll(-1500);
+    bottomNavigationScrollThreshold.is().absolute();
+    bottomNavigationScrollThreshold.is().notFixed();
+    bottomNavigationFixed.show();
+    bottomNavigationFixed.is().fixed();
+    bottomNavigationFixed.is().notAbsolute();
     }
 
-    @Test
-    public void wightTest() {
-      bottomNavigationGrow.is().displayed();
-      bottomNavigationGrow.is().buttonWight(1, "168px");
-      bottomNavigationGrow.is().buttonWight(2, "168px");
-      bottomNavigationGrow.is().buttonWight(3, "168px");
-    }
 ```
 
 ![Bottom navigation example](../../images/vuetify/bottomNavigation.png)
 
-This name contains a WebList of buttons and provides access to them by index.
+The v-bottom-navigation component is an alternative to the sidebar. It is primarily used for mobile applications and comes in three variants, icons and text, and shift.
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | Assert
-**bottomNavigationButtonList()** | Return | WebList
-**getBackgroundColor()** | Return background color | String
-**getClassAttribute()** | Return Class Attribute | String
-**getButtonColor()** | Return Button RGBA Color value  | String
-**getButtonWight()** | Return Button Wight  | String
-**getButtonText** | Return Button Text | String
+__Vuetify v2.6.14__ code example:
 
+```html
+<div class="v-bottom-navigation v-item-group theme--light" file="v-bottom-navigation/usage" style="height: 56px; transform: none;">
+    <button type="button" value="recent" class="v-btn v-btn--active v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
+        <span class="v-btn__content">
+            <span>Recent</span>
+            <i aria-hidden="true" class="v-icon notranslate mdi mdi-history theme--light">
+            </i>
+        </span>
+    </button>
+    <button type="button" value="favorites" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
+        <span class="v-btn__content">
+            <span>Favorites</span>
+            <i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--light">
+            </i>
+        </span>
+    </button>
+    <button type="button" value="nearby" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default">
+        <span class="v-btn__content">
+            <span>Nearby</span>
+            <i aria-hidden="true" class="v-icon notranslate mdi mdi-map-marker theme--light">
+            </i>
+        </span>
+    </button>
+</div>
+```
+
+|Method | Description                                | Return Type
+--- |--------------------------------------------| ---
+**is()** | Returns Assert class                       | BottomNavigationAssert
+**buttonColor(int)** | Returns button color by index              | String
+**buttonColor(String)** | Returns button color by text               | String
+**isFixed()** | Gets if element has fixed position    | boolean
+**isAbsolute()** | Gets if element has absolute position | boolean
+**isHorizontal()** | Gets if element is horizontal         | boolean
+**isGrow()** | Gets if element is grow               | boolean
+
+__BottomNavigation__ element implements the following interfaces: HasColor, HasTheme, HasMeasurement
+
+For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BottomNavigationTests.java).
 
 ### 5.7 Breadcrumbs
 

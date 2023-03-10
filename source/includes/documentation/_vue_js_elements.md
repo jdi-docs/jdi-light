@@ -3852,7 +3852,7 @@ For examples of usage see: [JDI vuetify page tests for Virtual Scroller](https:/
 
 ### 5.34 Skeleton loader
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/skeleton-loaders/)
+[Skeleton loader overview](https://v2.vuetifyjs.com/en/components/skeleton-loaders/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.SkeletonLoader.java_
 
@@ -3876,7 +3876,27 @@ Mix and match various pre-defined options or create your own unique implementati
 
 ![Skeleton Loader example](../../images/vuetify/skeleton_loaders.png)
 
-For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java).
+| Method | Description | Return Type |
+| :--- | :--- | :--- | 
+**avatar()** | Get Skeleton loader's avatar | UIElement
+**text()** | Get Skeleton loader's text | UIElement
+**heading()** | Get Skeleton loader's heading | UIElement
+**button()** | Get Skeleton loader's button | UIElement
+**image()** | Get Skeleton loader's image | UIElement
+**article()** | Get Skeleton loader's article | UIElement
+**paragraph()** | Get Skeleton loader's paragraph | UIElement
+**actions()** | Get Skeleton loader's actions | UIElement
+**divider()** | Get Skeleton loader's divider | UIElement
+**isBoilerplate()** | Get if Skeleton loader's is boilerplate | boolean
+
+In addition, SkeletonLoader  implements HasTheme, HasElevation, HasCursor, HasMeasurement, IsTile.
+
+| Assert method | Description |
+| :--- | :--- |
+**boilerplate()** | Assert that Skeleton loader is boilerplate 
+**notBoilerplate()** | Assert that Skeleton loader is not boilerplate
+
+For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java).
 
 ### 5.35 Parallax
 

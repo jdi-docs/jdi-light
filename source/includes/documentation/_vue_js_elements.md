@@ -4171,74 +4171,100 @@ Available methods in Java JDI Light:
 
 [Here you can find Buttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/VuetifyButtonsTests.java).
 
-### 5.38 Chip
+### 5.38 Chips
 
-[Chip Vuetify documentation page](https://vuetifyjs.com/en/components/chips/)
+[Chips Vuetify documentation page](https://v2.vuetifyjs.com/en/components/chips/)
 
-Chip is located in the following class:
-
+Chips are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Chip.java_
 
 ```java
+    //FindBy(css = "#ClosableChip > .v-chip")
     @UI("#ClosableChip > .v-chip")
     public static List<Chip> closableChips;
-    
-    @UI("#FilterChip > .v-chip")
-    public static List<Chip> filterChips;
 
-    @UI("//label[text()[contains(., 'Active')]]")
-    public static Label filterSwitchLabel;
+    //FindBy(css = "#ColoredChip > .v-chip")
+    @UI("#ColoredChip > .v-chip")
+    public static List<Chip> coloredChips;
 
-    @Test
+    @Test (description = "Test checks removable feature")
     public void closableChipTests() {
       Chip closableChip = closableChips.get(1);
-      closableChip.is().displayed();
+      Chip greyChip = coloredChips.get(1);
+      closableChip.show();
+      closableChip.is().displayed().and().removable();
       closableChip.close();
       closableChip.is().hidden();
-      }
-  
-    @Test
-    public void filterChipTests() {
-        Chip filterChip = filterChips.get(1);
-        filterChip.is().notActive();
-
-        filterSwitchLabel.click();
-        filterChip.is().active();
-        filterChip.has().filterIconDisplayed();
+      greyChip.show();
+      greyChip.is().notRemovable();
     }
 ```
 
-__Chip__ - The `v-chip` component is used to convey small pieces of information. 
+__Chips__ - The `v-chip` component is used to convey small pieces of information. 
 Using the close property, the chip becomes interactive, allowing user interaction. 
 This component is used by the `v-chip-group` for advanced selection options.
 
 ![Chip example](../../images/vuetify/chip.png)
 
+__Vuetify v2.6.14__ code example:
+```html
+<div class="text-center" id="ColoredChip">
+  <span class="ma-2 v-chip v-chip--no-color theme--light v-size--default">
+    <span class="v-chip__content">
+    Default
+  </span>
+  </span>
+  <span class="ma-2 v-chip theme--light v-size--default primary">
+    <span class="v-chip__content">
+    Primary
+  </span>
+  </span>
+  <span class="ma-2 v-chip theme--light v-size--default secondary">
+    <span class="v-chip__content">
+    Secondary
+  </span>
+  </span>
+  <span class="ma-2 v-chip theme--light v-size--default red white--text">
+    <span class="v-chip__content">
+    Red Chip
+  </span>
+  </span>
+  <span class="ma-2 v-chip theme--light v-size--default green white--text">
+    <span class="v-chip__content">
+    Green Chip
+  </span>
+  </span>
+</div>
+```
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns object for work with assertions | ChipAssert
-**getText()** | Gets chip text | String
-**getBoldTextFromCompositeLabel()** | Gets bold text from the chip's composite label | String
-**getRegularTextFromCompositeLabel()** | Gets regular text from the chip's composite label | String
-**getFullTextFromCompositeLabel()** | Gets full text from the chip's composite label | String
-**click()** | Clicks the chip | void
-**close()** | Clicks the chip's close button | void
-**isDraggable()** | Checks if the chip is draggable | boolean
-**isActive()** | Checks if the chip is active | boolean
+|Method | Description                                   | Return Type
+--- |-----------------------------------------------| ---
+**is()** | Returns object for work with assertions       | ChipAssert
+**getText()** | Gets chip text                                | String
+**click()** | Clicks the chip                               | void
+**close()** | Clicks the chip's close button                | void
+**isDraggable()** | Checks if the chip is draggable               | boolean
+**active()** | Checks if the chip is active                  | boolean
 **isFilterIconDisplayed()** | Checks if the chip's filter icon is displayed | boolean
-**isLabel()** | Checks if the chip is marked as label chip | boolean
-**hasIcon()** | Checks if the chip has an icon | boolean
-**hasImage()** | Checks if the chip has an image | boolean
-**hasVisibleBorder()** | Checks if the chip has a visible border | boolean
-**height()** | Gets chip height | String
-**fontSize()** | Gets chip font size | String
-**fontColor()** | Gets chip font color | String
-**backgroundColor()** | Gets chip background color | String
-**borderColor()** | Gets chip border color | String
+**isLabel()** | Checks if the chip is marked as label chip    | boolean
+**hasImage()** | Checks if the chip has an image               | boolean
+**isEnabled()** | Checks if the chip is enabled                 | boolean
+**getContent()** | Get chip content                              | UIElement
+**fontSize()** | Gets chip font size                           | String
+**borderColor()** | Gets chip border color                        | String
+**hasXSmallSize()** | Checks if the chip has x-small size           | boolean
+**hasSmallSize()** | Checks if the chip has small size             | boolean
+**hasDefaultSize()** | Checks if the chip has default size           | boolean
+**hasLargeSize()** | Checks if the chip has large size             | boolean
+**hasXLargeSize()** | Checks if the chip has x-large size           | boolean
+**isRemovable()** | Checks if the chip is revomable               | boolean
+**isPill()** | Checks if the chip is pill                      | boolean
 
-For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
+Chip class implement following interfaces: HasClick, HasColor, HasIcon, HasImage,
+HasTheme, IsOutlined, HasMeasurement.
+
+For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
 
 ### 5.39 Aspect Ratios
 

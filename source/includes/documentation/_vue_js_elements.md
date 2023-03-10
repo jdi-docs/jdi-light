@@ -226,9 +226,6 @@ Basic bar is an abstract class that contains methods that are common for its spe
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.AppBar.java_
 
-// в jdi light AppBarsPage.java в селекторах указаны не v-app-bar, а .v-toolbar. нужно испраивть? но в доме тулбар тоже
-есть, но нужно бы указать другое
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```java
     //@FindBy(css = "#scrollThresholdBar .v-toolbar")
 @UI("#scrollThresholdBar .v-toolbar")
@@ -248,6 +245,43 @@ public void thresholdBarTest(){
 ```
 
 ![App bars example](../../images/vuetify/app-bars.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<header
+  class="v-sheet theme--dark v-toolbar v-toolbar--absolute v-toolbar--prominent v-app-bar v-app-bar--fade-img-on-scroll v-app-bar--shrink-on-scroll"
+  data-booted="true"
+  style="height: 128px; font-size: 1.5rem; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px; background-color: rgb(67, 160, 71); border-color: rgb(67, 160, 71);">
+  <div class="v-toolbar__image" style="opacity: 1;">
+    <div class="v-image v-responsive theme--dark" style="height: 128px;">
+      <div class="v-responsive__sizer" style="padding-bottom: 56.25%;"></div>
+      <div class="v-image__image v-image__image--cover"
+           style="background-image: linear-gradient(to right top, rgba(55, 236, 186, 0.7), rgba(25, 32, 72, 0.7)), url(&quot;https://jdi-testing.github.io/jdi-light/vuetify/pictures/foggy_city_1080.jpeg&quot;); background-position: center center;"></div>
+      <div class="v-responsive__content" style="width: 1920px;"></div>
+    </div>
+  </div>
+  <div class="v-toolbar__content" style="height: 128px;">
+    <button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
+      class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--dark"></i></span>
+    </button>
+    <div class="v-toolbar__title v-app-bar-title">
+      <div class="v-app-bar-title__content" style="width: 47px; visibility: visible;">Title</div>
+      <div class="v-app-bar-title__placeholder" style="visibility: hidden;">Title</div>
+    </div>
+    <div class="spacer"></div>
+    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
+      class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark"></i></span>
+    </button>
+    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
+      class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--dark"></i></span>
+    </button>
+    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
+      class="v-btn__content"><i aria-hidden="true"
+                                class="v-icon notranslate mdi mdi-dots-vertical theme--dark"></i></span></button>
+  </div>
+</header>
+```
 
 The App bars component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site
 navigation. The App bars component works great in conjunction with a Navigation Drawers for providing site navigation 

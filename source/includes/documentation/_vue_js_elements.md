@@ -212,13 +212,31 @@ For examples of usage see: [JDI vuetify page tests for banners](https://github.c
 
 Basic bar is an abstract class that contains methods that are common for its specific realisations such as App Bar, Tool Bar and System Bar following below.
 
-|Method | Description | Return Type
---- | --- | ---
-**menuButton()** | Returns 'Menu' button containing in the element | VuetifyButton
-**title()** | Returns element's title | Text
-**verticalDotsButton()** | Returns 'Vertical Dots' button containing in the element | VuetifyButton
-**searchButton()** | Returns 'Search' button containing in the element | VuetifyButton
-**heartButton()** | Returns 'Heart' button containing in the element | VuetifyButton
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**isCollapsed()** | Get if Basic Bar is collapsed | boolean
+**isExpanded()** | Get if Basic Bar is expanded | boolean
+**title()** | Get Basic Bar title | Text
+**getHeader()** | Get Basic Bar header | UIElement
+**buttons()** | Get Basic Bar buttons | List<VuetifyButton>
+**fields()** | Get Basic Bar fields | List<UIElement>
+**findIconButton(String buttonLocator)** | Get Basic Bar action buttons | VuetifyButton
+**castToIcon(UIElement element)** | Get Basic Bar's icon | Icon
+**isExtended()** | Get if Basic Bar is extended | boolean
+**isFloating()** | Get if Basic Bar is floating | boolean
+
+In addition, Basic Bar implements IsText, HasColor, IsFlat, IsDense, IsShaped, IsOutlined, HasElevation, 
+HasTheme, HasRounded.
+
+| Assert method | Description |
+| :--- | :--- |
+**text(String text)** | Assert that Basic Bar has expected text
+**collapsed()** | Assert that Basic Bar is collapsed
+**expanded()** | Assert that Basic Bar is expanded
+**extended()** | Assert that Basic Bar is extended
+**notExtended()** | Assert that Basic Bar is not extended
+**floating()** | Assert that Basic Bar is floating
+**notFloating()** | Assert that Basic Bar is not floating
 
 #### 5.4.2 App Bars
 
@@ -375,7 +393,7 @@ contain icons, spacers, and some text.
 **isLightsOut()** | Get if System Bar is lights out | boolean
 **isWindow()** | Get if System Bar is window | boolean
 
-SystemBar implements HasTheme, HasMeasurement
+In addition, System Bar implements HasMeasurement.
 
 | Assert method | Description |
 | :--- | :--- |

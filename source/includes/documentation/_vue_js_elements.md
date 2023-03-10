@@ -369,19 +369,20 @@ __Vuetify v2.6.14__ code example:
 The System bar component can be used for displaying statuses to the user. It looks like the Android system bar and can 
 contain icons, spacers, and some text.
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | SystemBarAssert
-**getBackgroundColor()** | Returns element's background color | String
-**getPosition()** | Returns element's position | String
-**getTime()** | Returns text from element's 'time' field | String
-**wiFiIcon()** | Returns 'Wi-Fi' icon containing in the element | Icon
-**signalIcon()** | Returns 'Signal' icon containing in the element | Icon
-**batteryIcon()** | Returns 'Battery' icon containing in the element | Icon
-**messageIcon()** | Returns 'Message' icon containing in the element | Icon
-**minusIcon()** | Returns 'Minus' icon containing in the element | Icon
-**blankCheckboxIcon()** | Returns 'Blank Checkbox' icon containing in the element | Icon
-**closeIcon()** | Returns 'Close' icon containing in the element | Icon
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**icons()** | Get System Bar icons | List<Icon>
+**isLightsOut()** | Get if System Bar is lights out | boolean
+**isWindow()** | Get if System Bar is window | boolean
+
+SystemBar implements HasTheme, HasMeasurement
+
+| Assert method | Description |
+| :--- | :--- |
+**lightsOut()** | Assert that System Bar is lights out
+**notLightsOut()** | Assert that System Bar is not lights out
+**window()** | Assert that System Bar is window
+**notWindow()** | Assert that System Bar is not window
 
 For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/bars/SystemBarsTests.java).
 
@@ -437,24 +438,14 @@ __Vuetify v2.6.14__ code example:
 The Toolbar component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site 
 navigation. The toolbar component works great in conjunction with Navigation drawer and Cards.
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | ToolBarAssert
-**closeButton()** | Returns 'Close' button containing in the element | VuetifyButton
-**deleteButton()** | Returns 'Delete' button containing in the element | VuetifyButton
-**exportButton()** | Returns 'Export' button containing in the element | VuetifyButton
-**gpsButton()** | Returns 'GPS' button containing in the element | VuetifyButton
-**appsButton()** | Returns 'Apps' button containing in the element | VuetifyButton
-**searchIcon()** | Returns 'Search' icon containing in the element | Icon
-**input()** | Returns input field containing in the element | Input
-**select()** | Returns select containing in the element | Select
-**backgroundImage()** | Returns element's background image | Image
-**getHeaderHeight()** | Returns element's header's height | String
-**getHeaderColor()** | Returns element's header's height | String
-**hasHiddenButtons()** | Returns true if element's buttons are hidden | boolean
-**hasCollapsedHeader()** | Returns true if element has collapsed header | boolean
-**hasDenseHeader()** | Returns true if element has dense header | boolean
-**hasExtendedHeader()** | Returns true if element extended header | boolean
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**hasBackgroundImage()** | Get if Toolbar has background image | boolean
+
+| Assert method | Description |
+| :--- | :--- |
+**backgroundImage()** | Assert that Toolbar has background image
+**notBackgroundImage()** | Assert that Toolbar has not background image
 
 For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/bars/ToolBarsTests.java).
 

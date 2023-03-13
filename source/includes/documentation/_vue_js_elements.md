@@ -319,7 +319,7 @@ in your application.
 **isScrolled()** | Get if App bar is scrolled | boolean
 **isShrinkOnScroll()** | Get if App bar shrinks on scroll | boolean
 **isBarShort()** | Get if App bar is short | boolean
-**isBarUsualSize() ** | Get if App bar has usual size | boolean
+**isBarUsualSize()** | Get if App bar has usual size | boolean
 
 | Assert method | Description |
 | :--- | :--- |

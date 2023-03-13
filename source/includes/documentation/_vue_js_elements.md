@@ -3861,7 +3861,7 @@ For examples of usage see: [JDI vuetify page tests for Virtual Scroller](https:/
 @UI("#DarkAnimationSkeletonLoader > .v-skeleton-loader")
 public static SkeletonLoader darkSkeletonLoader
 
-@Test(description = "Check if dark skeleton looks as expected and is not boilerplate")
+@Test(description = "Check if dark skeleton loader looks as expected and is not boilerplate")
 public void darkSkeletonLoaderTest() {
   darkSkeletonLoader.show();
   darkSkeletonLoader.has().darkTheme();

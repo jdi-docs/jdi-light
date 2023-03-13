@@ -212,147 +212,260 @@ For examples of usage see: [JDI vuetify page tests for banners](https://github.c
 
 Basic bar is an abstract class that contains methods that are common for its specific realisations such as App Bar, Tool Bar and System Bar following below.
 
-|Method | Description | Return Type
---- | --- | ---
-**menuButton()** | Returns 'Menu' button containing in the element | VuetifyButton
-**title()** | Returns element's title | Text
-**verticalDotsButton()** | Returns 'Vertical Dots' button containing in the element | VuetifyButton
-**searchButton()** | Returns 'Search' button containing in the element | VuetifyButton
-**heartButton()** | Returns 'Heart' button containing in the element | VuetifyButton
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**isCollapsed()** | Get if Basic Bar is collapsed | boolean
+**isExpanded()** | Get if Basic Bar is expanded | boolean
+**title()** | Get Basic Bar title | Text
+**getHeader()** | Get Basic Bar header | UIElement
+**buttons()** | Get Basic Bar buttons | List<VuetifyButton>
+**fields()** | Get Basic Bar fields | List<UIElement>
+**findIconButton(String buttonLocator)** | Get Basic Bar action buttons | VuetifyButton
+**castToIcon(UIElement element)** | Get Basic Bar's icon | Icon
+**isExtended()** | Get if Basic Bar is extended | boolean
+**isFloating()** | Get if Basic Bar is floating | boolean
+
+In addition, Basic Bar implements IsText, HasColor, IsFlat, IsDense, IsShaped, IsOutlined, HasElevation, 
+HasTheme, HasRounded.
+
+| Assert method | Description |
+| :--- | :--- |
+**text(String text)** | Assert that Basic Bar has expected text
+**collapsed()** | Assert that Basic Bar is collapsed
+**expanded()** | Assert that Basic Bar is expanded
+**extended()** | Assert that Basic Bar is extended
+**notExtended()** | Assert that Basic Bar is not extended
+**floating()** | Assert that Basic Bar is floating
+**notFloating()** | Assert that Basic Bar is not floating
 
 #### 5.4.2 App Bars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/app-bars/)
+[App bars overview](https://v2.vuetifyjs.com/en/components/app-bars/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.AppBar.java_
 
 ```java
-    @Test
-    public void collapsibleBarTests() {
-      collapsibleBar.is().displayed();
-      collapsibleBar.menuButton().is().displayed();
-      collapsibleBar.has().title();
-      collapsibleBar.has().textInTitle("Collapsing Bar");
-      collapsibleBar.scrollBarToBottom();
-      collapsibleBar.has().hiddenTitle();
-      collapsibleBar.scrollBarToTop();
-      collapsibleBar.has().title();
-      collapsibleBar.checkbox().is().displayed();
-      collapsibleBar.checkbox().is().checked();
-      collapsibleBar.checkbox().uncheck();
-      collapsibleBar.checkbox().is().unchecked();
-      collapsibleBar.has().hiddenTitle();
-      collapsibleBar.checkbox().check();
-      collapsibleBar.has().title();
-    }
+    //@FindBy(css = "#scrollThresholdBar .v-toolbar")
+@UI("#scrollThresholdBar .v-toolbar")
+public static AppBarWithImageThresholdOnly thresholdBar;
+
+@Test(description = "Test checks if app bar has image threshold or not")
+public void thresholdBarTest(){
+  thresholdBar.show();
+  thresholdBar.has().imageFadingOnScroll();
+  thresholdBar.scrollBarToBottom();
+  thresholdBar.image().has().attr("style","opacity: 0;");
+  thresholdBar.is().onBottomPosition();
+  thresholdBar.scrollBarToTop();
+  thresholdBar.image().has().attr("style","opacity: 1;");
+  thresholdBar.is().onTopPosition();
+  }
 ```
 
 ![App bars example](../../images/vuetify/app-bars.png)
 
-App bar component extends abstract class Basic Bar. It is pivotal to any graphical user interface (GUI), as it generally is the primary source of site navigation.
+__Vuetify v2.6.14__ code example:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | AppBarAssert
-**checkbox()** | Returns checkbox containing in the element | Checkbox
-**menu()** | Returns menu containing in the element | Menu
-**hasClickableTabs()** | Returns true if element has clickable tabs | boolean
-**hasHiddenHeader()** | Returns true if element's header is hidden | boolean
-**hasVisibleHeader()** | Returns true if element's header is visible | boolean
-**getHeaderHeight()** | Returns element's header's height | String
-**getHeaderOpacity()** | Returns element's header's opacity | Integer
-**hasHiddenHeaderShadow()** | Returns true if element's header's shadow is hidden | boolean
-**hasVisibleHeaderShadow()** | Returns true if element's header's shadow is visible | boolean
-**hasNavigationMenu()** | Returns true if element contains navigation menu | boolean
-**scrollBarToBottom()** | Scrolls element to bottom | void
-**scrollBarToTop()** | Scrolls element to top | void
+```html
+<header
+  class="v-sheet theme--dark v-toolbar v-toolbar--absolute v-toolbar--prominent v-app-bar v-app-bar--fade-img-on-scroll v-app-bar--shrink-on-scroll"
+  data-booted="true"
+  style="height: 128px; font-size: 1.5rem; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px; background-color: rgb(67, 160, 71); border-color: rgb(67, 160, 71);">
+  <div class="v-toolbar__image" style="opacity: 1;">
+    <div class="v-image v-responsive theme--dark" style="height: 128px;">
+      <div class="v-responsive__sizer" style="padding-bottom: 56.25%;"></div>
+      <div class="v-image__image v-image__image--cover"
+           style="background-image: linear-gradient(to right top, rgba(55, 236, 186, 0.7), rgba(25, 32, 72, 0.7)), url(&quot;https://jdi-testing.github.io/jdi-light/vuetify/pictures/foggy_city_1080.jpeg&quot;); background-position: center center;"></div>
+      <div class="v-responsive__content" style="width: 1920px;"></div>
+    </div>
+  </div>
+  <div class="v-toolbar__content" style="height: 128px;">
+    <button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
+      class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--dark"></i></span>
+    </button>
+    <div class="v-toolbar__title v-app-bar-title">
+      <div class="v-app-bar-title__content" style="width: 47px; visibility: visible;">Title</div>
+      <div class="v-app-bar-title__placeholder" style="visibility: hidden;">Title</div>
+    </div>
+    <div class="spacer"></div>
+    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
+      class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark"></i></span>
+    </button>
+    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
+      class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--dark"></i></span>
+    </button>
+    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
+      class="v-btn__content"><i aria-hidden="true"
+                                class="v-icon notranslate mdi mdi-dots-vertical theme--dark"></i></span></button>
+  </div>
+</header>
+```
 
-For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java).
+The App bars component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site
+navigation. The App bars component works great in conjunction with a Navigation Drawers for providing site navigation 
+in your application.
+
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**hasBackgroundImage()** | Get if App bar is scrolled | boolean
+**backgroundImage()** | Get App bar's image | Image
+**scrollBarToBottom()** | Scroll App bar to bottom | void
+**scrollBarToTop()** | Scroll App bar to top | void
+**isCollapsible()** | Get if App bar is collapsible | boolean
+**hasImageFadingOnScroll()** | Get if App bar has image fading on scroll | boolean
+**isOnTopPosition()** | Get if App bar is on top position | boolean
+**isOnBottomPosition()** | Get if App bar is on bottom position | boolean
+**isElevateOnScroll()** | Get if App bar is elevate on scroll | boolean
+**isScrolled()** | Get if App bar is scrolled | boolean
+**isShrinkOnScroll()** | Get if App bar shrinks on scroll | boolean
+**isBarShort()** | Get if App bar is short | boolean
+**isBarUsualSize()** | Get if App bar has usual size | boolean
+
+| Assert method | Description |
+| :--- | :--- |
+**collapsible()** | Assert that App bar is collapsible
+**notCollapsible()** | Assert that App bar is not collapsible
+**imageFadingOnScroll()** | Assert that App bar has image fading on scroll
+**onTopPosition()** | Assert that App bar is on top position
+**onBottomPosition()** | Assert that App bar is on bottom position
+**noImageFadingOnScroll()** | Assert that App bar has no image fading on scroll
+**elevateOnScroll()** | Assert that App bar is elevate on scroll
+**notElevateOnScroll()** | Assert that App bar is not elevate on scroll
+**scrolled()** | Assert that App bar is scrolled
+**notScrolled()** | Assert that App bar is not scrolled
+**backgroundImage()** | Assert that App bar has background image
+**noBackgroundImage()** | Assert that App bar has no background image
+**shrinkOnScroll()** | Assert that App bar shrinks on scroll
+**notShrinkOnScroll()** | Assert that App bar doesn't shrink on scroll
+**isShort()** | Assert that App bar bar is short
+**isUsualSize()** | Assert that App bar bar has usual size
+
+For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/bars/AppBarsTests.java).
 
 #### 5.4.3 System bars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/system-bars/)
+[System bars overview](https://v2.vuetifyjs.com/en/components/system-bars/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.SystemBar.java_
 
 ```java
-    @Test
-    public void systemBarColoredPrimaryTests() {
-      systemBarColoredPrimary.is().displayed();
-      systemBarColoredPrimary.has().text("System bar color 1");
-      systemBarColoredPrimary.wiFiIcon().is().displayed();
-      systemBarColoredPrimary.signalIcon().is().displayed();
-      systemBarColoredPrimary.batteryIcon().is().displayed();
-      systemBarColoredPrimary.has().time("12:30");
-      systemBarColoredPrimary.has().backgroundColor(BLUE_DARKEN_2.value());
-    }
+    //@FindBy(css = "#AppSystemBar .v-system-bar")
+@UI("#AppSystemBar .v-system-bar")
+public static SystemBar appSystemBar;
+
+@Test(description = "Test checks if app system bar appears as expected")
+public void appSystemBarTest(){
+  appSystemBar.show();
+  appSystemBar.has().text("App system bar title");
+  appSystemBar.is().notWindow();
+  appSystemBar.has().height(30);
+  }
 ```
 
 ![System bars example](../../images/vuetify/system-bars.png)
 
-System bar component extends abstract class Basic Bar. It can be used for displaying statuses to the user. It looks like the Android system bar and can contain icons, spacers, and some text.
+__Vuetify v2.6.14__ code example:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | SystemBarAssert
-**getBackgroundColor()** | Returns element's background color | String
-**getPosition()** | Returns element's position | String
-**getTime()** | Returns text from element's 'time' field | String
-**wiFiIcon()** | Returns 'Wi-Fi' icon containing in the element | Icon
-**signalIcon()** | Returns 'Signal' icon containing in the element | Icon
-**batteryIcon()** | Returns 'Battery' icon containing in the element | Icon
-**messageIcon()** | Returns 'Message' icon containing in the element | Icon
-**minusIcon()** | Returns 'Minus' icon containing in the element | Icon
-**blankCheckboxIcon()** | Returns 'Blank Checkbox' icon containing in the element | Icon
-**closeIcon()** | Returns 'Close' icon containing in the element | Icon
+```html
+<div class="v-system-bar v-system-bar--fixed theme--light green" id="system-bar-app" style="height: 30px;">
+  <button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+    class="v-btn__content"><i aria-hidden="true"
+                              class="v-icon notranslate mdi mdi-menu theme--light"></i></span>
+  </button>
+  <div class="v-toolbar__title">App system bar title</div>
+  <div class="spacer"></div>
+  <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+    class="v-btn__content"><i aria-hidden="true"
+                              class="v-icon notranslate mdi mdi-heart theme--light"></i></span>
+  </button>
+  <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+    class="v-btn__content"><i aria-hidden="true"
+                              class="v-icon notranslate mdi mdi-dots-vertical theme--light"></i></span></button>
+</div>
+```
 
-For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SystemBarsTests.java).
+The System bar component can be used for displaying statuses to the user. It looks like the Android system bar and can 
+contain icons, spacers, and some text.
+
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**icons()** | Get System Bar icons | List<Icon>
+**isLightsOut()** | Get if System Bar is lights out | boolean
+**isWindow()** | Get if System Bar is window | boolean
+
+In addition, System Bar implements HasMeasurement.
+
+| Assert method | Description |
+| :--- | :--- |
+**lightsOut()** | Assert that System Bar is lights out
+**notLightsOut()** | Assert that System Bar is not lights out
+**window()** | Assert that System Bar is window
+**notWindow()** | Assert that System Bar is not window
+
+For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/bars/SystemBarsTests.java).
 
 #### 5.4.4 Toolbars
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/toolbars/)
+[Toolbars overview](https://v2.vuetifyjs.com/en/components/toolbars/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.ToolBar.java_
 
 ```java
-    @Test
-    public void denseToolbarTests() {
-      denseToolbar.is().displayed();
-      denseToolbar.menuButton().is().displayed();
-      denseToolbar.has().title();
-      denseToolbar.has().textInTitle("Title");
-      denseToolbar.searchButton().is().displayed();
-      denseToolbar.heartButton().is().displayed();
-      denseToolbar.verticalDotsButton().is().displayed();
-      denseToolbar.has().denseHeader();
-      denseToolbar.has().heightOfHeader(48);
-    }
+    //@FindBy(css = "#denseToolbar .v-toolbar")
+@UI("#denseToolbar .v-toolbar")
+public static ToolBar denseToolbar;
+
+@Test(description = "Check if dense toolbar looks as expected")
+public void denseToolBarTest(){
+  denseToolbar.show();
+  denseToolbar.is().dense();
+  denseToolbar.is().notBackgroundImage();
+  denseToolbar.is().notFlat();
+  }
 ```
 
 ![Toolbars example](../../images/vuetify/toolbars.png)
 
-Toolbar component extends abstract class Basic Bar. It is pivotal to any gui, as it generally is the primary source of site navigation.
+__Vuetify v2.6.14__ code example:
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | ToolBarAssert
-**closeButton()** | Returns 'Close' button containing in the element | VuetifyButton
-**deleteButton()** | Returns 'Delete' button containing in the element | VuetifyButton
-**exportButton()** | Returns 'Export' button containing in the element | VuetifyButton
-**gpsButton()** | Returns 'GPS' button containing in the element | VuetifyButton
-**appsButton()** | Returns 'Apps' button containing in the element | VuetifyButton
-**searchIcon()** | Returns 'Search' icon containing in the element | Icon
-**input()** | Returns input field containing in the element | Input
-**select()** | Returns select containing in the element | Select
-**backgroundImage()** | Returns element's background image | Image
-**getHeaderHeight()** | Returns element's header's height | String
-**getHeaderColor()** | Returns element's header's height | String
-**hasHiddenButtons()** | Returns true if element's buttons are hidden | boolean
-**hasCollapsedHeader()** | Returns true if element has collapsed header | boolean
-**hasDenseHeader()** | Returns true if element has dense header | boolean
-**hasExtendedHeader()** | Returns true if element extended header | boolean
+```html
+<header class="v-sheet theme--light v-toolbar v-toolbar--dense" style="height: 48px;">
+    <div class="v-toolbar__content" style="height: 48px;">
+        <button type="button"
+                class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+                class="v-btn__content"><i aria-hidden="true"
+                                          class="v-icon notranslate mdi mdi-menu theme--light"></i></span>
+        </button>
+        <div class="v-toolbar__title">Title</div>
+        <div class="spacer"></div>
+        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+                class="v-btn__content"><i aria-hidden="true"
+                                          class="v-icon notranslate mdi mdi-magnify theme--light"></i></span>
+        </button>
+        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+                class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--light"></i></span>
+        </button>
+        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
+                class="v-btn__content"><i aria-hidden="true"
+                                          class="v-icon notranslate mdi mdi-dots-vertical theme--light"></i></span>
+        </button>
+    </div>
+</header>
+```
 
-For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
+The Toolbar component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site 
+navigation. The toolbar component works great in conjunction with Navigation drawer and Cards.
+
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**hasBackgroundImage()** | Get if Toolbar has background image | boolean
+
+| Assert method | Description |
+| :--- | :--- |
+**backgroundImage()** | Assert that Toolbar has background image
+**notBackgroundImage()** | Assert that Toolbar has not background image
+
+For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/bars/ToolBarsTests.java).
 
 
 ### 5.5 Bottom navigation

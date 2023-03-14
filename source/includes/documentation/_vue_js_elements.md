@@ -3994,31 +3994,78 @@ For examples of usage see: [JDI vuetify page tests for Virtual Scroller](https:/
 
 ### 5.34 Skeleton loader
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/skeleton-loaders/)
+[Skeleton loader overview](https://v2.vuetifyjs.com/en/components/skeleton-loaders/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.SkeletonLoader.java_
 
 ```java
-@Test
-public void tableImageSkeletonLoaderTest() {
-    tableImageSkeletonLoader.is().displayed();
-    tableImageSkeletonLoader.headingBoilerplate().is().displayed();
-    tableImageSkeletonLoader.textBoilerplate().is().displayed();
-    tableImageSkeletonLoader.imageBoilerplate().is().displayed();
-    tableImageSkeletonLoader.avatarBoilerplate().is().displayed();
+//@FindBy(css = "#DarkAnimationSkeletonLoader > .v-skeleton-loader")
+@UI("#DarkAnimationSkeletonLoader > .v-skeleton-loader")
+public static SkeletonLoader darkSkeletonLoader
+
+@Test(description = "Check if dark skeleton loader looks as expected and is not boilerplate")
+public void darkSkeletonLoaderTest() {
+  darkSkeletonLoader.show();
+  darkSkeletonLoader.has().darkTheme();
+  darkSkeletonLoader.is().notBoilerplate();
+  darkSkeletonLoader.is().elevated();
+  darkSkeletonLoader.is().tile();
   }
 ```
-The `v-skeleton-loader` component is a versatile tool that can fill many roles within a project. 
+
+The Skeleton loader component is a versatile tool that can fill many roles within a project. 
 At its heart, the component provides an indication to the user that something is coming but not yet available. 
 There are over 30 pre-defined options available that can be combined to make custom examples.
 
-####Boilerplate component
-The `v-skeleton-loader` can be used as boilerplate designs when creating mockups. 
-Mix and match various pre-defined options or create your own unique implementations.
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-skeleton-loader v-skeleton-loader--boilerplate v-skeleton-loader--is-loading theme--light mb-6">
+  <div class="v-skeleton-loader__card-avatar v-skeleton-loader__bone">
+    <div class="v-skeleton-loader__image v-skeleton-loader__bone"></div>
+    <div class="v-skeleton-loader__list-item-avatar v-skeleton-loader__bone">
+      <div class="v-skeleton-loader__avatar v-skeleton-loader__bone"></div>
+      <div class="v-skeleton-loader__text v-skeleton-loader__bone"></div>
+    </div>
+  </div>
+  <div class="v-skeleton-loader__article v-skeleton-loader__bone">
+    <div class="v-skeleton-loader__heading v-skeleton-loader__bone"></div>
+    <div class="v-skeleton-loader__paragraph v-skeleton-loader__bone">
+      <div class="v-skeleton-loader__text v-skeleton-loader__bone"></div>
+      <div class="v-skeleton-loader__text v-skeleton-loader__bone"></div>
+      <div class="v-skeleton-loader__text v-skeleton-loader__bone"></div>
+    </div>
+  </div>
+  <div class="v-skeleton-loader__actions v-skeleton-loader__bone">
+    <div class="v-skeleton-loader__button v-skeleton-loader__bone"></div>
+    <div class="v-skeleton-loader__button v-skeleton-loader__bone"></div>
+  </div>
+</div>
+```
 
 ![Skeleton Loader example](../../images/vuetify/skeleton_loaders.png)
 
-For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java).
+| Method | Description | Return Type |
+| :--- | :--- | :--- | 
+**avatar()** | Get Skeleton loader's avatar | UIElement
+**text()** | Get Skeleton loader's text | UIElement
+**heading()** | Get Skeleton loader's heading | UIElement
+**button()** | Get Skeleton loader's button | UIElement
+**image()** | Get Skeleton loader's image | UIElement
+**article()** | Get Skeleton loader's article | UIElement
+**paragraph()** | Get Skeleton loader's paragraph | UIElement
+**actions()** | Get Skeleton loader's actions | UIElement
+**divider()** | Get Skeleton loader's divider | UIElement
+**isBoilerplate()** | Get if Skeleton loader's is boilerplate | boolean
+
+In addition, SkeletonLoader  implements HasTheme, HasElevation, HasCursor, HasMeasurement, IsTile.
+
+| Assert method | Description |
+| :--- | :--- |
+**boilerplate()** | Assert that Skeleton loader is boilerplate 
+**notBoilerplate()** | Assert that Skeleton loader is not boilerplate
+
+For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java).
 
 ### 5.35 Parallax
 

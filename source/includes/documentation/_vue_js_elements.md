@@ -1837,52 +1837,8 @@ For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jd
 
 #### 5.12.11 Forms
 
-The internal Forms component makes it easy to add validation to form inputs. All input components have a rules prop 
-which accepts a mixed array of types function, boolean and string. These allow you to specify conditions in which the 
-input is valid or invalid. Whenever the value of an input is changed, each function in the array will receive the new 
-value and each array element will be evaluated. If a function or array element returns false or a string, validation 
-has failed and the string value will be presented as an error message.
-
-[Forms overview](https://v2.vuetifyjs.com/en/components/forms/)
-
-//почему формы лежат в другом модуле?? изменить инфу далее
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Dialog.java_
-
-__Vuetify v2.6.14__ code example:
-
-```html
-<form novalidate="novalidate" class="v-form">
-    <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
-        <div class="v-input__control">
-            <div class="v-input__slot">
-                <div class="v-text-field__slot"><label for="input-234" class="v-label v-label--active theme--light"
-                                                       style="left: 0px; right: auto; position: absolute;">First
-                    name</label><input id="input-234" type="text"></div>
-            </div>
-            <div class="v-text-field__details">
-                <div class="v-messages theme--light">
-                    <div class="v-messages__wrapper"></div>
-                </div>
-                <div class="v-counter theme--light">6</div>
-            </div>
-        </div>
-    </div>
-</form>
-```
-![Forms example](../../images/vuetify/forms.png)
-
-| Method | Description | Return Type |
-| :--- | :--- | :--- |
-**content()** | Get Dialog content | Card
-
-
-| Assert method | Description |
-| :--- | :--- |
-**opened()** | Assert that Dialog is opened
-
-
-For examples of usage see: [JDI vuetify page tests for ???????](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogsTests.java???????????????????????????????????????).
-
+Forms under Vuetify are the same as Forms from HTML5. 
+Please, follow the link for [Forms overview](https://jdi-docs.github.io/jdi-light/#1-3-2-form)
 
 ### 5.13 Groups 
 

@@ -1943,38 +1943,49 @@ ButtonGroup also has basic JDI elements methods and asserts for ISetup, HasClick
 For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VuetifyButtonGroupsTests.java).
 
 #### 5.13.2 Chip Groups
-[Vuetify documentation page](https://vuetifyjs.com/en/components/chip-groups/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/chip-groups/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.ChipGroup.java_
 
 ```java
+    //@FindBy("#ColumnChipGroup .v-chip-group")
     @UI("#ColumnChipGroup .v-chip-group")
     public static ChipGroup columnChipGroup;
-    
+
+    //@FindBy("#MultipleChipGroup .v-chip-group")
     @UI("#MultipleChipGroup .v-chip-group")
     public static ChipGroup multipleChipGroup;
-    
-    @UI("#FilterResultsChipGroup .v-chip-group")
-    public static ChipGroup filterResultsChipGroup;
 
-    @Test
-    public void columnChipGroupTests() {
-      columnChipGroup.is().notEmpty();
-      columnChipGroup.has().size(9);
+    //@FindBy("#FilterResultsChipGroup .v-chip-group")
+    @UI("#FilterResultsChipGroup .v-chip-group")
+    public static List<ChipGroup> filterResultsChipGroup;
+
+    @Test(description = "Test checks that chip group is of column type")
+    public void columnChipGroupTest() {
+        columnChipGroup.show();
+        columnChipGroup.is().column();
+        mandatoryChipGroup.show();
+        mandatoryChipGroup.is().notColumn();
     }
-    
-    @Test
+
+    @Test(description = "Test checks multiple selection within a group")
     public void multipleChipGroupTests() {
-      if (multipleChipGroup.slideGroup().nextButtonIsActive()) { multipleChipGroup.slideGroup().clickOnNextButton(); }
-      multipleChipGroup.select("Art", "Tech");
-      multipleChipGroup.has().selectedChip("Art");
-      multipleChipGroup.has().selectedChip("Tech");
+        List<String> valuesToTest = Arrays.asList(EXPECTED_CHIP_TEXTS.get(0), EXPECTED_CHIP_TEXTS.get(3),
+            EXPECTED_CHIP_TEXTS.get(4));
+        multipleChipGroup.show();
+        multipleChipGroup.select(valuesToTest);
+        multipleChipGroup.is().selected(valuesToTest);
+        multipleChipGroup.deselect(valuesToTest);
+        multipleChipGroup.is().deselected(valuesToTest);
     }
-    
-    @Test
-    public void filterResultsChipGroupTests() {
-      filterResultsChipGroup.chips().get(2).click();
-      filterResultsChipGroup.chips().get(2).has().filterIconDisplayed();
+
+    @Test(description = "Test checks that element of a filter chip group is selected")
+    public void selectFilterChipGroupTest() {
+        String valueToSelect = "Elevator";
+        ChipGroup chooseAmenitiesChipGroup = filterResultsChipGroup.get(1);
+        chooseAmenitiesChipGroup.select(valueToSelect);
+        chooseAmenitiesChipGroup.is().selected(valueToSelect);
+        chooseAmenitiesChipGroup.getElement(valueToSelect).has().filterIconDisplayed();
     }
  ```
 
@@ -1986,23 +1997,79 @@ It is used for creating groups of selections using chips.
 
 ![Chip groups example](../../images/vuetify/chip-groups.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**is()/has()** | Returns Assert class | ChipGroupAssert
-**slideGroup()** | Returns chip group's slide group | SlideGroup
-**chips()** | Returns Java list of Chips contained in the chip group | List\<Chip>
-**size()** | Returns size of chip group | int
-**isEmpty()** | Checks if chip group is empty | boolean
-**getChipByText(String)** | Gets the first chip in a group with specified text | Chip
-**select(String)** | Selects the first chip in a group with specified text | void
-**select(String...)** | Selects chips with specified texts | void
-**deselect(String)** | Deselects the first chip in a group with specified text | void
-**deselect(String...)** | Deselects chips with specified texts | void
-**close(String)** | Closes the first chip in a group with specified text | void
-**close(String...)** | Closes chips with specified texts | void
-**hasSelectedChip(String)** | Checks if there's a chip with specified text in the chip group | boolean
+```html
+<div class="row justify-space-around" file="v-chip-group/prop-mandatory">
+    <div class="col-sm-10 col-md-8 col-12">
+        <div class="py-4 px-1 v-sheet theme--light elevation-10">
+            <div class="v-item-group theme--light v-slide-group v-slide-group--is-overflowing v-chip-group">
+                <div class="v-slide-group__prev v-slide-group__prev--disabled">
+                    <!---->
+                </div><div class="v-slide-group__wrapper">
+                <div class="v-slide-group__content">
+                    <span tabindex="0" class="v-chip primary--text v-chip--active v-chip--clickable v-chip--no-color theme--light v-size--default">
+                        <span class="v-chip__content"> Work </span>
+                    </span>
+                    <span tabindex="0" class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default">
+                        <span class="v-chip__content"> Home Improvement </span>
+                    </span>
+                    <span tabindex="0" class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default">
+                        <span class="v-chip__content"> Vacation </span>
+                    </span>
+                    <span tabindex="0" class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default">
+                        <span class="v-chip__content"> Food </span>
+                    </span>
+                    <span tabindex="0" class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default">
+                        <span class="v-chip__content"> Drawers </span>
+                    </span>
+                    <span tabindex="0" class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default">
+                        <span class="v-chip__content"> Shopping </span>
+                    </span>
+                    <span tabindex="0" class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default">
+                        <span class="v-chip__content"> Art </span>
+                    </span>
+                    <span tabindex="0" class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default">
+                        <span class="v-chip__content"> Tech </span>
+                    </span>
+                    <span tabindex="0" class="v-chip v-chip--clickable v-chip--no-color theme--light v-size--default">
+                        <span class="v-chip__content"> Creative Writing </span>
+                    </span>
+                </div>
+            </div>
+                <div class="v-slide-group__next v-slide-group__next--disabled">
+                    <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
-For examples of usage see: [Chip Group tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ChipGroupTests.java)
+|Method | Description                                        | Return Type
+--- |----------------------------------------------------| ---
+**is()/has()** | Returns Assert class                               | ChipGroupAssert
+**groupElements()** | Returns list of Chips contained in the chip group  | List\<Chip>
+**getElement(String)** | Gets the first chip in a group with specified text | Chip
+**select(String)** | Selects chip in a group with specified text        | void
+**select(String...)** | Selects chips with specified texts                 | void
+**deselect(String)** | Deselects the chip in a group with specified text  | void
+**deselect(String...)** | Deselects chips with specified texts               | void
+**isColumn()** | Gets if element is column                          | boolean
+**getTexts()** | Gets chips texts                                   | Set\<String>
+
+Also ChipGroup implements IsGroupElement, HasTheme, HasColor.
+
+| Assert method | Description |
+| :--- | :--- |
+**text(String...)** | Asserts the values of the chips
+**selected(String...)** | Asserts that chips with certain values are selected
+**selected(String)** | Asserts that certain chip in the group is selected
+**deselected(String...)** | Asserts that chips with certain values are deselected
+**deselected(String)** | Asserts that certain chip in the group is deselected
+**size()** | Asserts size of the chip group
+**notColumn()** | Asserts that element is not column
+
+
+For examples of usage see: [Chip Group tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ChipGroupsTests.java)
 
 
 #### 5.13.3 Item Groups

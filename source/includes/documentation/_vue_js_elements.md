@@ -1864,6 +1864,11 @@ __Vuetify v2.6.14__ code example:
 
 For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputsTests.java).
 
+#### 5.12.11 Forms
+
+Forms under Vuetify are the same as Forms from HTML5. 
+Please, follow the link for [Forms overview](https://jdi-docs.github.io/jdi-light/#1-3-2-form)
+
 ### 5.13 Groups 
 
 #### 5.13.1 Button Groups

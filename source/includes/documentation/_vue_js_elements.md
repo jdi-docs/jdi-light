@@ -3491,7 +3491,7 @@ For examples of usage see: [JDI Vuetify Images tests](https://github.com/jdi-tes
 
 ### 5.30 Timelines
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/timelines/)
+[Timelines overview](https://v2.vuetifyjs.com/en/components/timelines/)
 
 __Java__:
 - _com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLine.java_
@@ -3533,9 +3533,27 @@ public void iconTimeLineTest() {
 }
 ```
 
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-timeline v-timeline--dense theme--light"><span><div
+  class="v-timeline-item v-timeline-item--fill-dot theme--light"><div class="v-timeline-item__body"><div
+  role="alert" class="v-alert white--text v-sheet theme--light info"><div class="v-alert__wrapper"><i
+  aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-information theme--light"></i><div
+  class="v-alert__content">
+            Lorem ipsum dolor sit amet, no nam oblique veritus.
+            Commune scaevola imperdiet nec ut, sed euismod convenire principes at.
+            Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
+          </div></div></div></div><div class="v-timeline-item__divider"><div
+  class="v-timeline-item__dot v-timeline-item__dot--small"><div
+  class="v-timeline-item__inner-dot info"></div></div></div></div></span></div>
+ ```
+
 ![TimeLine example](../../images/vuetify/timelines.png)
 
 The TimeLine is used for stylistically displaying chronological information.
+
+// TO BE DELETED?????????????????????????????????????????????????? 
 
 `TimeLine<T extends ICoreElement, U extends ICoreElement>` methods:
 
@@ -3559,8 +3577,36 @@ The TimeLine is used for stylistically displaying chronological information.
 **isSmall()** | Shows that divider is small | boolean
 **isLarge()** | Shows that divider is large | boolean
 **dotColor()** | Returns color of divider | String
+// ????????????????????????????????????????????????????????????????????????TO BE DELETED
 
-For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimelinesTests.java).
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**isAlignTop()** | Get if '{name}' is align to top | boolean
+**isReversed()** | Get if '{name}' is reverse | boolean
+**items()** | Get list of items from '{name}' | List<TimeLineItem<T, U>>
+**item(int index)** | Get item by index '{0}' from '{name}' | TimeLineItem<T, U>
+**defaultItem(int index)** | Get default item by index '{0}' from '{name}' | TimeLineItem<UIElement, UIElement>
+**setup(Field field)** | Setting up Timleines by field | void
+
+In addition, TimeLine implements ISetup, IsDense.
+
+| Assert method | Description |
+| :--- | :--- |
+**alignTop()** | Assert that '{name}' is align to top
+**notAlignTop()** | Assert that '{name}' is not align to top
+**reversed()** | Assert that '{name}' is reversed
+**notReversed()** | Assert that '{name}' is not reversed
+
+Besides, TimeLineAssert implements DenseAssert<TimeLineAssert, TimeLine>.
+
+Also, there are Assert methods for Timeline Item:
+| Assert method | Description |
+| :--- | :--- |
+**smallDot()** | Assert that '{name}' is small
+**largeDot()** | Assert that '{name}' is large
+**dotColor(Enum<?> color)** | Assert that dot color of '{name}' is equal to '{0}'
+
+For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimelinesTests.java).
 
 ### 5.31 Pickers
 

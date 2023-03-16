@@ -3497,13 +3497,21 @@ __Java__:
 - _com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLine.java_
 - _com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLineItem.java_
 
-```java
-@JDITimeLine(
-    root = "#IconTimeline.v-timeline",
-    body = ".v-timeline-item__body .v-card",
-    divider = ".v-timeline-item__divider .v-avatar"
-)
-public static TimeLine<Card, Avatar> iconTimeLine;
+```java 
+    //@FindBy(css = "#AdvancedTimeline .v-timeline")
+@JDITimeLine(root = "#AdvancedTimeline .v-timeline")
+public static TimeLine<OrderLine, UIElement> advancedTimeline;
+
+@Test(description = "Check if Advanced Timeline increases its size by 1 item with text which was posted in the first item input")
+public void advancedTimeLineTest(){
+  advancedTimeline.show();
+  advancedTimeline.has().size(8);
+  advancedTimeline.defaultItem(2).body().has().text("TODAY");
+  advancedTimeline.defaultItem(1).body().find("input").sendKeys("Test text");
+  advancedTimeline.defaultItem(1).body().find("button").click();
+  advancedTimeline.has().size(9);
+  advancedTimeline.item(2).body().message().has().text("Test text");
+  }
 ```
 
 You can specify locators for the TimeLine by using `JDITimeLine` annotation:
@@ -3520,18 +3528,6 @@ It is **necessary** to specify **the root** of an element.
 
 Also, you can specify classes for `body` as `T` and for `divider` as `U` in your 
 element by using generic. **That classes must implement `ICoreElement` interface**.
-
-```java
-@Test
-public void iconTimeLineTest() {
-    iconTimeLine.items().forEach(item -> {
-        item.opposite().has().text("Tus eu perfecto");
-        item.divider().has().photo();
-        item.body().has().title("Lorem ipsum");
-        item.body().content().has().text(LOREM_IPSUM_TEXT);
-    });
-}
-```
 
 __Vuetify v2.6.14__ code example:
 
@@ -3553,58 +3549,33 @@ __Vuetify v2.6.14__ code example:
 
 The TimeLine is used for stylistically displaying chronological information.
 
-// TO BE DELETED?????????????????????????????????????????????????? 
-
-`TimeLine<T extends ICoreElement, U extends ICoreElement>` methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**isAlignTop()** | Shows that element is align to top | boolean
-**isDense()** | Shows that element is dense | boolean
-**isReversed()** | Shows that element is reversed | boolean
-**list()** | Returns list of TimeListItem as UIElement by `items` locator from annotation | WebList
-**items()** | Returns list of TimeListItem by `items` locator from annotation | List\<TimeListItem\<T, U>>
-**item(int index)** | Returns TimeListItem from items() by index | TimeListItem\<T, U>
-**defaultItem(int index)** | Returns TimeListItem with UIElements from items() by index | TimeListItem\<UIElement, UIElement>
-
-`TimeLineItems<T extends ICoreElement, U extends ICoreElement>` methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**body()** | Returns body element by `body` locator from annotation | T
-**divider()** | Returns divider element by `divider` locator from annotation | U
-**opposite()** | Returns opposite element by `opposite` locator from annotation | UIElement
-**isSmall()** | Shows that divider is small | boolean
-**isLarge()** | Shows that divider is large | boolean
-**dotColor()** | Returns color of divider | String
-// ????????????????????????????????????????????????????????????????????????TO BE DELETED
-
-| Method | Description | Return Type |
-| :--- | :--- | :--- |
-**isAlignTop()** | Get if '{name}' is align to top | boolean
-**isReversed()** | Get if '{name}' is reverse | boolean
-**items()** | Get list of items from '{name}' | List<TimeLineItem<T, U>>
-**item(int index)** | Get item by index '{0}' from '{name}' | TimeLineItem<T, U>
-**defaultItem(int index)** | Get default item by index '{0}' from '{name}' | TimeLineItem<UIElement, UIElement>
-**setup(Field field)** | Setting up Timleines by field | void
+| Method | Description                                       | Return Type |
+| :--- |:--------------------------------------------------| :--- |
+**isAlignTop()** | Get if Timelines is align to top                  | boolean
+**isReversed()** | Get if Timelines is reverse                       | boolean
+**items()** | Get list of items from Timelines                  | List<TimeLineItem<T, U>>
+**item(int index)** | Get item by required index from Timelines         | TimeLineItem<T, U>
+**defaultItem(int index)** | Get default item by required index from Timelines | TimeLineItem<UIElement, UIElement>
+**setup(Field field)** | Setting up Timleines by field                     | void
 
 In addition, TimeLine implements ISetup, IsDense.
 
 | Assert method | Description |
 | :--- | :--- |
-**alignTop()** | Assert that '{name}' is align to top
-**notAlignTop()** | Assert that '{name}' is not align to top
-**reversed()** | Assert that '{name}' is reversed
-**notReversed()** | Assert that '{name}' is not reversed
+**alignTop()** | Assert that Timelines is align to top
+**notAlignTop()** | Assert that Timelines is not align to top
+**reversed()** | Assert that Timelines is reversed
+**notReversed()** | Assert that Timelines is not reversed
 
 Besides, TimeLineAssert implements DenseAssert<TimeLineAssert, TimeLine>.
 
 Also, there are Assert methods for Timeline Item:
+
 | Assert method | Description |
 | :--- | :--- |
-**smallDot()** | Assert that '{name}' is small
-**largeDot()** | Assert that '{name}' is large
-**dotColor(Enum<?> color)** | Assert that dot color of '{name}' is equal to '{0}'
+**smallDot()** | Assert that Timelines Item is small
+**largeDot()** | Assert that Timelines Item is large
+**dotColor(Enum<?> color)** | Assert that dot color of Timelines Item is equal to required
 
 For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimelinesTests.java).
 

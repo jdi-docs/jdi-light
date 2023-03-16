@@ -1995,7 +1995,7 @@ For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-
  ```
 
 __Chip groups__ - a group of compact elements that represent an input, attribute, or action.
-Chips can contains an icon, text, actions etc. Chip groups make it easy for users to select 
+Chips can contain an icon, text, actions etc. Chip groups make it easy for users to select 
 filtering options for more complex implementations. 
 The `v-chip-group` supercharges the `v-chip` component by providing groupable functionality.
 It is used for creating groups of selections using chips.
@@ -2079,35 +2079,82 @@ For examples of usage see: [Chip Group tests](https://github.com/jdi-testing/jdi
 
 #### 5.13.3 Item Groups
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/item-groups/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/item-groups/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ItemGroups.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ItemGroup.java_
 
 ```java
-  @UI("#ActiveClassItemGroup .col-md-4")
-  public static List<ItemGroups> activeClassItemGroup;
+    //@FindBy("#MandatoryItemGroup .v-card")
+    @UI("#MandatoryItemGroup .v-card")
+    public static ItemGroup mandatoryItemGroup;
+
+    @Test(description="Test checks items feature: 'mandatory', i.e. only one item is always chosen")
+    public void mandatoryItemGroupTest() {
+        //Check that before selecting any item we already have first element item--active
+        mandatoryItemGroup.get(1).has().cssClass("v-item--active");
+    
+        //Check that if we select already item--active element it stays selected
+        mandatoryItemGroup.select(1);
+        mandatoryItemGroup.has().selected(1);
+        //And other items in group stay not selected
+        mandatoryItemGroup.has().notSelected(2)
+        .and().notSelected(3);
+    
+        //Check that if we select next item it becomes 'selected' and all other items become 'not selected'
+        mandatoryItemGroup.select(2);
+        mandatoryItemGroup.has().selected(2);
+        mandatoryItemGroup.has().notSelected(1)
+        .and().notSelected(3);
+    
+        //Check theme of the group
+        mandatoryItemGroup.is().darkTheme();
+    }
+
 ```
 ![List item groups example](../../images/vuetify/item-group.png)
 
-Item groups__ - a group of selectable items from any component.
-Items can contains an icon, text, actions etc.
+__Item groups__ The `v-item-group` provides the ability to create a group of selectable items out of any component.
+This is the baseline functionality for components such as `v-tabs` and `v-carousel`.
+Items can contain an icon, text, actions etc.
 
-See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ItemGroupsPage.java)
+```html
+<div class="v-item-group theme--light" file="v-item-group/usage">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-12">
+                <div tabindex="0" class="d-flex align-center v-card v-card--link v-sheet theme--dark" style="height: 200px;">
+                    <!---->
+                </div>
+            </div>
+            <div class="col-md-4 col-12">
+                <div tabindex="0" class="d-flex align-center v-card v-card--link v-sheet theme--dark" style="height: 200px;">
+                    <!---->
+                </div>
+            </div>
+            <div class="col-md-4 col-12">
+                <div tabindex="0" class="d-flex align-center v-card v-card--link v-sheet theme--dark" style="height: 200px;">
+                    <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+|Method | Description                             | Return Type
+--- |-----------------------------------------| ---
+**is()/has()** | Returns Assert class                    | ItemGroupAssert
+**selected(int)** | Item with certain index is selected     | boolean
+**notSelected(int)** | Item with certain index is not selected | boolean
+**itemIcon(int)** | Gets icon of item with certain index    | Icon
 
-The v-item-group provides the ability to create a group of selectable items out of any component.
-This is the baseline functionality for components such as v-tabs and v-carousel.
+Also ItemGroup implements HasTheme.
 
-##### Usage
-The core usage of the v-item-group is to create groups of anything that should be controlled by a model.
-![List item groups example](../../images/vuetify/item-group-active.png)
+| Assert method | Description |
+| :--- | :--- |
+**selected(int)** | Asserts that item with certain index is selected
+**notSelected(int)** | Asserts that item with certain index is not selected
 
-##### Selection
-Icons can be used as toggle buttons when they allow selection, or deselection,
-of a single choice, such as marking an item as a favorite.
-
-![List item groups example](../../images/vuetify/selection.png)
-
-For examples of usage see: [Item Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ItemGroupTests.java)
+For examples of usage see: [Item Groups tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ItemGroupsTests.java)
 
 
 #### 5.13.4 List Item Groups

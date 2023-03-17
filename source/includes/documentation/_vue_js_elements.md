@@ -2239,30 +2239,31 @@ __Vuetify v2.6.14__ code example:
 The Windows component provides the baseline functionality for transitioning content from 1 pane to another. 
 Other components such as Tabs, Carousels and Steppers utilize this component at their core.
 
-| Method | Description | Return Type |
-| :--- | :--- | :--- |
-**active()** | Get active window from Windows element | UIElement
-**previousButton()** | Get Windows element previous button | Button
+| Method | Description                                              | Return Type |
+| :--- |:---------------------------------------------------------| :--- |
+**active()** | Get active window from Windows element| UIElement
+**previousButton()** | Get Windows element previous button  | Button
 **nextButton()** | Get Windows element next button | Button
-**activeItem()** | Get active window from Windows element | T
+**activeItem()** | Get active window from Windows element  | T
 **activeItem(Class<W> clazz)** | Get active window as required class from Windows element | <W> W
-**items()** | Get active window as '{0}' from '{name}' | List<T> 
-**showArrowsOnHover()** | Get if '{name}' shows arrows on hover | boolean
+**items()** | Get all child windows of Windows element as a list | List<T> 
+**showArrowsOnHover()** | Get if Windows shows arrows on hover | boolean
 
+In addition, Windows implements ISetup, HasTheme.
 
 | Assert method | Description |
 | :--- | :--- |
-**showArrowsOnHover()** | Assert that '{name}' shows arrows on hover
-**notShowArrowsOnHover()** | Assert that '{name}' doesn't show arrows on hover
-**noNextActionsButton()** | Assert that '{name}' has no next actions button
-**previousButton()** | Assert that '{name}' has previous button
-**noPreviousButton()** | Assert that '{name}' has no previous button
-**nextButton()** | Assert that '{name}' has next button
-**noNextButton()** | Assert that '{name}' has no next button
+**showArrowsOnHover()** | Assert that Windows shows arrows on hover
+**notShowArrowsOnHover()** | Assert that Windows doesn't show arrows on hover
+**noNextActionsButton()** | Assert that Windows has no next actions button
+**previousButton()** | Assert that Windows has previous button
+**noPreviousButton()** | Assert that Windows has no previous button
+**nextButton()** | Assert that Windows has next button
+**noNextButton()** | Assert that Windows has no next button
 
-For examples of usage see: [Windows example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify/src/main/java/com/epam/jdi/light/vuetify/elements/complex/Windows.java)
-and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java).
+In addition, WindowsAssert implements ThemeAssert<WindowsAssert, Windows>.
 
+For examples of usage see:[JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java).
 
 ### 5.14 Lists
 

@@ -5023,7 +5023,6 @@ events. Optionally you can pass in an array of events and they will be rendered 
 __Vuetify v2.6.14__ code example:
 
 ```html
-
 <div data-v-53316f16="" class="v-calendar v-calendar-daily theme--light v-calendar-events" id="calendar-type-week">
     <div class="v-calendar-daily__head" style="margin-right: 17px;">
         <div class="v-calendar-daily__intervals-head" style="width: 60px;"></div>
@@ -5035,14 +5034,7 @@ __Vuetify v2.6.14__ code example:
                     <span class="v-btn__content">6</span></button>
             </div>
         </div>
-        <div class="v-calendar-daily_head-day v-past">
-            <div class="v-calendar-daily_head-weekday">Mon</div>
-            <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
-                    <span class="v-btn__content">7</span></button>
-            </div>
-        </div>
+        <...>
         <div class="v-calendar-daily_head-day v-present">
             <div class="v-calendar-daily_head-weekday primary--text">Tue</div>
             <div class="v-calendar-daily_head-day-label">
@@ -5059,34 +5051,7 @@ __Vuetify v2.6.14__ code example:
                     <span class="v-btn__content">9</span></button>
             </div>
         </div>
-        <div class="v-calendar-daily_head-day v-future">
-            <div class="v-calendar-daily_head-weekday">Thu</div>
-            <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
-                    <span class="v-btn__content">10</span></button>
-            </div>
-            <div data-date="2019-01-10" class="v-event v-event-start v-event-end primary white--text"
-                 style="height: 20px; width: 95%; margin-bottom: 1px;">
-                <div class="pl-1">Thomas' Birthday</div>
-            </div>
-        </div>
-        <div class="v-calendar-daily_head-day v-future">
-            <div class="v-calendar-daily_head-weekday">Fri</div>
-            <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
-                    <span class="v-btn__content">11</span></button>
-            </div>
-        </div>
-        <div class="v-calendar-daily_head-day v-future">
-            <div class="v-calendar-daily_head-weekday">Sat</div>
-            <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
-                    <span class="v-btn__content">12</span></button>
-            </div>
-        </div>
+        <...>
     </div>
     <div class="v-calendar-daily__body">
         <div class="v-calendar-daily__scroll-area">
@@ -5096,188 +5061,22 @@ __Vuetify v2.6.14__ code example:
                         <div class="v-calendar-daily__interval" style="height: 48px;">
                             <div class="v-calendar-daily__interval-text"></div>
                         </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">1 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">2 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">3 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">4 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">5 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">6 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">7 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">8 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">9 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">10 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">11 AM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">12 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">1 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">2 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">3 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">4 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">5 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">6 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">7 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">8 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">9 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">10 PM</div>
-                        </div>
-                        <div class="v-calendar-daily__interval" style="height: 48px;">
-                            <div class="v-calendar-daily__interval-text">11 PM</div>
-                        </div>
+                        <...>same lines for other 23 hours<...>
                     </div>
                     <div class="v-calendar-daily__day v-past">
                         <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
+                        <...>
                         <div class="v-event-timed-container"></div>
                     </div>
-                    <div class="v-calendar-daily__day v-past">
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-event-timed-container">
-                            <div class="v-event-timed primary white--text"
-                                 style="top: 432px; height: 48px; left: 0%; width: 100%;">
-                                <div class="pl-1"><span class="v-event-summary"><strong>Weekly Meeting</strong>, 9 AM - 10 AM</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <...>
                     <div class="v-calendar-daily__day v-present">
                         <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
+                        <...>
                         <div class="v-event-timed-container"></div>
                     </div>
                     <div class="v-calendar-daily__day v-future">
                         <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
+                        <...>
                         <div class="v-event-timed-container">
                             <div class="v-event-timed primary white--text"
                                  style="top: 600px; height: 144px; left: 0%; width: 100%;">
@@ -5286,93 +5085,12 @@ __Vuetify v2.6.14__ code example:
                             </div>
                         </div>
                     </div>
-                    <div class="v-calendar-daily__day v-future">
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-event-timed-container"></div>
-                    </div>
-                    <div class="v-calendar-daily__day v-future">
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-event-timed-container"></div>
-                    </div>
-                    <div class="v-calendar-daily__day v-future">
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
-                        <div class="v-event-timed-container"></div>
-                    </div>
+                    <...>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 ```
 
 | Method | Description | Return Type |

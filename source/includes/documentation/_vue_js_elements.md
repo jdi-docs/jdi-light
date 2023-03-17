@@ -5093,14 +5093,39 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-| Method | Description | Return Type |
-| :--- | :--- | :--- |
-**content()** | Get Dialog content | Card
-
+| Method | Description                   | Return Type |
+| :--- |:------------------------------| :--- |
+**activeDay()** | Get active date of {name}     | int
+**isDailyType()** | Get if {name} has daily type  | boolean
+**isWeeklyType()** | Get if {name} has weekly type | boolean
+**hasCategories()** | Get if {name} has categories  | boolean
+**hasDayIntervals()** | Get if {name} has intervals  | boolean
+**getCategory(int catNum)** | Get {name} {0} category name  | String
+**getDayInterval(int intNum)** | Get {name} {0} interval text | String
+**isToday()** | Check that {name} has the current day | boolean
+**dailyEvent(int eventNum)** | Get {name} {0} event summary | UIElement
+**selectSlot(int week, int day, int slot)** | Select {name} slot | void
+**slotTitle(int week, int day, int slot)** | Get {name} slot | String
+**hasCurrentTimeLine()** | Get if {name} has current time line | boolean
+??????????????????????????????????????????????????????????????????????????????? other methods should be added????
 
 | Assert method | Description |
 | :--- | :--- |
-**opened()** | Assert that Dialog is opened
+**daily()** | Assert that {name} is of daily type
+**weekly()** | Assert that {name} is of weekly type
+**today()** | Assert that {name} has the today
+**category(int catNum, String catName)** | Assert that {name} has the category
+**eventTitle(int eventNum, String eventName)** | Assert that {name} has the event with num {0} title {1}
+**dayInterval(int intNum, String intText)** | Assert that {name} has the day interval
+**categories()** | Assert that {name} has categories
+**intervals()** | Assert that {name} has intervals
+**slotHasTitle(int week, int day, int slot, String title)** | Assert that the {name} slot has the title
+**currentTimeLine()** | Assert that {name} has the current time line
+**numberOfEventsPerDay(int dayNumber, int expectedNumberOfEvents)** | Assert that {name} has expected number of daily events
+**totalNumberOfEvents(int expectedNumberOfEvents)** | Assert that {name} has expected number of daily events
+**totalNumberOfEvents(Matcher<Integer> condition)** | Assert that {name} has expected number of daily events
+**activeDay(int expectedDayOfMonth)** | Assert that {name} has active date
+**numberOfIntervals(int expectedNumberOfIntervals)** | Assert that {name} has number of intervals
 
 
-For examples of usage see: [JDI vuetify page tests for ???](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogsTests.java).
+For examples of usage see: [JDI vuetify page tests for Calendars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CalendarsTests.java).

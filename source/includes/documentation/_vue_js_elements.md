@@ -4247,7 +4247,7 @@ v-parallax element has following methods:
 
 ### 5.36 TreeView
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/treeview/)
+[Treeview overview](https://v2.vuetifyjs.com/en/components/treeview/)
 
 __Java__:
 - _com.epam.jdi.light.vuetify.elements.complex.TreeView.java_
@@ -4298,16 +4298,81 @@ It is **necessary** to specify **the core** of an element.
 
 The TreeView component is useful for displaying large amounts of nested data.
 
-The implementation of TreeView has tree structure, e.g.
+__Vuetify v2.6.14__ code example:
 
-* Pseudo core
-  * Applications
-    * Calendar: app
-    * Chrome: app
-    * Webstorm: app
-  * Documents
-  * Downloads
-  * Videos
+```html
+<div class="v-treeview theme--light" id="ActivatableTreeview">
+    <div aria-expanded="false" class="v-treeview-node">
+        <div class="v-treeview-node__root">
+            <button type="button"
+                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button>
+            <div class="v-treeview-node__content">
+                <div class="v-treeview-node__label">Applications :</div>
+            </div>
+        </div>
+    </div>
+    <div aria-expanded="true" class="v-treeview-node">
+        <div class="v-treeview-node__root">
+            <button type="button"
+                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open"></button>
+            <div class="v-treeview-node__content">
+                <div class="v-treeview-node__label">Documents :</div>
+            </div>
+        </div>
+        <div class="v-treeview-node__children">
+            <div aria-expanded="true" class="v-treeview-node">
+                <div class="v-treeview-node__root">
+                    <div class="v-treeview-node__level"></div>
+                    <button type="button"
+                            class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open"></button>
+                    <div class="v-treeview-node__content">
+                        <div class="v-treeview-node__label">vuetify :</div>
+                    </div>
+                </div>
+                <div class="v-treeview-node__children">
+                    <div aria-expanded="true" class="v-treeview-node">
+                        <div class="v-treeview-node__root">
+                            <div class="v-treeview-node__level"></div>
+                            <div class="v-treeview-node__level"></div>
+                            <button type="button"
+                                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open"></button>
+                            <div class="v-treeview-node__content">
+                                <div class="v-treeview-node__label">src :</div>
+                            </div>
+                        </div>
+                        <div class="v-treeview-node__children">
+                            <div aria-expanded="false" class="v-treeview-node v-treeview-node--leaf">
+                                <div class="v-treeview-node__root">
+                                    <div class="v-treeview-node__level"></div>
+                                    <div class="v-treeview-node__level"></div>
+                                    <div class="v-treeview-node__level"></div>
+                                    <div class="v-treeview-node__level"></div>
+                                    <div class="v-treeview-node__content">
+                                        <div class="v-treeview-node__label">index : ts</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <...>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div aria-expanded="false" class="v-treeview-node">
+                <div class="v-treeview-node__root">
+                    <div class="v-treeview-node__level"></div>
+                    <button type="button"
+                            class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button>
+                    <div class="v-treeview-node__content">
+                        <div class="v-treeview-node__label">material2 :</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <...>
+    <...>
+</div>
+```
 
 |Method | Description | Return Type
 --- | --- | ---

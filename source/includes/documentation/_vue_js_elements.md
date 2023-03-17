@@ -2185,7 +2185,7 @@ For examples of usage see: [Slide Groups tests](https://github.com/jdi-testing/j
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Windows.java_
 
 ```java
-    //@FindBy(css = "#VerticalWindow .v-window")
+//@FindBy(css = "#VerticalWindow .v-window")
 @UI("#VerticalWindow .v-window")
 public static Windows<SlideWindow> verticalWindows;
 
@@ -2204,35 +2204,38 @@ __Vuetify v2.6.14__ code example:
 
 ```html
 <div class="v-window v-item-group theme--light v-window--show-arrows-on-hover">
-  <div class="v-window__container" style="">
-    <div class="v-window-item" style="display: none;">
-      <div class="v-card v-sheet theme--light grey" style="height: 200px;">
-        <div class="row fill-height align-center justify-center"><h1 class="white--text" style="font-size: 5rem;">
-          Slide 1
-        </h1></div>
-      </div>
+    <div class="v-window__container" style="">
+        <div class="v-window-item" style="display: none;">
+            <div class="v-card v-sheet theme--light grey" style="height: 200px;">
+                <div class="row fill-height align-center justify-center">
+                    <h1 class="white--text" style="font-size: 5rem;"> Slide 1</h1>
+                </div>
+            </div>
+        </div>
+        <div class="v-window-item" style="display: none;">
+            <div class="v-card v-sheet theme--light grey" style="height: 200px;">
+                <div class="row fill-height align-center justify-center">
+                    <h1 class="white--text" style="font-size: 5rem;"> Slide 2 </h1>
+                </div>
+            </div>
+        </div>
+        <div class="v-window-item v-window-item--active" style="">
+            <div class="v-card v-sheet theme--light grey" style="height: 200px;">
+                <div class="row fill-height align-center justify-center">
+                    <h1 class="white--text" style="font-size: 5rem;"> Slide 3 </h1>
+                </div>
+            </div>
+        </div>
+        <div class="v-window__prev">
+            <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
+                    aria-label="Previous visual">
+                    <span class="v-btn__content">
+                            <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"
+                               style="font-size: 36px;"></i>
+                    </span>
+            </button>
+        </div>
     </div>
-    <div class="v-window-item" style="display: none;">
-      <div class="v-card v-sheet theme--light grey" style="height: 200px;">
-        <div class="row fill-height align-center justify-center"><h1 class="white--text" style="font-size: 5rem;">
-          Slide 2
-        </h1></div>
-      </div>
-    </div>
-    <div class="v-window-item v-window-item--active" style="">
-      <div class="v-card v-sheet theme--light grey" style="height: 200px;">
-        <div class="row fill-height align-center justify-center"><h1 class="white--text" style="font-size: 5rem;">
-          Slide 3
-        </h1></div>
-      </div>
-    </div>
-    <div class="v-window__prev">
-      <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
-              aria-label="Previous visual"><span class="v-btn__content"><i aria-hidden="true"
-                                                                           class="v-icon notranslate mdi mdi-chevron-left theme--light"
-                                                                           style="font-size: 36px;"></i></span></button>
-    </div>
-  </div>
 </div>
 ```
 

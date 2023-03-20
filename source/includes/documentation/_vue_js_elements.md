@@ -2206,7 +2206,7 @@ Items can contains an icon, text, actions etc.
 
 See [different examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ListItemGroupsPage.java)
 
-The `v-list-item-group` provides the ability to create a group of selectable `v-item-items`. 
+The `v-list-item-group` provides the ability to create a group of selectable `v-list-item`s. 
 The `v-list-item-group` component utilizes `v-item-group` at its core to provide a clean interface for interactive lists.
 
 ```html

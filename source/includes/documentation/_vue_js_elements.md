@@ -5000,7 +5000,7 @@ For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-tes
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Calendar.java_
 
 ```java
-    //@FindBy(css = "#calendar-type-week")
+//@FindBy(css = "#calendar-type-week")
 @UI("#calendar-type-week")
 public static Calendar typeWeekCalendar;
 
@@ -5031,7 +5031,8 @@ __Vuetify v2.6.14__ code example:
             <div class="v-calendar-daily_head-day-label">
                 <button type="button"
                         class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
-                    <span class="v-btn__content">6</span></button>
+                    <span class="v-btn__content">6</span>
+                </button>
             </div>
         </div>
         <...>
@@ -5039,8 +5040,9 @@ __Vuetify v2.6.14__ code example:
             <div class="v-calendar-daily_head-weekday primary--text">Tue</div>
             <div class="v-calendar-daily_head-day-label">
                 <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default primary"><span
-                        class="v-btn__content">8</span></button>
+                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default primary">
+                    <span class="v-btn__content">8</span>
+                </button>
             </div>
         </div>
         <div class="v-calendar-daily_head-day v-future">
@@ -5048,7 +5050,8 @@ __Vuetify v2.6.14__ code example:
             <div class="v-calendar-daily_head-day-label">
                 <button type="button"
                         class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
-                    <span class="v-btn__content">9</span></button>
+                    <span class="v-btn__content">9</span>
+                </button>
             </div>
         </div>
         <...>
@@ -5080,7 +5083,8 @@ __Vuetify v2.6.14__ code example:
                         <div class="v-event-timed-container">
                             <div class="v-event-timed primary white--text"
                                  style="top: 600px; height: 144px; left: 0%; width: 100%;">
-                                <div class="pl-1"><span class="v-event-summary"><strong>Mash Potatoes</strong><br>12:30 PM - 3:30 PM</span>
+                                <div class="pl-1">
+                                    <span class="v-event-summary"><strong>Mash Potatoes</strong><br>12:30 PM - 3:30 PM</span>
                                 </div>
                             </div>
                         </div>
@@ -5093,21 +5097,28 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-| Method | Description                   | Return Type |
-| :--- |:------------------------------| :--- |
-**activeDay()** | Get active date of {name}     | int
-**isDailyType()** | Get if {name} has daily type  | boolean
-**isWeeklyType()** | Get if {name} has weekly type | boolean
-**hasCategories()** | Get if {name} has categories  | boolean
-**hasDayIntervals()** | Get if {name} has intervals  | boolean
-**getCategory(int catNum)** | Get {name} {0} category name  | String
-**getDayInterval(int intNum)** | Get {name} {0} interval text | String
-**isToday()** | Check that {name} has the current day | boolean
-**dailyEvent(int eventNum)** | Get {name} {0} event summary | UIElement
-**selectSlot(int week, int day, int slot)** | Select {name} slot | void
-**slotTitle(int week, int day, int slot)** | Get {name} slot | String
-**hasCurrentTimeLine()** | Get if {name} has current time line | boolean
-??????????????????????????????????????????????????????????????????????????????? other methods should be added????
+| Method | Description                                                            | Return Type |
+| :--- |:-----------------------------------------------------------------------| :--- |
+**activeDay()** | Get active date of {name}                                              | int
+**isDailyType()** | Get if {name} has daily type                                           | boolean
+**isWeeklyType()** | Get if {name} has weekly type                                          | boolean
+**hasCategories()** | Get if {name} has categories                                           | boolean
+**hasDayIntervals()** | Get if {name} has intervals                                            | boolean
+**getCategory(int catNum)** | Get {name} {0} category name                                           | String
+**getDayInterval(int intNum)** | Get {name} {0} interval text                                           | String
+**isToday()** | Check that {name} has the current day                                  | boolean
+**dailyEvent(int eventNum)** | Get {name} {0} event summary                                           | UIElement
+**selectSlot(int week, int day, int slot)** | Select {name} slot                                                     | void
+**slotTitle(int week, int day, int slot)** | Get {name} slot                                                        | String
+**hasCurrentTimeLine()** | Get if {name} has current time line                                    | boolean
+**displayedDaysOfMonth()** | Returns a list of  days that are visible now                           | List<WebElement>
+**events()** | Returns a list of events that are visible on a calendar                | WebList
+**intervals()** | Returns a list of intervals of a calendar                              | WebList
+**intervalHeaders()** | Returns a list of intervals headers of a calendar                      | WebList
+**intervalBody()** | Gets a parent interval element that contains all inetrvals of calendar | UIElement
+**dayEvents(int day)** | Returns a list of timed events from a required day                     | WebList
+**calendarDays()** | Returns a list of calendar's days                                      | WebList
+**eventRipple(int eventNumber)** | Gets a required ripple event   | UIElement
 
 | Assert method | Description |
 | :--- | :--- |
@@ -5126,6 +5137,5 @@ __Vuetify v2.6.14__ code example:
 **totalNumberOfEvents(Matcher<Integer> condition)** | Assert that {name} has expected number of daily events
 **activeDay(int expectedDayOfMonth)** | Assert that {name} has active date
 **numberOfIntervals(int expectedNumberOfIntervals)** | Assert that {name} has number of intervals
-
 
 For examples of usage see: [JDI vuetify page tests for Calendars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CalendarsTests.java).

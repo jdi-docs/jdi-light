@@ -2159,74 +2159,133 @@ For examples of usage see: [Item Groups tests](https://github.com/jdi-testing/jd
 
 #### 5.13.4 List Item Groups
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/list-item-groups/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/list-item-groups/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.ListItemGroups.java_
 
 ```java
+    //@FindBy("#ActiveClassListItemGroup .v-list-item")
     @UI("#ActiveClassListItemGroup .v-list-item")
     public static List<ListItemGroups> activeClassListItemGroup;
-    
-    @UI("#SelectionControlsListItemGroup div[role='option']")
-    public static List<Checkbox> selectionControlsListItemGroupCheckbox;
+
+    //@FindBy("#MandatoryListItemGroup .v-list-item")
+    @UI("#MandatoryListItemGroup .v-list-item")
+    public static List<ListItemGroups> mandatoryListItemGroup;
   ```
 
   ![List item groups example](../../images/vuetify/list-item.png)
 
 ```java
-    @Test(dataProvider = "listItemGroupsDataProvider", dataProviderClass = ListItemGroupDataProvider.class)
-    public void activeClassListItemGroupTest(List<String> expectedTitles) {
-        for (int element = 1; element <= expectedTitles.size(); element++) {
-          activeClassListItemGroup.get(element).click();
-          activeClassListItemGroup.get(element).is().active();
-          activeClassListItemGroup.get(element).has().icon();
-          activeClassListItemGroup.get(element).is().containsText(expectedTitles.get(element - 1));
-          activeClassListItemGroup.get(element).has().border();
-          activeClassListItemGroup.get(element).click();
-          activeClassListItemGroup.get(element).is().notActive();
-          activeClassListItemGroup.get(element).has().notBorder();
+    @Test(description = "Test checks if list item is active or not")
+    public void activeClassListItemGroupTest() {
+        for (int element = 1; element <= activeClassListItemGroup.size(); element++) {
+        activeClassListItemGroup.get(element).click();
+        activeClassListItemGroup.get(element).is().active();
+        activeClassListItemGroup.get(element).click();
+        activeClassListItemGroup.get(element).is().notActive();
         }
     }
-```
 
-  ![List item groups example](../../images/vuetify/checkbox-list-item.png)
-
-  ```java
-    @Test(dataProvider = "selectionControlsListDataProvider", dataProviderClass = ListItemGroupDataProvider.class)
-    public void selectionControlsListItemGroupTest(List<String> titlesInCheckboxes) {
-      for (int element = 1; element <= titlesInCheckboxes.size(); element++) {
-        selectionControlsListItemGroup.get(element).is().containsText(titlesInCheckboxes.get(element - 1));
-        selectionControlsListItemGroupCheckbox.get(element).check();
-        selectionControlsListItemGroupCheckbox.get(element).is().checked();
-        selectionControlsListItemGroupCheckbox.get(element).uncheck();
-        selectionControlsListItemGroupCheckbox.get(element).is().unchecked();
+    @Test(description = "Test checks that list item group is mandatory : Mandatory (y/n)",
+          dataProvider = "listItemGroupsDataProvider", dataProviderClass = ListItemGroupDataProvider.class)
+    public void mandatoryListItemGroupTest(List<String> expectedTitles) {
+        for (int element = 1; element <= expectedTitles.size(); element++) {
+        mandatoryListItemGroup.get(element).click();
+        mandatoryListItemGroup.get(element).is().active();
+        mandatoryListItemGroup.get(element).click();
+        mandatoryListItemGroup.get(element).is().active();
         }
-      for (int element = 1; element <= titlesInCheckboxes.size(); element++) {
-        selectionControlsListItemGroupCheckbox.get(element).check();
-        selectionControlsListItemGroupCheckbox.get(element).is().checked();
+        for (int element = 1; element <= expectedTitles.size(); element++) {
+        mandatoryListItemGroup.get(element).click();
         }
-      }
+    }
 ```
 
 __List item groups__ - a group of selectable items from any component. 
 Items can contains an icon, text, actions etc.
 
-List are a continuous group of text or images. They are composed of items containing primary 
-and supplemental actions, which are represented by icons and text.
+See [different examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ListItemGroupsPage.java)
 
-See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ListItemGroupsPage.java)
+The `v-list-item-group` provides the ability to create a group of selectable `v-item-items`. 
+The `v-list-item-group` component utilizes `v-item-group` at its core to provide a clean interface for interactive lists.
 
-The v-list-item-group provides the ability to create a group of selectable v-list-items. 
-The v-list-item-group component utilizes v-item-group at its core to provide a clean interface for interactive lists.
+```html
+<div class="mx-auto v-card v-sheet theme--light" file="v-list-item-group/usage" style="max-width: 500px;">
+    <div role="list" class="v-list v-sheet theme--light">
+        <div role="listbox" class="v-item-group theme--light v-list-item-group">
+            <div tabindex="0" role="option" aria-selected="false" class="v-list-item v-list-item--link theme--light">
+                <div class="v-list-item__icon">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-inbox theme--light">
+                        
+                    </i>
+                </div>
+                <div class="v-list-item__content">
+                    <div class="v-list-item__title">Inbox</div>
+                </div>
+            </div>
+            <div tabindex="0" role="option" aria-selected="true" class="v-list-item v-item--active v-list-item--active v-list-item--link theme--light">
+                <div class="v-list-item__icon">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-star theme--light">
+                        
+                    </i>
+                </div>
+                <div class="v-list-item__content">
+                    <div class="v-list-item__title">Star</div>
+                </div>
+            </div>
+            <div tabindex="0" role="option" aria-selected="false" class="v-list-item v-list-item--link theme--light">
+                <div class="v-list-item__icon">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-send theme--light">
+                        
+                    </i>
+                </div>
+                <div class="v-list-item__content">
+                    <div class="v-list-item__title">Send</div>
+                </div>
+            </div>
+            <div tabindex="0" role="option" aria-selected="false" class="v-list-item v-list-item--link theme--light">
+                <div class="v-list-item__icon">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-email-open theme--light">
+                        
+                    </i>
+                </div>
+                <div class="v-list-item__content">
+                    <div class="v-list-item__title">Drafts</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
-|Method | Description | Return Type
---- | --- | ---
-**has()/is()** | Returns Assert class | ListItemGroupsAssert
-**isActive** | Shows that required element is active | boolean
-**hasBorder** | Shows that selected item has border  | boolean
-**hasIcon()** | Shows that required element has icon | boolean
-**hasTitle()** | Shows that required element has expected title | boolean
-**getText()** | Returns text | String
+|Method | Description                       | Return Type
+--- |-----------------------------------| ---
+**has()/is()** | Returns Assert class              | ListItemGroupsAssert
+**isActive** | Get if required element is active | boolean
+**hasBorder** | Get if item has border            | boolean
+**hasTitle()** | Get if element has expected title | boolean
+**getText()** | Returns text                      | String
+**isFlat()** | Get if element is flat            | boolean
+**theme()** | Get element theme                 | String
+**isSubgroup()** | Get if element is subgroup        | boolean
+**isNoAction()** | Get if element is no-action           | boolean
+
+Also ListitemGroup implements HasClick, HasIcon, IsFlat, HasColor, HasTheme.
+
+| Assert method | Description |
+| :--- | :--- |
+**active()** | Asserts that item is active
+**notActive()** | Asserts that item is not active
+**title()** | Asserts that item has title
+**noTitle()** | Asserts that item has no title
+**border()** | Asserts that item has border
+**noBorder()** | Asserts that item has no border
+**icon()** | Asserts that item has icon
+**noIcon()** | Asserts that item has no icon
+**containsText(String)** | Asserts that item has certain text
+**subGroup()** | Asserts that item is sub-group
+**notSubGroup()** | Asserts that item is not sub-group
+**noAction()** | Asserts that item is no-action
 
 ##### Active class
 
@@ -2240,18 +2299,16 @@ At least one item must be selected.
 
 You can select multiple items at one time.
 
-
 ##### Flat list
 
 You can easily disable the default highlighting of selected v-list-items. This creates a lower profile for a user’s choices.
-
 
 ##### Selection controls
 
 Using the default slot, you can access an items internal state and toggle it. Since the active property is a boolean, we use the true-value prop on the checkbox to link its state to the v-list-item.
 
 
-For examples of usage see: [Vuetify List Item Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListItemGroupsTests.java).
+For examples of usage see: [Vuetify List Item Groups tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListItemGroupsTests.java).
 
 #### 5.13.5 Slide Groups
 

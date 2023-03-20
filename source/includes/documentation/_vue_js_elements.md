@@ -5099,43 +5099,42 @@ __Vuetify v2.6.14__ code example:
 
 | Method | Description                                                            | Return Type |
 | :--- |:-----------------------------------------------------------------------| :--- |
-**activeDay()** | Get active date of {name}                                              | int
-**isDailyType()** | Get if {name} has daily type                                           | boolean
-**isWeeklyType()** | Get if {name} has weekly type                                          | boolean
-**hasCategories()** | Get if {name} has categories                                           | boolean
-**hasDayIntervals()** | Get if {name} has intervals                                            | boolean
-**getCategory(int catNum)** | Get {name} {0} category name                                           | String
-**getDayInterval(int intNum)** | Get {name} {0} interval text                                           | String
-**isToday()** | Check that {name} has the current day                                  | boolean
-**dailyEvent(int eventNum)** | Get {name} {0} event summary                                           | UIElement
-**selectSlot(int week, int day, int slot)** | Select {name} slot                                                     | void
-**slotTitle(int week, int day, int slot)** | Get {name} slot                                                        | String
-**hasCurrentTimeLine()** | Get if {name} has current time line                                    | boolean
+**activeDay()** | Get active date of Calendar                                            | int
+**isDailyType()** | Get if Calendar has daily type                                         | boolean
+**isWeeklyType()** | Get if Calendar has weekly type                                | boolean
+**hasCategories()** | Get if Calendar has categories                                 | boolean
+**hasDayIntervals()** | Get if Calendar has intervals                                  | boolean
+**getCategory(int catNum)** | Get Calendar's required category name                          | String
+**getDayInterval(int intNum)** | Get Calendar's required interval text                          | String
+**isToday()** | Check that Calendar has the current day                                | boolean
+**dailyEvent(int eventNum)** | Get Calendar required event summary          | UIElement
+**selectSlot(int week, int day, int slot)** | Select Calendar's slot             | void
+**slotTitle(int week, int day, int slot)** | Get slot's title          | String
+**hasCurrentTimeLine()** | Get if Calendar has current time line                                  | boolean
 **displayedDaysOfMonth()** | Returns a list of  days that are visible now                           | List<WebElement>
-**events()** | Returns a list of events that are visible on a calendar                | WebList
+**events()** | Returns a list of events that are visible on a Calendar                | WebList
 **intervals()** | Returns a list of intervals of a calendar                              | WebList
 **intervalHeaders()** | Returns a list of intervals headers of a calendar                      | WebList
 **intervalBody()** | Gets a parent interval element that contains all inetrvals of calendar | UIElement
 **dayEvents(int day)** | Returns a list of timed events from a required day                     | WebList
 **calendarDays()** | Returns a list of calendar's days                                      | WebList
-**eventRipple(int eventNumber)** | Gets a required ripple event   | UIElement
+**eventRipple(int eventNumber)** | Gets a required ripple event       | UIElement
 
 | Assert method | Description |
 | :--- | :--- |
-**daily()** | Assert that {name} is of daily type
-**weekly()** | Assert that {name} is of weekly type
-**today()** | Assert that {name} has the today
-**category(int catNum, String catName)** | Assert that {name} has the category
-**eventTitle(int eventNum, String eventName)** | Assert that {name} has the event with num {0} title {1}
-**dayInterval(int intNum, String intText)** | Assert that {name} has the day interval
-**categories()** | Assert that {name} has categories
-**intervals()** | Assert that {name} has intervals
-**slotHasTitle(int week, int day, int slot, String title)** | Assert that the {name} slot has the title
-**currentTimeLine()** | Assert that {name} has the current time line
-**numberOfEventsPerDay(int dayNumber, int expectedNumberOfEvents)** | Assert that {name} has expected number of daily events
-**totalNumberOfEvents(int expectedNumberOfEvents)** | Assert that {name} has expected number of daily events
-**totalNumberOfEvents(Matcher<Integer> condition)** | Assert that {name} has expected number of daily events
-**activeDay(int expectedDayOfMonth)** | Assert that {name} has active date
-**numberOfIntervals(int expectedNumberOfIntervals)** | Assert that {name} has number of intervals
+**daily()** | Assert that Calendar is of daily type
+**weekly()** | Assert that Calendar is of weekly type
+**today()** | Assert that Calendar has the today
+**category(int catNum, String catName)** | Assert that Calendar has the category
+**eventTitle(int eventNum, String eventName)** | Assert that Calendar has the event by required event number with required title 
+**dayInterval(int intNum, String intText)** | Assert that Calendar has the day interval
+**categories()** | Assert that Calendar has categories
+**intervals()** | Assert that Calendar has intervals
+**slotHasTitle(int week, int day, int slot, String title)** | Assert that the Calendar slot has the title
+**currentTimeLine()** | Assert that Calendar has the current time line
+**numberOfEventsPerDay(int dayNumber, int expectedNumberOfEvents)** | Assert that Calendar has expected number of daily events
+**totalNumberOfEvents(int expectedNumberOfEvents)** | Assert that Calendar has expected number of daily events
+**activeDay(int expectedDayOfMonth)** | Assert that Calendar has active date
+**numberOfIntervals(int expectedNumberOfIntervals)** | Assert that Calendar has number of intervals
 
 For examples of usage see: [JDI vuetify page tests for Calendars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CalendarsTests.java).

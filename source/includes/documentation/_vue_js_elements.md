@@ -3532,17 +3532,29 @@ element by using generic. **That classes must implement `ICoreElement` interface
 __Vuetify v2.6.14__ code example:
 
 ```html
-<div class="v-timeline v-timeline--dense theme--light"><span><div
-  class="v-timeline-item v-timeline-item--fill-dot theme--light"><div class="v-timeline-item__body"><div
-  role="alert" class="v-alert white--text v-sheet theme--light info"><div class="v-alert__wrapper"><i
-  aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-information theme--light"></i><div
-  class="v-alert__content">
+<div class="v-timeline v-timeline--dense theme--light">
+  <span>
+    <div class="v-timeline-item v-timeline-item--fill-dot theme--light">
+      <div class="v-timeline-item__body">
+        <div role="alert" class="v-alert white--text v-sheet theme--light info">
+          <div class="v-alert__wrapper">
+            <i aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-information theme--light"></i>
+            <div class="v-alert__content">
             Lorem ipsum dolor sit amet, no nam oblique veritus.
             Commune scaevola imperdiet nec ut, sed euismod convenire principes at.
             Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
-          </div></div></div></div><div class="v-timeline-item__divider"><div
-  class="v-timeline-item__dot v-timeline-item__dot--small"><div
-  class="v-timeline-item__inner-dot info"></div></div></div></div></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="v-timeline-item__divider">
+        <div class="v-timeline-item__dot v-timeline-item__dot--small">
+          <div class="v-timeline-item__inner-dot info"></div>
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
  ```
 
 ![TimeLine example](../../images/vuetify/timelines.png)

@@ -4305,7 +4305,8 @@ __Vuetify v2.6.14__ code example:
     <div aria-expanded="false" class="v-treeview-node">
         <div class="v-treeview-node__root">
             <button type="button"
-                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button>
+                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light">
+            </button>
             <div class="v-treeview-node__content">
                 <div class="v-treeview-node__label">Applications :</div>
             </div>
@@ -4314,7 +4315,8 @@ __Vuetify v2.6.14__ code example:
     <div aria-expanded="true" class="v-treeview-node">
         <div class="v-treeview-node__root">
             <button type="button"
-                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open"></button>
+                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open">
+            </button>
             <div class="v-treeview-node__content">
                 <div class="v-treeview-node__label">Documents :</div>
             </div>
@@ -4324,7 +4326,8 @@ __Vuetify v2.6.14__ code example:
                 <div class="v-treeview-node__root">
                     <div class="v-treeview-node__level"></div>
                     <button type="button"
-                            class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open"></button>
+                            class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open">
+                    </button>
                     <div class="v-treeview-node__content">
                         <div class="v-treeview-node__label">vuetify :</div>
                     </div>
@@ -4335,7 +4338,8 @@ __Vuetify v2.6.14__ code example:
                             <div class="v-treeview-node__level"></div>
                             <div class="v-treeview-node__level"></div>
                             <button type="button"
-                                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open"></button>
+                                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open">
+                            </button>
                             <div class="v-treeview-node__content">
                                 <div class="v-treeview-node__label">src :</div>
                             </div>
@@ -4361,7 +4365,8 @@ __Vuetify v2.6.14__ code example:
                 <div class="v-treeview-node__root">
                     <div class="v-treeview-node__level"></div>
                     <button type="button"
-                            class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light"></button>
+                            class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light">
+                    </button>
                     <div class="v-treeview-node__content">
                         <div class="v-treeview-node__label">material2 :</div>
                     </div>
@@ -4376,43 +4381,27 @@ __Vuetify v2.6.14__ code example:
 
 |Method | Description | Return Type
 --- | --- | ---
-**isPseudoCore()** | Shows that element is core TreeView without data | boolean
-**isLeaf()** | Shows that element doesn't have children | boolean
-**isActive()** | Shows that element is activate | boolean
-**isHoverable()** | Shows that element is hoverable | boolean
-**isShaped()** | Shows that element is shaped | boolean
-**isRounded()** | Shows that element is rounded | boolean
-**isFullyMarked()** | Shows that element checkbox is fully marked | boolean
-**isPartlyMarked()** | Shows that element checkbox is partly marked | boolean
-**isNotMarked()** | Shows that element checkbox is not marked | boolean
-**isSelected()** | Shows that element checkbox is fully selected | boolean
-**isExpanded()** | Shows that element is expanded | boolean
-**pseudoCore()** | Returns core TreeView element | TreeView
-**root()** | Returns root TreeView that contains data | UIElement
-**expander()** | Returns expander(toggle) in TreeView root | UIElement
-**checkbox()** | Returns checkbox in TreeView root | UIElement
-**value()** | Returns value in TreeView root | UIElement
-**getValue()/getText()** | Returns value text in TreeView root | String
-**size()** | Returns size of children | int
-**list()** | Returns children | WebList
-**nodes()** | Returns children | List\<TreeView>
-**values()** | Returns children values | List\<String>
-**expand()** | Expand element | void
-**close()** | Close element | void
-**click()** | Click on element | void
-**activate()** | Activate element by click if element is not activated | void
-**deactivate()** | Deactivate element by click if element is activated | void
-**select()** | Click on element checkbox | void
-**check()** | Check checkbox by click if checkbox is not checked | void
-**uncheck()** | Uncheck checkbox by click if checkbox is not checked | boolean
-**select(TEnum value/String text/int index)** | Select element | void
-**selected(TEnum value/String text/int index)** | Shows if children TreeView is selected | boolean
-**selected()** | Returns selected children values in one string | String
-**checked()** | Returns selected children values | List\<String>
-**walk(Consumer<? super TreeView> visitor)** | Uses for tree traversal through all elements | void
-**structure()** | Returns structure of the TreeView | Map\<String, List\<String>>
+**childNodes()** | Get '{name}' check list | WebList
+**allNodes()** | Get '{name}' check list | WebList
+**node(String value)** | Get '{name}' node string value '{0}' | TreeViewNode
+**node(int index)** | Get '{name}' item with index '{0}' | TreeViewNode
+**treeViewNodes()** | Get '{name}' list of nodes | List<TreeViewNode>
+**isHoverable()** | Get if '{name}' is hoverable | boolean
+**size()** | Get '{name}' size | int
+**fullSize()** | Get '{name}' size | int
+**expandAllNodes()** | Expand all nodes in '{name}' | void
+**closeAllNodes()** | Close all nodes in '{name}' | void
+**closeAllNodes()** | Close all nodes in '{name}' | void
 
-For examples of usage see: [JDI Vuetify TreeView tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TreeViewTests.java).
+
+| Assert method | Description |
+| :--- | :--- |
+**hoverable()** | Assert that '{name}' is hoverable
+**notHoverable()** | Assert that '{name}' is not hoverable
+
+In addition, TreeViewAssert implements LoadingAssert<TreeViewAssert, TreeView>, DenseAssert<TreeViewNodeAssert, TreeView>.
+
+For examples of usage see: [JDI Vuetify TreeView tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TreeViewTests.java).
 
 ### 5.37 Button (VuetifyButton)
 

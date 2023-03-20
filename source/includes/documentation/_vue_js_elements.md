@@ -3498,7 +3498,7 @@ __Java__:
 - _com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLineItem.java_
 
 ```java 
-    //@FindBy(css = "#AdvancedTimeline .v-timeline")
+//@FindBy(css = "#AdvancedTimeline .v-timeline")
 @JDITimeLine(root = "#AdvancedTimeline .v-timeline")
 public static TimeLine<OrderLine, UIElement> advancedTimeline;
 
@@ -3525,9 +3525,6 @@ You can specify locators for the TimeLine by using `JDITimeLine` annotation:
 `opposite` | used to set opposite of each TimeLineItem
 
 It is **necessary** to specify **the root** of an element.
-
-Also, you can specify classes for `body` as `T` and for `divider` as `U` in your 
-element by using generic. **That classes must implement `ICoreElement` interface**.
 
 __Vuetify v2.6.14__ code example:
 

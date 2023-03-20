@@ -2202,7 +2202,7 @@ For examples of usage see: [Item Groups tests](https://github.com/jdi-testing/jd
 ```
 
 __List item groups__ - a group of selectable items from any component. 
-Items can contains an icon, text, actions etc.
+Items can contain an icon, text, actions etc.
 
 See [different examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ListItemGroupsPage.java)
 

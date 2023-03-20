@@ -2299,65 +2299,93 @@ For examples of usage see: [Slide Groups tests](https://github.com/jdi-testing/j
 
 #### 5.13.6 Windows
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/windows/)
+[Windows overview](https://v2.vuetifyjs.com/en/components/windows/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Windows.java_
 
 ```java
-    @UI("#ReverseWindow .v-window")
-    public static Windows<SlideWindow> reverseWindows;
+//@FindBy(css = "#VerticalWindow .v-window")
+@UI("#VerticalWindow .v-window")
+public static Windows<SlideWindow> verticalWindows;
 
-    @UI("#AccountCreationWindow .v-window")
-    public static Windows<?> accountCreationWindows;
+@Test(description = "Check if vertical window hasn't 'previous' button, has an arrow on hover and a light theme")
+    public void verticalWindowsTest() {
+        verticalWindows.show();
+        verticalWindows.is().lightTheme();
+        verticalWindows.is().showArrowsOnHover();
+        verticalWindows.has().noPreviousButton();
+    }
 ```
 
 ![Windows example](../../images/vuetify/windows.png)
 
-```java
-    @Test
-    public void reverseWindowsTest() {
-        int i = 1;
-        for (UIElement nav : reverseNavigation) {
-            nav.click();
-            reverseWindows.getActive().header().has().text("Slide " + i);
-            reverseWindows.getActive().header().has().css("color", WHITE.value());
-            reverseWindows.getActive().sheet().has().css("background-color", GREY.value());
-            i++;
-        }
-        reverseNext.click();
-        reverseWindows.getActive().header().has().text("Slide 1");
-        reverseBack.click();
-        reverseWindows.getActive().header().has().text("Slide 3");
-    }
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-window v-item-group theme--light v-window--show-arrows-on-hover">
+    <div class="v-window__container" style="">
+        <div class="v-window-item" style="display: none;">
+            <div class="v-card v-sheet theme--light grey" style="height: 200px;">
+                <div class="row fill-height align-center justify-center">
+                    <h1 class="white--text" style="font-size: 5rem;"> Slide 1</h1>
+                </div>
+            </div>
+        </div>
+        <div class="v-window-item" style="display: none;">
+            <div class="v-card v-sheet theme--light grey" style="height: 200px;">
+                <div class="row fill-height align-center justify-center">
+                    <h1 class="white--text" style="font-size: 5rem;"> Slide 2 </h1>
+                </div>
+            </div>
+        </div>
+        <div class="v-window-item v-window-item--active" style="">
+            <div class="v-card v-sheet theme--light grey" style="height: 200px;">
+                <div class="row fill-height align-center justify-center">
+                    <h1 class="white--text" style="font-size: 5rem;"> Slide 3 </h1>
+                </div>
+            </div>
+        </div>
+        <div class="v-window__prev">
+            <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"
+                    aria-label="Previous visual">
+                    <span class="v-btn__content">
+                            <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"
+                               style="font-size: 36px;"></i>
+                    </span>
+            </button>
+        </div>
+    </div>
+</div>
 ```
 
-The v-window component provides the baseline functionality for
-transitioning content from 1 pane to another.
+The Windows component provides the baseline functionality for transitioning content from 1 pane to another. 
+Other components such as Tabs, Carousels and Steppers utilize this component at their core.
 
-Windows component is a container. So, you should use
-it with another class for contained element.
-**That class must implement `ICoreElement` interface**.
-For example: UIElement, Section or your custom class.
+| Method | Description                                              | Return Type |
+| :--- |:---------------------------------------------------------| :--- |
+**active()** | Get active window from Windows element| UIElement
+**previousButton()** | Get Windows element previous button  | Button
+**nextButton()** | Get Windows element next button | Button
+**activeItem()** | Get active window from Windows element  | T
+**activeItem(Class<W> clazz)** | Get active window as required class from Windows element | <W> W
+**items()** | Get all child windows of Windows element as a list | List<T> 
+**showArrowsOnHover()** | Get if Windows shows arrows on hover | boolean
 
-There are two ways to use windows class:
+In addition, Windows implements ISetup, HasTheme.
 
-- With definite `T` type in diamond operator(<T\>)
-- With unknown type(<?>)
+| Assert method | Description |
+| :--- | :--- |
+**showArrowsOnHover()** | Assert that Windows shows arrows on hover
+**notShowArrowsOnHover()** | Assert that Windows doesn't show arrows on hover
+**noNextActionsButton()** | Assert that Windows has no next actions button
+**previousButton()** | Assert that Windows has previous button
+**noPreviousButton()** | Assert that Windows has no previous button
+**nextButton()** | Assert that Windows has next button
+**noNextButton()** | Assert that Windows has no next button
 
-**You should always use Windows component with diamond operator.**
+In addition, WindowsAssert implements ThemeAssert<WindowsAssert, Windows>.
 
-
-|Method | Description | Return Type
---- | --- | ---
-**getActive()** | Returns instance of `T` class from the diamond operator | T
-**getActive(Class\<U\> clazz)** | Returns instance of `U` class  | U
-
-**T and U should implement ICoreElement
-or extend a class that already implemented it.**
-
-For examples of usage see: [Custom vuetify windows examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/windows)
-and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java).
-
+For examples of usage see:[JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java).
 
 ### 5.14 Lists
 

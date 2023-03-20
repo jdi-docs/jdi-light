@@ -5120,6 +5120,8 @@ __Vuetify v2.6.14__ code example:
 **calendarDays()** | Returns a list of calendar's days                                      | WebList
 **eventRipple(int eventNumber)** | Gets a required ripple event       | UIElement
 
+In addition, Calendar implements HasTheme.
+
 | Assert method | Description |
 | :--- | :--- |
 **daily()** | Assert that Calendar is of daily type
@@ -5136,5 +5138,7 @@ __Vuetify v2.6.14__ code example:
 **totalNumberOfEvents(int expectedNumberOfEvents)** | Assert that Calendar has expected number of daily events
 **activeDay(int expectedDayOfMonth)** | Assert that Calendar has active date
 **numberOfIntervals(int expectedNumberOfIntervals)** | Assert that Calendar has number of intervals
+
+In addition, CalendarAssert implements ThemeAssert<CalendarAssert, Calendar>.
 
 For examples of usage see: [JDI vuetify page tests for Calendars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CalendarsTests.java).

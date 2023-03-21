@@ -5045,3 +5045,154 @@ __Vuetify v2.6.14__ code example:
 Sheet also have basic JDI elements methods and asserts for Text, Color, Elevation, Measurements, Theme and others
 
 For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SheetsTests.java)
+
+
+### 5.45 Calendars
+
+[Calendars overview](https://v2.vuetifyjs.com/en/components/calendars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Calendar.java_
+
+```java
+//@FindBy(css = "#calendar-type-week")
+@UI("#calendar-type-week")
+public static Calendar typeWeekCalendar;
+
+@Test(description = "Check if Calendar is weekly and has required events")
+public static void typeWeekCalendarTest(){
+  typeWeekCalendar.show();
+  typeWeekCalendar.is().weekly();
+  typeWeekCalendar.has().totalNumberOfEvents(3);
+  typeWeekCalendar.has().eventTitle(2,"Mash Potatoes");
+  }
+```
+
+![Calendars example](../../images/vuetify/calendars.png)
+
+The Calendars component is used to display information in a daily, weekly, monthly, or category view. The daily view
+has slots for all day or timed elements, and the weekly and monthly view has a slot for each day. The category view
+has a slot for each category in the day and timed sections based on the categories given or the categories in the given
+events. Optionally you can pass in an array of events and they will be rendered over the appropriate days and times.
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div data-v-53316f16="" class="v-calendar v-calendar-daily theme--light v-calendar-events" id="calendar-type-week">
+    <div class="v-calendar-daily__head" style="margin-right: 17px;">
+        <div class="v-calendar-daily__intervals-head" style="width: 60px;"></div>
+        <div class="v-calendar-daily_head-day v-past">
+            <div class="v-calendar-daily_head-weekday">Sun</div>
+            <div class="v-calendar-daily_head-day-label">
+                <button type="button"
+                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
+                    <span class="v-btn__content">6</span>
+                </button>
+            </div>
+        </div>
+        <...>
+        <div class="v-calendar-daily_head-day v-present">
+            <div class="v-calendar-daily_head-weekday primary--text">Tue</div>
+            <div class="v-calendar-daily_head-day-label">
+                <button type="button"
+                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default primary">
+                    <span class="v-btn__content">8</span>
+                </button>
+            </div>
+        </div>
+        <div class="v-calendar-daily_head-day v-future">
+            <div class="v-calendar-daily_head-weekday">Wed</div>
+            <div class="v-calendar-daily_head-day-label">
+                <button type="button"
+                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
+                    <span class="v-btn__content">9</span>
+                </button>
+            </div>
+        </div>
+        <...>
+    </div>
+    <div class="v-calendar-daily__body">
+        <div class="v-calendar-daily__scroll-area">
+            <div class="v-calendar-daily__pane" style="height: 1152px;">
+                <div class="v-calendar-daily__day-container">
+                    <div class="v-calendar-daily__intervals-body" style="width: 60px;">
+                        <div class="v-calendar-daily__interval" style="height: 48px;">
+                            <div class="v-calendar-daily__interval-text"></div>
+                        </div>
+                        <...>same lines for other 23 hours<...>
+                    </div>
+                    <div class="v-calendar-daily__day v-past">
+                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
+                        <...>
+                        <div class="v-event-timed-container"></div>
+                    </div>
+                    <...>
+                    <div class="v-calendar-daily__day v-present">
+                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
+                        <...>
+                        <div class="v-event-timed-container"></div>
+                    </div>
+                    <div class="v-calendar-daily__day v-future">
+                        <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
+                        <...>
+                        <div class="v-event-timed-container">
+                            <div class="v-event-timed primary white--text"
+                                 style="top: 600px; height: 144px; left: 0%; width: 100%;">
+                                <div class="pl-1">
+                                    <span class="v-event-summary"><strong>Mash Potatoes</strong><br>12:30 PM - 3:30 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <...>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+| Method | Description                                                            | Return Type |
+| :--- |:-----------------------------------------------------------------------| :--- |
+**activeDay()** | Get active date of Calendar                                            | int
+**isDailyType()** | Get if Calendar has daily type                                         | boolean
+**isWeeklyType()** | Get if Calendar has weekly type                                | boolean
+**hasCategories()** | Get if Calendar has categories                                 | boolean
+**hasDayIntervals()** | Get if Calendar has intervals                                  | boolean
+**getCategory(int catNum)** | Get Calendar's required category name                          | String
+**getDayInterval(int intNum)** | Get Calendar's required interval text                          | String
+**isToday()** | Check that Calendar has the current day                                | boolean
+**dailyEvent(int eventNum)** | Get Calendar required event summary          | UIElement
+**selectSlot(int week, int day, int slot)** | Select Calendar's slot             | void
+**slotTitle(int week, int day, int slot)** | Get slot's title          | String
+**hasCurrentTimeLine()** | Get if Calendar has current time line                                  | boolean
+**displayedDaysOfMonth()** | Returns a list of  days that are visible now                           | List<WebElement>
+**events()** | Returns a list of events that are visible on a Calendar                | WebList
+**intervals()** | Returns a list of intervals of a calendar                              | WebList
+**intervalHeaders()** | Returns a list of intervals headers of a calendar                      | WebList
+**intervalBody()** | Gets a parent interval element that contains all inetrvals of calendar | UIElement
+**dayEvents(int day)** | Returns a list of timed events from a required day                     | WebList
+**calendarDays()** | Returns a list of calendar's days                                      | WebList
+**eventRipple(int eventNumber)** | Gets a required ripple event       | UIElement
+
+In addition, Calendar implements HasTheme.
+
+| Assert method | Description |
+| :--- | :--- |
+**daily()** | Assert that Calendar is of daily type
+**weekly()** | Assert that Calendar is of weekly type
+**today()** | Assert that Calendar has the today
+**category(int catNum, String catName)** | Assert that Calendar has the category
+**eventTitle(int eventNum, String eventName)** | Assert that Calendar has the event by required event number with required title 
+**dayInterval(int intNum, String intText)** | Assert that Calendar has the day interval
+**categories()** | Assert that Calendar has categories
+**intervals()** | Assert that Calendar has intervals
+**slotHasTitle(int week, int day, int slot, String title)** | Assert that the Calendar slot has the title
+**currentTimeLine()** | Assert that Calendar has the current time line
+**numberOfEventsPerDay(int dayNumber, int expectedNumberOfEvents)** | Assert that Calendar has expected number of daily events
+**totalNumberOfEvents(int expectedNumberOfEvents)** | Assert that Calendar has expected number of daily events
+**activeDay(int expectedDayOfMonth)** | Assert that Calendar has active date
+**numberOfIntervals(int expectedNumberOfIntervals)** | Assert that Calendar has number of intervals
+
+In addition, CalendarAssert implements ThemeAssert<CalendarAssert, Calendar>.
+
+For examples of usage see: [JDI vuetify page tests for Calendars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CalendarsTests.java).

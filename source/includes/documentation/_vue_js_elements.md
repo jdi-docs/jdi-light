@@ -4251,47 +4251,34 @@ v-parallax element has following methods:
 
 __Java__:
 - _com.epam.jdi.light.vuetify.elements.complex.TreeView.java_
+- _com.epam.jdi.light.vuetify.elements.complex.TreeViewNode.java_
 
 You can specify locators for the TreeView by using `JDITreeView` annotation:
 
-|Locator in `JDITreeView` | Description
---- | --- 
-`core` | used to set the _core_ of the TreeView
-`coreNodes` | used to set _nodes_ in the _core_ of TreeView
-`nodeNodes` | used to set _nodes_ in the _node_ of TreeView
-`root` | used set element with data in TreeView node
-`toggle` | used to set _toggle_ in the _root_ of TreeView
-`checkbox` | used to set _checkbox_ in the _root_ of TreeView
-`content` | used to set _content_ in the _root_ of TreeView
-`full` | used to set class that used as a sign of _full_ checked checkbox
-`part` | used to set class that used as a sign of _partly_ checked checkbox
-`not` | used to set class that used as a sign of _not_ checked checkbox
+| Locator in `JDITreeView` | Description                                                        
+--------------------------|--------------------------------------------------------------------
+ `core`                   | used to set the _core_ of the TreeView                             
+ `full`                   | used to set class that used as a sign of _full_ checked checkbox   
+ `part`                   | used to set class that used as a sign of _partly_ checked checkbox 
+ `not`                    | used to set class that used as a sign of _not_ checked checkbox    
 
 It is **necessary** to specify **the core** of an element.
 
 ```java
-    @JDITreeView(core = "#ActivatableTreeview.v-treeview")
-    public static TreeView activatableTreeView;
+//@FindBy(css = "#SelectableTreeview.v-treeview")
+@UI("#SelectableTreeview.v-treeview")
+public static TreeView selectableTreeView;
 
-    @Test
-    public void colorTreeViewTest() {
-        colorTreeView.has().structure(expectedBaseTreeStructure);
-        colorTreeView.walk(treeView -> {
-            if (!treeView.isLeaf() && !treeView.isPseudoCore()) {
-                TreeView child = treeView.first();
-                child.has().color(BLACK_TRANSPARENT_087);
-                child.activate();
-                child.has().color(ORANGE_DARKEN_1);
-                treeView.close();
-                treeView.is().collapsed();
-                treeView.expand();
-                treeView.is().expanded();
-                child = treeView.first();
-                child.deactivate();
-                child.has().color(BLACK_TRANSPARENT_087);
-            }
-        });
-    }
+@Test(description = "Test checks if tree-view node is selected or not")
+public void selectTreeViewTest(){
+  selectableTreeView.node(1).walk(checkedTree->{
+  checkedTree.has().checkbox();
+  checkedTree.check();
+  checkedTree.is().selected();
+  checkedTree.uncheck();
+  checkedTree.is().notSelected();
+  });
+}
 ```
 
 ![TreeView example](../../images/vuetify/treeView.png)

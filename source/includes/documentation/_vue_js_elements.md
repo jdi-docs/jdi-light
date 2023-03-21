@@ -4379,27 +4379,82 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**childNodes()** | Get '{name}' check list | WebList
-**allNodes()** | Get '{name}' check list | WebList
-**node(String value)** | Get '{name}' node string value '{0}' | TreeViewNode
-**node(int index)** | Get '{name}' item with index '{0}' | TreeViewNode
-**treeViewNodes()** | Get '{name}' list of nodes | List<TreeViewNode>
-**isHoverable()** | Get if '{name}' is hoverable | boolean
-**size()** | Get '{name}' size | int
-**fullSize()** | Get '{name}' size | int
-**expandAllNodes()** | Expand all nodes in '{name}' | void
-**closeAllNodes()** | Close all nodes in '{name}' | void
-**closeAllNodes()** | Close all nodes in '{name}' | void
+| Method                 | Description                           | Return Type        
+------------------------|---------------------------------------|--------------------
+ **childNodes()**       | Get TreeView check list               | WebList            
+ **allNodes()**         | Get TreeView check list               | WebList            
+ **node(String value)** | Get TreeView node string value        | TreeViewNode       
+ **node(int index)**    | Get TreeView item with required index | TreeViewNode       
+ **treeViewNodes()**    | Get TreeView list of nodes            | List<TreeViewNode> 
+ **isHoverable()**      | Get if TreeView is hoverable          | boolean            
+ **fullSize()**         | Get TreeView size                     | int                
+ **expandAllNodes()**   | Expand all nodes in TreeView          | void               
+ **closeAllNodes()**    | Close all nodes in TreeView           | void               
 
+In addition, **TreeView** extends implements ISetup, IsLoading, ISelector, IsDense.
 
-| Assert method | Description |
-| :--- | :--- |
-**hoverable()** | Assert that '{name}' is hoverable
-**notHoverable()** | Assert that '{name}' is not hoverable
+| Assert method      | Description                           |
+|:-------------------|:--------------------------------------|
+ **hoverable()**    | Assert that TreeView is hoverable     
+ **notHoverable()** | Assert that TreeView is not hoverable 
 
-In addition, TreeViewAssert implements LoadingAssert<TreeViewAssert, TreeView>, DenseAssert<TreeViewNodeAssert, TreeView>.
+In addition, **TreeViewAssert** implements LoadingAssert<TreeViewAssert, TreeView>, DenseAssert<TreeViewNodeAssert,
+TreeView>.
+
+Also, there is a **TreeViewNode** that has its own methods.
+
+| Method                                           | Description                                | Return Type         
+--------------------------------------------------|--------------------------------------------|---------------------
+ **isLeaf()**                                     | Get if TreeViewNode is a leaf              | boolean             
+ **isActive()**                                   | Get if TreeViewNode is active              | boolean             
+ **isFullyMarked()**                              | Get if TreeViewNode is fully marked        | boolean             
+ **isPartlyMarked()**                             | Get if TreeViewNode is partly marked       | boolean             
+ **isNotMarked()**                                | Get if TreeViewNode is not marked          | boolean             
+ **isExpanded()**                                 | Get if TreeViewNode is expanded            | boolean             
+ **root()**                                       | Get TreeViewNode root                      | UIElement           
+ **expanders()**                                  | Get TreeViewNode expanders                 | List<VuetifyButton> 
+ **checkbox()**                                   | Get TreeViewNode root checkbox             | UIElement           
+ **value()**                                      | Get root value from TreeViewNode           | UIElement           
+ **checkList()**                                  | Get TreeViewNode check list                | WebList             
+ **nodes()**                                      | Get TreeViewNode list of nodes             | List<TreeViewNode>  
+ **icon()**                                       | Get TreeViewNode icon                      | Icon                
+ **expand()**                                     | Expand TreeViewNode                        | void                
+ **close()**                                      | Close TreeViewNode                         | void                
+ **activate()**                                   | Activate TreeViewNode                      | void                
+ **deactivate()**                                 | Deactivate TreeViewNode                    | void                
+ **selectCheckbox()**                             | Select TreeViewNode checkbox               | void                
+ **select()**                                     | Select TreeViewNode value                  | void                
+ **walk(Consumer<? super TreeViewNode> visitor)** | Navigates through TreeViewNodes under node | void                
+ **checkboxColor()**                              | Get TreeViewNode checkbox color            | String              
+
+In addition, **TreeViewNode** implements IMultiSelector, CanBeSelected, HasCheck, IListSelector<TreeViewNode>,
+ISelector, HasRounded, IsShaped, IsLoading, HasColor, HasLabel.
+
+| Assert method                                     | Description                                                           |
+|:--------------------------------------------------|:----------------------------------------------------------------------|
+ **expanded()**                                    | Assert that TreeViewNode is expanded                                  
+ **collapsed()**                                   | Assert that TreeViewNode is collapsed                                 
+ **hasLabel()**                                    | Assert that TreeViewNode has label                                    
+ **leaf()**                                        | Assert that TreeViewNode is a leaf                                    
+ **notLeaf()**                                     | Assert that TreeViewNode is not a leaf                                
+ **active()**                                      | Assert that TreeViewNode is active                                    
+ **notActive()**                                   | Assert that TreeViewNode is not active                                
+ **selected()**                                    | Assert that TreeViewNode is selected                                  
+ **notSelected()**                                 | Assert that TreeViewNode is not selected                              
+ **checkbox()**                                    | Assert that TreeViewNode has checkbox                                 
+ **noCheckbox()**                                  | Assert that TreeViewNode has no checkbox                              
+ **fullyMarked()**                                 | Assert that TreeViewNode is fully marked                              
+ **isPartlyMarked()**                              | Assert that TreeViewNode is partly marked                             
+ **notMarked()**                                   | Assert that TreeViewNode is not marked                                
+ **checked(Matcher<? super List<String>> values)** | Assert that required values checked in TreeViewNode                   
+ **checked(String... values)**                     | Assert that only required values are checked in TreeViewNode          
+ **checked(List<String> values)**                  | Assert that only required values are checked in TreeViewNode          
+ **color(String color)**                           | Assert that color of TreeViewNode is equal to required color          
+ **checkboxColor(String color)**                   | Assert that checkbox color of TreeViewNode is equal to required color 
+
+In addition, **TreeViewNodeAssert**  implements RoundedAssert<TreeViewNodeAssert, TreeViewNode>,
+ShapedAssert<TreeViewNodeAssert, TreeViewNode>, LoadingAssert<TreeViewNodeAssert, TreeViewNode>,
+ColorAssert<TreeViewNodeAssert, TreeViewNode>.
 
 For examples of usage see: [JDI Vuetify TreeView tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TreeViewTests.java).
 

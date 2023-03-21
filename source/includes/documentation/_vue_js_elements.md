@@ -2270,7 +2270,7 @@ The `v-list-item-group` component utilizes `v-item-group` at its core to provide
 **isSubgroup()** | Get if element is subgroup        | boolean
 **isNoAction()** | Get if element is no-action           | boolean
 
-Also ListitemGroup implements HasClick, HasIcon, IsFlat, HasColor, HasTheme.
+Also ListItemGroup implements HasClick, HasIcon, IsFlat, HasColor, HasTheme.
 
 | Assert method | Description |
 | :--- | :--- |

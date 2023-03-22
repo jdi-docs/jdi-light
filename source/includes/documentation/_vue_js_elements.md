@@ -2444,7 +2444,7 @@ In addition, WindowsAssert implements ThemeAssert<WindowsAssert, Windows>.
 
 For examples of usage see:[JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java).
 
-### 5.14 Lists
+### 5.14 Lists (VuetifyList)
 
 [The v-list](https://v2.vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
 
@@ -2491,46 +2491,96 @@ For examples of usage see:[JDI vuetify page tests for windows](https://github.co
 
 In JDI framework __v-lists__ are represented by the following classes:
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Lists.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.VuetifyList.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.VuetifyListGroup.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.ListItem.java_
 
 
 
 __Vuetify v2.6.14__ code example:
 
 ```html
- <div id="app">
-  <v-app id="inspire">
-    <v-card
-      class="mx-auto"
-      max-width="400"
-      tile
-    >
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>Single-line item</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-list-item two-line>
-        <v-list-item-content>
-          <v-list-item-title>Two-line item</v-list-item-title>
-          <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-list-item three-line>
-        <v-list-item-content>
-          <v-list-item-title>Three-line item</v-list-item-title>
-          <v-list-item-subtitle>
-            Secondary line text Lorem ipsum dolor sit amet,
-          </v-list-item-subtitle>
-          <v-list-item-subtitle>
-            consectetur adipiscing elit.
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-    </v-card>
-  </v-app>
+ <div role="list" class="v-list v-sheet theme--light">
+    <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+        <div class="v-list-item__icon">
+            <i aria-hidden="true" class="v-icon notranslate mdi mdi-home theme--light">
+                
+            </i>
+        </div>
+        <div class="v-list-item__title">Home</div>
+    </div>
+    <div class="v-list-group v-list-group--active primary--text">
+        <div tabindex="0" aria-expanded="true" role="button" class="v-list-group__header v-list-item v-list-item--active v-list-item--link theme--light">
+            <div class="v-list-item__icon v-list-group__header__prepend-icon">
+                <i aria-hidden="true" class="v-icon notranslate mdi mdi-account-circle theme--light">
+                    
+                </i>
+            </div>
+            <div class="v-list-item__title">Users</div>
+            <div class="v-list-item__icon v-list-group__header__append-icon">
+                <span aria-hidden="true" class="v-icon notranslate theme--light">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z">
+                            
+                        </path>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="v-list-group__items">
+            <div class="v-list-group v-list-group--active v-list-group--no-action v-list-group--sub-group primary--text">
+                <div tabindex="0" aria-expanded="true" role="button" class="v-list-group__header v-list-item v-list-item--active v-list-item--link theme--light">
+                    <div class="v-list-item__icon v-list-group__header__prepend-icon">
+                        <span aria-hidden="true" class="v-icon notranslate theme--light">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                                <path d="M7,10L12,15L17,10H7Z">
+                                    
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="v-list-item__content">
+                        <div class="v-list-item__title">Admin</div>
+                    </div>
+                </div>
+                <div class="v-list-group__items">
+                    <div tabindex="0" role="listitem" class="v-list-item v-list-item--link theme--light">
+                        <div class="v-list-item__title">Management</div>
+                        <div class="v-list-item__icon">
+                            <i aria-hidden="true" class="v-icon notranslate mdi mdi-account-multiple-outline theme--light">
+                                
+                            </i>
+                        </div>
+                    </div>
+                    <div tabindex="0" role="listitem" class="v-list-item v-list-item--link theme--light">
+                        <div class="v-list-item__title">Settings</div>
+                        <div class="v-list-item__icon">
+                            <i aria-hidden="true" class="v-icon notranslate mdi mdi-cog-outline theme--light">
+                                
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="v-list-group v-list-group--no-action v-list-group--sub-group">
+                <div tabindex="0" aria-expanded="false" role="button" class="v-list-group__header v-list-item v-list-item--link theme--light">
+                    <div class="v-list-item__icon v-list-group__header__prepend-icon">
+                        <span aria-hidden="true" class="v-icon notranslate theme--light">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                                <path d="M7,10L12,15L17,10H7Z">
+                                    
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="v-list-item__content">
+                        <div class="v-list-item__title">Actions</div>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+    </div>
 </div>
  ```
 
@@ -2544,12 +2594,29 @@ __Vuetify v2.6.14__ code example:
 | **itemsWebList()**         | Gets list of items. Each element of the list is a UIElement | WebList           |
 | **subheader(int)**         | Gets the subheader of a list using the subheader index      | Subheader         |
 | **divider(int)**           | Gets the divider of a list using the divider index          | Divider           |
+| **dividers()**             | Gets the dividers of a list                                 | WebList           |
 | **items()**                | Gets list of items. Each element of the list is a ListItem  | List< ListItem >  |
 | **size()**                 | Gets size of a list (i.e. amount of its items)              | int               |
+| **groups()**               | Gets list groups                                            | List<VuetifyListGroup>|
+| **group(String)**          | Gets list grou with certain title                           | VuetifyListGroup  |
 | **isDisabled()**           | Checks if a list is disabled                                | boolean           |
 | **isRounded()**            | Checks if a list is rounded                                 | boolean           |
 
-For more examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ListsTests.java).
+Also VuetifyList implements ICoreElement, HasTheme, HasElevation, IsDense, IsFlat, HasRounded, IsShaped.
+
+| Assert method | Description |
+| :--- | :--- |
+**size(int)** | Assert list size
+**disabled()** | Assert that element is disabled
+**enabled()** | Assert that element is enabled
+**groupSize(int)** | Assert group list size
+**dividersSize(int)** | Assert dividers list size
+**expanded()** | Checks that the list item is expanded
+**collapsed()** | Checks that the list item is collapsed
+**active()** | Checks that the list item is active
+**notActive()** | Checks that the list item is not active
+
+For more examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ListsTests.java).
    
 ### 5.15 Overlays
 

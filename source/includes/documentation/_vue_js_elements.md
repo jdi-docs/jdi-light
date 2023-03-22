@@ -4258,6 +4258,12 @@ You can specify locators for the TreeView by using `JDITreeView` annotation:
 | Locator in `JDITreeView` | Description                                                        
 --------------------------|--------------------------------------------------------------------
  `core`                   | used to set the _core_ of the TreeView                             
+ `coreNodes`              | used to set _nodes_ in the _core_ of TreeView                      
+ `nodeNodes`              | used to set _nodes_ in the _node_ of TreeView                      
+ `root`                   | used set element with data in TreeView node                        
+ `toggle`                 | used to set _toggle_ in the _root_ of TreeView                     
+ `checkbox`               | used to set _checkbox_ in the _root_ of TreeView                   
+ `content`                | used to set _content_ in the _root_ of TreeView                    
  `full`                   | used to set class that used as a sign of _full_ checked checkbox   
  `part`                   | used to set class that used as a sign of _partly_ checked checkbox 
  `not`                    | used to set class that used as a sign of _not_ checked checkbox    
@@ -4378,7 +4384,7 @@ __Vuetify v2.6.14__ code example:
  **expandAllNodes()**   | Expand all nodes in TreeView          | void               
  **closeAllNodes()**    | Close all nodes in TreeView           | void               
 
-In addition, **TreeView** extends implements ISetup, IsLoading, ISelector, IsDense.
+In addition, **TreeView** implements ISetup, IsLoading, ISelector, IsDense.
 
 | Assert method      | Description                           |
 |:-------------------|:--------------------------------------|

@@ -4104,38 +4104,122 @@ For examples of usage see: [JDI Vuetify DatePickersMonth tests](https://github.c
 
 #### 5.31.4 Color pickers
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/color-pickers/)
+[Color pickers overview](https://v2.vuetifyjs.com/en/components/color-pickers/)
 
-- __Java__: _com/epam/jdi/light/vuetify/elements/complex/ColorPicker.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ColorPicker.java_
 
 ```java
+//@FindBy(css = "#CanvasColorPicker > div:first-child")
 @UI("#CanvasColorPicker > div:first-child")
 public static ColorPicker noCanvasColorPicker;
 
-@UI("#CanvasColorPicker > div:nth-child(2)")
-public static ColorPicker fullCanvasColorPicker;
-```
-
-```java
-@Test(dataProviderClass = ColorPickersDataProviders.class, dataProvider = "colorsDataProvider")
-public void fullCanvasColorPickerTest(String initialRGBAStringColor,
-  String stringColorValue,
-  String stringTransparentColorValue) {
-  fullCanvasColorPicker.has().color(initialRGBAStringColor);
-  String initialHueSliderStyle = fullCanvasColorPicker.hueSlider().getValue();
-  String initialAlphaSliderStyle = fullCanvasColorPicker.alphaSlider().getValue();
-  fullCanvasColorPicker.setColor(stringColorValue);
-  fullCanvasColorPicker.has().color(stringColorValue);
-  fullCanvasColorPicker.assertThat().hueSliderValueHaveChanged(initialHueSliderStyle);
-  fullCanvasColorPicker.setColor(stringTransparentColorValue);
-  fullCanvasColorPicker.has().color(stringTransparentColorValue);
-  fullCanvasColorPicker.assertThat().alphaSliderValueHaveChanged(initialAlphaSliderStyle);
+@Test(description = "Test checks color model picking from a non-canvas slider")
+public void noCanvasColorPickerTest(){
+  noCanvasColorPicker.show();
+  noCanvasColorPicker.has().inputModel(RGBA);
+  noCanvasColorPicker.colorModelButton().click();
+  noCanvasColorPicker.has().inputModel(HSLA);
+  noCanvasColorPicker.colorModelButton().click();
+  noCanvasColorPicker.has().inputModel(HEX)
+  .and().hexInputFieldStringColorValue(INITIAL_HEX_STRING_COLOR);
   }
 ```
 
-The v-color-picker allows you to select a color using a variety of input methods.
+The Color picker allows you to select a color using a variety of input methods.
 
 ![DatePickers example](../../images/vuetify/color_picker.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="v-color-picker ma-2 v-sheet theme--light theme--light" style="max-width: 300px;">
+    <div class="v-color-picker__controls">
+        <div class="v-color-picker__preview">
+            <div class="v-color-picker__dot">
+                <div style="background: rgb(255, 0, 0);"></div>
+            </div>
+            <div class="v-color-picker__sliders">
+                <div class="v-input v-color-picker__hue v-input--hide-details theme--light v-input__slider v-color-picker__track">
+                    <div class="v-input__control">
+                        <div class="v-input__slot">
+                            <div class="v-slider v-slider--horizontal theme--light">
+                                <input value="0" id="input-2294" disabled="disabled" readonly="readonly" tabindex="-1">
+                                <div class="v-slider__track-container">
+                                    <div class="v-slider__track-background primary lighten-3"
+                                         style="right: 0px; width: calc(100%);">
+                                    </div>
+                                    <div class="v-slider__track-fill primary"
+                                         style="left: 0px; right: auto; width: 0%;"></div>
+                                </div>
+                                <div role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="360" aria-valuenow="0"
+                                     aria-readonly="false" aria-orientation="horizontal"
+                                     class="v-slider__thumb-container grey--text text--lighten-2" style="left: 0%;">
+                                    <div class="v-slider__thumb grey lighten-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="v-input v-color-picker__alpha v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input__slider v-color-picker__track"
+                     style="background-image: linear-gradient(to right, transparent, rgb(255, 0, 0));">
+                    <div class="v-input__control">
+                        <div class="v-input__slot">
+                            <div class="v-slider v-slider--horizontal theme--light">
+                                <input value="1" id="input-2295" disabled="disabled" readonly="readonly" tabindex="-1">
+                                <div class="v-slider__track-container">
+                                    <div class="v-slider__track-background primary lighten-3"
+                                         style="right: 0px; width: calc(0%);">
+                                    </div>
+                                    <div class="v-slider__track-fill primary"
+                                         style="left: 0px; right: auto; width: 100%;">
+                                    </div>
+                                </div>
+                                <div role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1"
+                                     aria-readonly="false" aria-orientation="horizontal"
+                                     class="v-slider__thumb-container grey--text text--lighten-2" style="left: 100%;">
+                                    <div class="v-slider__thumb grey lighten-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="v-color-picker__edit">
+            <div class="v-color-picker__input">
+                <input type="number" min="0" max="255" step="1">
+                <span>R</span>
+            </div>
+            <div class="v-color-picker__input">
+                <input type="number" min="0" max="255" step="1">
+                <span>G</span>
+            </div>
+            <div class="v-color-picker__input">
+                <input type="number" min="0" max="255" step="1">
+                <span>B</span>
+            </div>
+            <div class="v-color-picker__input">
+                <input type="number" min="0" max="1" step="0.01">
+                <span>A</span>
+            </div>
+            <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--small">
+                <span class="v-btn__content">
+                    <span aria-hidden="true" class="v-icon notranslate theme--light">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
+                             class="v-icon__svg">
+                            <path d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"></path>
+                        </svg>
+                    </span>
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+```
+
+
+
 
 |Method | Description | Return Type
 --- | --- | ---

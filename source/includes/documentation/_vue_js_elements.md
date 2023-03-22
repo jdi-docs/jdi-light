@@ -4132,7 +4132,6 @@ The Color picker allows you to select a color using a variety of input methods.
 __Vuetify v2.6.14__ code example:
 
 ```html
-
 <div class="v-color-picker ma-2 v-sheet theme--light theme--light" style="max-width: 300px;">
     <div class="v-color-picker__controls">
         <div class="v-color-picker__preview">
@@ -4147,8 +4146,7 @@ __Vuetify v2.6.14__ code example:
                                 <input value="0" id="input-2294" disabled="disabled" readonly="readonly" tabindex="-1">
                                 <div class="v-slider__track-container">
                                     <div class="v-slider__track-background primary lighten-3"
-                                         style="right: 0px; width: calc(100%);">
-                                    </div>
+                                         style="right: 0px; width: calc(100%);"></div>
                                     <div class="v-slider__track-fill primary"
                                          style="left: 0px; right: auto; width: 0%;"></div>
                                 </div>
@@ -4218,21 +4216,42 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
+| Method                                 | Description                                   | Return Type      | 
+|:---------------------------------------|:----------------------------------------------|:-----------------|
+ **canvas()**                           | Gets canvas element                           | UIElement        
+ **canvasDot()**                        | Gets canvas dot element                       | UIElement        
+ **colorDot()**                         | Gets color dot element                        | UIElement        
+ **hueSlider()**                        | Gets hue slider                               | Slider           
+ **alphaSlider()**                      | Gets alpha slider                             | Slider           
+ **inputRH()**                          | Gets R(from RGBA) or H(from HSLA) input field | TextField        
+ **inputGS()**                          | Gets G(from RGBA) or S(from HSLA) input field | TextField        
+ **inputBL()**                          | Gets B(from RGBA) or B(from HSLA) input field | TextField        
+ **inputA()**                           | Gets A input field                            | TextField        
+ **inputHEX()**                         | Gets HEX input field                          | TextField        
+ **colorModelButton()**                 | Gets color model button                       | Button           
+ **swatches()**                         | Gets list of swatches colors                  | WebList          
+ **setColor(String value)**             | Set required color to Color Picker            | void             
+ **getCanvasStyle()**                   | Get canvas style from Color Picker            | String           
+ **getCanvasDotStyle()**                | Get canvasDot style from Color Picker         | String           
+ **getInputModel()**                    | Get input model from Color Picker             | String           
+ **getColor(UIElement element)**        | Get color from Color Picker                   | Color            
+ **getColorsFromSwatches()**            | Get colors from Color Picker swatches         | ArrayList<Color> 
+ **getElementStyle(UIElement element)** | Get required element's style                  | String           
 
-
-
-|Method | Description | Return Type
---- | --- | ---
-**setColor(String value)** | Sets the color through the RGBA model input fields | void
-**getCanvasStyle()** | Gets the style from the Color picker canvas | String
-**getCanvasDotStyle()** | Gets the style from the Color picker canvas dot | String
-**getInputModel()** | Returns the current color model of the input fields | String
-**getColor(UIElement element)** | Returns the currently set color of the Color picker | Color
-**getColorsFromSwatches()** | Returns list of colors from Color picker swatches | ArrayList\<Color\>
-**getElementStyle(UIElement element)** | Gets the style from the Color picker element | String
-**has()/is()** | Returns Assert class | ColorPickerAssert
+| Assert method                                        | Description                                                                |
+|:-----------------------------------------------------|:---------------------------------------------------------------------------|
+ **canvasStyle()**                                    | Assert that Color Picker canvas has style                                  
+ **canvasDotStyle()**                                 | Assert that Color Picker canvasDot has style                               
+ **inputModel(String inputModel)**                    | Assert that Color Picker input model is as expected                              
+ **hueSliderValue()**                                 | Assert that Color Picker hueSlider has value                               
+ **alphaSliderValue()**                               | Assert that Color Picker alphaSlider has value                             
+ **hueSliderValueHaveChanged(double initialValue)**   | Assert that Color Picker hueSlider value have changed                      
+ **alphaSliderValueHaveChanged(double initialValue)** | Assert that Color Picker alphaSlider value have changed                    
+ **color(String color)**                              | Assert that Color Picker has required color                                
+ **hexInputFieldLength(int length)**                  | Assert that Color Picker hex input field length is as expected             
+ **hexInputFieldStringColorValue(String color)**      | Assert that Color Picker hex input field color string value is as expected 
                                                                                                                           
-For examples of usage see: [JDI Vuetify ColorPickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ColorPickerTests.java).
+For examples of usage see: [JDI Vuetify ColorPickers tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ColorPickersTests.java).
 
 ### 5.32 Lazy
 

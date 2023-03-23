@@ -4238,6 +4238,8 @@ __Vuetify v2.6.14__ code example:
  **getColorsFromSwatches()**            | Get colors from Color Picker swatches         | ArrayList<Color> 
  **getElementStyle(UIElement element)** | Get required element's style                  | String           
 
+In addition, ColorPicker implements HasElevation, HasTheme.
+
 | Assert method                                        | Description                                                                |
 |:-----------------------------------------------------|:---------------------------------------------------------------------------|
  **canvasStyle()**                                    | Assert that Color Picker canvas has style                                  
@@ -4250,7 +4252,10 @@ __Vuetify v2.6.14__ code example:
  **color(String color)**                              | Assert that Color Picker has required color                                
  **hexInputFieldLength(int length)**                  | Assert that Color Picker hex input field length is as expected             
  **hexInputFieldStringColorValue(String color)**      | Assert that Color Picker hex input field color string value is as expected 
-                                                                                                                          
+
+In addition, ColorPickerAssert implements ElevationAssert<ColorPickerAssert, ColorPicker>,
+ThemeAssert<ColorPickerAssert, ColorPicker>.
+
 For examples of usage see: [JDI Vuetify ColorPickers tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ColorPickersTests.java).
 
 ### 5.32 Lazy

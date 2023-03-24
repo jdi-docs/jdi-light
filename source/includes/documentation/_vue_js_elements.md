@@ -3959,6 +3959,7 @@ For examples of usage see: JDI vuetify page tests for lazy.
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.VirtualScroller.java_
 
 ```java
+//@FindBy(css = ".v-virtual-scroll")
 @UI(".v-virtual-scroll")
 public static VirtualScroller benchScroller;
 
@@ -4005,20 +4006,29 @@ It can render an unlimited amount of items by rendering only what it needs to fi
 
 | Method | Description | Return Type | 
 |:---| :--- |:---|
-**scrollToElement()** | Scrolls to element with text |
-**scrollToTop()** | Scrolls virtual scroller to top |
+**scrollToElement(String text)** | Scrolls to element with text |
+**scrollToTop()** | Scrolls virtual scroller to top | void
 **items()** | Returns virtual scroller list items | List\<ListItem>
-**item()** | Returns item with text | ListItem
+**item(String itemText)** | Returns item with text | ListItem
 **itemsText()** | Returns items text | List\<String>
 **itemHeight()** | Returns item height | int
 **position()** | Returns scrolled position in px | int
-**scrollToPosition()** | Scrolls element to position |
-**show()** | Shows item |
+**scrollToPosition(int y)** | Scrolls element to position |
+**show(ListItem item)** | Shows item | void
 
 In addition, **VirtualScroller** implements HasMeasurement.
 
+| Assert method | Description |
+| :--- | :--- |
+**itemsCount(int expectedCount)** | Assert that number of rendered items of VirtualScroller are expected count
+**items()** | Assert that VirtualScroller items are exist
+**text(String... expectedText)** | Assert that VirtualScroller items has text
+**itemsHeight(int expectedItemsHeight)** | Assert that VirtualScroller has expected items height
+
+In addition, **VirtualScrollerAssert** implements MeasurementAssert<VirtualScrollerAssert, VirtualScroller>.
+
 For examples of usage
-see: [JDI vuetify page tests for Virtual Scroller](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VirtualScrollerTests.java)
+see: [JDI vuetify page tests for Virtual Scroller](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VirtualScrollerTests.java)
 
 ### 5.34 Skeleton loader
 

@@ -3954,43 +3954,71 @@ For examples of usage see: JDI vuetify page tests for lazy.
 
 ### 5.33 Virtual Scroller
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/virtual-scroller/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/virtual-scroller/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.VirtualScroller.java_
 
 ```java
-    @UI("input")
-    public static TextField totalBenched;
+@UI(".v-virtual-scroll")
+public static VirtualScroller benchScroller;
 
-    @UI("#BenchVirtualScroller .v-virtual-scroll")
-    public static VirtualScroller benchScroller;
-
-    @Test(dataProvider = "bench items text", 
-            dataProviderClass = VirtualScrollerDataProvider.class)
-    public static void benchScrollToItemTest(String itemText) {
-        benchScroller.is().displayed();
-        benchScroller.show();
-        
-        benchScroller.scrollToElementWithText(itemText);
-        benchScroller.items().get(3).find(".v-list-item__content")
-                .has().text(itemText);
-    }
+@Test(description = "Test checks that scroller has expected height and width")
+public void measurementVirtualScrollerTest() {
+  benchScroller.show();
+  benchScroller.has().height(300);
+  benchScroller.has().heightGreaterThan(200);
+  benchScroller.has().heightLessThan(400);
+  benchScroller.has().width(400);
+  benchScroller.has().widthGreaterThan(300);
+  benchScroller.has().widthLessThan(500);
+  benchScroller.has().itemsHeight(64);
+  }
 ```
-![Virtual Scroller example](../../images/vuetify/virtualScrollerBench.png)
 
 The `v-virtual-scroll` component displays a virtual, infinite list. It supports dynamic height and scrolling vertically.
 
+![Virtual Scroller example](../../images/vuetify/virtualScroller.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="v-virtual-scroll" style="height: 300px;">
+  <div class="v-virtual-scroll__container" style="height: 448000px;">
+    <div class="v-virtual-scroll__item" style="top: 0px;">
+      <div tabindex="-1" class="v-list-item theme--light">
+        <div class="v-list-item__action">
+          <button type="button" class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--small primary">
+            <span class="v-btn__content"> 1 </span></button>
+        </div>
+        <div class="v-list-item__content">
+          <div class="v-list-item__title"> User Database Record <strong>ID 1</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+
 It can render an unlimited amount of items by rendering only what it needs to fill the scroller’s viewport.
 
-|Method | Description | Return Type
---- | --- | ---
-**scrollToPosition()** | Scrolls to the position specified by y coordinate| void
-**scrollToElementWithText()** | Scrolls to the element that contains specified text| void
-**position()** | Returns the position of the first element in the scroller| int
-**items()** | Returns the list of rendered items| WebList
-**show()** | Focuses on the specified UIElement| void
+| Method | Description | Return Type | 
+|:---| :--- |:---|
+**scrollToElement()** | Scrolls to element with text |
+**scrollToTop()** | Scrolls virtual scroller to top |
+**items()** | Returns virtual scroller list items | List\<ListItem>
+**item()** | Returns item with text | ListItem
+**itemsText()** | Returns items text | List\<String>
+**itemHeight()** | Returns item height | int
+**position()** | Returns scrolled position in px | int
+**scrollToPosition()** | Scrolls element to position |
+**show()** | Shows item |
 
-For examples of usage see: [JDI vuetify page tests for Virtual Scroller](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VirtualScrollerTests.java).
+In addition, **VirtualScroller** implements HasMeasurement.
+
+For examples of usage
+see: [JDI vuetify page tests for Virtual Scroller](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VirtualScrollerTests.java)
 
 ### 5.34 Skeleton loader
 

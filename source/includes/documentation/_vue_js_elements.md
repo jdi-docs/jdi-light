@@ -4545,51 +4545,159 @@ For examples of usage see: [JDI Vuetify DatePickersMonth tests](https://github.c
 
 #### 5.31.4 Color pickers
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/color-pickers/)
+[Color pickers overview](https://v2.vuetifyjs.com/en/components/color-pickers/)
 
-- __Java__: _com/epam/jdi/light/vuetify/elements/complex/ColorPicker.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ColorPicker.java_
 
 ```java
+//@FindBy(css = "#CanvasColorPicker > div:first-child")
 @UI("#CanvasColorPicker > div:first-child")
 public static ColorPicker noCanvasColorPicker;
 
-@UI("#CanvasColorPicker > div:nth-child(2)")
-public static ColorPicker fullCanvasColorPicker;
-```
-
-```java
-@Test(dataProviderClass = ColorPickersDataProviders.class, dataProvider = "colorsDataProvider")
-public void fullCanvasColorPickerTest(String initialRGBAStringColor,
-  String stringColorValue,
-  String stringTransparentColorValue) {
-  fullCanvasColorPicker.has().color(initialRGBAStringColor);
-  String initialHueSliderStyle = fullCanvasColorPicker.hueSlider().getValue();
-  String initialAlphaSliderStyle = fullCanvasColorPicker.alphaSlider().getValue();
-  fullCanvasColorPicker.setColor(stringColorValue);
-  fullCanvasColorPicker.has().color(stringColorValue);
-  fullCanvasColorPicker.assertThat().hueSliderValueHaveChanged(initialHueSliderStyle);
-  fullCanvasColorPicker.setColor(stringTransparentColorValue);
-  fullCanvasColorPicker.has().color(stringTransparentColorValue);
-  fullCanvasColorPicker.assertThat().alphaSliderValueHaveChanged(initialAlphaSliderStyle);
+@Test(description = "Test checks color model picking from a non-canvas slider")
+public void noCanvasColorPickerTest(){
+  noCanvasColorPicker.show();
+  noCanvasColorPicker.has().inputModel(RGBA);
+  noCanvasColorPicker.colorModelButton().click();
+  noCanvasColorPicker.has().inputModel(HSLA);
+  noCanvasColorPicker.colorModelButton().click();
+  noCanvasColorPicker.has().inputModel(HEX)
+  .and().hexInputFieldStringColorValue(INITIAL_HEX_STRING_COLOR);
   }
 ```
 
-The v-color-picker allows you to select a color using a variety of input methods.
+The Color picker allows you to select a color using a variety of input methods.
 
 ![DatePickers example](../../images/vuetify/color_picker.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**setColor(String value)** | Sets the color through the RGBA model input fields | void
-**getCanvasStyle()** | Gets the style from the Color picker canvas | String
-**getCanvasDotStyle()** | Gets the style from the Color picker canvas dot | String
-**getInputModel()** | Returns the current color model of the input fields | String
-**getColor(UIElement element)** | Returns the currently set color of the Color picker | Color
-**getColorsFromSwatches()** | Returns list of colors from Color picker swatches | ArrayList\<Color\>
-**getElementStyle(UIElement element)** | Gets the style from the Color picker element | String
-**has()/is()** | Returns Assert class | ColorPickerAssert
-                                                                                                                          
-For examples of usage see: [JDI Vuetify ColorPickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ColorPickerTests.java).
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-color-picker ma-2 v-sheet theme--light theme--light" style="max-width: 300px;">
+    <div class="v-color-picker__controls">
+        <div class="v-color-picker__preview">
+            <div class="v-color-picker__dot">
+                <div style="background: rgb(255, 0, 0);"></div>
+            </div>
+            <div class="v-color-picker__sliders">
+                <div class="v-input v-color-picker__hue v-input--hide-details theme--light v-input__slider v-color-picker__track">
+                    <div class="v-input__control">
+                        <div class="v-input__slot">
+                            <div class="v-slider v-slider--horizontal theme--light">
+                                <input value="0" id="input-2294" disabled="disabled" readonly="readonly" tabindex="-1">
+                                <div class="v-slider__track-container">
+                                    <div class="v-slider__track-background primary lighten-3"
+                                         style="right: 0px; width: calc(100%);"></div>
+                                    <div class="v-slider__track-fill primary"
+                                         style="left: 0px; right: auto; width: 0%;"></div>
+                                </div>
+                                <div role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="360" aria-valuenow="0"
+                                     aria-readonly="false" aria-orientation="horizontal"
+                                     class="v-slider__thumb-container grey--text text--lighten-2" style="left: 0%;">
+                                    <div class="v-slider__thumb grey lighten-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="v-input v-color-picker__alpha v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input__slider v-color-picker__track"
+                     style="background-image: linear-gradient(to right, transparent, rgb(255, 0, 0));">
+                    <div class="v-input__control">
+                        <div class="v-input__slot">
+                            <div class="v-slider v-slider--horizontal theme--light">
+                                <input value="1" id="input-2295" disabled="disabled" readonly="readonly" tabindex="-1">
+                                <div class="v-slider__track-container">
+                                    <div class="v-slider__track-background primary lighten-3"
+                                         style="right: 0px; width: calc(0%);">
+                                    </div>
+                                    <div class="v-slider__track-fill primary"
+                                         style="left: 0px; right: auto; width: 100%;">
+                                    </div>
+                                </div>
+                                <div role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1"
+                                     aria-readonly="false" aria-orientation="horizontal"
+                                     class="v-slider__thumb-container grey--text text--lighten-2" style="left: 100%;">
+                                    <div class="v-slider__thumb grey lighten-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="v-color-picker__edit">
+            <div class="v-color-picker__input">
+                <input type="number" min="0" max="255" step="1">
+                <span>R</span>
+            </div>
+            <div class="v-color-picker__input">
+                <input type="number" min="0" max="255" step="1">
+                <span>G</span>
+            </div>
+            <div class="v-color-picker__input">
+                <input type="number" min="0" max="255" step="1">
+                <span>B</span>
+            </div>
+            <div class="v-color-picker__input">
+                <input type="number" min="0" max="1" step="0.01">
+                <span>A</span>
+            </div>
+            <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--small">
+                <span class="v-btn__content">
+                    <span aria-hidden="true" class="v-icon notranslate theme--light">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
+                             class="v-icon__svg">
+                            <path d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"></path>
+                        </svg>
+                    </span>
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+```
+
+| Method                                 | Description                                   | Return Type      | 
+|:---------------------------------------|:----------------------------------------------|:-----------------|
+ **canvas()**                           | Gets canvas element                           | UIElement        
+ **canvasDot()**                        | Gets canvas dot element                       | UIElement        
+ **colorDot()**                         | Gets color dot element                        | UIElement        
+ **hueSlider()**                        | Gets hue slider                               | Slider           
+ **alphaSlider()**                      | Gets alpha slider                             | Slider           
+ **inputRH()**                          | Gets R(from RGBA) or H(from HSLA) input field | TextField        
+ **inputGS()**                          | Gets G(from RGBA) or S(from HSLA) input field | TextField        
+ **inputBL()**                          | Gets B(from RGBA) or B(from HSLA) input field | TextField        
+ **inputA()**                           | Gets A input field                            | TextField        
+ **inputHEX()**                         | Gets HEX input field                          | TextField        
+ **colorModelButton()**                 | Gets color model button                       | Button           
+ **swatches()**                         | Gets list of swatches colors                  | WebList          
+ **setColor(String value)**             | Set required color to Color Picker            | void             
+ **getCanvasStyle()**                   | Get canvas style from Color Picker            | String           
+ **getCanvasDotStyle()**                | Get canvasDot style from Color Picker         | String           
+ **getInputModel()**                    | Get input model from Color Picker             | String           
+ **getColor(UIElement element)**        | Get color from Color Picker                   | Color            
+ **getColorsFromSwatches()**            | Get colors from Color Picker swatches         | ArrayList<Color> 
+ **getElementStyle(UIElement element)** | Get required element's style                  | String           
+
+In addition, ColorPicker implements HasElevation, HasTheme.
+
+| Assert method                                        | Description                                                                |
+|:-----------------------------------------------------|:---------------------------------------------------------------------------|
+ **canvasStyle()**                                    | Assert that Color Picker canvas has style                                  
+ **canvasDotStyle()**                                 | Assert that Color Picker canvasDot has style                               
+ **inputModel(String inputModel)**                    | Assert that Color Picker input model is as expected                              
+ **hueSliderValue()**                                 | Assert that Color Picker hueSlider has value                               
+ **alphaSliderValue()**                               | Assert that Color Picker alphaSlider has value                             
+ **hueSliderValueHaveChanged(double initialValue)**   | Assert that Color Picker hueSlider value have changed                      
+ **alphaSliderValueHaveChanged(double initialValue)** | Assert that Color Picker alphaSlider value have changed                    
+ **color(String color)**                              | Assert that Color Picker has required color                                
+ **hexInputFieldLength(int length)**                  | Assert that Color Picker hex input field length is as expected             
+ **hexInputFieldStringColorValue(String color)**      | Assert that Color Picker hex input field color string value is as expected 
+
+In addition, ColorPickerAssert implements ElevationAssert<ColorPickerAssert, ColorPicker>,
+ThemeAssert<ColorPickerAssert, ColorPicker>.
+
+For examples of usage see: [JDI Vuetify ColorPickers tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ColorPickersTests.java).
 
 ### 5.32 Lazy
 

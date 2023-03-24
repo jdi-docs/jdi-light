@@ -3059,96 +3059,470 @@ __Vuetify v2.6.14__ code example:
 
 #### 5.21.1 Simple Tables
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/simple-tables/)
+[Simple Tables overview](https://v2.vuetifyjs.com/en/components/simple-tables/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.SimpleTable.java_
 
+The Simple Tables component is a simple wrapper component around the <table> element.
+
 ```java
-    @Test
-    public static void darkTableTests() {
-        darkTable.is().firstColumnHasElement(ECLAIR);
-        darkTable.is().secondColumnHasElement(1, FROZEN_YOGURT_CALORIES);
-        darkTable.is().dark();
-        darkTable.is().columnTitle(1, "Name");
+//@FindBy(css = "#HeightTable")
+@UI("#HeightTable")
+public static SimpleTable heightTable;
+
+@Test(description = "Check that Height Simple Table is shown as expected")
+public void heightSimpleTableTest() {
+  heightTable.show();
+  heightTable.hasFixedHeader();
+  heightTable.is().columnTitle(0, "Name");
+  heightTable.has().cellValue(1, 1, FROZEN_YOGURT.value());
+  heightTable.has().fixedHeight().and().height(300);
   }
-
 ```
-
-The Simple Table component is a simple wrapper component around the table element.
 
 ![Simple Table example](../../images/vuetify/simple_table.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**has()/is()** | Returns Assert class | SimpleTableAssert
-**firstColumnElement(int/String)** | Returns required element from first column | String
-**secondColumnElement(int?String)** | Returns required element from second column | String
-**columnTitle(int)** | Returns column title | String
-**isDark()** | Shows that table has dark theme | boolean
-**isLight()** | Shows that table has light theme | boolean
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-data-table theme--light" file="v-simple-table/usage">
+    <div class="v-data-table__wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th class="text-left"> Name</th>
+                <th class="text-left"> Calories</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Frozen Yogurt</td>
+                <td>159</td>
+            </tr>
+            <tr>
+                <...>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+```
+
+| Method | Description | Return Type |
+| :--- | :--- | :--- |
+**hasFixedHeader()** | Get if Simple Table has fixed header | boolean
 **hasFixedHeight()** | Shows that table has fixed height | boolean
 
-For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java#L40).
+In addition, SimpleTable class implements IsDense, HasTheme
+
+| Assert method | Description |
+| :--- | :--- |
+**fixedHeader()** | Assert that Simple Table has fixed header
+**fixedHeight()** | Assert that Simple Table has fixed height
+**cellValue(int colNum, int rowNum, String data)** | Assert that Simple Table's first column has required element
+**columnTitle(int colNum, String reqTitle)** | Assert that Simple Table's column has title
+
+For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java).
 
 #### 5.21.2 Data Tables
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/data-tables/)
+[Data Tables overviw](https://v2.vuetifyjs.com/en/components/data-tables/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataTable.java_
 
 ```java
-    @Test
-    public static void searchTableTest() {
-        searchTable.search(TableTestData.DONUT);
-        searchTable.has().firstColumnHasElement(1, TableTestData.DONUT);
-        searchTable.clear();
-        searchTable.search(TableTestData.ECLAIR_CALORIES);
-        searchTable.has().firstColumnHasElement(1, TableTestData.ECLAIR);
-    }
+//@FindBy(css = "#CustomFilterTable .v-data-table")
+@UI("#CustomFilterTable .v-data-table")
+public static DataTable customFilterTable;
 
+@Test(description = "Check that tile alert is shown as expected")
+public void customFilterTableTest(){
+        customFilterTable.show();
+        customFilterTable.has()
+        .footer(true)
+        .header(true)
+        .nextPageButton(false)
+        .elementValue(1,1,FROZEN_YOGURT.value());
+        customFilterTable.selectNumberOfRowsPerPage("5");
+        customFilterTable.nextPage();
+        customFilterTable.has().elementValue(1,1,JELLY_BEAN.value());
+        customFilterTable.previousPage();
+        customFilterTable.sortDescBy("Carbs (g)");
+        customFilterTable.has().elementValue(1,1,LOLLIPOP.value());
+        }
 ```
 
 The Data Table component is used for displaying tabular data and to extend the Simple Table element
 
 ![Data Table example](../../images/vuetify/data_table.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**has()/is()** | Returns Assert class | DataTableAssert
-**columnElement()** | Returns required element from required column | String
-**search()** | Searches required element in table | void
-**clear()** | Clears search field | void
-**rowsPerPage()** | Shows the required value of rows in table | void
-**itemsPerPage()** | Shows the required value of elements in table | void
-**elementsInColumn()** | Returns size of the required column | Integer
-**previousPage()** | Switches to the previous page | void
-**firstPage()** | Switches to the first page | void
-**secondPage()** | Switches to the second page | void
-**nextPage()** | Switches to the next page | void
-**sortAscBy()** | Sorts elements by the required value in ascending order | void
-**sortDescBy()** | Sorts elements by the required value in descending order | void
-**sortOff()** | Turns off the sort | void
-**isSortedBy()** | Shows that elements sorted by the value | boolean
-**collapseGroup()** | Collapses the required group | void
-**expandGroup()** | Expands the required group | void
-**sortGroup()** | Sorts elements by required group | void
-**removeGroups()** | Remove all groups | void
-**hasGroup()** | Shows that elements required by the required group | boolean
-**isLoading()** | Shows that table is loading | boolean
-**isSelected()** | Shows that required element in required column is selected | boolean
-**singleSelectOn()** | Turns on single select | void
-**singleSelectOff()** | Turns off single select | void
-**elIsGreen()** | Shows that the required element is green | boolean
-**elIsOrange()** | Shows that the required element is orange | boolean
-**elIsRed()** | Shows that the required element is red | boolean
-**createWithSave()** | Creates new element with required values and save it | void
-**createWithoutSave()** | Creates new element with required values without save| void
-**editElement()** | Changes required element name to required value | void
-**confirm()** | Confirms changes in element | void
-**cancel()** | Cancels changes in element| void
-**expand()** | Expands required element| void
+__Vuetify v2.6.14__ code example:
 
-For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
+```html
+<div class="v-data-table elevation-1 v-data-table--has-bottom theme--light" file="v-data-table/usage">
+    <div class="v-data-table__wrapper">
+        <table>
+            <colgroup>
+                <col class="">
+                <col class="">
+                <col class="">
+                <col class="">
+                <col class="">
+                <col class="">
+            </colgroup>
+            <thead class="v-data-table-header">
+            <tr>
+                <th role="columnheader" scope="col" aria-label="Dessert (100g serving)" class="text-start"><span>Dessert (100g serving)</span>
+                </th>
+                <th role="columnheader" scope="col" aria-label="Calories: Not sorted. Activate to sort ascending."
+                    aria-sort="none" class="text-start sortable"><span>Calories</span><span aria-hidden="true"
+                                                                                            class="v-icon notranslate v-data-table-header__icon theme--light"
+                                                                                            style="font-size: 18px; height: 18px; width: 18px;"><svg
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
+                        class="v-icon__svg" style="font-size: 18px; height: 18px; width: 18px;"><path
+                        d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path></svg></span>
+                </th>
+                <th> <...>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="">
+                <td class="text-start">Frozen Yogurt</td>
+                <td class="text-start">159</td>
+                <td class="text-start">6</td>
+                <td class="text-start">24</td>
+                <td class="text-start">4</td>
+                <td class="text-start">1</td>
+            </tr>
+            <tr class="">
+                <...>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="v-data-footer">
+        <div class="v-data-footer__select">Rows per page:
+            <div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select">
+                <div class="v-input__control">
+                    <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-2478"
+                         class="v-input__slot">
+                        <div class="v-select__slot">
+                            <div class="v-select__selections">
+                                <div class="v-select__selection v-select__selection--comma">5</div>
+                                <input aria-label="Rows per page:" id="input-2478" readonly="readonly" type="text"
+                                       aria-readonly="false" autocomplete="off"></div>
+                            <div class="v-input__append-inner">
+                                <div class="v-input__icon v-input__icon--append"><span aria-hidden="true"
+                                                                                       class="v-icon notranslate theme--light"><svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img"
+                                        aria-hidden="true" class="v-icon__svg"><path
+                                        d="M7,10L12,15L17,10H7Z"></path></svg></span></div>
+                            </div>
+                            <input type="hidden" value="5"></div>
+                        <div class="v-menu"><!----></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="v-data-footer__pagination">1-5 of 10</div>
+        <div class="v-data-footer__icons-before">
+            <button type="button" disabled="disabled"
+                    class="v-btn v-btn--disabled v-btn--icon v-btn--round v-btn--text theme--light v-size--default"
+                    aria-label="Previous page"><span class="v-btn__content"><span aria-hidden="true"
+                                                                                  class="v-icon notranslate theme--light"><svg
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
+                    class="v-icon__svg"><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"></path></svg></span></span>
+            </button>
+        </div>
+        <div class="v-data-footer__icons-after">
+            <button type="button" class="v-btn v-btn--icon v-btn--round v-btn--text theme--light v-size--default"
+                    aria-label="Next page"><span class="v-btn__content"><span aria-hidden="true"
+                                                                              class="v-icon notranslate theme--light"><svg
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
+                    class="v-icon__svg"><path
+                    d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg></span></span></button>
+        </div>
+    </div>
+</div>
+```
+
+| Method | Description                                                             | Return Type |
+| :--- |:------------------------------------------------------------------------| :--- |
+**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page       | void
+**nextPage()** | Switch Data Table to the next page                                      | void
+**previousPage()** | Switch Data Table to the previous page                                  | void
+**sortDescBy(String value)** | Sort Data Table by value in descending order                            | void
+**groupedData()** | Get Data Table groups list with the list of content of the first column | Map<String, List<String>>
+**previousPage()** | Switches to the previous page                                           | void
+**nextPage()** | Switches to the next page                                               | void
+**firstPage()** | Switches to the first page                                              | void
+**lastPage()** | Switch Data Table to the last page                                      | void
+**currentPage()** | Get Data Table's page number                                            | void
+**sortAscBy(String value)** | Sorts elements by the required value in ascending order                 | void
+**removeSort(String value)** | Turn off Data Table sort                                                | void
+**isSortedBy(String value)** | Shows that elements sorted by the value          | boolean
+**collapseGroup(String groupName)** | Collapses the required group                            | void
+**isGroupExpanded(String groupName)** | Get if required group is expanded in Data Table           | boolean
+**expandGroup(String groupName)** | Expands the required group             | void
+**groupBy(String colName)** | Group Data Table by required column        | void
+**removeGroups()** | Remove all groups                        | void
+**hasGroup()** | Shows that Data Table has required group           | boolean
+**isLoading()** | Get if Data Table is loading               | boolean
+**isSelected(int colNum, int elNum)** | Get if required element in required Data Table's column is selected  | boolean
+**expandRow(int numEl)** | Expand row Data Table's element                                         | void
+**isRowExpanded(int numEl)** | Get if required Data Table's element is expanded                        | boolean
+**collapseRow(int rowNumber)** | Collapse Data Table's required row                                      | void
+**selectNumberOfRowsPerPage(String value)** | Select Data Table's number of rows per page        | void
+**isFixedHeader()** | Check if Data Table has fixed header                                    | boolean
+
+In addition, DataTable class implements HasTheme, IsLoading, HasMeasurement.
+
+| Assert method | Description |
+| :--- | :--- |
+**elementName(int elNum, String elName)** | Assert that Data Table's element has required name
+**elementValue(int colNum, int elNum, String elName)** | Assert that Data Table has required value
+**sortedBy(String column)** | Assert that Data Table columns are sorted by column's value
+**notSortedBy(String value)** | Assert that Data Table columns aren't sorted by coulmn's value
+**cellSelected(int colNum, int elNum)** | Assert that Data Table element is selected
+**cellNotSelected(int colNum, int elNum)** | Assert that Data Table element isn't selected
+**header(int colNum, String value)** | Assert that Data Table column header has required number
+**rowExpanded(int elNum)** | Assert that Data Table element is expanded
+**rowCollapsed(int elNum)** | Assert that Data Table element is collapsed
+**groupCollapsed(String groupName)** | Assert that Data Table group is collapsed
+**groupExpanded(String groupName)** | Assert that Data Table group is expanded
+**group(String groupName)** | Assert that Data Table has group
+**numberOfRowsPerPageInput(boolean enabled)** | Assert that Data Table has number of rows per page input field
+**firstPageButton(boolean enabled)** | Assert that Data Table has first page button
+**previousPageButton(boolean enabled)** | Assert that Data Table has previous page button
+**nextPageButton(boolean enabled)** | Assert that Data Table has next page button
+**lastPageButton(boolean enabled)** | Assert that Data Table has last page button
+**currentPage(int expectedCurrentPage)** | Assert Data Table current page
+**footer(boolean isDisplayed)** | Assert that Data Table has footer
+**header(boolean isDisplayed)** | Assert that Data Table has header
+**rowWithValues(int rowNumber, String... values)** | Assert that Data Table row has values
+**sortEnabled(String column, boolean isEnabled)** | Assert that Data Table sort is enabled for column
+**sortRequired(boolean isRequired)** | Assert that Data Table sort is required for the table
+**groupSize(String groupName, int expectedSize)** | Assert that Data Table group has size
+**fixedHeader(boolean isFixedHeader)** | Assert that Data Table has fixed header
+**noRowInColumn(int columnNum, String rowValue)** | Assert that Data Table do not have specific row
+**rowInColumn(int columnNum, String rowValue)** | Assert that Data Table have specific row
+
+For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
+
+#### 5.21.3 Data Iterators
+
+[Data Iterators overview](https://v2.vuetifyjs.com/en/components/data-iterators/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataIterator.java_
+
+```java
+//@FindBy(css = "#FilterTable .v-data-iterator")
+@UI("#FilterTable .v-data-iterator")
+    public static FilterDataIterator filterDataIterator;
+
+    @Test(description = "Check that Filter Data Iterator Table is shown as expected")
+    public void filterDataIteratorTest() {
+        filterDataIterator.show();
+        filterDataIterator.nextPage.click();
+        filterDataIterator.nextPage.click();
+        filterDataIterator.item(1).has().title(KITKAT.value());
+        filterDataIterator.previousPage.click();
+        filterDataIterator.item(2).has().title(HONEYCOMB.value());
+        filterDataIterator.previousPage.click();
+
+        filterDataIterator.item(1).has().title(CUPCAKE.value());
+        filterDataIterator.filterDataSearchField.clearAndTypeText(FROZEN_YOGURT.value());
+        filterDataIterator.item(1).has().title(FROZEN_YOGURT.value());
+        filterDataIterator.filterDataSearchField.clear();
+        filterDataIterator.filterSortSelect.select("Carbs");
+        filterDataIterator.sortDesc();
+        filterDataIterator.item(1).has().title(LOLLIPOP.value());
+
+        filterDataIterator.itemsPerPage.select("12");
+        filterDataIterator.has().numberOfElements(10);
+    }
+```
+
+The  Data iterators component is used for displaying data, and shares a majority of its functionality with 
+the Data Tables component. Features include sorting, searching, pagination, and selection.
+
+![Data Table example](../../images/vuetify/data_iterator.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="container container--fluid" id="FilterTable">
+    <div class="v-data-iterator">
+        <header class="mb-1 v-sheet theme--dark v-toolbar blue darken-3" style="height: 64px;">
+            <div class="v-toolbar__content" style="height: 64px;">
+                <div class="v-input v-input--hide-details theme--dark v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--solo-flat v-text-field--is-booted v-text-field--enclosed">
+                    <div class="v-input__control">
+                        <div class="v-input__slot">
+                            <div class="v-input__prepend-inner">
+                                <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true"
+                                                                                           class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
+                                </div>
+                            </div>
+                            <div class="v-text-field__slot"><label for="input-1019" class="v-label theme--dark"
+                                                                   style="left: 0px; right: auto; position: absolute;">Search</label><input
+                                    id="input-1019" type="text"></div>
+                            <div class="v-input__append-inner">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div class="v-input v-input--hide-details theme--dark v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--solo-flat v-text-field--is-booted v-text-field--enclosed v-select">
+                    <div class="v-input__control">
+                        <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-1021"
+                             class="v-input__slot">
+                            <div class="v-input__prepend-inner">
+                                <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true"
+                                                                                           class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
+                                </div>
+                            </div>
+                            <div class="v-select__slot"><label for="input-1021" class="v-label theme--dark"
+                                                               style="left: 0px; right: auto; position: absolute;">Sort
+                                by</label>
+                                <div class="v-select__selections"><input id="input-1021" readonly="readonly" type="text"
+                                                                         aria-readonly="false" autocomplete="off"></div>
+                                <div class="v-input__append-inner">
+                                    <div class="v-input__icon v-input__icon--append"><i aria-hidden="true"
+                                                                                        class="v-icon notranslate mdi mdi-menu-down theme--dark"></i>
+                                    </div>
+                                </div>
+                                <input type="hidden" value="name"></div>
+                            <div class="v-menu"><!----></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div class="v-item-group theme--dark v-btn-toggle">
+                    <button type="button" value="false"
+                            class="v-btn v-item--active v-btn--active v-btn--has-bg theme--dark v-size--large blue"><span
+                            class="v-btn__content"><i aria-hidden="true"
+                                                      class="v-icon notranslate mdi mdi-arrow-up theme--dark"></i></span>
+                    </button>
+                    <button type="button" value="true" class="v-btn v-btn--has-bg theme--dark v-size--large blue"><span
+                            class="v-btn__content"><i aria-hidden="true"
+                                                      class="v-icon notranslate mdi mdi-arrow-down theme--dark"></i></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+                <div class="v-card v-sheet theme--light">
+                    <div class="v-card__title subheading font-weight-bold">
+                        Cupcake
+                    </div>
+                    <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+                    <div role="list" class="v-list v-sheet theme--light v-list--dense">
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Calories:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                305
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Fat:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                3.7
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Carbs:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                67
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Protein:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                4.3
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Sodium:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                413
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Calcium:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                3%
+                            </div>
+                        </div>
+                        <div tabindex="-1" role="listitem" class="v-list-item theme--light">
+                            <div class="v-list-item__content">
+                                Iron:
+                            </div>
+                            <div class="v-list-item__content align-end">
+                                8%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+                <...>
+            </div>
+        </div>
+        <div class="row mt-2 align-center justify-center"><span class="grey--text">Items per page</span>
+            <div class="v-menu"><!----></div>
+            <button type="button" class="ml-2 v-btn v-btn--text theme--dark v-size--default primary--text" role="button"
+                    aria-haspopup="true" aria-expanded="false"><span class="v-btn__content">
+              4
+              <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--dark"></i></span></button>
+            <div class="spacer"></div>
+            <span class="mr-4 grey--text">
+          Page 1 of 3
+        </span>
+            <button type="button"
+                    class="mr-1 v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--dark v-size--default blue darken-3">
+            <span class="v-btn__content"><i aria-hidden="true"
+                                            class="v-icon notranslate mdi mdi-chevron-left theme--dark"></i></span>
+            </button>
+            <button type="button"
+                    class="ml-1 v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--dark v-size--default blue darken-3">
+            <span class="v-btn__content"><i aria-hidden="true"
+                                            class="v-icon notranslate mdi mdi-chevron-right theme--dark"></i></span>
+            </button>
+        </div>
+    </div>
+</div>
+```
+
+| Method | Description                                            | Return Type |
+| :--- |:-------------------------------------------------------| :--- |
+**item(int childIndex)** | Gets a Card From Data Iterator Table by required index | SubheaderAssert
+**headers()** | Gets Data Iterator Table's header                      | List<ToolBar>
+
+In addition, there are methods sortDesc(),sortAsc() inside FilterDataIterator.java. 
+Also, DataIterator class implements IsContainer, ISetup.
+
+| Assert method | Description |
+| :--- | :--- |
+**numberOfElements(int n)** | Assert that Data Iterator Table has required number of columns per page
+**text(String value)** | Assert that Data Iterator Table has required text inside
+**text(Matcher validation)** | Assert that Data Iterator Table has required text inside
+
+For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataIteratorsTests.java).
 
 ### 5.22 Tabs
 

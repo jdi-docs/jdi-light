@@ -4050,49 +4050,101 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-The v-date-picker is a fully featured date selection component that lets users select a date, or range of dates.
+The Date picker is a fully featured date selection component that lets users select a date, or range of dates.
 
 ![DatePickers example](../../images/vuetify/date_pickers.png)
 
-|Method | Description | Return Type
---- | --- | ---
-**expand()** | Expands date picker (if this is expandable date picker) | void
-**nextMonth()** | Clicks right arrow button (next month) | void
-**previousMonth()** | Clicks left arrow button (previous month) | void
-**selectDay(String day)** | Selects day of month | void
-**getMonthAndYear()** | Gets month and year (from the field between arrow buttons) | String
-**getMonth()** | Gets month (from the field between arrow buttons) | String
-**getMonth(Locale locale)** | Gets month (from the field between arrow buttons) taking into account specific locale | String
-**getYear()** | Gets year (from the field between arrow buttons) | String
-**getYear(Locale locale)** | Gets year (from the field between arrow buttons) taking into account specific locale | String
-**getDate()** | Gets date from top color field | String
-**getDayOfMonth()** | Gets day of month from top color field | String
-**getDayOfMonth(Locale locale)** | Gets day of month from top color field taking into account specific locale | String
-**getActiveDayOfMonth()** | Gets active day of month from date picker table | String
-**changeMonth()** | Clicks button to change month (the same as the field between arrow buttons) | void
-**selectMonth(String month)** | Selects month after change month button is clicked | void
-**clickCancel()** | Clicks Cancel button (only for expandable date picker, in case this button exists) | void
-**clickOk()** | Clicks OK button (only for expandable date picker, in case this button exists) | void
-**changeYear()** | Clicks change year button (after month menu is appeared) | void
-**selectYear(String year)** | Selects year (after change year button is clicked) | void
-**getResultDate()** | Gets result date (only for expandable date picker), this is the date appearing after expandable part is closed | String
-**clear()** | Clears result date (only for writable expandable date picker) | void
-**setDate(String date)** | Sets result date (only for writable expandable date picker) | void
-**changeYearCornerButton()** | Clicks change year button (small button in top left corner) | void
-**getColor()** | Gets color of top color field | String
-**getDisabledDates()** | Gets list of all disabled dates | List<String>
-**getEnabledDates()** | Gets list of all enabled dates | List<String>
-**getElevation()** | Gets picker elevation value | String
-**getAllActiveDaysOfMonth()** | Gets list of all active days of month (to check multiple and range date picker) | List<String>
-**getShownMultipleDates()** | Gets list of shown multiple dates (for multiple picker in menu) | List<String>
-**getPickerWidth()** | Gets picker width | int
-**doubleClickDay(String date)** | Double clicks the date | void
-**hoverMonth(String month)** | Hovers month | void
-**rightClickYear(String year)** | Right clicks year | void
-**switchOrientation()** | Switches orientation (clicks Landscape checkbox) | void
-**getColorFieldWidth()** | Gets width of color field | int
-**getColorFieldHeight()** | Gets height of color field | int
-**has()/is()** | Returns Assert class | DatePickerAssert
+| Method                                                    | Description                                                      | Return Type     
+-----------------------------------------------------------|------------------------------------------------------------------|-----------------
+ **setup(String rootLocator, String expandedRootLocator)** | ???                                                              | DatePicker      
+ **root()**                                                | ???                                                              | UIElement       
+ **expandedRoot()**                                        | ???                                                              | UIElement       
+ **expand()**                                              | Expand '{name}'                                                  | void            
+ **toNextMonth()**                                         | Click '{name}' next month button                                 | void            
+ **toPreviousMonth()**                                     | Click '{name}' previous month button                             | void            
+ **selectDay(final String date)**                          | Select '{name}' day of month                                     | void            
+ **getMonthAndYear()**                                     | Get '{name}' shown month and year                                | String          
+ **getMonth()**                                            | Get '{name}' shown month                                         | String          
+ **getMonth(Locale locale)**                               | Get '{name}' shown month based on locale '{0}'                   | String          
+ **getYear()**                                             | Get '{name}' shown year                                          | String          
+ **getYear(Locale locale)**                                | Get '{name}' shown year based on locale '{0}'                    | String          
+ **getDate()**                                             | Get '{name}' shown date                                          | String          
+ **getDayOfMonth()**                                       | Get '{name}' shown day of month                                  | String          
+ **getDayOfMonth(Locale locale)**                          | Get '{name}' shown day of month based on locale '{0}'            | String          
+ **getActiveDayOfMonth()**                                 | Get '{name}' active day of month                                 | String          
+ **changeMonth()**                                         | Click '{name}' change month button                               | void            
+ **selectMonth(String month)**                             | Select '{name}' month '{0}'                                      | void            
+ **changeYear()**                                          | Click '{name}' change year button                                | void            
+ **selectYear(final String year)**                         | Select '{name}' year                                             | void            
+ **getResultDate()**                                       | Get '{name}' result date in the field                            | String          
+ **getCode()**                                             | Get '{name}' code for active date picker                         | String          
+ **getClearButton()**                                      | Get '{name}' clear button                                        | UIElement       
+ **clear()**                                               | Clear '{name}' date input field                                  | void            
+ **setDate(final String date)**                            | Set '{name}' value '{0}' in date input field                     | void            
+ **getFormattedDate()**                                    | Get '{name}' ISO formatted date                                  | String          
+ **getDateFieldReadonlyAttribute()**                       | Get '{name}' readonly attribute of date field                    | String          
+ **changeYearCornerButton()**                              | Click '{name}' small change year button in the upper left corner | void            
+ **getColor()**                                            | Get '{name}' color from color field                              | String          
+ **getDisabledDates()**                                    | Get '{name}' list of disabled dates                              | List<String>    
+ **getEnabledDates()**                                     | Get '{name}' list of enabled dates                               | List<String>    
+ **getEnabledDatesElements()**                             | Get '{name}' list of enabled dates elements                      | List<UIElement> 
+ **getDisabledDatesElements()**                            | Get '{name}' list of disabled dates elements                     | List<UIElement> 
+ **getNextMonthIconClass()**                               | Get '{name}' class of next month icon                            | String          
+ **getPreviousMonthIconClass()**                           | Get '{name}' class of previous month icon                        | String          
+ **getAdditionalYearIcon()**                               | Get '{name}' additional year icon element                        | UIElement       
+ **getAllActiveDaysOfMonth()**                             | Get all '{name}' active days of month                            | List<String>t   
+ **getShownMultipleDates()**                               | Get '{name}' shown multiple dates                                | List<String>t   
+ **doubleClickDay(final String date)**                     | Double click on '{name}' day of month                            | void            
+ **hoverMonth(final String month)**                        | Hover '{name}' month                                             | void            
+ **rightClickYear(final String year)**                     | Right click '{name}' year                                        | void            
+ **getEventCirclesColor()**                                | Get '{name}' list of colors for all event dates                  | List<String>    
+ **getColorFieldWidth()**                                  | Get '{name}' width of color field                                | int             
+ **getColorFieldHeight()**                                 | Get '{name}' height of color field                               | int             
+ **getChangeYearButton()**                                 | Get '{name}' change year button element                          | UIElement       
+ **getChangeMonthButton()**                                | Get '{name}' change month button element                         | UIElement       
+ **getMainField()**                                        | Get '{name}' main field element                                  | UIElement       
+ **getAllMonths()**                                        | Get '{name}' all months                                          | List<String>    
+ **getExpandedElement()**                                  | Get '{name}' expanded element                                    | UIElement       
+ **isElevated()**                                          | Get if '{name}' is elevated                                      | boolean         
+
+In addition, DatePicker  implements ISetup, HasElevation, HasMeasurement, HasTheme.
+
+| Assert method                                             | Description                                                                         |
+|:----------------------------------------------------------|:------------------------------------------------------------------------------------|
+ **date(String date)**                                     | Assert that '{name}' date field has value '{0}'                                     
+ **color(String color)**                                   | Assert that '{name}' field color is '{0}'                                           
+ **dayOfMonth(String dayOfMonth)**                         | Assert that '{name}' shown day of month is '{0}'                                    
+ **dayOfMonth(String dayOfMonth, Locale locale)**          | Assert that '{name}' shown day of month is '{0}' based on locale '{1}'              
+ **month(String month)**                                   | Assert that '{name}' shown month is '{0}'                                           
+ **month(String month, Locale locale)**                    | Assert that '{name}' shown month is '{0}' based on locale '{1}'                     
+ **year(String year)**                                     | Assert that '{name}' shown year is '{0}'                                            
+ **year(String year, Locale locale)**                      | Assert that '{name}' shown year is '{0}' based on locale '{1}'                      
+ **disabledDatesNonEmptyList()**                           | Assert that '{name}' list of disabled dates is not empty                            
+ **enabledDatesNonEmptyList()**                            | Assert that '{name}' list of enabled dates is not empty                             
+ **clickableEnabledDates()**                               | Assert that '{name}' enabled dates are clickable                                    
+ **nonClickableDisabledDates()**                           | Assert that '{name}' disabled dates are non-clickable                               
+ **nextMonthIconClass(String nextMonthIconClass)**         | Assert that '{name}' next month icon class is '{0}'                                 
+ **previousMonthIconClass(String previousMonthIconClass)** | Assert that '{name}' previous month icon class is '{0}'                             
+ **additionalYearIcon()**                                  | Assert that '{name}' additional year icon exists                                    
+ **properSetOfActiveDays(Set<String> days)**               | Assert that '{name}' chosen dates are '{0}'                                         
+ **properShownMultipleDates()**                            | Assert that '{name}' all chosen dates are shown in menu list                        
+ **activeDatesInRange(int startDay, int finalDay)**        | Assert that '{name}' all dates in range '{0} - {1}' are active                      
+ **eventColorCirclesNonEmptyList()**                       | Assert that '{name}' list of event color circles is not empty                       
+ **properColorsOfEventCircles(String... colors)**          | Assert that '{name}' has following colors of event circles '{0}'                    
+ **resultDate(String resultDate)**                         | Assert that '{name}' result date field has date '{0}'                               
+ **visibleChangeYearButton()**                             | Assert that '{name}' change year button is visible                                  
+ **mainDateFieldIsNotExist()**                             | Assert that '{name}' main date field does not exist                                 
+ **mainDateField()**                                       | Assert that '{name}' main date field exists                                         
+ **formattedDate(String formattedDate)**                   | Assert that '{name}' formatted date field has date '{0}'                            
+ **dateFieldReadonlyAttribute()**                          | Assert that '{name}' date field has readonly attribute                              
+ **properExternalLibFormattingDate(LocalDate date)**       | Assert that '{name}' result date '{0}' is formatted according to external libraries 
+ **emptyResultDate()**                                     | Assert that '{name}' result date is empty                                           
+ **portraitOrientation()**                                 | Assert that '{name}' has portrait orientation                                       
+ **landscapeOrientation()**                                | Assert that '{name}' has landscape orientation                                      
+ **expanded()**                                            | Assert that expandable '{name}' is expanded                                         
+
+In addition, DatePickerAssert implements ElevationAssert<DatePickerAssert, DatePicker>, MeasurementAssert<DatePickerAssert, DatePicker>,
+ThemeAssert<DatePickerAssert, DatePicker>.
 
 For examples of usage see: [JDI Vuetify DatePickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DatePickersTests.java).
 

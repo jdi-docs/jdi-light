@@ -3932,52 +3932,122 @@ For examples of usage see: [JDI Vuetify TimePickers tests](https://github.com/jd
 
 #### 5.31.2 Date pickers
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/date-pickers/)
+[Date pickers overview](https://v2.vuetifyjs.com/en/components/date-pickers/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.DatePicker.java_
 
 ```java
-    @JDatePicker(
-            root = "#ColorsDatePicker > div:nth-child(1)")
-    public static DatePicker colorFirstDatePicker;
+//@FindBy(css = "#OrientationDatePicker .v-picker")
+@JDatePicker(
+  root = "#OrientationDatePicker .v-picker")
+public static DatePicker orientationDatePicker;
 
-    @JDatePicker(
-            root = "#MultipleDatePicker > div:nth-child(2)",
-            expandedRoot = "#app > div.v-menu__content.theme--light.menuable__content__active")
-    public static DatePicker multipleInMenuDatePicker;
+@Test (description = "Test checks date picker's orientation")
+public void testOrientationDatePicker() {
+  orientationDatePicker.show();
+  orientationDatePicker.has().portraitOrientation();
+  orientationSwitcher.check();
+  orientationDatePicker.has().landscapeOrientation();
+  }
 ```
 
 It is **necessary** to specify **the root** of an element. Also, if you work with expandable date pickers (such as active pickers, dialog and menu pickers etc), you have to define **expandedRoot**. This is the root of element after expansion is done.
 
-```java
-    @Test
-    public void testColorDatePicker() {
-        Timer.waitCondition(() -> colorFirstDatePicker.isVisible());
-        colorFirstDatePicker.has().date(date.format(formatterDow));
-        colorFirstDatePicker.has().color(GREEN_COLOR_HEX);
-        colorSecondDatePicker.has().color(BLUE_COLOR_HEX);
-        colorFirstDatePicker.selectDay(Integer.toString(CHOSEN_DAY));
-        colorFirstDatePicker.has().dayOfMonth(Integer.toString(CHOSEN_DAY));
-        colorFirstDatePicker.selectDay(Integer.toString(CHOSEN_DAY_TWO));
-        colorFirstDatePicker.has().dayOfMonth(Integer.toString(CHOSEN_DAY_TWO));
-        colorFirstDatePicker.selectDay(Integer.toString(CHOSEN_DAY_THREE));
-        colorFirstDatePicker.has().dayOfMonth(Integer.toString(CHOSEN_DAY_THREE));
-        colorFirstDatePicker.nextMonth();
-        colorFirstDatePicker.has().month(nextMonth);
-        colorFirstDatePicker.previousMonth();
-        colorFirstDatePicker.previousMonth();
-        colorFirstDatePicker.has().month(previousMonth);
-        colorFirstDatePicker.changeMonth();
-        colorFirstDatePicker.selectMonth(CHOSEN_MONTH);
-        colorFirstDatePicker.has().month(CHOSEN_MONTH);
-        colorFirstDatePicker.changeMonth();
-        colorFirstDatePicker.changeYear();
-        colorFirstDatePicker.selectYear(Integer.toString(currentYear + 100));
-        colorFirstDatePicker.has().year(Integer.toString(currentYear + 100));
-        colorFirstDatePicker.changeYearCornerButton();
-        colorFirstDatePicker.selectYear(Integer.toString(currentYear));
-        colorFirstDatePicker.has().year(Integer.toString(currentYear));
-    }
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="v-picker v-card v-picker--date theme--dark">
+    <div class="v-picker__title">
+        <div class="v-date-picker-title">
+            <div class="v-picker__title__btn v-date-picker-title__year">2023</div>
+            <div class="v-picker__title__btn v-date-picker-title__date v-picker__title__btn--active">
+                <div>Wed, Mar 1</div>
+            </div>
+        </div>
+    </div>
+    <div class="v-picker__body theme--dark" style="width: 290px;">
+        <div>
+            <div class="v-date-picker-header theme--dark">
+                <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"
+                        aria-label="Previous month">
+                  <span class="v-btn__content">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--dark"></i>
+                  </span>
+                </button>
+                <div class="v-date-picker-header__value">
+                    <div class="accent--text">
+                        <button type="button">March 2023</button>
+                    </div>
+                </div>
+                <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"
+                        aria-label="Next month">
+                  <span class="v-btn__content">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--dark"></i>
+                  </span>
+                </button>
+            </div>
+            <div class="v-date-picker-table v-date-picker-table--date theme--dark">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <...>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button type="button" class="v-btn v-btn--text v-btn--rounded theme--dark">
+                                <div class="v-btn__content">1</div>
+                            </button>
+                        </td>
+                        <...>same for 2-4<...>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="v-btn v-btn--text v-btn--rounded theme--dark">
+                                <div class="v-btn__content">5</div>
+                            </button>
+                        </td>
+                        <...>same for 6-11<...>
+                    </tr>
+                    <tr>
+                        <...>same as previous tr block<...>
+                    </tr>
+                    <tr>
+                        <...>dates 19-23 as 25<...>
+                        <td>
+                            <button type="button"
+                                    class="v-btn v-date-picker-table__current v-btn--rounded v-btn--outlined theme--dark accent--text">
+                                <div class="v-btn__content">24</div>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="v-btn v-btn--text v-btn--rounded theme--dark">
+                                <div class="v-btn__content">25</div>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="v-btn v-btn--text v-btn--rounded theme--dark">
+                                <div class="v-btn__content">26</div>
+                            </button>
+                        </td>
+                        <...>same as 27-31<...>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 ```
 
 The v-date-picker is a fully featured date selection component that lets users select a date, or range of dates.

@@ -3938,8 +3938,7 @@ For examples of usage see: [JDI Vuetify TimePickers tests](https://github.com/jd
 
 ```java
 //@FindBy(css = "#OrientationDatePicker .v-picker")
-@JDatePicker(
-  root = "#OrientationDatePicker .v-picker")
+@JDatePicker(root = "#OrientationDatePicker .v-picker")
 public static DatePicker orientationDatePicker;
 
 @Test (description = "Test checks date picker's orientation")
@@ -3951,7 +3950,7 @@ public void testOrientationDatePicker() {
   }
 ```
 
-It is **necessary** to specify **the root** of an element. Also, if you work with expandable date pickers (such as active pickers, dialog and menu pickers etc), you have to define **expandedRoot**. This is the root of element after expansion is done.
+It is **necessary** to specify **the root** of an element. Also, if you work with expandable date pickers (such as active pickers, dialog and menu pickers etc), you have to define **expandedRoot**.
 
 __Vuetify v2.6.14__ code example:
 

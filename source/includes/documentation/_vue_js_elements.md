@@ -4006,14 +4006,14 @@ It can render an unlimited amount of items by rendering only what it needs to fi
 
 | Method | Description | Return Type | 
 |:---| :--- |:---|
-**scrollToElement(String text)** | Scrolls to element with text |
+**scrollToElement(String text)** | Scrolls to element with text | void
 **scrollToTop()** | Scrolls virtual scroller to top | void
 **items()** | Returns virtual scroller list items | List\<ListItem>
 **item(String itemText)** | Returns item with text | ListItem
 **itemsText()** | Returns items text | List\<String>
 **itemHeight()** | Returns item height | int
 **position()** | Returns scrolled position in px | int
-**scrollToPosition(int y)** | Scrolls element to position |
+**scrollToPosition(int y)** | Scrolls element to position | void
 **show(ListItem item)** | Shows item | void
 
 In addition, **VirtualScroller** implements HasMeasurement.

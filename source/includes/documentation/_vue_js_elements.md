@@ -3959,8 +3959,8 @@ For examples of usage see: JDI vuetify page tests for lazy.
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.VirtualScroller.java_
 
 ```java
-//@FindBy(css = ".v-virtual-scroll")
-@UI(".v-virtual-scroll")
+//@FindBy(css = "#BenchVirtualScroller .v-virtual-scroll")
+@UI("#BenchVirtualScroller .v-virtual-scroll")
 public static VirtualScroller benchScroller;
 
 @Test(description = "Test checks that scroller has expected height and width")

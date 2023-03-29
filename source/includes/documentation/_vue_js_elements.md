@@ -245,7 +245,7 @@ HasTheme, HasRounded.
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.AppBar.java_
 
 ```java
-    //@FindBy(css = "#scrollThresholdBar .v-toolbar")
+//@FindBy(css = "#scrollThresholdBar .v-toolbar")
 @UI("#scrollThresholdBar .v-toolbar")
 public static AppBarWithImageThresholdOnly thresholdBar;
 
@@ -349,7 +349,7 @@ For examples of usage see: [JDI vuetify page tests for app bars](https://github.
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.SystemBar.java_
 
 ```java
-    //@FindBy(css = "#AppSystemBar .v-system-bar")
+//@FindBy(css = "#AppSystemBar .v-system-bar")
 @UI("#AppSystemBar .v-system-bar")
 public static SystemBar appSystemBar;
 
@@ -411,7 +411,7 @@ For examples of usage see: [JDI vuetify page tests for system bars](https://gith
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.ToolBar.java_
 
 ```java
-    //@FindBy(css = "#denseToolbar .v-toolbar")
+//@FindBy(css = "#denseToolbar .v-toolbar")
 @UI("#denseToolbar .v-toolbar")
 public static ToolBar denseToolbar;
 
@@ -475,16 +475,14 @@ For examples of usage see: [JDI vuetify page tests for toolbars](https://github.
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.BottomNavigation.java_
 
 ```java
-    //@FindBy(css = "#scrollThresholdBottomNavigation .v-bottom-navigation")
-    @UI("#scrollThresholdBottomNavigation .v-bottom-navigation")
-    public static BottomNavigation bottomNavigationScrollThreshold;
+//@FindBy(css = "#scrollThresholdBottomNavigation .v-bottom-navigation")
+@UI("#scrollThresholdBottomNavigation .v-bottom-navigation")
+public static BottomNavigation bottomNavigationScrollThreshold;
 
-    //@FindBy(css = "#fixedBottomNavigation .v-bottom-navigation")
-    @UI("#fixedBottomNavigation .v-bottom-navigation")
-    public static BottomNavigation bottomNavigationFixed;
-
-
-
+//@FindBy(css = "#fixedBottomNavigation .v-bottom-navigation")
+@UI("#fixedBottomNavigation .v-bottom-navigation")
+public static BottomNavigation bottomNavigationFixed;
+    
 @Test(description = "Test checks bottom navigation position")
 public void positionBottomNavigationTest() {
     cardWithBottomNavigationScrollThreshold.show();
@@ -552,7 +550,7 @@ Breadcrumbs is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Breadcrumbs.java_
 
 ```java
-//@FindBy(css = "#differentDividersBreadcrumbs')
+    //@FindBy(css = "#differentDividersBreadcrumbs')
     @JDIBreadcrumbs(
             root = "#differentDividersBreadcrumbs > ul:nth-child(2)",
             items = ".v-breadcrumbs__item",
@@ -712,7 +710,7 @@ and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Dialog.java_
 
 ```java
-    //@FindBy(css = ".v-dialog--scrollable")
+//@FindBy(css = ".v-dialog--scrollable")
 @UI(".v-dialog--scrollable")
 public static ScrollableDialog scrollableDialog;
 
@@ -1947,7 +1945,7 @@ Please, follow the link for [Forms overview](https://jdi-docs.github.io/jdi-ligh
 #### 5.13.1 Button Groups
 
 ```java
-//@FindBy("#MandatoryButtonGroup .v-item-group")
+//@FindBy(css = "#MandatoryButtonGroup .v-item-group")
 @UI("#MandatoryButtonGroup .v-item-group")
 public static ButtonGroup mandatoryButtonGroup;
 
@@ -2026,15 +2024,15 @@ For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.ChipGroup.java_
 
 ```java
-    //@FindBy("#ColumnChipGroup .v-chip-group")
+    //@FindBy(css = "#ColumnChipGroup .v-chip-group")
     @UI("#ColumnChipGroup .v-chip-group")
     public static ChipGroup columnChipGroup;
 
-    //@FindBy("#MultipleChipGroup .v-chip-group")
+    //@FindBy(css = "#MultipleChipGroup .v-chip-group")
     @UI("#MultipleChipGroup .v-chip-group")
     public static ChipGroup multipleChipGroup;
 
-    //@FindBy("#FilterResultsChipGroup .v-chip-group")
+    //@FindBy(css = "#FilterResultsChipGroup .v-chip-group")
     @UI("#FilterResultsChipGroup .v-chip-group")
     public static List<ChipGroup> filterResultsChipGroup;
 
@@ -2157,7 +2155,7 @@ For examples of usage see: [Chip Group tests](https://github.com/jdi-testing/jdi
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.ItemGroup.java_
 
 ```java
-    //@FindBy("#MandatoryItemGroup .v-card")
+    //@FindBy(css = "#MandatoryItemGroup .v-card")
     @UI("#MandatoryItemGroup .v-card")
     public static ItemGroup mandatoryItemGroup;
 
@@ -2237,11 +2235,11 @@ For examples of usage see: [Item Groups tests](https://github.com/jdi-testing/jd
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.ListItemGroups.java_
 
 ```java
-    //@FindBy("#ActiveClassListItemGroup .v-list-item")
+    //@FindBy(css = "#ActiveClassListItemGroup .v-list-item")
     @UI("#ActiveClassListItemGroup .v-list-item")
     public static List<ListItemGroups> activeClassListItemGroup;
 
-    //@FindBy("#MandatoryListItemGroup .v-list-item")
+    //@FindBy(css = "#MandatoryListItemGroup .v-list-item")
     @UI("#MandatoryListItemGroup .v-list-item")
     public static List<ListItemGroups> mandatoryListItemGroup;
   ```
@@ -2385,7 +2383,7 @@ For examples of usage see: [Vuetify List Item Groups tests](https://github.com/j
 
 #### 5.13.5 Slide Groups
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/slide-groups/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/slide-groups/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.SlideGroup.java_
 
@@ -2932,6 +2930,7 @@ For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-t
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Snackbar.java_
 
 ```java
+    //@FindBy(css = ".v-card--flat .v-snack--absolute")
     @UI(".v-card--flat .v-snack--absolute")
     public static Snackbar snackbar;
 
@@ -3390,8 +3389,8 @@ For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-tes
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataIterator.java_
 
 ```java
-//@FindBy(css = "#FilterTable .v-data-iterator")
-@UI("#FilterTable .v-data-iterator")
+    //@FindBy(css = "#FilterTable .v-data-iterator")
+    @UI("#FilterTable .v-data-iterator")
     public static FilterDataIterator filterDataIterator;
 
     @Test(description = "Check that Filter Data Iterator Table is shown as expected")
@@ -3869,20 +3868,27 @@ For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-tes
 @UI("div.v-tooltip__content")
 public static Tooltip tooltip;
 
-@Test()
+@Test(description = "Test checks specific text of text tooltip")
 public void textTooltipsTest() {
-  homeIconWithTooltip.is().displayed();
-  buttonWithTooltip.hover();
-  tooltip.is().displayed();
-  tooltip.has().text("Tooltip for \"Button\"");
-  }
+    homeIconWithTooltip.is().displayed();
+    buttonWithTooltip.hover();
+    tooltip.is().displayed();
+    tooltip.has().text("Tooltip for \"Button\"");
+    homeIconWithTooltip.hover();
+    tooltip.is().displayed();
+    tooltip.has().text("Tooltip for \"mdi-home\"");
+    textWithTooltip.hover();
+    tooltip.is().displayed();
+    tooltip.has().text("Tooltip for \"This text has a tooltip\"");
+    }
 
-  @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class)
-  public void colorTooltipTest(int index, String color) {
+@Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class,
+      description = "Test checks that tooltip has specific color")
+public void colorTooltipTest(int index, String color) {
     coloredButtons.get(index).hover();
     tooltip.is().displayed();
     tooltip.has().color(color);
-  }
+    }
 ```
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/tooltips/)
@@ -4086,7 +4092,7 @@ Menus are located in the following class:
 @UI("div.menuable__content__active")
 public static Menu activeMenu;
 
-    @Test(description = "Test checks that active menu appears after hover upon the button")
+@Test(description = "Test checks that active menu appears after hover upon the button")
 public void openOnHoverMenuTests() {
   waitCondition(openOnHoverMenuButton::isDisplayed);
   openOnHoverMenuButton.show();
@@ -5057,9 +5063,9 @@ Parallax is located in the following class:
 ```java
 //@FindBy(css = "#CustomHeightParallax")
 @UI("#CustomHeightParallax")
-    public static Parallax customHeightParallax;
+public static Parallax customHeightParallax;
     
-@Test
+    @Test
     public void customHeightParallaxTests() {
         customHeightParallax.has().noContent();
 
@@ -5067,7 +5073,7 @@ Parallax is located in the following class:
         customHeightParallax.has().height(expectedHeight);
     }
 
-@Test
+    @Test
     public void contentParallaxTests() {
         contentParallax.has().content();
         String expectedHeader = "Vuetify";
@@ -5815,6 +5821,7 @@ Input is located in the following class:
     @FindBy(xpath = "//form[@id='HideDetailsInput']/div[2]")
     @UI("//form[@id='HideDetailsInput']/div[2]")
     public static Input hideDetailsAnotherInput;
+
     @Test(description = "Test checks type text feature")
     public void typeTextInputTest() {
         String textToType = "Some text";

@@ -2388,25 +2388,28 @@ For examples of usage see: [Vuetify List Item Groups tests](https://github.com/j
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.SlideGroup.java_
 
 ```java
-    @Test
-    public void centerActiveSlideGroupTests() {
-      List<Integer> slidesPositions = new SlideGroupTestsData().centerActiveSlideGroupTestData();
-      centerActiveSlideGroup.is().displayed();
-      for (int i = 1; i <= 3; i++) {
-      centerActiveSlideGroup.clickOnSlideByIndex(i);
-      centerActiveSlideGroup.has().slideSelected(i);
-      }
-      for (Integer slidesPosition : slidesPositions) {
-      centerActiveSlideGroup.clickOnSlideByIndex(4);
-      centerActiveSlideGroup.has().visibleSlidesPosition(slidesPosition);
-      centerActiveSlideGroup.has().slideSelected(3);
-       }
-      for (int i = 4; i <= 6; i++) {
-      centerActiveSlideGroup.clickOnSlideByIndex(i);
-      centerActiveSlideGroup.has().slideSelected(i);
-      centerActiveSlideGroup.has().visibleSlidesPosition(-1316);
-      }
+//@FindBy(css = "#MultipleSlideGroup .v-item-group")
+@UI("#MultipleSlideGroup .v-item-group")
+public static SlideGroup multipleSlideGroup;
+
+@Test(description="Test checks slide group feature: 'multiple' and max selections")
+public void multipleSlideGroupTests() {
+    //Interface IsMultiple cannot be used as there is no "--is-multi"
+    //On our test-site we have the following max=3 selections
+    multipleSlideGroup.show();
+    multipleSlideGroup.is().displayed();
+
+    //Check that on selecting 2 slides we have 2 active slides
+    multipleSlideGroup.slideByIndex(1).click();
+    multipleSlideGroup.slideByIndex(3).click();
+    multipleSlideGroup.slideByIndex(1).click();
+    multipleSlideGroup.slideByIndex(3).click();
+
+    //Check that on selecting 4 slides we have only 3 selected slides as it is our max
+    for (int i = 1; i <= 4; i++) {
+    multipleSlideGroup.slideByIndex(i).click();
     }
+}
 
 ```
 
@@ -2414,16 +2417,30 @@ For examples of usage see: [Vuetify List Item Groups tests](https://github.com/j
 
 Slide group component is used to display pseudo paginated information. It uses Item Group at its core and provides a baseline for different components (for instance Tabs and Chip Group).
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | SlideGroupAssert
-**slidesPosition()** | Returns position of visible slides | String
-**slideIsSelected()** | Shows that slide is selected | boolean
-**clickOnSlideByIndex()** | Click on slide under specified index | void
-**clickOnNextButton()** | Click on 'next' button | void
-**clickOnPreviousButton()** | Click on 'previous' button | void
+|Method | Description                 | Return Type
+--- |-----------------------------| ---
+**is()** | Returns Assert class        | SlideGroupAssert
+**getNextButton()** | Get 'next slide' button     | VuetifyButton
+**getPreviousButton()** | Get 'previous slide' button | VuetifyButton
+**slideByIndex()** | Get slide by index          | Card
+**getSlides()** | Get list of slides          | WebList
+**slideIsSelected(int)** | Get if slide is selected    | boolean
+**position()** | Get slide position          | int
 
-For examples of usage see: [Slide Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SlideGroupsTests.java)
+SlideGroup also implements HasIcon, HasTheme
+
+| Assert method | Description |
+| :--- | :--- |
+**displayed()** | Asserts that slide is displayed
+**slideSelected(int)** | Asserts that slide is selected
+**slideNotSelected(int)** | Asserts that slide is not selected
+**iconSlidesVisible(String)** | Asserts that slide icon is visible
+**previousButtonActive()** | Asserts that slide 'previous button' is active
+**previousButtonDisabled()** | Asserts that slide 'previous button' is disabled
+**nextButtonActive()** | Asserts that slide 'next button' is active
+**nextButtonDisabled()** | Asserts that slide 'next button' is disabled
+
+For examples of usage see: [Slide Groups tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SlideGroupsTests.java)
 
 #### 5.13.6 Windows
 

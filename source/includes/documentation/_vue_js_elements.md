@@ -1028,47 +1028,120 @@ __Vuetify v2.6.14__ code example:
 
 #### 5.12.1 Overflow buttons
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/overflow-btns/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/overflow-btns/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.OverflowButton.java_
 
 ```java
-    @Test
-public void baseFunctionalityOverflowButtonTest() {
-  counterOverflowButton.is().enable();
-  counterOverflowButton.is().placeholder("Overflow Btn w/ counter");
+//@FindBy(css = "#OverflowButton .v-overflow-btn")
+@UI("#OverflowButton .v-overflow-btn")
+public static OverflowButton counterOverflowButton;
+
+@Test(description = "Test checks if overflow button is expanded or not")
+public void closeExpandOverflowButtonTest() {
+  counterOverflowButton.show();
+  counterOverflowButton.has().placeholder("Overflow Btn w/ counter");
   counterOverflowButton.expand();
   counterOverflowButton.is().expanded();
   counterOverflowButton.close();
   counterOverflowButton.is().closed();
   counterOverflowButton.select("50%");
-  counterOverflowButton.is().selected("50%");
+  counterOverflowButton.is().selected("50%").and().counter(3);
   counterOverflowButton.select(1);
   counterOverflowButton.is().selected("100%");
+  counterOverflowButton.select(5);
+  counterOverflowButton.is().counter(2);
   }
 ```
 
+`v-overflow-btn` is used to give the user the ability to select items from the list. It has 3 variations: editable, overflow and segmented
+
 ![Lists example](../../images/vuetify/Overflow_buttons.png)
 
-Overflow button is used to give the user the ability to select items from the list. It has 3 variations: editable, overflow and segmented
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="container" id="dropdown-example-3" file="v-overflow-btn/prop-counter">
+  <div
+    class="v-input my-2 theme--light v-text-field v-text-field--single-line v-text-field--is-booted v-select v-autocomplete v-overflow-btn">
+    <div class="v-input__control">
+      <div role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-635" class="v-input__slot">
+        <div class="v-select__slot"><label for="input-635" class="v-label theme--light">Overflow Btn w/ counter</label>
+          <div class="v-select__selections"><input id="input-635" readonly="readonly" type="text"></div>
+          <div class="v-input__append-inner">
+            <div class="v-input__icon v-input__icon--append">
+              <span aria-hidden="true" class="v-icon notranslate theme--light"><svg
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg"><path
+              d="M7,10L12,15L17,10H7Z"></path></svg></span></div>
+          </div>
+          <input type="hidden"></div>
+        <div class="v-menu"><!----></div>
+      </div>
+      <div class="v-text-field__details">
+        <div class="v-messages theme--light">
+          <div class="v-messages__wrapper"></div>
+        </div>
+        <div class="v-counter theme--light">0</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
 
 |Method | Description | Return Type
 --- | --- | ---
 **expand()/close()** | Open/close dropdown menu | void
 **select(String text)/select(int index)** | Select element | void
-**sendText(String text)** | Snd text in input field | void
-**clear()** | Clear input field | void
-**selected()** | Get selected text | String
-**hint()** | Get hint text | String
-**placeholder()** | Get placeholder text | String
-**counterMessage()** | Get counter text | String
-**isExpanded()/isClosed()** | Shows that dropdown menu is open/close | void
-**isDisabled()/isEnabled()** | Shows that required element is disabled/enabled | void
-**isEditable()** | Shows that required element is editable | void
-**readOnly()** | Shows that required element is readOnly | void
-**hasProgressBar** | Shows that required element has progress bar | void
+**sendText(String text)** | Set text in input field | void
+**clear()** | Clear Overflow button text field | void
+**selected()** | Returns selected text | String
+**hasCounter()** | Returns if Overflow button has counter | boolean
+**counterValue()** | Returns Overflow button counter value | int
+**isExpanded()/isClosed()** | Shows that dropdown menu is open/close | boolean
+**isDisabled()/isEnabled()** | Shows that required element is disabled/enabled | boolean
+**isEditable()** | Shows that required element is editable | boolean
+**loader()** | Returns Overflow button loader height | ProgressLinear
+**isSegmented()** | Returns if Overflow button is segmented | boolean
+**hasChips()** | Returns if Overflow button has chips | boolean
+**hasSmallChips()** | Returns if Overflow button has small chips | boolean
 
-For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTest.java).
+In addition, **OverflowButton** implements HasPlaceholder, HasMessages,
+IsReadOnly, IsLoading, IsDense, IsFilled, IsReverse, HasRounded, IsFlat, HasTheme, IsOutlined, IsShaped,
+IsSingleLine, IsFullWidth.
+
+| Assert method | Description |
+| :--- | :--- |
+**expanded()** | Assert that OverflowButton is expanded
+**closed()** | Assert that OverflowButton is closed
+**selected(String value)** | Assert that OverflowButton has selected value
+**placeholder(String text)** | Assert that OverflowButton placeholder has text
+**counter()** | Assert that OverflowButton has counter
+**notCounter()** | Assert that OverflowButton has not counter
+**counter(int value)** | Assert that OverflowButton counter is value
+**editable()** | Assert that OverflowButton is editable
+**notEditable()** | Assert that OverflowButton is not editable
+**enabled()** | Assert that OverflowButton is enabled
+**disabled()** | Assert that OverflowButton is disabled
+**hasLoader()** | Assert that OverflowButton has loader
+**hasNoLoader()** | Assert that OverflowButton has no loader
+**segmented()** | Assert that OverflowButton is segmented
+**notSegmented()** | Assert that OverflowButton is not segmented
+**chips()** | Assert that OverflowButton has chips
+**noChips()** | Assert that OverflowButton has no chips
+**smallChips()** | Assert that OverflowButton has small chips
+**noSmallChips()** | Assert that OverflowButton has no small chips
+
+In addition, **OverflowButtonAssert** implements MessagesAssert<OverflowButtonAssert, OverflowButton>, ReadOnlyAssert<OverflowButtonAssert, OverflowButton>,
+LoadingAssert<OverflowButtonAssert, OverflowButton>, DenseAssert<OverflowButtonAssert, OverflowButton>,
+FilledAssert<OverflowButtonAssert, OverflowButton>, ReverseAssert<OverflowButtonAssert, OverflowButton>,
+RoundedAssert<OverflowButtonAssert, OverflowButton>, FlatAssert<OverflowButtonAssert, OverflowButton>,
+ThemeAssert<OverflowButtonAssert, OverflowButton>, OutlinedAssert<OverflowButtonAssert, OverflowButton>,
+ShapedAssert<OverflowButtonAssert, OverflowButton>, SingleLineAssert<OverflowButtonAssert, OverflowButton>,
+FullWidthAssert<OverflowButtonAssert, OverflowButton>.
+
+For examples of usage see: 
+[JDI vuetify page tests for Overflow buttons](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTests.java).
 
 #### 5.12.2 Range Slider
 

@@ -948,6 +948,17 @@ __Code example:__
 
 In addition, ExpansionPanels implements HasTheme, IsFlat, IsTile.
 
+| Assert method | Description |
+| :--- | :--- |
+**accordion()** | Assert that panel is accordion
+**notAccordion()** | Assert that panel is not accordion
+**focusable()** | Assert that panel is focusable
+**notFocusable()** | Assert that panel is not focusable
+**inset()** | Assert that panel is inset
+**notInset()** | Assert that panel is not inset
+**popout()** | Assert that panel is popout
+**notPopout()** | Assert that panel is not popout
+
 `ExpansionPanel` methods:
 
 |Method | Description | Return Type
@@ -965,6 +976,15 @@ In addition, ExpansionPanels implements HasTheme, IsFlat, IsTile.
 **hasIconDisableRotate()** | Check that panel header has icon disable rotate | boolean
 
 In addition, ExpansionPanel implements HasColor.
+
+| Assert method | Description |
+| :--- | :--- |
+**expanded()** | Assert that panel is expanded
+**closed()** | Assert that panel is closed
+**contentColor(String color)** | Assert that panel has content font color '{0}'
+**contentBackgroundColor(String color)** | Assert that panel has content background color '{0}'
+**iconDisableRotate()** | Assert that panel has icon disable rotate
+**notIconDisableRotate()** | Assert that panel icon rotation is not disabled
 
 For examples of usage see: [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTests.java).
 

@@ -3613,34 +3613,112 @@ Also, DataIterator class implements IsContainer, ISetup.
 
 For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataIteratorsTests.java).
 
-### 5.22 Tabs
+### 5.22 Tabs (VuetifyTabs)
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/tabs/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/tabs/)
 
 - __Java__: _com.epam.jdi.light.ui.html.elements.complex.Tabs.java_
 
 ```java
-    @Test
-    public static void iconsTextTabsTest() {
-        iconAndTextTabs.select(1);
-        iconAndTextTabs.get(1).is().text("RECENTS");
-        iconAndTextTabsIcon.get(1).is().visible();
+//@FindBy(css = "#IconsTextTabs")
+@UI("#IconsTextTabs")
+public static VuetifyTabs iconAndTextTabs;
 
-        iconAndTextTabs.select(2);
-        iconAndTextTabs.get(2).is().text("FAVORITES");
-        iconAndTextTabsIcon.get(2).is().visible();
-
-        iconAndTextTabs.select(3);
-        iconAndTextTabs.get(3).is().text("NEARBY");
-        iconAndTextTabsIcon.get(3).is().visible();
-    }
+@Test(description = "Test checks texts and icons on tabs", dataProviderClass = TabsTestsDataProvider.class,
+          dataProvider = "iconsTextTabsTestsData")
+public static void iconsTextTabsTest(int index, String text, String iconType) {
+    iconAndTextTabs.show();
+    iconAndTextTabs.select(index);
+    iconAndTextTabs.get(index).has().text(text);
+    iconAndTextTabs.icons().get(index - 1).has().type(iconType);
+}
 ```
 
 ![Tabs example](../../images/vuetify/tabs.png)
 
-Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You can inherit the `Tabs` class and customize it the way you want.
+The `v-tabs` component is used for hiding content behind a selectable item. This can also be used as a pseudo-navigation for a page, where the tabs are links and the tab-items are the content.
 
-For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java).
+```html
+<div class="v-tabs v-tabs--fixed-tabs theme--dark" file="v-tabs/prop-fixed-tabs">
+    <div role="tablist" class="v-item-group theme--dark v-slide-group v-tabs-bar v-tabs-bar--is-mobile white--text indigo" data-booted="true">
+        <div class="v-slide-group__prev v-slide-group__prev--disabled">
+            <!---->
+        </div>
+        <div class="v-slide-group__wrapper">
+            <div class="v-slide-group__content v-tabs-bar__content" style="transform: translateX(0px);">
+                <div class="v-tabs-slider-wrapper" style="height: 2px; left: 176px; width: 176px;">
+                    <div class="v-tabs-slider">
+                        
+                    </div>
+                </div>
+                <div tabindex="0" aria-selected="false" role="tab" class="v-tab"> Option </div>
+                <div tabindex="0" aria-selected="true" role="tab" class="v-tab v-tab--active"> Another Selection </div>
+                <div tabindex="0" aria-selected="false" role="tab" class="v-tab"> Items </div>
+                <div tabindex="0" aria-selected="false" role="tab" class="v-tab"> Another Screen </div>
+            </div>
+        </div>
+        <div class="v-slide-group__next v-slide-group__next--disabled">
+            <!---->
+        </div>
+    </div>
+</div>
+```
+|Method | Description                          | Return Type
+--- |--------------------------------------| ---
+**is()/has()** | Returns VuetifyTabs Assert class     | VuetifyTabsAssert
+**list()** | Get list of tabs                     | WebList
+**menu()** | Get list of menu items               | WebList
+**icons()** | Get list of icons                    | List\<Icon>
+**navigation()** | Get next button                      | SlideGroup
+**menuButton()** | Get menu buttons                     | List\<VuetifyButton>
+**isSelected(int)** | Get if element is selected           | boolean
+**isFixed()** | Get if element is fixed              | boolean
+**isGrow()** | Get if element is grow               | boolean
+**isRight()** | Get if element is right              | boolean
+**isVertical()** | Get if element is vertical           | boolean
+**isAlignWithTitle()** | Get if element is align with title   | boolean
+**getTabTextContent()** | Get tab text content                 | String
+**color()** | Get color                            | String
+**backgroundColor()** | Get background color                 | String
+**theme()** | Get theme                            | String
+**tabsSliderSize()** | Get tabs slider size                 | int
+**isTabDisabled(int)** | Get if tab is disabled               | boolean
+**tabsSliderColor()**  | Get tabs slider color                | String
+**tabHasHref(int)**  | Get if tab has href                  | boolean
+**getTabHref(int)**  | Get tab href                | String
+**showArrows()**  | Get if element shows arrows on hover | boolean
+
+VuetifyTabs also implements HasColor, HasTheme
+
+| Assert method | Description |
+| :--- | :--- |
+**selected(int)** | Assert that tab is selected
+**notSelected(int)** | Assert that tab is not selected
+**size(int)** | Assert tab size
+**fixed()** | Assert that tab is fixed
+**grow()** | Assert that tab is grow
+**notGrow** | Assert that tab is not grow
+**right()** | Assert that tab is right
+**notRight()** | Assert that tab is not right
+**vertical()** | Assert that tab is vertical
+**notVertical()** | Assert that tab is not vertical
+**tabExist(int)** | Assert that tab exists
+**tabNotExist(int)** | Assert that tab does not exist
+**tabTextContent(Matcher\<String> condition)** | Assert that tab text content is as expected
+**tabTextContentContaining(String)** | Assert that tab text content contains certain text
+**alignWithTitle()** | Assert that tab is align with title
+**notAlignWithTitle()** | Assert that tab is not align with title
+**tabSliderSizePx(int)** | Assert tab slider size
+**tabSliderColor(String)** | Assert tab slider color
+**tabDisabled(int)** | Assert that tab is disabled
+**tabEnabled(int)** | Assert that tab is enabled
+**tabHref(int)** | Assert that tab has href
+**noTabHref(int)** | Assert that tab has no href
+**tabHref(int index, String href)** | Assert that actual tab href is as expected
+**showArrows()** | Assert that element shows arrows
+**notShowArrows()** | Assert that element does not show arrows
+
+For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java).
 
 ### 5.23 Icons
 

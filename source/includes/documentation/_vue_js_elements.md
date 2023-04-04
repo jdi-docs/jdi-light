@@ -1165,7 +1165,7 @@ public void minAndMaxRangeSliderTest() {
   }
 ```
 
-The `v-slider` component is a better visualization of the number input. 
+The `v-range-slider` component is a better visualization of the number input. 
 It is used for gathering numerical user data. Sliders reflect a range of values along a bar, from which users may select a single value. 
 They are ideal for adjusting settings such as volume, brightness, or applying image filters.
 
@@ -1241,27 +1241,27 @@ IsDense, HasColor, HasMeasurement, HasDetailsHidden, IsLoading.
 
 | Assert method | Description |
 | :--- | :--- |
-**value(double valueLeft, double valueRight)** | Assert that value {name} is {0}, {1}
-**leftValue(double valueLeft)** | Assert that left value {name} is {0}
-**rightValue(double valueRight)** | Assert that right value {name} is {0}
-**minValue(double value)** | Assert that min value {name} is {0}
-**maxValue(double value)** | Assert that max value {name} is {0}
-**thumbLabelValue(String leftValue, String rightValue)** | Assert that thumb label value {name} is {0}, {1}
-**thumbLabelDisplayed()** | Assert that thumb label {name} is displayed
-**thumbLabelNotDisplayed()** | Assert that thumb label {name} is not displayed
+**value(double valueLeft, double valueRight)** | Assert that value Range Slider is valueLeft, valueRight
+**leftValue(double valueLeft)** | Assert that left value Range Slider is valueLeft
+**rightValue(double valueRight)** | Assert that right value Range Slider is valueRight
+**minValue(double value)** | Assert that min value Range Slider is passed parameter
+**maxValue(double value)** | Assert that max value Range Slider is passed parameter
+**thumbLabelValue(String leftValue, String rightValue)** | Assert that thumb label value Range Slider is leftValue, rightValue
+**thumbLabelDisplayed()** | Assert that thumb label Range Slider is displayed
+**thumbLabelNotDisplayed()** | Assert that thumb label Range Slider is not displayed
 **noThumbLabels()** | Assert that Range Slider has no thumb label
-**ticks()** | Assert that {name} has ticks
+**ticks()** | Assert that Range Slider has ticks
 **noTicks()** | Assert that Range Slider has no ticks
-**ticksSize(int size)** | Assert that {name} ticks is always show
-**tickLabel(int index, String label)** | Assert that {name} tick size is {0}
-**label()** | Assert that {name} {0} tick label is {1}
-**label(String text)()** | Assert that Range Slider has label
+**ticksSize(int size)** | Assert that Range Slider ticks is always show
+**tickLabel(int index, String label)** | Assert that Range Slider tick size is passed parameter
+**label()** | Assert that Range Slider has label
+**label(String text)** | Assert that Range Slider label is text
 **noLabel()** | Assert that Range Slider has not label
 **inverseLabel()** | Assert that Range Slider has Inverse label
-**trackFillColor(String color)** | Assert that Range Slider track fill color is '{0}'
-**trackColor(String color)** | Assert that Range Slider track background color is '{0}'
-**thumbColor(String color)** | Assert that Range Slider thumb color is '{0}'
-**thumbSize(int size)** | Assert that Range Slider left thumb size is '{0}'
+**trackFillColor(String color)** | Assert that Range Slider track fill color is passed parameter
+**trackColor(String color)** | Assert that Range Slider track background color is passed parameter
+**thumbColor(String color)** | Assert that Range Slider thumb color is passed parameter
+**thumbSize(int size)** | Assert that Range Slider left thumb size is passed parameter
 **error()** | Assert that Range Slider is error
 **notError()** | Assert that Range Slider is not error
 **success()** | Assert that Range Slider is success

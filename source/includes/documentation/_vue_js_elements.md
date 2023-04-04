@@ -6384,3 +6384,114 @@ In addition, Calendar implements HasTheme.
 In addition, CalendarAssert implements ThemeAssert<CalendarAssert, Calendar>.
 
 For examples of usage see: [JDI vuetify page tests for Calendars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CalendarsTests.java).
+
+### 5.46 Steppers
+
+[Steppers overview](https://v2.vuetifyjs.com/en/components/steppers/)
+
+- __Java__: 
+_com.epam.jdi.light.vuetify.elements.complex.stepper.Stepper.java_
+_com.epam.jdi.light.vuetify.elements.complex.stepper.Step.java_
+
+```java
+//@FindBy(css = "#NonLinearStepper .v-stepper")
+@UI("#NonLinearStepper .v-stepper")
+public static List<Stepper> nonLinearStepper;
+
+@Test(description = "Test checks if step is active or not")
+public void activeStepStepperTest() {
+    Stepper stepper = nonLinearStepper.get(1);
+    stepper.show();
+    List<Step> steps = stepper.steps();
+    steps.get(0).is().active();
+    steps.get(1).is().notActive();
+    steps.get(1).click();
+    steps.get(0).is().notActive();
+    steps.get(1).is().active();
+    steps.get(2).is().notActive();
+    steps.get(2).click();
+    steps.get(1).is().notActive();
+    steps.get(2).is().active();
+    steps.get(0).click();
+    steps.get(0).is().active();
+}
+```
+![Steppers example](../../images/vuetify/stepper.png)
+
+The v-stepper component displays progress through numbered steps.
+
+__Code example:__ 
+```html
+<div class="pa-4 v-sheet theme--light rounded">
+  <div class="v-stepper v-sheet theme--light" file="v-stepper/usage">
+    <div class="v-stepper__header">
+      <div tabindex="-1" class="v-stepper__step v-stepper__step--active">
+        <span class="v-stepper__step__step primary">1</span>
+        <div class="v-stepper__label"> Name of step 1 
+        </div>
+      </div>
+      <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+      <div tabindex="-1" class="v-stepper__step v-stepper__step--inactive">
+        <span class="v-stepper__step__step">2</span>
+        <div class="v-stepper__label"> Name of step 2 </div>
+      </div><hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+      <div tabindex="-1" class="v-stepper__step v-stepper__step--inactive">
+        <span class="v-stepper__step__step">3</span>
+        <div class="v-stepper__label"> Name of step 3 </div>
+      </div>
+    </div>
+    <div class="v-stepper__items">
+      <div class="v-stepper__content" style="transform-origin: center top 0px;">
+        <div class="v-stepper__wrapper">
+          <div class="mb-12 v-card v-sheet theme--light grey lighten-1" style="height: 200px;"></div>
+          <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary">
+            <span class="v-btn__content"> Continue </span>
+          </button>
+          <button type="button" class="v-btn v-btn--text theme--light v-size--default">
+            <span class="v-btn__content"> Cancel </span>
+          </button>
+        </div>
+      </div>
+      <div class="v-stepper__content" style="display: none;">
+        <div class="v-stepper__wrapper">
+          <div class="mb-12 v-card v-sheet theme--light grey lighten-1" style="height: 200px;"></div>
+          <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary">
+            <span class="v-btn__content"> Continue </span>
+          </button>
+          <button type="button" class="v-btn v-btn--text theme--light v-size--default">
+            <span class="v-btn__content"> Cancel </span>
+          </button>
+        </div>
+      </div>
+      <div class="v-stepper__content" style="display: none;">
+        <div class="v-stepper__wrapper">
+          <div class="mb-12 v-card v-sheet theme--light grey lighten-1" style="height: 200px;"></div>
+          <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary">
+            <span class="v-btn__content"> Continue </span>
+          </button>
+          <button type="button" class="v-btn v-btn--text theme--light v-size--default">
+            <span class="v-btn__content"> Cancel </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+`Steppers` methods:
+|Method | Description | Return Type
+--- | --- | ---
+
+
+| Assert method | Description |
+| :--- | :--- |
+
+`Step` methods:
+|Method | Description | Return Type
+--- | --- | ---
+
+
+| Assert method | Description |
+| :--- | :--- |
+
+For examples of usage see: [JDI vuetify page tests for steppers](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SteppersTests.java).

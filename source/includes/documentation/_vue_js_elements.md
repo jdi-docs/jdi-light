@@ -831,45 +831,28 @@ For examples of usage see: [JDI vuetify page tests for dialogs](https://github.c
 
 ### 5.10 Expansion Panels
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/expansion-panels/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/expansion-panels/)
 
 __Java__:
 - _com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanels.java_
 - _com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanel.java_
 
 ```java
-    //Default locators(except root):
-    @JDIExpansionPanels(
-        root = "#ModelExpansionPanel .v-expansion-panels",
-        panels = ".v-expansion-panel",
-        header = ".v-expansion-panel-header",
-        icon = ".v-expansion-panel-header__icon .v-icon",
-        content = ".v-expansion-panel-content"
-    )
+    //@FindBy(css = "#ModelExpansionPanel .v-expansion-panels")
+    @UI("#ModelExpansionPanel .v-expansion-panels")
     public static ExpansionPanels modelExpansionPanels;
 ```
 
-You can specify locators for the root and panels to find panels in root. 
-Also, you can specify header, icon and content locators for all panels. All of it you can do
-explicitly through a `JDIExpansionPanels` annotation. 
-
-It is **necessary** to specify **the root** of an element.
-
 ```java
-    @JDIExpansionPanels(root = "#CustomIconExpansionPanel .v-expansion-panels:nth-child(1)")
-    public static ExpansionPanels customIconExpansionPanelsSameIcons;
-```
-
-```java
-    @Test
-    public void customIconExpansionPanelTest() {
-        customIconExpansionPanelsSameIcons.has().size(5);
-        for (ExpansionPanel expansionPanel : customIconExpansionPanelsSameIcons.panels()) {
+    @Test(description = "Test checks expansion panel texts")
+    public void textExpansionPanels(ExpansionPanels panels) {
+        panels.show();
+        for (ExpansionPanel expansionPanel : panels.panels()) {
+            expansionPanel.expand();
+            expansionPanel.header().has().text(containsString("It"));
             expansionPanel.header().has().text("Item");
             expansionPanel.content().has().text(LOREM_IPSUM_TEXT);
             expansionPanel.is().expanded();
-            expansionPanel.expander().is().displayed();
-            expansionPanel.expander().has().cssClass("mdi-menu-down");
         }
     }
 ```
@@ -878,11 +861,78 @@ It is **necessary** to specify **the root** of an element.
 
 ExpansionPanels is a list of ExpansionPanel.
 
-Expansion panel may contain anything, so you can inherit the `ExpansionPanel` class and customize it
-the way you need. This class has 3 base methods: `header`, `expander` and `content`. 
-They return the parts of an expansion panel. 
+The v-expansion-panel component is useful for reducing vertical space with large amounts of information. 
+The default functionality of the component is to only display one expansion-panel body at a time; 
+however, with the multiple property, the expansion-panel can remain open until explicitly closed.
 
-Also, you can inherit the `ExpansionPanels`.
+__Code example:__ 
+```html
+<div class="pa-4 v-sheet theme--light rounded">
+  <div class="v-item-group theme--light v-expansion-panels" file="v-expansion-panels/usage">
+    <div aria-expanded="false" class="v-expansion-panel">
+      <button type="button" class="v-expansion-panel-header"> Item 
+        <div class="v-expansion-panel-header__icon">
+          <span aria-hidden="true" class="v-icon notranslate theme--light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+            </svg>
+          </span>
+        </div>
+      </button>
+      <!---->
+    </div>
+    <div aria-expanded="false" class="v-expansion-panel">
+      <button type="button" class="v-expansion-panel-header"> Item 
+        <div class="v-expansion-panel-header__icon">
+          <span aria-hidden="true" class="v-icon notranslate theme--light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+            </svg>
+          </span>
+        </div>
+      </button>
+      <!---->
+    </div>
+    <div aria-expanded="false" class="v-expansion-panel">
+      <button type="button" class="v-expansion-panel-header"> Item 
+        <div class="v-expansion-panel-header__icon">
+          <span aria-hidden="true" class="v-icon notranslate theme--light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+            </svg>
+          </span>
+        </div>
+      </button>
+      <!---->
+    </div>
+    <div aria-expanded="false" class="v-expansion-panel">
+      <button type="button" class="v-expansion-panel-header"> Item 
+        <div class="v-expansion-panel-header__icon">
+          <span aria-hidden="true" class="v-icon notranslate theme--light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+            </svg>
+          </span>
+        </div>
+      </button>
+      <!---->
+    </div>
+    <div aria-expanded="false" class="v-expansion-panel">
+      <button type="button" class="v-expansion-panel-header"> Item 
+        <div class="v-expansion-panel-header__icon">
+          <span aria-hidden="true" class="v-icon notranslate theme--light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+            </svg>
+          </span>
+        </div>
+      </button>
+      <!---->
+    </div>
+  </div>
+</div>
+```
+
 
 `ExpansionPanels` methods:
 
@@ -890,21 +940,53 @@ Also, you can inherit the `ExpansionPanels`.
 --- | --- | ---
 **panels()** | Returns list of panels as Expansion Panel | List\<ExpansionPanel>
 **list()** | Returns list of panels as UIElement | WebList
+**isEnabled()** | Returns true if panel is enabled | boolean
+**isAccordion()** | Returns true if panel is accordion | boolean
+**isFocusable()** | Returns true if panel is focusable | boolean
+**isInset()** | Returns true if panel is inset | boolean
+**isPopout()** | Returns true if panel is popout | boolean
+
+In addition, ExpansionPanels implements HasTheme, IsFlat, IsTile.
+
+| Assert method | Description |
+| :--- | :--- |
+**accordion()** | Assert that panel is accordion
+**notAccordion()** | Assert that panel is not accordion
+**focusable()** | Assert that panel is focusable
+**notFocusable()** | Assert that panel is not focusable
+**inset()** | Assert that panel is inset
+**notInset()** | Assert that panel is not inset
+**popout()** | Assert that panel is popout
+**notPopout()** | Assert that panel is not popout
 
 `ExpansionPanel` methods:
 
 |Method | Description | Return Type
 --- | --- | ---
 **header()** | Returns header element by header locator from JDIExpansionPanels annotation | UIElement
+**headerIcon()** | Returns panel header icon | UIElement
 **expander()** | Returns expander element by icon locator from JDIExpansionPanels annotation | Icon
 **content()** | Expands if panel is closed. Returns content element by content locator from JDIExpansionPanels annotation| UIElement
 **expand()** | Expands panel | void
 **close()** | Closes panel | void
 **isExpanded()** | Returns true if panel is expanded | boolean
 **isClosed()** | Returns true if panel is closed | boolean
+**contentColor()** | Returns panel header font color | String
+**contentBackgroundColor()** | Returns panel content background color | String
+**hasIconDisableRotate()** | Check that panel header has icon disable rotate | boolean
 
-For examples of usage see: [Custom vuetify expansion panels examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/panels)
-and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTest.java).
+In addition, ExpansionPanel implements HasColor.
+
+| Assert method | Description |
+| :--- | :--- |
+**expanded()** | Assert that panel is expanded
+**closed()** | Assert that panel is closed
+**contentColor(String color)** | Assert that panel has content font color '{0}'
+**contentBackgroundColor(String color)** | Assert that panel has content background color '{0}'
+**iconDisableRotate()** | Assert that panel has icon disable rotate
+**notIconDisableRotate()** | Assert that panel icon rotation is not disabled
+
+For examples of usage see: [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTests.java).
 
 ### 5.11 Footers
 

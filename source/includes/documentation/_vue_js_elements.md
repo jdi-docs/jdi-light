@@ -1225,39 +1225,134 @@ For examples of usage see:
 
 #### 5.12.2 Range Slider
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/range-sliders/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/range-sliders/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.RangeSlider.java_
 
 ```java
-@Test
+//@FindBy(css = "#MinAndMaxRangeSlider .v-slider")
+@UI("#MinAndMaxRangeSlider .v-slider")
+public static RangeSlider minAndMaxRangeSlider;
+
+@Test(description = "Test checks min and max range slider's values: min(0-n), max(0-n)")
 public void minAndMaxRangeSliderTest() {
-    minAndMaxRangeSlider.slideHorizontalTo(11, 66);
-    minAndMaxRangeSlider.is().value(11, 66);
-    minAndMaxRangeSlider.slideHorizontalTo(-50, 90);
-    minAndMaxRangeSlider.is().value(-50, 90);
-}
+  minAndMaxRangeSlider.show();
+  minAndMaxRangeSlider.setValue(11, 66);
+  minAndMaxRangeSlider.has().value(11, 66)
+  .and().minValue(-50).and().maxValue(90);
+  minAndMaxRangeSlider.setValue(-50, 90);
+  minAndMaxRangeSlider.has().value(-50, 90);
+  }
 ```
 
-The Range Slider component is a better visualization of the number input. 
+The `v-range-slider` component is a better visualization of the number input. 
 It is used for gathering numerical user data. Sliders reflect a range of values along a bar, from which users may select a single value. 
 They are ideal for adjusting settings such as volume, brightness, or applying image filters.
 
-|Method | Description | Return Type
---- | --- | ---
-**isDisabled()** | Shows that required element is disabled| boolean
-**isThumbLabelDisplayed()** | Shows that thumb label of required element is displayed| boolean
-**isAlwaysShow()** | Shows that ticks of required element is always show| boolean
-**isVertical()** | Shows that required element is vertical| boolean
-**slideHorizontalTo(int valueLeft, int valueRight)** | Set in horizontal slider left thumb to valueLeft and right thumb to valueRight| void
-**slideVerticalTo(int valueLeft, int valueRight)** | Set in vertical slider upper thumb to valueLeft and lower thumb to valueRight| void
-**getThumbLabelValue()** | Get label of the first and second thumb| List<String>
-**getValue()** | Get first and second value| List<Integer>
-**getTickLabel()** | Get tick label| String
-
 ![Range Slider example](../../images/vuetify/rangeSlider.png)
 
-For examples of usage see: [JDI Vuetify Range sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RangeSliderTests.java)
+__Vuetify v2.6.14__ code example:
+
+```html
+<div
+  class="v-input align-center v-input--hide-details v-input--is-label-active 
+  v-input--is-dirty theme--light v-input__slider v-input--range-slider">
+  <div class="v-input__prepend-outer">
+    ...
+      </div>
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-slider v-slider--horizontal theme--light">
+        ...
+      </div>
+    </div>
+  </div>
+  <div class="v-input__append-outer">
+    ...
+  </div>
+</div>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**input()** | Returns Range Slider track container | UIElement
+**inputSlot()** | Returns Range Slider track container | UIElement
+**trackContainer()** | Returns Range Slider track container | UIElement
+**track()** | Returns Range Slider track | UIElement
+**thumbContainer()** | Returns Range Slider thumb container| WebList
+**trackBackground(int valueLeft, int valueRight)** | Returns Range Slider track background | WebList
+**leftThumb()** | Returns Range Slider left thumb | UIElement
+**rightThumb()** | Returns Range Slider right thumb | UIElement
+**thumbLabels()** | Returns Range Slider thumb label | List\<Label>
+**thumbLabelValue()** | Returns Range Slider thumb label value | List\<String>
+**ticks()** | Returns Range Slider tick | WebList
+**tickLabel()** | Returns Range Slider tick label value | String
+**prependOuterIcon()** | Returns Range Slider prepend outer icon | Icon
+**appendOuterIcon()** | Returns Range Slider append outer icon | Icon
+**loader()** | Returns Range Slider loader | ProgressLinear
+**value()** | Returns Range Slider value | List\<Double>
+**leftValue()** | Returns Range Slider left value| Double
+**rightValue()** | Returns Range Slider right value | Double
+**minValue()** | Returns Range Slider min value | double
+**maxValue()** | Returns Range Slider max value | double
+**setLeftValue(double valueLeft)** | Set Range Slider left value to valueLeft | void
+**setRightValue(double valueRight)** | Set Range Slider right value to valueRight | void
+**setValue(double valueLeft, double valueRight)** | Set Range Slider to valueLeft, valueRight | void
+**offset(double expectedValue, double trackDimension, Double nowValue)** | Returns offset | double
+**dragAndDropToXOffsetLeft(double offset)** | Drag and drop to offset coordinate| String
+**dragAndDropToXOffsetRight(double offset)** | Drag and drop to offset coordinate| String
+**dragAndDropToYOffsetLeft(double offset)** | Drag and drop to offset coordinate| String
+**dragAndDropToYOffsetRight(double offset)** | Drag and drop to offset coordinate| String
+**ticksSize()** | Returns Range Slider ticks size | int
+**thumbColor()** | Returns Range Slider thumb color | String
+**trackFillColor()** | Returns Range Slider track fill color | String
+**trackBackgroundColor()** | Returns Range Slider track background color | String
+**thumbSize()** | Returns Range Slider thumb size | int
+**clickOutsideOfSlider()** | Clicking outside the sheet | void
+**isTicksAlwaysShow()** | Returns if ticks of Range Slider always show | boolean
+**isError()** | Returns if Range Slider is error | boolean
+**isSuccess()** | Returns if Range Slider is success | boolean
+**hasThumbLabels()** | Returns if Range Slider thumb labels is exist | boolean
+**hasInverseLabel()** | Returns if Range Slider has inverse label | Boolean
+**isThumbLabelDisplayed()** | Returns if thumb label of Range Slider displayed | boolean
+
+In addition, **RangeSlider** implements HasLabel, HasOrientation, IsReadOnly, HasMessages, HasTheme,
+IsDense, HasColor, HasMeasurement, HasDetailsHidden, IsLoading.
+
+| Assert method | Description |
+| :--- | :--- |
+**value(double valueLeft, double valueRight)** | Assert that value Range Slider is valueLeft, valueRight
+**leftValue(double valueLeft)** | Assert that left value Range Slider is valueLeft
+**rightValue(double valueRight)** | Assert that right value Range Slider is valueRight
+**minValue(double value)** | Assert that min value Range Slider is passed parameter
+**maxValue(double value)** | Assert that max value Range Slider is passed parameter
+**thumbLabelValue(String leftValue, String rightValue)** | Assert that thumb label value Range Slider is leftValue, rightValue
+**thumbLabelDisplayed()** | Assert that thumb label Range Slider is displayed
+**thumbLabelNotDisplayed()** | Assert that thumb label Range Slider is not displayed
+**noThumbLabels()** | Assert that Range Slider has no thumb label
+**ticks()** | Assert that Range Slider has ticks
+**noTicks()** | Assert that Range Slider has no ticks
+**ticksSize(int size)** | Assert that Range Slider ticks is always show
+**tickLabel(int index, String label)** | Assert that Range Slider tick size is passed parameter
+**label()** | Assert that Range Slider has label
+**label(String text)** | Assert that Range Slider label is text
+**noLabel()** | Assert that Range Slider has not label
+**inverseLabel()** | Assert that Range Slider has Inverse label
+**trackFillColor(String color)** | Assert that Range Slider track fill color is passed parameter
+**trackColor(String color)** | Assert that Range Slider track background color is passed parameter
+**thumbColor(String color)** | Assert that Range Slider thumb color is passed parameter
+**thumbSize(int size)** | Assert that Range Slider left thumb size is passed parameter
+**error()** | Assert that Range Slider is error
+**notError()** | Assert that Range Slider is not error
+**success()** | Assert that Range Slider is success
+**notSuccess()** | Assert that Range Slider is not success
+
+In addition, **RangeSliderAssert** implements OrientationAssert<RangeSliderAssert, RangeSlider>,
+ReadOnlyAssert<RangeSliderAssert, RangeSlider>, MessagesAssert<RangeSliderAssert, RangeSlider>, ThemeAssert<RangeSliderAssert, RangeSlider>,
+DenseAssert<RangeSliderAssert, RangeSlider>, ColorAssert<RangeSliderAssert, RangeSlider>, MeasurementAssert<RangeSliderAssert, RangeSlider>,
+HideDetailsAssert<RangeSliderAssert, RangeSlider>, LoadingAssert<RangeSliderAssert, RangeSlider>
+
+For examples of usage see: [JDI Vuetify Range sliders tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RangeSlidersTests.java)
 
 #### 5.12.3 Slider
 

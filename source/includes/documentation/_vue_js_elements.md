@@ -3987,56 +3987,118 @@ For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testi
 
 ### 5.25 Navigation Drawers
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/navigation-drawers/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/navigation-drawers/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.NavigationDrawer.java_
 
 ```java
-    @Test
-    public void bottomDrawerNavigationDrawerTests() {
-      bottomDrawerNavigationAppBar.has().textInTitle("My files");
-      bottomDrawerNavigationDrawer.is().closed();
-      bottomDrawerNavigationAppBar.clickOnMenuButton();
-      bottomDrawerNavigationDrawer.is().opened();
-      bottomDrawerNavigationDrawer.has().numberOfListItems(4);
-      bottomDrawerNavigationDrawer.getListItemByIndex(1).click();
-      bottomDrawerNavigationDrawer.is().closed();
-      bottomDrawerNavigationAppBar.clickOnMenuButton();
-      bottomDrawerNavigationDrawer.getListItemByIndex(1).is().active();
-      bottomDrawerNavigationDrawer.getListItemByIndex(2).is().notActive();
-      bottomDrawerNavigationDrawer.getListItemByIndex(3).is().notActive();
-      bottomDrawerNavigationDrawer.getListItemByIndex(4).is().notActive();
-      bottomDrawerNavigationDrawer.getListItemByIndex(2).click();
-      bottomDrawerNavigationAppBar.clickOnMenuButton();
-      bottomDrawerNavigationDrawer.getListItemByIndex(2).is().active();
-      bottomDrawerNavigationDrawer.getListItemByIndex(1).is().notActive();
-      bottomDrawerNavigationDrawer.getListItemByIndex(3).is().notActive();
-      bottomDrawerNavigationDrawer.getListItemByIndex(4).is().notActive();
-    }
+//@FindBy(css = "#ImagesNavigationDrawer .v-navigation-drawer")
+@UI("#ImagesNavigationDrawer .v-navigation-drawer")
+public static NavigationDrawer imagesNavigationDrawer;
+
+    @Test(description = "Test checks that drawer has expected text and expected number of options")
+public void itemsTextNavigationDrawerTest() {
+  List<String> expectedItems = Arrays.asList("Inbox", "Supervisors", "Clock-in");
+  imagesNavigationDrawer.show();
+  imagesNavigationDrawer.is().displayed();
+  imagesNavigationDrawer.has().text(expectedItems);
+  imagesNavigationDrawer.has().itemSize(3);
+  imagesNavigationDrawer.is().absolute();
+  }
 ```
 
-Navigation drawer component is what users will utilize to navigate through the application. Navigation drawer is primarily used to house links to the pages in your application.
+The `v-navigation-drawer` component is what your users will utilize to navigate through the application. 
+The navigation-drawer is pre-configured to work with or without `vue-router` right out the box. 
+For the purpose of display, some examples are wrapped in a `v-card` element. 
+Within your application you will generally place the `v-navigation-drawer` as a direct child of `v-app`.
 
 ![Navigation Drawers examples](../../images/vuetify/navigation-drawer.png)
 
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="v-navigation-drawer__content">
+  <div role="list" class="v-list v-sheet theme--dark">
+    <div tabindex="0" role="listitem" class="v-list-item v-list-item--link theme--dark">
+      <div class="v-list-item__icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark"></i></div>
+      <div class="v-list-item__content">
+        <div class="v-list-item__title">Inbox</div>
+      </div>
+    </div>
+    <div tabindex="0" role="listitem" class="v-list-item v-list-item--link theme--dark">
+      <div class="v-list-item__icon">
+        <i aria-hidden="true" class="v-icon notranslate mdi mdi-account-supervisor-circle theme--dark"></i></div>
+      <div class="v-list-item__content">
+        <div class="v-list-item__title">Supervisors</div>
+      </div>
+    </div>
+    <div tabindex="0" role="listitem" class="v-list-item v-list-item--link theme--dark">
+      <div class="v-list-item__icon">
+        <i aria-hidden="true" class="v-icon notranslate mdi mdi-clock-start theme--dark"></i></div>
+      <div class="v-list-item__content">
+        <div class="v-list-item__title">Clock-in</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Returns Assert class | NavigationDrawerAssert
-**listItems()** | Returns list of all element's list items | List<ListItem>
-**getListItemByIndex()** | Returns element's list item by its index | ListItem
-**getNumberOfListItems()** | Returns number of element's list items | int
-**isExpanded()** | Checks whether element is expanded | boolean
-**isCollapsed()** | Checks whether element is collapsed | boolean
-**isClosed()** | Checks whether element is closed | boolean
-**isOpened()** | Checks whether element is opened | boolean
-**isOnTheRightSide()** | Checks whether element is on the right of the container | boolean
-**isOpened()** | Checks whether element is opened | boolean
-**backgroundImage()** | Returns element's background image | Image
-**getBackgroundColor()** | Returns element's background color (in RGBA format) | String
-**button()** | Returns button containing in the element | VuetifyButton
-**collapse()** | Collapses element | void
+**items()** | Returns NavigationDrawer's list items | List<ListItem>
+**itemsText()** | Returns NavigationDrawer's list items text | List<String>
+**overlay()** | Returns NavigationDrawer overlay | Overlay
+**get(int index)** | Returns NavigationDrawer's list item on index {0} | ListItem
+**get(String title)** | Returns NavigationDrawer's list item by title {0} | ListItem
+**size()** | Returns NavigationDrawer's number of items | int
+**isExpanded()** | Returns if NavigationDrawer is expanded | boolean
+**isCollapsed()** | Returns if NavigationDrawer is collapsed | boolean
+**isClosed()** | Returns if NavigationDrawer is closed | boolean
+**isOpened()** | Returns if NavigationDrawer is opened | boolean
+**isRight()** | Returns if NavigationDrawer is located on the right | boolean
+**backgroundImage()** | Returns NavigationDrawer's background image (in RGBA format) | Image
+**backgroundColor()** | Returns NavigationDrawer's background color | String
+**button()** | Returns NavigationDrawer's button | VuetifyButton
+**width()** | Returns NavigationDrawer's width | boolean
+**height()** | Returns NavigationDrawer's height | boolean
+**isAbsolute()** | Returns if NavigationDrawer is absolute | boolean
+**isBottom()** | Returns if NavigationDrawer is bottom | boolean
+**isClipped()** | Returns if NavigationDrawer is clipped | boolean
+**isExpandedOnHover()** | Returns if NavigationDrawer is expanded on hover | boolean
+**isFloating()** | Returns if NavigationDrawer is floating | boolean
+**isMiniVariant()** | Returns if NavigationDrawer is mini-variant | boolean
+**isTemporary()** | Returns if NavigationDrawer is temporary | boolean
 
-For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java).
+In addition, **NavigationDrawer** implements HasClick, HasTheme
+
+| Assert method | Description |
+| :--- | :--- |
+**displayed()** | Assert that NavigationDrawer is displayed
+**itemSize(int value)** | Assert that NavigationDrawer has expected number of items
+**collapsed()** | Assert that NavigationDrawer is collapsed
+**expanded()** | Assert that NavigationDrawer is expanded
+**opened()** | Assert that NavigationDrawer is opened
+**closed()** | Assert that NavigationDrawer is closed
+**right()** | Assert that NavigationDrawer is located on the right side
+**backgroundColor(String color)** | Assert that NavigationDrawer has expected background color
+**text(List<String> values)** | Check NavigationDrawer text of items
+**absolute()** | Assert that NavigationDrawer is absolute
+**bottom()** | Assert that NavigationDrawer is bottom
+**clipped()** | Assert that NavigationDrawer is clipped
+**floating()** | Assert that theme of NavigationDrawer is floating
+**height(int height)** | Assert that NavigationDrawer height is passed parameter
+**width(int width)** | Assert that NavigationDrawer width is passed parameter
+**temporary()** | Assert that theme of NavigationDrawer is temporary
+**permanent()** | Assert that theme of NavigationDrawer is permanent
+**miniVariant()** | Assert that theme of NavigationDrawer is mini-variant
+**overlay()** | Assert that NavigationDrawer has overlay
+**noOverlay()** | Assert that NavigationDrawer has no overlay
+**expandedOnHover()** | Assert that theme of NavigationDrawer is expanded on hover
+
+In addition, **NavigationDrawerAssert** implements ThemeAssert<NavigationDrawerAssert, NavigationDrawer>
+
+For examples of usage see: [JDI Vuetify Navigation Drawers tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java).
 
 ### 5.26 Tooltips
 

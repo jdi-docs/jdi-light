@@ -3996,7 +3996,7 @@ For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testi
 @UI("#ImagesNavigationDrawer .v-navigation-drawer")
 public static NavigationDrawer imagesNavigationDrawer;
 
-    @Test(description = "Test checks that drawer has expected text and expected number of options")
+@Test(description = "Test checks that drawer has expected text and expected number of options")
 public void itemsTextNavigationDrawerTest() {
   List<String> expectedItems = Arrays.asList("Inbox", "Supervisors", "Clock-in");
   imagesNavigationDrawer.show();

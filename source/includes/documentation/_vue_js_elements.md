@@ -6387,7 +6387,7 @@ For examples of usage see: [JDI vuetify page tests for Calendars](https://github
 
 ### 5.46 Steppers
 
-[Steppers overview](https://v2.vuetifyjs.com/en/components/steppers/)
+[Stepper Vuetify documentation page](https://v2.vuetifyjs.com/en/components/steppers/)
 
 __Java__:
 - _com.epam.jdi.light.vuetify.elements.complex.stepper.Stepper.java_
@@ -6420,7 +6420,7 @@ public void activeStepStepperTest() {
 
 The v-stepper component displays progress through numbered steps.
 
-__Code example:__ 
+__Vuetify v2.6.14__ code example:
 ```html
 <div class="pa-4 v-sheet theme--light rounded">
   <div class="v-stepper v-sheet theme--light" file="v-stepper/usage">
@@ -6483,11 +6483,13 @@ __Code example:__
 
 |Method | Description | Return Type
 --- | --- | ---
-**getStep** | Returns step by index | Step
-**steps()** | Returns list of steps for stepper | List<Step>
+**getStep(int index)** | Returns step by index | Step
+**steps()** | Returns list of steps for stepper | List\<Step>
 **getContentList()** | Returns content list for stepper | WebList
 **isNonLinear()** | Get if stepper is non-linear | boolean
 **hasAltLabel()** | Get if stepper has alt label | boolean
+
+In addition, Stepper implements HasOrientation, HasColor, HasTheme, HasElevation, HasMeasurement, IsOutlined, HasRounded, IsShaped, IsTile.
 
 | Assert method | Description |
 | :--- | :--- |
@@ -6505,6 +6507,8 @@ __Code example:__
 **isComplete()** | Get if step is complete | boolean
 **isEditable()** | Get if step is editable | boolean
 **hasError()** | Get if step has error | boolean
+
+In addition, Step implements IClickable, HasColor.
 
 | Assert method | Description |
 | :--- | :--- |

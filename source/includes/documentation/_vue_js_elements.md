@@ -6389,9 +6389,9 @@ For examples of usage see: [JDI vuetify page tests for Calendars](https://github
 
 [Steppers overview](https://v2.vuetifyjs.com/en/components/steppers/)
 
-- __Java__: 
-_com.epam.jdi.light.vuetify.elements.complex.stepper.Stepper.java_
-_com.epam.jdi.light.vuetify.elements.complex.stepper.Step.java_
+__Java__:
+- _com.epam.jdi.light.vuetify.elements.complex.stepper.Stepper.java_
+- _com.epam.jdi.light.vuetify.elements.complex.stepper.Step.java_
 
 ```java
 //@FindBy(css = "#NonLinearStepper .v-stepper")
@@ -6478,20 +6478,46 @@ __Code example:__
   </div>
 </div>
 ```
-`Steppers` methods:
+
+`Stepper` methods:
+
 |Method | Description | Return Type
 --- | --- | ---
-
+**getStep** |  | 
+**steps()** |  | 
+**getContentList()** |  | 
+**isNonLinear()** | Get if stepper is non-linear | boolean
+**hasAltLabel()** | Get if stepper has alt label | boolean
 
 | Assert method | Description |
 | :--- | :--- |
+**nonLinear()** | Assert that stepper is non-linear
+**linear()** | Assert that stepper is linear
+**altLabel()** | Assert that stepper has alt label
+**notAltLabel()** | Assert that stepper has not alt label
+
 
 `Step` methods:
+
 |Method | Description | Return Type
 --- | --- | ---
-
+**isActive()** | Get if step is active | boolean
+**isComplete()** | Get if step is complete | boolean
+**isEditable()** | Get if step is editable | boolean
+**hasError()** | Get if step has error | boolean
 
 | Assert method | Description |
 | :--- | :--- |
+**active()** | Assert that step is active
+**notActive()** | Assert that step is not active
+**complete()** | Assert that step is complete
+**notComplete()** | Assert that step is not complete
+**editable()** | Assert that step is editable
+**notEditable()** | Assert that step is not editable
+**text(String currentText)** | Assert that step text is {0}
+**contains(String locator)** | Assert that step contains {0}
+**error()** | Assert that step step has error
+**noError()** | Assert that step step has error
+
 
 For examples of usage see: [JDI vuetify page tests for steppers](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SteppersTests.java).

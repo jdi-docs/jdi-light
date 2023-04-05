@@ -6483,9 +6483,9 @@ __Code example:__
 
 |Method | Description | Return Type
 --- | --- | ---
-**getStep** |  | 
-**steps()** |  | 
-**getContentList()** |  | 
+**getStep** | Returns step by index | Step
+**steps()** | Returns list of steps for stepper | List<Step>
+**getContentList()** | Returns content list for stepper | WebList
 **isNonLinear()** | Get if stepper is non-linear | boolean
 **hasAltLabel()** | Get if stepper has alt label | boolean
 

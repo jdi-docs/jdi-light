@@ -6586,3 +6586,112 @@ In addition, Step implements IClickable, HasColor.
 
 
 For examples of usage see: [JDI vuetify page tests for steppers](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SteppersTests.java).
+
+
+### 5.47 Grid
+
+[Grids Vuetify documentation page](https://v2.vuetifyjs.com/en/components/grids/)
+
+__Java__:
+- _com.epam.jdi.light.vuetify.elements.complex.Grid.java_
+
+```java
+//@FindBy(css = "#AlignGridSystem")
+@UI("#AlignGridSystem")
+public static Grid alignGrid;
+
+@Test(description = "Test checks grid's vertical alignment")
+public void alignGridSystemTests() {
+  alignGrid.show();
+  List<String> alignments = Arrays.asList("start", "center", "end");
+  alignGrid.is().displayed();
+  for (int i = 1; i <= 3; i++) {
+  alignGrid.has().rowVerticalAlignment(i, alignments.get(i - 1));
+  alignGrid.has().cellVerticalAlignment(4, i, alignments.get(i - 1));
+  }
+  alignGrid.has().cellText("One of three columns", 1, 2);
+}
+```
+![Grids example](../../images/vuetify/grid.png)
+
+Vuetify comes with a 12 point grid system built using flexbox. The grid is used to create specific layouts within an application’s content. 
+It contains 5 types of media breakpoints that are used for targeting specific screen sizes or orientations, xs, sm, md, lg and xl.
+
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="pa-4 v-sheet theme--light rounded">
+  <div class="container grey lighten-5"
+       file="grid/usage">
+    <div class="row no-gutters">
+      <div class="col-sm-4 col-12">
+        <div class="pa-2 v-card v-sheet v-sheet--outlined theme--light rounded-0"> One of three columns </div>
+      </div>
+      <div class="col-sm-4 col-12">
+        <div class="pa-2 v-card v-sheet v-sheet--outlined theme--light rounded-0"> One of three columns </div>
+      </div>
+      <div class="col-sm-4 col-12">
+        <div class="pa-2 v-card v-sheet v-sheet--outlined theme--light rounded-0"> One of three columns </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+`Grid` methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getRowByIndex(int rowIndex)** | Get '{name}' row by index | UIElement
+**getCellsInRow(int rowIndex)** | Get '{name}' cell in row {0} | WebList
+**getCellByIndex(int rowIndex, int columnIndex)** | Get '{name}' cell by index in row {0} | UIElement
+**getCellsFromRowWithStatus(int rowIndex, String status)** | Get '{name}' row's status | String
+**getCellWithStatus(int rowIndex, int columnIndex, String status)** | Get '{name}' cell status | String
+**getRowVerticalAlignment(int rowIndex)** | Get '{name}' row vertical alignment | String
+**getRowHorizontalAlignment(int rowIndex)** | Get '{name}' row horizontal alignment | String
+**getCellVerticalAlignment(int rowIndex, int columnIndex)** | Get '{name}' cell's alignment in row {0} | String
+**getCellOrder(int rowIndex, int columnIndex)** | Get '{name}' cell's order in row {0} | String
+**hasCellOffset(int rowIndex, int columnIndex)** | Get if '{name}' cell in row {0} has an offset | boolean
+**hasCellsWithEqualWidthInRow(int rowIndex)** | Get if '{name}' row {0} has sells with equal widths| boolean
+**hasCellWithCustomWidth(int rowIndex, int columnIndex)** | Get if '{name}' cell in row {0} has custom width | String
+**hasMargin(int rowIndex, int columnIndex)** | Get if '{name}' cell in row {0} has custom margin | boolean
+**getCellBackgroundColor(int rowIndex, int columnIndex)** | Get '{name}' cell in row '{0}' column '{1}' background color | String
+**getCellFontColor(int rowIndex, int columnIndex)** | Get '{name}' cell in row '{0}' column '{1}' font color | String
+**hasRowWithSpacers(int rowIndex)** | Get if '{name}' has row {0} with spacers | boolean
+**hasCellWithAutoWidth(int rowIndex, int columnIndex)** | Get if '{name}' cell in row {0} has auto-width | boolean
+**isFluid()** | Get if '{name}' is fluid | boolean
+**hasNoGuttersRow(int rowIndex)** | Get if '{name}' has no-gutters | boolean
+**isDense(int rowIndex)** | Get if '{name}' is fluid | boolean
+
+
+| Assert method | Description |
+| :--- | :--- |
+**displayed()** | Assert that '{name}' is displayed
+**cellText(String text, int rowIndex, int columnIndex)** | Assert that '{name}' has text '{0}' in in column '{1}'
+**rowVerticalAlignment(int rowIndex, String alignment)** | Assert that '{name}' row '{0}' has vertical alignment '{1}'
+**rowHorizontalAlignment(int rowIndex, String alignment)** | Assert that '{name}' row '{0}' has horizontal alignment '{1}'
+**cellVerticalAlignment(int rowIndex, int columnIndex, String alignment)** | Assert that '{name}' cell at row '{0}' column '{1}' has vertical alignment '{2}'
+**cellOrder(int rowIndex, int columnIndex, String order)** | Assert that '{name}' cell at row '{0}' column '{1}' has order '{2}'
+**cellOrder(int rowIndex, int columnIndex, int order)** | Assert that '{name}' cell at row '{0}' column '{1}' has order '{2}'
+**cellOffset(int rowIndex, int columnIndex)** | Assert that '{name}' cell at row '{0}' column '{1}' has offset
+**noCellOffset(int rowIndex, int columnIndex)** | Assert that '{name}' cell at row '{0}' column '{1}' has no offset
+**cellWithEqualWidthsInRow(int rowIndex)** | Assert that '{name}' cells in row '{0}' have equal width
+**cellWithDifferentWidthsInRow(int rowIndex)** | Assert that '{name}' cells in row '{0}' have different width
+**cellWithCustomWidth(int rowIndex, int columnIndex, int widthParameter)** | Assert that '{name}' cell at row '{0}' column '{1}' has width '{2}' - integer from 1 to 12
+**cellWithMargin(int rowIndex, int columnIndex)** | Assert that '{name}' cell at row '{0}' column '{1}' has margin
+**cellWithoutMargin(int rowIndex, int columnIndex)** | Assert that '{name}' cell at row '{0}' column '{1}' has no margin
+**cellBackgroundColor(int rowIndex, int columnIndex, String color)** | Assert that '{name}' cell in row '{0}' column '{1}' has background color '{2}'
+**cellFontColor(int rowIndex, int columnIndex, String color)** | Assert that '{name}' cell in row '{0}' column '{1}' has font color '{2}'
+**rowWithSpacers(int rowIndex)** | Assert that '{name}' row '{0}' has spacers
+**rowWithoutSpacers(int rowIndex)** | Assert that '{name}' row '{0}' has no spacers
+**cellWithAutoWidth(int rowIndex, int columnIndex)** | Assert that '{name}' cell at row '{0}' column '{1}' is auto-width
+**fluid()** | Assert that '{name}' is fluid
+**notFluid()** | Assert that '{name}' is not fluid
+**noGuttersRow(int rowIndex)** | Assert that '{name}' row '{0}' is no-gutters
+**notNoGuttersRow(int rowIndex)** | Assert that '{name}' row '{0}' is not no-gutters
+**dense(int rowIndex)** | Assert that '{name}' row is dense
+**notDense(int rowIndex)** | Assert that '{name}' row is not dense
+
+
+For examples of usage see: [JDI vuetify page tests for grids](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/GridsTests.java).

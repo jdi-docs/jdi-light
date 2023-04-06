@@ -893,6 +893,39 @@ __Vuetify v2.6.14__ code example:
         </div>
       </button>
     </div>
+    <div aria-expanded="false" class="v-expansion-panel">
+      <button type="button" class="v-expansion-panel-header"> Item
+        <div class="v-expansion-panel-header__icon">
+          <span aria-hidden="true" class="v-icon notranslate theme--light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+            </svg>
+          </span>
+        </div>
+      </button>
+    </div>
+    <div aria-expanded="false" class="v-expansion-panel">
+      <button type="button" class="v-expansion-panel-header"> Item
+        <div class="v-expansion-panel-header__icon">
+          <span aria-hidden="true" class="v-icon notranslate theme--light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+            </svg>
+          </span>
+        </div>
+      </button>
+    </div>
+    <div aria-expanded="false" class="v-expansion-panel">
+      <button type="button" class="v-expansion-panel-header"> Item
+        <div class="v-expansion-panel-header__icon">
+          <span aria-hidden="true" class="v-icon notranslate theme--light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+            </svg>
+          </span>
+        </div>
+      </button>
+    </div>
   </div>
 </div>
 ```
@@ -6447,6 +6480,7 @@ public void activeStepStepperTest() {
 The v-stepper component displays progress through numbered steps.
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 
 <div class="pa-4 v-sheet theme--light rounded">

@@ -6501,6 +6501,41 @@ __Vuetify v2.6.14__ code example:
         <div class="v-stepper__label"> Name of step 3 </div>
       </div>
     </div>
+    <div class="v-stepper__items">
+      <div class="v-stepper__content" style="transform-origin: center top 0px;">
+        <div class="v-stepper__wrapper">
+          <div class="mb-12 v-card v-sheet theme--light grey lighten-1" style="height: 200px;"></div>
+          <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary">
+            <span class="v-btn__content"> Continue </span>
+          </button>
+          <button type="button" class="v-btn v-btn--text theme--light v-size--default">
+            <span class="v-btn__content"> Cancel </span>
+          </button>
+        </div>
+      </div>
+      <div class="v-stepper__content" style="display: none;">
+        <div class="v-stepper__wrapper">
+          <div class="mb-12 v-card v-sheet theme--light grey lighten-1" style="height: 200px;"></div>
+          <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary">
+            <span class="v-btn__content"> Continue </span>
+          </button>
+          <button type="button" class="v-btn v-btn--text theme--light v-size--default">
+            <span class="v-btn__content"> Cancel </span>
+          </button>
+        </div>
+      </div>
+      <div class="v-stepper__content" style="display: none;">
+        <div class="v-stepper__wrapper">
+          <div class="mb-12 v-card v-sheet theme--light grey lighten-1" style="height: 200px;"></div>
+          <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary">
+            <span class="v-btn__content"> Continue </span>
+          </button>
+          <button type="button" class="v-btn v-btn--text theme--light v-size--default">
+            <span class="v-btn__content"> Cancel </span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 ```

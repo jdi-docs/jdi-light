@@ -865,8 +865,10 @@ The v-expansion-panel component is useful for reducing vertical space with large
 The default functionality of the component is to only display one expansion-panel body at a time; 
 however, with the multiple property, the expansion-panel can remain open until explicitly closed.
 
-__Code example:__ 
+__Vuetify v2.6.14__ code example:
+
 ```html
+
 <div class="pa-4 v-sheet theme--light rounded">
   <div class="v-item-group theme--light v-expansion-panels" file="v-expansion-panels/usage">
     <div aria-expanded="false" class="v-expansion-panel">
@@ -879,55 +881,6 @@ __Code example:__
           </span>
         </div>
       </button>
-      <!---->
-    </div>
-    <div aria-expanded="false" class="v-expansion-panel">
-      <button type="button" class="v-expansion-panel-header"> Item 
-        <div class="v-expansion-panel-header__icon">
-          <span aria-hidden="true" class="v-icon notranslate theme--light">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
-              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
-            </svg>
-          </span>
-        </div>
-      </button>
-      <!---->
-    </div>
-    <div aria-expanded="false" class="v-expansion-panel">
-      <button type="button" class="v-expansion-panel-header"> Item 
-        <div class="v-expansion-panel-header__icon">
-          <span aria-hidden="true" class="v-icon notranslate theme--light">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
-              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
-            </svg>
-          </span>
-        </div>
-      </button>
-      <!---->
-    </div>
-    <div aria-expanded="false" class="v-expansion-panel">
-      <button type="button" class="v-expansion-panel-header"> Item 
-        <div class="v-expansion-panel-header__icon">
-          <span aria-hidden="true" class="v-icon notranslate theme--light">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
-              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
-            </svg>
-          </span>
-        </div>
-      </button>
-      <!---->
-    </div>
-    <div aria-expanded="false" class="v-expansion-panel">
-      <button type="button" class="v-expansion-panel-header"> Item 
-        <div class="v-expansion-panel-header__icon">
-          <span aria-hidden="true" class="v-icon notranslate theme--light">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
-              <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
-            </svg>
-          </span>
-        </div>
-      </button>
-      <!---->
     </div>
   </div>
 </div>
@@ -6489,52 +6442,17 @@ __Vuetify v2.6.14__ code example:
     <div class="v-stepper__header">
       <div tabindex="-1" class="v-stepper__step v-stepper__step--active">
         <span class="v-stepper__step__step primary">1</span>
-        <div class="v-stepper__label"> Name of step 1 
-        </div>
+        <div class="v-stepper__label"> Name of step 1</div>
       </div>
       <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
       <div tabindex="-1" class="v-stepper__step v-stepper__step--inactive">
         <span class="v-stepper__step__step">2</span>
         <div class="v-stepper__label"> Name of step 2 </div>
-      </div><hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+      </div>
+      <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
       <div tabindex="-1" class="v-stepper__step v-stepper__step--inactive">
         <span class="v-stepper__step__step">3</span>
         <div class="v-stepper__label"> Name of step 3 </div>
-      </div>
-    </div>
-    <div class="v-stepper__items">
-      <div class="v-stepper__content" style="transform-origin: center top 0px;">
-        <div class="v-stepper__wrapper">
-          <div class="mb-12 v-card v-sheet theme--light grey lighten-1" style="height: 200px;"></div>
-          <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary">
-            <span class="v-btn__content"> Continue </span>
-          </button>
-          <button type="button" class="v-btn v-btn--text theme--light v-size--default">
-            <span class="v-btn__content"> Cancel </span>
-          </button>
-        </div>
-      </div>
-      <div class="v-stepper__content" style="display: none;">
-        <div class="v-stepper__wrapper">
-          <div class="mb-12 v-card v-sheet theme--light grey lighten-1" style="height: 200px;"></div>
-          <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary">
-            <span class="v-btn__content"> Continue </span>
-          </button>
-          <button type="button" class="v-btn v-btn--text theme--light v-size--default">
-            <span class="v-btn__content"> Cancel </span>
-          </button>
-        </div>
-      </div>
-      <div class="v-stepper__content" style="display: none;">
-        <div class="v-stepper__wrapper">
-          <div class="mb-12 v-card v-sheet theme--light grey lighten-1" style="height: 200px;"></div>
-          <button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary">
-            <span class="v-btn__content"> Continue </span>
-          </button>
-          <button type="button" class="v-btn v-btn--text theme--light v-size--default">
-            <span class="v-btn__content"> Cancel </span>
-          </button>
-        </div>
       </div>
     </div>
   </div>

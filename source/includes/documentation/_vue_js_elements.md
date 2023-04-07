@@ -6695,3 +6695,169 @@ __Vuetify v2.6.14__ code example:
 
 
 For examples of usage see: [JDI vuetify page tests for grids](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/GridsTests.java).
+
+### 5.48 Text Field
+
+[Text Field Vuetify documentation page](https://v2.vuetifyjs.com/en/components/text-fields/)
+
+__Java__:
+- _com.epam.jdi.light.vuetify.elements.complex.TextField.java_
+
+```java
+//@FindBy(css = "#FilledTextField .v-text-field")
+@UI("#FilledTextField .v-text-field")
+public static List<TextField> filledTextField;
+
+@Test (description = "Test checks  filled feature")
+public void filledTextFieldTest() {
+  filledTextField.get(1).show();
+  filledTextField.get(1).is().filled();
+  hideDetailsTextField.get(1).show();
+  hideDetailsTextField.get(1).is().notFilled();
+}
+```
+![Grids example](../../images/vuetify/textFields.png)
+
+Text fields components are used for collecting user provided information.
+
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="pa-4 v-sheet theme--light rounded">
+  <form novalidate="novalidate" class="v-form" file="v-text-field/prop-counter">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-12">
+          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot">
+                  <label for="input-3840" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Regular</label>
+                  <input id="input-3840" type="text">
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <div class="v-messages__wrapper"></div>
+                </div>
+                <div class="v-counter theme--light">18 / 25</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-12">
+          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot">
+                  <label for="input-3843" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Limit exceeded</label>
+                  <input maxlength="25" id="input-3843" type="text">
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <div class="v-messages__wrapper"></div>
+                </div>
+                <div class="v-counter error--text theme--light">50 / 25</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-12">
+          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot">
+                  <label for="input-3846" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Custom counter from prop</label>
+                  <input id="input-3846" type="text">
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <div class="v-messages__wrapper"></div>
+                </div>
+                <div class="v-counter theme--light">2 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-12">
+          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot">
+                  <label for="input-3849" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Custom counter from slot</label>
+                  <input id="input-3849" type="text">
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <div class="v-messages__wrapper"></div>
+                </div>
+                <div class="v-counter theme--light">2 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+```
+
+`Text Field` methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**isEnabled()** | Get that text field is enabled | boolean
+**isFocused()** | Get that text field is focused | boolean
+**textInputField()** | Get text input field | UIElement
+**details()** | Get text field details | UIElement
+**slot()** | Get text field slot | UIElement
+**counter()** | Get text field counter | UIElement
+**prefix()** | Get text field prefix | UIElement
+**suffix()** | Get text field suffix | UIElement
+**getIconsByLocator(String locator)** | Get text field icon by locator '{0}' | List\<Icon>
+**prependOuterIcons()** | Get text field prepend outer icons | List\<Icon>
+**prependInnerIcons()** | Get text field prepend inner icons | List\<Icon>
+**appendInnerIcons()** | Get text field append inner icons | List\<Icon>
+**appendOuterIcons()** | Get text field append outer icons | List\<Icon>
+**hasPrependOuterIcon()** | Get if text field has prepend outer icon | boolean
+**hasPrependInnerIcon()** | Get if text field has prepend inner icons | boolean
+**hasAppendInnerIcon()** | Get if text field has append inner icons | boolean
+**hasAppendOuterIcon()** | Get if text field has append outer icons | boolean
+**getPrependOuterIcon()** | Get text field prepend outer icons | Icon
+**getPrependInnerIcon()** | Get text field prepend inner icons | Icon
+**getAppendInnerIcon()** | Get text field append inner icons | Icon
+**getAppendOuterIcon()** | Get text field append outer icons | Icon
+**getTextType()** | Get text type of text field | String
+**hasPlaceholder()** | Get if text field has placeholder | boolean
+**isAutofocus()** | Get if text field is autofocus | boolean
+**loader()** | Get text field loader | ProgressLinear
+**getLoaderHeight()** | Get text field loader height | int
+
+
+In addition, Text Field implements HasLabel, HasPlaceholder, IsInput, HasClick, HasColor, HasIcon, HasMeasurement, HasMessages,
+HasRounded, HasTheme, IsClearable, IsDense, IsFilled, IsFlat, IsLoading, IsOutlined, IsReadOnly, IsReverse, IsShaped, IsSingleLine, 
+IsSolo, IsFullWidth, HasDetailsHidden
+
+| Assert method | Description |
+| :--- | :--- |
+**focused()** | Assert that text field is focused
+**notFocused()** | Assert that text field is not focused
+**textType(String textType)** | Assert that text type of text field is '{0}'
+**placeholder()** | Assert that text field has not placeholder
+**placeholder(String placeholder)** | Assert that text field placeholder is '{0}'
+**counter(int currentCounter, int maxCounter)** | Assert that text field current counter is '{0}' and max counter is '{1}'
+**labelText(String label)** | Assert that text field has label
+**label()** | Assert that text field has label
+**appendOuterIcon()** | Assert that text field has append outer icon
+**appendInnerIcon()** | Assert that text field has append inner icon
+**prependOuterIcon()** | Assert that text field has prepend outer icon
+**prependInnerIcon()** | Assert that text field has prepend inner icon
+**autofocus()** | Assert that text field is autofocus
+**notAutofocus()** | Assert that text field is not autofocus
+**loaderHeightPx(int height)** | Assert that text field has loader height {0}
+
+For examples of usage see: [JDI vuetify page tests for Text Field](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).

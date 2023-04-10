@@ -6861,3 +6861,69 @@ IsSolo, IsFullWidth, HasDetailsHidden
 **loaderHeightPx(int height)** | Assert that text field has loader height {0}
 
 For examples of usage see: [JDI vuetify page tests for Text Field](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).
+
+#### 5.49 OTP Input
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/otp-input/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.OtpInput.java_
+
+```java
+//@FindBy(css = "#PlainOtpInput .v-otp-input")
+@UI("#PlainOtpInput .v-otp-input")
+public static OtpInput plainOtpInput;
+
+@Test(description = "Test checks entered values of plain otp")
+public void typeValuesOtpInputTest() {
+  plainOtpInput.clear();
+  plainOtpInput.typeValues(Arrays.asList("1", "2", "3", "4", "5"));
+  plainOtpInput.has().text("12345");
+  }
+```
+
+The OTP input is used for MFA procedure of authenticating users by a one-time password.
+
+![OTP Input example](../../images/vuetify/otpInput.png)
+
+```html
+
+<div data-v-1cf3c16a="" file="v-otp-input/misc-loading">
+  <div data-v-1cf3c16a="" class="ma-auto position-relative" style="max-width: 300px;">
+    <div data-v-1cf3c16a="" class="v-otp-input theme--light">
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+    </div>
+    <div data-v-1cf3c16a="" class="v-overlay v-overlay--absolute theme--dark" style="z-index: 5;">
+      <div class="v-overlay__scrim"
+           style="opacity: 0; background-color: rgb(33, 33, 33); border-color: rgb(33, 33, 33);"></div>
+    </div>
+  </div>
+</div>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**inputs()** | Returns OtpInput inputs | List\<TextField>
+**length()** | Returns OtpInput length | int
+**isPlain()** | Returns if OtpInput is plain | boolean
+**type()** | Returns OtpInput type | String
+**typeValues(List<String> inputValues)** | Type values to OtpInput | void
+**getText()** | Returns value of OtpInput | String
+
+In addition, **OtpInput** implements HasTheme, IsReadOnly, IsText, IsInput
+
+| Assert method | Description |
+| :--- | :--- |
+**length(int expectedLength)** | Check that OtpInput has expectedLength
+**plain()** | Check that OtpInput is plain
+**notPlain()** | Check that OtpInput is not plain
+**type(String expectedType)** | Check that OtpInput has expectedType
+
+In addition, **RangeSliderAssert** implements ThemeAssert<OtpInputAssert, OtpInput>, ReadOnlyAssert<OtpInputAssert, OtpInput>,
+ITextAssert<OtpInputAssert>
+
+For examples of usage see: [JDI Vuetify OTP Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OtpInputTests.java)

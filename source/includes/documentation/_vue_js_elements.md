@@ -6878,7 +6878,7 @@ public void typeValuesOtpInputTest() {
   plainOtpInput.clear();
   plainOtpInput.typeValues(Arrays.asList("1", "2", "3", "4", "5"));
   plainOtpInput.has().text("12345");
-  }
+}
 ```
 
 The OTP input is used for MFA procedure of authenticating users by a one-time password.

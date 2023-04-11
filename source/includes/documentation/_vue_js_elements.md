@@ -2963,22 +2963,66 @@ __Vuetify v2.6.14__ code example:
 
 ### 5.16 Pagination
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/paginations/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/paginations/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Pagination.java_
 
 ```java
-    @JDIPagination(
+//@FindBy(css = "#CirclePagination .v-pagination")    
+@JDIPagination(
         root = "#CirclePagination .v-pagination",
         items = ".v-pagination__item",
         left = ".v-pagination__navigation[1]",
         right = ".v-pagination__navigation[2]",
         more = ".v-pagination__more"
     )
-    public static Pagination circlePagination;
+public static Pagination circlePagination;
 ```
 
 ![Pagination example](../../images/vuetify/pagination.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<nav role="navigation" aria-label="Pagination Navigation">
+    <ul class="v-pagination v-pagination--circle theme--light">
+        <li>
+            <button disabled="disabled" type="button" aria-label="Previous page" class="v-pagination__navigation v-pagination__navigation--disabled">
+                <span aria-hidden="true" class="v-icon notranslate theme--light">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                        <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z">
+                            
+                        </path>
+                    </svg>
+                </span>
+            </button>
+        </li>
+        <li>
+            <button type="button" aria-current="true" aria-label="Current Page, Page 1" class="v-pagination__item v-pagination__item--active primary">1</button>
+        </li>
+        <li>
+            <button type="button" aria-label="Goto Page 2" class="v-pagination__item">2</button>
+        </li>
+        <li>
+            <button type="button" aria-label="Goto Page 3" class="v-pagination__item">3</button>
+        </li>
+        <li>
+            <button type="button" aria-label="Goto Page 4" class="v-pagination__item">4</button>
+        </li>
+        <li>
+            <button type="button" aria-label="Next page" class="v-pagination__navigation">
+                <span aria-hidden="true" class="v-icon notranslate theme--light">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z">
+                            
+                        </path>
+                    </svg>
+                </span>
+            </button>
+        </li>
+    </ul>
+</nav>
+```
 
 You can specify locators for the root and items to find page buttons in the root.
 Also, you can specify locators for left and right navigation buttons, 
@@ -2988,50 +3032,73 @@ explicitly through a `JDIPagination` annotation.
 It is **necessary** to specify **the root** of an element.
 
 ```java
-    @JDIPagination(root = "#TotalVisiblePagination .v-pagination")
-    public static Pagination totalVisiblePagination;
+@JDIPagination(root = "#TotalVisiblePagination .v-pagination")
+public static Pagination totalVisiblePagination;
 
-    @Test
-    public void totalVisiblePaginationTest() {
-        totalVisiblePagination.is().enabled();
-        totalVisiblePagination.is().started();
+@Test(description = "Test checks visible pagination components")
+public void totalVisiblePaginationTest() {
+    totalVisiblePagination.is().enabled();
+    totalVisiblePagination.is().atStart();
 
-        totalVisiblePagination.select("15");
-        totalVisiblePagination.has().selected("15");
-        totalVisiblePagination.is().ended();
+    totalVisiblePagination.select("15");
+    totalVisiblePagination.has().selected("15");
+    totalVisiblePagination.is().atEnd();
 
-        List<String> actualButtonsFromEndToStart = new ArrayList<>();
-        actualButtonsFromEndToStart.add(totalVisiblePagination.selected());
-        while (totalVisiblePagination.hasPrevious()) {
-            totalVisiblePagination.back();
-            actualButtonsFromEndToStart.add(totalVisiblePagination.selected());
-        }
-        jdiAssert(actualButtonsFromEndToStart, equalTo(asList(
-            "15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"
-        )));
-        totalVisiblePagination.is().started();
-  }
+    List<String> actualButtonsFromEndToStart = new ArrayList<>();
+    actualButtonsFromEndToStart.add(totalVisiblePagination.selected());
+    while (totalVisiblePagination.hasPrevious()) {
+    totalVisiblePagination.back();
+    actualButtonsFromEndToStart.add(totalVisiblePagination.selected());
+    }
+    jdiAssert(actualButtonsFromEndToStart, equalTo(asList(
+    "15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"
+    )));
+    totalVisiblePagination.is().atStart();
+}
 ```
 
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Returns Assert class | PaginationAssert
+|Method | Description                                                                   | Return Type
+--- |-------------------------------------------------------------------------------| ---
+**is()** | Returns Assert class                                                          | PaginationAssert
 **list()** | Returns list of page buttons by `items` locator from JDIPagination annotation | WebList
-**leftNavigation()** | Returns left navigation button by `left` locator from JDIPagination annotation | UIElement
-**rightNavigation()** | Returns right navigation button by `right` locator from JDIPagination annotation | UIElement
-**select(String value)** | Selects page button by text | void
-**select(int index)** | Selects page button by index | void
-**selected()** | Returns text of the selected page button | String
-**selected(String option)** | Returns true if page button with text is selected | boolean
-**selected(int index)** | Returns true if page button with index is selected | boolean
-**isStart()** | Returns true if left navigation is disable | boolean
-**isEnd()** | Returns true if right navigation is disable | boolean
-**hasNext()** | Returns true if right navigation button is enabled | boolean
-**next()** | Click on right navigation button | void
-**hasPrevious()** | Returns true if left navigation button is enabled | boolean
-**back()** | Click on left navigation button | void
+**leftNavigation()** | Get left navigation button                                                    | VuetifyButton
+**rightNavigation()** | Get right navigation button                                                   | VuetifyButton
+**nextIcon()** | Get next icon                                                                 | UIElement
+**previousIcon()** | Get previous icon                                                             | UIElement
+**moreButton()** | Get more button                                                               | UIElement
+**activeButton()** | Get active button                                                             |VuetifyButton
+**totalVisible()** | Get total visible                                                             | Integer
+**selected()** | Get selected button text                                                      | String
+**selected(String option)** | Returns true if page button with text is selected                             | boolean
+**selected(int index)** | Returns true if page button with index is selected                            | boolean
+**selectedPage()** | Get if button from list by name is selected                                   | PaginationPage
+**page(String option)** | Get page by name                                                              |PaginationPage
+**page(int index)** | Get page by index                                                             | PaginationPage
+**isStart()** | Returns true if left navigation is disable                                    | boolean
+**isEnd()** | Returns true if right navigation is disable                                   | boolean
+**hasNext()** | Returns true if right navigation button is enabled                            | boolean
+**next()** | Click on right navigation button                                              | void
+**hasPrevious()** | Returns true if left navigation button is enabled                             | boolean
+**back()** | Click on left navigation button                                               | void
+**isCircle()** | Get if circle                                                                 | boolean
 
-For examples of usage see: [JDI vuetify page tests for pagination](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java).
+**Pagination** also implements ISetup, HasTheme
+
+| Assert method | Description |
+| :--- | :--- |
+**atStart()** | Assert that pagination is at start
+**atEnd()** | Assert that pagination is at end
+**circle()** | Assert that pagination is circle
+**notCircle()** | Assert that pagination is not circle
+**currentPageAriaLabel()** | Assert aria-label value
+**previousAriaLabel()** | Assert previous-aria-label value
+**nextAriaLabel()** | Assert next-aria-label value
+**pageAriaLabel()** | Assert page-aria-label value
+**nextIcon(String icon)** | Assert next icon value
+**previousIcon(String icon)** | Assert previous icon value
+**totalVisible(Integer totalVisible)** | Assert total visible value
+
+For examples of usage see: [JDI vuetify page tests for pagination](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java).
 
 ### 5.17 Ratings
 

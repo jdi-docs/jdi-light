@@ -6783,9 +6783,10 @@ public void filledTextFieldTest() {
   hideDetailsTextField.get(1).is().notFilled();
 }
 ```
-![Text field example](../../images/vuetify/textFields.png)
 
 Text fields components are used for collecting user provided information.
+
+![Text field example](../../images/vuetify/textFields.png)
 
 __Vuetify v2.6.14__ code example:
 
@@ -7017,9 +7018,10 @@ public void textInputTextAreaTest() {
   autoGrowTextArea.has().lines("1 row", "2 row", "3 row", "4 row", "5 row");
   }
 ```
-![TextArea example](../../images/vuetify/textAreas.png)
 
 Textarea components are used for collecting large amounts of textual data.
+
+![TextArea example](../../images/vuetify/textAreas.png)
 
 __Vuetify v2.6.14__ code example:
 

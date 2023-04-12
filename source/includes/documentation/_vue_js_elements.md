@@ -7044,6 +7044,7 @@ theme--light v-text-field v-text-field--filled v-text-field--is-booted v-text-fi
   </div>
 </div>
 ```
+
 `TextArea` methods:
 
 |Method | Description | Return Type

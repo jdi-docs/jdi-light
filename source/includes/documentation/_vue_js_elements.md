@@ -2122,38 +2122,46 @@ Autocomplete elements are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Autocomplete.java_
 
 ```java
+@JAutocomplete(root = "//div[@id='style']/div[2]//div[2]/div[contains(@class, 'v-autocomplete')]",
+  listItems = "//div[contains(@class, 'v-autocomplete__content') and not(contains(@style, 'display'))]//div[@class='v-list-item__title']")
+public static Autocomplete lightDenseShapedOutlinedAutocomplete;
+
+@JAutocomplete(root = "//div[@id='style']/div[2]//div[3]/div[contains(@class, 'v-autocomplete')]",
+  listItems = "//div[contains(@class, 'v-autocomplete__content') and not(contains(@style, 'display'))]//div[@class='v-list-item__title']")
+public static Autocomplete lightDenseFilledRoundedAutocomplete;
+
 @Test(description = "Test checks appearance of autocompletes and their values")
 public void styleAutocompleteTest() {
-  List<String> list = Arrays.asList("foo", "bar", "fizz", "buzz");
-  lightDenseShapedOutlinedAutocomplete.is()
-  .light()
-  .dense()
-  .shaped()
-  .outlined();
-  lightDenseShapedOutlinedAutocomplete.expand();
-  lightDenseShapedOutlinedAutocomplete.listItems().has().values(list);
-  lightDenseShapedOutlinedAutocomplete.close();
+    List<String> list = Arrays.asList("foo", "bar", "fizz", "buzz");
+    lightDenseShapedOutlinedAutocomplete.is()
+    .light()
+    .dense()
+    .shaped()
+    .outlined();
+    lightDenseShapedOutlinedAutocomplete.expand();
+    lightDenseShapedOutlinedAutocomplete.listItems().has().values(list);
+    lightDenseShapedOutlinedAutocomplete.close();
 
-  lightDenseFilledRoundedAutocomplete.is()
-  .filled()
-  .rounded();
-  lightDenseFilledRoundedAutocomplete.expand();
-  lightDenseFilledRoundedAutocomplete.listItems().has().values(list);
-  lightDenseFilledRoundedAutocomplete.close();
+    lightDenseFilledRoundedAutocomplete.is()
+    .filled()
+    .rounded();
+    lightDenseFilledRoundedAutocomplete.expand();
+    lightDenseFilledRoundedAutocomplete.listItems().has().values(list);
+    lightDenseFilledRoundedAutocomplete.close();
 
-  darkSoloAutocomplete.is()
-  .dark()
-  .solo();
-  darkSoloAutocomplete.expand();
-  darkSoloAutocomplete.listItems().has().values(list);
-  darkSoloAutocomplete.close();
+    darkSoloAutocomplete.is()
+    .dark()
+    .solo();
+    darkSoloAutocomplete.expand();
+    darkSoloAutocomplete.listItems().has().values(list);
+    darkSoloAutocomplete.close();
 
-  darkSoloInvertedAutocomplete.is()
-  .dark()
-  .soloInverted();
-  darkSoloInvertedAutocomplete.expand();
-  darkSoloInvertedAutocomplete.listItems().has().values(list);
-  darkSoloInvertedAutocomplete.close();
+    darkSoloInvertedAutocomplete.is()
+    .dark()
+    .soloInverted();
+    darkSoloInvertedAutocomplete.expand();
+    darkSoloInvertedAutocomplete.listItems().has().values(list);
+    darkSoloInvertedAutocomplete.close();
   }
 ```
 
@@ -2200,17 +2208,42 @@ __Vuetify v2.6.14__ code example:
 **expand()** | Expand element                     | void
 **close()** | Close expanded element             | void
 **select(String value)** | Select value from expanded list    | void
-**select(List<String> values)** | Select values from expanded list   | void
+**select(List\<String> values)** | Select values from expanded list   | void
 **unselect(String value)** | Unselect value from expanded list  | void
-**unselect(List<String> values)** | Unselect values from expanded list | void
+**unselect(List\<String> values)** | Unselect values from expanded list | void
 **isSelected(String value)** | Check if the value is selected     | boolean
-**isSelected(List<String> values)** | Check if the values are selected   | boolean
+**isSelected(List\<String> values)** | Check if the values are selected   | boolean
 **isDisabled()** | Check if element is disabled       | void
 **typeText(String value)** | Set text                           | void
 **clearTextField()** | Clear text area                    | void
 **clickClear()** | Click clear button                 | void
+**is()** | Returns element assert             | AutocompleteAssert
 
-For examples of usage see: [JDI Vuetify Autocompletes tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AutocompletesTests.java).
+**Autocomplete** also implements ISetup
+
+| Assert method | Description |
+| :--- | :--- |
+**expanded()** | Assert that element is expanded
+**closed()** | Assert that element is closed
+**selected(String value)** | Assert that element is selected
+**selected(List\<String> values)** | Assert that elements are selected
+**notSelected(String value)** | Assert that element is not selected
+**notSelected(List\<String> values)** | Assert that elements are not selected
+**disabled()** | Assert that element is disabled
+**active()** | Assert that element is active
+**empty()** | Assert that element is empty
+**empty()** | Assert that element has solo style
+**filled()** | Assert that element has filled style
+**soloInverted()** | Assert that element has solo-inverted style
+**outlined()** | Assert that element has outlined style
+**dense()** | Assert that element has dense style
+**shaped()** | Assert that element has shaped style
+**rounded()** | Assert that element has rounded style
+**dark()** | Assert that element has dark style
+**light()** | Assert that element has light style
+
+
+For examples of usage see: [JDI Vuetify Autocompletes tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AutocompletesTests.java).
 
 
 ### 5.13 Groups 

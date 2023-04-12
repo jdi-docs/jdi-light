@@ -2190,8 +2190,12 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-|Method | Description                        | Return Type
+|Method | Description                        | Return Type 
 --- |------------------------------------| ---
+**root()** | Return root of the element         | UIElement
+**value()** | Return value element               | UIElement
+**input()** | Return input element               | UIElement
+**listItems()** | Locate list items                  | UIElement
 **isExpanded()** | Check if element is expanded       | boolean
 **expand()** | Expand element                     | void
 **close()** | Close expanded element             | void
@@ -2205,7 +2209,6 @@ __Vuetify v2.6.14__ code example:
 **typeText(String value)** | Set text                           | void
 **clearTextField()** | Clear text area                    | void
 **clickClear()** | Click clear button                 | void
-**is()** | Returns assert class               | AutocompleteAssert
 
 For examples of usage see: [JDI Vuetify Autocompletes tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AutocompletesTests.java).
 

@@ -7016,7 +7016,7 @@ public void textInputTextAreaTest() {
   autoGrowTextArea.clear();
   autoGrowTextArea.setLines("1 row", "2 row", "3 row", "4 row", "5 row");
   autoGrowTextArea.has().lines("1 row", "2 row", "3 row", "4 row", "5 row");
-  }
+}
 ```
 
 Textarea components are used for collecting large amounts of textual data.

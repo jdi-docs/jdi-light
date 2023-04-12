@@ -6929,7 +6929,7 @@ IsSolo, IsFullWidth, HasDetailsHidden
 
 For examples of usage see: [JDI vuetify page tests for Text Field](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).
 
-#### 5.49 OTP Input
+### 5.49 OTP Input
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/otp-input/)
 

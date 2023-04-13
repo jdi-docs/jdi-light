@@ -6783,9 +6783,10 @@ public void filledTextFieldTest() {
   hideDetailsTextField.get(1).is().notFilled();
 }
 ```
-![Grids example](../../images/vuetify/textFields.png)
 
 Text fields components are used for collecting user provided information.
+
+![Text field example](../../images/vuetify/textFields.png)
 
 __Vuetify v2.6.14__ code example:
 
@@ -6994,3 +6995,123 @@ In addition, **RangeSliderAssert** implements ThemeAssert<OtpInputAssert, OtpInp
 ITextAssert<OtpInputAssert>
 
 For examples of usage see: [JDI Vuetify OTP Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OtpInputTests.java)
+
+### 5.50 TextArea
+
+[TextArea Vuetify documentation page](https://v2.vuetifyjs.com/en/components/textareas/)
+
+__Java__:
+- _com.epam.jdi.light.vuetify.elements.complex.TextArea.java_
+
+```java
+//@FindBy(css = "#NoResizeTextarea .v-textarea")
+@UI("#NoResizeTextarea .v-textarea")
+public static TextArea noResizeTextArea;
+
+@Test (description = "Test checks text which was set in textarea")
+public void textInputTextAreaTest() {
+  autoGrowTextArea.show();
+  autoGrowTextArea.has().text("The Woodman set to work at once, and so "
+  + "sharp was his axe that the tree was soon chopped nearly through.");
+  autoGrowTextArea.clear();
+  autoGrowTextArea.setLines("1 row", "2 row", "3 row", "4 row", "5 row");
+  autoGrowTextArea.has().lines("1 row", "2 row", "3 row", "4 row", "5 row");
+}
+```
+
+Textarea components are used for collecting large amounts of textual data.
+
+![TextArea example](../../images/vuetify/textAreas.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="v-input v-textarea v-textarea--auto-grow v-textarea--no-resize v-input--is-label-active v-input--is-dirty 
+theme--light v-text-field v-text-field--filled v-text-field--is-booted v-text-field--enclosed">
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-text-field__slot">
+        <label for="input-5565" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Label</label>
+        <textarea name="input-7-1" id="input-5565" rows="5" style="height: 120px;"></textarea>
+      </div>
+    </div>
+    <div class="v-text-field__details">
+      <div class="v-messages theme--light">
+        <div class="v-messages__wrapper"></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+`TextArea` methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**slot()** | Get textArea slot | UIElement
+**textArea()** | Get textarea | UIElement
+**progress()** | Get textArea loader | ProgressLinear
+**hint()** | Get textArea hint | UIElement
+**details()** | Get textArea details | UIElement
+**prependOuterIcon()** | Get textArea prepend outer icon | Icon
+**hasPrependOuterIcon()** | Get if textArea has prepend outer icon | boolean
+**prependInnerIcon()** | Get textArea prepend inner icon | Icon
+**hasPrependInnerIcon()** | Get if textArea has prepend inner icon | boolean
+**appendOuterIcon()** | Get textArea append outer icon | Icon
+**hasAppendOuterIcon()** | Get if textArea has append outer icon | boolean
+**appendInnerIcon()** | Get textArea append inner icon | Icon
+**hasAppendInnerIcon()** | Get if textArea has append inner icon | boolean
+**counter()** | Get textArea counter | UIElement
+**counterValue()** | Get textArea counter | int
+**getLines()** | Get textArea lines | List\<String>
+**isAutofocus()** | Get if textArea is autofocus | boolean
+**suffix()** | Get textArea suffix | UIElement
+**prefix()** | Get textArea prefix | UIElement
+**setLines(String... lines)** | Set textArea lines '{0}' | void
+**height()** | Get textArea height | int
+**rows()** | Get textArea rows attr | int
+**isAutogrow()** | Get if textArea is autogrow | boolean
+**isNotResizable()** | Get if textArea is not resizable | boolean
+**hasSuffix()** | Get if textArea has suffix | boolean
+**hasPrefix()** | Get if textArea has prefix | boolean
+**hasPlaceholder()** | Get if textArea has placeholder | boolean
+**isReversed()** | Get if textArea is reversed | boolean
+**getLoaderHeight()** | Get textArea loader height | int
+
+In addition, TextArea implements HasLabel, HasPlaceholder, HasIcon, IsVuetifyInput, HasColor, HasMeasurement, HasMessages, HasRounded, HasTheme,
+IsClearable, IsDense, IsFilled, IsFlat, IsLoading, IsOutlined, IsReadOnly, IsShaped, IsSingleLine, IsSolo, IsFullWidth, HasDetailsHidden
+
+| Assert method | Description |
+| :--- | :--- |
+**text(String text)** | Assert that textArea has text '{0}'
+**autoGrow()** | Assert that textArea is auto grow
+**notAutoGrow()** | Assert that textArea is not auto grow
+**notResizable()** | Assert that textArea is not resizable
+**resizable()** | Assert that textArea rows count is {0}
+**lines(Matcher<? super List<String>> condition)** | Assert that textArea has lines {0}
+**lines(String... lines)** | Assert that textArea has lines {0}
+**label()** | Assert that textArea has label
+**suffix()** | Assert that textArea has suffix
+**notSuffix()** | Assert that textArea has not suffix
+**prefix()** | Assert that textArea has prefix
+**notPrefix()** | Assert that textArea has not prefix
+**icon()** | Assert that textArea has icon
+**notIcon()** | Assert that textArea has not icon
+**prependOuterIcon()** | Assert that textArea has prepend outer icon
+**prependInnerIcon()** | Assert that textArea has prepend inner icon
+**appendOuterIcon()** | Assert that textArea has append outer icon
+**appendInnerIcon()** | Assert that textArea has append inner icon
+**placeholder()** | Assert that textArea has placeholder
+**notPlaceholder()** | Assert that textArea has not placeholder
+**placeholderText(String text)** | Assert that textArea has placeholder text '{0}'
+**counterValue(int n)** | Assert that textArea has counter value '{0}'
+**autofocus()** | Assert that textArea is autofocused
+**notAutofocus()** | Assert that textArea is not autofocus
+**reversed()** | Assert that textArea is reversed
+**notReversed()** | Assert that textArea is not reversed
+**loaderHeightPx(int height)** | Assert that textArea has loader height {0}
+**hint(String msg)** | Assert that textArea hint message is '{0}'
+**hint(Matcher<String> condition)** | Assert that textArea hint message is '{0}'
+
+For examples of usage see: [JDI vuetify page tests for TextArea](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java).

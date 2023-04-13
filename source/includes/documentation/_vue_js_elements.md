@@ -2122,10 +2122,12 @@ Autocomplete elements are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Autocomplete.java_
 
 ```java
+//@FindBy(css = ".v-text-field--is-booted")
 @JAutocomplete(root = "//div[@id='style']/div[2]//div[2]/div[contains(@class, 'v-autocomplete')]",
   listItems = "//div[contains(@class, 'v-autocomplete__content') and not(contains(@style, 'display'))]//div[@class='v-list-item__title']")
 public static Autocomplete lightDenseShapedOutlinedAutocomplete;
 
+//@FindBy(css = ".v-text-field--rounded")
 @JAutocomplete(root = "//div[@id='style']/div[2]//div[3]/div[contains(@class, 'v-autocomplete')]",
   listItems = "//div[contains(@class, 'v-autocomplete__content') and not(contains(@style, 'display'))]//div[@class='v-list-item__title']")
 public static Autocomplete lightDenseFilledRoundedAutocomplete;

@@ -2114,6 +2114,140 @@ For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jd
 Forms under Vuetify are the same as Forms from HTML5. 
 Please, follow the link for [Forms overview](https://jdi-docs.github.io/jdi-light/#1-3-2-form)
 
+#### 5.12.12 Autocompletes
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/autocompletes/)
+
+Autocomplete elements are located in the following class:
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Autocomplete.java_
+
+```java
+//@FindBy(xpath = "//div[@id='style']/div[2]//div[2]/div[contains(@class, 'v-autocomplete')]")
+@JAutocomplete(root = "//div[@id='style']/div[2]//div[2]/div[contains(@class, 'v-autocomplete')]",
+  listItems = "//div[contains(@class, 'v-autocomplete__content') and not(contains(@style, 'display'))]//div[@class='v-list-item__title']")
+public static Autocomplete lightDenseShapedOutlinedAutocomplete;
+
+//@FindBy(xpath = "//div[@id='style']/div[2]//div[3]/div[contains(@class, 'v-autocomplete')]")
+@JAutocomplete(root = "//div[@id='style']/div[2]//div[3]/div[contains(@class, 'v-autocomplete')]",
+  listItems = "//div[contains(@class, 'v-autocomplete__content') and not(contains(@style, 'display'))]//div[@class='v-list-item__title']")
+public static Autocomplete lightDenseFilledRoundedAutocomplete;
+
+@Test(description = "Test checks appearance of autocompletes and their values")
+public void styleAutocompleteTest() {
+    List<String> list = Arrays.asList("foo", "bar", "fizz", "buzz");
+    lightDenseShapedOutlinedAutocomplete.is()
+    .light()
+    .dense()
+    .shaped()
+    .outlined();
+    lightDenseShapedOutlinedAutocomplete.expand();
+    lightDenseShapedOutlinedAutocomplete.listItems().has().values(list);
+    lightDenseShapedOutlinedAutocomplete.close();
+
+    lightDenseFilledRoundedAutocomplete.is()
+    .filled()
+    .rounded();
+    lightDenseFilledRoundedAutocomplete.expand();
+    lightDenseFilledRoundedAutocomplete.listItems().has().values(list);
+    lightDenseFilledRoundedAutocomplete.close();
+
+    darkSoloAutocomplete.is()
+    .dark()
+    .solo();
+    darkSoloAutocomplete.expand();
+    darkSoloAutocomplete.listItems().has().values(list);
+    darkSoloAutocomplete.close();
+
+    darkSoloInvertedAutocomplete.is()
+    .dark()
+    .soloInverted();
+    darkSoloInvertedAutocomplete.expand();
+    darkSoloInvertedAutocomplete.listItems().has().values(list);
+    darkSoloInvertedAutocomplete.close();
+  }
+```
+
+![Autocomplete example](../../images/vuetify/basicAutocomplete.png)
+
+The Autocomplete component offers simple and flexible type-ahead functionality.
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-input theme--light v-text-field v-text-field--is-booted v-select v-autocomplete">
+  <div class="v-input__control">
+    <div role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-996" class="v-input__slot">
+      <div class="v-select__slot">
+        <input file="v-autocomplete/usage" id="input-996" type="text" autocomplete="off">
+        <div class="v-input__append-inner">
+          <div class="v-input__icon v-input__icon--append">
+            <span aria-hidden="true" class="v-icon notranslate theme--light">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                <path d="M7,10L12,15L17,10H7Z"></path>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <input type="hidden"></div>
+      <div class="v-menu"></div>
+    </div>
+    <div class="v-text-field__details">
+      <div class="v-messages theme--light">
+        <div class="v-messages__wrapper"></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+|Method | Description                        | Return Type 
+--- |------------------------------------| ---
+**root()** | Return root of the element         | UIElement
+**value()** | Return value element               | UIElement
+**input()** | Return input element               | UIElement
+**listItems()** | Locate list items                  | UIElement
+**isExpanded()** | Check if element is expanded       | boolean
+**expand()** | Expand element                     | void
+**close()** | Close expanded element             | void
+**select(String value)** | Select value from expanded list    | void
+**select(List\<String> values)** | Select values from expanded list   | void
+**unselect(String value)** | Unselect value from expanded list  | void
+**unselect(List\<String> values)** | Unselect values from expanded list | void
+**isSelected(String value)** | Check if the value is selected     | boolean
+**isSelected(List\<String> values)** | Check if the values are selected   | boolean
+**isDisabled()** | Check if element is disabled       | void
+**typeText(String value)** | Set text                           | void
+**clearTextField()** | Clear text area                    | void
+**clickClear()** | Click clear button                 | void
+**is()** | Returns element assert             | AutocompleteAssert
+
+**Autocomplete** also implements ISetup
+
+| Assert method | Description |
+| :--- | :--- |
+**expanded()** | Assert that element is expanded
+**closed()** | Assert that element is closed
+**selected(String value)** | Assert that element is selected
+**selected(List\<String> values)** | Assert that elements are selected
+**notSelected(String value)** | Assert that element is not selected
+**notSelected(List\<String> values)** | Assert that elements are not selected
+**disabled()** | Assert that element is disabled
+**active()** | Assert that element is active
+**empty()** | Assert that element is empty
+**empty()** | Assert that element has solo style
+**filled()** | Assert that element has filled style
+**soloInverted()** | Assert that element has solo-inverted style
+**outlined()** | Assert that element has outlined style
+**dense()** | Assert that element has dense style
+**shaped()** | Assert that element has shaped style
+**rounded()** | Assert that element has rounded style
+**dark()** | Assert that element has dark style
+**light()** | Assert that element has light style
+
+
+For examples of usage see: [JDI Vuetify Autocompletes tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AutocompletesTests.java).
+
+
 ### 5.13 Groups 
 
 #### 5.13.1 Button Groups

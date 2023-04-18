@@ -4028,7 +4028,7 @@ For examples of usage see: [JDI Vuetify DatePickers tests](https://github.com/jd
 
 #### 5.31.3 Date pickers - month
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/date-pickers-month/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/date-pickers-month/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.DatePickerMonth.java_
 
@@ -4078,8 +4078,7 @@ __Vuetify v2.6.14__ code example:
       <div class="v-picker__title__btn v-date-picker-title__year">2023</div>
       <div class="v-picker__title__btn v-date-picker-title__date v-picker__title__btn--active">
         <div>April</div>
-      </div>
-    </div>
+        <...>
   </div>
   <div class="v-picker__body theme--light" style="width: 290px;">
     <div>
@@ -4090,8 +4089,7 @@ __Vuetify v2.6.14__ code example:
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
                 <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"></path>
               </svg>
-            </span>
-          </span>
+           <...>
         </button>
         <div class="v-date-picker-header__value">
           <div class="accent--text">
@@ -4104,8 +4102,7 @@ __Vuetify v2.6.14__ code example:
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
                 <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path>
               </svg>
-            </span>
-          </span>
+            <...>
         </button>
       </div>
       <div class="v-date-picker-table v-date-picker-table--month theme--light">
@@ -4128,63 +4125,11 @@ __Vuetify v2.6.14__ code example:
               </button>
             </td>
           </tr>
-          <tr>
-            <td>
-              <button type="button" class="v-btn v-size--default v-date-picker-table__current v-btn--outlined theme--light accent--text">
-                <div class="v-btn__content">Apr</div>
-              </button>
-            </td>
-            <td>
-              <button type="button" class="v-btn v-size--default v-btn--text theme--light">
-                <div class="v-btn__content">May</div>
-              </button>
-            </td>
-            <td>
-              <button type="button" class="v-btn v-size--default v-btn--text theme--light">
-                <div class="v-btn__content">Jun</div>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button type="button" class="v-btn v-size--default v-btn--text theme--light">
-                <div class="v-btn__content">Jul</div>
-              </button>
-            </td>
-            <td>
-              <button type="button" class="v-btn v-size--default v-btn--text theme--light">
-                <div class="v-btn__content">Aug</div>
-              </button>
-            </td>
-            <td>
-              <button type="button" class="v-btn v-size--default v-btn--text theme--light">
-                <div class="v-btn__content">Sep</div>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button type="button" class="v-btn v-size--default v-btn--text theme--light">
-                <div class="v-btn__content">Oct</div>
-              </button>
-            </td>
-            <td>
-              <button type="button" class="v-btn v-size--default v-btn--text theme--light">
-                <div class="v-btn__content">Nov</div>
-              </button>
-            </td>
-            <td>
-              <button type="button" class="v-btn v-size--default v-btn--text theme--light">
-                <div class="v-btn__content">Dec</div>
-              </button>
-            </td>
-          </tr>
+          <...> same lines for the next month's rows<...>
           </tbody>
         </table>
       </div>
-    </div>
-  </div>
-</div>
+      <...>
  ```
 
 The v-date-picker can be used as a standalone month picker component.
@@ -4242,7 +4187,7 @@ The v-date-picker can be used as a standalone month picker component.
 **portraitOrientation()** | Assert that has portrait orientation
 **landscapeOrientation()** | Assert that has landscape orientation
 
-For examples of usage see: [JDI Vuetify DatePickersMonth tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DatePickersMonthTests.java).
+For examples of usage see: [JDI Vuetify DatePickersMonth tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DatePickersMonthTests.java).
 
 #### 5.31.4 Color pickers
 

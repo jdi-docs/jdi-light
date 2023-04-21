@@ -47,8 +47,7 @@ __Vuetify v2.6.14__ code example:
 | Method | Description | Return Type |
 | :--- | :--- | :--- |
 **closeButton()** | Returns close button object | VuetifyButton
-**hasCloseButton()** | Returns true if alert has close button | boolean 
-**isDismissible()** | Returns true if alert has close button | boolean [](the same as previous!)
+**isDismissible()** | Returns true if alert has close button | boolean
 **isProminent()** | Returns true if alert is prominent and has halo for icon and increased height | boolean 
 **hasBorder()** | Returns true if alert has border | boolean
 **borderValue()** | Returns border side (top, right, bottom or left) | String
@@ -73,8 +72,8 @@ __Vuetify v2.6.14__ code example:
 
 Alert also have basic JDI elements methods and asserts for Text, Color, Elevation, Outline, Measurements, Theme and others
 
-For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/alerts/IconAlert.java)
-and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
+For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/alerts/IconAlert.java)
+and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
 
 ### 5.2 Avatars
 
@@ -88,11 +87,17 @@ Avatar is located in the following class:
 @UI("#avatarsWithSize .v-avatar")
 public static List<Avatar> sizeAvatars;
 
-@Test
-public void avatarTest() {
-  sizeAvatars.get(1).show();
-  sizeAvatars.get(1).has().size(36).and().text("36")
-        .and().backgroundColor(INDIGO.value());
+@Test(dataProvider = "sizeAvatarsTestData", dataProviderClass = AvatarsTestsDataProvider.class,
+      description = "Test checks sizes of avatars")
+public void sizeAvatarTest(int index, int size) {
+    sizeAvatars.get(index).show();
+    sizeAvatars.get(index).has().size(size)
+    .and().has().height(size)
+    .and().has().heightGreaterThan(size - 10)
+    .and().has().heightLessThan(size + 10)
+    .and().has().width(size)
+    .and().has().widthGreaterThan(size - 10)
+    .and().has().widthLessThan(size + 10);
 }
 ```
 
@@ -110,7 +115,6 @@ __Avatars__ - graphical representations of users.
 
 |Method | Description   | Return Type
 --- |---------------| ---
-**is()** | Avatar Assert | AvatarAssert
 **getText()** | Gets '{name}' text | String
 **isTile()** | Checks that '{name}' is tile | boolean
 **hasLeftAlignment()** | Checks that '{name}' has left alignment | boolean
@@ -129,8 +133,8 @@ __Avatars__ - graphical representations of users.
 **isRounded()** | Checks that '{name}' is rounded | boolean
 **rounded()** | Gets '{name}' rounded value | String
 
-For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
-and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).
+For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
+and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).
 
 ### 5.3 Banners
 
@@ -153,7 +157,7 @@ public void bannerTest() {
   singleBanner.has().notSticky();
   singleBannerSwitch.check();
   singleBanner.is().sticky();
-  }
+}
 ```
 
 ![Banners example](../../images/vuetify/banners.png)
@@ -186,7 +190,7 @@ single-line and multi-line (implicit). These can have icons which you can use wi
 | Method | Description | Return Type |
 | :--- | :--- | :--- |
 **bannerContent()** | Get Banner content element | UIElement
-**getIconsFromContent()** | Get Banner's icons | List<UIElement>
+**getIconsFromContent()** | Get Banner's icons | List\<UIElement>
 **bannerActions()** | Get Banner's actions element | UIElement
 **isSticky()** | Get if Banner is sticky | boolean
 
@@ -202,7 +206,7 @@ single-line and multi-line (implicit). These can have icons which you can use wi
 In addition, Banner class implements IsText, HasRounded, IsTile, IsShaped, IsOutlined, HasTheme, HasElevation,
 HasColor, IsSingleLine, HasIcon, MayContainButtons.
 
-For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
+For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 
 ### 5.4 Bars
 
@@ -218,8 +222,8 @@ Basic bar is an abstract class that contains methods that are common for its spe
 **isExpanded()** | Get if Basic Bar is expanded | boolean
 **title()** | Get Basic Bar title | Text
 **getHeader()** | Get Basic Bar header | UIElement
-**buttons()** | Get Basic Bar buttons | List<VuetifyButton>
-**fields()** | Get Basic Bar fields | List<UIElement>
+**buttons()** | Get Basic Bar buttons | List\<VuetifyButton>
+**fields()** | Get Basic Bar fields | List\<UIElement>
 **findIconButton(String buttonLocator)** | Get Basic Bar action buttons | VuetifyButton
 **castToIcon(UIElement element)** | Get Basic Bar's icon | Icon
 **isExtended()** | Get if Basic Bar is extended | boolean
@@ -259,7 +263,7 @@ public void thresholdBarTest(){
   thresholdBar.scrollBarToTop();
   thresholdBar.image().has().attr("style","opacity: 1;");
   thresholdBar.is().onTopPosition();
-  }
+}
 ```
 
 ![App bars example](../../images/vuetify/app-bars.png)
@@ -359,7 +363,7 @@ public void appSystemBarTest(){
   appSystemBar.has().text("App system bar title");
   appSystemBar.is().notWindow();
   appSystemBar.has().height(30);
-  }
+}
 ```
 
 ![System bars example](../../images/vuetify/system-bars.png)
@@ -389,7 +393,7 @@ contain icons, spacers, and some text.
 
 | Method | Description | Return Type |
 | :--- | :--- | :--- |
-**icons()** | Get System Bar icons | List<Icon>
+**icons()** | Get System Bar icons | List\<Icon>
 **isLightsOut()** | Get if System Bar is lights out | boolean
 **isWindow()** | Get if System Bar is window | boolean
 
@@ -421,7 +425,7 @@ public void denseToolBarTest(){
   denseToolbar.is().dense();
   denseToolbar.is().notBackgroundImage();
   denseToolbar.is().notFlat();
-  }
+}
 ```
 
 ![Toolbars example](../../images/vuetify/toolbars.png)
@@ -492,7 +496,7 @@ public void positionBottomNavigationTest() {
     bottomNavigationFixed.show();
     bottomNavigationFixed.is().fixed();
     bottomNavigationFixed.is().notAbsolute();
-    }
+}
 
 ```
 
@@ -530,7 +534,6 @@ __Vuetify v2.6.14__ code example:
 
 |Method | Description                                | Return Type
 --- |--------------------------------------------| ---
-**is()** | Returns Assert class                       | BottomNavigationAssert
 **buttonColor(int)** | Returns button color by index              | String
 **buttonColor(String)** | Returns button color by text               | String
 **isFixed()** | Gets if element has fixed position    | boolean
@@ -540,14 +543,15 @@ __Vuetify v2.6.14__ code example:
 
 __BottomNavigation__ element implements the following interfaces: HasColor, HasTheme, HasMeasurement
 
-For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BottomNavigationTests.java).
+For examples of usage see: [JDI vuetify page tests for Bottom Navigation](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BottomNavigationTests.java).
 
 ### 5.7 Breadcrumbs
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/breadcrumbs/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/breadcrumbs/)
 
 Breadcrumbs is located in the following class:
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Breadcrumbs.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.breadcrumbs.Breadcrumbs.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.breadcrumbs.Breadcrumb.java_
 
 ```java
     //@FindBy(css = "#differentDividersBreadcrumbs')
@@ -617,7 +621,7 @@ Breadcrumbs has the following methods:
 
 
 
-<a href=https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java">Java test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java">Java test examples</a>
 
 ### 5.8 Cards
 
@@ -673,12 +677,12 @@ The `content` method returns a card `text` element, but the `text` method is inh
 
 | Method | Description | Return Type |
 | :--- | :--- | :--- |
-**title()** | Returns element's title | Text (Vuetify element)
+**title()** | Returns element's title | Text
 **subtitle()** | Returns subtitle JDI UIElement | UIElement
 **content()** | Returns content JDI UIElement | UIElement
-**actions()** | Returns button group JDI UIElement | ButtonGroup (Vuetify element)
-**revealCard()** | Returns Card's reverse side JDI UIElement | Card (Vuetify element)
-**progressBar()** | Returns ProgressLinear JDI UIElement | ProgressLinear (Vuetify element)
+**actions()** | Returns button group JDI UIElement | ButtonGroup
+**revealCard()** | Returns Card's reverse side JDI UIElement | Card
+**progressBar()** | Returns ProgressLinear JDI UIElement | ProgressLinear
 **getLoaderHeight** | Returns progress bar height | int
 **isLink()** | Returns true if card is a link | boolean
 **isHover()** | Returns true if card has hovering effect | boolean
@@ -698,7 +702,7 @@ The `content` method returns a card `text` element, but the `text` method is inh
 **raised()** | Asserts if card is raised
 **notRaised()** | Asserts if card is not raised
 
-Card also have basic JDI elements methods and asserts for Color, Elevation, Tile, Loading, Shape, Measurements, Alignment, Theme and others
+Card also has basic JDI elements methods and asserts for Color, Elevation, Tile, Loading, Shape, Measurements, Alignment, Theme and others
 
 For examples of usage see: [Custom vuetify card examples](https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards)
 and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).`
@@ -728,7 +732,7 @@ public static void scrollableDialogTest(){
   scrollableDialog.radiogroup().is().selected("Bahrain");
   scrollableDialog.closeButton().click();
   scrollableDialog.is().closed();
-  }
+}
 ```
 
 ![Dialogs example](../../images/vuetify/dialogs1.png)
@@ -987,6 +991,10 @@ For examples of usage see: [JDI vuetify page tests for expansion panels](https:/
 
 ### 5.11 Footers
 
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/footer/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.Footer.java_
+
 ```java
 //@FindBy(css = "#IndigoFooter")
 @UI("#IndigoFooter")
@@ -1015,10 +1023,6 @@ public void padlessFooterTest() {
   shapedFooter.is().notPadless();
 }
 ```
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/footer/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.composite.Footer.java_
 
 __Footer__ - The v-footer component is used for displaying general information that a user might want to access from any page within your site.
 
@@ -1060,46 +1064,46 @@ __Vuetify v2.6.14__ code example:
 </footer>
 ```
 
-| Method                                      | Description                                                                | Return Type  |
-|---------------------------------------------|----------------------------------------------------------------------------|--------------|
-| **is()**                                    | Returns Assert class                                                       | FooterAssert |
-| **isPadless()**                             | Checks that element is padless                                             | boolean      |
-| **isAbsolute()**                            | Checks that element is absolute                                            | boolean      |
-| **isFixed()**                               | Checks that element is fixed                                               | boolean      |
-| **has()**                                   | Returns Assert class                                                       | FooterAssert |
-| **color()**                                 | Returns css attribute background-color as String Value                     | String       |
-| **waitFor()**                               | Returns object for work with assertions                                    | FooterAssert |
-| **shouldBe()**                              | Returns object for work with assertions                                    | FooterAssert |
-| **verify()**                                | Returns object for work with assertions                                    | FooterAssert |
-| **assertThat()**                            | Returns object for work with assertions                                    | FooterAssert |
-| **classes()**                               | Gets all element's classes as list                                         | List<String> |
-| **doubleClick()**                           | Double clicks on the element                                               | void         |
-| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void         |
-| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void         |
-| **getLocation()**                           | Gets element location as point                                             | Point        |
-| **getSize()**                               | Gets element size                                                          | Dimension    |
-| **getTagName()**                            | Gets element tag name                                                      | String       |
-| **getText()**                               | Gets element text                                                          | String       |
-| **getValue()**                              | Gets element text                                                          | String       |
-| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean      |
-| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean      |
-| **highlight()**                             | Highlights element with red color                                          | void         |
-| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void         |
-| **hover()**                                 | Hovers mouse cursor over the element                                       | void         |
-| **isDisabled()**                            | Checks that element is disabled                                            | boolean      |
-| **isDisplayed()**                           | Checks that element is displayed                                           | boolean      |
-| **isEnabled()**                             | Checks that element exists                                                 | boolean      |
-| **isHidden()**                              | Checks that element is hidden                                              | boolean      |
-| **isNotExist()**                            | Checks that element does not exist                                         | boolean      |
-| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean      |
-| **isVisible()**                             | Checks that element is visible by user                                     | boolean      |
-| **labelText()**                             | Gets label text                                                            | String       |
-| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String       |
-| **rightClick()**                            | Right clicks on the element                                                | void         |
-| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void         |
-| **show()**                                  | Scrolls screen view to item                                                | void         |
+| Method                                      | Description                                                                | Return Type   |
+|---------------------------------------------|----------------------------------------------------------------------------|---------------|
+| **is()**                                    | Returns Assert class                                                       | FooterAssert  |
+| **isPadless()**                             | Checks that element is padless                                             | boolean       |
+| **isAbsolute()**                            | Checks that element is absolute                                            | boolean       |
+| **isFixed()**                               | Checks that element is fixed                                               | boolean       |
+| **has()**                                   | Returns Assert class                                                       | FooterAssert  |
+| **color()**                                 | Returns css attribute background-color as String Value                     | String        |
+| **waitFor()**                               | Returns object for work with assertions                                    | FooterAssert  |
+| **shouldBe()**                              | Returns object for work with assertions                                    | FooterAssert  |
+| **verify()**                                | Returns object for work with assertions                                    | FooterAssert  |
+| **assertThat()**                            | Returns object for work with assertions                                    | FooterAssert  |
+| **classes()**                               | Gets all element's classes as list                                         | List\<String> |
+| **doubleClick()**                           | Double clicks on the element                                               | void          |
+| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void          |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void          |
+| **getLocation()**                           | Gets element location as point                                             | Point         |
+| **getSize()**                               | Gets element size                                                          | Dimension     |
+| **getTagName()**                            | Gets element tag name                                                      | String        |
+| **getText()**                               | Gets element text                                                          | String        |
+| **getValue()**                              | Gets element text                                                          | String        |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean       |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean       |
+| **highlight()**                             | Highlights element with red color                                          | void          |
+| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void          |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void          |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean       |
+| **isDisplayed()**                           | Checks that element is displayed                                           | boolean       |
+| **isEnabled()**                             | Checks that element exists                                                 | boolean       |
+| **isHidden()**                              | Checks that element is hidden                                              | boolean       |
+| **isNotExist()**                            | Checks that element does not exist                                         | boolean       |
+| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean       |
+| **isVisible()**                             | Checks that element is visible by user                                     | boolean       |
+| **labelText()**                             | Gets label text                                                            | String        |
+| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String        |
+| **rightClick()**                            | Right clicks on the element                                                | void          |
+| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void          |
+| **show()**                                  | Scrolls screen view to item                                                | void          |
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java">Java test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java">Java test examples</a>
 
 ### 5.12 Form input & controls
 
@@ -1128,7 +1132,7 @@ public void closeExpandOverflowButtonTest() {
   counterOverflowButton.is().selected("100%");
   counterOverflowButton.select(5);
   counterOverflowButton.is().counter(2);
-  }
+}
 ```
 
 `v-overflow-btn` is used to give the user the ability to select items from the list. It has 3 variations: editable, overflow and segmented
@@ -1239,7 +1243,7 @@ public void minAndMaxRangeSliderTest() {
   .and().minValue(-50).and().maxValue(90);
   minAndMaxRangeSlider.setValue(-50, 90);
   minAndMaxRangeSlider.has().value(-50, 90);
-  }
+}
 ```
 
 The `v-range-slider` component is a better visualization of the number input. 
@@ -1422,11 +1426,11 @@ __Vuetify v2.6.14__ code example:
  **hasThumbLabel()**                                 | Check that thumb label of required element is existed | boolean        
  **hasInverseLabel()**                               | Check that required element has inverse label         | boolean        
 
-For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SlidersTests.java)
+For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SlidersTests.java)
 
 #### 5.12.4 Switches
 
-[Switches Vuetify documentation page](https://vuetifyjs.com/en/components/switches/)
+[Switches Vuetify documentation page](https://v2.vuetifyjs.com/en/components/switches/)
 
 Switches are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Switch.java_
@@ -1484,10 +1488,10 @@ __Vuetify v2.6.14__ code example:
 **color()** | Get switch color in RGBA format                 | String
 **backgroundColor()** | Get switch background color in RGBA format      | String
 **slotsBackgroundColor()** | Get switch slot background color in RGBA format | String
-**getMessages()** | Get switch messages                             | List<String>
-**getErrorMessages()** | Get switch error messages                       | List<String>
+**getMessages()** | Get switch messages                             | List\<String>
+**getErrorMessages()** | Get switch error messages                       | List\<String>
 **getNumberErrorMessages()** | Get the number of switch error messages         | Integer
-**getSuccessMessages()** | Get switch success messages                     | List<String>
+**getSuccessMessages()** | Get switch success messages                     | List\<String>
 **isChecked()/isNotChecked()** | Check if switch is selected/not selected        | boolean
 **isEnabled()** | Check if switch is enabled                      | boolean
 **isFlat()** | Checks that switch is flat                      | boolean
@@ -1499,167 +1503,301 @@ __Vuetify v2.6.14__ code example:
 **hasIconAppend()** | Check that switch has icon-append               | boolean
 **hasIconPrepend()** | Check that switch has icon-prepend              | boolean
 **hasRipple()** | Check that switch has ripple                    | boolean
-**is()** | Switch assert                                   | SwitchAssert
 
-For examples of usage see: [JDI Vuetify Switch tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchesTests.java).
+For examples of usage see: [JDI Vuetify Switch tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchesTests.java).
 
 #### 5.12.5 Text fields
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/text-fields/)
+[Text Field Vuetify documentation page](https://v2.vuetifyjs.com/en/components/text-fields/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.TextFields.java_
+__Java__:
+- _com.epam.jdi.light.vuetify.elements.complex.TextField.java_
 
 ```java
-@Test
-public void hideDetailsTextFieldTest() {
-    hideDetailsTextField.get(1).is().noMessage();
-    hideDetailsTextField.get(1).focus();
-    hideDetailsTextField.get(2).focus();
-    hideDetailsTextField.get(1).message().has().text("Required.");
-    hideDetailsTextField.get(1).setText("a");
-    hideDetailsTextField.get(1).message().has().text("Min 3 characters");
-    hideDetailsTextField.get(1).setText("aaa");
-    hideDetailsTextField.get(1).is().noMessage();
-    hideDetailsTextField.get(2).focus();
-    hideDetailsTextField.get(2).is().noMessage();
-    hideDetailsTextField.get(2).setText("a");
-    hideDetailsTextField.get(2).is().noMessage();
-}
-  
-@Test
-public void passwordInputTextFieldTest() {
-    passwordInputTextField.get(1).is().textType("password");
-    passwordInputTextField.get(1).getAppendInnerIcon().click();
-    passwordInputTextField.get(1).is().textType("text");
-    passwordInputTextField.get(1).getAppendInnerIcon().click();
-    passwordInputTextField.get(1).is().textType("password");
+//@FindBy(css = "#FilledTextField .v-text-field")
+@UI("#FilledTextField .v-text-field")
+public static List<TextField> filledTextField;
+
+@Test (description = "Test checks  filled feature")
+public void filledTextFieldTest() {
+  filledTextField.get(1).show();
+  filledTextField.get(1).is().filled();
+  hideDetailsTextField.get(1).show();
+  hideDetailsTextField.get(1).is().notFilled();
 }
 ```
-
-![Text fields example](../../images/vuetify/textFields.png)
 
 Text fields components are used for collecting user provided information.
 
+![Text field example](../../images/vuetify/textFields.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="pa-4 v-sheet theme--light rounded">
+  <form novalidate="novalidate" class="v-form" file="v-text-field/prop-counter">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-12">
+          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot">
+                  <label for="input-3840" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Regular</label>
+                  <input id="input-3840" type="text">
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <div class="v-messages__wrapper"></div>
+                </div>
+                <div class="v-counter theme--light">18 / 25</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-12">
+          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot">
+                  <label for="input-3843" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Limit exceeded</label>
+                  <input maxlength="25" id="input-3843" type="text">
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <div class="v-messages__wrapper"></div>
+                </div>
+                <div class="v-counter error--text theme--light">50 / 25</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-12">
+          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot">
+                  <label for="input-3846" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Custom counter from prop</label>
+                  <input id="input-3846" type="text">
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <div class="v-messages__wrapper"></div>
+                </div>
+                <div class="v-counter theme--light">2 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-12">
+          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot">
+                  <label for="input-3849" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Custom counter from slot</label>
+                  <input id="input-3849" type="text">
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <div class="v-messages__wrapper"></div>
+                </div>
+                <div class="v-counter theme--light">2 / 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+```
+
+`Text Field` methods:
+
 |Method | Description | Return Type
 --- | --- | ---
-**isReadonly()** | Shows that element is readonly| boolean
-**isFocused()** | Shows that element is focused| boolean
-**isFilled()** | Shows that element is filled| boolean
-**isOutlined()** | Shows that element is outlined| boolean
-**isShaped()** | Shows that element is shaped| boolean
-**isSolo()** | Shows that element is solo| boolean
-**isFullWidth()** | Shows that element has full-width input type| boolean
-**textInputField()** | Returns text input field| UIElement
-**slot()** | Returns input slot | UIElement
-**message()** |  Returns message | UIElement
-**counter()** |  Returns counter | UIElement
-**prefix()** |  Return prefix | UIElement
-**suffix()** |  Returns suffix | UIElement
-**prependOuterIcons()** | Returns list of prepend outer icons | List\<Icon>
-**prependInnerIcons()** | Returns list of prepend inner icons | List\<Icon>
-**appendInnerIcons()** | Returns list of append inner icons | List\<Icon>
-**appendOuterIcons()** | Returns list of append outer icons | List\<Icon>
-**getPrependOuterIcon()** | Returns first prepend outer icon | Icon
-**getPrependInnerIcon()** | Returns first prepend inner icon | Icon
-**getAppendInnerIcon()** | Returns first append inner icon | Icon
-**getAppendOuterIcon()** | Returns first append outer icon | Icon
-**getText()** | Returns text from input field | String
-**getTextType()** | Returns type of text | String
-**label()** |  Returns label | Label
-**labelText()** | Returns label text | String
-**placeholder()** | Returns placeholder text| String
-**setText(String text)** | Set text| void
-**input(String text)** | Set text| void
-**sendKeys(String text)** | Add text| void
-**clear()** |  Clear text field| void
-**focus()** |  Set mouse to text field| void
+**isEnabled()** | Get that text field is enabled | boolean
+**isFocused()** | Get that text field is focused | boolean
+**textInputField()** | Get text input field | UIElement
+**details()** | Get text field details | UIElement
+**slot()** | Get text field slot | UIElement
+**counter()** | Get text field counter | UIElement
+**prefix()** | Get text field prefix | UIElement
+**suffix()** | Get text field suffix | UIElement
+**getIconsByLocator(String locator)** | Get text field icon by locator '{0}' | List\<Icon>
+**prependOuterIcons()** | Get text field prepend outer icons | List\<Icon>
+**prependInnerIcons()** | Get text field prepend inner icons | List\<Icon>
+**appendInnerIcons()** | Get text field append inner icons | List\<Icon>
+**appendOuterIcons()** | Get text field append outer icons | List\<Icon>
+**hasPrependOuterIcon()** | Get if text field has prepend outer icon | boolean
+**hasPrependInnerIcon()** | Get if text field has prepend inner icons | boolean
+**hasAppendInnerIcon()** | Get if text field has append inner icons | boolean
+**hasAppendOuterIcon()** | Get if text field has append outer icons | boolean
+**getPrependOuterIcon()** | Get text field prepend outer icons | Icon
+**getPrependInnerIcon()** | Get text field prepend inner icons | Icon
+**getAppendInnerIcon()** | Get text field append inner icons | Icon
+**getAppendOuterIcon()** | Get text field append outer icons | Icon
+**getTextType()** | Get text type of text field | String
+**hasPlaceholder()** | Get if text field has placeholder | boolean
+**isAutofocus()** | Get if text field is autofocus | boolean
+**loader()** | Get text field loader | ProgressLinear
+**getLoaderHeight()** | Get text field loader height | int
 
-For examples of usage see: [JDI Vuetify Text fields tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).
+
+In addition, Text Field implements HasLabel, HasPlaceholder, IsInput, HasClick, HasColor, HasIcon, HasMeasurement, HasMessages,
+HasRounded, HasTheme, IsClearable, IsDense, IsFilled, IsFlat, IsLoading, IsOutlined, IsReadOnly, IsReverse, IsShaped, IsSingleLine,
+IsSolo, IsFullWidth, HasDetailsHidden
+
+| Assert method | Description |
+| :--- | :--- |
+**focused()** | Assert that text field is focused
+**notFocused()** | Assert that text field is not focused
+**textType(String textType)** | Assert that text type of text field is '{0}'
+**placeholder()** | Assert that text field has not placeholder
+**placeholder(String placeholder)** | Assert that text field placeholder is '{0}'
+**counter(int currentCounter, int maxCounter)** | Assert that text field current counter is '{0}' and max counter is '{1}'
+**labelText(String label)** | Assert that text field has label
+**label()** | Assert that text field has label
+**appendOuterIcon()** | Assert that text field has append outer icon
+**appendInnerIcon()** | Assert that text field has append inner icon
+**prependOuterIcon()** | Assert that text field has prepend outer icon
+**prependInnerIcon()** | Assert that text field has prepend inner icon
+**autofocus()** | Assert that text field is autofocus
+**notAutofocus()** | Assert that text field is not autofocus
+**loaderHeightPx(int height)** | Assert that text field has loader height {0}
+
+For examples of usage see: [JDI vuetify page tests for Text Field](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).
 
 #### 5.12.6 Text areas
 
-[Vuetify documentation page](https://vuetifyjs.com/en/components/textareas/)
+[TextArea Vuetify documentation page](https://v2.vuetifyjs.com/en/components/textareas/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.TextArea.java_
+__Java__:
+- _com.epam.jdi.light.vuetify.elements.complex.TextArea.java_
 
 ```java
-@Test
-public void autoGrowTextAreaTest() {
-    autoGrowTextArea.is().autoGrow();
-    autoGrowTextArea.is().notResizable();
-    autoGrowTextArea.is().filled();
-    autoGrowTextArea.has().lines("The Woodman set to work at once, and so " +
-        "sharp was his axe that the tree was soon chopped nearly through.");
-    autoGrowTextArea.label().is().displayed();
-    autoGrowTextArea.label().has().text(equalTo("Label"));
-    autoGrowTextArea.has().height(is(120));
-    autoGrowTextArea.setLines(" 1 row", "2 row", "3 row", "4 row");
-    autoGrowTextArea.has().height(is(120));
-    autoGrowTextArea.addNewLine("5 row");
-    autoGrowTextArea.has().height(is(140));
-}
+//@FindBy(css = "#NoResizeTextarea .v-textarea")
+@UI("#NoResizeTextarea .v-textarea")
+public static TextArea noResizeTextArea;
 
-@Test
-public void counterTextAreaTest() {
-    counterTextArea.label().has().text("Text");
-    counterTextArea.has().text("Hello!");
-    counterTextArea.counter().has().text("6");
-    counterTextArea.counter().has().css("color", "rgba(0, 0, 0, 0.6)");
-    counterTextArea.sendKeys("This is text for 25");
-    counterTextArea.counter().has().text("25");
-    counterTextArea.counter().has().css("color", "rgba(0, 0, 0, 0.6)");
-    counterTextArea.sendKeys("-");
-    counterTextArea.message().has().text("Max 25 characters");
-    counterTextArea.message().has().css("color", RED_ACCENT_2.toString());
-    counterTextArea.counter().has().text("26");
-    counterTextArea.counter().has().css("color", RED_ACCENT_2.toString());
-    counterTextArea.label().has().css("color", RED_ACCENT_2.toString());
-    counterTextArea.clear();
-    counterTextArea.counter().has().text("0");
+@Test (description = "Test checks text which was set in textarea")
+public void textInputTextAreaTest() {
+  autoGrowTextArea.show();
+  autoGrowTextArea.has().text("The Woodman set to work at once, and so "
+  + "sharp was his axe that the tree was soon chopped nearly through.");
+  autoGrowTextArea.clear();
+  autoGrowTextArea.setLines("1 row", "2 row", "3 row", "4 row", "5 row");
+  autoGrowTextArea.has().lines("1 row", "2 row", "3 row", "4 row", "5 row");
 }
 ```
 
-![Text area example](../../images/vuetify/textAreas.png)
+Textarea components are used for collecting large amounts of textual data.
 
-Text area components are used for collecting large amounts of textual data.
+![TextArea example](../../images/vuetify/textAreas.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+
+<div class="v-input v-textarea v-textarea--auto-grow v-textarea--no-resize v-input--is-label-active v-input--is-dirty 
+theme--light v-text-field v-text-field--filled v-text-field--is-booted v-text-field--enclosed">
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-text-field__slot">
+        <label for="input-5565" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Label</label>
+        <textarea name="input-7-1" id="input-5565" rows="5" style="height: 120px;"></textarea>
+      </div>
+    </div>
+    <div class="v-text-field__details">
+      <div class="v-messages theme--light">
+        <div class="v-messages__wrapper"></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+`TextArea` methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**isFilled()** | Shows that element is filled| boolean
-**isOutlined()** | Shows that element is outlined| boolean
-**isAutoGrow()** | Shows that element is auto grow| boolean
-**isNotResizable()** | Shows that element is not resizable| boolean
-**textArea()** | Returns text input area| UIElement
-**slot()** | Returns input slot | UIElement
-**details()** | Returns details | UIElement
-**message()** |  Returns message | UIElement
-**counter()** |  Returns counter | UIElement
-**getPrependOuterIcon()** | Returns prepend outer icon | Icon
-**getPrependInnerIcon()** | Returns prepend inner icon | Icon
-**getAppendInnerIcon()** | Returns append inner icon | Icon
-**getAppendOuterIcon()** | Returns append outer icon | Icon
-**getText()** | Returns text | String
-**getLines()** | Returns lines dividing text using '\\n'  | List\<String>
-**label()** |  Returns label | Label
-**labelText()** | Returns label text | String
-**placeholder()** | Returns placeholder text| String
-**setText(String text)** | Set text| void
-**input(String text)** | Set text| void
-**sendKeys(String text)** | Add text| void
-**setLines(String... lines)** | Add lines as one string with '\n' delimiter| void
-**setLines(List<String> lines)** | Add lines as one string with '\n' delimiter| void
-**addNewLine(String line)** | Add text on a new line| void
-**clear()** | Clear text area| void
-**focus()** | Set mouse to text area| void
-**color()** | Returns slot color | String
-**backgroundColor()** | Returns slot background color | String
-**height()** | Returns height of text area | int 
-**rows()** | Returns number of rows in text area | int
+**slot()** | Get textArea slot | UIElement
+**textArea()** | Get textarea | UIElement
+**progress()** | Get textArea loader | ProgressLinear
+**hint()** | Get textArea hint | UIElement
+**details()** | Get textArea details | UIElement
+**prependOuterIcon()** | Get textArea prepend outer icon | Icon
+**hasPrependOuterIcon()** | Get if textArea has prepend outer icon | boolean
+**prependInnerIcon()** | Get textArea prepend inner icon | Icon
+**hasPrependInnerIcon()** | Get if textArea has prepend inner icon | boolean
+**appendOuterIcon()** | Get textArea append outer icon | Icon
+**hasAppendOuterIcon()** | Get if textArea has append outer icon | boolean
+**appendInnerIcon()** | Get textArea append inner icon | Icon
+**hasAppendInnerIcon()** | Get if textArea has append inner icon | boolean
+**counter()** | Get textArea counter | UIElement
+**counterValue()** | Get textArea counter | int
+**getLines()** | Get textArea lines | List\<String>
+**isAutofocus()** | Get if textArea is autofocus | boolean
+**suffix()** | Get textArea suffix | UIElement
+**prefix()** | Get textArea prefix | UIElement
+**setLines(String... lines)** | Set textArea lines '{0}' | void
+**height()** | Get textArea height | int
+**rows()** | Get textArea rows attr | int
+**isAutogrow()** | Get if textArea is autogrow | boolean
+**isNotResizable()** | Get if textArea is not resizable | boolean
+**hasSuffix()** | Get if textArea has suffix | boolean
+**hasPrefix()** | Get if textArea has prefix | boolean
+**hasPlaceholder()** | Get if textArea has placeholder | boolean
+**isReversed()** | Get if textArea is reversed | boolean
+**getLoaderHeight()** | Get textArea loader height | int
 
-For examples of usage see: [JDI Vuetify Text areas tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java).
+In addition, TextArea implements HasLabel, HasPlaceholder, HasIcon, IsVuetifyInput, HasColor, HasMeasurement, HasMessages, HasRounded, HasTheme,
+IsClearable, IsDense, IsFilled, IsFlat, IsLoading, IsOutlined, IsReadOnly, IsShaped, IsSingleLine, IsSolo, IsFullWidth, HasDetailsHidden
 
+| Assert method | Description |
+| :--- | :--- |
+**text(String text)** | Assert that textArea has text '{0}'
+**autoGrow()** | Assert that textArea is auto grow
+**notAutoGrow()** | Assert that textArea is not auto grow
+**notResizable()** | Assert that textArea is not resizable
+**resizable()** | Assert that textArea rows count is {0}
+**lines(Matcher\<? super List\<String>> condition)** | Assert that textArea has lines {0}
+**lines(String... lines)** | Assert that textArea has lines {0}
+**label()** | Assert that textArea has label
+**suffix()** | Assert that textArea has suffix
+**notSuffix()** | Assert that textArea has not suffix
+**prefix()** | Assert that textArea has prefix
+**notPrefix()** | Assert that textArea has not prefix
+**icon()** | Assert that textArea has icon
+**notIcon()** | Assert that textArea has not icon
+**prependOuterIcon()** | Assert that textArea has prepend outer icon
+**prependInnerIcon()** | Assert that textArea has prepend inner icon
+**appendOuterIcon()** | Assert that textArea has append outer icon
+**appendInnerIcon()** | Assert that textArea has append inner icon
+**placeholder()** | Assert that textArea has placeholder
+**notPlaceholder()** | Assert that textArea has not placeholder
+**placeholderText(String text)** | Assert that textArea has placeholder text '{0}'
+**counterValue(int n)** | Assert that textArea has counter value '{0}'
+**autofocus()** | Assert that textArea is autofocused
+**notAutofocus()** | Assert that textArea is not autofocus
+**reversed()** | Assert that textArea is reversed
+**notReversed()** | Assert that textArea is not reversed
+**loaderHeightPx(int height)** | Assert that textArea has loader height {0}
+**hint(String msg)** | Assert that textArea hint message is '{0}'
+**hint(Matcher\<String> condition)** | Assert that textArea hint message is '{0}'
 
+For examples of usage see: [JDI vuetify page tests for TextArea](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java).
 #### 5.12.7 Radio buttons
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/radio-buttons/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.radiobuttons.RadioButton.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.radiobuttons.RadioButtons.java_
 
 ```java
 //@FindBy(css = "#ColorsRadioButton .col-12[1] [role=radio]")
@@ -1675,7 +1813,7 @@ public void selectEnumRadioButtonsTest() {
   colorLeftRadioButtons.is().selected(RadioTestData.orange);
   colorLeftRadioButtons.select(RadioTestData.red);
   colorLeftRadioButtons.is().selected(RadioTestData.red);
-  }
+}
   
 //@FindBy(css = "#DirectionRadioButton input[role = 'radio']")  
 @UI("#DirectionRadioButton input[role = 'radio']")
@@ -1686,7 +1824,7 @@ public void valueRadioButtonsTest() {
   directionRadioButtons.show();
   directionRadioButtons.has().value("Option 1");
   directionRadioButtons.has().value("Option 2");
-  }
+}
 
 //@FindBy(css = "#SuccessReadOnlyRadioButtonWithHint [role=radio]")
 @UI("#SuccessReadOnlyRadioButtonWithHint [role=radio]")
@@ -1699,13 +1837,8 @@ public void messagesRadioButtonTest() {
   successRadioButtons.has().messageText("some hint");
   successRadioButtons.has().successMessages();
   successRadioButtons.has().noErrorMessages();
-  }
+}
 ```
-
-[Vuetify documentation page](https://vuetifyjs.com/en/components/radio-buttons/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.radiobuttons.RadioButton.java_
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.radiobuttons.RadioButtons.java_
 
 The Vuetify RadioButton component is a simple radio button. When combined with the v-radio-group component you can provide groupable functionality to allow users to select from a predefined set of options.
 
@@ -1752,62 +1885,60 @@ The Vuetify RadioButton component is a simple radio button. When combined with t
 </div>
 ```
 
-| Method                                      | Description                                                                | Return Type                          |
-|---------------------------------------------|----------------------------------------------------------------------------|--------------------------------------|
-| **is()**                                    | Assert action                                                              | RadioButtonAssert/RadioButtonsAssert |
-| **has()**                                   | Assert action                                                              | RadioButtonAssert/RadioButtonsAssert |
-| **label()**                                 | Returns label                                                              | UIElement                            |
-| **icon()**                                  | Returns RadioButton's icon                                                 | UIElement                            |
-| **isDisabled()**                            | Checks that element is disabled                                            | boolean                              |
-| **theme()**                                 | Get theme                                                                  | String                               |
-| **color()**                                 | Returns css attribute background-color as String Value                     | String                               |
-| **labelColor()**                            | Get element label color                                                    | String                               |
-| **label()**                                 | Get element label                                                          | Label                                |
-| **list()**                                  | Returns list of elements                                                   | WebList                              |
-| **radioButtons()**                          | Returns element's radio buttons                                            | List<RadioButton>                    |
-| **backgroundColor()**                       | Returns element's background color                                         | String                               |
-| **isReadOnly()**                            | Checks that element is readonly                                            | boolean                              |
-| **hasMessage()**                            | Check that element has message                                             | boolean                              |
-| **getMessage()**                            | Returns element's message text                                             | String                               |
-| **isDense()**                               | Checks if element is dense                                                 | boolean                              |
-| **messages(String locator)**                | Get List<UIElement> messages by locator                                    | List<UIElement>                      |
-| **messagesText(String locator)**            | Get elements messages text by locator                                      | List<String>                         |
-| **select(String/int/Enum)**                 | Select radiobutton by value/index                                          | void                                 |
-| **labelText()**                             | Gets the text of a label                                                   | String                               |
-| **selected()**                              | Get selected radiobutton value                                             | String                               |
-| **values()**                                | Returns list of values                                                     | List                                 |
-| **waitFor()**                               | Returns object for work with assertions                                    | RadioButtonsAssert                   |
-| **shouldBe()**                              | Returns object for work with assertions                                    | RadioButtonsAssert                   |
-| **verify()**                                | Returns object for work with assertions                                    | RadioButtonsAssert                   |
-| **assertThat()**                            | Returns object for work with assertions                                    | RadioButtonsAssert                   |
-| **classes()**                               | Gets all element's classes as list                                         | List<String>                         |
-| **doubleClick()**                           | Double clicks on the element                                               | void                                 |
-| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void                                 |
-| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void                                 |
-| **getLocation()**                           | Gets element location as point                                             | Point                                |
-| **getSize()**                               | Gets element size                                                          | Dimension                            |
-| **getTagName()**                            | Gets element tag name                                                      | String                               |
-| **getText()**                               | Gets element text                                                          | String                               |
-| **getValue()**                              | Gets element text                                                          | String                               |
-| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean                              |
-| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean                              |
-| **highlight()**                             | Highlights element with red color                                          | void                                 |
-| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void                                 |
-| **hover()**                                 | Hovers mouse cursor over the element                                       | void                                 |
-| **isDisabled()**                            | Checks that element is disabled                                            | boolean                              |
-| **isDisplayed()**                           | Checks that element is displayed                                           | boolean                              |
-| **isEnabled()**                             | Checks that element exists                                                 | boolean                              |
-| **isHidden()**                              | Checks that element is hidden                                              | boolean                              |
-| **isNotExist()**                            | Checks that element does not exist                                         | boolean                              |
-| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean                              |
-| **isVisible()**                             | Checks that element is visible by user                                     | boolean                              |
-| **labelText()**                             | Gets label text                                                            | String                               |
-| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String                               |
-| **rightClick()**                            | Right clicks on the element                                                | void                                 |
-| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void                                 |
-| **show()**                                  | Scrolls screen view to item                                                | void                                 |
+| Method                                      | Description                                                                | Return Type        |
+|---------------------------------------------|----------------------------------------------------------------------------|--------------------|
+| **label()**                                 | Returns label                                                              | UIElement          |
+| **icon()**                                  | Returns RadioButton's icon                                                 | UIElement          |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean            |
+| **theme()**                                 | Get theme                                                                  | String             |
+| **color()**                                 | Returns css attribute background-color as String Value                     | String             |
+| **labelColor()**                            | Get element label color                                                    | String             |
+| **label()**                                 | Get element label                                                          | Label              |
+| **list()**                                  | Returns list of elements                                                   | WebList            |
+| **radioButtons()**                          | Returns element's radio buttons                                            | List\<RadioButton> |
+| **backgroundColor()**                       | Returns element's background color                                         | String             |
+| **isReadOnly()**                            | Checks that element is readonly                                            | boolean            |
+| **hasMessage()**                            | Check that element has message                                             | boolean            |
+| **getMessage()**                            | Returns element's message text                                             | String             |
+| **isDense()**                               | Checks if element is dense                                                 | boolean            |
+| **messages(String locator)**                | Get List<UIElement> messages by locator                                    | List\<UIElement>   |
+| **messagesText(String locator)**            | Get elements messages text by locator                                      | List\<String>      |
+| **select(String/int/Enum)**                 | Select radiobutton by value/index                                          | void               |
+| **labelText()**                             | Gets the text of a label                                                   | String             |
+| **selected()**                              | Get selected radiobutton value                                             | String             |
+| **values()**                                | Returns list of values                                                     | List               |
+| **waitFor()**                               | Returns object for work with assertions                                    | RadioButtonsAssert |
+| **shouldBe()**                              | Returns object for work with assertions                                    | RadioButtonsAssert |
+| **verify()**                                | Returns object for work with assertions                                    | RadioButtonsAssert |
+| **assertThat()**                            | Returns object for work with assertions                                    | RadioButtonsAssert |
+| **classes()**                               | Gets all element's classes as list                                         | List\<String>      |
+| **doubleClick()**                           | Double clicks on the element                                               | void               |
+| **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void               |
+| **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void               |
+| **getLocation()**                           | Gets element location as point                                             | Point              |
+| **getSize()**                               | Gets element size                                                          | Dimension          |
+| **getTagName()**                            | Gets element tag name                                                      | String             |
+| **getText()**                               | Gets element text                                                          | String             |
+| **getValue()**                              | Gets element text                                                          | String             |
+| **hasAttribute(String attrName)**           | Returns true if the element has an expected attribute                      | boolean            |
+| **hasClass(String className)**              | Returns true if the element has an expected class                          | boolean            |
+| **highlight()**                             | Highlights element with red color                                          | void               |
+| **highlight(String color)**                 | Scrolls view to element and highlights it with a border of specified color | void               |
+| **hover()**                                 | Hovers mouse cursor over the element                                       | void               |
+| **isDisabled()**                            | Checks that element is disabled                                            | boolean            |
+| **isDisplayed()**                           | Checks that element is displayed                                           | boolean            |
+| **isEnabled()**                             | Checks that element exists                                                 | boolean            |
+| **isHidden()**                              | Checks that element is hidden                                              | boolean            |
+| **isNotExist()**                            | Checks that element does not exist                                         | boolean            |
+| **isNotVisible()**                          | Checks that element is not visible by user                                 | boolean            |
+| **isVisible()**                             | Checks that element is visible by user                                     | boolean            |
+| **labelText()**                             | Gets label text                                                            | String             |
+| **printHtml()**                             | Gets element “innerHTML” attribute value                                   | String             |
+| **rightClick()**                            | Right clicks on the element                                                | void               |
+| **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void               |
+| **show()**                                  | Scrolls screen view to item                                                | void               |
 
-For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RadioButtonsTests.java).
+For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RadioButtonsTests.java).
 
 #### 5.12.8 Combobox
 
@@ -1836,7 +1967,7 @@ public void baseFunctionalityTest() {
   denseCombobox.is().selected(testValueList);
   denseCombobox.unselect(testValueList);
   denseCombobox.is().notSelected(testValueList);
-  }
+}
 ```
 ![Combobox example](../../images/vuetify/combobox.png)
 
@@ -1922,12 +2053,11 @@ __Vuetify v2.6.14__ code example:
 **getPrefixText()** | Returns prefix                           | String
 **getSuffixText()** | Returns suffix                           | String
 **clear()** | Clears combobox                          | void
-**is()** | Assert action                            | ComboboxAssert
 
-Element also has overridden methods from Interfaces: (HasMessages, IsReadOnly, IsDense, IsOutlined, IsSolo, IsFullWidth,
-HasTheme, ICoreElement, IsFlat, HasRounded, IsShaped, HasDetailsHidden) 
+Element also has overridden methods from Interfaces: HasMessages, IsReadOnly, IsDense, IsOutlined, IsSolo, IsFullWidth,
+HasTheme, ICoreElement, IsFlat, HasRounded, IsShaped, HasDetailsHidden 
 
-For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTests.java).
+For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTests.java).
 
 #### 5.12.9 Selects
 
@@ -1937,6 +2067,13 @@ Selects are located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Select.java_
 
 ```java
+//@FindBy(xpath = "//div[@id = 'CustomTextAndValueSelect']//div[contains(@class, 'v-select')]")
+@JDropdown(root = "//div[@id = 'CustomTextAndValueSelect']//div[contains(@class, 'v-select')]",
+           value = "//div[contains(@class, 'v-select__selection--comma')]",
+           list = "//ancestor::div[@id = 'app']//div[contains(@class, 'v-menu__content')]//div[contains(@class, 'v-list-item--link')]",
+           expand = "//i[contains(@class, 'v-icon')]")
+public static Dropdown customSelect;
+
 @Test(description = "Test checks basic functionality of simple select")
 public void basicFunctionalityTest() {
   customSelect.show();
@@ -1998,10 +2135,9 @@ __Vuetify v2.6.14__ code example:
  **messageText()**                          | Return message text              | String           
  **getText()**                              | Returns selected value           | String           
  **isDisplayed()**                          | Checks that element is displayed | boolean          
- **isEnabled()**                            | Checks that element exists       | boolean          
- **is()**                                   | Assert action                    | DropdownAssert() 
+ **isEnabled()**                            | Checks that element exists       | boolean
 
-For examples of usage see: [JDI Vuetify Select tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectsTests.java).
+For examples of usage see: [JDI Vuetify Select tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectsTests.java).
 
 #### 5.12.10 File inputs
 
@@ -2032,7 +2168,7 @@ public void uploadMultipleFilesFileInputTest() {
         smallChipsFileInput.has().file(pathTXT.getFileName().toString());
         smallChipsFileInput.uploadFile(pathPNG.toString());
         smallChipsFileInput.has().files(asList(pathTXT.getFileName().toString(),pathPNG.getFileName().toString()));
-    }
+}
 ```
 
 ![File input example](../../images/vuetify/fileInput.png)
@@ -2105,9 +2241,8 @@ __Vuetify v2.6.14__ code example:
 **labelColor()** | Returns label color                        | String
 **isAutofocus()** | Checks if autofocus is enabled             | boolean
 **getLoaderHeight()** | Returns loader height                      | int
-**is()** | Returns assert class                           | FileInputAssert
 
-For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputsTests.java).
+For examples of usage see: [JDI Vuetify File inputs tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/FileInputsTests.java).
 
 #### 5.12.11 Forms
 
@@ -2164,7 +2299,7 @@ public void styleAutocompleteTest() {
     darkSoloInvertedAutocomplete.expand();
     darkSoloInvertedAutocomplete.listItems().has().values(list);
     darkSoloInvertedAutocomplete.close();
-  }
+}
 ```
 
 ![Autocomplete example](../../images/vuetify/basicAutocomplete.png)
@@ -2219,7 +2354,6 @@ __Vuetify v2.6.14__ code example:
 **typeText(String value)** | Set text                           | void
 **clearTextField()** | Clear text area                    | void
 **clickClear()** | Click clear button                 | void
-**is()** | Returns element assert             | AutocompleteAssert
 
 **Autocomplete** also implements ISetup
 
@@ -2252,6 +2386,10 @@ For examples of usage see: [JDI Vuetify Autocompletes tests](https://github.com/
 
 #### 5.13.1 Button Groups
 
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/button-groups/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ButtonGroup.java_
+
 ```java
 //@FindBy(css = "#MandatoryButtonGroup .v-item-group")
 @UI("#MandatoryButtonGroup .v-item-group")
@@ -2265,12 +2403,8 @@ public void mandatoryButtonGroupTest() {
     mandatoryButtonGroup.is().selected(2);
     mandatoryButtonGroup.getAllButtons().stream().forEachOrdered(HasClick::click);
     mandatoryButtonGroup.is().selected(4);
-    }
+}
 ```
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/button-groups/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ButtonGroup.java_
 
 Button group is a complex container for buttons (wrapper for v-item-group built specifically to work with v-btn).
 
@@ -2316,15 +2450,14 @@ __Vuetify v2.6.14__ code example:
 **getButtonByIndex(int)** | Returns button with required index | VuetifyButton
 **getButtonByText(text)** | Returns button with required text  | VuetifyButton
 **getButtonWithText(text)** | Returns button with partial text   | VuetifyButton
-**getAllButtons()** | Returns all buttons                | List<VuetifyButton>
+**getAllButtons()** | Returns all buttons                | List\<VuetifyButton>
 **list()** | Returns all buttons as WebList     | WebList
 **selected(int)** | Returns true if item is selected   | boolean
-**is()/has()** | Returns element assert             | ButtonGroupAssert
 **size(int)** | Asserts element's size            | ButtonGroupAssert
 
 ButtonGroup also has basic JDI elements methods and asserts for ISetup, HasClick, HasIcon, HasColor, HasTheme, HasRounded, IsShaped, HasMeasurement, IsDense, IsTile
 
-For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VuetifyButtonGroupsTests.java).
+For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VuetifyButtonGroupsTests.java).
 
 #### 5.13.2 Chip Groups
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/chip-groups/)
@@ -2430,7 +2563,6 @@ It is used for creating groups of selections using chips.
 
 |Method | Description                                        | Return Type
 --- |----------------------------------------------------| ---
-**is()/has()** | Returns Assert class                               | ChipGroupAssert
 **groupElements()** | Returns list of Chips contained in the chip group  | List\<Chip>
 **getElement(String)** | Gets the first chip in a group with specified text | Chip
 **select(String)** | Selects chip in a group with specified text        | void
@@ -2521,7 +2653,6 @@ Items can contain an icon, text, actions etc.
 ```
 |Method | Description                             | Return Type
 --- |-----------------------------------------| ---
-**is()/has()** | Returns Assert class                    | ItemGroupAssert
 **selected(int)** | Item with certain index is selected     | boolean
 **notSelected(int)** | Item with certain index is not selected | boolean
 **itemIcon(int)** | Gets icon of item with certain index    | Icon
@@ -2639,7 +2770,6 @@ The `v-list-item-group` component utilizes `v-item-group` at its core to provide
 
 |Method | Description                       | Return Type
 --- |-----------------------------------| ---
-**has()/is()** | Returns Assert class              | ListItemGroupsAssert
 **isActive** | Get if required element is active | boolean
 **hasBorder** | Get if item has border            | boolean
 **hasTitle()** | Get if element has expected title | boolean
@@ -2725,9 +2855,56 @@ public void multipleSlideGroupTests() {
 
 Slide group component is used to display pseudo paginated information. It uses Item Group at its core and provides a baseline for different components (for instance Tabs and Chip Group).
 
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="mx-auto v-sheet theme--light elevation-8" file="v-slide-group/prop-active-class" style="max-width: 800px;">
+    <div class="pa-4 v-item-group theme--light v-slide-group v-slide-group--has-affixes v-slide-group--is-overflowing">
+        <div class="v-slide-group__prev v-slide-group__prev--disabled">
+            <span aria-hidden="true" class="v-icon notranslate v-icon--disabled theme--light">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                    <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z">
+                        
+                    </path>
+                </svg>
+            </span>
+        </div>
+        <div class="v-slide-group__wrapper">
+            <div class="v-slide-group__content">
+                <div tabindex="0" class="ma-4 v-card v-card--link v-sheet theme--light grey lighten-1" style="height: 200px; width: 100px;">
+                    <div class="row fill-height align-center justify-center">
+                        <!---->
+                    </div>
+                </div>
+                <div tabindex="0" class="ma-4 v-card v-card--link v-sheet theme--light grey lighten-1" style="height: 200px; width: 100px;">
+                    <div class="row fill-height align-center justify-center">
+                        <!---->
+                    </div>
+                </div>
+                <div ...</div>
+                <div ...</div>
+                <div tabindex="0" class="ma-4 v-card v-card--link v-sheet theme--light grey lighten-1" style="height: 200px; width: 100px;">
+                    <div class="row fill-height align-center justify-center">
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="v-slide-group__next">
+            <span aria-hidden="true" class="v-icon notranslate theme--light">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z">
+                        
+                    </path>
+                </svg>
+            </span>
+        </div>
+    </div>
+</div>
+```
+
 |Method | Description                 | Return Type
 --- |-----------------------------| ---
-**is()** | Returns Assert class        | SlideGroupAssert
 **getNextButton()** | Get 'next slide' button     | VuetifyButton
 **getPreviousButton()** | Get 'previous slide' button | VuetifyButton
 **slideByIndex()** | Get slide by index          | Card
@@ -2820,8 +2997,8 @@ Other components such as Tabs, Carousels and Steppers utilize this component at 
 **previousButton()** | Get Windows element previous button  | Button
 **nextButton()** | Get Windows element next button | Button
 **activeItem()** | Get active window from Windows element  | T
-**activeItem(Class<W> clazz)** | Get active window as required class from Windows element | <W> W
-**items()** | Get all child windows of Windows element as a list | List<T> 
+**activeItem(Class<W> clazz)** | Get active window as required class from Windows element | \<W> W
+**items()** | Get all child windows of Windows element as a list | List\<T> 
 **showArrowsOnHover()** | Get if Windows shows arrows on hover | boolean
 
 In addition, Windows implements ISetup, HasTheme.
@@ -2844,8 +3021,13 @@ For examples of usage see:[JDI vuetify page tests for windows](https://github.co
 
 [The v-list](https://v2.vuetifyjs.com/en/components/lists/) - component is used to display information. It can contain an avatar, content, actions, subheaders and much more. Lists present content in a way that makes it easy to identify a specific item in a collection. They provide a consistent styling for organizing groups of text and images.
 
+In JDI framework __v-lists__ are represented by the following classes:
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.VuetifyList.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.VuetifyListGroup.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.ListItem.java_
 #
-![Lists example](../../images/vuetify/lists.png)
+
 
 ```java 
     //@FindBy(css = "#SubGroupList .v-list")
@@ -2884,14 +3066,7 @@ For examples of usage see:[JDI vuetify page tests for windows](https://github.co
     }
 
 ```
-
-In JDI framework __v-lists__ are represented by the following classes:
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.composite.VuetifyList.java_
-- __Java__: _com.epam.jdi.light.vuetify.elements.composite.VuetifyListGroup.java_
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.ListItem.java_
-
-
+![Lists example](../../images/vuetify/lists.png)
 
 __Vuetify v2.6.14__ code example:
 
@@ -2983,20 +3158,20 @@ __Vuetify v2.6.14__ code example:
 
 
 
-| Method                     | Description                                                 | Return Type       |
-|----------------------------|-------------------------------------------------------------|-------------------|
-| **is()**                   | Assert action                                               | VuetifyListAssert |
-| **item(int)/item(String)** | Gets specific item of a list by its index and title         | ListItem          |
-| **itemsWebList()**         | Gets list of items. Each element of the list is a UIElement | WebList           |
-| **subheader(int)**         | Gets the subheader of a list using the subheader index      | Subheader         |
-| **divider(int)**           | Gets the divider of a list using the divider index          | Divider           |
-| **dividers()**             | Gets the dividers of a list                                 | WebList           |
-| **items()**                | Gets list of items. Each element of the list is a ListItem  | List< ListItem >  |
-| **size()**                 | Gets size of a list (i.e. amount of its items)              | int               |
-| **groups()**               | Gets list groups                                            | List<VuetifyListGroup>|
-| **group(String)**          | Gets list grou with certain title                           | VuetifyListGroup  |
-| **isDisabled()**           | Checks if a list is disabled                                | boolean           |
-| **isRounded()**            | Checks if a list is rounded                                 | boolean           |
+| Method                     | Description                                                 | Return Type            |
+|----------------------------|-------------------------------------------------------------|------------------------|
+| **is()**                   | Assert action                                               | VuetifyListAssert      |
+| **item(int)/item(String)** | Gets specific item of a list by its index and title         | ListItem               |
+| **itemsWebList()**         | Gets list of items. Each element of the list is a UIElement | WebList                |
+| **subheader(int)**         | Gets the subheader of a list using the subheader index      | Subheader              |
+| **divider(int)**           | Gets the divider of a list using the divider index          | Divider                |
+| **dividers()**             | Gets the dividers of a list                                 | WebList                |
+| **items()**                | Gets list of items. Each element of the list is a ListItem  | List\<ListItem>       |
+| **size()**                 | Gets size of a list (i.e. amount of its items)              | int                    |
+| **groups()**               | Gets list groups                                            | List\<VuetifyListGroup> |
+| **group(String)**          | Gets list grou with certain title                           | VuetifyListGroup       |
+| **isDisabled()**           | Checks if a list is disabled                                | boolean                |
+| **isRounded()**            | Checks if a list is rounded                                 | boolean                |
 
 Also VuetifyList implements ICoreElement, HasTheme, HasElevation, IsDense, IsFlat, HasRounded, IsShaped.
 
@@ -3016,6 +3191,10 @@ For more examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi
    
 ### 5.15 Overlays
 
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/overlays/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Overlay.java_
+
 ```java
 //@FindBy(css = "#AbsoluteOverlay button")
 @UI("#AbsoluteOverlay button")
@@ -3026,7 +3205,7 @@ public void absolutePositionOverlaysTest() {
   absoluteOverlayButton.show();
   absoluteOverlayButton.click();
   absoluteOverlay.has().absolutePosition();
-  }
+}
 
 //@FindBy(css = "#AdvancedOverlay")
 @UI("#AdvancedOverlay")
@@ -3037,7 +3216,7 @@ public void colorOverlaysTest() {
   advancedOverlayCard.show();
   advancedOverlayCard.hover();
   advancedOverlay.has().backgroundColor(CYAN_DARKEN_5.value());
-  }
+}
 
 //@FindBy(css = "#ZIndexOverlay button")
 @UI("#ZIndexOverlay button")
@@ -3048,12 +3227,8 @@ public void zIndexOverlaysTest() {
   zIndexOverlayButton.show();
   zIndexOverlayButton.click();
   zIndexOverlay.has().zIndex(0);
-  }
+}
 ```
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/overlays/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.Overlay.java_
 
 __The Overlay__ - The v-overlay component is used to provide emphasis on a particular element or parts of it. It signals to the user of a state change within the application and can be used for creating loaders, dialogs and more.
 
@@ -3093,7 +3268,7 @@ __Vuetify v2.6.14__ code example:
 | **show()**                | Scrolls screen view to item              | void          |
 | **zIndex()**              | Gets z-index                             | int           |
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/OverlaysTests.java">Java Overlays test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/OverlaysTests.java">Java Overlays test examples</a>
 
 ### 5.16 Pagination
 
@@ -3101,16 +3276,38 @@ __Vuetify v2.6.14__ code example:
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Pagination.java_
 
+You can specify locators for the root and items to find page buttons in the root.
+Also, you can specify locators for left and right navigation buttons,
+locator for buttons with 'more' value like '...'. All of it you can do
+explicitly through a `JDIPagination` annotation.
+
+It is **necessary** to specify **the root** of an element.
+
 ```java
-//@FindBy(css = "#CirclePagination .v-pagination")    
-@JDIPagination(
-        root = "#CirclePagination .v-pagination",
-        items = ".v-pagination__item",
-        left = ".v-pagination__navigation[1]",
-        right = ".v-pagination__navigation[2]",
-        more = ".v-pagination__more"
-    )
-public static Pagination circlePagination;
+//@FindBy(css = "#TotalVisiblePagination .v-pagination")
+@JDIPagination(root = "#TotalVisiblePagination .v-pagination")
+public static Pagination totalVisiblePagination;
+
+@Test(description = "Test checks visible pagination components")
+public void totalVisiblePaginationTest() {
+    totalVisiblePagination.is().enabled();
+    totalVisiblePagination.is().atStart();
+
+    totalVisiblePagination.select("15");
+    totalVisiblePagination.has().selected("15");
+    totalVisiblePagination.is().atEnd();
+
+    List<String> actualButtonsFromEndToStart = new ArrayList<>();
+    actualButtonsFromEndToStart.add(totalVisiblePagination.selected());
+    while (totalVisiblePagination.hasPrevious()) {
+    totalVisiblePagination.back();
+    actualButtonsFromEndToStart.add(totalVisiblePagination.selected());
+    }
+    jdiAssert(actualButtonsFromEndToStart, equalTo(asList(
+    "15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"
+    )));
+    totalVisiblePagination.is().atStart();
+}
 ```
 
 ![Pagination example](../../images/vuetify/pagination.png)
@@ -3158,42 +3355,8 @@ __Vuetify v2.6.14__ code example:
 </nav>
 ```
 
-You can specify locators for the root and items to find page buttons in the root.
-Also, you can specify locators for left and right navigation buttons, 
-locator for buttons with 'more' value like '...'. All of it you can do
-explicitly through a `JDIPagination` annotation.
-
-It is **necessary** to specify **the root** of an element.
-
-```java
-@JDIPagination(root = "#TotalVisiblePagination .v-pagination")
-public static Pagination totalVisiblePagination;
-
-@Test(description = "Test checks visible pagination components")
-public void totalVisiblePaginationTest() {
-    totalVisiblePagination.is().enabled();
-    totalVisiblePagination.is().atStart();
-
-    totalVisiblePagination.select("15");
-    totalVisiblePagination.has().selected("15");
-    totalVisiblePagination.is().atEnd();
-
-    List<String> actualButtonsFromEndToStart = new ArrayList<>();
-    actualButtonsFromEndToStart.add(totalVisiblePagination.selected());
-    while (totalVisiblePagination.hasPrevious()) {
-    totalVisiblePagination.back();
-    actualButtonsFromEndToStart.add(totalVisiblePagination.selected());
-    }
-    jdiAssert(actualButtonsFromEndToStart, equalTo(asList(
-    "15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"
-    )));
-    totalVisiblePagination.is().atStart();
-}
-```
-
 |Method | Description                                                                   | Return Type
 --- |-------------------------------------------------------------------------------| ---
-**is()** | Returns Assert class                                                          | PaginationAssert
 **list()** | Returns list of page buttons by `items` locator from JDIPagination annotation | WebList
 **leftNavigation()** | Get left navigation button                                                    | VuetifyButton
 **rightNavigation()** | Get right navigation button                                                   | VuetifyButton
@@ -3236,6 +3399,10 @@ For examples of usage see: [JDI vuetify page tests for pagination](https://githu
 
 ### 5.17 Ratings
 
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/ratings/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
+
 ```java
 //@FindBy(css = "#IncrementedRating .v-rating .mdi-star.yellow--text")
 @JDIRating(root = "#IncrementedRating .v-rating",
@@ -3254,7 +3421,7 @@ public void valueRatingTest() {
   incrementedRating.is().value(4.5);
   incrementedRatingCard.hover();
   incrementedRating.is().value(3.5);
-  }
+}
   
 //@FindBy(css = "#CardRatingsRating .v-rating")
 @JDIRating(root = "#CardRatingsRating .v-rating")
@@ -3272,10 +3439,6 @@ public void themeRatingTest() {
   }
 }
 ```
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/ratings/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
 
 __Rating__ - The rating component is a specialized but crucial piece in building user widgets. Collecting user feedback via ratings is a simple analytic that can provide a lot of feedback to your product or application.  
 
@@ -3313,7 +3476,7 @@ __Vuetify v2.6.14__ code example:
 | **verify()**                      | Returns object for work with assertions   | RatingAssert |
 | **assertThat()**                  | Returns object for work with assertions   | RatingAssert |
 
-For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingTests.java)
+For examples of usage see: [JDI Vuetify Ratings tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingsTests.java)
 
 ### 5.18 Snackbars
 
@@ -3369,13 +3532,13 @@ __Vuetify v2.6.14__ code example:
 | :--- | :--- |
 **visible()** | Asserts if snackbar is present on the page
 **closed()** | Asserts if snackbar is not present on the page
-**text(Matcher<String condition)** | Asserts if alert text matches provided matcher
+**text(String text)** | Asserts if alert text matches provided matcher
 **centered()** | Asserts if snackbar is positioned at the center
 **top()** | Asserts if snackbar is positioned at the top
 **bottom()** | Asserts if snackbar is positioned at the bottom
 **multiline()** | Asserts if snackbar is configured to display multiple lines of text
 
-Snackbar also have basic JDI elements methods and asserts for Text, Color, Elevation, Outline, Measurements, Orientation, Alignment, Theme and others
+Snackbar also has basic JDI elements methods and asserts for Text, Color, Elevation, Outline, Measurements, Orientation, Alignment, Theme and others
 
 For examples of usage see: [JDI vuetify page tests for snackbars](https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java).
 
@@ -3433,9 +3596,13 @@ __Vuetify v2.6.14__ code example:
  **hasLabels()**            | Shows that sparkline has visible labels                     | boolean              
  **isFilled()**             | Shows that sparkline is filled                              | boolean              
 
-For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SparklinesTests.java)
+For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SparklinesTests.java)
 
 ### 5.20 Subheaders
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/subheaders/)
+
+__Java__: _com.epam.jdi.light.vuetify.elements.common.Subheader.java_
 
 ```java
 //@FindBy(css = "#InsetSubheader .v-subheader")
@@ -3443,17 +3610,13 @@ For examples of usage see: [JDI vuetify page tests for sparklines](https://githu
 public static Subheader insetSubheader;
 
 @Test(description = "Test checks inset Subheader features: 'theme' and 'text'")
-public void insetSubheaderTest() {
-  insetSubheader.is().displayed();
-  insetSubheader.is().lightTheme();
-  insetSubheader.is().inset();
-  insetSubheader.is().text("Subheader");
+public void insetSubheaderTest(){
+    insetSubheader.is().displayed();
+    insetSubheader.is().lightTheme();
+    insetSubheader.is().inset();
+    insetSubheader.is().text("Subheader");
+}
 ```
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/subheaders/)
-
-__Java__: _com.epam.jdi.light.vuetify.elements.common.Subheader.java_
-
 __Subheader__ - The Subheader component is used to separate sections of lists.
 
 ![Subheaders example](../../images/vuetify/subheader.png)
@@ -3490,7 +3653,7 @@ __Vuetify v2.6.14__ code example:
 | **is()**                                    | Returns Assert class                                                       | SubheaderAssert |
 | **isInset()**                               | Checks if element has "v-subheader--inset" class                           | boolean         |
 | **has()**                                   | Returns Assert class                                                       | SubheaderAssert |
-| **classes()**                               | Gets all element's classes as list                                         | List<String>    |
+| **classes()**                               | Gets all element's classes as list                                         | List\<String>   |
 | **doubleClick()**                           | Double clicks on the element                                               | void            |
 | **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void            |
 | **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void            |
@@ -3517,7 +3680,7 @@ __Vuetify v2.6.14__ code example:
 | **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void            |
 | **show()**                                  | Scrolls screen view to item                                                | void            |
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/data/common/SubheadersTests.java">Java test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheadersTests.java">Java test examples</a>
 
 ### 5.21 Tables
 
@@ -3541,7 +3704,7 @@ public void heightSimpleTableTest() {
   heightTable.is().columnTitle(0, "Name");
   heightTable.has().cellValue(1, 1, FROZEN_YOGURT.value());
   heightTable.has().fixedHeight().and().height(300);
-  }
+}
 ```
 
 ![Simple Table example](../../images/vuetify/simple_table.png)
@@ -3613,7 +3776,7 @@ public void customFilterTableTest(){
         customFilterTable.previousPage();
         customFilterTable.sortDescBy("Carbs (g)");
         customFilterTable.has().elementValue(1,1,LOLLIPOP.value());
-        }
+}
 ```
 
 The Data Table component is used for displaying tabular data and to extend the Simple Table element
@@ -3717,7 +3880,7 @@ __Vuetify v2.6.14__ code example:
 **nextPage()** | Switch Data Table to the next page                                      | void
 **previousPage()** | Switch Data Table to the previous page                                  | void
 **sortDescBy(String value)** | Sort Data Table by value in descending order                            | void
-**groupedData()** | Get Data Table groups list with the list of content of the first column | Map<String, List<String>>
+**groupedData()** | Get Data Table groups list with the list of content of the first column | Map\<String, List\<String>>
 **previousPage()** | Switches to the previous page                                           | void
 **nextPage()** | Switches to the next page                                               | void
 **firstPage()** | Switches to the first page                                              | void
@@ -3975,7 +4138,7 @@ __Vuetify v2.6.14__ code example:
 | Method | Description                                            | Return Type |
 | :--- |:-------------------------------------------------------| :--- |
 **item(int childIndex)** | Gets a Card From Data Iterator Table by required index | SubheaderAssert
-**headers()** | Gets Data Iterator Table's header                      | List<ToolBar>
+**headers()** | Gets Data Iterator Table's header                      | List\<ToolBar>
 
 In addition, there are methods sortDesc(),sortAsc() inside FilterDataIterator.java. 
 Also, DataIterator class implements IsContainer, ISetup.
@@ -3986,13 +4149,13 @@ Also, DataIterator class implements IsContainer, ISetup.
 **text(String value)** | Assert that Data Iterator Table has required text inside
 **text(Matcher validation)** | Assert that Data Iterator Table has required text inside
 
-For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataIteratorsTests.java).
+For examples of usage see: [Vuetify Data Iterators tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataIteratorsTests.java).
 
 ### 5.22 Tabs (VuetifyTabs)
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/tabs/)
 
-- __Java__: _com.epam.jdi.light.ui.html.elements.complex.Tabs.java_
+- __Java__: _com.epam.jdi.light.ui.html.elements.complex.VuetifyTabs.java_
 
 ```java
 //@FindBy(css = "#IconsTextTabs")
@@ -4040,7 +4203,6 @@ The `v-tabs` component is used for hiding content behind a selectable item. This
 ```
 |Method | Description                          | Return Type
 --- |--------------------------------------| ---
-**is()/has()** | Returns VuetifyTabs Assert class     | VuetifyTabsAssert
 **list()** | Get list of tabs                     | WebList
 **menu()** | Get list of menu items               | WebList
 **icons()** | Get list of icons                    | List\<Icon>
@@ -4134,11 +4296,10 @@ Icons element includes following methods:
 
 |Method | Description                                   | Return Type
 --- |-----------------------------------------------| ---
-**is()** | Returns Icon Assert class                     | IconAssert
-**findAll(UIBaseElement<?> rootElement)** | Finds all '{name}' icons                      | List<Icon>
-**findAll(UIElement rootElement)** | Finds all '{name}' icons                      | List<Icon>
+**findAll(UIBaseElement\<?> rootElement)** | Finds all '{name}' icons                      | List\<Icon>
+**findAll(UIElement rootElement)** | Finds all '{name}' icons                      | List\<Icon>
 **toIcon(UIElement element)** | Casts '{name}' to icon                        | Icon
-**getMdiMap()** | Gets '{name}' mdi-map                         | BidiMap<String, String>
+**getMdiMap()** | Gets '{name}' mdi-map                         | BidiMap\<String, String>
 **getMdiIconName()** | Gets '{name}' mdi name                        | String
 **getType()** | Gets '{name}' type                            | String
 **color()** | Gets '{name}' color                           | String
@@ -4158,7 +4319,7 @@ Icons element includes following methods:
 **minHeight()** | Gets '{name}' min height                      | int
 **minWidth()** | Gets '{name}' min width                       | int
 
-Examples of usage see on the following page: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
+Examples of usage see on the following page: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
 
 ### 5.24 Carousels
 
@@ -4180,7 +4341,7 @@ public void verticalDelimitersCarouselTest() {
   verticalCarousel.has().contentText("First Slide");
   verticalCarousel.goToSlide(4);
   verticalCarousel.has().contentText("Fourth Slide");
-  }
+}
 ```
 
 Carousel component is used to display large numbers of visual content on a rotating timer.
@@ -4253,10 +4414,10 @@ __Vuetify v2.6.14__ code example:
 **nextButton()** | Get Carousel's 'next' button | VuetifyButton
 **previousButton()** | Get Carousel's 'previous' button | VuetifyButton
 **progressBar()** | Get Carousel's progress bar | VuetifyButton
-**getDelimitersIcons()** | Get Carousel delimiter's icons | List<Icon>
+**getDelimitersIcons()** | Get Carousel delimiter's icons | List\<Icon>
 **slideCounter()** | Get Carousel's slide counter | Text
 **goToSlide(int slideNumber)** | Go to slide number| void
-**getAllSlides()** | Get all Carousel's slides| List<WebElement>
+**getAllSlides()** | Get all Carousel's slides| List\<WebElement>
 **plusButton()** | Get Carousel's 'plus' button| VuetifyButton
 **minusButton()** | Get Carousel's 'minus' button| VuetifyButton
 **showArrowsOnHover()** | Get if Carousel shows arrows on hover| boolean
@@ -4297,7 +4458,7 @@ public void itemsTextNavigationDrawerTest() {
   imagesNavigationDrawer.has().text(expectedItems);
   imagesNavigationDrawer.has().itemSize(3);
   imagesNavigationDrawer.is().absolute();
-  }
+}
 ```
 
 The `v-navigation-drawer` component is what your users will utilize to navigate through the application. 
@@ -4339,8 +4500,8 @@ __Vuetify v2.6.14__ code example:
 
 |Method | Description | Return Type
 --- | --- | ---
-**items()** | Returns NavigationDrawer's list items | List<ListItem>
-**itemsText()** | Returns NavigationDrawer's list items text | List<String>
+**items()** | Returns NavigationDrawer's list items | List\<ListItem>
+**itemsText()** | Returns NavigationDrawer's list items text | List\<String>
 **overlay()** | Returns NavigationDrawer overlay | Overlay
 **get(int index)** | Returns NavigationDrawer's list item on index {0} | ListItem
 **get(String title)** | Returns NavigationDrawer's list item by title {0} | ListItem
@@ -4375,7 +4536,7 @@ In addition, **NavigationDrawer** implements HasClick, HasTheme
 **closed()** | Assert that NavigationDrawer is closed
 **right()** | Assert that NavigationDrawer is located on the right side
 **backgroundColor(String color)** | Assert that NavigationDrawer has expected background color
-**text(List<String> values)** | Check NavigationDrawer text of items
+**text(List\<String> values)** | Check NavigationDrawer text of items
 **absolute()** | Assert that NavigationDrawer is absolute
 **bottom()** | Assert that NavigationDrawer is bottom
 **clipped()** | Assert that NavigationDrawer is clipped
@@ -4394,6 +4555,10 @@ In addition, **NavigationDrawerAssert** implements ThemeAssert<NavigationDrawerA
 For examples of usage see: [JDI Vuetify Navigation Drawers tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java).
 
 ### 5.26 Tooltips
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/tooltips/)
+
+__Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
+
 
 ```java
 //@FindBy(css = "div.v-tooltip__content")
@@ -4412,7 +4577,7 @@ public void textTooltipsTest() {
     textWithTooltip.hover();
     tooltip.is().displayed();
     tooltip.has().text("Tooltip for \"This text has a tooltip\"");
-    }
+}
 
 @Test(dataProvider = "colorsTooltipsTestDataProvider", dataProviderClass = TooltipsTestsDataProvider.class,
       description = "Test checks that tooltip has specific color")
@@ -4420,18 +4585,12 @@ public void colorTooltipTest(int index, String color) {
     coloredButtons.get(index).hover();
     tooltip.is().displayed();
     tooltip.has().color(color);
-    }
+}
 ```
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/tooltips/)
-
-__Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
 
 __Tooltip__ - Tooltip is useful for conveying information when a user hovers over an element. Its display can be controlled programmatically. When activated, tooltips display a text label identifying an element, such as a description of its function.
 
 ![Tooltips examples](../../images/vuetify/tooltips.png)
-
-For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
 
 __Vuetify v2.6.14__ code example:
 
@@ -4448,7 +4607,7 @@ __Vuetify v2.6.14__ code example:
 | **is()**                                    | Returns Assert class                                                       | TooltipAssert |
 | **has()**                                   | Returns Assert class                                                       | TooltipAssert |
 | **color()**                                 | Returns css attribute background-color as String Value                     | String        |
-| **classes()**                               | Gets all element's classes as list                                         | List<String>  | 
+| **classes()**                               | Gets all element's classes as list                                         | List\<String> | 
 | **doubleClick()**                           | Double clicks on the element                                               | void          |
 | **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void          |
 | **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void          |
@@ -4477,11 +4636,13 @@ __Vuetify v2.6.14__ code example:
 | **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void          |
 | **show()**                                  | Scrolls screen view to item                                                | void          |
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Java test examples</a>
+For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
 
 ### 5.27 Progress
 
 #### 5.27.1 Progress circular
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/progress-circular/)
 
 ```java
 //@FindBy(css = "#ColorProgress .v-progress-circular" 
@@ -4499,7 +4660,7 @@ public void colorProgressCircularsTests(int index, String color, int height, int
   .width(width)
   .value(value)
   .text(String.valueOf(index));
-  }
+}
 
 //@FindBy(css = "#SizeWidthProgress .v-progress-circular"
 @UI("#SizeWidthProgress .v-progress-circular")
@@ -4515,16 +4676,35 @@ public void sizeWidthProgressCircularsTests(int index, String color, int height,
   .height(height)
   .width(width)
   .thickness(thickness);
-  }
+}
 ```
-
-[Vuetify documentation page](https://vuetifyjs.com/en/components/progress-circular/)
-
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressCircular.java_
 
 __Progress circular__ - The v-progress-circular component is used to convey data circularly to users. It also can be put into an indeterminate state to portray loading.
 
 ![Progress Circular example](../../images/vuetify/progress-circular.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div data-v-ce46f1fc="" class="text-center" file="v-progress-circular/prop-color">
+    <div data-v-ce46f1fc="" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" class="v-progress-circular v-progress-circular--visible blue-grey--text" style="height: 32px; width: 32px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="22.857142857142858 22.857142857142858 45.714285714285715 45.714285714285715" style="transform: rotate(0deg);">
+            <circle fill="transparent" cx="45.714285714285715" cy="45.714285714285715" r="20" stroke-width="5.714285714285714" stroke-dasharray="125.664" stroke-dashoffset="0" class="v-progress-circular__underlay">
+                
+            </circle>
+            <circle fill="transparent" cx="45.714285714285715" cy="45.714285714285715" r="20" stroke-width="5.714285714285714" stroke-dasharray="125.664" stroke-dashoffset="0px" class="v-progress-circular__overlay">
+                
+            </circle>
+        </svg>
+        <div class="v-progress-circular__info">
+            
+        </div>
+    </div>
+    <div ... 
+    </div>
+</div>
+```
 
 | Method             | Description                                      | Return Type            |
 |--------------------|--------------------------------------------------|------------------------|
@@ -4549,14 +4729,14 @@ __Progress circular__ - The v-progress-circular component is used to convey data
 | **value()**        | Asserts that element has expected value          | ProgressCircularAssert |
 | **width()**        | Asserts that element has expected width          | String                 |
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/613ebaacccbec711dd00bd3e350728c5ebdc4095/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressCircularTests.java">Java Progress Circular test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressCircularTests.java">Java Progress Circular test examples</a>
 
 #### 5.27.2 Progress linear
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/progress-linear/)
 
 Progress linear is located in the following class:
-- __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressBar.java_
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressLinear.java_
 
 ```java
 //@FindBy(css = "#QueryProgress .v-progress-linear")
@@ -4578,7 +4758,7 @@ public void absoluteValueHiddenProgressLinearTests() {
   queryProgressLinear.is().hidden();
   Timer.waitCondition(queryProgressLinear::isDisplayed);
   queryProgressLinear.has().valueMax(100.0);
-  }
+}
 ```
 
 Progress linear component is used to convey data circularly to users. They can also represent an indeterminate amount, such as loading or processing.
@@ -4598,7 +4778,6 @@ __Vuetify v2.6.14__ code example:
 
 |Method | Description                          | Return Type
 --- |--------------------------------------| ---
-**is()** | Returns Assert class                 | ProgressLinearAssert
 **hasBarColor()** | Returns color of the bar in rgba     | String
 **backgroundColor()** | Returns background bar color in rgba | String
 **isDeterminate()** | Shows that bar is determinate        | boolean
@@ -4610,7 +4789,7 @@ __Vuetify v2.6.14__ code example:
 **getMaxValue()** | Returns bar's max value              | Double
 **hasStream()** | Shows that bar has stream            | boolean
 
-For examples of usage see: [Progress linear tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressLinearTests.java).
+For examples of usage see: [Progress linear tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressLinearTests.java).
 
 ### 5.28 Menus
 
@@ -4636,7 +4815,7 @@ public void openOnHoverMenuTests() {
   activeMenu.is().displayed();
   offsetXMenuButton.hover();
   activeMenu.is().hidden();
-  }
+}
 ```
 
 Menu component shows a menu at the position of the element that was used to activate it.
@@ -4666,8 +4845,6 @@ __Vuetify v2.6.14__ code example:
 
 |Method | Description                                     | Return Type
 --- |-------------------------------------------------| ---
-**is()** | Returns Assert class                            | MenuAssert
-**has()** | Returns Assert class                            | MenuAssert
 **close()** | Closes menu                                     | void
 **topPosition()** | Returns amount of pixels from top               | int
 **leftPosition()** | Returns amount of pixels from left              | int
@@ -4677,7 +4854,7 @@ __Vuetify v2.6.14__ code example:
 **hasRemovedRadius()** | Shows that menu has removed radius              | boolean
 **hasLargeRadius()** | Shows that menu has large radius                | boolean
 
-For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-light/blob/d858f13a1e0b3f9545067feb1418e6b5370da258/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java).
+For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java).
 
 ### 5.29 Images
 
@@ -4743,7 +4920,7 @@ __Vuetify v2.6.14__ code example:
 
 Image also have basic JDI elements methods and asserts for Measurements and Theme
 
-For examples of usage see: [JDI Vuetify Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
+For examples of usage see: [JDI Vuetify Images tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
 
 ### 5.30 Timelines
 
@@ -4767,7 +4944,7 @@ public void advancedTimeLineTest(){
   advancedTimeline.defaultItem(1).body().find("button").click();
   advancedTimeline.has().size(9);
   advancedTimeline.item(2).body().message().has().text("Test text");
-  }
+}
 ```
 
 You can specify locators for the TimeLine by using `JDITimeLine` annotation:
@@ -4818,9 +4995,9 @@ The TimeLine is used for stylistically displaying chronological information.
 | :--- |:--------------------------------------------------| :--- |
 **isAlignTop()** | Get if Timelines is align to top                  | boolean
 **isReversed()** | Get if Timelines is reverse                       | boolean
-**items()** | Get list of items from Timelines                  | List<TimeLineItem<T, U>>
-**item(int index)** | Get item by required index from Timelines         | TimeLineItem<T, U>
-**defaultItem(int index)** | Get default item by required index from Timelines | TimeLineItem<UIElement, UIElement>
+**items()** | Get list of items from Timelines                  | List\<TimeLineItem<T, U>>
+**item(int index)** | Get item by required index from Timelines         | TimeLineItem\<T, U>
+**defaultItem(int index)** | Get default item by required index from Timelines | TimeLineItem\<UIElement, UIElement>
 **setup(Field field)** | Setting up Timleines by field                     | void
 
 In addition, TimeLine implements ISetup, IsDense.
@@ -4840,7 +5017,7 @@ Also, there are Assert methods for Timeline Item:
 | :--- | :--- |
 **smallDot()** | Assert that Timelines Item is small
 **largeDot()** | Assert that Timelines Item is large
-**dotColor(Enum<?> color)** | Assert that dot color of Timelines Item is equal to required
+**dotColor(Enum\<?> color)** | Assert that dot color of Timelines Item is equal to required
 
 For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimelinesTests.java).
 
@@ -4858,21 +5035,22 @@ For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-t
 public static TimePicker timePicker;
 
 @Test (description = "Test checks that time picker has expected disabled hours")
-public void test() {
+public void test(){
     timePicker.show();
     timePicker.setTime("14:53:48");
     timePicker.has()
-        .title("2:53:48PM")
-        .time(LocalTime.parse("14:53:48"))
-        .hours(2)
-        .minutes(53)
-        .pmPeriod()
-        .format12()
-        .darkTheme();
+    .title("2:53:48PM")
+    .time(LocalTime.parse("14:53:48"))
+    .hours(2)
+    .minutes(53)
+    .pmPeriod()
+    .format12()
+    .darkTheme();
     timePicker.switchToMinutes();
     timePicker.has().selectedNumber(53);
     timePicker.scroll(13);
     timePicker.has().selectedNumber(40);
+}
 ```
 
 The v-time-picker is stand-alone component that can be utilized in many existing Vuetify components.
@@ -4950,15 +5128,12 @@ __Vuetify v2.6.14__ code example:
 **titleSeconds()** | Returns Time Picker time seconds | int
 **is12h()** | Returns true if Time Picker is 12h or false if 24h | boolean
 **amPmPeriod()** | Returns currently selected AM/PM period "AM" or "PM" | String
-**clockNumbers()** | Returns all numbers shown on the clock face | List<Integer>
-**enabledClockNumbers()** | Returns enabled numbers on the Clock face | List<Integer>
-**disabledClockNumbers()**| Returns disabled numbers on the Clock face | List<Integer>
+**clockNumbers()** | Returns all numbers shown on the clock face | List\<Integer>
+**enabledClockNumbers()** | Returns enabled numbers on the Clock face | List\<Integer>
+**disabledClockNumbers()**| Returns disabled numbers on the Clock face | List\<Integer>
 **selectedNumber()** | Returns currently selected number on the Clock face | int
-**isReadOnly()** | Checks if the Time Picker is read-only | boolean [](overridden method)
-**isDisabled()** | Checks if the Time Picker is disabled | boolean [](overridden method)
 **titleBackgroundColor()** | Returns background color of the Time Picker title (hex) | String
 **isLandscape()** | Checks if the Time Picker displayed in landscape mode | boolean
-**scroll(int mouseWheelTicks)** | Emulates mouse wheel scroll on the Clock face | void [](overridden method)
 **title()** | Returns JDI UIElement representing title | UIElement
 **clock()** | Returns JDI UIElement representing clock face | UIElement
 
@@ -4979,8 +5154,8 @@ __Vuetify v2.6.14__ code example:
 **landscape()** | Asserts that Time Picker is in landscape orientation
 **notLandscape()** | Asserts that Time Picker is not in landscape orientation
 
-Time Picker also have basic JDI elements methods and asserts for Color, Theme, Elevation, Measurements and others.
-For examples of usage see: [JDI Vuetify TimePickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java).
+Time Picker also has basic JDI elements methods and asserts for Color, Theme, Elevation, Measurements and others.
+For examples of usage see: [JDI Vuetify TimePickers tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java).
 
 #### 5.31.2 Date pickers
 
@@ -4999,7 +5174,7 @@ public void testOrientationDatePicker() {
   orientationDatePicker.has().portraitOrientation();
   orientationSwitcher.check();
   orientationDatePicker.has().landscapeOrientation();
-  }
+}
 ```
 
 It is **necessary** to specify **the root** of an element. Also, if you work with expandable date pickers (such as active pickers, dialog and menu pickers etc), you have to define **expandedRoot**.
@@ -5136,25 +5311,25 @@ The Date picker is a fully featured date selection component that lets users sel
  **getDateFieldReadonlyAttribute()**                       | Get Date pickers readonly attribute of date field                    | String          
  **changeYearCornerButton()**                              | Click Date pickers small change year button in the upper left corner | void            
  **getColor()**                                            | Get Date pickers color from color field                              | String          
- **getDisabledDates()**                                    | Get Date pickers list of disabled dates                              | List<String>    
- **getEnabledDates()**                                     | Get Date pickers list of enabled dates                               | List<String>    
- **getEnabledDatesElements()**                             | Get Date pickers list of enabled dates elements                      | List<UIElement> 
- **getDisabledDatesElements()**                            | Get Date pickers list of disabled dates elements                     | List<UIElement> 
+ **getDisabledDates()**                                    | Get Date pickers list of disabled dates                              | List\<String>    
+ **getEnabledDates()**                                     | Get Date pickers list of enabled dates                               | List\<String>    
+ **getEnabledDatesElements()**                             | Get Date pickers list of enabled dates elements                      | List\<UIElement> 
+ **getDisabledDatesElements()**                            | Get Date pickers list of disabled dates elements                     | List\<UIElement> 
  **getNextMonthIconClass()**                               | Get Date pickers class of next month icon                            | String          
  **getPreviousMonthIconClass()**                           | Get Date pickers class of previous month icon                        | String          
  **getAdditionalYearIcon()**                               | Get Date pickers additional year icon element                        | UIElement       
- **getAllActiveDaysOfMonth()**                             | Get all Date pickers active days of month                            | List<String>t   
- **getShownMultipleDates()**                               | Get Date pickers shown multiple dates                                | List<String>t   
+ **getAllActiveDaysOfMonth()**                             | Get all Date pickers active days of month                            | List\<String>t   
+ **getShownMultipleDates()**                               | Get Date pickers shown multiple dates                                | List\<String>t   
  **doubleClickDay(final String date)**                     | Double click on Date pickers day of month                            | void            
  **hoverMonth(final String month)**                        | Hover Date pickers month                                             | void            
  **rightClickYear(final String year)**                     | Right click Date pickers year                                        | void            
- **getEventCirclesColor()**                                | Get Date pickers list of colors for all event dates                  | List<String>    
+ **getEventCirclesColor()**                                | Get Date pickers list of colors for all event dates                  | List\<String>    
  **getColorFieldWidth()**                                  | Get Date pickers width of color field                                | int             
  **getColorFieldHeight()**                                 | Get Date pickers height of color field                               | int             
  **getChangeYearButton()**                                 | Get Date pickers change year button element                          | UIElement       
  **getChangeMonthButton()**                                | Get Date pickers change month button element                         | UIElement       
  **getMainField()**                                        | Get Date pickers main field element                                  | UIElement       
- **getAllMonths()**                                        | Get Date pickers all months                                          | List<String>    
+ **getAllMonths()**                                        | Get Date pickers all months                                          | List\<String>    
  **getExpandedElement()**                                  | Get Date pickers expanded element                                    | UIElement       
  **isElevated()**                                          | Get if Date pickers is elevated                                      | boolean         
 
@@ -5382,7 +5557,7 @@ public void noCanvasColorPickerTest(){
   noCanvasColorPicker.colorModelButton().click();
   noCanvasColorPicker.has().inputModel(HEX)
   .and().hexInputFieldStringColorValue(INITIAL_HEX_STRING_COLOR);
-  }
+}
 ```
 
 The Color picker allows you to select a color using a variety of input methods.
@@ -5495,7 +5670,7 @@ __Vuetify v2.6.14__ code example:
  **getCanvasDotStyle()**                | Get canvasDot style from Color Picker         | String           
  **getInputModel()**                    | Get input model from Color Picker             | String           
  **getColor(UIElement element)**        | Get color from Color Picker                   | Color            
- **getColorsFromSwatches()**            | Get colors from Color Picker swatches         | ArrayList<Color> 
+ **getColorsFromSwatches()**            | Get colors from Color Picker swatches         | ArrayList\<Color> 
  **getElementStyle(UIElement element)** | Get required element's style                  | String           
 
 In addition, ColorPicker implements HasElevation, HasTheme.
@@ -5519,7 +5694,7 @@ ThemeAssert<ColorPickerAssert, ColorPicker>.
 For examples of usage see: [JDI Vuetify ColorPickers tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ColorPickersTests.java).
 
 
-### 5.33 Virtual Scroller
+### 5.32 Virtual Scroller
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/virtual-scroller/)
 
@@ -5540,7 +5715,7 @@ public void measurementVirtualScrollerTest() {
   benchScroller.has().widthGreaterThan(300);
   benchScroller.has().widthLessThan(500);
   benchScroller.has().itemsHeight(64);
-  }
+}
 ```
 
 The `v-virtual-scroll` component displays a virtual, infinite list. It supports dynamic height and scrolling vertically.
@@ -5597,7 +5772,7 @@ In addition, **VirtualScrollerAssert** implements MeasurementAssert<VirtualScrol
 For examples of usage
 see: [JDI vuetify page tests for Virtual Scroller](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VirtualScrollerTests.java)
 
-### 5.34 Skeleton loader
+### 5.33 Skeleton loader
 
 [Skeleton loader overview](https://v2.vuetifyjs.com/en/components/skeleton-loaders/)
 
@@ -5615,7 +5790,7 @@ public void darkSkeletonLoaderTest() {
   darkSkeletonLoader.is().notBoilerplate();
   darkSkeletonLoader.is().elevated();
   darkSkeletonLoader.is().tile();
-  }
+}
 ```
 
 The Skeleton loader component is a versatile tool that can fill many roles within a project. 
@@ -5672,7 +5847,7 @@ In addition, SkeletonLoader  implements HasTheme, HasElevation, HasCursor, HasMe
 
 For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java).
 
-### 5.35 Parallax
+### 5.34 Parallax
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/parallax/)
 
@@ -5680,11 +5855,11 @@ Parallax is located in the following class:
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Parallax.java_
 
 ```java
-//@FindBy(css = "#CustomHeightParallax")
-@UI("#CustomHeightParallax")
-public static Parallax customHeightParallax;
+    //@FindBy(css = "#CustomHeightParallax")
+    @UI("#CustomHeightParallax")
+    public static Parallax customHeightParallax;
     
-    @Test
+    @Test(description = "Test checks that image with parallax has expected height")
     public void customHeightParallaxTests() {
         customHeightParallax.has().noContent();
 
@@ -5692,7 +5867,7 @@ public static Parallax customHeightParallax;
         customHeightParallax.has().height(expectedHeight);
     }
 
-    @Test
+    @Test(description = "Test checks that image with parallax has expected headers' text and content")
     public void contentParallaxTests() {
         contentParallax.has().content();
         String expectedHeader = "Vuetify";
@@ -5724,14 +5899,13 @@ v-parallax element has following methods:
 **heightPx()**   | Returns the value of the parallax container height attribute                                 | int
 **hasContent()** | Checks if the parallax container has any elements within                                     | boolean
 **image()**      | Returns the background image of the parallax container (return type is JDI Light HTML Image) | Image
-**is()/has**     | Returns Assert class                                                                         | ParallaxAssert
 **content()**    | Checks if elements in content section is not empty                                        | ParallaxAssert
 **noContent()**  | Checks if elements in content section is empty                                            | ParallaxAssert
 
 
-<a href=https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java">Java test examples</a>
+<a href=https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java">Java test examples</a>
 
-### 5.36 TreeView
+### 5.35 TreeView
 
 [Treeview overview](https://v2.vuetifyjs.com/en/components/treeview/)
 
@@ -5864,7 +6038,7 @@ __Vuetify v2.6.14__ code example:
  **allNodes()**         | Get TreeView check list               | WebList            
  **node(String value)** | Get TreeView node string value        | TreeViewNode       
  **node(int index)**    | Get TreeView item with required index | TreeViewNode       
- **treeViewNodes()**    | Get TreeView list of nodes            | List<TreeViewNode> 
+ **treeViewNodes()**    | Get TreeView list of nodes            | List\<TreeViewNode> 
  **isHoverable()**      | Get if TreeView is hoverable          | boolean            
  **fullSize()**         | Get TreeView size                     | int                
  **expandAllNodes()**   | Expand all nodes in TreeView          | void               
@@ -5891,11 +6065,11 @@ Also, there is a **TreeViewNode** that has its own methods.
  **isNotMarked()**                                | Get if TreeViewNode is not marked          | boolean             
  **isExpanded()**                                 | Get if TreeViewNode is expanded            | boolean             
  **root()**                                       | Get TreeViewNode root                      | UIElement           
- **expanders()**                                  | Get TreeViewNode expanders                 | List<VuetifyButton> 
+ **expanders()**                                  | Get TreeViewNode expanders                 | List\<VuetifyButton> 
  **checkbox()**                                   | Get TreeViewNode root checkbox             | UIElement           
  **value()**                                      | Get root value from TreeViewNode           | UIElement           
  **checkList()**                                  | Get TreeViewNode check list                | WebList             
- **nodes()**                                      | Get TreeViewNode list of nodes             | List<TreeViewNode>  
+ **nodes()**                                      | Get TreeViewNode list of nodes             | List\<TreeViewNode>  
  **icon()**                                       | Get TreeViewNode icon                      | Icon                
  **expand()**                                     | Expand TreeViewNode                        | void                
  **close()**                                      | Close TreeViewNode                         | void                
@@ -5903,7 +6077,7 @@ Also, there is a **TreeViewNode** that has its own methods.
  **deactivate()**                                 | Deactivate TreeViewNode                    | void                
  **selectCheckbox()**                             | Select TreeViewNode checkbox               | void                
  **select()**                                     | Select TreeViewNode value                  | void                
- **walk(Consumer<? super TreeViewNode> visitor)** | Navigates through TreeViewNodes under node | void                
+ **walk(Consumer\<? super TreeViewNode> visitor)** | Navigates through TreeViewNodes under node | void                
  **checkboxColor()**                              | Get TreeViewNode checkbox color            | String              
 
 In addition, **TreeViewNode** implements IMultiSelector, CanBeSelected, HasCheck, IListSelector<TreeViewNode>,
@@ -5925,9 +6099,9 @@ ISelector, HasRounded, IsShaped, IsLoading, HasColor, HasLabel.
  **fullyMarked()**                                 | Assert that TreeViewNode is fully marked                              
  **isPartlyMarked()**                              | Assert that TreeViewNode is partly marked                             
  **notMarked()**                                   | Assert that TreeViewNode is not marked                                
- **checked(Matcher<? super List<String>> values)** | Assert that required values checked in TreeViewNode                   
+ **checked(Matcher\<? super List\<String>> values)** | Assert that required values checked in TreeViewNode                   
  **checked(String... values)**                     | Assert that only required values are checked in TreeViewNode          
- **checked(List<String> values)**                  | Assert that only required values are checked in TreeViewNode          
+ **checked(List\<String> values)**                  | Assert that only required values are checked in TreeViewNode          
  **color(String color)**                           | Assert that color of TreeViewNode is equal to required color          
  **checkboxColor(String color)**                   | Assert that checkbox color of TreeViewNode is equal to required color 
 
@@ -5937,7 +6111,13 @@ ColorAssert<TreeViewNodeAssert, TreeViewNode>.
 
 For examples of usage see: [JDI Vuetify TreeView tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TreeViewTests.java).
 
-### 5.37 Button (VuetifyButton)
+### 5.36 Button (VuetifyButton)
+
+[Button Vuetify documentation page](https://v2.vuetifyjs.com/en/components/buttons/)
+
+Button is located in the following class:
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.VuetifyButton.java_
 
 ```java
 //@FindBy(css = ".elevation-2")
@@ -5953,7 +6133,7 @@ public void commonButtonsTests() {
   commonButton.has().lightTheme();
   commonButton.click();
   commonButtonState.has().text("Button clicked");
-  }
+}
   
   
 // @FindBy(xpath = "//h2[text()='Depressed Buttons']/following-sibling::button")
@@ -5982,14 +6162,8 @@ public void depressedButtonsTests(int index, boolean enabled, String color, Stri
   button.is().disabled();
   }
   depressedButtonState.has().text("Depressed button clicked: " + name);
-  }
+}
 ```
-
-[Button Vuetify documentation page](https://v2.vuetifyjs.com/en/components/buttons/)
-
-Button is located in the following class:
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.VuetifyButton.java_
 
 __Button__ - the `v-btn` component that replaces the standard html button 
 with a material design theme and a multitude of options. Any color helper 
@@ -6039,7 +6213,7 @@ Available methods in Java JDI Light:
 | **isLoading()**                             | Checks that the button is loading                                          | boolean             |       
 | **color()**                                 | Returns css attribute background-color as String Value                     | String              |
 | **waitFor()**                               | Returns object for work with assertions                                    | VuetifyButtonAssert |
-| **classes()**                               | Gets all element's classes as list                                         | List<String>        |
+| **classes()**                               | Gets all element's classes as list                                         | List\<String>       |
 | **doubleClick()**                           | Double clicks on the element                                               | void                |
 | **dragAndDropTo(int x, int y)**             | Drags and drops element to certain coordinates                             | void                |
 | **dragAndDropTo(WebElement to)**            | Drags and drops element to another element                                 | void                |
@@ -6065,9 +6239,9 @@ Available methods in Java JDI Light:
 | **rightClick()**                            | Right clicks on the element                                                | void                |
 | **setAttribute(String name, String value)** | Sets value to the specified attribute                                      | void                |
 
-[Here you can find Buttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/VuetifyButtonsTests.java).
+[Here you can find Buttons tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/VuetifyButtonsTests.java).
 
-### 5.38 Chips
+### 5.37 Chips
 
 [Chips Vuetify documentation page](https://v2.vuetifyjs.com/en/components/chips/)
 
@@ -6162,7 +6336,7 @@ HasTheme, IsOutlined, HasMeasurement.
 
 For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ChipsTests.java).
 
-### 5.39 Aspect Ratios
+### 5.38 Aspect Ratios
 
 [Aspect Ratios Vuetify documentation page](https://v2.vuetifyjs.com/en/components/aspect-ratios/)
 
@@ -6200,12 +6374,11 @@ Aspect Ratios element contains following methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Aspect Ratios Assert | AspectRatiosAssert
 **ratioValue(double width, double height)** | Ratio of '{name}' has width '{0}' and height '{1}' | double
 
-For examples of usage see: [JDI Vuetify Aspect Ratios tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AspectRatiosTests.java)
+For examples of usage see: [JDI Vuetify Aspect Ratios tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AspectRatiosTests.java)
 
-### 5.40 Badge
+### 5.39 Badge
 
 [Badge Vuetify documentation page](https://v2.vuetifyjs.com/en/components/badges/)
 
@@ -6268,7 +6441,6 @@ Badges element contains following methods:
 
 |Method | Description                       | Return Type
 --- |-----------------------------------| ---
-**is()** | Badge assert                      | BadgeAssert
 **badge()** | Gets '{name}' badge               | UIElement
 **isBordered()** | Checks that '{name}' is bordered  | boolean
 **isInline()** | Checks that '{name}' is inline    | boolean
@@ -6289,15 +6461,17 @@ Badges element contains following methods:
 **backgroundColor()** | Gets '{name}' background color | String
 **image()** | Gets '{name}' image | Image
 
-For examples of usage see:
-[JDI vuetify page tests for Badges](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/BadgesTests.java)
+Badge also implements IsText, IsTile, HasAlignment,HasClick, HasColor, HasIcon, HasImage, HasTheme
 
-### 5.41 Checkbox
+For examples of usage see:
+[JDI vuetify page tests for Badges](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/BadgesTests.java)
+
+### 5.40 Checkbox
 
 [Checkbox Vuetify documentation page](https://v2.vuetifyjs.com/en/components/checkboxes/)
 
 Checkbox is located in the following class:
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.Checkbox.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.VueCheckbox.java_
 
 ```java
     //@FindBy(css = "#ModelArrayCheckboxes .v-input--checkbox")
@@ -6361,22 +6535,22 @@ Checkbox element contains following methods:
 **backgroundColor()** | Gets '{name}' background color               | String
 **labelColor()** | Gets '{name}' label color                    | String
 **isDense()** | Checks that '{name}' is dense                | boolean
-**messages()** | Gets '{name}' messages                       | List<UIElement>
-**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}' | List<UIElement>
-**messagesText()** | Gets '{name}' messages text                  | List<String>
+**messages()** | Gets '{name}' messages                       | List\<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}' | List\<UIElement>
+**messagesText()** | Gets '{name}' messages text                  | List\<String>
 **messagesCount()** | Gets '{name}' messages count                 | int
 **hasErrorMessages()** | Checks that '{name}' has error messages      | boolean
-**errorMessagesText()** | Gets '{name}' error messages                 | List<String>
+**errorMessagesText()** | Gets '{name}' error messages                 | List\<String>
 **errorMessagesCount()** | Gets the number of '{name}' error messages   | int
 **hasSuccessMessages()** | Checks that '{name}' has success messages    | boolean
-**successMessagesText()** | Gets '{name}' success messages | List<String>
+**successMessagesText()** | Gets '{name}' success messages | List\<String>
 **successMessagesCount()** | Get the number of '{name}' success messages | int
 **isReadOnly()** | Check that '{name}' is readonly | boolean
 
 For examples of usage see:
-[JDI vuetify page tests for Checkboxes](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java)
+[JDI vuetify page tests for Checkboxes](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java)
 
-### 5.42 Divider
+### 5.41 Divider
 
 [Divider Vuetify documentation page](https://v2.vuetifyjs.com/en/components/dividers/)
 
@@ -6407,12 +6581,7 @@ Divider is located in the following class:
     }
 ```
 
-__Dividers__ - The `v-divider` component is used to separate sections of lists or layouts.
-
-![Divider example](../../images/vuetify/divider.png)
-
-__Vuetify v2.6.14__ code example:
-
+__Dividers__ - The `v-divider` componen
 ```html
 <hr role="separator" aria-orientation="horizontal" 
     class="v-divider v-divider--inset theme--light">
@@ -6422,16 +6591,14 @@ Dividers element contains following methods:
 
 |Method | Description                   | Return Type
 --- |-------------------------------| ---
-**is()** | Divider assert                | DividerAssert
 **isInset()** | Checks that '{name}' is inset | boolean
-**isVertical()** | Checks that '{name}' is vertical | boolean
 
 For examples of usage see:
-[JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)
+[JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)
 
-### 5.43 Inputs
+### 5.42 Inputs
 
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/images/)
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/inputs/)
 
 Input is located in the following class:
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Input.java_
@@ -6505,15 +6672,15 @@ __Input__ element has following methods:
 **labelText()** | Gets '{name}' label text                              | String
 **isDisabled()** | Checks that '{name}' is disabled                      | boolean
 **isReadOnly()** | Checks that '{name}' is readonly                      | boolean
-**messages()** | Gets '{name}' messages                                | List<UIElement>
-**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}'          | List<UIElement>
-**messagesText()** | Gets '{name}' messages text                           | List<String>
+**messages()** | Gets '{name}' messages                                | List\<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}'          | List\<UIElement>
+**messagesText()** | Gets '{name}' messages text                           | List\<String>
 **messagesCount()** | Gets '{name}' messages count                          | int
 **hasErrorMessages()** | Checks that '{name}' has error messages               | boolean
-**errorMessagesText()** | Gets '{name}' error messages                          | List<String>
+**errorMessagesText()** | Gets '{name}' error messages                          | List\<String>
 **errorMessagesCount()** | Gets the number of '{name}' error messages            | int
 **hasSuccessMessages()** | Checks that '{name}' has success messages             | boolean
-**successMessagesText()** | Gets '{name}' success messages                        | List<String>
+**successMessagesText()** | Gets '{name}' success messages                        | List\<String>
 **successMessagesCount()** | Gets the number of '{name}' success messages          | int
 **isLoading()** | Check that '{name}' is loading                        | boolean
 **color()** | Get '{name}' color                                    | String
@@ -6528,13 +6695,13 @@ __Input__ element has following methods:
 **hasDetailsHidden()** | Checks that '{name}' has details hidden               | boolean
 
 Examples of usage see on the following page:
-[Input tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)
+[Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)
 
-### 5.44 Sheets
+### 5.43 Sheets
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sheets/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.composite.Sheet.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Sheet.java_
 
 ```java
     //@FindBy(css = "#RoundedSheet")
@@ -6571,7 +6738,6 @@ __Vuetify v2.6.14__ code example:
 | Method | Description | Return Type | 
 |:---| :--- |:---|
 **borderRadius()** | Returns sheet border radius in px | int
-**color()** | Returns sheet color (the same as backgroundColour()) | [](overridden method)
 
 | Assert method | Description |
 | :--- | :--- |
@@ -6579,10 +6745,10 @@ __Vuetify v2.6.14__ code example:
 
 Sheet also have basic JDI elements methods and asserts for Text, Color, Elevation, Measurements, Theme and others
 
-For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SheetsTests.java)
+For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SheetsTests.java)
 
 
-### 5.45 Calendars
+### 5.44 Calendars
 
 [Calendars overview](https://v2.vuetifyjs.com/en/components/calendars/)
 
@@ -6599,7 +6765,7 @@ public static void typeWeekCalendarTest(){
   typeWeekCalendar.is().weekly();
   typeWeekCalendar.has().totalNumberOfEvents(3);
   typeWeekCalendar.has().eventTitle(2,"Mash Potatoes");
-  }
+}
 ```
 
 ![Calendars example](../../images/vuetify/calendars.png)
@@ -6690,24 +6856,24 @@ __Vuetify v2.6.14__ code example:
 | :--- |:-----------------------------------------------------------------------| :--- |
 **activeDay()** | Get active date of Calendar                                            | int
 **isDailyType()** | Get if Calendar has daily type                                         | boolean
-**isWeeklyType()** | Get if Calendar has weekly type                                | boolean
-**hasCategories()** | Get if Calendar has categories                                 | boolean
-**hasDayIntervals()** | Get if Calendar has intervals                                  | boolean
-**getCategory(int catNum)** | Get Calendar's required category name                          | String
-**getDayInterval(int intNum)** | Get Calendar's required interval text                          | String
+**isWeeklyType()** | Get if Calendar has weekly type                                        | boolean
+**hasCategories()** | Get if Calendar has categories                                         | boolean
+**hasDayIntervals()** | Get if Calendar has intervals                                          | boolean
+**getCategory(int catNum)** | Get Calendar's required category name                                  | String
+**getDayInterval(int intNum)** | Get Calendar's required interval text                                  | String
 **isToday()** | Check that Calendar has the current day                                | boolean
-**dailyEvent(int eventNum)** | Get Calendar required event summary          | UIElement
-**selectSlot(int week, int day, int slot)** | Select Calendar's slot             | void
-**slotTitle(int week, int day, int slot)** | Get slot's title          | String
+**dailyEvent(int eventNum)** | Get Calendar required event summary                                    | UIElement
+**selectSlot(int week, int day, int slot)** | Select Calendar's slot                                                 | void
+**slotTitle(int week, int day, int slot)** | Get slot's title                                                       | String
 **hasCurrentTimeLine()** | Get if Calendar has current time line                                  | boolean
-**displayedDaysOfMonth()** | Returns a list of  days that are visible now                           | List<WebElement>
+**displayedDaysOfMonth()** | Returns a list of  days that are visible now                           | List\<WebElement>
 **events()** | Returns a list of events that are visible on a Calendar                | WebList
 **intervals()** | Returns a list of intervals of a calendar                              | WebList
 **intervalHeaders()** | Returns a list of intervals headers of a calendar                      | WebList
-**intervalBody()** | Gets a parent interval element that contains all inetrvals of calendar | UIElement
+**intervalBody()** | Gets a parent interval element that contains all intervals of calendar | UIElement
 **dayEvents(int day)** | Returns a list of timed events from a required day                     | WebList
 **calendarDays()** | Returns a list of calendar's days                                      | WebList
-**eventRipple(int eventNumber)** | Gets a required ripple event       | UIElement
+**eventRipple(int eventNumber)** | Gets a required ripple event                                           | UIElement
 
 In addition, Calendar implements HasTheme.
 
@@ -6732,7 +6898,7 @@ In addition, CalendarAssert implements ThemeAssert<CalendarAssert, Calendar>.
 
 For examples of usage see: [JDI vuetify page tests for Calendars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CalendarsTests.java).
 
-### 5.46 Steppers
+### 5.45 Steppers
 
 [Stepper Vuetify documentation page](https://v2.vuetifyjs.com/en/components/steppers/)
 
@@ -6876,7 +7042,7 @@ In addition, Step implements IClickable, HasColor.
 For examples of usage see: [JDI vuetify page tests for steppers](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SteppersTests.java).
 
 
-### 5.47 Grids
+### 5.46 Grids
 
 [Grids Vuetify documentation page](https://v2.vuetifyjs.com/en/components/grids/)
 
@@ -6984,174 +7150,7 @@ __Vuetify v2.6.14__ code example:
 
 For examples of usage see: [JDI vuetify page tests for grids](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/GridsTests.java).
 
-### 5.48 Text Field
-
-[Text Field Vuetify documentation page](https://v2.vuetifyjs.com/en/components/text-fields/)
-
-__Java__:
-- _com.epam.jdi.light.vuetify.elements.complex.TextField.java_
-
-```java
-//@FindBy(css = "#FilledTextField .v-text-field")
-@UI("#FilledTextField .v-text-field")
-public static List<TextField> filledTextField;
-
-@Test (description = "Test checks  filled feature")
-public void filledTextFieldTest() {
-  filledTextField.get(1).show();
-  filledTextField.get(1).is().filled();
-  hideDetailsTextField.get(1).show();
-  hideDetailsTextField.get(1).is().notFilled();
-}
-```
-
-Text fields components are used for collecting user provided information.
-
-![Text field example](../../images/vuetify/textFields.png)
-
-__Vuetify v2.6.14__ code example:
-
-```html
-
-<div class="pa-4 v-sheet theme--light rounded">
-  <form novalidate="novalidate" class="v-form" file="v-text-field/prop-counter">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-12">
-          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
-            <div class="v-input__control">
-              <div class="v-input__slot">
-                <div class="v-text-field__slot">
-                  <label for="input-3840" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Regular</label>
-                  <input id="input-3840" type="text">
-                </div>
-              </div>
-              <div class="v-text-field__details">
-                <div class="v-messages theme--light">
-                  <div class="v-messages__wrapper"></div>
-                </div>
-                <div class="v-counter theme--light">18 / 25</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-12">
-          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
-            <div class="v-input__control">
-              <div class="v-input__slot">
-                <div class="v-text-field__slot">
-                  <label for="input-3843" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Limit exceeded</label>
-                  <input maxlength="25" id="input-3843" type="text">
-                </div>
-              </div>
-              <div class="v-text-field__details">
-                <div class="v-messages theme--light">
-                  <div class="v-messages__wrapper"></div>
-                </div>
-                <div class="v-counter error--text theme--light">50 / 25</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-12">
-          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
-            <div class="v-input__control">
-              <div class="v-input__slot">
-                <div class="v-text-field__slot">
-                  <label for="input-3846" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Custom counter from prop</label>
-                  <input id="input-3846" type="text">
-                </div>
-              </div>
-              <div class="v-text-field__details">
-                <div class="v-messages theme--light">
-                  <div class="v-messages__wrapper"></div>
-                </div>
-                <div class="v-counter theme--light">2 / 5</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-12">
-          <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
-            <div class="v-input__control">
-              <div class="v-input__slot">
-                <div class="v-text-field__slot">
-                  <label for="input-3849" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Custom counter from slot</label>
-                  <input id="input-3849" type="text">
-                </div>
-              </div>
-              <div class="v-text-field__details">
-                <div class="v-messages theme--light">
-                  <div class="v-messages__wrapper"></div>
-                </div>
-                <div class="v-counter theme--light">2 / 5</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
-```
-
-`Text Field` methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**isEnabled()** | Get that text field is enabled | boolean
-**isFocused()** | Get that text field is focused | boolean
-**textInputField()** | Get text input field | UIElement
-**details()** | Get text field details | UIElement
-**slot()** | Get text field slot | UIElement
-**counter()** | Get text field counter | UIElement
-**prefix()** | Get text field prefix | UIElement
-**suffix()** | Get text field suffix | UIElement
-**getIconsByLocator(String locator)** | Get text field icon by locator '{0}' | List\<Icon>
-**prependOuterIcons()** | Get text field prepend outer icons | List\<Icon>
-**prependInnerIcons()** | Get text field prepend inner icons | List\<Icon>
-**appendInnerIcons()** | Get text field append inner icons | List\<Icon>
-**appendOuterIcons()** | Get text field append outer icons | List\<Icon>
-**hasPrependOuterIcon()** | Get if text field has prepend outer icon | boolean
-**hasPrependInnerIcon()** | Get if text field has prepend inner icons | boolean
-**hasAppendInnerIcon()** | Get if text field has append inner icons | boolean
-**hasAppendOuterIcon()** | Get if text field has append outer icons | boolean
-**getPrependOuterIcon()** | Get text field prepend outer icons | Icon
-**getPrependInnerIcon()** | Get text field prepend inner icons | Icon
-**getAppendInnerIcon()** | Get text field append inner icons | Icon
-**getAppendOuterIcon()** | Get text field append outer icons | Icon
-**getTextType()** | Get text type of text field | String
-**hasPlaceholder()** | Get if text field has placeholder | boolean
-**isAutofocus()** | Get if text field is autofocus | boolean
-**loader()** | Get text field loader | ProgressLinear
-**getLoaderHeight()** | Get text field loader height | int
-
-
-In addition, Text Field implements HasLabel, HasPlaceholder, IsInput, HasClick, HasColor, HasIcon, HasMeasurement, HasMessages,
-HasRounded, HasTheme, IsClearable, IsDense, IsFilled, IsFlat, IsLoading, IsOutlined, IsReadOnly, IsReverse, IsShaped, IsSingleLine, 
-IsSolo, IsFullWidth, HasDetailsHidden
-
-| Assert method | Description |
-| :--- | :--- |
-**focused()** | Assert that text field is focused
-**notFocused()** | Assert that text field is not focused
-**textType(String textType)** | Assert that text type of text field is '{0}'
-**placeholder()** | Assert that text field has not placeholder
-**placeholder(String placeholder)** | Assert that text field placeholder is '{0}'
-**counter(int currentCounter, int maxCounter)** | Assert that text field current counter is '{0}' and max counter is '{1}'
-**labelText(String label)** | Assert that text field has label
-**label()** | Assert that text field has label
-**appendOuterIcon()** | Assert that text field has append outer icon
-**appendInnerIcon()** | Assert that text field has append inner icon
-**prependOuterIcon()** | Assert that text field has prepend outer icon
-**prependInnerIcon()** | Assert that text field has prepend inner icon
-**autofocus()** | Assert that text field is autofocus
-**notAutofocus()** | Assert that text field is not autofocus
-**loaderHeightPx(int height)** | Assert that text field has loader height {0}
-
-For examples of usage see: [JDI vuetify page tests for Text Field](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).
-
-### 5.49 OTP Input
+### 5.47 OTP Input
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/otp-input/)
 
@@ -7217,122 +7216,3 @@ ITextAssert<OtpInputAssert>
 
 For examples of usage see: [JDI Vuetify OTP Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OtpInputTests.java)
 
-### 5.50 TextArea
-
-[TextArea Vuetify documentation page](https://v2.vuetifyjs.com/en/components/textareas/)
-
-__Java__:
-- _com.epam.jdi.light.vuetify.elements.complex.TextArea.java_
-
-```java
-//@FindBy(css = "#NoResizeTextarea .v-textarea")
-@UI("#NoResizeTextarea .v-textarea")
-public static TextArea noResizeTextArea;
-
-@Test (description = "Test checks text which was set in textarea")
-public void textInputTextAreaTest() {
-  autoGrowTextArea.show();
-  autoGrowTextArea.has().text("The Woodman set to work at once, and so "
-  + "sharp was his axe that the tree was soon chopped nearly through.");
-  autoGrowTextArea.clear();
-  autoGrowTextArea.setLines("1 row", "2 row", "3 row", "4 row", "5 row");
-  autoGrowTextArea.has().lines("1 row", "2 row", "3 row", "4 row", "5 row");
-}
-```
-
-Textarea components are used for collecting large amounts of textual data.
-
-![TextArea example](../../images/vuetify/textAreas.png)
-
-__Vuetify v2.6.14__ code example:
-
-```html
-
-<div class="v-input v-textarea v-textarea--auto-grow v-textarea--no-resize v-input--is-label-active v-input--is-dirty 
-theme--light v-text-field v-text-field--filled v-text-field--is-booted v-text-field--enclosed">
-  <div class="v-input__control">
-    <div class="v-input__slot">
-      <div class="v-text-field__slot">
-        <label for="input-5565" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position: absolute;">Label</label>
-        <textarea name="input-7-1" id="input-5565" rows="5" style="height: 120px;"></textarea>
-      </div>
-    </div>
-    <div class="v-text-field__details">
-      <div class="v-messages theme--light">
-        <div class="v-messages__wrapper"></div>
-      </div>
-    </div>
-  </div>
-</div>
-```
-
-`TextArea` methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**slot()** | Get textArea slot | UIElement
-**textArea()** | Get textarea | UIElement
-**progress()** | Get textArea loader | ProgressLinear
-**hint()** | Get textArea hint | UIElement
-**details()** | Get textArea details | UIElement
-**prependOuterIcon()** | Get textArea prepend outer icon | Icon
-**hasPrependOuterIcon()** | Get if textArea has prepend outer icon | boolean
-**prependInnerIcon()** | Get textArea prepend inner icon | Icon
-**hasPrependInnerIcon()** | Get if textArea has prepend inner icon | boolean
-**appendOuterIcon()** | Get textArea append outer icon | Icon
-**hasAppendOuterIcon()** | Get if textArea has append outer icon | boolean
-**appendInnerIcon()** | Get textArea append inner icon | Icon
-**hasAppendInnerIcon()** | Get if textArea has append inner icon | boolean
-**counter()** | Get textArea counter | UIElement
-**counterValue()** | Get textArea counter | int
-**getLines()** | Get textArea lines | List\<String>
-**isAutofocus()** | Get if textArea is autofocus | boolean
-**suffix()** | Get textArea suffix | UIElement
-**prefix()** | Get textArea prefix | UIElement
-**setLines(String... lines)** | Set textArea lines '{0}' | void
-**height()** | Get textArea height | int
-**rows()** | Get textArea rows attr | int
-**isAutogrow()** | Get if textArea is autogrow | boolean
-**isNotResizable()** | Get if textArea is not resizable | boolean
-**hasSuffix()** | Get if textArea has suffix | boolean
-**hasPrefix()** | Get if textArea has prefix | boolean
-**hasPlaceholder()** | Get if textArea has placeholder | boolean
-**isReversed()** | Get if textArea is reversed | boolean
-**getLoaderHeight()** | Get textArea loader height | int
-
-In addition, TextArea implements HasLabel, HasPlaceholder, HasIcon, IsVuetifyInput, HasColor, HasMeasurement, HasMessages, HasRounded, HasTheme,
-IsClearable, IsDense, IsFilled, IsFlat, IsLoading, IsOutlined, IsReadOnly, IsShaped, IsSingleLine, IsSolo, IsFullWidth, HasDetailsHidden
-
-| Assert method | Description |
-| :--- | :--- |
-**text(String text)** | Assert that textArea has text '{0}'
-**autoGrow()** | Assert that textArea is auto grow
-**notAutoGrow()** | Assert that textArea is not auto grow
-**notResizable()** | Assert that textArea is not resizable
-**resizable()** | Assert that textArea rows count is {0}
-**lines(Matcher<? super List<String>> condition)** | Assert that textArea has lines {0}
-**lines(String... lines)** | Assert that textArea has lines {0}
-**label()** | Assert that textArea has label
-**suffix()** | Assert that textArea has suffix
-**notSuffix()** | Assert that textArea has not suffix
-**prefix()** | Assert that textArea has prefix
-**notPrefix()** | Assert that textArea has not prefix
-**icon()** | Assert that textArea has icon
-**notIcon()** | Assert that textArea has not icon
-**prependOuterIcon()** | Assert that textArea has prepend outer icon
-**prependInnerIcon()** | Assert that textArea has prepend inner icon
-**appendOuterIcon()** | Assert that textArea has append outer icon
-**appendInnerIcon()** | Assert that textArea has append inner icon
-**placeholder()** | Assert that textArea has placeholder
-**notPlaceholder()** | Assert that textArea has not placeholder
-**placeholderText(String text)** | Assert that textArea has placeholder text '{0}'
-**counterValue(int n)** | Assert that textArea has counter value '{0}'
-**autofocus()** | Assert that textArea is autofocused
-**notAutofocus()** | Assert that textArea is not autofocus
-**reversed()** | Assert that textArea is reversed
-**notReversed()** | Assert that textArea is not reversed
-**loaderHeightPx(int height)** | Assert that textArea has loader height {0}
-**hint(String msg)** | Assert that textArea hint message is '{0}'
-**hint(Matcher<String> condition)** | Assert that textArea hint message is '{0}'
-
-For examples of usage see: [JDI vuetify page tests for TextArea](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java).

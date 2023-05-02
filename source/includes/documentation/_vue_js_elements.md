@@ -57,7 +57,7 @@ __Vuetify v2.6.14__ code example:
 
 | Assert method | Description |
 | :--- | :--- |
-**text(Matcher<String condition)** | Asserts if alert text matches provided matcher
+**text(Matcher\<String> condition)** | Asserts if alert text matches provided matcher
 **dismissible()** or **hasCloseButton()** | Asserts if alert has close button
 **notDismissible()** or **hasNotCloseButton()** | Asserts if alert has no close button
 **prominent()** | Asserts if alert is prominent and has halo for icon
@@ -271,36 +271,32 @@ public void thresholdBarTest(){
 __Vuetify v2.6.14__ code example:
 
 ```html
-<header
-  class="v-sheet theme--dark v-toolbar v-toolbar--absolute v-toolbar--prominent v-app-bar v-app-bar--fade-img-on-scroll v-app-bar--shrink-on-scroll"
-  data-booted="true"
-  style="height: 128px; font-size: 1.5rem; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px; background-color: rgb(67, 160, 71); border-color: rgb(67, 160, 71);">
+<header class="v-sheet theme--dark v-toolbar v-toolbar--absolute v-toolbar--prominent v-app-bar v-app-bar--fade-img-on-scroll v-app-bar--shrink-on-scroll" data-booted="true" style="height: 128px; font-size: 1.5rem; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px; background-color: rgb(67, 160, 71); border-color: rgb(67, 160, 71);">
   <div class="v-toolbar__image" style="opacity: 1;">
     <div class="v-image v-responsive theme--dark" style="height: 128px;">
       <div class="v-responsive__sizer" style="padding-bottom: 56.25%;"></div>
-      <div class="v-image__image v-image__image--cover"
-           style="background-image: linear-gradient(to right top, rgba(55, 236, 186, 0.7), rgba(25, 32, 72, 0.7)), url(&quot;https://jdi-testing.github.io/jdi-light/vuetify/pictures/foggy_city_1080.jpeg&quot;); background-position: center center;"></div>
+      <div class="v-image__image v-image__image--cover" style="background-image: linear-gradient(to right top, rgba(55, 236, 186, 0.7), rgba(25, 32, 72, 0.7)), url(&quot;https://jdi-testing.github.io/jdi-light/vuetify/pictures/foggy_city_1080.jpeg&quot;); background-position: center center;"></div>
       <div class="v-responsive__content" style="width: 1920px;"></div>
     </div>
   </div>
   <div class="v-toolbar__content" style="height: 128px;">
-    <button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
-      class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--dark"></i></span>
+    <button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+        <span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--dark"></i></span>
     </button>
     <div class="v-toolbar__title v-app-bar-title">
       <div class="v-app-bar-title__content" style="width: 47px; visibility: visible;">Title</div>
       <div class="v-app-bar-title__placeholder" style="visibility: hidden;">Title</div>
     </div>
     <div class="spacer"></div>
-    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
-      class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark"></i></span>
+    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+        <span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark"></i></span>
     </button>
-    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
-      class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--dark"></i></span>
+    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+        <span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--dark"></i></span>
     </button>
-    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span
-      class="v-btn__content"><i aria-hidden="true"
-                                class="v-icon notranslate mdi mdi-dots-vertical theme--dark"></i></span></button>
+    <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default">
+        <span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--dark"></i></span>
+    </button>
   </div>
 </header>
 ```
@@ -372,19 +368,23 @@ __Vuetify v2.6.14__ code example:
 
 ```html
 <div class="v-system-bar v-system-bar--fixed theme--light green" id="system-bar-app" style="height: 30px;">
-  <button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
-    class="v-btn__content"><i aria-hidden="true"
-                              class="v-icon notranslate mdi mdi-menu theme--light"></i></span>
+  <button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default">
+      <span class="v-btn__content">
+          <i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--light"></i>
+      </span>
   </button>
   <div class="v-toolbar__title">App system bar title</div>
   <div class="spacer"></div>
-  <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
-    class="v-btn__content"><i aria-hidden="true"
-                              class="v-icon notranslate mdi mdi-heart theme--light"></i></span>
+  <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default">
+      <span class="v-btn__content">
+          <i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--light"></i>
+      </span>
   </button>
-  <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
-    class="v-btn__content"><i aria-hidden="true"
-                              class="v-icon notranslate mdi mdi-dots-vertical theme--light"></i></span></button>
+  <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default">
+      <span class="v-btn__content">
+          <i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light"></i>
+      </span>
+  </button>
 </div>
 ```
 
@@ -435,23 +435,27 @@ __Vuetify v2.6.14__ code example:
 ```html
 <header class="v-sheet theme--light v-toolbar v-toolbar--dense" style="height: 48px;">
     <div class="v-toolbar__content" style="height: 48px;">
-        <button type="button"
-                class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
-                class="v-btn__content"><i aria-hidden="true"
-                                          class="v-icon notranslate mdi mdi-menu theme--light"></i></span>
+        <button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default">
+            <span class="v-btn__content">
+                <i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--light"></i>
+            </span>
         </button>
         <div class="v-toolbar__title">Title</div>
         <div class="spacer"></div>
-        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
-                class="v-btn__content"><i aria-hidden="true"
-                                          class="v-icon notranslate mdi mdi-magnify theme--light"></i></span>
+        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default">
+            <span class="v-btn__content">
+                <i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--light"></i>
+            </span>
         </button>
-        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
-                class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--light"></i></span>
+        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default">
+            <span class="v-btn__content">
+                <i aria-hidden="true" class="v-icon notranslate mdi mdi-heart theme--light"></i>
+            </span>
         </button>
-        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span
-                class="v-btn__content"><i aria-hidden="true"
-                                          class="v-icon notranslate mdi mdi-dots-vertical theme--light"></i></span>
+        <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default">
+            <span class="v-btn__content">
+                <i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-vertical theme--light"></i>
+            </span>
         </button>
     </div>
 </header>
@@ -606,8 +610,8 @@ __Vuetify v2.6.14__ code example:
 ```
 Breadcrumbs has the following methods:
 
-|Method                           | Description                      | Return Type
-----------------------------------| ------------------------ --------|-----------------------------------
+|Method | Description                                | Return Type
+--- |--------------------------------------------| ---
 **selected()**                    | Returns selected element                       | String
 **selected(String)**              | Shows that required element is selected        | String
 **dividers()**                    | Returns element's dividers                     | WebList
@@ -2673,6 +2677,9 @@ For examples of usage see: [Item Groups tests](https://github.com/jdi-testing/jd
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.ListItemGroups.java_
 
+
+  ![List item groups example](../../images/vuetify/list-item.png)
+
 ```java
     //@FindBy(css = "#ActiveClassListItemGroup .v-list-item")
     @UI("#ActiveClassListItemGroup .v-list-item")
@@ -2681,11 +2688,7 @@ For examples of usage see: [Item Groups tests](https://github.com/jdi-testing/jd
     //@FindBy(css = "#MandatoryListItemGroup .v-list-item")
     @UI("#MandatoryListItemGroup .v-list-item")
     public static List<ListItemGroups> mandatoryListItemGroup;
-  ```
 
-  ![List item groups example](../../images/vuetify/list-item.png)
-
-```java
     @Test(description = "Test checks if list item is active or not")
     public void activeClassListItemGroupTest() {
         for (int element = 1; element <= activeClassListItemGroup.size(); element++) {
@@ -4135,10 +4138,10 @@ __Vuetify v2.6.14__ code example:
 </div>
 ```
 
-| Method | Description                                            | Return Type |
-| :--- |:-------------------------------------------------------| :--- |
-**item(int childIndex)** | Gets a Card From Data Iterator Table by required index | SubheaderAssert
-**headers()** | Gets Data Iterator Table's header                      | List\<ToolBar>
+| Method | Description                                             | Return Type |
+| :--- |:--------------------------------------------------------| :--- |
+**item(int childIndex)** | Gets an item From Data Iterator Table by required index | T
+**headers()** | Gets Data Iterator Table's header                       | List\<ToolBar>
 
 In addition, there are methods sortDesc(),sortAsc() inside FilterDataIterator.java. 
 Also, DataIterator class implements IsContainer, ISetup.
@@ -5380,15 +5383,13 @@ For examples of usage see: [JDI Vuetify DatePickers tests](https://github.com/jd
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.DatePickerMonth.java_
 
-```java
-    //@FindBy(css = "#ColorsMonthPicker > div:nth-child(1)")
-    @JDatePickerMonth(root = "#ColorsMonthPicker > div:nth-child(1)")
-    public static DatePickerMonth firstColorMonthPicker;
-```
-
 It is **necessary** to specify **the root** of an element. Also, if you work with expandable date pickers - month (such as picker in menu, picker in dialog etc), you have to define **expandedRoot**. This is the root of element after expansion is done.
 
 ```java
+//@FindBy(css = "#ColorsMonthPicker > div:nth-child(1)")
+@JDatePickerMonth(root = "#ColorsMonthPicker > div:nth-child(1)")
+public static DatePickerMonth firstColorMonthPicker;
+
 @Test(description = "Change date month picker test")
 public void changeDateMonthPickerTest() {
     firstColorMonthPicker.show();
@@ -5902,8 +5903,8 @@ v-parallax element has following methods:
 **content()**    | Checks if elements in content section is not empty                                        | ParallaxAssert
 **noContent()**  | Checks if elements in content section is empty                                            | ParallaxAssert
 
-
-<a href=https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java">Java test examples</a>
+For examples of usage
+see: [JDI vuetify page tests for Parallax](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java)
 
 ### 5.35 TreeView
 
@@ -5957,8 +5958,7 @@ __Vuetify v2.6.14__ code example:
 <div class="v-treeview theme--light" id="ActivatableTreeview">
     <div aria-expanded="false" class="v-treeview-node">
         <div class="v-treeview-node__root">
-            <button type="button"
-                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light">
+            <button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light">
             </button>
             <div class="v-treeview-node__content">
                 <div class="v-treeview-node__label">Applications :</div>
@@ -5967,8 +5967,7 @@ __Vuetify v2.6.14__ code example:
     </div>
     <div aria-expanded="true" class="v-treeview-node">
         <div class="v-treeview-node__root">
-            <button type="button"
-                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open">
+            <button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open">
             </button>
             <div class="v-treeview-node__content">
                 <div class="v-treeview-node__label">Documents :</div>
@@ -5978,8 +5977,7 @@ __Vuetify v2.6.14__ code example:
             <div aria-expanded="true" class="v-treeview-node">
                 <div class="v-treeview-node__root">
                     <div class="v-treeview-node__level"></div>
-                    <button type="button"
-                            class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open">
+                    <button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open">
                     </button>
                     <div class="v-treeview-node__content">
                         <div class="v-treeview-node__label">vuetify :</div>
@@ -5990,8 +5988,7 @@ __Vuetify v2.6.14__ code example:
                         <div class="v-treeview-node__root">
                             <div class="v-treeview-node__level"></div>
                             <div class="v-treeview-node__level"></div>
-                            <button type="button"
-                                    class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open">
+                            <button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light v-treeview-node__toggle--open">
                             </button>
                             <div class="v-treeview-node__content">
                                 <div class="v-treeview-node__label">src :</div>
@@ -6277,6 +6274,7 @@ This component is used by the `v-chip-group` for advanced selection options.
 ![Chip example](../../images/vuetify/chip.png)
 
 __Vuetify v2.6.14__ code example:
+
 ```html
 <div class="text-center" id="ColoredChip">
   <span class="ma-2 v-chip v-chip--no-color theme--light v-size--default">
@@ -6344,6 +6342,7 @@ For examples of usage see: [JDI Vuetify Chip tests](https://github.com/jdi-testi
     //@FindBy(css = ".v-responsive")
     @UI(".v-responsive")
     public static AspectRatios aspectRatiosContainer;
+
     @Test(description = "Test checks aspect ration of an element")
     public void aspectRatioImageTests() {
         aspectRatiosContainer.has().ratio(16, 9);
@@ -6581,7 +6580,8 @@ Divider is located in the following class:
     }
 ```
 
-__Dividers__ - The `v-divider` componen
+__Vuetify v2.6.14__ code example:
+
 ```html
 <hr role="separator" aria-orientation="horizontal" 
     class="v-divider v-divider--inset theme--light">
@@ -7211,7 +7211,7 @@ In addition, **OtpInput** implements HasTheme, IsReadOnly, IsText, IsInput
 **notPlain()** | Check that OtpInput is not plain
 **type(String expectedType)** | Check that OtpInput has expectedType
 
-In addition, **RangeSliderAssert** implements ThemeAssert<OtpInputAssert, OtpInput>, ReadOnlyAssert<OtpInputAssert, OtpInput>,
+In addition, **OtpInputAssert** implements ThemeAssert<OtpInputAssert, OtpInput>, ReadOnlyAssert<OtpInputAssert, OtpInput>,
 ITextAssert<OtpInputAssert>
 
 For examples of usage see: [JDI Vuetify OTP Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OtpInputTests.java)

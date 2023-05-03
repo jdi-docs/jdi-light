@@ -1362,7 +1362,7 @@ HideDetailsAssert<RangeSliderAssert, RangeSlider>, LoadingAssert<RangeSliderAsse
 
 For examples of usage see: [JDI Vuetify Range sliders tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RangeSlidersTests.java)
 
-#### 5.12.3 Slider
+#### 5.12.3 Sliders
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sliders/)
 
@@ -2393,6 +2393,196 @@ __Vuetify v2.6.14__ code example:
 
 For examples of usage see: [JDI Vuetify Autocompletes tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AutocompletesTests.java).
 
+#### 5.12.13 Checkboxes
+
+[Checkbox Vuetify documentation page](https://v2.vuetifyjs.com/en/components/checkboxes/)
+
+Checkbox is located in the following class:
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.VueCheckbox.java_
+
+```java
+    //@FindBy(css = "#ModelArrayCheckboxes .v-input--checkbox")
+    @UI("#ModelArrayCheckboxes > .v-input--checkbox")
+    @WaitAfterAction(1)
+    public static List<VueCheckbox> modelAsArrayCheckboxes;
+
+    @Test(description = "Test checks checkbox labels, and array texts")
+    public void modelAsArrayCheckboxesTest() {
+        modelAsArrayCheckboxes.get(1).is().checked();
+        modelAsArrayCheckboxes.get(2).is().unchecked();
+        modelArray.has().text("[ \"" + modelAsArrayCheckboxes.get(1).labelText() + "\" ]");
+        modelAsArrayCheckboxes.get(2).check();
+        modelArray.has().text("[ \"John\", \"Jacob\" ]");
+        modelAsArrayCheckboxes.get(1).uncheck();
+        modelArray.has().text("[ \"Jacob\" ]");
+        modelAsArrayCheckboxes.get(2).uncheck();
+        modelArray.has().text("[]");
+    }
+```
+__Checkboxes__ - The `v-checkbox` component provides users the ability to choose between two distinct values.
+These are very similar to a switch and can be used in complex forms and checklists.
+A simpler version, `v-simple-checkbox` is used primarily as a lightweight alternative in data-table components to select rows or display inline boolean data.
+
+![Checkbox example](../../images/vuetify/checkbox.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox red--text">
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-input--selection-controls__input">
+        <i aria-hidden="true" class="v-icon notranslate mdi mdi-checkbox-marked theme--light red--text"></i>
+        <input aria-checked="true" id="input-661" role="checkbox" type="checkbox" value="red">
+        <div class="v-input--selection-controls__ripple red--text"></div>
+      </div>
+      <label for="input-661" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">red</label>
+    </div>
+  </div>
+</div>
+```
+
+Checkbox element contains following methods:
+
+|Method | Description                                  | Return Type
+--- |----------------------------------------------| ---
+**is()** | Checkbox assert                              | CheckboxAssert
+**check()** | Checks '{name}'                              | void
+**uncheck()** | Unchecks '{name}'                            | void
+**isChecked()** | Checks that '{name}' is checked              | boolean
+**isUnchecked()** | Checks that '{name}' is not selected         | boolean
+**isDisabled()** | Checks that '{name}' is disabled             | boolean
+**isEnabled()** | Checks that '{name}' is enabled              | boolean
+**label()** | Gets '{name}' label                          | Label
+**labelText()** | Gets '{name}' label text                     | String
+**isIndeterminate()** | Checks that '{name}' is indeterminate        | boolean
+**isSuccess()** | Checks that '{name}' is success              | boolean
+**isError()** | Checks that '{name}' is error                | boolean
+**color()** | Gets '{name}' color                          | String
+**backgroundColor()** | Gets '{name}' background color               | String
+**labelColor()** | Gets '{name}' label color                    | String
+**isDense()** | Checks that '{name}' is dense                | boolean
+**messages()** | Gets '{name}' messages                       | List\<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}' | List\<UIElement>
+**messagesText()** | Gets '{name}' messages text                  | List\<String>
+**messagesCount()** | Gets '{name}' messages count                 | int
+**hasErrorMessages()** | Checks that '{name}' has error messages      | boolean
+**errorMessagesText()** | Gets '{name}' error messages                 | List\<String>
+**errorMessagesCount()** | Gets the number of '{name}' error messages   | int
+**hasSuccessMessages()** | Checks that '{name}' has success messages    | boolean
+**successMessagesText()** | Gets '{name}' success messages | List\<String>
+**successMessagesCount()** | Get the number of '{name}' success messages | int
+**isReadOnly()** | Check that '{name}' is readonly | boolean
+
+For examples of usage see:
+[JDI vuetify page tests for Checkboxes](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java)
+
+
+#### 5.12.14 Inputs
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/inputs/)
+
+Input is located in the following class:
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Input.java_
+
+```java
+    @FindBy(xpath = "//form[@id='HideDetailsInput']/div[2]")
+    @UI("//form[@id='HideDetailsInput']/div[2]")
+    public static Input hideDetailsAnotherInput;
+
+    @Test(description = "Test checks type text feature")
+    public void typeTextInputTest() {
+        String textToType = "Some text";
+        hideDetailsAnotherInput.show();
+        hideDetailsAnotherInput.hasTextField();
+        hideDetailsAnotherInput.typeText(textToType);
+        hideDetailsAnotherInput.has().typedText();
+        hideDetailsAnotherInput.has().typedText(textToType);
+    }
+```
+
+__Input__ - The v-input component gives you a baseline to create your own custom inputs. It consists of a prepend/append slot, messages, and a default slot.
+
+![Input example](../../images/vuetify/input.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-input v-input--has-state theme--light error--text" id="ErrorCountInput2" errors="">
+  <div class="v-input__control">
+    <div class="v-input__slot">Input</div>
+    <div class="v-messages theme--light error--text" role="alert">
+      <div class="v-messages__wrapper">
+        <div class="v-messages__message">error1</div>
+        <div class="v-messages__message">error2</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+__Input__ element implements following interfaces: HasLabel, IsReadOnly, HasMessages, IsLoading, HasColor, HasTheme, HasMeasurement, IsDense, HasDetailsHidden.
+
+__Input__ element has following methods:
+
+|Method | Description                                           | Return Type
+--- |-------------------------------------------------------| ---
+**is()** | Input Assert                                          | InputAssert
+**hasTextField()** | Checks that '{name}' has text field                   | boolean
+**typeText(String text)** | Types text into '{name}' input field                  | void
+**clearAndTypeText(String text)** | Clears '{name}' text field and type text into it      | void
+**hasTypedText()** | Checks that '{name}' has typed text in the text field | boolean
+**getTypedText()** | Gets '{name}' typed text                              | String
+**hasTextInSlot()** | Checks that '{name}' has text in slot                 | boolean
+**getTextInSlot()** | Gets '{name}' text from slot                          | String
+**clearTextField()** | Clears '{name}' text field                            | void
+**isFocused()** | Checks that '{name}' is focused                       | boolean
+**hasPrependOuterIcon()** | Checks that '{name}' has prepend outer icon           | boolean
+**clickOnPrependOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
+**hasPrependInnerIcon()** | Checks that '{name}' has prepend inner icon           | boolean
+**clickOnPrependInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
+**hasAppendOuterIcon()** | Checks that '{name}' has append outer icon            | boolean
+**clickOnAppendOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
+**hasAppendInnerIcon()** | Checks that '{name}' has append inner icon            | boolean
+**clickOnAppendInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
+**hasSwitch()** | Checks that '{name}' has switch                       | boolean
+**switchIsChecked()** | Checks that '{name}' switch is checked                | boolean
+**checkSwitch()** | Checks '{name}' switch                                | void
+**uncheckSwitch()** | Unchecks '{name}' switch                              | void
+**label()** | Gets '{name}' label                                   | Label
+**hasLabel()** | Checks that '{name}' has label                        | Boolean
+**labelText()** | Gets '{name}' label text                              | String
+**isDisabled()** | Checks that '{name}' is disabled                      | boolean
+**isReadOnly()** | Checks that '{name}' is readonly                      | boolean
+**messages()** | Gets '{name}' messages                                | List\<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}'          | List\<UIElement>
+**messagesText()** | Gets '{name}' messages text                           | List\<String>
+**messagesCount()** | Gets '{name}' messages count                          | int
+**hasErrorMessages()** | Checks that '{name}' has error messages               | boolean
+**errorMessagesText()** | Gets '{name}' error messages                          | List\<String>
+**errorMessagesCount()** | Gets the number of '{name}' error messages            | int
+**hasSuccessMessages()** | Checks that '{name}' has success messages             | boolean
+**successMessagesText()** | Gets '{name}' success messages                        | List\<String>
+**successMessagesCount()** | Gets the number of '{name}' success messages          | int
+**isLoading()** | Check that '{name}' is loading                        | boolean
+**color()** | Get '{name}' color                                    | String
+**backgroundColor()** | Get '{name}' background color                         | String
+**height()** | Gets '{name}' height                                  | int
+**width()** | Gets '{name}' width                                   | int
+**maxHeight()** | Gets '{name}' max height                              | int
+**maxWidth()** | Gets '{name}' max width                               | int
+**minHeight()** | Gets '{name}' min height                              | int
+**minWidth()** | Gets '{name}' min width                               | int
+**isDense()** | Checks that '{name}' is dense                         | boolean
+**hasDetailsHidden()** | Checks that '{name}' has details hidden               | boolean
+
+Examples of usage see on the following page:
+[Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)
+
+
+#### 5.12.15 Otpinput
 
 ### 5.13 Groups 
 
@@ -6481,95 +6671,13 @@ Badge also implements IsText, IsTile, HasAlignment,HasClick, HasColor, HasIcon, 
 For examples of usage see:
 [JDI vuetify page tests for Badges](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/BadgesTests.java)
 
-### 5.40 Checkbox
 
-[Checkbox Vuetify documentation page](https://v2.vuetifyjs.com/en/components/checkboxes/)
-
-Checkbox is located in the following class:
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.VueCheckbox.java_
-
-```java
-    //@FindBy(css = "#ModelArrayCheckboxes .v-input--checkbox")
-    @UI("#ModelArrayCheckboxes > .v-input--checkbox")
-    @WaitAfterAction(1)
-    public static List<VueCheckbox> modelAsArrayCheckboxes;
-
-    @Test(description = "Test checks checkbox labels, and array texts")
-    public void modelAsArrayCheckboxesTest() {
-        modelAsArrayCheckboxes.get(1).is().checked();
-        modelAsArrayCheckboxes.get(2).is().unchecked();
-        modelArray.has().text("[ \"" + modelAsArrayCheckboxes.get(1).labelText() + "\" ]");
-        modelAsArrayCheckboxes.get(2).check();
-        modelArray.has().text("[ \"John\", \"Jacob\" ]");
-        modelAsArrayCheckboxes.get(1).uncheck();
-        modelArray.has().text("[ \"Jacob\" ]");
-        modelAsArrayCheckboxes.get(2).uncheck();
-        modelArray.has().text("[]");
-    }
-```
-__Checkboxes__ - The `v-checkbox` component provides users the ability to choose between two distinct values.
-These are very similar to a switch and can be used in complex forms and checklists.
-A simpler version, `v-simple-checkbox` is used primarily as a lightweight alternative in data-table components to select rows or display inline boolean data.
-
-![Checkbox example](../../images/vuetify/checkbox.png)
-
-__Vuetify v2.6.14__ code example:
-
-```html
-<div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox red--text">
-  <div class="v-input__control">
-    <div class="v-input__slot">
-      <div class="v-input--selection-controls__input">
-        <i aria-hidden="true" class="v-icon notranslate mdi mdi-checkbox-marked theme--light red--text"></i>
-        <input aria-checked="true" id="input-661" role="checkbox" type="checkbox" value="red">
-        <div class="v-input--selection-controls__ripple red--text"></div>
-      </div>
-      <label for="input-661" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">red</label>
-    </div>
-  </div>
-</div>
-```
-
-Checkbox element contains following methods:
-
-|Method | Description                                  | Return Type
---- |----------------------------------------------| ---
-**is()** | Checkbox assert                              | CheckboxAssert
-**check()** | Checks '{name}'                              | void
-**uncheck()** | Unchecks '{name}'                            | void
-**isChecked()** | Checks that '{name}' is checked              | boolean
-**isUnchecked()** | Checks that '{name}' is not selected         | boolean
-**isDisabled()** | Checks that '{name}' is disabled             | boolean
-**isEnabled()** | Checks that '{name}' is enabled              | boolean
-**label()** | Gets '{name}' label                          | Label
-**labelText()** | Gets '{name}' label text                     | String
-**isIndeterminate()** | Checks that '{name}' is indeterminate        | boolean
-**isSuccess()** | Checks that '{name}' is success              | boolean
-**isError()** | Checks that '{name}' is error                | boolean
-**color()** | Gets '{name}' color                          | String
-**backgroundColor()** | Gets '{name}' background color               | String
-**labelColor()** | Gets '{name}' label color                    | String
-**isDense()** | Checks that '{name}' is dense                | boolean
-**messages()** | Gets '{name}' messages                       | List\<UIElement>
-**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}' | List\<UIElement>
-**messagesText()** | Gets '{name}' messages text                  | List\<String>
-**messagesCount()** | Gets '{name}' messages count                 | int
-**hasErrorMessages()** | Checks that '{name}' has error messages      | boolean
-**errorMessagesText()** | Gets '{name}' error messages                 | List\<String>
-**errorMessagesCount()** | Gets the number of '{name}' error messages   | int
-**hasSuccessMessages()** | Checks that '{name}' has success messages    | boolean
-**successMessagesText()** | Gets '{name}' success messages | List\<String>
-**successMessagesCount()** | Get the number of '{name}' success messages | int
-**isReadOnly()** | Check that '{name}' is readonly | boolean
-
-For examples of usage see:
-[JDI vuetify page tests for Checkboxes](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java)
-
-### 5.41 Divider
+### 5.40 Divider
 
 [Divider Vuetify documentation page](https://v2.vuetifyjs.com/en/components/dividers/)
 
 Divider is located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Divider.java_
 
 ```java
@@ -6612,108 +6720,7 @@ Dividers element contains following methods:
 For examples of usage see:
 [JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)
 
-### 5.42 Inputs
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/inputs/)
-
-Input is located in the following class:
-- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Input.java_
-
-```java
-    @FindBy(xpath = "//form[@id='HideDetailsInput']/div[2]")
-    @UI("//form[@id='HideDetailsInput']/div[2]")
-    public static Input hideDetailsAnotherInput;
-
-    @Test(description = "Test checks type text feature")
-    public void typeTextInputTest() {
-        String textToType = "Some text";
-        hideDetailsAnotherInput.show();
-        hideDetailsAnotherInput.hasTextField();
-        hideDetailsAnotherInput.typeText(textToType);
-        hideDetailsAnotherInput.has().typedText();
-        hideDetailsAnotherInput.has().typedText(textToType);
-    }
-```
-
-__Input__ - The v-input component gives you a baseline to create your own custom inputs. It consists of a prepend/append slot, messages, and a default slot.
-
-![Input example](../../images/vuetify/input.png)
-
-__Vuetify v2.6.14__ code example:
-
-```html
-<div class="v-input v-input--has-state theme--light error--text" id="ErrorCountInput2" errors="">
-  <div class="v-input__control">
-    <div class="v-input__slot">Input</div>
-    <div class="v-messages theme--light error--text" role="alert">
-      <div class="v-messages__wrapper">
-        <div class="v-messages__message">error1</div>
-        <div class="v-messages__message">error2</div>
-      </div>
-    </div>
-  </div>
-</div>
-```
-
-__Input__ element implements following interfaces: HasLabel, IsReadOnly, HasMessages, IsLoading, HasColor, HasTheme, HasMeasurement, IsDense, HasDetailsHidden.
-
-__Input__ element has following methods:
-
-|Method | Description                                           | Return Type
---- |-------------------------------------------------------| ---
-**is()** | Input Assert                                          | InputAssert
-**hasTextField()** | Checks that '{name}' has text field                   | boolean
-**typeText(String text)** | Types text into '{name}' input field                  | void
-**clearAndTypeText(String text)** | Clears '{name}' text field and type text into it      | void
-**hasTypedText()** | Checks that '{name}' has typed text in the text field | boolean
-**getTypedText()** | Gets '{name}' typed text                              | String
-**hasTextInSlot()** | Checks that '{name}' has text in slot                 | boolean
-**getTextInSlot()** | Gets '{name}' text from slot                          | String
-**clearTextField()** | Clears '{name}' text field                            | void
-**isFocused()** | Checks that '{name}' is focused                       | boolean
-**hasPrependOuterIcon()** | Checks that '{name}' has prepend outer icon           | boolean
-**clickOnPrependOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
-**hasPrependInnerIcon()** | Checks that '{name}' has prepend inner icon           | boolean
-**clickOnPrependInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
-**hasAppendOuterIcon()** | Checks that '{name}' has append outer icon            | boolean
-**clickOnAppendOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
-**hasAppendInnerIcon()** | Checks that '{name}' has append inner icon            | boolean
-**clickOnAppendInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
-**hasSwitch()** | Checks that '{name}' has switch                       | boolean
-**switchIsChecked()** | Checks that '{name}' switch is checked                | boolean
-**checkSwitch()** | Checks '{name}' switch                                | void
-**uncheckSwitch()** | Unchecks '{name}' switch                              | void
-**label()** | Gets '{name}' label                                   | Label
-**hasLabel()** | Checks that '{name}' has label                        | Boolean
-**labelText()** | Gets '{name}' label text                              | String
-**isDisabled()** | Checks that '{name}' is disabled                      | boolean
-**isReadOnly()** | Checks that '{name}' is readonly                      | boolean
-**messages()** | Gets '{name}' messages                                | List\<UIElement>
-**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}'          | List\<UIElement>
-**messagesText()** | Gets '{name}' messages text                           | List\<String>
-**messagesCount()** | Gets '{name}' messages count                          | int
-**hasErrorMessages()** | Checks that '{name}' has error messages               | boolean
-**errorMessagesText()** | Gets '{name}' error messages                          | List\<String>
-**errorMessagesCount()** | Gets the number of '{name}' error messages            | int
-**hasSuccessMessages()** | Checks that '{name}' has success messages             | boolean
-**successMessagesText()** | Gets '{name}' success messages                        | List\<String>
-**successMessagesCount()** | Gets the number of '{name}' success messages          | int
-**isLoading()** | Check that '{name}' is loading                        | boolean
-**color()** | Get '{name}' color                                    | String
-**backgroundColor()** | Get '{name}' background color                         | String
-**height()** | Gets '{name}' height                                  | int
-**width()** | Gets '{name}' width                                   | int
-**maxHeight()** | Gets '{name}' max height                              | int
-**maxWidth()** | Gets '{name}' max width                               | int
-**minHeight()** | Gets '{name}' min height                              | int
-**minWidth()** | Gets '{name}' min width                               | int
-**isDense()** | Checks that '{name}' is dense                         | boolean
-**hasDetailsHidden()** | Checks that '{name}' has details hidden               | boolean
-
-Examples of usage see on the following page:
-[Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)
-
-### 5.43 Sheets
+### 5.41 Sheets
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sheets/)
 
@@ -6764,7 +6771,7 @@ Sheet also have basic JDI elements methods and asserts for Text, Color, Elevatio
 For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SheetsTests.java)
 
 
-### 5.44 Calendars
+### 5.42 Calendars
 
 [Calendars overview](https://v2.vuetifyjs.com/en/components/calendars/)
 
@@ -6800,8 +6807,7 @@ __Vuetify v2.6.14__ code example:
         <div class="v-calendar-daily_head-day v-past">
             <div class="v-calendar-daily_head-weekday">Sun</div>
             <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
+                <button type="button" class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
                     <span class="v-btn__content">6</span>
                 </button>
             </div>
@@ -6810,8 +6816,7 @@ __Vuetify v2.6.14__ code example:
         <div class="v-calendar-daily_head-day v-present">
             <div class="v-calendar-daily_head-weekday primary--text">Tue</div>
             <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default primary">
+                <button type="button" class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default primary">
                     <span class="v-btn__content">8</span>
                 </button>
             </div>
@@ -6819,8 +6824,7 @@ __Vuetify v2.6.14__ code example:
         <div class="v-calendar-daily_head-day v-future">
             <div class="v-calendar-daily_head-weekday">Wed</div>
             <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
+                <button type="button" class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
                     <span class="v-btn__content">9</span>
                 </button>
             </div>
@@ -6852,8 +6856,7 @@ __Vuetify v2.6.14__ code example:
                         <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
                         <...>
                         <div class="v-event-timed-container">
-                            <div class="v-event-timed primary white--text"
-                                 style="top: 600px; height: 144px; left: 0%; width: 100%;">
+                            <div class="v-event-timed primary white--text" style="top: 600px; height: 144px; left: 0%; width: 100%;">
                                 <div class="pl-1">
                                     <span class="v-event-summary"><strong>Mash Potatoes</strong><br>12:30 PM - 3:30 PM</span>
                                 </div>
@@ -6914,11 +6917,12 @@ In addition, CalendarAssert implements ThemeAssert<CalendarAssert, Calendar>.
 
 For examples of usage see: [JDI vuetify page tests for Calendars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CalendarsTests.java).
 
-### 5.45 Steppers
+### 5.43 Steppers
 
 [Stepper Vuetify documentation page](https://v2.vuetifyjs.com/en/components/steppers/)
 
 __Java__:
+
 - _com.epam.jdi.light.vuetify.elements.complex.stepper.Stepper.java_
 - _com.epam.jdi.light.vuetify.elements.complex.stepper.Step.java_
 
@@ -7058,11 +7062,12 @@ In addition, Step implements IClickable, HasColor.
 For examples of usage see: [JDI vuetify page tests for steppers](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SteppersTests.java).
 
 
-### 5.46 Grids
+### 5.44 Grids
 
 [Grids Vuetify documentation page](https://v2.vuetifyjs.com/en/components/grids/)
 
 __Java__:
+
 - _com.epam.jdi.light.vuetify.elements.complex.Grid.java_
 
 ```java
@@ -7166,7 +7171,7 @@ __Vuetify v2.6.14__ code example:
 
 For examples of usage see: [JDI vuetify page tests for grids](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/GridsTests.java).
 
-### 5.47 OTP Input
+### 5.45 OTP Input
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/otp-input/)
 

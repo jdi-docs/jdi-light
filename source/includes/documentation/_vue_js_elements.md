@@ -1159,9 +1159,12 @@ __Vuetify v2.6.14__ code example:
           <div class="v-select__selections"><input id="input-635" readonly="readonly" type="text"></div>
           <div class="v-input__append-inner">
             <div class="v-input__icon v-input__icon--append">
-              <span aria-hidden="true" class="v-icon notranslate theme--light"><svg
-              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg"><path
-              d="M7,10L12,15L17,10H7Z"></path></svg></span></div>
+              <span aria-hidden="true" class="v-icon notranslate theme--light">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                      <path d="M7,10L12,15L17,10H7Z"></path>
+                  </svg>
+              </span>
+            </div>
           </div>
           <input type="hidden"></div>
         <div class="v-menu"><!----></div>
@@ -1518,8 +1521,7 @@ For examples of usage see: [JDI Vuetify Switch tests](https://github.com/jdi-tes
 
 [Text Field Vuetify documentation page](https://v2.vuetifyjs.com/en/components/text-fields/)
 
-__Java__:
-- _com.epam.jdi.light.vuetify.elements.complex.TextField.java_
+__Java__: _com.epam.jdi.light.vuetify.elements.complex.TextField.java_
 
 ```java
 //@FindBy(css = "#FilledTextField .v-text-field")
@@ -1685,8 +1687,7 @@ For examples of usage see: [JDI vuetify page tests for Text Field](https://githu
 
 [TextArea Vuetify documentation page](https://v2.vuetifyjs.com/en/components/textareas/)
 
-__Java__:
-- _com.epam.jdi.light.vuetify.elements.complex.TextArea.java_
+__Java__: _com.epam.jdi.light.vuetify.elements.complex.TextArea.java_
 
 ```java
 //@FindBy(css = "#NoResizeTextarea .v-textarea")
@@ -2582,7 +2583,71 @@ Examples of usage see on the following page:
 [Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)
 
 
-#### 5.12.15 Otpinput
+#### 5.12.15 OTP input
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/otp-input/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.OtpInput.java_
+
+```java
+//@FindBy(css = "#PlainOtpInput .v-otp-input")
+@UI("#PlainOtpInput .v-otp-input")
+public static OtpInput plainOtpInput;
+
+@Test(description = "Test checks entered values of plain otp")
+public void typeValuesOtpInputTest() {
+  plainOtpInput.clear();
+  plainOtpInput.typeValues(Arrays.asList("1", "2", "3", "4", "5"));
+  plainOtpInput.has().text("12345");
+}
+```
+
+The OTP input is used for MFA procedure of authenticating users by a one-time password.
+
+![OTP Input example](../../images/vuetify/otpInput.png)
+
+```html
+
+<div data-v-1cf3c16a="" file="v-otp-input/misc-loading">
+  <div data-v-1cf3c16a="" class="ma-auto position-relative" style="max-width: 300px;">
+    <div data-v-1cf3c16a="" class="v-otp-input theme--light">
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+    </div>
+    <div data-v-1cf3c16a="" class="v-overlay v-overlay--absolute theme--dark" style="z-index: 5;">
+      <div class="v-overlay__scrim" style="opacity: 0; background-color: rgb(33, 33, 33); border-color: rgb(33, 33, 33);"></div>
+    </div>
+  </div>
+</div>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**inputs()** | Returns OtpInput inputs | List\<TextField>
+**length()** | Returns OtpInput length | int
+**isPlain()** | Returns if OtpInput is plain | boolean
+**type()** | Returns OtpInput type | String
+**typeValues(List<String> inputValues)** | Type values to OtpInput | void
+**getText()** | Returns value of OtpInput | String
+
+In addition, **OtpInput** implements HasTheme, IsReadOnly, IsText, IsInput
+
+| Assert method | Description |
+| :--- | :--- |
+**length(int expectedLength)** | Check that OtpInput has expectedLength
+**plain()** | Check that OtpInput is plain
+**notPlain()** | Check that OtpInput is not plain
+**type(String expectedType)** | Check that OtpInput has expectedType
+
+In addition, **OtpInputAssert** implements ThemeAssert<OtpInputAssert, OtpInput>, ReadOnlyAssert<OtpInputAssert, OtpInput>,
+ITextAssert<OtpInputAssert>
+
+For examples of usage see: [JDI Vuetify OTP Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OtpInputTests.java)
+
 
 ### 5.13 Groups 
 
@@ -3627,6 +3692,7 @@ public void valueRatingTest() {
 //@FindBy(css = "#CardRatingsRating .v-rating")
 @JDIRating(root = "#CardRatingsRating .v-rating")
 public static Rating cardRatingsRating;
+
 //@FindBy(xpath = ""//*[@id='ClearableRating']/following-sibling::div[contains(@class, 'v-rating')]")
 @JDIRating(root = "//*[@id='ClearableRating']/following-sibling::div[contains(@class, 'v-rating')]")
 public static Rating clearableRating;
@@ -6219,8 +6285,7 @@ __Vuetify v2.6.14__ code example:
             <div aria-expanded="false" class="v-treeview-node">
                 <div class="v-treeview-node__root">
                     <div class="v-treeview-node__level"></div>
-                    <button type="button"
-                            class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light">
+                    <button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light">
                     </button>
                     <div class="v-treeview-node__content">
                         <div class="v-treeview-node__label">material2 :</div>
@@ -7170,70 +7235,4 @@ __Vuetify v2.6.14__ code example:
 
 
 For examples of usage see: [JDI vuetify page tests for grids](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/GridsTests.java).
-
-### 5.45 OTP Input
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/otp-input/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.OtpInput.java_
-
-```java
-//@FindBy(css = "#PlainOtpInput .v-otp-input")
-@UI("#PlainOtpInput .v-otp-input")
-public static OtpInput plainOtpInput;
-
-@Test(description = "Test checks entered values of plain otp")
-public void typeValuesOtpInputTest() {
-  plainOtpInput.clear();
-  plainOtpInput.typeValues(Arrays.asList("1", "2", "3", "4", "5"));
-  plainOtpInput.has().text("12345");
-}
-```
-
-The OTP input is used for MFA procedure of authenticating users by a one-time password.
-
-![OTP Input example](../../images/vuetify/otpInput.png)
-
-```html
-
-<div data-v-1cf3c16a="" file="v-otp-input/misc-loading">
-  <div data-v-1cf3c16a="" class="ma-auto position-relative" style="max-width: 300px;">
-    <div data-v-1cf3c16a="" class="v-otp-input theme--light">
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-    </div>
-    <div data-v-1cf3c16a="" class="v-overlay v-overlay--absolute theme--dark" style="z-index: 5;">
-      <div class="v-overlay__scrim"
-           style="opacity: 0; background-color: rgb(33, 33, 33); border-color: rgb(33, 33, 33);"></div>
-    </div>
-  </div>
-</div>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**inputs()** | Returns OtpInput inputs | List\<TextField>
-**length()** | Returns OtpInput length | int
-**isPlain()** | Returns if OtpInput is plain | boolean
-**type()** | Returns OtpInput type | String
-**typeValues(List<String> inputValues)** | Type values to OtpInput | void
-**getText()** | Returns value of OtpInput | String
-
-In addition, **OtpInput** implements HasTheme, IsReadOnly, IsText, IsInput
-
-| Assert method | Description |
-| :--- | :--- |
-**length(int expectedLength)** | Check that OtpInput has expectedLength
-**plain()** | Check that OtpInput is plain
-**notPlain()** | Check that OtpInput is not plain
-**type(String expectedType)** | Check that OtpInput has expectedType
-
-In addition, **OtpInputAssert** implements ThemeAssert<OtpInputAssert, OtpInput>, ReadOnlyAssert<OtpInputAssert, OtpInput>,
-ITextAssert<OtpInputAssert>
-
-For examples of usage see: [JDI Vuetify OTP Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OtpInputTests.java)
 

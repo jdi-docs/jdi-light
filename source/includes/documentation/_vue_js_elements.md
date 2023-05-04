@@ -174,11 +174,9 @@ __Vuetify v2.6.14__ code example:
             </div>
         </div>
         <div class="v-banner__actions">
-            <button type="button"
-                    class="v-btn v-btn--text theme--light v-size--default deep-purple--text text--accent-4"><span
-                    class="v-btn__content">
-        Get Online
-      </span></button>
+            <button type="button" class="v-btn v-btn--text theme--light v-size--default deep-purple--text text--accent-4">
+                <span class="v-btn__content">Get Online</span>
+            </button>
         </div>
     </div>
 </div>
@@ -201,7 +199,7 @@ single-line and multi-line (implicit). These can have icons which you can use wi
 **notSticky()** | Assert that Banner is not sticky
 **icon()** | Assert that Banner has icon
 **notIcon()** | Assert that Banner has not icon
-**numberOfButtons(int n)** | Assert that Banner's number of buttons equals to required number
+**numberOfButtons(int)** | Assert that Banner's number of buttons equals to required number
 
 In addition, Banner class implements IsText, HasRounded, IsTile, IsShaped, IsOutlined, HasTheme, HasElevation,
 HasColor, IsSingleLine, HasIcon, MayContainButtons.
@@ -554,6 +552,7 @@ For examples of usage see: [JDI vuetify page tests for Bottom Navigation](https:
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/breadcrumbs/)
 
 Breadcrumbs is located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.breadcrumbs.Breadcrumbs.java_
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.breadcrumbs.Breadcrumb.java_
 
@@ -760,24 +759,25 @@ __Vuetify v2.6.14__ code example:
                     <div class="v-input__slot" style="height: auto;">
                         <div role="radiogroup" aria-labelledby="input-163" class="v-input--radio-group__input">
                             <div class="v-radio theme--light">
-                                <div class="v-input--selection-controls__input"><i aria-hidden="true"
-                                                                                   class="v-icon notranslate mdi mdi-radiobox-blank theme--light"></i><input
-                                        aria-checked="false" id="input-164" role="radio" type="radio" name="radio-163"
-                                        value="bahamas">
+                                <div class="v-input--selection-controls__input">
+                                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-radiobox-blank theme--light">
+                                        
+                                    </i>
+                                    <input aria-checked="false" id="input-164" role="radio" type="radio" name="radio-163" value="bahamas">
                                     <div class="v-input--selection-controls__ripple"></div>
                                 </div>
                                 <label for="input-164" class="v-label theme--light"
                                        style="left: 0px; right: auto; position: relative;">Bahamas,
                                     The</label></div>
                             <div class="v-radio theme--light">
-                                <div class="v-input--selection-controls__input"><i aria-hidden="true"
-                                                                                   class="v-icon notranslate mdi mdi-radiobox-blank theme--light"></i><input
-                                        aria-checked="false" id="input-166" role="radio" type="radio" name="radio-163"
-                                        value="bahrain">
+                                <div class="v-input--selection-controls__input">
+                                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-radiobox-blank theme--light">
+                                        
+                                    </i>
+                                    <input aria-checked="false" id="input-166" role="radio" type="radio" name="radio-163" value="bahrain">
                                     <div class="v-input--selection-controls__ripple"></div>
                                 </div>
-                                <label for="input-166" class="v-label theme--light"
-                                       style="left: 0px; right: auto; position: relative;">Bahrain</label>
+                                <label for="input-166" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">Bahrain</label>
                             </div>
                             <...>
                         </div>
@@ -790,14 +790,16 @@ __Vuetify v2.6.14__ code example:
         </div>
         <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
         <div class="v-card__actions">
-            <button type="button" class="v-btn v-btn--text theme--light v-size--default blue--text text--darken-1"><span
-                    class="v-btn__content">
+            <button type="button" class="v-btn v-btn--text theme--light v-size--default blue--text text--darken-1">
+                <span class="v-btn__content">
                     Close
-                </span></button>
-            <button type="button" class="v-btn v-btn--text theme--light v-size--default blue--text text--darken-1"><span
-                    class="v-btn__content">
+                </span>
+            </button>
+            <button type="button" class="v-btn v-btn--text theme--light v-size--default blue--text text--darken-1">
+                <span class="v-btn__content">
                     Save
-                </span></button>
+                </span>
+            </button>
         </div>
     </div>
 </div>
@@ -842,6 +844,7 @@ For examples of usage see: [JDI vuetify page tests for dialogs](https://github.c
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/expansion-panels/)
 
 __Java__:
+
 - _com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanels.java_
 - _com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanel.java_
 
@@ -1156,9 +1159,12 @@ __Vuetify v2.6.14__ code example:
           <div class="v-select__selections"><input id="input-635" readonly="readonly" type="text"></div>
           <div class="v-input__append-inner">
             <div class="v-input__icon v-input__icon--append">
-              <span aria-hidden="true" class="v-icon notranslate theme--light"><svg
-              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg"><path
-              d="M7,10L12,15L17,10H7Z"></path></svg></span></div>
+              <span aria-hidden="true" class="v-icon notranslate theme--light">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                      <path d="M7,10L12,15L17,10H7Z"></path>
+                  </svg>
+              </span>
+            </div>
           </div>
           <input type="hidden"></div>
         <div class="v-menu"><!----></div>
@@ -1359,7 +1365,7 @@ HideDetailsAssert<RangeSliderAssert, RangeSlider>, LoadingAssert<RangeSliderAsse
 
 For examples of usage see: [JDI Vuetify Range sliders tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RangeSlidersTests.java)
 
-#### 5.12.3 Slider
+#### 5.12.3 Sliders
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sliders/)
 
@@ -1437,6 +1443,7 @@ For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-te
 [Switches Vuetify documentation page](https://v2.vuetifyjs.com/en/components/switches/)
 
 Switches are located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Switch.java_
 
 ```java
@@ -1514,8 +1521,7 @@ For examples of usage see: [JDI Vuetify Switch tests](https://github.com/jdi-tes
 
 [Text Field Vuetify documentation page](https://v2.vuetifyjs.com/en/components/text-fields/)
 
-__Java__:
-- _com.epam.jdi.light.vuetify.elements.complex.TextField.java_
+__Java__: _com.epam.jdi.light.vuetify.elements.complex.TextField.java_
 
 ```java
 //@FindBy(css = "#FilledTextField .v-text-field")
@@ -1681,8 +1687,7 @@ For examples of usage see: [JDI vuetify page tests for Text Field](https://githu
 
 [TextArea Vuetify documentation page](https://v2.vuetifyjs.com/en/components/textareas/)
 
-__Java__:
-- _com.epam.jdi.light.vuetify.elements.complex.TextArea.java_
+__Java__: _com.epam.jdi.light.vuetify.elements.complex.TextArea.java_
 
 ```java
 //@FindBy(css = "#NoResizeTextarea .v-textarea")
@@ -1949,6 +1954,7 @@ For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/j
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/combobox/)
 
 Comboboxes are located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Combobox.java_
 
 ```java
@@ -2068,6 +2074,7 @@ For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-t
 [Selects Vuetify documentation page](https://v2.vuetifyjs.com/en/components/selects/)
 
 Selects are located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Select.java_
 
 ```java
@@ -2148,6 +2155,7 @@ For examples of usage see: [JDI Vuetify Select tests](https://github.com/jdi-tes
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/file-inputs/)
 
 File inputs are located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.FileInput.java_
 
 ```java
@@ -2258,6 +2266,7 @@ Please, follow the link for [Forms overview](https://jdi-docs.github.io/jdi-ligh
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/autocompletes/)
 
 Autocomplete elements are located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Autocomplete.java_
 
 ```java
@@ -2384,6 +2393,260 @@ __Vuetify v2.6.14__ code example:
 
 
 For examples of usage see: [JDI Vuetify Autocompletes tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AutocompletesTests.java).
+
+#### 5.12.13 Checkboxes
+
+[Checkbox Vuetify documentation page](https://v2.vuetifyjs.com/en/components/checkboxes/)
+
+Checkbox is located in the following class:
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.VueCheckbox.java_
+
+```java
+    //@FindBy(css = "#ModelArrayCheckboxes .v-input--checkbox")
+    @UI("#ModelArrayCheckboxes > .v-input--checkbox")
+    @WaitAfterAction(1)
+    public static List<VueCheckbox> modelAsArrayCheckboxes;
+
+    @Test(description = "Test checks checkbox labels, and array texts")
+    public void modelAsArrayCheckboxesTest() {
+        modelAsArrayCheckboxes.get(1).is().checked();
+        modelAsArrayCheckboxes.get(2).is().unchecked();
+        modelArray.has().text("[ \"" + modelAsArrayCheckboxes.get(1).labelText() + "\" ]");
+        modelAsArrayCheckboxes.get(2).check();
+        modelArray.has().text("[ \"John\", \"Jacob\" ]");
+        modelAsArrayCheckboxes.get(1).uncheck();
+        modelArray.has().text("[ \"Jacob\" ]");
+        modelAsArrayCheckboxes.get(2).uncheck();
+        modelArray.has().text("[]");
+    }
+```
+__Checkboxes__ - The `v-checkbox` component provides users the ability to choose between two distinct values.
+These are very similar to a switch and can be used in complex forms and checklists.
+A simpler version, `v-simple-checkbox` is used primarily as a lightweight alternative in data-table components to select rows or display inline boolean data.
+
+![Checkbox example](../../images/vuetify/checkbox.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox red--text">
+  <div class="v-input__control">
+    <div class="v-input__slot">
+      <div class="v-input--selection-controls__input">
+        <i aria-hidden="true" class="v-icon notranslate mdi mdi-checkbox-marked theme--light red--text"></i>
+        <input aria-checked="true" id="input-661" role="checkbox" type="checkbox" value="red">
+        <div class="v-input--selection-controls__ripple red--text"></div>
+      </div>
+      <label for="input-661" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">red</label>
+    </div>
+  </div>
+</div>
+```
+
+Checkbox element contains following methods:
+
+|Method | Description                                  | Return Type
+--- |----------------------------------------------| ---
+**is()** | Checkbox assert                              | CheckboxAssert
+**check()** | Checks '{name}'                              | void
+**uncheck()** | Unchecks '{name}'                            | void
+**isChecked()** | Checks that '{name}' is checked              | boolean
+**isUnchecked()** | Checks that '{name}' is not selected         | boolean
+**isDisabled()** | Checks that '{name}' is disabled             | boolean
+**isEnabled()** | Checks that '{name}' is enabled              | boolean
+**label()** | Gets '{name}' label                          | Label
+**labelText()** | Gets '{name}' label text                     | String
+**isIndeterminate()** | Checks that '{name}' is indeterminate        | boolean
+**isSuccess()** | Checks that '{name}' is success              | boolean
+**isError()** | Checks that '{name}' is error                | boolean
+**color()** | Gets '{name}' color                          | String
+**backgroundColor()** | Gets '{name}' background color               | String
+**labelColor()** | Gets '{name}' label color                    | String
+**isDense()** | Checks that '{name}' is dense                | boolean
+**messages()** | Gets '{name}' messages                       | List\<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}' | List\<UIElement>
+**messagesText()** | Gets '{name}' messages text                  | List\<String>
+**messagesCount()** | Gets '{name}' messages count                 | int
+**hasErrorMessages()** | Checks that '{name}' has error messages      | boolean
+**errorMessagesText()** | Gets '{name}' error messages                 | List\<String>
+**errorMessagesCount()** | Gets the number of '{name}' error messages   | int
+**hasSuccessMessages()** | Checks that '{name}' has success messages    | boolean
+**successMessagesText()** | Gets '{name}' success messages | List\<String>
+**successMessagesCount()** | Get the number of '{name}' success messages | int
+**isReadOnly()** | Check that '{name}' is readonly | boolean
+
+For examples of usage see:
+[JDI vuetify page tests for Checkboxes](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java)
+
+
+#### 5.12.14 Inputs
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/inputs/)
+
+Input is located in the following class:
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Input.java_
+
+```java
+    @FindBy(xpath = "//form[@id='HideDetailsInput']/div[2]")
+    @UI("//form[@id='HideDetailsInput']/div[2]")
+    public static Input hideDetailsAnotherInput;
+
+    @Test(description = "Test checks type text feature")
+    public void typeTextInputTest() {
+        String textToType = "Some text";
+        hideDetailsAnotherInput.show();
+        hideDetailsAnotherInput.hasTextField();
+        hideDetailsAnotherInput.typeText(textToType);
+        hideDetailsAnotherInput.has().typedText();
+        hideDetailsAnotherInput.has().typedText(textToType);
+    }
+```
+
+__Input__ - The v-input component gives you a baseline to create your own custom inputs. It consists of a prepend/append slot, messages, and a default slot.
+
+![Input example](../../images/vuetify/input.png)
+
+__Vuetify v2.6.14__ code example:
+
+```html
+<div class="v-input v-input--has-state theme--light error--text" id="ErrorCountInput2" errors="">
+  <div class="v-input__control">
+    <div class="v-input__slot">Input</div>
+    <div class="v-messages theme--light error--text" role="alert">
+      <div class="v-messages__wrapper">
+        <div class="v-messages__message">error1</div>
+        <div class="v-messages__message">error2</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+__Input__ element implements following interfaces: HasLabel, IsReadOnly, HasMessages, IsLoading, HasColor, HasTheme, HasMeasurement, IsDense, HasDetailsHidden.
+
+__Input__ element has following methods:
+
+|Method | Description                                           | Return Type
+--- |-------------------------------------------------------| ---
+**is()** | Input Assert                                          | InputAssert
+**hasTextField()** | Checks that '{name}' has text field                   | boolean
+**typeText(String text)** | Types text into '{name}' input field                  | void
+**clearAndTypeText(String text)** | Clears '{name}' text field and type text into it      | void
+**hasTypedText()** | Checks that '{name}' has typed text in the text field | boolean
+**getTypedText()** | Gets '{name}' typed text                              | String
+**hasTextInSlot()** | Checks that '{name}' has text in slot                 | boolean
+**getTextInSlot()** | Gets '{name}' text from slot                          | String
+**clearTextField()** | Clears '{name}' text field                            | void
+**isFocused()** | Checks that '{name}' is focused                       | boolean
+**hasPrependOuterIcon()** | Checks that '{name}' has prepend outer icon           | boolean
+**clickOnPrependOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
+**hasPrependInnerIcon()** | Checks that '{name}' has prepend inner icon           | boolean
+**clickOnPrependInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
+**hasAppendOuterIcon()** | Checks that '{name}' has append outer icon            | boolean
+**clickOnAppendOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
+**hasAppendInnerIcon()** | Checks that '{name}' has append inner icon            | boolean
+**clickOnAppendInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
+**hasSwitch()** | Checks that '{name}' has switch                       | boolean
+**switchIsChecked()** | Checks that '{name}' switch is checked                | boolean
+**checkSwitch()** | Checks '{name}' switch                                | void
+**uncheckSwitch()** | Unchecks '{name}' switch                              | void
+**label()** | Gets '{name}' label                                   | Label
+**hasLabel()** | Checks that '{name}' has label                        | Boolean
+**labelText()** | Gets '{name}' label text                              | String
+**isDisabled()** | Checks that '{name}' is disabled                      | boolean
+**isReadOnly()** | Checks that '{name}' is readonly                      | boolean
+**messages()** | Gets '{name}' messages                                | List\<UIElement>
+**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}'          | List\<UIElement>
+**messagesText()** | Gets '{name}' messages text                           | List\<String>
+**messagesCount()** | Gets '{name}' messages count                          | int
+**hasErrorMessages()** | Checks that '{name}' has error messages               | boolean
+**errorMessagesText()** | Gets '{name}' error messages                          | List\<String>
+**errorMessagesCount()** | Gets the number of '{name}' error messages            | int
+**hasSuccessMessages()** | Checks that '{name}' has success messages             | boolean
+**successMessagesText()** | Gets '{name}' success messages                        | List\<String>
+**successMessagesCount()** | Gets the number of '{name}' success messages          | int
+**isLoading()** | Check that '{name}' is loading                        | boolean
+**color()** | Get '{name}' color                                    | String
+**backgroundColor()** | Get '{name}' background color                         | String
+**height()** | Gets '{name}' height                                  | int
+**width()** | Gets '{name}' width                                   | int
+**maxHeight()** | Gets '{name}' max height                              | int
+**maxWidth()** | Gets '{name}' max width                               | int
+**minHeight()** | Gets '{name}' min height                              | int
+**minWidth()** | Gets '{name}' min width                               | int
+**isDense()** | Checks that '{name}' is dense                         | boolean
+**hasDetailsHidden()** | Checks that '{name}' has details hidden               | boolean
+
+Examples of usage see on the following page:
+[Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)
+
+
+#### 5.12.15 OTP input
+
+[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/otp-input/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.OtpInput.java_
+
+```java
+//@FindBy(css = "#PlainOtpInput .v-otp-input")
+@UI("#PlainOtpInput .v-otp-input")
+public static OtpInput plainOtpInput;
+
+@Test(description = "Test checks entered values of plain otp")
+public void typeValuesOtpInputTest() {
+  plainOtpInput.clear();
+  plainOtpInput.typeValues(Arrays.asList("1", "2", "3", "4", "5"));
+  plainOtpInput.has().text("12345");
+}
+```
+
+The OTP input is used for MFA procedure of authenticating users by a one-time password.
+
+![OTP Input example](../../images/vuetify/otpInput.png)
+
+```html
+
+<div data-v-1cf3c16a="" file="v-otp-input/misc-loading">
+  <div data-v-1cf3c16a="" class="ma-auto position-relative" style="max-width: 300px;">
+    <div data-v-1cf3c16a="" class="v-otp-input theme--light">
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
+    </div>
+    <div data-v-1cf3c16a="" class="v-overlay v-overlay--absolute theme--dark" style="z-index: 5;">
+      <div class="v-overlay__scrim" style="opacity: 0; background-color: rgb(33, 33, 33); border-color: rgb(33, 33, 33);"></div>
+    </div>
+  </div>
+</div>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**inputs()** | Returns OtpInput inputs | List\<TextField>
+**length()** | Returns OtpInput length | int
+**isPlain()** | Returns if OtpInput is plain | boolean
+**type()** | Returns OtpInput type | String
+**typeValues(List<String> inputValues)** | Type values to OtpInput | void
+**getText()** | Returns value of OtpInput | String
+
+In addition, **OtpInput** implements HasTheme, IsReadOnly, IsText, IsInput
+
+| Assert method | Description |
+| :--- | :--- |
+**length(int expectedLength)** | Check that OtpInput has expectedLength
+**plain()** | Check that OtpInput is plain
+**notPlain()** | Check that OtpInput is not plain
+**type(String expectedType)** | Check that OtpInput has expectedType
+
+In addition, **OtpInputAssert** implements ThemeAssert<OtpInputAssert, OtpInput>, ReadOnlyAssert<OtpInputAssert, OtpInput>,
+ITextAssert<OtpInputAssert>
+
+For examples of usage see: [JDI Vuetify OTP Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OtpInputTests.java)
 
 
 ### 5.13 Groups 
@@ -3429,6 +3692,7 @@ public void valueRatingTest() {
 //@FindBy(css = "#CardRatingsRating .v-rating")
 @JDIRating(root = "#CardRatingsRating .v-rating")
 public static Rating cardRatingsRating;
+
 //@FindBy(xpath = ""//*[@id='ClearableRating']/following-sibling::div[contains(@class, 'v-rating')]")
 @JDIRating(root = "//*[@id='ClearableRating']/following-sibling::div[contains(@class, 'v-rating')]")
 public static Rating clearableRating;
@@ -3804,13 +4068,15 @@ __Vuetify v2.6.14__ code example:
             <tr>
                 <th role="columnheader" scope="col" aria-label="Dessert (100g serving)" class="text-start"><span>Dessert (100g serving)</span>
                 </th>
-                <th role="columnheader" scope="col" aria-label="Calories: Not sorted. Activate to sort ascending."
-                    aria-sort="none" class="text-start sortable"><span>Calories</span><span aria-hidden="true"
-                                                                                            class="v-icon notranslate v-data-table-header__icon theme--light"
-                                                                                            style="font-size: 18px; height: 18px; width: 18px;"><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                        class="v-icon__svg" style="font-size: 18px; height: 18px; width: 18px;"><path
-                        d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path></svg></span>
+                <th role="columnheader" scope="col" aria-label="Calories: Not sorted. Activate to sort ascending." aria-sort="none" class="text-start sortable">
+                    <span>Calories</span>
+                    <span aria-hidden="true" class="v-icon notranslate v-data-table-header__icon theme--light" style="font-size: 18px; height: 18px; width: 18px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg" style="font-size: 18px; height: 18px; width: 18px;">
+                            <path d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z">
+                                
+                            </path>
+                        </svg>
+                    </span>
                 </th>
                 <th> <...>
                 </th>
@@ -3835,19 +4101,22 @@ __Vuetify v2.6.14__ code example:
         <div class="v-data-footer__select">Rows per page:
             <div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted v-select">
                 <div class="v-input__control">
-                    <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-2478"
-                         class="v-input__slot">
+                    <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-2478" class="v-input__slot">
                         <div class="v-select__slot">
                             <div class="v-select__selections">
                                 <div class="v-select__selection v-select__selection--comma">5</div>
-                                <input aria-label="Rows per page:" id="input-2478" readonly="readonly" type="text"
-                                       aria-readonly="false" autocomplete="off"></div>
+                                <input aria-label="Rows per page:" id="input-2478" readonly="readonly" type="text" aria-readonly="false" autocomplete="off">
+                            </div>
                             <div class="v-input__append-inner">
-                                <div class="v-input__icon v-input__icon--append"><span aria-hidden="true"
-                                                                                       class="v-icon notranslate theme--light"><svg
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img"
-                                        aria-hidden="true" class="v-icon__svg"><path
-                                        d="M7,10L12,15L17,10H7Z"></path></svg></span></div>
+                                <div class="v-input__icon v-input__icon--append">
+                                    <span aria-hidden="true" class="v-icon notranslate theme--light">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                                            <path d="M7,10L12,15L17,10H7Z">
+                                                
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </div>
                             </div>
                             <input type="hidden" value="5"></div>
                         <div class="v-menu"><!----></div>
@@ -3857,21 +4126,30 @@ __Vuetify v2.6.14__ code example:
         </div>
         <div class="v-data-footer__pagination">1-5 of 10</div>
         <div class="v-data-footer__icons-before">
-            <button type="button" disabled="disabled"
-                    class="v-btn v-btn--disabled v-btn--icon v-btn--round v-btn--text theme--light v-size--default"
-                    aria-label="Previous page"><span class="v-btn__content"><span aria-hidden="true"
-                                                                                  class="v-icon notranslate theme--light"><svg
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                    class="v-icon__svg"><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"></path></svg></span></span>
+            <button type="button" disabled="disabled" class="v-btn v-btn--disabled v-btn--icon v-btn--round v-btn--text theme--light v-size--default" aria-label="Previous page">
+                <span class="v-btn__content">
+                    <span aria-hidden="true" class="v-icon notranslate theme--light">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                            <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z">
+                                
+                            </path>
+                        </svg>
+                    </span>
+                </span>
             </button>
         </div>
         <div class="v-data-footer__icons-after">
-            <button type="button" class="v-btn v-btn--icon v-btn--round v-btn--text theme--light v-size--default"
-                    aria-label="Next page"><span class="v-btn__content"><span aria-hidden="true"
-                                                                              class="v-icon notranslate theme--light"><svg
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                    class="v-icon__svg"><path
-                    d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg></span></span></button>
+            <button type="button" class="v-btn v-btn--icon v-btn--round v-btn--text theme--light v-size--default" aria-label="Next page">
+                <span class="v-btn__content">
+                    <span aria-hidden="true" class="v-icon notranslate theme--light">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
+                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z">
+                                
+                            </path>
+                        </svg>
+                    </span>
+                </span>
+            </button>
         </div>
     </div>
 </div>
@@ -3990,13 +4268,14 @@ __Vuetify v2.6.14__ code example:
                     <div class="v-input__control">
                         <div class="v-input__slot">
                             <div class="v-input__prepend-inner">
-                                <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true"
-                                                                                           class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
+                                <div class="v-input__icon v-input__icon--prepend-inner">
+                                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
                                 </div>
                             </div>
-                            <div class="v-text-field__slot"><label for="input-1019" class="v-label theme--dark"
-                                                                   style="left: 0px; right: auto; position: absolute;">Search</label><input
-                                    id="input-1019" type="text"></div>
+                            <div class="v-text-field__slot">
+                                <label for="input-1019" class="v-label theme--dark" style="left: 0px; right: auto; position: absolute;">Search</label>
+                                <input id="input-1019" type="text">
+                            </div>
                             <div class="v-input__append-inner">
                                 <div></div>
                             </div>
@@ -4006,38 +4285,39 @@ __Vuetify v2.6.14__ code example:
                 <div class="spacer"></div>
                 <div class="v-input v-input--hide-details theme--dark v-text-field v-text-field--single-line v-text-field--solo v-text-field--solo-inverted v-text-field--solo-flat v-text-field--is-booted v-text-field--enclosed v-select">
                     <div class="v-input__control">
-                        <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-1021"
-                             class="v-input__slot">
+                        <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-1021" class="v-input__slot">
                             <div class="v-input__prepend-inner">
-                                <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true"
-                                                                                           class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
+                                <div class="v-input__icon v-input__icon--prepend-inner">
+                                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--dark"></i>
                                 </div>
                             </div>
-                            <div class="v-select__slot"><label for="input-1021" class="v-label theme--dark"
-                                                               style="left: 0px; right: auto; position: absolute;">Sort
-                                by</label>
-                                <div class="v-select__selections"><input id="input-1021" readonly="readonly" type="text"
-                                                                         aria-readonly="false" autocomplete="off"></div>
+                            <div class="v-select__slot">
+                                <label for="input-1021" class="v-label theme--dark" style="left: 0px; right: auto; position: absolute;">Sort by</label>
+                                <div class="v-select__selections">
+                                    <input id="input-1021" readonly="readonly" type="text" aria-readonly="false" autocomplete="off">
+                                </div>
                                 <div class="v-input__append-inner">
-                                    <div class="v-input__icon v-input__icon--append"><i aria-hidden="true"
-                                                                                        class="v-icon notranslate mdi mdi-menu-down theme--dark"></i>
+                                    <div class="v-input__icon v-input__icon--append">
+                                        <i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--dark"></i>
                                     </div>
                                 </div>
-                                <input type="hidden" value="name"></div>
+                                <input type="hidden" value="name">
+                            </div>
                             <div class="v-menu"><!----></div>
                         </div>
                     </div>
                 </div>
                 <div class="spacer"></div>
                 <div class="v-item-group theme--dark v-btn-toggle">
-                    <button type="button" value="false"
-                            class="v-btn v-item--active v-btn--active v-btn--has-bg theme--dark v-size--large blue"><span
-                            class="v-btn__content"><i aria-hidden="true"
-                                                      class="v-icon notranslate mdi mdi-arrow-up theme--dark"></i></span>
+                    <button type="button" value="false" class="v-btn v-item--active v-btn--active v-btn--has-bg theme--dark v-size--large blue">
+                        <span class="v-btn__content">
+                            <i aria-hidden="true" class="v-icon notranslate mdi mdi-arrow-up theme--dark"></i>
+                        </span>
                     </button>
-                    <button type="button" value="true" class="v-btn v-btn--has-bg theme--dark v-size--large blue"><span
-                            class="v-btn__content"><i aria-hidden="true"
-                                                      class="v-icon notranslate mdi mdi-arrow-down theme--dark"></i></span>
+                    <button type="button" value="true" class="v-btn v-btn--has-bg theme--dark v-size--large blue">
+                        <span class="v-btn__content">
+                            <i aria-hidden="true" class="v-icon notranslate mdi mdi-arrow-down theme--dark"></i>
+                        </span>
                     </button>
                 </div>
             </div>
@@ -4113,25 +4393,25 @@ __Vuetify v2.6.14__ code example:
                 <...>
             </div>
         </div>
-        <div class="row mt-2 align-center justify-center"><span class="grey--text">Items per page</span>
+        <div class="row mt-2 align-center justify-center">
+            <span class="grey--text">Items per page</span>
             <div class="v-menu"><!----></div>
-            <button type="button" class="ml-2 v-btn v-btn--text theme--dark v-size--default primary--text" role="button"
-                    aria-haspopup="true" aria-expanded="false"><span class="v-btn__content">
-              4
-              <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--dark"></i></span></button>
-            <div class="spacer"></div>
-            <span class="mr-4 grey--text">
-          Page 1 of 3
-        </span>
-            <button type="button"
-                    class="mr-1 v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--dark v-size--default blue darken-3">
-            <span class="v-btn__content"><i aria-hidden="true"
-                                            class="v-icon notranslate mdi mdi-chevron-left theme--dark"></i></span>
+            <button type="button" class="ml-2 v-btn v-btn--text theme--dark v-size--default primary--text" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="v-btn__content">4
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--dark"></i>
+                </span>
             </button>
-            <button type="button"
-                    class="ml-1 v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--dark v-size--default blue darken-3">
-            <span class="v-btn__content"><i aria-hidden="true"
-                                            class="v-icon notranslate mdi mdi-chevron-right theme--dark"></i></span>
+            <div class="spacer"></div>
+            <span class="mr-4 grey--text">Page 1 of 3</span>
+            <button type="button" class="mr-1 v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--dark v-size--default blue darken-3">
+                <span class="v-btn__content">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--dark"></i>
+                </span>
+            </button>
+            <button type="button" class="ml-1 v-btn v-btn--is-elevated v-btn--fab v-btn--has-bg v-btn--round theme--dark v-size--default blue darken-3">
+                <span class="v-btn__content">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--dark"></i>
+                </span>
             </button>
         </div>
     </div>
@@ -4387,23 +4667,20 @@ __Vuetify v2.6.14__ code example:
     </div>
     <div class="v-carousel__controls" style="left: auto; right: auto;">
         <div class="v-item-group theme--dark">
-            <button type="button" value="0"
-                    class="v-carousel__controls__item v-btn v-item--active v-btn--active v-btn--icon v-btn--round theme--dark v-size--small"
-                    aria-label="Carousel slide 1 of 5"><span class="v-btn__content"><i aria-hidden="true"
-                                                                                       class="v-icon notranslate mdi mdi-circle theme--dark"
-                                                                                       style="font-size: 18px;"></i></span>
+            <button type="button" value="0" class="v-carousel__controls__item v-btn v-item--active v-btn--active v-btn--icon v-btn--round theme--dark v-size--small" aria-label="Carousel slide 1 of 5">
+                <span class="v-btn__content">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-circle theme--dark" style="font-size: 18px;"></i>
+                </span>
             </button>
-            <button type="button" value="1"
-                    class="v-carousel__controls__item v-btn v-btn--icon v-btn--round theme--dark v-size--small"
-                    aria-label="Carousel slide 2 of 5"><span class="v-btn__content"><i aria-hidden="true"
-                                                                                       class="v-icon notranslate mdi mdi-circle theme--dark"
-                                                                                       style="font-size: 18px;"></i></span>
+            <button type="button" value="1" class="v-carousel__controls__item v-btn v-btn--icon v-btn--round theme--dark v-size--small" aria-label="Carousel slide 2 of 5">
+                <span class="v-btn__content">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-circle theme--dark" style="font-size: 18px;"></i>
+                </span>
             </button>
             <...>
         </div>
     </div>
-    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"
-         class="v-progress-linear v-carousel__progress v-progress-linear--visible theme--dark" style="height: 4px;">
+    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" class="v-progress-linear v-carousel__progress v-progress-linear--visible theme--dark" style="height: 4px;">
         <div class="v-progress-linear__background blue" style="opacity: 0.3; left: 20%; width: 80%;"></div>
         <div class="v-progress-linear__buffer"></div>
         <div class="v-progress-linear__determinate blue" style="width: 20%;"></div>
@@ -4739,6 +5016,7 @@ __Vuetify v2.6.14__ code example:
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/progress-linear/)
 
 Progress linear is located in the following class:
+
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressLinear.java_
 
 ```java
@@ -4799,6 +5077,7 @@ For examples of usage see: [Progress linear tests](https://github.com/jdi-testin
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/menus/)
 
 Menus are located in the following class:
+
 - __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Menu.java_
 
 ```java
@@ -4864,6 +5143,7 @@ For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-ligh
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/images/)
 
 Image is located in the following class:
+
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Image.java_
 
 ```java
@@ -4930,6 +5210,7 @@ For examples of usage see: [JDI Vuetify Images tests](https://github.com/jdi-tes
 [Timelines overview](https://v2.vuetifyjs.com/en/components/timelines/)
 
 __Java__:
+
 - _com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLine.java_
 - _com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLineItem.java_
 
@@ -5198,8 +5479,7 @@ __Vuetify v2.6.14__ code example:
     <div class="v-picker__body theme--dark" style="width: 290px;">
         <div>
             <div class="v-date-picker-header theme--dark">
-                <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"
-                        aria-label="Previous month">
+                <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" aria-label="Previous month">
                   <span class="v-btn__content">
                     <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--dark"></i>
                   </span>
@@ -5209,8 +5489,7 @@ __Vuetify v2.6.14__ code example:
                         <button type="button">March 2023</button>
                     </div>
                 </div>
-                <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"
-                        aria-label="Next month">
+                <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default" aria-label="Next month">
                   <span class="v-btn__content">
                     <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--dark"></i>
                   </span>
@@ -5251,8 +5530,7 @@ __Vuetify v2.6.14__ code example:
                     <tr>
                         <...>dates 19-23 as 25<...>
                         <td>
-                            <button type="button"
-                                    class="v-btn v-date-picker-table__current v-btn--rounded v-btn--outlined theme--dark accent--text">
+                            <button type="button" class="v-btn v-date-picker-table__current v-btn--rounded v-btn--outlined theme--dark accent--text">
                                 <div class="v-btn__content">24</div>
                             </button>
                         </td>
@@ -5321,8 +5599,8 @@ The Date picker is a fully featured date selection component that lets users sel
  **getNextMonthIconClass()**                               | Get Date pickers class of next month icon                            | String          
  **getPreviousMonthIconClass()**                           | Get Date pickers class of previous month icon                        | String          
  **getAdditionalYearIcon()**                               | Get Date pickers additional year icon element                        | UIElement       
- **getAllActiveDaysOfMonth()**                             | Get all Date pickers active days of month                            | List\<String>t   
- **getShownMultipleDates()**                               | Get Date pickers shown multiple dates                                | List\<String>t   
+ **getAllActiveDaysOfMonth()**                             | Get all Date pickers active days of month                            | List\<String>   
+ **getShownMultipleDates()**                               | Get Date pickers shown multiple dates                                | List\<String>   
  **doubleClickDay(final String date)**                     | Double click on Date pickers day of month                            | void            
  **hoverMonth(final String month)**                        | Hover Date pickers month                                             | void            
  **rightClickYear(final String year)**                     | Right click Date pickers year                                        | void            
@@ -5581,14 +5859,10 @@ __Vuetify v2.6.14__ code example:
                             <div class="v-slider v-slider--horizontal theme--light">
                                 <input value="0" id="input-2294" disabled="disabled" readonly="readonly" tabindex="-1">
                                 <div class="v-slider__track-container">
-                                    <div class="v-slider__track-background primary lighten-3"
-                                         style="right: 0px; width: calc(100%);"></div>
-                                    <div class="v-slider__track-fill primary"
-                                         style="left: 0px; right: auto; width: 0%;"></div>
+                                    <div class="v-slider__track-background primary lighten-3" style="right: 0px; width: calc(100%);"></div>
+                                    <div class="v-slider__track-fill primary" style="left: 0px; right: auto; width: 0%;"></div>
                                 </div>
-                                <div role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="360" aria-valuenow="0"
-                                     aria-readonly="false" aria-orientation="horizontal"
-                                     class="v-slider__thumb-container grey--text text--lighten-2" style="left: 0%;">
+                                <div role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="360" aria-valuenow="0" aria-readonly="false" aria-orientation="horizontal" class="v-slider__thumb-container grey--text text--lighten-2" style="left: 0%;">
                                     <div class="v-slider__thumb grey lighten-2"></div>
                                 </div>
                             </div>
@@ -5602,16 +5876,12 @@ __Vuetify v2.6.14__ code example:
                             <div class="v-slider v-slider--horizontal theme--light">
                                 <input value="1" id="input-2295" disabled="disabled" readonly="readonly" tabindex="-1">
                                 <div class="v-slider__track-container">
-                                    <div class="v-slider__track-background primary lighten-3"
-                                         style="right: 0px; width: calc(0%);">
+                                    <div class="v-slider__track-background primary lighten-3" style="right: 0px; width: calc(0%);">
                                     </div>
-                                    <div class="v-slider__track-fill primary"
-                                         style="left: 0px; right: auto; width: 100%;">
+                                    <div class="v-slider__track-fill primary" style="left: 0px; right: auto; width: 100%;">
                                     </div>
                                 </div>
-                                <div role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1"
-                                     aria-readonly="false" aria-orientation="horizontal"
-                                     class="v-slider__thumb-container grey--text text--lighten-2" style="left: 100%;">
+                                <div role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" aria-readonly="false" aria-orientation="horizontal" class="v-slider__thumb-container grey--text text--lighten-2" style="left: 100%;">
                                     <div class="v-slider__thumb grey lighten-2"></div>
                                 </div>
                             </div>
@@ -5640,8 +5910,7 @@ __Vuetify v2.6.14__ code example:
             <button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--small">
                 <span class="v-btn__content">
                     <span aria-hidden="true" class="v-icon notranslate theme--light">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"
-                             class="v-icon__svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" class="v-icon__svg">
                             <path d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"></path>
                         </svg>
                     </span>
@@ -5853,6 +6122,7 @@ For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/parallax/)
 
 Parallax is located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.composite.Parallax.java_
 
 ```java
@@ -5881,7 +6151,7 @@ Parallax is located in the following class:
 
 The `v-parallax` component creates a 3D effect that makes an image appear to scroll slower than the window. A parallax causes a shift in a background image when the user scrolls the page.
 
-![v-parallax example](../../images/vuetify/parallax.png)
+![v-parallax example](../../images/vuetify/Parallax.png)
 
 __Vuetify v2.6.14__ code example:
 
@@ -5911,6 +6181,7 @@ see: [JDI vuetify page tests for Parallax](https://github.com/jdi-testing/jdi-li
 [Treeview overview](https://v2.vuetifyjs.com/en/components/treeview/)
 
 __Java__:
+
 - _com.epam.jdi.light.vuetify.elements.complex.TreeView.java_
 - _com.epam.jdi.light.vuetify.elements.complex.TreeViewNode.java_
 
@@ -6014,8 +6285,7 @@ __Vuetify v2.6.14__ code example:
             <div aria-expanded="false" class="v-treeview-node">
                 <div class="v-treeview-node__root">
                     <div class="v-treeview-node__level"></div>
-                    <button type="button"
-                            class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light">
+                    <button type="button" class="v-icon notranslate v-treeview-node__toggle v-icon--link mdi mdi-menu-down theme--light">
                     </button>
                     <div class="v-treeview-node__content">
                         <div class="v-treeview-node__label">material2 :</div>
@@ -6243,6 +6513,7 @@ Available methods in Java JDI Light:
 [Chips Vuetify documentation page](https://v2.vuetifyjs.com/en/components/chips/)
 
 Chips are located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Chip.java_
 
 ```java
@@ -6465,95 +6736,13 @@ Badge also implements IsText, IsTile, HasAlignment,HasClick, HasColor, HasIcon, 
 For examples of usage see:
 [JDI vuetify page tests for Badges](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/BadgesTests.java)
 
-### 5.40 Checkbox
 
-[Checkbox Vuetify documentation page](https://v2.vuetifyjs.com/en/components/checkboxes/)
-
-Checkbox is located in the following class:
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.VueCheckbox.java_
-
-```java
-    //@FindBy(css = "#ModelArrayCheckboxes .v-input--checkbox")
-    @UI("#ModelArrayCheckboxes > .v-input--checkbox")
-    @WaitAfterAction(1)
-    public static List<VueCheckbox> modelAsArrayCheckboxes;
-
-    @Test(description = "Test checks checkbox labels, and array texts")
-    public void modelAsArrayCheckboxesTest() {
-        modelAsArrayCheckboxes.get(1).is().checked();
-        modelAsArrayCheckboxes.get(2).is().unchecked();
-        modelArray.has().text("[ \"" + modelAsArrayCheckboxes.get(1).labelText() + "\" ]");
-        modelAsArrayCheckboxes.get(2).check();
-        modelArray.has().text("[ \"John\", \"Jacob\" ]");
-        modelAsArrayCheckboxes.get(1).uncheck();
-        modelArray.has().text("[ \"Jacob\" ]");
-        modelAsArrayCheckboxes.get(2).uncheck();
-        modelArray.has().text("[]");
-    }
-```
-__Checkboxes__ - The `v-checkbox` component provides users the ability to choose between two distinct values.
-These are very similar to a switch and can be used in complex forms and checklists.
-A simpler version, `v-simple-checkbox` is used primarily as a lightweight alternative in data-table components to select rows or display inline boolean data.
-
-![Checkbox example](../../images/vuetify/checkbox.png)
-
-__Vuetify v2.6.14__ code example:
-
-```html
-<div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--checkbox red--text">
-  <div class="v-input__control">
-    <div class="v-input__slot">
-      <div class="v-input--selection-controls__input">
-        <i aria-hidden="true" class="v-icon notranslate mdi mdi-checkbox-marked theme--light red--text"></i>
-        <input aria-checked="true" id="input-661" role="checkbox" type="checkbox" value="red">
-        <div class="v-input--selection-controls__ripple red--text"></div>
-      </div>
-      <label for="input-661" class="v-label theme--light" style="left: 0px; right: auto; position: relative;">red</label>
-    </div>
-  </div>
-</div>
-```
-
-Checkbox element contains following methods:
-
-|Method | Description                                  | Return Type
---- |----------------------------------------------| ---
-**is()** | Checkbox assert                              | CheckboxAssert
-**check()** | Checks '{name}'                              | void
-**uncheck()** | Unchecks '{name}'                            | void
-**isChecked()** | Checks that '{name}' is checked              | boolean
-**isUnchecked()** | Checks that '{name}' is not selected         | boolean
-**isDisabled()** | Checks that '{name}' is disabled             | boolean
-**isEnabled()** | Checks that '{name}' is enabled              | boolean
-**label()** | Gets '{name}' label                          | Label
-**labelText()** | Gets '{name}' label text                     | String
-**isIndeterminate()** | Checks that '{name}' is indeterminate        | boolean
-**isSuccess()** | Checks that '{name}' is success              | boolean
-**isError()** | Checks that '{name}' is error                | boolean
-**color()** | Gets '{name}' color                          | String
-**backgroundColor()** | Gets '{name}' background color               | String
-**labelColor()** | Gets '{name}' label color                    | String
-**isDense()** | Checks that '{name}' is dense                | boolean
-**messages()** | Gets '{name}' messages                       | List\<UIElement>
-**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}' | List\<UIElement>
-**messagesText()** | Gets '{name}' messages text                  | List\<String>
-**messagesCount()** | Gets '{name}' messages count                 | int
-**hasErrorMessages()** | Checks that '{name}' has error messages      | boolean
-**errorMessagesText()** | Gets '{name}' error messages                 | List\<String>
-**errorMessagesCount()** | Gets the number of '{name}' error messages   | int
-**hasSuccessMessages()** | Checks that '{name}' has success messages    | boolean
-**successMessagesText()** | Gets '{name}' success messages | List\<String>
-**successMessagesCount()** | Get the number of '{name}' success messages | int
-**isReadOnly()** | Check that '{name}' is readonly | boolean
-
-For examples of usage see:
-[JDI vuetify page tests for Checkboxes](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/CheckboxesTests.java)
-
-### 5.41 Divider
+### 5.40 Divider
 
 [Divider Vuetify documentation page](https://v2.vuetifyjs.com/en/components/dividers/)
 
 Divider is located in the following class:
+
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Divider.java_
 
 ```java
@@ -6596,108 +6785,7 @@ Dividers element contains following methods:
 For examples of usage see:
 [JDI vuetify page tests for Dividers](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/DividersTests.java)
 
-### 5.42 Inputs
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/inputs/)
-
-Input is located in the following class:
-- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Input.java_
-
-```java
-    @FindBy(xpath = "//form[@id='HideDetailsInput']/div[2]")
-    @UI("//form[@id='HideDetailsInput']/div[2]")
-    public static Input hideDetailsAnotherInput;
-
-    @Test(description = "Test checks type text feature")
-    public void typeTextInputTest() {
-        String textToType = "Some text";
-        hideDetailsAnotherInput.show();
-        hideDetailsAnotherInput.hasTextField();
-        hideDetailsAnotherInput.typeText(textToType);
-        hideDetailsAnotherInput.has().typedText();
-        hideDetailsAnotherInput.has().typedText(textToType);
-    }
-```
-
-__Input__ - The v-input component gives you a baseline to create your own custom inputs. It consists of a prepend/append slot, messages, and a default slot.
-
-![Input example](../../images/vuetify/input.png)
-
-__Vuetify v2.6.14__ code example:
-
-```html
-<div class="v-input v-input--has-state theme--light error--text" id="ErrorCountInput2" errors="">
-  <div class="v-input__control">
-    <div class="v-input__slot">Input</div>
-    <div class="v-messages theme--light error--text" role="alert">
-      <div class="v-messages__wrapper">
-        <div class="v-messages__message">error1</div>
-        <div class="v-messages__message">error2</div>
-      </div>
-    </div>
-  </div>
-</div>
-```
-
-__Input__ element implements following interfaces: HasLabel, IsReadOnly, HasMessages, IsLoading, HasColor, HasTheme, HasMeasurement, IsDense, HasDetailsHidden.
-
-__Input__ element has following methods:
-
-|Method | Description                                           | Return Type
---- |-------------------------------------------------------| ---
-**is()** | Input Assert                                          | InputAssert
-**hasTextField()** | Checks that '{name}' has text field                   | boolean
-**typeText(String text)** | Types text into '{name}' input field                  | void
-**clearAndTypeText(String text)** | Clears '{name}' text field and type text into it      | void
-**hasTypedText()** | Checks that '{name}' has typed text in the text field | boolean
-**getTypedText()** | Gets '{name}' typed text                              | String
-**hasTextInSlot()** | Checks that '{name}' has text in slot                 | boolean
-**getTextInSlot()** | Gets '{name}' text from slot                          | String
-**clearTextField()** | Clears '{name}' text field                            | void
-**isFocused()** | Checks that '{name}' is focused                       | boolean
-**hasPrependOuterIcon()** | Checks that '{name}' has prepend outer icon           | boolean
-**clickOnPrependOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
-**hasPrependInnerIcon()** | Checks that '{name}' has prepend inner icon           | boolean
-**clickOnPrependInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
-**hasAppendOuterIcon()** | Checks that '{name}' has append outer icon            | boolean
-**clickOnAppendOuterIcon()** | Clicks on '{name}' prepend outer icon                 | void
-**hasAppendInnerIcon()** | Checks that '{name}' has append inner icon            | boolean
-**clickOnAppendInnerIcon()** | Clicks on '{name}' prepend inner icon                 | void
-**hasSwitch()** | Checks that '{name}' has switch                       | boolean
-**switchIsChecked()** | Checks that '{name}' switch is checked                | boolean
-**checkSwitch()** | Checks '{name}' switch                                | void
-**uncheckSwitch()** | Unchecks '{name}' switch                              | void
-**label()** | Gets '{name}' label                                   | Label
-**hasLabel()** | Checks that '{name}' has label                        | Boolean
-**labelText()** | Gets '{name}' label text                              | String
-**isDisabled()** | Checks that '{name}' is disabled                      | boolean
-**isReadOnly()** | Checks that '{name}' is readonly                      | boolean
-**messages()** | Gets '{name}' messages                                | List\<UIElement>
-**messagesText(String locator)** | Gets '{name}' messages text by locator '{0}'          | List\<UIElement>
-**messagesText()** | Gets '{name}' messages text                           | List\<String>
-**messagesCount()** | Gets '{name}' messages count                          | int
-**hasErrorMessages()** | Checks that '{name}' has error messages               | boolean
-**errorMessagesText()** | Gets '{name}' error messages                          | List\<String>
-**errorMessagesCount()** | Gets the number of '{name}' error messages            | int
-**hasSuccessMessages()** | Checks that '{name}' has success messages             | boolean
-**successMessagesText()** | Gets '{name}' success messages                        | List\<String>
-**successMessagesCount()** | Gets the number of '{name}' success messages          | int
-**isLoading()** | Check that '{name}' is loading                        | boolean
-**color()** | Get '{name}' color                                    | String
-**backgroundColor()** | Get '{name}' background color                         | String
-**height()** | Gets '{name}' height                                  | int
-**width()** | Gets '{name}' width                                   | int
-**maxHeight()** | Gets '{name}' max height                              | int
-**maxWidth()** | Gets '{name}' max width                               | int
-**minHeight()** | Gets '{name}' min height                              | int
-**minWidth()** | Gets '{name}' min width                               | int
-**isDense()** | Checks that '{name}' is dense                         | boolean
-**hasDetailsHidden()** | Checks that '{name}' has details hidden               | boolean
-
-Examples of usage see on the following page:
-[Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/InputsTests.java)
-
-### 5.43 Sheets
+### 5.41 Sheets
 
 [Vuetify documentation page](https://v2.vuetifyjs.com/en/components/sheets/)
 
@@ -6748,7 +6836,7 @@ Sheet also have basic JDI elements methods and asserts for Text, Color, Elevatio
 For examples of usage see: [JDI Vuetify Sheets tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SheetsTests.java)
 
 
-### 5.44 Calendars
+### 5.42 Calendars
 
 [Calendars overview](https://v2.vuetifyjs.com/en/components/calendars/)
 
@@ -6784,8 +6872,7 @@ __Vuetify v2.6.14__ code example:
         <div class="v-calendar-daily_head-day v-past">
             <div class="v-calendar-daily_head-weekday">Sun</div>
             <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
+                <button type="button" class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
                     <span class="v-btn__content">6</span>
                 </button>
             </div>
@@ -6794,8 +6881,7 @@ __Vuetify v2.6.14__ code example:
         <div class="v-calendar-daily_head-day v-present">
             <div class="v-calendar-daily_head-weekday primary--text">Tue</div>
             <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default primary">
+                <button type="button" class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default primary">
                     <span class="v-btn__content">8</span>
                 </button>
             </div>
@@ -6803,8 +6889,7 @@ __Vuetify v2.6.14__ code example:
         <div class="v-calendar-daily_head-day v-future">
             <div class="v-calendar-daily_head-weekday">Wed</div>
             <div class="v-calendar-daily_head-day-label">
-                <button type="button"
-                        class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
+                <button type="button" class="v-btn v-btn--fab v-btn--has-bg v-btn--round theme--light v-size--default transparent">
                     <span class="v-btn__content">9</span>
                 </button>
             </div>
@@ -6836,8 +6921,7 @@ __Vuetify v2.6.14__ code example:
                         <div class="v-calendar-daily__day-interval" style="height: 48px;"></div>
                         <...>
                         <div class="v-event-timed-container">
-                            <div class="v-event-timed primary white--text"
-                                 style="top: 600px; height: 144px; left: 0%; width: 100%;">
+                            <div class="v-event-timed primary white--text" style="top: 600px; height: 144px; left: 0%; width: 100%;">
                                 <div class="pl-1">
                                     <span class="v-event-summary"><strong>Mash Potatoes</strong><br>12:30 PM - 3:30 PM</span>
                                 </div>
@@ -6898,11 +6982,12 @@ In addition, CalendarAssert implements ThemeAssert<CalendarAssert, Calendar>.
 
 For examples of usage see: [JDI vuetify page tests for Calendars](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CalendarsTests.java).
 
-### 5.45 Steppers
+### 5.43 Steppers
 
 [Stepper Vuetify documentation page](https://v2.vuetifyjs.com/en/components/steppers/)
 
 __Java__:
+
 - _com.epam.jdi.light.vuetify.elements.complex.stepper.Stepper.java_
 - _com.epam.jdi.light.vuetify.elements.complex.stepper.Step.java_
 
@@ -7042,11 +7127,12 @@ In addition, Step implements IClickable, HasColor.
 For examples of usage see: [JDI vuetify page tests for steppers](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SteppersTests.java).
 
 
-### 5.46 Grids
+### 5.44 Grids
 
 [Grids Vuetify documentation page](https://v2.vuetifyjs.com/en/components/grids/)
 
 __Java__:
+
 - _com.epam.jdi.light.vuetify.elements.complex.Grid.java_
 
 ```java
@@ -7149,70 +7235,4 @@ __Vuetify v2.6.14__ code example:
 
 
 For examples of usage see: [JDI vuetify page tests for grids](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/GridsTests.java).
-
-### 5.47 OTP Input
-
-[Vuetify documentation page](https://v2.vuetifyjs.com/en/components/otp-input/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.OtpInput.java_
-
-```java
-//@FindBy(css = "#PlainOtpInput .v-otp-input")
-@UI("#PlainOtpInput .v-otp-input")
-public static OtpInput plainOtpInput;
-
-@Test(description = "Test checks entered values of plain otp")
-public void typeValuesOtpInputTest() {
-  plainOtpInput.clear();
-  plainOtpInput.typeValues(Arrays.asList("1", "2", "3", "4", "5"));
-  plainOtpInput.has().text("12345");
-}
-```
-
-The OTP input is used for MFA procedure of authenticating users by a one-time password.
-
-![OTP Input example](../../images/vuetify/otpInput.png)
-
-```html
-
-<div data-v-1cf3c16a="" file="v-otp-input/misc-loading">
-  <div data-v-1cf3c16a="" class="ma-auto position-relative" style="max-width: 300px;">
-    <div data-v-1cf3c16a="" class="v-otp-input theme--light">
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-      <div class="v-input theme--light v-text-field v-text-field--is-booted v-text-field--outlined">...</div>
-    </div>
-    <div data-v-1cf3c16a="" class="v-overlay v-overlay--absolute theme--dark" style="z-index: 5;">
-      <div class="v-overlay__scrim"
-           style="opacity: 0; background-color: rgb(33, 33, 33); border-color: rgb(33, 33, 33);"></div>
-    </div>
-  </div>
-</div>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**inputs()** | Returns OtpInput inputs | List\<TextField>
-**length()** | Returns OtpInput length | int
-**isPlain()** | Returns if OtpInput is plain | boolean
-**type()** | Returns OtpInput type | String
-**typeValues(List<String> inputValues)** | Type values to OtpInput | void
-**getText()** | Returns value of OtpInput | String
-
-In addition, **OtpInput** implements HasTheme, IsReadOnly, IsText, IsInput
-
-| Assert method | Description |
-| :--- | :--- |
-**length(int expectedLength)** | Check that OtpInput has expectedLength
-**plain()** | Check that OtpInput is plain
-**notPlain()** | Check that OtpInput is not plain
-**type(String expectedType)** | Check that OtpInput has expectedType
-
-In addition, **OtpInputAssert** implements ThemeAssert<OtpInputAssert, OtpInput>, ReadOnlyAssert<OtpInputAssert, OtpInput>,
-ITextAssert<OtpInputAssert>
-
-For examples of usage see: [JDI Vuetify OTP Input tests](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OtpInputTests.java)
 

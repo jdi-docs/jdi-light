@@ -432,6 +432,8 @@ In order to control element behavior in JDI Light you can use the following stan
 
 **@GetVisible** — returns displayed element.</br>
 
+**@GetInvisible** — returns invisible element.</br>
+
 **@GetVisibleEnabled** — returns displayed and enabled element.</br>
 
 **@GetShowInView** — returns displayed and clickable element.</br>
